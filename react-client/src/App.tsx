@@ -8,22 +8,31 @@ type PokedexEntry = { id: number, name: string };
 
 function App() {
   const [currentPokemon, setCurrentPokemon] = useState<PokemonDeets>();
-  const [cachedDex, setCachedDex] = useState<PokedexEntry[]>();
+  const [cachedDex, setCachedDex] = useState<PokedexEntry[]>([]);
+
+  const setSortedCachedDex = (dex: PokedexEntry[]) => {
+    setCachedDex(dex.sort(({ id: ida }, { id: idb }) => ida - idb));
+  };
 
   useMemo(async () => {
-    setCachedDex(await typedFetch<PokedexEntry[]>('http://localhost:3000/pokedex'));
+    const unsortedDex = await typedFetch<PokedexEntry[]>('http://localhost:3000/pokedex');
+    setSortedCachedDex(unsortedDex);
   }, [])
 
-  const loadSpecificPokemon = async (id: number) => {
-    const pokemonDeets = await typedFetch<PokemonDeets>(`http://localhost:3000/pokemon/${id}`);
+  const loadSpecificPokemon = async (dexNo: number) => {
+    const pokemonDeets = await typedFetch<PokemonDeets>(`http://localhost:3000/pokemon/${dexNo}`);
     setCurrentPokemon(pokemonDeets);
-    setCachedDex(await typedFetch<PokedexEntry[]>('http://localhost:3000/pokedex'));
+    if (!cachedDex.find(({ id }) => id === dexNo)) {
+      const { id, name } = pokemonDeets.pokemon;
+      setSortedCachedDex([...cachedDex, { id, name }]);
+    }
   }
 
   const loadRandomPokemon = async () => {
     const pokemonDeets = await typedFetch<PokemonDeets>('http://localhost:3000/pokemon/random-new');
     setCurrentPokemon(pokemonDeets);
-    setCachedDex(await typedFetch<PokedexEntry[]>('http://localhost:3000/pokedex'));
+    const { id, name } = pokemonDeets.pokemon;
+    setSortedCachedDex([...cachedDex, { id, name }]);
   };
 
   return (
