@@ -19,7 +19,7 @@ app.get('/pokemon/random-new', async(c) => {
   c.header('Access-Control-Allow-Origin');
   try {
     const cachedPokemon = (await getPokedex()).map(({id}) => id);
-    let num = getRandomNoExcludeRange(cachedPokemon);
+    const num = getRandomNoExcludeRange(cachedPokemon);
     const pokemon = await getPokemonById(num);
     return c.json(pokemon);
   } catch {
