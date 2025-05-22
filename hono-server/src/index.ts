@@ -2,6 +2,7 @@ import { Hono } from 'hono';
 import { prettyJSON } from 'hono/pretty-json';
 import { getPokedex, getPokemonById } from './storage';
 import { cors } from 'hono/cors';
+import { getRandomNoExcludeRange } from './get-random-no-exclude-range';
 
 const app = new Hono();
 app.use(
@@ -13,6 +14,18 @@ app.use('*', prettyJSON());
 app.get('/', (c) => {
   return c.text("Hello, World!");
 });
+
+app.get('/pokemon/random-new', async(c) => {
+  c.header('Access-Control-Allow-Origin');
+  try {
+    const cachedPokemon = (await getPokedex()).map(({id}) => id);
+    let num = getRandomNoExcludeRange(cachedPokemon);
+    const pokemon = await getPokemonById(num);
+    return c.json(pokemon);
+  } catch {
+    return c.text(`Could not find random new Pokemon`);
+  }
+})
 
 app.get('/pokemon/:id', async (c) => {
   c.header('Access-Control-Allow-Origin');
