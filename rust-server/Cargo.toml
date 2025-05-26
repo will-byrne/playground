@@ -4,5 +4,10 @@ version = "0.1.0"
 edition = "2024"
 
 [dependencies]
-rocket = "0.5.1"
+rocket = { version = "0.5.1", features = ["json"] }
 rustemon = { version = "4.2.0", features = ["serialize"] }
+mongodb = "3.0.1"
+futures = "0.3.30"
+serde = "1.0.204"
+rand = "0.9.1"
+rocket_cors = "0.6.0"

@@ -15,12 +15,12 @@ function App() {
   };
 
   useMemo(async () => {
-    const unsortedDex = await typedFetch<PokedexEntry[]>('http://localhost:3000/pokedex');
+    const unsortedDex = await typedFetch<PokedexEntry[]>('http://localhost:8000/pokedex');
     setSortedCachedDex(unsortedDex);
   }, [])
 
   const loadSpecificPokemon = async (dexNo: number) => {
-    const pokemonDeets = await typedFetch<PokemonDeets>(`http://localhost:3000/pokemon/${dexNo}`);
+    const pokemonDeets = await typedFetch<PokemonDeets>(`http://localhost:8000/pokemon/${dexNo}`);
     setCurrentPokemon(pokemonDeets);
     if (!cachedDex.find(({ id }) => id === dexNo)) {
       const { id, name } = pokemonDeets.pokemon;
@@ -29,7 +29,7 @@ function App() {
   }
 
   const loadRandomPokemon = async () => {
-    const pokemonDeets = await typedFetch<PokemonDeets>('http://localhost:3000/pokemon/random-new');
+    const pokemonDeets = await typedFetch<PokemonDeets>('http://localhost:8000/pokemon/random-new');
     setCurrentPokemon(pokemonDeets);
     const { id, name } = pokemonDeets.pokemon;
     setSortedCachedDex([...cachedDex, { id, name }]);

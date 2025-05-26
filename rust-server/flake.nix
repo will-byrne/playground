@@ -14,6 +14,7 @@
       in {
         devShell = pkgs.mkShell {
           buildInputs = with pkgs; [
+            rustup
             stdenv
             openssl
             pkg-config
