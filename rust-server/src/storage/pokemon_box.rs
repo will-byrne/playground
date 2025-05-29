@@ -80,17 +80,17 @@ pub async fn get_pokemon_by_id(mongodb: &Client, id: i64) -> PokemonDeets {
             let mut abilities: Vec<Ability> = vec![];
             for ab in new_pokemon.abilities.iter() {
                 let ability: Ability = rustemon::pokemon::ability::get_by_name(ab.ability.name.as_str(), &rustemon_client).await.unwrap();
-                let _ = ability_collection.replace_one(doc! { "name": ability.name.clone() }, &ability).await;
+                let _ = ability_collection.replace_one(doc! { "name": ability.name.clone() }, &ability).upsert(true).await;
                 abilities.push(ability);
             }
             let mut moves: Vec<Move> = vec![];
             for mv in new_pokemon.moves.iter() {
                 let new_mv: Move = rustemon::moves::move_::get_by_name(mv.move_.name.as_str(), &rustemon_client).await.unwrap();
-                let _ = moves_collection.replace_one(doc! { "name": new_mv.name.clone() }, &new_mv).await;
+                let _ = moves_collection.replace_one(doc! { "name": new_mv.name.clone() }, &new_mv).upsert(true).await;
                 moves.push(new_mv);
             }
             let species = rustemon::pokemon::pokemon_species::get_by_name(&new_pokemon.species.name, &rustemon_client).await.unwrap();
-            let _ = species_collection.replace_one(doc! { "name": species.name.clone() }, &species).await;
+            let _ = species_collection.replace_one(doc! { "name": species.name.clone() }, &species).upsert(true).await;
             
             PokemonDeets {
                 pokemon: new_pokemon,

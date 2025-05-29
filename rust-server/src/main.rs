@@ -93,6 +93,7 @@ async fn rocket() -> _ {
     let client = create_db().await;
 
     rocket::build()
+        .configure(rocket::Config::figment().merge(("port", 3000)))
         .attach(CORS)
         .manage(client)
         .mount("/", routes![index, pokedex, random_new, specific_pokemon])
