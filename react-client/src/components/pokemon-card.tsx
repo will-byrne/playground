@@ -35,13 +35,13 @@ export const PokemonCard = ({
   const spriteList = getSprites(sprites);
   const officialArtFront = spriteList['showdown-front_default'] ?? spriteList['official-artwork-front_default'];
   const officialShinyArtFront = spriteList['showdown-front_shiny'] ?? spriteList['official-artwork-front_shiny'];
-
+  
   return (
     <>
       <div className="hero bg-base-200 min-h-screen min-w-screen">
         <div className="hero-content flex-col lg:flex-row">
           <div>
-            <input onChange={() => setShowShiny(!showShiny) } type="checkbox" defaultChecked={false} className="toggle" />
+            { officialShinyArtFront && <input onChange={() => setShowShiny(!showShiny) } type="checkbox" defaultChecked={false} className="toggle" /> }
             <img
               src={showShiny ? officialShinyArtFront : officialArtFront}
               className="max-w-sm rounded-lg shadow-2xl h-96"

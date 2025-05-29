@@ -15,12 +15,12 @@ function App() {
   };
 
   useMemo(async () => {
-    const unsortedDex = await typedFetch<PokedexEntry[]>('http://localhost:8000/pokedex');
+    const unsortedDex = await typedFetch<PokedexEntry[]>('http://localhost:3000/pokedex');
     setSortedCachedDex(unsortedDex);
   }, [])
 
   const loadSpecificPokemon = async (dexNo: number) => {
-    const pokemonDeets = await typedFetch<PokemonDeets>(`http://localhost:8000/pokemon/${dexNo}`);
+    const pokemonDeets = await typedFetch<PokemonDeets>(`http://localhost:3000/pokemon/${dexNo}`);
     setCurrentPokemon(pokemonDeets);
     if (!cachedDex.find(({ id }) => id === dexNo)) {
       const { id, name } = pokemonDeets.pokemon;
@@ -29,7 +29,7 @@ function App() {
   }
 
   const loadRandomPokemon = async () => {
-    const pokemonDeets = await typedFetch<PokemonDeets>('http://localhost:8000/pokemon/random-new');
+    const pokemonDeets = await typedFetch<PokemonDeets>('http://localhost:3000/pokemon/random-new');
     setCurrentPokemon(pokemonDeets);
     const { id, name } = pokemonDeets.pokemon;
     setSortedCachedDex([...cachedDex, { id, name }]);
@@ -44,7 +44,7 @@ function App() {
         <div className="flex grow justify-end px-2">
           <div className="flex items-stretch">
             <a className="btn btn-ghost rounded-field" onClick={loadRandomPokemon}>Load Random</a>
-            {(cachedDex && cachedDex.length) &&
+            {(cachedDex && cachedDex.length > 0) &&
               <div className="dropdown dropdown-end">
                 <div tabIndex={0} role="button" className="btn btn-ghost rounded-field">Cached Pokemon</div>
                 <ul
