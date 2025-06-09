@@ -1,6 +1,6 @@
 use futures::TryStreamExt;
 use rustemon::model::moves::Move;
-use rustemon::model::pokemon::{Ability, Pokemon, PokemonSpecies};
+use rustemon::model::pokemon::{Ability, Pokemon, PokemonSpecies, PokemonSprites, PokemonType};
 use mongodb::{bson::doc, Client, Collection};
 use mongodb::error::Result;
 use rocket::serde::{ Deserialize, Serialize};
@@ -19,8 +19,31 @@ pub struct PokemonDeets {
     pub species: PokemonSpecies,
 }
 
-pub async fn store_pokemon(mongodb: &Client, new_pokemon: Pokemon) -> Result<bool> {
-    let pokemon_collection: Collection<Pokemon> = mongodb
+#[derive(Serialize, Deserialize)]
+pub struct PokemonMove {
+    name: String,
+    description: String
+}
+
+#[derive(Serialize, Deserialize)]
+pub struct PokemonAbility {
+    name: String,
+    flavour_text: String,
+    effect: String
+}
+
+#[derive(Serialize, Deserialize)]
+pub struct PokeboxEntry {
+    name: String,
+    id: i64,
+    species_description: String,
+    types: Vec<String>,
+    abilities: Vec<PokemonAbility>,
+    sprites: PokemonSprites
+}
+
+pub async fn store_pokemon(mongodb: &Client, new_pokemon: &PokeboxEntry) -> Result<bool> {
+    let pokemon_collection: Collection<PokeboxEntry> = mongodb
         .database("pokemon")
         .collection("pokemon");
     let result = pokemon_collection
@@ -32,72 +55,44 @@ pub async fn store_pokemon(mongodb: &Client, new_pokemon: Pokemon) -> Result<boo
     }
 }
 
-pub async fn get_pokemon_by_id(mongodb: &Client, id: i64) -> PokemonDeets {
-    let pokemon_collection: Collection<Pokemon> = mongodb
+pub async fn get_pokemon_by_id(mongodb: &Client, id: i64) -> PokeboxEntry {
+    let pokebox: Collection<PokeboxEntry> = mongodb
         .database("pokemon")
         .collection("pokemon");
     let filter = doc! {"id": id};
-    let pokemon = pokemon_collection
+    let pokemon = pokebox
         .find_one(filter)
         .projection( doc! {
             "_id": 0
         }).await.unwrap();
-    let ability_collection: Collection<Ability> = mongodb
-        .database("pokemon")
-        .collection("abilities");
-    let moves_collection: Collection<Move> = mongodb
-        .database("pokemon")
-        .collection("moves");
-    let species_collection: Collection<PokemonSpecies> = mongodb
-        .database("pokemon")
-        .collection("species");
     match pokemon {
-        Some(pokemon) => {
-            let species: PokemonSpecies = species_collection.find_one(doc! { "name": pokemon.species.name.clone() }).await.unwrap().unwrap();
-            let mut abilities: Vec<Ability> = vec![];
-            for ab in pokemon.abilities.iter() {
-                let ability = ability_collection.find_one(doc! { "name": ab.ability.name.clone() }).await.unwrap().unwrap();
-                abilities.push(ability);
-            }
-            let mut moves: Vec<Move> = vec![];
-            for mv in pokemon.moves.iter() {
-                let new_move = moves_collection.find_one(doc! { "name": mv.move_.name.clone() }).await.unwrap().unwrap();
-                moves.push(new_move);
-            }
-
-            PokemonDeets {
-                pokemon: pokemon,
-                abilities: abilities,
-                moves: moves,
-                species: species
-            }
-
-        },
+        Some(pokemon) => pokemon,
         None => {
             let rustemon_client = rustemon::client::RustemonClient::default();
             let new_pokemon = rustemon::pokemon::pokemon::get_by_id(id, &rustemon_client).await.unwrap();
-            let _ = store_pokemon(mongodb, new_pokemon.clone()).await.unwrap();
             let mut abilities: Vec<Ability> = vec![];
             for ab in new_pokemon.abilities.iter() {
                 let ability: Ability = rustemon::pokemon::ability::get_by_name(ab.ability.name.as_str(), &rustemon_client).await.unwrap();
-                let _ = ability_collection.replace_one(doc! { "name": ability.name.clone() }, &ability).upsert(true).await;
                 abilities.push(ability);
             }
-            let mut moves: Vec<Move> = vec![];
-            for mv in new_pokemon.moves.iter() {
-                let new_mv: Move = rustemon::moves::move_::get_by_name(mv.move_.name.as_str(), &rustemon_client).await.unwrap();
-                let _ = moves_collection.replace_one(doc! { "name": new_mv.name.clone() }, &new_mv).upsert(true).await;
-                moves.push(new_mv);
-            }
             let species = rustemon::pokemon::pokemon_species::get_by_name(&new_pokemon.species.name, &rustemon_client).await.unwrap();
-            let _ = species_collection.replace_one(doc! { "name": species.name.clone() }, &species).upsert(true).await;
-            
-            PokemonDeets {
-                pokemon: new_pokemon,
-                abilities: abilities,
-                moves: moves,
-                species: species,
+            fn ability_mapper(ab: Ability) -> PokemonAbility {
+                PokemonAbility { name: ab.name, flavour_text: ab.flavor_text_entries.into_iter().find(|entry| entry.language.name == "en").unwrap().flavor_text, effect: ab.effect_entries.into_iter().find(|entry| entry.language.name == "en").unwrap().short_effect }
             }
+            fn type_mapper(tp: PokemonType) -> String {
+                tp.type_.name
+            }
+            let pokebox_entry: PokeboxEntry = PokeboxEntry {
+                id: new_pokemon.id,
+                name: new_pokemon.name,
+                species_description: species.flavor_text_entries.into_iter().find(|entry| entry.language.name == "en").unwrap().flavor_text,
+                types: new_pokemon.types.into_iter().map(type_mapper).collect(),
+                abilities: abilities.into_iter().map(ability_mapper).collect(),
+                sprites: new_pokemon.sprites,
+            };
+
+            let _ = store_pokemon(mongodb, &pokebox_entry).await;
+            pokebox_entry
         }
     }
 }

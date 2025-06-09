@@ -3,7 +3,7 @@
 mod storage;
 
 use rocket::{serde::json::Json, State};
-use storage::pokemon_box::{get_pokedex, get_pokemon_by_id, PokedexEntry, PokemonDeets};
+use storage::pokemon_box::{get_pokedex, get_pokemon_by_id, PokeboxEntry, PokedexEntry};
 use mongodb::options::ClientOptions;
 use mongodb::Client;
 use rand::Rng;
@@ -30,7 +30,7 @@ fn index() -> &'static str {
 }
 
 #[get("/pokemon/random-new")]
-async fn random_new(db: &State<Client>) -> Json<PokemonDeets> {
+async fn random_new(db: &State<Client>) -> Json<PokeboxEntry> {
     fn mapper(dex_entry: PokedexEntry) -> i64 {
         dex_entry.id
     }
@@ -42,7 +42,7 @@ async fn random_new(db: &State<Client>) -> Json<PokemonDeets> {
 }
 
 #[get("/pokemon/<id>")]
-async fn specific_pokemon(db: &State<Client>, id: i64) -> Json<PokemonDeets>  {
+async fn specific_pokemon(db: &State<Client>, id: i64) -> Json<PokeboxEntry>  {
     let pokemon_deets = get_pokemon_by_id(db, id).await;
 
     Json(pokemon_deets)
