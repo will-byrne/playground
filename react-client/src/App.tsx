@@ -1,5 +1,5 @@
 import './App.css'
-import { Hero, type PokemonDeets } from './components/hero';
+import { Hero, type PokeboxEntry } from './components/hero';
 import { useMemo, useState } from 'react';
 import { PokemonCard } from './components/pokemon-card.tsx';
 import { typedFetch } from './utils/typed-fetch.ts';
@@ -7,7 +7,7 @@ import { typedFetch } from './utils/typed-fetch.ts';
 type PokedexEntry = { id: number, name: string };
 
 function App() {
-  const [currentPokemon, setCurrentPokemon] = useState<PokemonDeets>();
+  const [currentPokemon, setCurrentPokemon] = useState<PokeboxEntry>();
   const [cachedDex, setCachedDex] = useState<PokedexEntry[]>([]);
 
   const setSortedCachedDex = (dex: PokedexEntry[]) => {
@@ -20,18 +20,18 @@ function App() {
   }, [])
 
   const loadSpecificPokemon = async (dexNo: number) => {
-    const pokemonDeets = await typedFetch<PokemonDeets>(`http://localhost:3000/pokemon/${dexNo}`);
-    setCurrentPokemon(pokemonDeets);
+    const pokeboxEntry = await typedFetch<PokeboxEntry>(`http://localhost:3000/pokemon/${dexNo}`);
+    setCurrentPokemon(pokeboxEntry);
     if (!cachedDex.find(({ id }) => id === dexNo)) {
-      const { id, name } = pokemonDeets.pokemon;
+      const { id, name } = pokeboxEntry;
       setSortedCachedDex([...cachedDex, { id, name }]);
     }
   }
 
   const loadRandomPokemon = async () => {
-    const pokemonDeets = await typedFetch<PokemonDeets>('http://localhost:3000/pokemon/random-new');
-    setCurrentPokemon(pokemonDeets);
-    const { id, name } = pokemonDeets.pokemon;
+    const pokeboxEntry = await typedFetch<PokeboxEntry>('http://localhost:3000/pokemon/random-new');
+    setCurrentPokemon(pokeboxEntry);
+    const { id, name } = pokeboxEntry;
     setSortedCachedDex([...cachedDex, { id, name }]);
   };
 
@@ -60,7 +60,7 @@ function App() {
         </div>
       </div>
       {!currentPokemon && <Hero loadSpecificPokemon={loadSpecificPokemon}/>}
-      {currentPokemon && <PokemonCard pokemonDeets={currentPokemon} setCurrentPokemon={setCurrentPokemon}/>}
+      {currentPokemon && <PokemonCard pokeboxEntry={currentPokemon} setCurrentPokemon={setCurrentPokemon}/>}
     </>
   )
 }

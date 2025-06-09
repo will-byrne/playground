@@ -1,6 +1,5 @@
-import type { PokemonDeets } from "./hero.tsx";
+import type { PokeboxEntry } from "./hero.tsx";
 import { Abilities } from "./ablities.tsx";
-import { getEnglishEntry } from "../utils/get-english-entry.ts";
 import type { PokemonSprites } from "pokenode-ts";
 import { useState } from "react";
 
@@ -21,15 +20,11 @@ const getSprites = (sp: PokemonSprites, k?: string): Record<string, string> => {
 }
 
 export const PokemonCard = ({
-  pokemonDeets: {
-    abilities,
-    pokemon: { types, sprites },
-    species: { flavor_text_entries, name },
-  },
+  pokeboxEntry: { id, name, species_description, types, abilities, sprites },
   setCurrentPokemon,
 }: {
-  pokemonDeets: PokemonDeets;
-  setCurrentPokemon: (pokemonDeets: PokemonDeets | undefined) => void;
+  pokeboxEntry: PokeboxEntry;
+  setCurrentPokemon: (pokemonDeets: PokeboxEntry | undefined) => void;
 }) => {
   const [showShiny, setShowShiny] = useState(false);
   const spriteList = getSprites(sprites);
@@ -48,16 +43,16 @@ export const PokemonCard = ({
             />
           </div>
           <div>
-            <h1 className="text-5xl font-bold">{name}</h1>
+            <h1 className="text-5xl font-bold">{`${id}: ${name}`}</h1>
             <div>
-              {types.map(({ type }, i) => (
+              {types.map((type , i) => (
                 <div key={i} className="badge badge-secondary mr-1">
-                  {type.name}
+                  {type}
                 </div>
               ))}
             </div>
             <p className="py-6">
-              {getEnglishEntry(flavor_text_entries)?.flavor_text.replace(
+              {species_description.replace(
                 /\r?\n/g,
                 " ",
               )}

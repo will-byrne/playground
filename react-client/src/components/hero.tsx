@@ -1,7 +1,18 @@
-import type { Ability, Pokemon, PokemonSpecies, Move } from 'pokenode-ts';
+import type { PokemonSprites } from 'pokenode-ts';
 import { useState } from 'react';
 
-export type PokemonDeets = {pokemon: Pokemon, species: PokemonSpecies, abilities: Ability[], moves: Move[]};
+export type PokeboxEntry = {
+  id: number,
+  name: string,
+  species_description: string,
+  types: string[],
+  abilities: {
+    name: string,
+    flavour_text: string,
+    effect: string,
+  }[],
+  sprites: PokemonSprites,
+};
 
 export const Hero = ({ loadSpecificPokemon }: { loadSpecificPokemon: (id: number) => void}) => {
   const [dexNo, setDexNo] = useState<number>(1);
