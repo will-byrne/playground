@@ -1,8 +1,10 @@
 import { Button, Container, NumberInput, Text, Title } from '@mantine/core';
-import { Dots } from './dots';
-import classes from './herotext.module.css';
+import { Dots } from '../../dots';
+import classes from './homepage.module.css';
+import { useState } from 'react';
 
-export function HeroText() {
+export function HomePage({ loadSpecificPokemon }: { loadSpecificPokemon: (id: number) => void}) {
+  const [selectedId, setSelectedId] = useState<string | number>(1);
   return (
     <Container className={classes.wrapper} size={1400}>
       <Dots className={classes.dots} style={{ left: 0, top: 0 }} />
@@ -21,18 +23,14 @@ export function HeroText() {
 
         <Container p={0} size={600}>
           <Text size="lg" c="dimmed" className={classes.description}>
-            Build more reliable software with AI companion. AI is also trained to detect lazy
-            developers who do nothing and just complain on Twitter.
+            A simple client for my coding playground.
           </Text>
         </Container>
 
         <div className={classes.controls}>
-          <NumberInput label="Pokémon ID" min={1} max={1025}/>
-          <Button className={classes.control} size="lg" variant="default" color="gray">
-            Book a demo
-          </Button>
-          <Button className={classes.control} size="lg">
-            Purchase a license
+          <NumberInput label="Pokémon ID" min={1} max={1025} size="md" value={selectedId} onChange={setSelectedId} clampBehavior='strict'/>
+          <Button className={classes.control} size="md" variant="default" color="gray" onClick={() => loadSpecificPokemon(+selectedId)} >
+            Load
           </Button>
         </div>
       </div>

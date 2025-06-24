@@ -67,15 +67,16 @@
 }
 
 .control {
-  &:not(:first-of-type) {
+  &:not(:first-child) {
     margin-left: var(--mantine-spacing-md);
+    margin-top: 24px;
   }
 
   @media (max-width: $mantine-breakpoint-xs) {
     height: 42px;
     font-size: var(--mantine-font-size-md);
 
-    &:not(:first-of-type) {
+    &:not(:first-child) {
       margin-top: var(--mantine-spacing-md);
       margin-left: 0;
     }
