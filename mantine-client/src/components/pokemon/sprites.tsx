@@ -9,6 +9,7 @@ export type SpriteEntry = {
 };
 
 export function Sprites({spriteEntries}: { spriteEntries: SpriteEntry[]}) {
+  console.log(spriteEntries);
   return (
     <Carousel withIndicators height={200}>
       {spriteEntries.filter(({ url} ) => url.includes('.gif')).reverse().map(({ url }, i) => (
