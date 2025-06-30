@@ -1,5 +1,14 @@
 [] cypress tests
-[] vue client
-[] express-ts server
+[] playwright tests
+clients:
+  [] vue client
+servers:
+  [] express-ts
+  [] java
 [] ci integration
 [] readme
+infrastructure:
+  [] docker
+  [] k8s
+  [] terraform
+  [] nix
