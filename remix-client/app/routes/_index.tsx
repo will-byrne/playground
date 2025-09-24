@@ -1,4 +1,14 @@
 import type { MetaFunction } from "@remix-run/node";
+import { useLoaderData } from "@remix-run/react";
+import { typedFetch } from "utils/typed-fetch";
+
+type PokedexEntry = { id: number, name: string };
+
+export const loader = async () => {
+    const unsortedDex = await typedFetch<PokedexEntry[]>('http://localhost:3000/pokedex');
+    const sortedDex = unsortedDex.sort(({ id: ida }, { id: idb }) => ida - idb);
+    return { pokedex: sortedDex };
+}
 
 export const meta: MetaFunction = () => {
   return [
@@ -8,30 +18,25 @@ export const meta: MetaFunction = () => {
 };
 
 export default function Index() {
+  const { pokedex } = useLoaderData<typeof loader>();
   return (
     <div className="flex h-screen items-center justify-center">
       <div className="flex flex-col items-center gap-16">
         <header className="flex flex-col items-center gap-9">
           <h1 className="leading text-2xl font-bold text-gray-800 dark:text-gray-100">
-            Welcome to <span className="sr-only">Remix</span>
+            Find a Pokémon
           </h1>
-          <div className="h-[144px] w-[434px]">
-            <img
-              src="/logo-light.png"
-              alt="Remix"
-              className="block w-full dark:hidden"
-            />
-            <img
-              src="/logo-dark.png"
-              alt="Remix"
-              className="hidden w-full dark:block"
-            />
-          </div>
         </header>
-        <nav className="flex flex-col items-center justify-center gap-4 rounded-3xl border border-gray-200 p-6 dark:border-gray-700">
+        <div className="flex flex-col items-center justify-center gap-4 rounded-3xl border border-gray-200 p-6 dark:border-gray-700">
           <p className="leading-6 text-gray-700 dark:text-gray-200">
-            What&apos;s next?
+            Load a Pokemon by its Pokedex ID,<br/>
+            or load a random Pokemon that is not in the cache.
           </p>
+          <fieldset className="fieldset">
+            <label className="label">Pokedex no.</label>
+            <input type="number" min={1} max={1025} className="input" placeholder="001" value={dexNo} onChange={(e) => setDexNo(Number(e.currentTarget.value))}/>
+            <button onClick={() => {}} className="btn btn-neutral mt-4">Search</button>
+          </fieldset>
           <ul>
             {resources.map(({ href, text, icon }) => (
               <li key={href}>
@@ -47,7 +52,7 @@ export default function Index() {
               </li>
             ))}
           </ul>
-        </nav>
+        </div>
       </div>
     </div>
   );

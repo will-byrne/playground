@@ -24,6 +24,11 @@ fn generate_random_no_with_exclude(excludes: &Vec<i64>) -> i64 {
     rand
 }
 
+#[options("/<_..>")]
+fn all_options() -> Status {
+    Status::NoContent
+}
+
 #[get("/")]
 fn index() -> &'static str {
     "Hello, World!"
@@ -56,7 +61,7 @@ async fn pokedex(db: &State<Client>) -> Json<Vec<PokedexEntry>> {
 }
 
 use rocket::fairing::{Fairing, Info, Kind};
-use rocket::http::{Header, Method, Status};
+use rocket::http::{Header, Status};
 use rocket::{Request, Response};
 
 pub struct CORS;
@@ -70,19 +75,18 @@ impl Fairing for CORS {
         }
     }
 
-    async fn on_response<'r>(&self, request: &'r Request<'_>, response: &mut Response<'r>) {
-        if request.method() == Method::Options {
-            response.set_status(Status::NoContent);
-            response.set_header(Header::new(
-                "Access-Control-Allow-Methods",
-                "POST, PATCH, GET, DELETE",
-            ));
-            response.set_header(Header::new("Access-Control-Allow-Headers", "*"));
-        }
-
+    async fn on_response<'r>(&self, _request: &'r Request<'_>, response: &mut Response<'r>) {
         response.set_header(Header::new(
             "Access-Control-Allow-Origin",
-            "http://localhost:5173",
+            "*", // or "*" if you want to allow any origin
+        ));
+        response.set_header(Header::new(
+            "Access-Control-Allow-Methods",
+            "POST, PATCH, GET, DELETE, OPTIONS",
+        ));
+        response.set_header(Header::new(
+            "Access-Control-Allow-Headers",
+            "*",
         ));
         response.set_header(Header::new("Access-Control-Allow-Credentials", "true"));
     }
@@ -96,5 +100,5 @@ async fn rocket() -> _ {
         .configure(rocket::Config::figment().merge(("port", 3000)))
         .attach(CORS)
         .manage(client)
-        .mount("/", routes![index, pokedex, random_new, specific_pokemon])
+        .mount("/", routes![index, pokedex, random_new, specific_pokemon, all_options])
 }

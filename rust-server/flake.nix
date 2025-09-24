@@ -17,6 +17,7 @@
             rustup
             stdenv
             openssl
+            libsoup_2_4
             pkg-config
           ];
         };

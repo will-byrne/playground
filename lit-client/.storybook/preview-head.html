@@ -1,0 +1,33 @@
+<!--
+Pull in static files served from your Static directory or the internet
+Example:
+`main.js|ts` is configured with staticDirs: ['../public'] and your font is located in the `fonts`
+directory inside your `public` directory
+-->
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap');
+
+    :host {
+      /* --- Theme variables --- */
+      --ctp-base: #24273a;
+      --ctp-surface0: #363a4f;
+      --ctp-surface1: #494d64;
+      --ctp-text: #cad3f5;
+      --ctp-subtext: #a5adcb;
+      --ctp-lavender: #b7bdf8;
+      --ctp-blue: #8aadf4;
+      --ctp-red: #ed8796;
+
+      --select-arrow: url('data:image/svg+xml;utf8,<svg fill="%23cad3f5" height="10" viewBox="0 0 24 24" width="10" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: var(--ctp-base);
+      color: var(--ctp-text);
+      min-height: 100vh;
+      font-family: 'Noto Sans', sans-serif;
+      text-align: center;
+      padding: 1rem;
+    }
+</style>
