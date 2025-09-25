@@ -1,8 +1,8 @@
 import { LitElement, html, css } from 'lit';
 import { property, customElement, state } from 'lit/decorators.js';
+import { PokemonSprites } from 'pokenode-ts';
 import { typedFetch } from './utils/typed-fetch.js';
 import './pokemon-card.js';
-import { PokemonSprites } from 'pokenode-ts';
 
 export type PokeboxEntry = {
   id: number,
@@ -22,14 +22,20 @@ type PokedexEntry = { id: number, name: string };
 @customElement('home-page')
 export class HomePage extends LitElement {
   @property({ type: String }) header = 'Pokémon Search';
+  
   @state() dexNo: number = 1;
+  
   @state() loadedPokemon: PokeboxEntry | undefined = undefined;
+  
   @state() loading = false;
+  
   @state() error: string | null = null;
+  
   @state() pokedex: PokedexEntry[] = [];
+  
   @state() selectedDexId: number | null = null;
 
-  async firstUpdated() {
+  private async getDex() {
     try {
       this.pokedex = await typedFetch<PokedexEntry[]>('http://localhost:3000/pokedex');
     } catch (err) {
@@ -37,10 +43,14 @@ export class HomePage extends LitElement {
     }
   }
 
+  async firstUpdated() {
+    await this.getDex();
+  }
+
   private onSelectChange(e: Event) {
     const target = e.target as HTMLSelectElement;
     this.selectedDexId = parseInt(target.value, 10);
-    if (!isNaN(this.selectedDexId)) {
+    if (!Number.isNaN(this.selectedDexId)) {
       this.dexNo = this.selectedDexId;
       this.getPokemon();
     }
@@ -49,7 +59,7 @@ export class HomePage extends LitElement {
   private onDexInput(e: Event) {
     const target = e.target as HTMLInputElement;
     const parsed = parseInt(target.value, 10);
-    this.dexNo = isNaN(parsed) ? this.dexNo : parsed;
+    this.dexNo = Number.isNaN(parsed) ? this.dexNo : parsed;
   }
 
   private onKeyDown(e: KeyboardEvent) {
@@ -64,6 +74,10 @@ export class HomePage extends LitElement {
       this.loadedPokemon = await typedFetch<PokeboxEntry>(
         `http://localhost:3000/pokemon/${this.dexNo}`
       );
+      if (!this.pokedex.includes({ id: this.loadedPokemon.id, name: this.loadedPokemon.name})) {
+        this.getDex();
+      }
+      await this.getDex();
     } catch (err) {
       console.error(err);
       this.error = 'Failed to load Pokémon';

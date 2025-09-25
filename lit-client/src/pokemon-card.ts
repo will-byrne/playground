@@ -2,6 +2,7 @@ import { LitElement, html, css } from 'lit';
 import { property, customElement } from 'lit/decorators.js';
 import './type-badge.js';
 import { PokeboxEntry } from './home-page.js';
+import './sprite-carousel.js';
 
 @customElement('pokemon-card')
 export class PokemonCard extends LitElement {
@@ -30,17 +31,36 @@ export class PokemonCard extends LitElement {
     }
 
     .content {
-      display: grid;
-      grid-template-columns: 120px 1fr;
+      display: flex;
+      flex-direction: column; /* stack vertically */
+      align-items: center;    /* center the sprite horizontally */
       gap: 1rem;
       margin-top: 1rem;
     }
 
-    .sprite img { max-width: 100%; }
+    .sprite {
+      text-align: center;
+    }
 
-    .description { margin: 0.5rem 0; }
+    .sprite img {
+      max-width: 100%;
+    }
 
-    .abilities li { margin-bottom: 0.5rem; }
+    .details {
+      width: 100%;
+    }
+
+    .types {
+      margin-bottom: 0.5rem;
+    }
+
+    .description {
+      margin: 0.5rem 0;
+    }
+
+    .abilities li {
+      margin-bottom: 0.5rem;
+    }
   `;
 
   render() {
@@ -52,7 +72,7 @@ export class PokemonCard extends LitElement {
         </header>
         <div class="content">
           <div class="sprite">
-            <img src=${p.sprites.other?.['official-artwork'].front_default ?? p.sprites.front_default ?? ''} alt=${p.name} />
+            <sprite-carousel .sprites=${p.sprites}></sprite-carousel>
           </div>
           <div class="details">
             <div class="types">
