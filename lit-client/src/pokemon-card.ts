@@ -72,9 +72,9 @@ export class PokemonCard extends LitElement {
         </header>
         <div class="content">
           <div class="sprite">
-            <sprite-carousel .sprites=${p.sprites}></sprite-carousel>
+            <sprite-carousel .sites=${p.sprites}></sprite-carousel>
           </div>
-          <div class="details">
+          <div class="detailprs">
             <div class="types">
               ${p.types.map(t => html`<type-badge .type=${t}></type-badge>`)}
             </div>

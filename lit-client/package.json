@@ -9,7 +9,8 @@
     "lint": "eslint --ext .ts,.html . --ignore-path .gitignore && prettier \"**/*.ts\" --check --ignore-path .gitignore",
     "format": "eslint --ext .ts,.html . --fix --ignore-path .gitignore && prettier \"**/*.ts\" --write --ignore-path .gitignore",
     "prepare": "husky",
-    "test": "tsc && wtr --coverage",
+    "oldtest": "tsc && wtr --coverage",
+    "test": "jest",
     "test:watch": "tsc && concurrently -k -r \"tsc --watch --preserveWatchOutput\" \"wtr --watch\"",
     "storybook": "tsc && npm run analyze -- --exclude dist && concurrently -k -r \"tsc --watch --preserveWatchOutput\" \"storybook dev -p 8080\"",
     "storybook:build": "tsc && npm run analyze -- --exclude dist && storybook build",
@@ -19,6 +20,10 @@
     "start": "tsc && concurrently -k -r \"tsc --watch --preserveWatchOutput\" \"web-dev-server\""
   },
   "dependencies": {
+    "@testing-library/dom": "^10.4.1",
+    "@testing-library/jest-dom": "^6.8.0",
+    "jest": "^30.2.0",
+    "jest-environment-jsdom": "^30.2.0",
     "lit": "^3.3.1",
     "pokenode-ts": "^1.20.0",
     "react": "^19.1.1",
@@ -34,6 +39,7 @@
     "@storybook/addon-essentials": "^7.6.20",
     "@storybook/addon-links": "^7.6.20",
     "@storybook/web-components": "^7.6.20",
+    "@types/jest": "^30.0.0",
     "@types/mocha": "^10.0.10",
     "@typescript-eslint/eslint-plugin": "^7.18.0",
     "@typescript-eslint/parser": "^7.18.0",
@@ -56,6 +62,7 @@
     "rollup-plugin-esbuild": "^6.2.1",
     "rollup-plugin-workbox": "^8.1.2",
     "storybook": "^7.6.20",
+    "ts-jest": "^29.4.4",
     "tslib": "^2.8.1",
     "typescript": "^5.9.2"
   },
