@@ -1,5 +1,7 @@
 [] cypress tests
 [] playwright tests
+[] effect-ts
+[] astro
 clients:
   [] vue client
 servers:
