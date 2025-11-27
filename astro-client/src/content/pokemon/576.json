@@ -1,0 +1,14 @@
+{
+  "id": 576,
+  "name": "gothitelle",
+  "types": [
+    "psychic"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/576.png",
+  "abilities": [
+    "frisk",
+    "competitive",
+    "shadow-tag"
+  ],
+  "description": "Starry skies thousands of light-years\naway are visible in the space distorted\nby their intense psychic power."
+}

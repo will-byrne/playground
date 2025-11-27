@@ -1,0 +1,12 @@
+{
+  "id": 429,
+  "name": "mismagius",
+  "types": [
+    "ghost"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/429.png",
+  "abilities": [
+    "levitate"
+  ],
+  "description": "Its cries sound like incantations.\nThose hearing it are tormented\nby headaches and hallucinations."
+}

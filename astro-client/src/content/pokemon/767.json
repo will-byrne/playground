@@ -1,0 +1,13 @@
+{
+  "id": 767,
+  "name": "wimpod",
+  "types": [
+    "bug",
+    "water"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/767.png",
+  "abilities": [
+    "wimp-out"
+  ],
+  "description": "This Pokémon is a coward. As it desperately\ndashes off, the flailing of its many legs leaves a\nsparkling clean path in its wake."
+}

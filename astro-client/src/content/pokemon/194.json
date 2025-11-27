@@ -1,0 +1,15 @@
+{
+  "id": 194,
+  "name": "wooper",
+  "types": [
+    "water",
+    "ground"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/194.png",
+  "abilities": [
+    "damp",
+    "water-absorb",
+    "unaware"
+  ],
+  "description": "This POKéMON lives\nin cold water. It\nwill leave the\fwater to search\nfor food when it\ngets cold outside."
+}

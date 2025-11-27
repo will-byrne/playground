@@ -1,0 +1,14 @@
+{
+  "id": 538,
+  "name": "throh",
+  "types": [
+    "fighting"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/538.png",
+  "abilities": [
+    "guts",
+    "inner-focus",
+    "mold-breaker"
+  ],
+  "description": "When it tightens its belt, it becomes\nstronger. Wild Throh use vines to weave\ntheir own belts."
+}

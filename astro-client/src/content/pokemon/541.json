@@ -1,0 +1,15 @@
+{
+  "id": 541,
+  "name": "swadloon",
+  "types": [
+    "bug",
+    "grass"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/541.png",
+  "abilities": [
+    "leaf-guard",
+    "chlorophyll",
+    "overcoat"
+  ],
+  "description": "Forests where Swadloon live have superb\nfoliage because the nutrients they make\nfrom fallen leaves nourish the plant life."
+}

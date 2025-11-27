@@ -1,0 +1,14 @@
+{
+  "id": 89,
+  "name": "muk",
+  "types": [
+    "poison"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/89.png",
+  "abilities": [
+    "stench",
+    "sticky-hold",
+    "poison-touch"
+  ],
+  "description": "Thickly covered\nwith a filthy,\nvile sludge. It\fis so toxic, even\nits footprints\ncontain poison."
+}

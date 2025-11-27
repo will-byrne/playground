@@ -1,0 +1,14 @@
+{
+  "id": 782,
+  "name": "jangmo-o",
+  "types": [
+    "dragon"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/782.png",
+  "abilities": [
+    "bulletproof",
+    "soundproof",
+    "overcoat"
+  ],
+  "description": "It expresses its feelings by smacking\nits scales. Metallic sounds echo through\nthe tall mountains where Jangmo-o lives."
+}

@@ -1,0 +1,14 @@
+{
+  "id": 127,
+  "name": "pinsir",
+  "types": [
+    "bug"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/127.png",
+  "abilities": [
+    "hyper-cutter",
+    "mold-breaker",
+    "moxie"
+  ],
+  "description": "If it fails to\ncrush the victim\nin its pincers,\fit will swing it\naround and toss\nit hard."
+}

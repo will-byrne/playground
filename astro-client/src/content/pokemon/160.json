@@ -1,0 +1,13 @@
+{
+  "id": 160,
+  "name": "feraligatr",
+  "types": [
+    "water"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/160.png",
+  "abilities": [
+    "torrent",
+    "sheer-force"
+  ],
+  "description": "When it bites with\nits massive and\npowerful jaws, it\fshakes its head\nand savagely tears\nits victim up."
+}

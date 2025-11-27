@@ -1,0 +1,14 @@
+{
+  "id": 115,
+  "name": "kangaskhan",
+  "types": [
+    "normal"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/115.png",
+  "abilities": [
+    "early-bird",
+    "scrappy",
+    "inner-focus"
+  ],
+  "description": "The infant rarely\nventures out of\nits mother's\fprotective pouch\nuntil it is 3\nyears old."
+}

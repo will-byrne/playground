@@ -1,0 +1,13 @@
+{
+  "id": 494,
+  "name": "victini",
+  "types": [
+    "psychic",
+    "fire"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/494.png",
+  "abilities": [
+    "victory-star"
+  ],
+  "description": "This Pokémon brings victory. It is said\nthat Trainers with Victini always win,\nregardless of the type of encounter."
+}

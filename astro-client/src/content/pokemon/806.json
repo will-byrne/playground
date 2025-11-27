@@ -1,0 +1,13 @@
+{
+  "id": 806,
+  "name": "blacephalon",
+  "types": [
+    "fire",
+    "ghost"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/806.png",
+  "abilities": [
+    "beast-boost"
+  ],
+  "description": "It slithers toward people. Then, without warning,\nit triggers the explosion of its own head.\nIt’s apparently one kind of Ultra Beast."
+}

@@ -1,0 +1,13 @@
+{
+  "id": 639,
+  "name": "terrakion",
+  "types": [
+    "rock",
+    "fighting"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/639.png",
+  "abilities": [
+    "justified"
+  ],
+  "description": "This Pokémon came to the defense of\nPokémon that had lost their homes in\na war among humans."
+}

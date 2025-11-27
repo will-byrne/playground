@@ -1,0 +1,15 @@
+{
+  "id": 430,
+  "name": "honchkrow",
+  "types": [
+    "dark",
+    "flying"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/430.png",
+  "abilities": [
+    "insomnia",
+    "super-luck",
+    "moxie"
+  ],
+  "description": "Becoming active at night, it is\nknown to swarm with numerous\nMURKROW in tow."
+}

@@ -1,0 +1,14 @@
+{
+  "id": 250,
+  "name": "ho-oh",
+  "types": [
+    "fire",
+    "flying"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/250.png",
+  "abilities": [
+    "pressure",
+    "regenerator"
+  ],
+  "description": "Legends claim this\nPOKéMON flies the\nworld's skies con­\ftinuously on its\nmagnificent seven-\ncolored wings."
+}

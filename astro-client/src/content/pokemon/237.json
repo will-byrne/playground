@@ -1,0 +1,14 @@
+{
+  "id": 237,
+  "name": "hitmontop",
+  "types": [
+    "fighting"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/237.png",
+  "abilities": [
+    "intimidate",
+    "technician",
+    "steadfast"
+  ],
+  "description": "If you become\nenchanted by its\nsmooth, elegant,\fdance-like kicks,\nyou may get\ndrilled hard."
+}

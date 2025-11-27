@@ -1,0 +1,14 @@
+{
+  "id": 71,
+  "name": "victreebel",
+  "types": [
+    "grass",
+    "poison"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/71.png",
+  "abilities": [
+    "chlorophyll",
+    "gluttony"
+  ],
+  "description": "Said to live in\nhuge colonies\ndeep in jungles,\falthough no one\nhas ever returned\nfrom there."
+}

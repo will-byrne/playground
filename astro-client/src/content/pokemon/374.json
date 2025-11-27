@@ -1,0 +1,14 @@
+{
+  "id": 374,
+  "name": "beldum",
+  "types": [
+    "steel",
+    "psychic"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/374.png",
+  "abilities": [
+    "clear-body",
+    "light-metal"
+  ],
+  "description": "Instead of blood, a powerful magnetic\nforce courses throughout BELDUM’s\nbody. This POKéMON communicates with\fothers by sending controlled pulses of\nmagnetism."
+}

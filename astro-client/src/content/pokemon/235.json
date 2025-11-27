@@ -1,0 +1,14 @@
+{
+  "id": 235,
+  "name": "smeargle",
+  "types": [
+    "normal"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/235.png",
+  "abilities": [
+    "own-tempo",
+    "technician",
+    "moody"
+  ],
+  "description": "A special fluid\noozes from the tip\nof its tail. It\fpaints the fluid\neverywhere to mark\nits territory."
+}

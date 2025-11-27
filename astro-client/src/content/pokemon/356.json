@@ -1,0 +1,13 @@
+{
+  "id": 356,
+  "name": "dusclops",
+  "types": [
+    "ghost"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/356.png",
+  "abilities": [
+    "pressure",
+    "frisk"
+  ],
+  "description": "DUSCLOPS’s body is completely hollow -\nthere is nothing at all inside.\nIt is said that its body is like a black\fhole. This POKéMON will absorb anything\ninto its body, but nothing will ever come\nback out."
+}

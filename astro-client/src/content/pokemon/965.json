@@ -1,0 +1,14 @@
+{
+  "id": 965,
+  "name": "varoom",
+  "types": [
+    "steel",
+    "poison"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/965.png",
+  "abilities": [
+    "overcoat",
+    "slow-start"
+  ],
+  "description": "It is said that this Pokémon was born when an unknown poison Pokémon entered and inspirited an engine left at a scrap-processing factory."
+}

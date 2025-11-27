@@ -1,0 +1,14 @@
+{
+  "id": 517,
+  "name": "munna",
+  "types": [
+    "psychic"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/517.png",
+  "abilities": [
+    "forewarn",
+    "synchronize",
+    "telepathy"
+  ],
+  "description": "Munna always float in the air. People\nwhose dreams are eaten by them\nforget what the dreams had been about."
+}

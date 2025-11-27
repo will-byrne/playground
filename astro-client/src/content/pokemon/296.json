@@ -1,0 +1,14 @@
+{
+  "id": 296,
+  "name": "makuhita",
+  "types": [
+    "fighting"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/296.png",
+  "abilities": [
+    "thick-fat",
+    "guts",
+    "sheer-force"
+  ],
+  "description": "MAKUHITA is tenacious - it will keep\ngetting up and attacking its foe\nhowever many times it is knocked down.\fEvery time it gets back up, this\nPOKéMON stores more energy in its body\nfor evolving."
+}

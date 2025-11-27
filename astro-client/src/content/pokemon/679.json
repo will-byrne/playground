@@ -1,0 +1,13 @@
+{
+  "id": 679,
+  "name": "honedge",
+  "types": [
+    "steel",
+    "ghost"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/679.png",
+  "abilities": [
+    "no-guard"
+  ],
+  "description": "Apparently this Pokémon is born when a\ndeparted spirit inhabits a sword. It attaches itself\nto people and drinks their life force."
+}

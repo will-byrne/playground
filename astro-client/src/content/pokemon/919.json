@@ -1,0 +1,13 @@
+{
+  "id": 919,
+  "name": "nymble",
+  "types": [
+    "bug"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/919.png",
+  "abilities": [
+    "swarm",
+    "tinted-lens"
+  ],
+  "description": "It has its third set of legs folded up. When it’s in a tough spot, this Pokémon jumps over 30 feet using the strength of its legs."
+}

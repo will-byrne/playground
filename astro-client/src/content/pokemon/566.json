@@ -1,0 +1,13 @@
+{
+  "id": 566,
+  "name": "archen",
+  "types": [
+    "rock",
+    "flying"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/566.png",
+  "abilities": [
+    "defeatist"
+  ],
+  "description": "Said to be an ancestor of bird Pokémon,\nthey were unable to fly and moved about\nby hopping from one branch to another."
+}

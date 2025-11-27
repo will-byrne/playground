@@ -1,0 +1,14 @@
+{
+  "id": 982,
+  "name": "dudunsparce-two-segment",
+  "types": [
+    "normal"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/982.png",
+  "abilities": [
+    "serene-grace",
+    "run-away",
+    "rattled"
+  ],
+  "description": "This Pokémon uses its hard tail to make its nest by boring holes into bedrock deep underground. The nest can reach lengths of over six miles."
+}

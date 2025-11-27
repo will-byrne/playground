@@ -1,0 +1,13 @@
+{
+  "id": 418,
+  "name": "buizel",
+  "types": [
+    "water"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/418.png",
+  "abilities": [
+    "swift-swim",
+    "water-veil"
+  ],
+  "description": "It has a flotation sac that is\nlike an inflatable collar. It floats\non water with its head out."
+}

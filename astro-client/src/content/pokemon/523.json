@@ -1,0 +1,14 @@
+{
+  "id": 523,
+  "name": "zebstrika",
+  "types": [
+    "electric"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/523.png",
+  "abilities": [
+    "lightning-rod",
+    "motor-drive",
+    "sap-sipper"
+  ],
+  "description": "They have lightning-like movements.\nWhen Zebstrika run at full speed,\nthe sound of thunder reverberates."
+}

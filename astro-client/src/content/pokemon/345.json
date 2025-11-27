@@ -1,0 +1,14 @@
+{
+  "id": 345,
+  "name": "lileep",
+  "types": [
+    "rock",
+    "grass"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/345.png",
+  "abilities": [
+    "suction-cups",
+    "storm-drain"
+  ],
+  "description": "LILEEP became extinct approximately\na hundred million years ago.\nThis ancient POKéMON attaches itself\fto a rock on the seafloor and catches\napproaching prey using tentacles \nshaped like flower petals."
+}

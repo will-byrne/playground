@@ -1,0 +1,15 @@
+{
+  "id": 139,
+  "name": "omastar",
+  "types": [
+    "rock",
+    "water"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/139.png",
+  "abilities": [
+    "swift-swim",
+    "shell-armor",
+    "weak-armor"
+  ],
+  "description": "A prehistoric\nPOKéMON that died\nout when its\fheavy shell made\nit impossible to\ncatch prey."
+}

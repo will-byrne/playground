@@ -1,0 +1,13 @@
+{
+  "id": 197,
+  "name": "umbreon",
+  "types": [
+    "dark"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/197.png",
+  "abilities": [
+    "synchronize",
+    "inner-focus"
+  ],
+  "description": "When agitated,\nthis POKéMON pro­\ntects itself by\fspraying poisonous\nsweat from its\npores."
+}

@@ -1,0 +1,14 @@
+{
+  "id": 67,
+  "name": "machoke",
+  "types": [
+    "fighting"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/67.png",
+  "abilities": [
+    "guts",
+    "no-guard",
+    "steadfast"
+  ],
+  "description": "Its muscular body\nis so powerful, it\nmust wear a power\fsave belt to be\nable to regulate\nits motions."
+}

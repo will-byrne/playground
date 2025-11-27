@@ -1,0 +1,12 @@
+{
+  "id": 266,
+  "name": "silcoon",
+  "types": [
+    "bug"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/266.png",
+  "abilities": [
+    "shed-skin"
+  ],
+  "description": "SILCOON tethers itself to a tree branch\nusing silk to keep from falling. There, \nthis POKéMON hangs quietly while it\fawaits evolution.\nIt peers out of the silk cocoon through\na small hole."
+}

@@ -1,0 +1,14 @@
+{
+  "id": 234,
+  "name": "stantler",
+  "types": [
+    "normal"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/234.png",
+  "abilities": [
+    "intimidate",
+    "frisk",
+    "sap-sipper"
+  ],
+  "description": "The curved antlers\nsubtly change the\nflow of air to\fcreate a strange\nspace where real­\nity is distorted."
+}

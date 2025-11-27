@@ -1,0 +1,14 @@
+{
+  "id": 915,
+  "name": "lechonk",
+  "types": [
+    "normal"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/915.png",
+  "abilities": [
+    "aroma-veil",
+    "gluttony",
+    "thick-fat"
+  ],
+  "description": "It searches for food all day. It possesses a keen sense of smell but doesn’t use it for anything other than foraging."
+}

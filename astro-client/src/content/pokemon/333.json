@@ -1,0 +1,14 @@
+{
+  "id": 333,
+  "name": "swablu",
+  "types": [
+    "normal",
+    "flying"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/333.png",
+  "abilities": [
+    "natural-cure",
+    "cloud-nine"
+  ],
+  "description": "SWABLU has light and fluffy wings that\nare like cottony clouds. This POKéMON\nis not frightened of people.\fIt lands on the heads of people and\nsits there like a cotton-fluff hat."
+}

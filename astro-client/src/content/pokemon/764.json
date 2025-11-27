@@ -1,0 +1,14 @@
+{
+  "id": 764,
+  "name": "comfey",
+  "types": [
+    "fairy"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/764.png",
+  "abilities": [
+    "flower-veil",
+    "triage",
+    "natural-cure"
+  ],
+  "description": "It attaches flowers to its highly nutritious vine.\nThis revitalizes the flowers, and they give off\nan aromatic scent."
+}

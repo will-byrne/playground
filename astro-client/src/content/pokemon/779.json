@@ -1,0 +1,15 @@
+{
+  "id": 779,
+  "name": "bruxish",
+  "types": [
+    "water",
+    "psychic"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/779.png",
+  "abilities": [
+    "dazzling",
+    "strong-jaw",
+    "wonder-skin"
+  ],
+  "description": "When it unleashes its psychic power from the\nprotuberance on its head, the grating sound\nof grinding teeth echoes through the area."
+}

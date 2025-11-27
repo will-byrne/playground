@@ -1,0 +1,14 @@
+{
+  "id": 705,
+  "name": "sliggoo",
+  "types": [
+    "dragon"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/705.png",
+  "abilities": [
+    "sap-sipper",
+    "hydration",
+    "gooey"
+  ],
+  "description": "It drives away opponents by excreting a\nsticky liquid that can dissolve anything.\nIts eyes devolved, so it can’t see anything."
+}

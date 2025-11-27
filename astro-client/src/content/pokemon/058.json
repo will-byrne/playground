@@ -1,0 +1,14 @@
+{
+  "id": 58,
+  "name": "growlithe",
+  "types": [
+    "fire"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/58.png",
+  "abilities": [
+    "intimidate",
+    "flash-fire",
+    "justified"
+  ],
+  "description": "Very protective\nof its territory.\nIt will bark and\fbite to repel\nintruders from\nits space."
+}

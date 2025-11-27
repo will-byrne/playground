@@ -1,0 +1,15 @@
+{
+  "id": 435,
+  "name": "skuntank",
+  "types": [
+    "poison",
+    "dark"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/435.png",
+  "abilities": [
+    "stench",
+    "aftermath",
+    "keen-eye"
+  ],
+  "description": "It sprays a vile-smelling fluid\nfrom the tip of its tail to attack.\nIts range is over 160 feet."
+}

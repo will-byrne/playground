@@ -1,0 +1,13 @@
+{
+  "id": 1007,
+  "name": "koraidon",
+  "types": [
+    "fighting",
+    "dragon"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1007.png",
+  "abilities": [
+    "orichalcum-pulse"
+  ],
+  "description": "This seems to be the Winged King mentioned in an old expedition journal. It was said to have split the land with its bare fists."
+}

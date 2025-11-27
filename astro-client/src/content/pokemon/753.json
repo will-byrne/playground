@@ -1,0 +1,13 @@
+{
+  "id": 753,
+  "name": "fomantis",
+  "types": [
+    "grass"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/753.png",
+  "abilities": [
+    "leaf-guard",
+    "contrary"
+  ],
+  "description": "During the day, it sleeps and soaks up light.\nWhen night falls, it walks around looking\nfor a safer place to sleep."
+}

@@ -1,0 +1,14 @@
+{
+  "id": 192,
+  "name": "sunflora",
+  "types": [
+    "grass"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/192.png",
+  "abilities": [
+    "chlorophyll",
+    "solar-power",
+    "early-bird"
+  ],
+  "description": "It converts sun­\nlight into energy.\nIn the darkness\fafter sunset, it\ncloses its petals\nand becomes still."
+}

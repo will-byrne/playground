@@ -1,0 +1,14 @@
+{
+  "id": 414,
+  "name": "mothim",
+  "types": [
+    "bug",
+    "flying"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/414.png",
+  "abilities": [
+    "swarm",
+    "tinted-lens"
+  ],
+  "description": "It loves the honey of flowers\nand steals honey collected by\nCOMBEE."
+}

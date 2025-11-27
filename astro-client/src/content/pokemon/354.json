@@ -1,0 +1,14 @@
+{
+  "id": 354,
+  "name": "banette",
+  "types": [
+    "ghost"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/354.png",
+  "abilities": [
+    "insomnia",
+    "frisk",
+    "cursed-body"
+  ],
+  "description": "BANETTE generates energy for laying\nstrong curses by sticking pins into its\nown body.\fThis POKéMON was originally a pitiful\nplush doll that was thrown away."
+}

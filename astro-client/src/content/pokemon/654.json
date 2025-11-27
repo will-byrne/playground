@@ -1,0 +1,13 @@
+{
+  "id": 654,
+  "name": "braixen",
+  "types": [
+    "fire"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/654.png",
+  "abilities": [
+    "blaze",
+    "magician"
+  ],
+  "description": "It has a twig stuck in its tail. With\nfriction from its tail fur, it sets the\ntwig on fire and launches into battle."
+}

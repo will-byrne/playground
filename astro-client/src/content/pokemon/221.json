@@ -1,0 +1,15 @@
+{
+  "id": 221,
+  "name": "piloswine",
+  "types": [
+    "ice",
+    "ground"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/221.png",
+  "abilities": [
+    "oblivious",
+    "snow-cloak",
+    "thick-fat"
+  ],
+  "description": "Because the long\nhair all over its\nbody obscures its\fsight, it just\nkeeps charging\nrepeatedly."
+}

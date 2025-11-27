@@ -1,0 +1,14 @@
+{
+  "id": 61,
+  "name": "poliwhirl",
+  "types": [
+    "water"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/61.png",
+  "abilities": [
+    "water-absorb",
+    "damp",
+    "swift-swim"
+  ],
+  "description": "Capable of living\nin or out of\nwater. When out\fof water, it\nsweats to keep\nits body slimy."
+}

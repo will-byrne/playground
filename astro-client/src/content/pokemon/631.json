@@ -1,0 +1,14 @@
+{
+  "id": 631,
+  "name": "heatmor",
+  "types": [
+    "fire"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/631.png",
+  "abilities": [
+    "gluttony",
+    "flash-fire",
+    "white-smoke"
+  ],
+  "description": "It breathes through a hole in its tail\nwhile it burns with an internal fire.\nDurant is its prey."
+}

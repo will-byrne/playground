@@ -1,0 +1,15 @@
+{
+  "id": 882,
+  "name": "dracovish",
+  "types": [
+    "water",
+    "dragon"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/882.png",
+  "abilities": [
+    "water-absorb",
+    "strong-jaw",
+    "sand-rush"
+  ],
+  "description": "Powerful legs and jaws made it the apex predator\nof its time. Its own overhunting of its prey was\nwhat drove it to extinction."
+}

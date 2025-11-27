@@ -1,0 +1,14 @@
+{
+  "id": 297,
+  "name": "hariyama",
+  "types": [
+    "fighting"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/297.png",
+  "abilities": [
+    "thick-fat",
+    "guts",
+    "sheer-force"
+  ],
+  "description": "It has the habit of challenging others\nwithout hesitation to tests of strength.\nIt’s been known to stand on train tracks\nand stop trains using forearm thrusts."
+}

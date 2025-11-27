@@ -1,0 +1,15 @@
+{
+  "id": 545,
+  "name": "scolipede",
+  "types": [
+    "bug",
+    "poison"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/545.png",
+  "abilities": [
+    "poison-point",
+    "swarm",
+    "speed-boost"
+  ],
+  "description": "With quick movements, it chases down\nits foes, attacking relentlessly with\nits horns until it prevails."
+}

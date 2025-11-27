@@ -1,0 +1,13 @@
+{
+  "id": 670,
+  "name": "floette",
+  "types": [
+    "fairy"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/670.png",
+  "abilities": [
+    "flower-veil",
+    "symbiosis"
+  ],
+  "description": "It flutters around fields of flowers and cares for\nflowers that are starting to wilt. It draws\nout the hidden power of flowers to battle."
+}

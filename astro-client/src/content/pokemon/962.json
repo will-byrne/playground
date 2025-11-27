@@ -1,0 +1,15 @@
+{
+  "id": 962,
+  "name": "bombirdier",
+  "types": [
+    "flying",
+    "dark"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/962.png",
+  "abilities": [
+    "big-pecks",
+    "keen-eye",
+    "rocky-payload"
+  ],
+  "description": "It gathers things up in an apron made from shed feathers added to the Pokémon’s chest feathers, then drops those things from high places for fun."
+}

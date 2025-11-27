@@ -1,0 +1,12 @@
+{
+  "id": 491,
+  "name": "darkrai",
+  "types": [
+    "dark"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/491.png",
+  "abilities": [
+    "bad-dreams"
+  ],
+  "description": "It can lull people to sleep and\nmake them dream. It is active\nduring nights of the new moon."
+}

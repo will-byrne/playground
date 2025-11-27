@@ -1,0 +1,14 @@
+{
+  "id": 949,
+  "name": "toedscruel",
+  "types": [
+    "ground",
+    "grass"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/949.png",
+  "abilities": [
+    "mycelium-might",
+    "mycelium-might"
+  ],
+  "description": "These Pokémon gather into groups and form colonies deep within forests. They absolutely hate it when strangers approach."
+}

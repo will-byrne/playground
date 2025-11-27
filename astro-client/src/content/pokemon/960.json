@@ -1,0 +1,14 @@
+{
+  "id": 960,
+  "name": "wiglett",
+  "types": [
+    "water"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/960.png",
+  "abilities": [
+    "gooey",
+    "rattled",
+    "sand-veil"
+  ],
+  "description": "This Pokémon can pick up the scent of a Veluza just over 65 feet away and will hide itself in the sand."
+}

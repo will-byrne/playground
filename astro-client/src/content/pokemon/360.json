@@ -1,0 +1,13 @@
+{
+  "id": 360,
+  "name": "wynaut",
+  "types": [
+    "psychic"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/360.png",
+  "abilities": [
+    "shadow-tag",
+    "telepathy"
+  ],
+  "description": "WYNAUT can always be seen with a big,\nhappy smile on its face. Look at its tail\nto determine if it is angry.\fWhen angered, this POKéMON will be\nslapping the ground with its tail."
+}

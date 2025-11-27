@@ -1,0 +1,13 @@
+{
+  "id": 132,
+  "name": "ditto",
+  "types": [
+    "normal"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/132.png",
+  "abilities": [
+    "limber",
+    "imposter"
+  ],
+  "description": "Capable of copying\nan enemy's genetic\ncode to instantly\ftransform itself\ninto a duplicate\nof the enemy."
+}

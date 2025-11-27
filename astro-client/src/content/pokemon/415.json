@@ -1,0 +1,14 @@
+{
+  "id": 415,
+  "name": "combee",
+  "types": [
+    "bug",
+    "flying"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/415.png",
+  "abilities": [
+    "honey-gather",
+    "hustle"
+  ],
+  "description": "A Pokémon formed by three others.\nIt busily carries sweet floral\nhoney to VESPIQUEN."
+}

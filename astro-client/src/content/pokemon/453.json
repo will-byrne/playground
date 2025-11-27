@@ -1,0 +1,15 @@
+{
+  "id": 453,
+  "name": "croagunk",
+  "types": [
+    "poison",
+    "fighting"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/453.png",
+  "abilities": [
+    "anticipation",
+    "dry-skin",
+    "poison-touch"
+  ],
+  "description": "Its cheeks hold poison sacs.\nIt tries to catch foes off guard\nto jab them with toxic fingers."
+}

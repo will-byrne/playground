@@ -1,0 +1,13 @@
+{
+  "id": 247,
+  "name": "pupitar",
+  "types": [
+    "rock",
+    "ground"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/247.png",
+  "abilities": [
+    "shed-skin"
+  ],
+  "description": "Its shell is as\nhard as sheet\nrock, and it is\falso very strong.\nIts THRASHING can\ntopple a mountain."
+}

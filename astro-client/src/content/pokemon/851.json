@@ -1,0 +1,15 @@
+{
+  "id": 851,
+  "name": "centiskorch",
+  "types": [
+    "fire",
+    "bug"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/851.png",
+  "abilities": [
+    "flash-fire",
+    "white-smoke",
+    "flame-body"
+  ],
+  "description": "When it heats up, its body temperature reaches\nabout 1,500 degrees Fahrenheit. It lashes its\nbody like a whip and launches itself at enemies."
+}

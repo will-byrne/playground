@@ -1,0 +1,14 @@
+{
+  "id": 209,
+  "name": "snubbull",
+  "types": [
+    "fairy"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/209.png",
+  "abilities": [
+    "intimidate",
+    "run-away",
+    "rattled"
+  ],
+  "description": "Although it looks\nfrightening, it is\nactually kind and\faffectionate. It\nis very popular\namong women."
+}

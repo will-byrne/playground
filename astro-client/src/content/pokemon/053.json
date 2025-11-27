@@ -1,0 +1,14 @@
+{
+  "id": 53,
+  "name": "persian",
+  "types": [
+    "normal"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/53.png",
+  "abilities": [
+    "limber",
+    "technician",
+    "unnerve"
+  ],
+  "description": "Although its fur\nhas many admirers,\nit is tough to\fraise as a pet\nbecause of its\nfickle meanness."
+}

@@ -1,0 +1,14 @@
+{
+  "id": 658,
+  "name": "greninja",
+  "types": [
+    "water",
+    "dark"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/658.png",
+  "abilities": [
+    "torrent",
+    "protean"
+  ],
+  "description": "It creates throwing stars out of compressed water.\nWhen it spins them and throws them at high speed,\nthese stars can split metal in two."
+}

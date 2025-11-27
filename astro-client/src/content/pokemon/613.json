@@ -1,0 +1,14 @@
+{
+  "id": 613,
+  "name": "cubchoo",
+  "types": [
+    "ice"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/613.png",
+  "abilities": [
+    "snow-cloak",
+    "slush-rush",
+    "rattled"
+  ],
+  "description": "When it is not feeling well, its mucus\ngets watery and the power of its\nIce-type moves decreases."
+}

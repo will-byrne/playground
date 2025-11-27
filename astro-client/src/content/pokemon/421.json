@@ -1,0 +1,12 @@
+{
+  "id": 421,
+  "name": "cherrim",
+  "types": [
+    "grass"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/421.png",
+  "abilities": [
+    "flower-gift"
+  ],
+  "description": "It blooms during times of strong\nsunlight. It tries to make up for\neverything it endured as a bud."
+}

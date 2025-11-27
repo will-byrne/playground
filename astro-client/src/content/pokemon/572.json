@@ -1,0 +1,14 @@
+{
+  "id": 572,
+  "name": "minccino",
+  "types": [
+    "normal"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/572.png",
+  "abilities": [
+    "cute-charm",
+    "technician",
+    "skill-link"
+  ],
+  "description": "They greet one another by rubbing each\nother with their tails, which are always\nkept well groomed and clean."
+}

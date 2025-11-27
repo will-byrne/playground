@@ -1,0 +1,14 @@
+{
+  "id": 117,
+  "name": "seadra",
+  "types": [
+    "water"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/117.png",
+  "abilities": [
+    "poison-point",
+    "sniper",
+    "damp"
+  ],
+  "description": "Capable of swim­\nming backwards by\nrapidly flapping\fits wing-like\npectoral fins and\nstout tail."
+}

@@ -1,0 +1,14 @@
+{
+  "id": 822,
+  "name": "corvisquire",
+  "types": [
+    "flying"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/822.png",
+  "abilities": [
+    "keen-eye",
+    "unnerve",
+    "big-pecks"
+  ],
+  "description": "Smart enough to use tools in battle, these\nPokémon have been seen picking up rocks and\nflinging them or using ropes to wrap up enemies."
+}

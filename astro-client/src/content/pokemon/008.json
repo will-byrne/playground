@@ -1,0 +1,13 @@
+{
+  "id": 8,
+  "name": "wartortle",
+  "types": [
+    "water"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/8.png",
+  "abilities": [
+    "torrent",
+    "rain-dish"
+  ],
+  "description": "Often hides in\nwater to stalk\nunwary prey. For\fswimming fast, it\nmoves its ears to\nmaintain balance."
+}

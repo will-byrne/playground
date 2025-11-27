@@ -1,0 +1,14 @@
+{
+  "id": 752,
+  "name": "araquanid",
+  "types": [
+    "water",
+    "bug"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/752.png",
+  "abilities": [
+    "water-bubble",
+    "water-absorb"
+  ],
+  "description": "It delivers headbutts with the water bubble\non its head. Small Pokémon get sucked into\nthe bubble, where they drown."
+}

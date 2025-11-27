@@ -1,0 +1,13 @@
+{
+  "id": 335,
+  "name": "zangoose",
+  "types": [
+    "normal"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/335.png",
+  "abilities": [
+    "immunity",
+    "toxic-boost"
+  ],
+  "description": "Memories of battling its arch-rival\nSEVIPER are etched into every cell of\nZANGOOSE’s body.\fThis POKéMON adroitly dodges attacks\nwith incredible agility."
+}

@@ -1,0 +1,15 @@
+{
+  "id": 34,
+  "name": "nidoking",
+  "types": [
+    "poison",
+    "ground"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/34.png",
+  "abilities": [
+    "poison-point",
+    "rivalry",
+    "sheer-force"
+  ],
+  "description": "It uses its\npowerful tail in\nbattle to smash,\fconstrict, then\nbreak the prey's\nbones."
+}

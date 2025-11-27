@@ -1,0 +1,13 @@
+{
+  "id": 385,
+  "name": "jirachi",
+  "types": [
+    "steel",
+    "psychic"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/385.png",
+  "abilities": [
+    "serene-grace"
+  ],
+  "description": "A legend states that JIRACHI will make\ntrue any wish that is written on notes\nattached to its head when it awakens.\fIf this POKéMON senses danger, it will\nfight without awakening."
+}

@@ -1,0 +1,13 @@
+{
+  "id": 953,
+  "name": "rellor",
+  "types": [
+    "bug"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/953.png",
+  "abilities": [
+    "compound-eyes",
+    "shed-skin"
+  ],
+  "description": "This Pokémon creates a mud ball by mixing sand and dirt with psychic energy. It treasures its mud ball more than its own life."
+}

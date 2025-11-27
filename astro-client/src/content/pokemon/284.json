@@ -1,0 +1,14 @@
+{
+  "id": 284,
+  "name": "masquerain",
+  "types": [
+    "bug",
+    "flying"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/284.png",
+  "abilities": [
+    "intimidate",
+    "unnerve"
+  ],
+  "description": "MASQUERAIN intimidates enemies with\nthe eyelike patterns on its antennas.\nThis POKéMON flaps its four wings to\ffreely fly in any direction - even\nsideways and backwards - as if it were\na helicopter."
+}

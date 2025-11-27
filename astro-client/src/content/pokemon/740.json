@@ -1,0 +1,15 @@
+{
+  "id": 740,
+  "name": "crabominable",
+  "types": [
+    "fighting",
+    "ice"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/740.png",
+  "abilities": [
+    "hyper-cutter",
+    "iron-fist",
+    "anger-point"
+  ],
+  "description": "It aimed for the top but got lost and ended up\non a snowy mountain. Being forced to endure\nthe cold, this Pokémon evolved and grew fur."
+}

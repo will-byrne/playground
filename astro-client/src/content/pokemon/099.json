@@ -1,0 +1,14 @@
+{
+  "id": 99,
+  "name": "kingler",
+  "types": [
+    "water"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/99.png",
+  "abilities": [
+    "hyper-cutter",
+    "shell-armor",
+    "sheer-force"
+  ],
+  "description": "The large pincer\nhas 10000 hp of\ncrushing power.\fHowever, its huge\nsize makes it\nunwieldy to use."
+}

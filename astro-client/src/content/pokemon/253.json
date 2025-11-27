@@ -1,0 +1,13 @@
+{
+  "id": 253,
+  "name": "grovyle",
+  "types": [
+    "grass"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/253.png",
+  "abilities": [
+    "overgrow",
+    "unburden"
+  ],
+  "description": "The leaves growing out of GROVYLE’s\nbody are convenient for camouflaging\nit from enemies in the forest.\fThis POKéMON is a master at climbing\ntrees in jungles."
+}

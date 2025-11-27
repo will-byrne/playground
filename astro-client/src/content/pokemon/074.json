@@ -1,0 +1,15 @@
+{
+  "id": 74,
+  "name": "geodude",
+  "types": [
+    "rock",
+    "ground"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/74.png",
+  "abilities": [
+    "rock-head",
+    "sturdy",
+    "sand-veil"
+  ],
+  "description": "Found in fields\nand mountains.\nMistaking them\ffor boulders,\npeople often step\nor trip on them."
+}

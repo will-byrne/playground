@@ -1,0 +1,14 @@
+{
+  "id": 916,
+  "name": "oinkologne-male",
+  "types": [
+    "normal"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/916.png",
+  "abilities": [
+    "lingering-aroma",
+    "gluttony",
+    "thick-fat"
+  ],
+  "description": "Oinkologne is proud of its fine, glossy skin. It emits a concentrated scent from the tip of its tail."
+}

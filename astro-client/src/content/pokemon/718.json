@@ -1,0 +1,13 @@
+{
+  "id": 718,
+  "name": "zygarde-50",
+  "types": [
+    "dragon",
+    "ground"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/718.png",
+  "abilities": [
+    "aura-break"
+  ],
+  "description": "When the Kalos region’s ecosystem falls into\ndisarray, it appears and reveals its secret power."
+}

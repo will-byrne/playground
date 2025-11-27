@@ -1,0 +1,13 @@
+{
+  "id": 372,
+  "name": "shelgon",
+  "types": [
+    "dragon"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/372.png",
+  "abilities": [
+    "rock-head",
+    "overcoat"
+  ],
+  "description": "Inside SHELGON’s armor-like shell, cells\nare in the midst of transformation\nto create an entirely new body.\fThis POKéMON’s shell is extremely heavy,\nmaking its movements sluggish."
+}

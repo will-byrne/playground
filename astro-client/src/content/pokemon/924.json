@@ -1,0 +1,14 @@
+{
+  "id": 924,
+  "name": "tandemaus",
+  "types": [
+    "normal"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/924.png",
+  "abilities": [
+    "run-away",
+    "pickup",
+    "own-tempo"
+  ],
+  "description": "Exhibiting great teamwork, they use their incisors to cut pieces out of any material that might be useful for a nest, then make off with them."
+}

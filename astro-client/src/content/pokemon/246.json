@@ -1,0 +1,14 @@
+{
+  "id": 246,
+  "name": "larvitar",
+  "types": [
+    "rock",
+    "ground"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/246.png",
+  "abilities": [
+    "guts",
+    "sand-veil"
+  ],
+  "description": "It feeds on soil.\nAfter it has eaten\na large mountain,\fit will fall\nasleep so it can\ngrow."
+}

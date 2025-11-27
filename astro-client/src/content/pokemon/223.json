@@ -1,0 +1,14 @@
+{
+  "id": 223,
+  "name": "remoraid",
+  "types": [
+    "water"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/223.png",
+  "abilities": [
+    "hustle",
+    "sniper",
+    "moody"
+  ],
+  "description": "It has superb ac­\ncuracy. The water\nit shoots out can\fstrike even moving\nprey from more\nthan 300 feet."
+}

@@ -1,0 +1,13 @@
+{
+  "id": 412,
+  "name": "burmy",
+  "types": [
+    "bug"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/412.png",
+  "abilities": [
+    "shed-skin",
+    "overcoat"
+  ],
+  "description": "To shelter itself from cold, wintry\nwinds, it covers itself with a cloak\nmade of twigs and leaves."
+}

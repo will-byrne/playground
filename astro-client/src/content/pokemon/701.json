@@ -1,0 +1,15 @@
+{
+  "id": 701,
+  "name": "hawlucha",
+  "types": [
+    "fighting",
+    "flying"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/701.png",
+  "abilities": [
+    "limber",
+    "unburden",
+    "mold-breaker"
+  ],
+  "description": "Although its body is small, its proficient\nfighting skills enable it to keep up with\nbig bruisers like Machamp and Hariyama."
+}

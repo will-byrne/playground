@@ -1,0 +1,14 @@
+{
+  "id": 954,
+  "name": "rabsca",
+  "types": [
+    "bug",
+    "psychic"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/954.png",
+  "abilities": [
+    "synchronize",
+    "telepathy"
+  ],
+  "description": "The body that supports the ball barely moves. Therefore, it is thought that the true body of this Pokémon is actually inside the ball."
+}

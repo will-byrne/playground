@@ -1,0 +1,14 @@
+{
+  "id": 574,
+  "name": "gothita",
+  "types": [
+    "psychic"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/574.png",
+  "abilities": [
+    "frisk",
+    "competitive",
+    "shadow-tag"
+  ],
+  "description": "Their ribbonlike feelers increase their\npsychic power. They are always staring\nat something."
+}

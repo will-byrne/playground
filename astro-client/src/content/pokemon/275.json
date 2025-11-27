@@ -1,0 +1,15 @@
+{
+  "id": 275,
+  "name": "shiftry",
+  "types": [
+    "grass",
+    "dark"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/275.png",
+  "abilities": [
+    "chlorophyll",
+    "wind-rider",
+    "pickpocket"
+  ],
+  "description": "It lives quietly in the deep forest.\nIt is said to create chilly winter\nwinds with the fans it holds."
+}

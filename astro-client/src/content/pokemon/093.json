@@ -1,0 +1,13 @@
+{
+  "id": 93,
+  "name": "haunter",
+  "types": [
+    "ghost",
+    "poison"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/93.png",
+  "abilities": [
+    "levitate"
+  ],
+  "description": "Because of its\nability to slip\nthrough block\fwalls, it is said\nto be from an­\nother dimension."
+}

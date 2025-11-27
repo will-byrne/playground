@@ -1,0 +1,12 @@
+{
+  "id": 896,
+  "name": "glastrier",
+  "types": [
+    "ice"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/896.png",
+  "abilities": [
+    "chilling-neigh"
+  ],
+  "description": "Glastrier emits intense cold from its hooves.\nIt’s also a belligerent Pokémon—anything it\nwants, it takes by force."
+}

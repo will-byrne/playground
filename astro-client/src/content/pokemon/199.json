@@ -1,0 +1,15 @@
+{
+  "id": 199,
+  "name": "slowking",
+  "types": [
+    "water",
+    "psychic"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/199.png",
+  "abilities": [
+    "oblivious",
+    "own-tempo",
+    "regenerator"
+  ],
+  "description": "It has incredible\nintellect and in­\ntuition. Whatever\fthe situation, it\nremains calm and\ncollected."
+}

@@ -1,0 +1,13 @@
+{
+  "id": 804,
+  "name": "naganadel",
+  "types": [
+    "poison",
+    "dragon"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/804.png",
+  "abilities": [
+    "beast-boost"
+  ],
+  "description": "It stores hundreds of liters of poisonous liquid\ninside its body. It is one of the organisms known\nas UBs."
+}

@@ -1,0 +1,15 @@
+{
+  "id": 213,
+  "name": "shuckle",
+  "types": [
+    "bug",
+    "rock"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/213.png",
+  "abilities": [
+    "sturdy",
+    "gluttony",
+    "contrary"
+  ],
+  "description": "The BERRIES it\nstores in its\nvase-like shell\fdecompose and\nbecome a gooey\nliquid."
+}

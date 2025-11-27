@@ -1,0 +1,14 @@
+{
+  "id": 584,
+  "name": "vanilluxe",
+  "types": [
+    "ice"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/584.png",
+  "abilities": [
+    "ice-body",
+    "snow-warning",
+    "weak-armor"
+  ],
+  "description": "Swallowing large amounts of water, they\nmake snow clouds inside their bodies and\nattack their foes with violent blizzards."
+}

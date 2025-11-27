@@ -1,0 +1,15 @@
+{
+  "id": 625,
+  "name": "bisharp",
+  "types": [
+    "dark",
+    "steel"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/625.png",
+  "abilities": [
+    "defiant",
+    "inner-focus",
+    "pressure"
+  ],
+  "description": "It leads a group of Pawniard.\nIt battles to become the boss, but will\nbe driven from the group if it loses."
+}

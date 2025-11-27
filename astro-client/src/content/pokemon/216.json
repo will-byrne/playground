@@ -1,0 +1,14 @@
+{
+  "id": 216,
+  "name": "teddiursa",
+  "types": [
+    "normal"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/216.png",
+  "abilities": [
+    "pickup",
+    "quick-feet",
+    "honey-gather"
+  ],
+  "description": "If it finds honey,\nits crescent mark\nglows. It always\flicks its paws\nbecause they are\nsoaked with honey."
+}

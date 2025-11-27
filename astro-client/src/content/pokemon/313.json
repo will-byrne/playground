@@ -1,0 +1,14 @@
+{
+  "id": 313,
+  "name": "volbeat",
+  "types": [
+    "bug"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/313.png",
+  "abilities": [
+    "illuminate",
+    "swarm",
+    "prankster"
+  ],
+  "description": "With the arrival of night, VOLBEAT emits\nlight from its tail. It communicates with\nothers by adjusting the intensity and\fflashing of its light.\nThis POKéMON is attracted by the sweet\naroma of ILLUMISE."
+}

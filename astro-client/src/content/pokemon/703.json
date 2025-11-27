@@ -1,0 +1,14 @@
+{
+  "id": 703,
+  "name": "carbink",
+  "types": [
+    "rock",
+    "fairy"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/703.png",
+  "abilities": [
+    "clear-body",
+    "sturdy"
+  ],
+  "description": "Born from the temperatures and pressures\ndeep underground, it fires beams from the\nstone in its head."
+}

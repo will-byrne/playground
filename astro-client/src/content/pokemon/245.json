@@ -1,0 +1,13 @@
+{
+  "id": 245,
+  "name": "suicune",
+  "types": [
+    "water"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/245.png",
+  "abilities": [
+    "pressure",
+    "inner-focus"
+  ],
+  "description": "It races around the world to\npurify fouled water. It dashes\naway with the north wind."
+}

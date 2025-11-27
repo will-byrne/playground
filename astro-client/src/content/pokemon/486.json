@@ -1,0 +1,12 @@
+{
+  "id": 486,
+  "name": "regigigas",
+  "types": [
+    "normal"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/486.png",
+  "abilities": [
+    "slow-start"
+  ],
+  "description": "There is an enduring legend that\nstates this Pokémon towed\ncontinents with ropes."
+}

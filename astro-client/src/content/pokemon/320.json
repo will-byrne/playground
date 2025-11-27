@@ -1,0 +1,14 @@
+{
+  "id": 320,
+  "name": "wailmer",
+  "types": [
+    "water"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/320.png",
+  "abilities": [
+    "water-veil",
+    "oblivious",
+    "pressure"
+  ],
+  "description": "WAILMER’s nostrils are located above\nits eyes. This playful POKéMON loves\nto startle people by forcefully snorting\fout seawater it stores inside its body\nout of its nostrils."
+}

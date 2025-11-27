@@ -1,0 +1,14 @@
+{
+  "id": 763,
+  "name": "tsareena",
+  "types": [
+    "grass"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/763.png",
+  "abilities": [
+    "leaf-guard",
+    "queenly-majesty",
+    "sweet-veil"
+  ],
+  "description": "Its long, striking legs aren’t just for show but to\nbe used to kick with skill. In victory, it shows off\nby kicking the defeated, laughing boisterously."
+}

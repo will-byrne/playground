@@ -1,0 +1,13 @@
+{
+  "id": 38,
+  "name": "ninetales",
+  "types": [
+    "fire"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/38.png",
+  "abilities": [
+    "flash-fire",
+    "drought"
+  ],
+  "description": "Very smart and\nvery vengeful.\nGrabbing one of\fits many tails\ncould result in a\n1000-year curse."
+}

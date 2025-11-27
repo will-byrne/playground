@@ -1,0 +1,15 @@
+{
+  "id": 187,
+  "name": "hoppip",
+  "types": [
+    "grass",
+    "flying"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/187.png",
+  "abilities": [
+    "chlorophyll",
+    "leaf-guard",
+    "infiltrator"
+  ],
+  "description": "To keep from being\nblown away by the\nwind, they gather\fin clusters. They\ndo enjoy gentle\nbreezes, though."
+}

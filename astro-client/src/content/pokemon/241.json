@@ -1,0 +1,14 @@
+{
+  "id": 241,
+  "name": "miltank",
+  "types": [
+    "normal"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/241.png",
+  "abilities": [
+    "thick-fat",
+    "scrappy",
+    "sap-sipper"
+  ],
+  "description": "Its milk is packed\nwith nutrition,\nmaking it the\fultimate beverage\nfor the sick or\nweary."
+}

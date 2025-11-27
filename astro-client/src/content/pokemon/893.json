@@ -1,0 +1,13 @@
+{
+  "id": 893,
+  "name": "zarude",
+  "types": [
+    "dark",
+    "grass"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/893.png",
+  "abilities": [
+    "leaf-guard"
+  ],
+  "description": "Within dense forests, this Pokémon lives in a pack\nwith others of its kind. It’s incredibly aggressive,\nand the other Pokémon of the forest fear it."
+}

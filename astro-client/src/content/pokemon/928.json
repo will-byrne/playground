@@ -1,0 +1,14 @@
+{
+  "id": 928,
+  "name": "smoliv",
+  "types": [
+    "grass",
+    "normal"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/928.png",
+  "abilities": [
+    "early-bird",
+    "harvest"
+  ],
+  "description": "It protects itself from enemies by emitting oil from the fruit on its head. This oil is bitter and astringent enough to make someone flinch."
+}

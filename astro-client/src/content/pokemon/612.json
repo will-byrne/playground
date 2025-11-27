@@ -1,0 +1,14 @@
+{
+  "id": 612,
+  "name": "haxorus",
+  "types": [
+    "dragon"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/612.png",
+  "abilities": [
+    "rivalry",
+    "mold-breaker",
+    "unnerve"
+  ],
+  "description": "They are kind but can be relentless\nwhen defending territory. They challenge\nfoes with tusks that can cut steel."
+}

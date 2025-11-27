@@ -1,0 +1,14 @@
+{
+  "id": 283,
+  "name": "surskit",
+  "types": [
+    "bug",
+    "water"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/283.png",
+  "abilities": [
+    "swift-swim",
+    "rain-dish"
+  ],
+  "description": "From the tips of its feet, SURSKIT\nsecretes an oil that enables it to walk\non water as if it were skating.\fThis POKéMON feeds on microscopic\norganisms in ponds and lakes."
+}

@@ -1,0 +1,13 @@
+{
+  "id": 810,
+  "name": "grookey",
+  "types": [
+    "grass"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/810.png",
+  "abilities": [
+    "overgrow",
+    "grassy-surge"
+  ],
+  "description": "When it uses its special stick to strike up a beat,\nthe sound waves produced carry revitalizing\nenergy to the plants and flowers in the area."
+}

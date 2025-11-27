@@ -1,0 +1,14 @@
+{
+  "id": 943,
+  "name": "mabosstiff",
+  "types": [
+    "dark"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/943.png",
+  "abilities": [
+    "intimidate",
+    "guard-dog",
+    "stakeout"
+  ],
+  "description": "This Pokémon can store energy in its large dewlap. Mabosstiff unleashes this energy all at once to blow away enemies."
+}

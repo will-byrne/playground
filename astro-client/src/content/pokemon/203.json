@@ -1,0 +1,15 @@
+{
+  "id": 203,
+  "name": "girafarig",
+  "types": [
+    "normal",
+    "psychic"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/203.png",
+  "abilities": [
+    "inner-focus",
+    "early-bird",
+    "sap-sipper"
+  ],
+  "description": "Its tail has a\nsmall brain of its\nown. Beware! If\fyou get close, it\nmay react to your\nscent and bite."
+}

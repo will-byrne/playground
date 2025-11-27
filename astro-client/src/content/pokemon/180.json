@@ -1,0 +1,13 @@
+{
+  "id": 180,
+  "name": "flaaffy",
+  "types": [
+    "electric"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/180.png",
+  "abilities": [
+    "static",
+    "plus"
+  ],
+  "description": "As a result of\nstoring too much\nelectricity, it\fdeveloped patches\nwhere even downy\nwool won't grow."
+}

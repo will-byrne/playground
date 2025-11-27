@@ -1,0 +1,14 @@
+{
+  "id": 750,
+  "name": "mudsdale",
+  "types": [
+    "ground"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/750.png",
+  "abilities": [
+    "own-tempo",
+    "stamina",
+    "inner-focus"
+  ],
+  "description": "It spits a mud that provides resistance to both\nwind and rain, so the walls of old houses were\noften coated with it."
+}

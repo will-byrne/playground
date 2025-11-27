@@ -1,0 +1,15 @@
+{
+  "id": 589,
+  "name": "escavalier",
+  "types": [
+    "bug",
+    "steel"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/589.png",
+  "abilities": [
+    "swarm",
+    "shell-armor",
+    "overcoat"
+  ],
+  "description": "They fly around at high speed, striking\nwith their pointed spears. Even when in\ntrouble, they face opponents bravely."
+}

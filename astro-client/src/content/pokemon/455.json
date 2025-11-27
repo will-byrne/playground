@@ -1,0 +1,12 @@
+{
+  "id": 455,
+  "name": "carnivine",
+  "types": [
+    "grass"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/455.png",
+  "abilities": [
+    "levitate"
+  ],
+  "description": "It attracts prey with its sweet-\nsmelling saliva, then chomps down.\nIt takes a whole day to eat prey."
+}

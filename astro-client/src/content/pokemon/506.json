@@ -1,0 +1,14 @@
+{
+  "id": 506,
+  "name": "lillipup",
+  "types": [
+    "normal"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/506.png",
+  "abilities": [
+    "vital-spirit",
+    "pickup",
+    "run-away"
+  ],
+  "description": "It faces strong opponents with great\ncourage. But, when at a disadvantage in\na fight, this intelligent Pokémon flees."
+}

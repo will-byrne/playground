@@ -1,0 +1,15 @@
+{
+  "id": 581,
+  "name": "swanna",
+  "types": [
+    "water",
+    "flying"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/581.png",
+  "abilities": [
+    "keen-eye",
+    "big-pecks",
+    "hydration"
+  ],
+  "description": "Swanna start to dance at dusk.\nThe one dancing in the middle is\nthe leader of the flock."
+}

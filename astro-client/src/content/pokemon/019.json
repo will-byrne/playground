@@ -1,0 +1,14 @@
+{
+  "id": 19,
+  "name": "rattata",
+  "types": [
+    "normal"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/19.png",
+  "abilities": [
+    "run-away",
+    "guts",
+    "hustle"
+  ],
+  "description": "Bites anything\nwhen it attacks.\nSmall and very\fquick, it is a\ncommon sight in\nmany places."
+}

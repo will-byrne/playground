@@ -1,0 +1,14 @@
+{
+  "id": 262,
+  "name": "mightyena",
+  "types": [
+    "dark"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/262.png",
+  "abilities": [
+    "intimidate",
+    "quick-feet",
+    "moxie"
+  ],
+  "description": "MIGHTYENA gives obvious signals when\nit is preparing to attack. It starts to\ngrowl deeply and then flattens its body.\fThis POKéMON will bite savagely with its\nsharply pointed fangs."
+}

@@ -1,0 +1,13 @@
+{
+  "id": 555,
+  "name": "darmanitan-standard",
+  "types": [
+    "fire"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/555.png",
+  "abilities": [
+    "sheer-force",
+    "zen-mode"
+  ],
+  "description": "Its internal fire burns at 2,500° F,\nmaking enough power that it can\ndestroy a dump truck with one punch."
+}

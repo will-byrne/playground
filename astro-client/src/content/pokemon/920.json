@@ -1,0 +1,14 @@
+{
+  "id": 920,
+  "name": "lokix",
+  "types": [
+    "bug",
+    "dark"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/920.png",
+  "abilities": [
+    "swarm",
+    "tinted-lens"
+  ],
+  "description": "When it decides to fight all out, it stands on its previously folded legs to enter Showdown Mode. It neutralizes its enemies in short order."
+}

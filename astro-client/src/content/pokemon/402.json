@@ -1,0 +1,13 @@
+{
+  "id": 402,
+  "name": "kricketune",
+  "types": [
+    "bug"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/402.png",
+  "abilities": [
+    "swarm",
+    "technician"
+  ],
+  "description": "It crosses its knifelike arms in\nfront of its chest when it cries.\nIt can compose melodies ad lib."
+}

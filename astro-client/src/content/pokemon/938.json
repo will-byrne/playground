@@ -1,0 +1,14 @@
+{
+  "id": 938,
+  "name": "tadbulb",
+  "types": [
+    "electric"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/938.png",
+  "abilities": [
+    "own-tempo",
+    "static",
+    "damp"
+  ],
+  "description": "Tadbulb shakes its tail to generate electricity. If it senses danger, it will make its head blink on and off to alert its allies."
+}

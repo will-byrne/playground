@@ -1,0 +1,15 @@
+{
+  "id": 880,
+  "name": "dracozolt",
+  "types": [
+    "electric",
+    "dragon"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/880.png",
+  "abilities": [
+    "volt-absorb",
+    "hustle",
+    "sand-rush"
+  ],
+  "description": "In ancient times, it was unbeatable thanks to its\npowerful lower body, but it went extinct anyway\nafter it depleted all its plant-based food sources."
+}

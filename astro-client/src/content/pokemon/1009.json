@@ -1,0 +1,13 @@
+{
+  "id": 1009,
+  "name": "walking-wake",
+  "types": [
+    "water",
+    "dragon"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1009.png",
+  "abilities": [
+    "protosynthesis"
+  ],
+  "description": "This ferocious creature is shrouded in mystery. It's named after an aquatic monster mentioned in an old expedition journal."
+}

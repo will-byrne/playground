@@ -1,0 +1,15 @@
+{
+  "id": 436,
+  "name": "bronzor",
+  "types": [
+    "steel",
+    "psychic"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/436.png",
+  "abilities": [
+    "levitate",
+    "heatproof",
+    "heavy-metal"
+  ],
+  "description": "Implements shaped like it were\ndiscovered in ancient tombs. It is\nunknown if they are related."
+}

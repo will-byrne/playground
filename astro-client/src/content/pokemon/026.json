@@ -1,0 +1,13 @@
+{
+  "id": 26,
+  "name": "raichu",
+  "types": [
+    "electric"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/26.png",
+  "abilities": [
+    "static",
+    "lightning-rod"
+  ],
+  "description": "Its long tail serves as a ground to protect itself\nfrom its own high-voltage power."
+}

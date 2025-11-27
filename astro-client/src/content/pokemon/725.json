@@ -1,0 +1,13 @@
+{
+  "id": 725,
+  "name": "litten",
+  "types": [
+    "fire"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/725.png",
+  "abilities": [
+    "blaze",
+    "intimidate"
+  ],
+  "description": "While grooming itself, it builds up fur inside its\nstomach. It sets the fur alight and spews fiery\nattacks, which change based on how it coughs."
+}

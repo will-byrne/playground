@@ -1,0 +1,14 @@
+{
+  "id": 375,
+  "name": "metang",
+  "types": [
+    "steel",
+    "psychic"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/375.png",
+  "abilities": [
+    "clear-body",
+    "light-metal"
+  ],
+  "description": "When two BELDUM fuse together, METANG\nis formed. The brains of the BELDUM are\njoined by a magnetic nervous system.\fBy linking its brains magnetically,\nthis POKéMON generates strong\npsychokinetic power."
+}

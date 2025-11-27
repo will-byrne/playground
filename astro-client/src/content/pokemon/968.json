@@ -1,0 +1,13 @@
+{
+  "id": 968,
+  "name": "orthworm",
+  "types": [
+    "steel"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/968.png",
+  "abilities": [
+    "earth-eater",
+    "sand-veil"
+  ],
+  "description": "When attacked, this Pokémon will wield the tendrils on its body like fists and pelt the opponent with a storm of punches."
+}

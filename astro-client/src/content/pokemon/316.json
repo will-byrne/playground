@@ -1,0 +1,14 @@
+{
+  "id": 316,
+  "name": "gulpin",
+  "types": [
+    "poison"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/316.png",
+  "abilities": [
+    "liquid-ooze",
+    "sticky-hold",
+    "gluttony"
+  ],
+  "description": "Virtually all of GULPIN’s body is its\nstomach. As a result, it can swallow\nsomething its own size.\fThis POKéMON’s stomach contains a\nspecial fluid that digests anything."
+}

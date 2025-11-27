@@ -1,0 +1,13 @@
+{
+  "id": 801,
+  "name": "magearna",
+  "types": [
+    "steel",
+    "fairy"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/801.png",
+  "abilities": [
+    "soul-heart"
+  ],
+  "description": "This artificial Pokémon, constructed more than\n500 years ago, can understand human speech\nbut cannot itself speak."
+}

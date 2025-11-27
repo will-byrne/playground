@@ -1,0 +1,12 @@
+{
+  "id": 481,
+  "name": "mesprit",
+  "types": [
+    "psychic"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/481.png",
+  "abilities": [
+    "levitate"
+  ],
+  "description": "Known as “The Being of Emotion.”\nIt taught humans the nobility of\nsorrow, pain, and joy."
+}

@@ -1,0 +1,15 @@
+{
+  "id": 83,
+  "name": "farfetchd",
+  "types": [
+    "normal",
+    "flying"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/83.png",
+  "abilities": [
+    "keen-eye",
+    "inner-focus",
+    "defiant"
+  ],
+  "description": "The sprig of\ngreen onions it\nholds is its\fweapon. It is\nused much like a\nmetal sword."
+}

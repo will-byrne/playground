@@ -1,0 +1,13 @@
+{
+  "id": 370,
+  "name": "luvdisc",
+  "types": [
+    "water"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/370.png",
+  "abilities": [
+    "swift-swim",
+    "hydration"
+  ],
+  "description": "LUVDISC live in shallow seas in the\ntropics. This heart-shaped POKéMON\nearned its name by swimming after\floving couples it spotted in the\nocean’s waves."
+}

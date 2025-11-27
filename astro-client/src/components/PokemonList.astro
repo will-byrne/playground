@@ -1,0 +1,52 @@
+---
+const { pokedex } = Astro.props;
+---
+
+<style>
+  .list { max-width: 500px; margin: 0 auto; }
+  input {
+    width: 100%; padding: 0.5rem;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+  ul { list-style: none; padding: 0; }
+  li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #ddd;
+  }
+  a {
+    text-decoration: none;
+    color: #333;
+  }
+</style>
+
+<div class="list" client:load>
+  <input id="search" type="text" placeholder="Search by name or ID..." />
+
+  <ul id="items">
+    {pokedex.map(p => (
+      <li data-name={p.data.name.toLowerCase()} data-id={p.data.id}>
+        <a href={`/pokemon/${p.slug}`}>#{p.data.id} - {p.data.name}</a>
+      </li>
+    ))}
+  </ul>
+</div>
+
+<script>
+  const input = document.querySelector("#search");
+  const items = Array.from(document.querySelectorAll("#items li"));
+
+  input!.addEventListener("input", () => {
+    const q = input!.value.toLowerCase();
+
+    items.forEach(li => {
+      const name = li.dataset.name;
+      const id = li.dataset.id;
+
+      li.style.display =
+        name.includes(q) || id.startsWith(q)
+          ? "block"
+          : "none";
+    });
+  });
+</script>

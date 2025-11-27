@@ -1,0 +1,14 @@
+{
+  "id": 50,
+  "name": "diglett",
+  "types": [
+    "ground"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/50.png",
+  "abilities": [
+    "sand-veil",
+    "arena-trap",
+    "sand-force"
+  ],
+  "description": "Lives about one\nyard underground\nwhere it feeds on\fplant roots. It\nsometimes appears\nabove ground."
+}

@@ -1,0 +1,14 @@
+{
+  "id": 118,
+  "name": "goldeen",
+  "types": [
+    "water"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/118.png",
+  "abilities": [
+    "swift-swim",
+    "water-veil",
+    "lightning-rod"
+  ],
+  "description": "Its tail fin\nbillows like an\nelegant ballroom\fdress, giving it\nthe nickname of\nthe Water Queen."
+}

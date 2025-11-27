@@ -1,0 +1,15 @@
+{
+  "id": 464,
+  "name": "rhyperior",
+  "types": [
+    "ground",
+    "rock"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/464.png",
+  "abilities": [
+    "lightning-rod",
+    "solid-rock",
+    "reckless"
+  ],
+  "description": "It puts rocks in holes in its palms\nand uses its muscles to shoot them.\nGEODUDE are shot at rare times."
+}

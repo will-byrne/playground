@@ -1,0 +1,14 @@
+{
+  "id": 301,
+  "name": "delcatty",
+  "types": [
+    "normal"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/301.png",
+  "abilities": [
+    "cute-charm",
+    "normalize",
+    "wonder-skin"
+  ],
+  "description": "DELCATTY prefers to live an unfettered\nexistence in which it can do as it\npleases at its own pace.\fBecause this POKéMON eats and sleeps\nwhenever it decides, its daily routines\nare completely random."
+}

@@ -1,0 +1,13 @@
+{
+  "id": 917,
+  "name": "tarountula",
+  "types": [
+    "bug"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/917.png",
+  "abilities": [
+    "insomnia",
+    "stakeout"
+  ],
+  "description": "The ball of threads wrapped around its body is elastic enough to deflect the scythes of Scyther, this Pokémon’s natural enemy."
+}

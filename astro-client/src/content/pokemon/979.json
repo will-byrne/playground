@@ -1,0 +1,15 @@
+{
+  "id": 979,
+  "name": "annihilape",
+  "types": [
+    "fighting",
+    "ghost"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/979.png",
+  "abilities": [
+    "vital-spirit",
+    "inner-focus",
+    "defiant"
+  ],
+  "description": "When its anger rose beyond a critical point, this Pokémon gained power that is unfettered by the limits of its physical body."
+}

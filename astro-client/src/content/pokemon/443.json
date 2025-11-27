@@ -1,0 +1,14 @@
+{
+  "id": 443,
+  "name": "gible",
+  "types": [
+    "dragon",
+    "ground"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/443.png",
+  "abilities": [
+    "sand-veil",
+    "rough-skin"
+  ],
+  "description": "It nests in small, horizontal holes\nin cave walls. It pounces to catch\nprey that stray too close."
+}

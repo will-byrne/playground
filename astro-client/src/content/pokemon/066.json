@@ -1,0 +1,14 @@
+{
+  "id": 66,
+  "name": "machop",
+  "types": [
+    "fighting"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/66.png",
+  "abilities": [
+    "guts",
+    "no-guard",
+    "steadfast"
+  ],
+  "description": "Loves to build\nits muscles.\nIt trains in all\fstyles of martial\narts to become\neven stronger."
+}

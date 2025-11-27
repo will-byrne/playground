@@ -1,0 +1,14 @@
+{
+  "id": 113,
+  "name": "chansey",
+  "types": [
+    "normal"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/113.png",
+  "abilities": [
+    "natural-cure",
+    "serene-grace",
+    "healer"
+  ],
+  "description": "A rare and elusive\nPOKéMON that is\nsaid to bring\fhappiness to those\nwho manage to get\nit."
+}

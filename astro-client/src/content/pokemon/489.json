@@ -1,0 +1,12 @@
+{
+  "id": 489,
+  "name": "phione",
+  "types": [
+    "water"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/489.png",
+  "abilities": [
+    "hydration"
+  ],
+  "description": "It drifts in warm seas. It always returns to where it\nwas born, no matter how far it may have drifted."
+}

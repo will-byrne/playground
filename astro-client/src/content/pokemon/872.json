@@ -1,0 +1,14 @@
+{
+  "id": 872,
+  "name": "snom",
+  "types": [
+    "ice",
+    "bug"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/872.png",
+  "abilities": [
+    "shield-dust",
+    "ice-scales"
+  ],
+  "description": "It spits out thread imbued with a frigid sort of\nenergy and uses it to tie its body to branches,\ndisguising itself as an icicle while it sleeps."
+}

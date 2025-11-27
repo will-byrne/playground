@@ -1,0 +1,14 @@
+{
+  "id": 3,
+  "name": "venusaur",
+  "types": [
+    "grass",
+    "poison"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/3.png",
+  "abilities": [
+    "overgrow",
+    "chlorophyll"
+  ],
+  "description": "The plant blooms\nwhen it is\nabsorbing solar\fenergy. It stays\non the move to\nseek sunlight."
+}

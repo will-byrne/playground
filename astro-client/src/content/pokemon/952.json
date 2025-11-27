@@ -1,0 +1,15 @@
+{
+  "id": 952,
+  "name": "scovillain",
+  "types": [
+    "grass",
+    "fire"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/952.png",
+  "abilities": [
+    "chlorophyll",
+    "insomnia",
+    "moody"
+  ],
+  "description": "The red head converts spicy chemicals into fire energy and blasts the surrounding area with a super spicy stream of flame."
+}

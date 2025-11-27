@@ -1,0 +1,15 @@
+{
+  "id": 530,
+  "name": "excadrill",
+  "types": [
+    "ground",
+    "steel"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/530.png",
+  "abilities": [
+    "sand-rush",
+    "sand-force",
+    "mold-breaker"
+  ],
+  "description": "It can help in tunnel construction.\nIts drill has evolved into steel strong\nenough to bore through iron plates."
+}

@@ -1,0 +1,14 @@
+{
+  "id": 186,
+  "name": "politoed",
+  "types": [
+    "water"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/186.png",
+  "abilities": [
+    "water-absorb",
+    "damp",
+    "drizzle"
+  ],
+  "description": "If POLIWAG and\nPOLIWHIRL hear its\nechoing cry, they\frespond by gather­\ning from far and\nwide."
+}

@@ -1,0 +1,13 @@
+{
+  "id": 665,
+  "name": "spewpa",
+  "types": [
+    "bug"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/665.png",
+  "abilities": [
+    "shed-skin",
+    "friend-guard"
+  ],
+  "description": "It lives hidden within thicket shadows.\nWhen predators attack, it quickly bristles the fur\ncovering its body in an effort to threaten them."
+}

@@ -1,0 +1,14 @@
+{
+  "id": 549,
+  "name": "lilligant",
+  "types": [
+    "grass"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/549.png",
+  "abilities": [
+    "chlorophyll",
+    "own-tempo",
+    "leaf-guard"
+  ],
+  "description": "Even veteran Trainers face a challenge\nin getting its beautiful flower to bloom.\nThis Pokémon is popular with celebrities."
+}

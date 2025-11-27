@@ -1,0 +1,15 @@
+{
+  "id": 195,
+  "name": "quagsire",
+  "types": [
+    "water",
+    "ground"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/195.png",
+  "abilities": [
+    "damp",
+    "water-absorb",
+    "unaware"
+  ],
+  "description": "This carefree\nPOKéMON has an\neasy-going nature.\fWhile swimming, it\nalways bumps into\nboat hulls."
+}

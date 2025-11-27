@@ -1,0 +1,14 @@
+{
+  "id": 261,
+  "name": "poochyena",
+  "types": [
+    "dark"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/261.png",
+  "abilities": [
+    "run-away",
+    "quick-feet",
+    "rattled"
+  ],
+  "description": "At first sight, POOCHYENA takes a bite\nat anything that moves.\nThis POKéMON chases after prey until\fthe victim becomes exhausted.\nHowever, it may turn tail if the prey\nstrikes back."
+}

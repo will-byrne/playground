@@ -1,0 +1,13 @@
+{
+  "id": 251,
+  "name": "celebi",
+  "types": [
+    "psychic",
+    "grass"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/251.png",
+  "abilities": [
+    "natural-cure"
+  ],
+  "description": "This POKéMON wan­\nders across time.\nGrass and trees\fflourish in the\nforests in which\nit has appeared."
+}

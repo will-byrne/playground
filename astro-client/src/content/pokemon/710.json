@@ -1,0 +1,15 @@
+{
+  "id": 710,
+  "name": "pumpkaboo-average",
+  "types": [
+    "ghost",
+    "grass"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/710.png",
+  "abilities": [
+    "pickup",
+    "frisk",
+    "insomnia"
+  ],
+  "description": "The pumpkin body is inhabited by a spirit\ntrapped in this world. As the sun sets,\nit becomes restless and active."
+}

@@ -1,0 +1,15 @@
+{
+  "id": 742,
+  "name": "cutiefly",
+  "types": [
+    "bug",
+    "fairy"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/742.png",
+  "abilities": [
+    "honey-gather",
+    "shield-dust",
+    "sweet-veil"
+  ],
+  "description": "It feeds on the nectar and pollen of flowers.\nBecause it’s able to sense auras, it can identify\nwhich flowers are about to bloom."
+}

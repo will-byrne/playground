@@ -1,0 +1,15 @@
+{
+  "id": 220,
+  "name": "swinub",
+  "types": [
+    "ice",
+    "ground"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/220.png",
+  "abilities": [
+    "oblivious",
+    "snow-cloak",
+    "thick-fat"
+  ],
+  "description": "It rubs its snout\non the ground to\nfind and dig up\ffood. It sometimes\ndiscovers hot\nsprings."
+}

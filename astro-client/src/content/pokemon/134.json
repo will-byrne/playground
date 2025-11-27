@@ -1,0 +1,13 @@
+{
+  "id": 134,
+  "name": "vaporeon",
+  "types": [
+    "water"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/134.png",
+  "abilities": [
+    "water-absorb",
+    "hydration"
+  ],
+  "description": "Lives close to\nwater. Its long\ntail is ridged\fwith a fin which\nis often mistaken\nfor a mermaid's."
+}

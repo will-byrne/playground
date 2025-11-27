@@ -1,0 +1,12 @@
+{
+  "id": 1017,
+  "name": "ogerpon",
+  "types": [
+    "grass"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1017.png",
+  "abilities": [
+    "defiant"
+  ],
+  "description": "This Pokémon's type changes based on which mask it's wearing. It confounds its enemies with nimble movements and kicks."
+}

@@ -1,0 +1,13 @@
+{
+  "id": 907,
+  "name": "floragato",
+  "types": [
+    "grass"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/907.png",
+  "abilities": [
+    "overgrow",
+    "protean"
+  ],
+  "description": "Floragato deftly wields the vine hidden beneath its long fur, slamming the hard flower bud against its opponents."
+}

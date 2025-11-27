@@ -1,0 +1,15 @@
+{
+  "id": 660,
+  "name": "diggersby",
+  "types": [
+    "normal",
+    "ground"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/660.png",
+  "abilities": [
+    "pickup",
+    "cheek-pouch",
+    "huge-power"
+  ],
+  "description": "With their powerful ears, they can heft\nboulders of a ton or more with ease.\nThey can be a big help at construction sites."
+}

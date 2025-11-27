@@ -1,0 +1,14 @@
+{
+  "id": 332,
+  "name": "cacturne",
+  "types": [
+    "grass",
+    "dark"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/332.png",
+  "abilities": [
+    "sand-veil",
+    "water-absorb"
+  ],
+  "description": "During the daytime, CACTURNE remains\nunmoving so that it does not lose any\nmoisture to the harsh desert sun.\fThis POKéMON becomes active at night\nwhen the temperature drops."
+}

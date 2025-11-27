@@ -1,0 +1,13 @@
+{
+  "id": 649,
+  "name": "genesect",
+  "types": [
+    "bug",
+    "steel"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/649.png",
+  "abilities": [
+    "download"
+  ],
+  "description": "Over 300 million years ago, it was feared\nas the strongest of hunters.\nIt has been modified by Team Plasma."
+}

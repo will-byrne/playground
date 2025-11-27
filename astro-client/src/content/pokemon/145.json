@@ -1,0 +1,14 @@
+{
+  "id": 145,
+  "name": "zapdos",
+  "types": [
+    "electric",
+    "flying"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/145.png",
+  "abilities": [
+    "pressure",
+    "static"
+  ],
+  "description": "A legendary bird\nPOKéMON that is\nsaid to appear\ffrom clouds while\ndropping enormous\nlightning bolts."
+}

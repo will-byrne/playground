@@ -1,0 +1,15 @@
+{
+  "id": 227,
+  "name": "skarmory",
+  "types": [
+    "steel",
+    "flying"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/227.png",
+  "abilities": [
+    "keen-eye",
+    "sturdy",
+    "weak-armor"
+  ],
+  "description": "Its sturdy wings\nlook heavy, but\nthey are actually\fhollow and light,\nallowing it to fly\nfreely in the sky."
+}

@@ -1,0 +1,12 @@
+{
+  "id": 351,
+  "name": "castform",
+  "types": [
+    "normal"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/351.png",
+  "abilities": [
+    "forecast"
+  ],
+  "description": "CASTFORM’s appearance changes with\nthe weather.\nThis POKéMON gained the ability to use\fthe vast power of nature to protect\nits tiny body."
+}

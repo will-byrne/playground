@@ -1,0 +1,12 @@
+{
+  "id": 488,
+  "name": "cresselia",
+  "types": [
+    "psychic"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/488.png",
+  "abilities": [
+    "levitate"
+  ],
+  "description": "Shiny particles are released from\nits wings like a veil. It is said\nto represent the crescent moon."
+}

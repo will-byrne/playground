@@ -1,0 +1,14 @@
+{
+  "id": 427,
+  "name": "buneary",
+  "types": [
+    "normal"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/427.png",
+  "abilities": [
+    "run-away",
+    "klutz",
+    "limber"
+  ],
+  "description": "It slams foes by sharply uncoiling\nits rolled ears. It stings enough\nto make a grown-up cry in pain."
+}

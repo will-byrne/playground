@@ -1,0 +1,14 @@
+{
+  "id": 556,
+  "name": "maractus",
+  "types": [
+    "grass"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/556.png",
+  "abilities": [
+    "water-absorb",
+    "chlorophyll",
+    "storm-drain"
+  ],
+  "description": "It uses an up-tempo song and dance\nto drive away the bird Pokémon that\nprey on its flower seeds."
+}

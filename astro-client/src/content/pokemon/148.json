@@ -1,0 +1,13 @@
+{
+  "id": 148,
+  "name": "dragonair",
+  "types": [
+    "dragon"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/148.png",
+  "abilities": [
+    "shed-skin",
+    "marvel-scale"
+  ],
+  "description": "A mystical POKéMON\nthat exudes a\ngentle aura.\fHas the ability\nto change climate\nconditions."
+}

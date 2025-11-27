@@ -1,0 +1,13 @@
+{
+  "id": 935,
+  "name": "charcadet",
+  "types": [
+    "fire"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/935.png",
+  "abilities": [
+    "flash-fire",
+    "flame-body"
+  ],
+  "description": "Burnt charcoal came to life and became a Pokémon. Possessing a fiery fighting spirit, Charcadet will battle even tough opponents."
+}

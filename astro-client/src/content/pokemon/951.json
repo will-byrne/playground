@@ -1,0 +1,14 @@
+{
+  "id": 951,
+  "name": "capsakid",
+  "types": [
+    "grass"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/951.png",
+  "abilities": [
+    "chlorophyll",
+    "insomnia",
+    "klutz"
+  ],
+  "description": "The more sunlight this Pokémon bathes in, the more spicy chemicals are produced by its body, and thus the spicier its moves become."
+}

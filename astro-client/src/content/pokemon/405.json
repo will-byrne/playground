@@ -1,0 +1,14 @@
+{
+  "id": 405,
+  "name": "luxray",
+  "types": [
+    "electric"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/405.png",
+  "abilities": [
+    "rivalry",
+    "intimidate",
+    "guts"
+  ],
+  "description": "It has eyes that can see through\nanything. It spots and captures\nprey hiding behind objects."
+}

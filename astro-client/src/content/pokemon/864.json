@@ -1,0 +1,13 @@
+{
+  "id": 864,
+  "name": "cursola",
+  "types": [
+    "ghost"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/864.png",
+  "abilities": [
+    "weak-armor",
+    "perish-body"
+  ],
+  "description": "Its shell is overflowing with its heightened\notherworldly energy. The ectoplasm serves as\nprotection for this Pokémon’s core spirit."
+}

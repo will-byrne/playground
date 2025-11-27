@@ -1,0 +1,14 @@
+{
+  "id": 373,
+  "name": "salamence",
+  "types": [
+    "dragon",
+    "flying"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/373.png",
+  "abilities": [
+    "intimidate",
+    "moxie"
+  ],
+  "description": "SALAMENCE came about as a result of a\nstrong, long-held dream of growing\nwings. It is said that this powerful\fdesire triggered a sudden mutation in\nthis POKéMON’s cells, causing it to\nsprout its magnificent wings."
+}

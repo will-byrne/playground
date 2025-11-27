@@ -1,0 +1,14 @@
+{
+  "id": 334,
+  "name": "altaria",
+  "types": [
+    "dragon",
+    "flying"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/334.png",
+  "abilities": [
+    "natural-cure",
+    "cloud-nine"
+  ],
+  "description": "ALTARIA dances and wheels through the\nsky among billowing, cotton-like clouds.\nBy singing melodies in its crystal-clear\fvoice, this POKéMON makes its listeners\nexperience dreamy wonderment."
+}

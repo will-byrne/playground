@@ -1,0 +1,13 @@
+{
+  "id": 498,
+  "name": "tepig",
+  "types": [
+    "fire"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/498.png",
+  "abilities": [
+    "blaze",
+    "thick-fat"
+  ],
+  "description": "It can deftly dodge its foe’s attacks\nwhile shooting fireballs from its nose.\nIt roasts berries before it eats them."
+}

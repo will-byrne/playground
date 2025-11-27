@@ -1,0 +1,14 @@
+{
+  "id": 317,
+  "name": "swalot",
+  "types": [
+    "poison"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/317.png",
+  "abilities": [
+    "liquid-ooze",
+    "sticky-hold",
+    "gluttony"
+  ],
+  "description": "When SWALOT spots prey, it spurts out\na hideously toxic fluid from its pores\nand sprays the target.\fOnce the prey has weakened, this\nPOKéMON gulps it down whole with its\ncavernous mouth."
+}

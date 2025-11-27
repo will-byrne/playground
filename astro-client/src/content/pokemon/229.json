@@ -1,0 +1,15 @@
+{
+  "id": 229,
+  "name": "houndoom",
+  "types": [
+    "dark",
+    "fire"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/229.png",
+  "abilities": [
+    "early-bird",
+    "flash-fire",
+    "unnerve"
+  ],
+  "description": "If you are burned\nby the flames it\nshoots from its\fmouth, the pain\nwill never go\naway."
+}

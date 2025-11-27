@@ -1,0 +1,14 @@
+{
+  "id": 52,
+  "name": "meowth",
+  "types": [
+    "normal"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/52.png",
+  "abilities": [
+    "pickup",
+    "technician",
+    "unnerve"
+  ],
+  "description": "It washes its face regularly to keep the coin on\nits forehead spotless. It doesn’t get along with\nGalarian Meowth."
+}

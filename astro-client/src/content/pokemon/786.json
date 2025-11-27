@@ -1,0 +1,14 @@
+{
+  "id": 786,
+  "name": "tapu-lele",
+  "types": [
+    "psychic",
+    "fairy"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/786.png",
+  "abilities": [
+    "psychic-surge",
+    "telepathy"
+  ],
+  "description": "This guardian deity of Akala is guilelessly cruel.\nThe fragrant aroma of flowers is the source of\nits energy."
+}

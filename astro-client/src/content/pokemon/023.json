@@ -1,0 +1,14 @@
+{
+  "id": 23,
+  "name": "ekans",
+  "types": [
+    "poison"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/23.png",
+  "abilities": [
+    "intimidate",
+    "shed-skin",
+    "unnerve"
+  ],
+  "description": "Moves silently\nand stealthily.\nEats the eggs of\fbirds, such as\nPIDGEY and\nSPEAROW, whole."
+}

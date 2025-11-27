@@ -1,0 +1,14 @@
+{
+  "id": 307,
+  "name": "meditite",
+  "types": [
+    "fighting",
+    "psychic"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/307.png",
+  "abilities": [
+    "pure-power",
+    "telepathy"
+  ],
+  "description": "MEDITITE undertakes rigorous mental\ntraining deep in the mountains.\nHowever, whenever it meditates, this\fPOKéMON always loses its concentration\nand focus. As a result, its training\nnever ends."
+}

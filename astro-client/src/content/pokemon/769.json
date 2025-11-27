@@ -1,0 +1,14 @@
+{
+  "id": 769,
+  "name": "sandygast",
+  "types": [
+    "ghost",
+    "ground"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/769.png",
+  "abilities": [
+    "water-compaction",
+    "sand-veil"
+  ],
+  "description": "Born from a sand mound playfully built by a\nchild, this Pokémon embodies the grudges of\nthe departed."
+}

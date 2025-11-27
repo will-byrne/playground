@@ -1,0 +1,14 @@
+{
+  "id": 529,
+  "name": "drilbur",
+  "types": [
+    "ground"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/529.png",
+  "abilities": [
+    "sand-rush",
+    "sand-force",
+    "mold-breaker"
+  ],
+  "description": "It can dig through the ground\nat a speed of 30 mph. It could give\na car running aboveground a good race."
+}

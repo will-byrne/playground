@@ -1,0 +1,13 @@
+{
+  "id": 1005,
+  "name": "roaring-moon",
+  "types": [
+    "dragon",
+    "dark"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1005.png",
+  "abilities": [
+    "protosynthesis"
+  ],
+  "description": "It is possible that this is the creature listed as Roaring Moon in an expedition journal that still holds many mysteries."
+}

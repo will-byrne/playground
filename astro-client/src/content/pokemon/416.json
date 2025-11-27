@@ -1,0 +1,14 @@
+{
+  "id": 416,
+  "name": "vespiquen",
+  "types": [
+    "bug",
+    "flying"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/416.png",
+  "abilities": [
+    "pressure",
+    "unnerve"
+  ],
+  "description": "Its abdomen is a honeycomb for\ngrubs. It raises its grubs on\nhoney collected by COMBEE."
+}

@@ -1,0 +1,15 @@
+{
+  "id": 876,
+  "name": "indeedee-male",
+  "types": [
+    "psychic",
+    "normal"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/876.png",
+  "abilities": [
+    "inner-focus",
+    "synchronize",
+    "psychic-surge"
+  ],
+  "description": "It uses the horns on its head to sense the\nemotions of others. Males will act as valets for\nthose they serve, looking after their every need."
+}

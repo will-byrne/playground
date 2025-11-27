@@ -1,0 +1,14 @@
+{
+  "id": 45,
+  "name": "vileplume",
+  "types": [
+    "grass",
+    "poison"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/45.png",
+  "abilities": [
+    "chlorophyll",
+    "effect-spore"
+  ],
+  "description": "It has the world’s largest petals. With every step,\nthe petals shake out heavy clouds of toxic pollen."
+}

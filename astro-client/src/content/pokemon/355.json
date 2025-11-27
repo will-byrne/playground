@@ -1,0 +1,13 @@
+{
+  "id": 355,
+  "name": "duskull",
+  "types": [
+    "ghost"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/355.png",
+  "abilities": [
+    "levitate",
+    "frisk"
+  ],
+  "description": "DUSKULL can pass through any wall no\nmatter how thick it may be.\nOnce this POKéMON chooses a target,\fit will doggedly pursue the intended\nvictim until the break of dawn."
+}

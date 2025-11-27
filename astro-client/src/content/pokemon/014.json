@@ -1,0 +1,13 @@
+{
+  "id": 14,
+  "name": "kakuna",
+  "types": [
+    "bug",
+    "poison"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/14.png",
+  "abilities": [
+    "shed-skin"
+  ],
+  "description": "Almost incapable\nof moving, this\nPOKéMON can only\fharden its shell\nto protect itself\nfrom predators."
+}

@@ -1,0 +1,65 @@
+---
+const { title = "Pokédex" } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>{title}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --ctp-base: #24273a;
+        --ctp-surface0: #363a4f;
+        --ctp-surface1: #494d64;
+        --ctp-text: #cad3f5;
+        --ctp-subtext: #a5adcb;
+        --ctp-blue: #8aadf4;
+        --ctp-lavender: #b7bdf8;
+        --ctp-pink: #f5bde6;
+        --radius: 12px;
+      }
+
+      body {
+        background: var(--ctp-base);
+        color: var(--ctp-text);
+        margin: 0;
+        font-family: "Noto Sans", sans-serif;
+      }
+
+      header {
+        padding: 1.5rem;
+        text-align: center;
+        background: var(--ctp-surface0);
+        box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+      }
+
+      header h1 {
+        margin: 0;
+        font-size: 2rem;
+        color: var(--ctp-lavender);
+      }
+
+      main {
+        padding: 1.5rem;
+        max-width: 960px;
+        margin: 0 auto;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <h1>Pokédex</h1>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+  </body>
+</html>

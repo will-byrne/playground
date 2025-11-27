@@ -1,0 +1,13 @@
+{
+  "id": 835,
+  "name": "yamper",
+  "types": [
+    "electric"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/835.png",
+  "abilities": [
+    "ball-fetch",
+    "rattled"
+  ],
+  "description": "This Pokémon is very popular as a herding dog\nin the Galar region. As it runs, it generates\nelectricity from the base of its tail."
+}

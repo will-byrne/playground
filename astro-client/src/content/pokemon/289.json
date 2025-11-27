@@ -1,0 +1,12 @@
+{
+  "id": 289,
+  "name": "slaking",
+  "types": [
+    "normal"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/289.png",
+  "abilities": [
+    "truant"
+  ],
+  "description": "SLAKING spends all day lying down and\nlolling about.\nIt eats grass growing within its reach.\fIf it eats all the grass it can reach,\nthis POKéMON reluctantly moves to\nanother spot."
+}

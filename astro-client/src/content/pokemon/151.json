@@ -1,0 +1,12 @@
+{
+  "id": 151,
+  "name": "mew",
+  "types": [
+    "psychic"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/151.png",
+  "abilities": [
+    "synchronize"
+  ],
+  "description": "So rare that it\nis still said to\nbe a mirage by\fmany experts. Only\na few people have\nseen it worldwide."
+}

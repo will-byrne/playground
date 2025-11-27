@@ -1,0 +1,15 @@
+{
+  "id": 426,
+  "name": "drifblim",
+  "types": [
+    "ghost",
+    "flying"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/426.png",
+  "abilities": [
+    "aftermath",
+    "unburden",
+    "flare-boost"
+  ],
+  "description": "At dusk, swarms of them are\ncarried aloft on winds. When\nnoticed, they suddenly vanish."
+}

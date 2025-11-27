@@ -1,0 +1,14 @@
+{
+  "id": 582,
+  "name": "vanillite",
+  "types": [
+    "ice"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/582.png",
+  "abilities": [
+    "ice-body",
+    "snow-cloak",
+    "weak-armor"
+  ],
+  "description": "The temperature of their breath\nis -58° F. They create snow crystals and\nmake snow fall in the areas around them."
+}

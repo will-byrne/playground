@@ -1,0 +1,13 @@
+{
+  "id": 802,
+  "name": "marshadow",
+  "types": [
+    "fighting",
+    "ghost"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/802.png",
+  "abilities": [
+    "technician"
+  ],
+  "description": "Able to conceal itself in shadows, it never\nappears before humans, so its very existence\nwas the stuff of myth."
+}

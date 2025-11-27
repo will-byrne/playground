@@ -1,0 +1,15 @@
+{
+  "id": 527,
+  "name": "woobat",
+  "types": [
+    "psychic",
+    "flying"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/527.png",
+  "abilities": [
+    "unaware",
+    "klutz",
+    "simple"
+  ],
+  "description": "Its habitat is dark forests and caves.\nIt emits ultrasonic waves from its\nnose to learn about its surroundings."
+}

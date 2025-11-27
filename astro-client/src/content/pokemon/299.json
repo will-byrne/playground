@@ -1,0 +1,14 @@
+{
+  "id": 299,
+  "name": "nosepass",
+  "types": [
+    "rock"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/299.png",
+  "abilities": [
+    "sturdy",
+    "magnet-pull",
+    "sand-force"
+  ],
+  "description": "NOSEPASS’s magnetic nose is always\npointed to the north. If two of these\nPOKéMON meet, they cannot turn\ftheir faces to each other when they\nare close because their magnetic noses\nrepel one another."
+}

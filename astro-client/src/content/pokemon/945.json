@@ -1,0 +1,15 @@
+{
+  "id": 945,
+  "name": "grafaiai",
+  "types": [
+    "poison",
+    "normal"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/945.png",
+  "abilities": [
+    "unburden",
+    "poison-touch",
+    "prankster"
+  ],
+  "description": "The color of the poisonous saliva depends on what the Pokémon eats. Grafaiai covers its fingers in its saliva and draws patterns on trees in forests."
+}

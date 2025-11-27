@@ -1,0 +1,14 @@
+{
+  "id": 1,
+  "name": "bulbasaur",
+  "types": [
+    "grass",
+    "poison"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
+  "abilities": [
+    "overgrow",
+    "chlorophyll"
+  ],
+  "description": "A strange seed was\nplanted on its\nback at birth.\fThe plant sprouts\nand grows with\nthis POKéMON."
+}

@@ -1,0 +1,15 @@
+{
+  "id": 536,
+  "name": "palpitoad",
+  "types": [
+    "water",
+    "ground"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/536.png",
+  "abilities": [
+    "swift-swim",
+    "hydration",
+    "water-absorb"
+  ],
+  "description": "When they vibrate the bumps on their\nheads, they can make waves in water\nor earthquake-like vibrations on land."
+}

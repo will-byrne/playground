@@ -1,0 +1,13 @@
+{
+  "id": 805,
+  "name": "stakataka",
+  "types": [
+    "rock",
+    "steel"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/805.png",
+  "abilities": [
+    "beast-boost"
+  ],
+  "description": "It appeared from an Ultra Wormhole. Each one\nappears to be made up of many life-forms\nstacked one on top of each other."
+}

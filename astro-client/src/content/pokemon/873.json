@@ -1,0 +1,14 @@
+{
+  "id": 873,
+  "name": "frosmoth",
+  "types": [
+    "ice",
+    "bug"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/873.png",
+  "abilities": [
+    "shield-dust",
+    "ice-scales"
+  ],
+  "description": "Icy scales fall from its wings like snow as it flies\nover fields and mountains. The temperature of its\nwings is less than −290 degrees Fahrenheit."
+}

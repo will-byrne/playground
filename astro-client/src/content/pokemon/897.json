@@ -1,0 +1,12 @@
+{
+  "id": 897,
+  "name": "spectrier",
+  "types": [
+    "ghost"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/897.png",
+  "abilities": [
+    "grim-neigh"
+  ],
+  "description": "It probes its surroundings with all its senses save\none—it doesn’t use its sense of sight. Spectrier’s\nkicks are said to separate soul from body."
+}

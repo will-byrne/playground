@@ -1,0 +1,14 @@
+{
+  "id": 955,
+  "name": "flittle",
+  "types": [
+    "psychic"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/955.png",
+  "abilities": [
+    "anticipation",
+    "frisk",
+    "speed-boost"
+  ],
+  "description": "Flittle’s toes levitate about half an inch above the ground because of the psychic power emitted from the frills on the Pokémon’s belly."
+}

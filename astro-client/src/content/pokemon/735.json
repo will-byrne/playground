@@ -1,0 +1,14 @@
+{
+  "id": 735,
+  "name": "gumshoos",
+  "types": [
+    "normal"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/735.png",
+  "abilities": [
+    "stakeout",
+    "strong-jaw",
+    "adaptability"
+  ],
+  "description": "When it finds a trace of its prey, it patiently\nstakes out the location...but it’s always snoozing\nby nightfall."
+}

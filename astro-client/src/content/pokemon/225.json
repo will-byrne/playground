@@ -1,0 +1,15 @@
+{
+  "id": 225,
+  "name": "delibird",
+  "types": [
+    "ice",
+    "flying"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/225.png",
+  "abilities": [
+    "vital-spirit",
+    "hustle",
+    "insomnia"
+  ],
+  "description": "It carries food\nall day long.\nThere are tales\fabout lost people\nwho were saved by\nthe food it had."
+}

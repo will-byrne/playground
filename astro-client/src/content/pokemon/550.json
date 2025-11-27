@@ -1,0 +1,14 @@
+{
+  "id": 550,
+  "name": "basculin-red-striped",
+  "types": [
+    "water"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/550.png",
+  "abilities": [
+    "reckless",
+    "adaptability",
+    "mold-breaker"
+  ],
+  "description": "Red and blue Basculin get along so\npoorly, they’ll start fighting instantly.\nThese Pokémon are very hostile."
+}

@@ -1,0 +1,14 @@
+{
+  "id": 105,
+  "name": "marowak",
+  "types": [
+    "ground"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/105.png",
+  "abilities": [
+    "rock-head",
+    "lightning-rod",
+    "battle-armor"
+  ],
+  "description": "The bone it holds\nis its key weapon.\nIt throws the\fbone skillfully\nlike a boomerang\nto KO targets."
+}

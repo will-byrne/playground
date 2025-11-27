@@ -1,0 +1,12 @@
+{
+  "id": 999,
+  "name": "gimmighoul",
+  "types": [
+    "ghost"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/999.png",
+  "abilities": [
+    "rattled"
+  ],
+  "description": "This Pokémon was born inside a treasure chest about 1,500 years ago. It sucks the life-force out of scoundrels who try to steal the treasure."
+}

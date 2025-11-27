@@ -1,0 +1,12 @@
+{
+  "id": 482,
+  "name": "azelf",
+  "types": [
+    "psychic"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/482.png",
+  "abilities": [
+    "levitate"
+  ],
+  "description": "Known as “The Being of Willpower.”\nIt sleeps at the bottom of a lake\nto keep the world in balance."
+}

@@ -1,0 +1,14 @@
+{
+  "id": 346,
+  "name": "cradily",
+  "types": [
+    "rock",
+    "grass"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/346.png",
+  "abilities": [
+    "suction-cups",
+    "storm-drain"
+  ],
+  "description": "CRADILY roams around the ocean floor\nin search of food. This POKéMON freely\nextends its tree trunk-like neck and\fcaptures unwary prey using its eight\ntentacles."
+}

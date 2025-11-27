@@ -1,0 +1,15 @@
+{
+  "id": 298,
+  "name": "azurill",
+  "types": [
+    "normal",
+    "fairy"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/298.png",
+  "abilities": [
+    "thick-fat",
+    "huge-power",
+    "sap-sipper"
+  ],
+  "description": "A Pokémon that lives by water.\nIt moves quickly on land by\nbouncing on its big tail."
+}

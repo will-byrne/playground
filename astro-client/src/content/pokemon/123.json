@@ -1,0 +1,15 @@
+{
+  "id": 123,
+  "name": "scyther",
+  "types": [
+    "bug",
+    "flying"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/123.png",
+  "abilities": [
+    "swarm",
+    "technician",
+    "steadfast"
+  ],
+  "description": "With ninja-like\nagility and speed,\nit can create the\fillusion that\nthere is more\nthan one."
+}

@@ -1,0 +1,13 @@
+{
+  "id": 878,
+  "name": "cufant",
+  "types": [
+    "steel"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/878.png",
+  "abilities": [
+    "sheer-force",
+    "heavy-metal"
+  ],
+  "description": "It digs up the ground with its trunk. It’s also very\nstrong, being able to carry loads of over\nfive tons without any problem at all."
+}

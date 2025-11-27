@@ -1,0 +1,13 @@
+{
+  "id": 771,
+  "name": "pyukumuku",
+  "types": [
+    "water"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/771.png",
+  "abilities": [
+    "innards-out",
+    "unaware"
+  ],
+  "description": "It’s covered in a slime that keeps its skin moist,\nallowing it to stay on land for days without\ndrying up."
+}

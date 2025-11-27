@@ -1,0 +1,14 @@
+{
+  "id": 431,
+  "name": "glameow",
+  "types": [
+    "normal"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/431.png",
+  "abilities": [
+    "limber",
+    "own-tempo",
+    "keen-eye"
+  ],
+  "description": "It claws if displeased and purrs\nwhen affectionate. Its fickleness\nis very popular among some."
+}

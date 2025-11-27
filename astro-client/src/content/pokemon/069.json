@@ -1,0 +1,14 @@
+{
+  "id": 69,
+  "name": "bellsprout",
+  "types": [
+    "grass",
+    "poison"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/69.png",
+  "abilities": [
+    "chlorophyll",
+    "gluttony"
+  ],
+  "description": "A carnivorous\nPOKéMON that traps\nand eats bugs.\fIt uses its root\nfeet to soak up\nneeded moisture."
+}

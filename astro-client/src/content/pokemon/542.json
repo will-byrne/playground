@@ -1,0 +1,15 @@
+{
+  "id": 542,
+  "name": "leavanny",
+  "types": [
+    "bug",
+    "grass"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/542.png",
+  "abilities": [
+    "swarm",
+    "chlorophyll",
+    "overcoat"
+  ],
+  "description": "Upon finding a small Pokémon, it weaves\nclothing for it from leaves, using the\ncutters on its arms and sticky silk."
+}

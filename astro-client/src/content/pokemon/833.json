@@ -1,0 +1,14 @@
+{
+  "id": 833,
+  "name": "chewtle",
+  "types": [
+    "water"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/833.png",
+  "abilities": [
+    "strong-jaw",
+    "shell-armor",
+    "swift-swim"
+  ],
+  "description": "Apparently the itch of its teething impels it to\nsnap its jaws at anything in front of it."
+}

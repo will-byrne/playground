@@ -1,0 +1,13 @@
+{
+  "id": 27,
+  "name": "sandshrew",
+  "types": [
+    "ground"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/27.png",
+  "abilities": [
+    "sand-veil",
+    "sand-rush"
+  ],
+  "description": "Burrows deep\nunderground in\narid locations\ffar from water.\nIt only emerges\nto hunt for food."
+}

@@ -1,0 +1,13 @@
+{
+  "id": 25,
+  "name": "pikachu",
+  "types": [
+    "electric"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png",
+  "abilities": [
+    "static",
+    "lightning-rod"
+  ],
+  "description": "When several of\nthese POKéMON\ngather, their\felectricity could\nbuild and cause\nlightning storms."
+}

@@ -1,0 +1,14 @@
+{
+  "id": 457,
+  "name": "lumineon",
+  "types": [
+    "water"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/457.png",
+  "abilities": [
+    "swift-swim",
+    "storm-drain",
+    "water-veil"
+  ],
+  "description": "It lives on the deep-sea floor.\nIt attracts prey by flashing the\npatterns on its four tail fins."
+}

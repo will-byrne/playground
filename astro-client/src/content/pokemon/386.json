@@ -1,0 +1,12 @@
+{
+  "id": 386,
+  "name": "deoxys-normal",
+  "types": [
+    "psychic"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/386.png",
+  "abilities": [
+    "pressure"
+  ],
+  "description": "The DNA of a space virus underwent a\nsudden mutation upon exposure to a\nlaser beam and resulted in DEOXYS.\fThe crystalline organ on this POKéMON’s\nchest appears to be its brain."
+}

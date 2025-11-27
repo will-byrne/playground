@@ -1,0 +1,14 @@
+{
+  "id": 526,
+  "name": "gigalith",
+  "types": [
+    "rock"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/526.png",
+  "abilities": [
+    "sturdy",
+    "sand-stream",
+    "sand-force"
+  ],
+  "description": "Compressing the energy from its\ninternal core lets it fire off an attack\ncapable of blowing away a mountain."
+}

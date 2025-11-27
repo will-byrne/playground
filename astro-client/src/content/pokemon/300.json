@@ -1,0 +1,14 @@
+{
+  "id": 300,
+  "name": "skitty",
+  "types": [
+    "normal"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/300.png",
+  "abilities": [
+    "cute-charm",
+    "normalize",
+    "wonder-skin"
+  ],
+  "description": "SKITTY has the habit of becoming\nfascinated by moving objects and\nchasing them around.\fThis POKéMON is known to chase after\nits own tail and become dizzy."
+}

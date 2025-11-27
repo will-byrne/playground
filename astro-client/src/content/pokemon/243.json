@@ -1,0 +1,13 @@
+{
+  "id": 243,
+  "name": "raikou",
+  "types": [
+    "electric"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/243.png",
+  "abilities": [
+    "pressure",
+    "inner-focus"
+  ],
+  "description": "The rain clouds it\ncarries let it\nfire thunderbolts\fat will. They say\nthat it descended\nwith lightning."
+}

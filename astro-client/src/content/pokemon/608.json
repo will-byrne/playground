@@ -1,0 +1,15 @@
+{
+  "id": 608,
+  "name": "lampent",
+  "types": [
+    "ghost",
+    "fire"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/608.png",
+  "abilities": [
+    "flash-fire",
+    "flame-body",
+    "infiltrator"
+  ],
+  "description": "This ominous Pokémon is feared.\nThrough cities it wanders, searching\nfor the spirits of the fallen."
+}

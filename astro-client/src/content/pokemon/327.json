@@ -1,0 +1,14 @@
+{
+  "id": 327,
+  "name": "spinda",
+  "types": [
+    "normal"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/327.png",
+  "abilities": [
+    "own-tempo",
+    "tangled-feet",
+    "contrary"
+  ],
+  "description": "No two Spinda have the same\npattern of spots. Its tottering\nstep fouls the aim of foes."
+}

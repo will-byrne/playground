@@ -1,0 +1,15 @@
+{
+  "id": 560,
+  "name": "scrafty",
+  "types": [
+    "dark",
+    "fighting"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/560.png",
+  "abilities": [
+    "shed-skin",
+    "moxie",
+    "intimidate"
+  ],
+  "description": "Groups of them beat up anything\nthat enters their territory. Each can\nspit acidic liquid from its mouth."
+}

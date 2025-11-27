@@ -1,0 +1,15 @@
+{
+  "id": 315,
+  "name": "roselia",
+  "types": [
+    "grass",
+    "poison"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/315.png",
+  "abilities": [
+    "natural-cure",
+    "poison-point",
+    "leaf-guard"
+  ],
+  "description": "ROSELIA shoots sharp thorns as\nprojectiles at any opponent that tries\nto steal the flowers on its arms.\fThe aroma of this POKéMON brings\nserenity to living things."
+}

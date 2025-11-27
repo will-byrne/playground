@@ -1,0 +1,14 @@
+{
+  "id": 706,
+  "name": "goodra",
+  "types": [
+    "dragon"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/706.png",
+  "abilities": [
+    "sap-sipper",
+    "hydration",
+    "gooey"
+  ],
+  "description": "This very friendly Dragon-type Pokémon\nwill hug its beloved Trainer, leaving\nthat Trainer covered in sticky slime."
+}

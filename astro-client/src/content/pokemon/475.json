@@ -1,0 +1,15 @@
+{
+  "id": 475,
+  "name": "gallade",
+  "types": [
+    "psychic",
+    "fighting"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/475.png",
+  "abilities": [
+    "steadfast",
+    "sharpness",
+    "justified"
+  ],
+  "description": "A master of courtesy and\nswordsmanship, it fights using\nextending swords on its elbows."
+}

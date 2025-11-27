@@ -1,0 +1,15 @@
+{
+  "id": 303,
+  "name": "mawile",
+  "types": [
+    "steel",
+    "fairy"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/303.png",
+  "abilities": [
+    "hyper-cutter",
+    "intimidate",
+    "sheer-force"
+  ],
+  "description": "MAWHILE’s huge jaws are actually steel\nhorns that have been transformed.\nIts docile-looking face serves to lull\fits foe into letting down its guard.\nWhen the foe least expects it, MAWHILE\nchomps it with its gaping jaws."
+}

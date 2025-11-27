@@ -1,0 +1,14 @@
+{
+  "id": 35,
+  "name": "clefairy",
+  "types": [
+    "fairy"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/35.png",
+  "abilities": [
+    "cute-charm",
+    "magic-guard",
+    "friend-guard"
+  ],
+  "description": "Its magical and\ncute appeal has\nmany admirers.\fIt is rare and\nfound only in\ncertain areas."
+}

@@ -1,0 +1,12 @@
+{
+  "id": 480,
+  "name": "uxie",
+  "types": [
+    "psychic"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/480.png",
+  "abilities": [
+    "levitate"
+  ],
+  "description": "Known as “The Being of Knowledge.”\nIt is said that it can wipe out the\nmemory of those who see its eyes."
+}

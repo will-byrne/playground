@@ -1,0 +1,14 @@
+{
+  "id": 233,
+  "name": "porygon2",
+  "types": [
+    "normal"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/233.png",
+  "abilities": [
+    "trace",
+    "download",
+    "analytic"
+  ],
+  "description": "This upgraded\nversion of PORYGON\nis designed for\fspace exploration.\nIt can't fly,\nthough."
+}

@@ -1,0 +1,15 @@
+{
+  "id": 902,
+  "name": "basculegion-male",
+  "types": [
+    "water",
+    "ghost"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/902.png",
+  "abilities": [
+    "swift-swim",
+    "adaptability",
+    "mold-breaker"
+  ],
+  "description": "Clads itself in the souls of comrades that perished before\nfulfilling their goals of journeying upstream. No other species\nthroughout all Hisui's rivers is Basculegion's equal."
+}

@@ -1,0 +1,13 @@
+{
+  "id": 394,
+  "name": "prinplup",
+  "types": [
+    "water"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/394.png",
+  "abilities": [
+    "torrent",
+    "competitive"
+  ],
+  "description": "It lives alone, away from others.\nApparently, every one of them\nbelieves it is the most important."
+}

@@ -1,0 +1,14 @@
+{
+  "id": 505,
+  "name": "watchog",
+  "types": [
+    "normal"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/505.png",
+  "abilities": [
+    "illuminate",
+    "keen-eye",
+    "analytic"
+  ],
+  "description": "When they see an enemy, their tails\nstand high, and they spit the seeds of\nberries stored in their cheek pouches."
+}

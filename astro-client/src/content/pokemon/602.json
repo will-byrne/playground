@@ -1,0 +1,12 @@
+{
+  "id": 602,
+  "name": "tynamo",
+  "types": [
+    "electric"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/602.png",
+  "abilities": [
+    "levitate"
+  ],
+  "description": "While one alone doesn’t have much power,\na chain of many Tynamo can be as\npowerful as lightning."
+}

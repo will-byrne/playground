@@ -1,0 +1,13 @@
+{
+  "id": 172,
+  "name": "pichu",
+  "types": [
+    "electric"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/172.png",
+  "abilities": [
+    "static",
+    "lightning-rod"
+  ],
+  "description": "It is not yet\nskilled at storing\nelectricity.\fIt may send out a\njolt if amused\nor startled."
+}

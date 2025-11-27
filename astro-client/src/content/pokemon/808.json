@@ -1,0 +1,12 @@
+{
+  "id": 808,
+  "name": "meltan",
+  "types": [
+    "steel"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/808.png",
+  "abilities": [
+    "magnet-pull"
+  ],
+  "description": "It melts particles of iron and other metals found\nin the subsoil, so it can absorb them into its\nbody of molten steel."
+}

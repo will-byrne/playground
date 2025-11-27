@@ -1,0 +1,15 @@
+{
+  "id": 39,
+  "name": "jigglypuff",
+  "types": [
+    "normal",
+    "fairy"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/39.png",
+  "abilities": [
+    "cute-charm",
+    "competitive",
+    "friend-guard"
+  ],
+  "description": "When its huge eyes\nlight up, it sings\na mysteriously\fsoothing melody\nthat lulls its\nenemies to sleep."
+}

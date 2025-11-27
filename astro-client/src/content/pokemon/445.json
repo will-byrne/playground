@@ -1,0 +1,14 @@
+{
+  "id": 445,
+  "name": "garchomp",
+  "types": [
+    "dragon",
+    "ground"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/445.png",
+  "abilities": [
+    "sand-veil",
+    "rough-skin"
+  ],
+  "description": "When it folds up its body and\nextends its wings, it looks like a\njet plane. It flies at sonic speed."
+}

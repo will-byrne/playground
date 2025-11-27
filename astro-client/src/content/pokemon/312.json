@@ -1,0 +1,13 @@
+{
+  "id": 312,
+  "name": "minun",
+  "types": [
+    "electric"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/312.png",
+  "abilities": [
+    "minus",
+    "volt-absorb"
+  ],
+  "description": "MINUN is more concerned about cheering\non its partners than its own safety.\nIt shorts out the electricity in its\fbody to create brilliant showers of\nsparks to cheer on its teammates."
+}

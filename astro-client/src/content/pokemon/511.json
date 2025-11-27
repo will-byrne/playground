@@ -1,0 +1,13 @@
+{
+  "id": 511,
+  "name": "pansage",
+  "types": [
+    "grass"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/511.png",
+  "abilities": [
+    "gluttony",
+    "overgrow"
+  ],
+  "description": "This Pokémon dwells deep in the forest.\nEating a leaf from its head whisks\nweariness away as if by magic."
+}

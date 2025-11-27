@@ -1,0 +1,14 @@
+{
+  "id": 30,
+  "name": "nidorina",
+  "types": [
+    "poison"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/30.png",
+  "abilities": [
+    "poison-point",
+    "rivalry",
+    "hustle"
+  ],
+  "description": "The female's horn\ndevelops slowly.\nPrefers physical\fattacks such as\nclawing and\nbiting."
+}

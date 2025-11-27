@@ -1,0 +1,13 @@
+{
+  "id": 479,
+  "name": "rotom",
+  "types": [
+    "electric",
+    "ghost"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/479.png",
+  "abilities": [
+    "levitate"
+  ],
+  "description": "Its body is composed of plasma. It\nis known to infiltrate electronic\ndevices and wreak havoc."
+}

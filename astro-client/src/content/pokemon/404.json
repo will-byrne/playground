@@ -1,0 +1,14 @@
+{
+  "id": 404,
+  "name": "luxio",
+  "types": [
+    "electric"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/404.png",
+  "abilities": [
+    "rivalry",
+    "intimidate",
+    "guts"
+  ],
+  "description": "Its claws loose electricity with\nenough amperage to cause fainting.\nThey live in small groups."
+}

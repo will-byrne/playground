@@ -1,0 +1,13 @@
+{
+  "id": 726,
+  "name": "torracat",
+  "types": [
+    "fire"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/726.png",
+  "abilities": [
+    "blaze",
+    "intimidate"
+  ],
+  "description": "At its throat, it bears a bell of fire. The bell rings\nbrightly whenever this Pokémon spits fire."
+}

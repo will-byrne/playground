@@ -1,0 +1,12 @@
+{
+  "id": 201,
+  "name": "unown",
+  "types": [
+    "psychic"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/201.png",
+  "abilities": [
+    "levitate"
+  ],
+  "description": "Their shapes look\nlike hieroglyphs\non ancient tab­\flets. It is said\nthat the two are\nsomehow related."
+}

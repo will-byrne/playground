@@ -1,0 +1,13 @@
+{
+  "id": 337,
+  "name": "lunatone",
+  "types": [
+    "rock",
+    "psychic"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/337.png",
+  "abilities": [
+    "levitate"
+  ],
+  "description": "LUNATONE was discovered at a location\nwhere a meteorite fell. As a result, some\npeople theorize that this POKéMON\fcame from space. However, no one has\nbeen able to prove this theory so far."
+}

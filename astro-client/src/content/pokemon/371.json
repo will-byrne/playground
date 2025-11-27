@@ -1,0 +1,13 @@
+{
+  "id": 371,
+  "name": "bagon",
+  "types": [
+    "dragon"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/371.png",
+  "abilities": [
+    "rock-head",
+    "sheer-force"
+  ],
+  "description": "Dreaming of one day flying, it practices by leaping\noff cliffs every day."
+}

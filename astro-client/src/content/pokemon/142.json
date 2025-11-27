@@ -1,0 +1,15 @@
+{
+  "id": 142,
+  "name": "aerodactyl",
+  "types": [
+    "rock",
+    "flying"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/142.png",
+  "abilities": [
+    "rock-head",
+    "pressure",
+    "unnerve"
+  ],
+  "description": "A Pokémon that roamed the skies\nin the dinosaur era. Its teeth are\nlike saw blades."
+}

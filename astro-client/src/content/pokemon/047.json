@@ -1,0 +1,15 @@
+{
+  "id": 47,
+  "name": "parasect",
+  "types": [
+    "bug",
+    "grass"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/47.png",
+  "abilities": [
+    "effect-spore",
+    "dry-skin",
+    "damp"
+  ],
+  "description": "A host-parasite\npair in which the\nparasite mushroom\fhas taken over the\nhost bug. Prefers\ndamp places."
+}

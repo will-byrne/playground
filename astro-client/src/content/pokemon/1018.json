@@ -1,0 +1,15 @@
+{
+  "id": 1018,
+  "name": "archaludon",
+  "types": [
+    "steel",
+    "dragon"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1018.png",
+  "abilities": [
+    "stamina",
+    "sturdy",
+    "stalwart"
+  ],
+  "description": "It gathers static electricity from its surroundings. The beams it launches when down on all fours are tremendously powerful."
+}

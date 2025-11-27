@@ -1,0 +1,15 @@
+{
+  "id": 112,
+  "name": "rhydon",
+  "types": [
+    "ground",
+    "rock"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/112.png",
+  "abilities": [
+    "lightning-rod",
+    "rock-head",
+    "reckless"
+  ],
+  "description": "Protected by an\narmor-like hide,\nit is capable of\fliving in molten\nlava of 3,600\ndegrees."
+}

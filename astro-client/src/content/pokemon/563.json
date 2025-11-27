@@ -1,0 +1,12 @@
+{
+  "id": 563,
+  "name": "cofagrigus",
+  "types": [
+    "ghost"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/563.png",
+  "abilities": [
+    "mummy"
+  ],
+  "description": "It has been said that they swallow those\nwho get too close and turn them into\nmummies. They like to eat gold nuggets."
+}

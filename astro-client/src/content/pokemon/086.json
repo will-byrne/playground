@@ -1,0 +1,14 @@
+{
+  "id": 86,
+  "name": "seel",
+  "types": [
+    "water"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/86.png",
+  "abilities": [
+    "thick-fat",
+    "hydration",
+    "ice-body"
+  ],
+  "description": "The protruding\nhorn on its head\nis very hard.\fIt is used for\nbashing through\nthick ice."
+}

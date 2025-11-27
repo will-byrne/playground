@@ -1,0 +1,13 @@
+{
+  "id": 651,
+  "name": "quilladin",
+  "types": [
+    "grass"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/651.png",
+  "abilities": [
+    "overgrow",
+    "bulletproof"
+  ],
+  "description": "It relies on its sturdy shell to deflect predators’\nattacks. It counterattacks with its sharp quills."
+}

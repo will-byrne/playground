@@ -1,0 +1,15 @@
+{
+  "id": 215,
+  "name": "sneasel",
+  "types": [
+    "dark",
+    "ice"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/215.png",
+  "abilities": [
+    "inner-focus",
+    "keen-eye",
+    "pickpocket"
+  ],
+  "description": "Its paws conceal\nsharp claws. If\nattacked, it sud­\fdenly extends the\nclaws and startles\nits enemy."
+}

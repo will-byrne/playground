@@ -1,0 +1,14 @@
+{
+  "id": 499,
+  "name": "pignite",
+  "types": [
+    "fire",
+    "fighting"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/499.png",
+  "abilities": [
+    "blaze",
+    "thick-fat"
+  ],
+  "description": "When its internal fire flares up, its\nmovements grow sharper and faster.\nWhen in trouble, it emits smoke."
+}

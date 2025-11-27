@@ -1,0 +1,12 @@
+{
+  "id": 693,
+  "name": "clawitzer",
+  "types": [
+    "water"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/693.png",
+  "abilities": [
+    "mega-launcher"
+  ],
+  "description": "Their enormous claws launch cannonballs of\nwater powerful enough to pierce tanker hulls."
+}

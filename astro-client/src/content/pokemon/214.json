@@ -1,0 +1,15 @@
+{
+  "id": 214,
+  "name": "heracross",
+  "types": [
+    "bug",
+    "fighting"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/214.png",
+  "abilities": [
+    "swarm",
+    "guts",
+    "moxie"
+  ],
+  "description": "It is usually docile, but if it is\ndisturbed while sipping honey,\nit chases off the intruder with its horn."
+}

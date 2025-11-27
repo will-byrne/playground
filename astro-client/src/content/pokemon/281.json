@@ -1,0 +1,15 @@
+{
+  "id": 281,
+  "name": "kirlia",
+  "types": [
+    "psychic",
+    "fairy"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/281.png",
+  "abilities": [
+    "synchronize",
+    "trace",
+    "telepathy"
+  ],
+  "description": "It is said that a KIRLIA that is\nexposed to the positive emotions of\nits TRAINER grows beautiful.\fThis POKéMON controls psychokinetic\npowers with its highly developed brain."
+}

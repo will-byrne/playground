@@ -1,0 +1,14 @@
+{
+  "id": 970,
+  "name": "glimmora",
+  "types": [
+    "rock",
+    "poison"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/970.png",
+  "abilities": [
+    "toxic-debris",
+    "corrosion"
+  ],
+  "description": "When this Pokémon detects danger, it will open up its crystalline petals and fire beams from its conical body."
+}

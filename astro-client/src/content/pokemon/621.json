@@ -1,0 +1,14 @@
+{
+  "id": 621,
+  "name": "druddigon",
+  "types": [
+    "dragon"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/621.png",
+  "abilities": [
+    "rough-skin",
+    "sheer-force",
+    "mold-breaker"
+  ],
+  "description": "It warms its body by absorbing sunlight\nwith its wings. When its body temperature\nfalls, it can no longer move."
+}

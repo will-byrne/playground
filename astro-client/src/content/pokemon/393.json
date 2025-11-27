@@ -1,0 +1,13 @@
+{
+  "id": 393,
+  "name": "piplup",
+  "types": [
+    "water"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/393.png",
+  "abilities": [
+    "torrent",
+    "competitive"
+  ],
+  "description": "Because it is very proud, it hates\naccepting food from people. Its\nthick down guards it from cold."
+}

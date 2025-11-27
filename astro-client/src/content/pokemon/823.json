@@ -1,0 +1,15 @@
+{
+  "id": 823,
+  "name": "corviknight",
+  "types": [
+    "flying",
+    "steel"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/823.png",
+  "abilities": [
+    "pressure",
+    "unnerve",
+    "mirror-armor"
+  ],
+  "description": "This Pokémon reigns supreme in the skies of the\nGalar region. The black luster of its steel body\ncould drive terror into the heart of any foe."
+}

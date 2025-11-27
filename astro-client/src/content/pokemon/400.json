@@ -1,0 +1,15 @@
+{
+  "id": 400,
+  "name": "bibarel",
+  "types": [
+    "normal",
+    "water"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/400.png",
+  "abilities": [
+    "simple",
+    "unaware",
+    "moody"
+  ],
+  "description": "It makes its nest by damming\nstreams with bark and mud. It is\nknown as an industrious worker."
+}

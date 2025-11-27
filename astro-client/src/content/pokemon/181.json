@@ -1,0 +1,13 @@
+{
+  "id": 181,
+  "name": "ampharos",
+  "types": [
+    "electric"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/181.png",
+  "abilities": [
+    "static",
+    "plus"
+  ],
+  "description": "The tail's tip\nshines brightly\nand can be seen\ffrom far away. It\nacts as a beacon\nfor lost people."
+}

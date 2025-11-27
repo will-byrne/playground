@@ -1,0 +1,15 @@
+{
+  "id": 667,
+  "name": "litleo",
+  "types": [
+    "fire",
+    "normal"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/667.png",
+  "abilities": [
+    "rivalry",
+    "unnerve",
+    "moxie"
+  ],
+  "description": "The stronger the opponent it faces,\nthe more heat surges from its mane\nand the more power flows through its body."
+}

@@ -1,0 +1,15 @@
+{
+  "id": 167,
+  "name": "spinarak",
+  "types": [
+    "bug",
+    "poison"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/167.png",
+  "abilities": [
+    "swarm",
+    "insomnia",
+    "sniper"
+  ],
+  "description": "It lies still in\nthe same pose for\ndays in its web,\fwaiting for its\nunsuspecting prey\nto wander close."
+}

@@ -1,0 +1,15 @@
+{
+  "id": 170,
+  "name": "chinchou",
+  "types": [
+    "water",
+    "electric"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/170.png",
+  "abilities": [
+    "volt-absorb",
+    "illuminate",
+    "water-absorb"
+  ],
+  "description": "Chinchou blink their shining antennae at one\nanother to claim their respective turf."
+}

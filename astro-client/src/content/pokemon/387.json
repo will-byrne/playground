@@ -1,0 +1,13 @@
+{
+  "id": 387,
+  "name": "turtwig",
+  "types": [
+    "grass"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/387.png",
+  "abilities": [
+    "overgrow",
+    "shell-armor"
+  ],
+  "description": "Made from soil, the shell on its\nback hardens when it drinks water.\nIt lives along lakes."
+}

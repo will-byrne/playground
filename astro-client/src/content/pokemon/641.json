@@ -1,0 +1,13 @@
+{
+  "id": 641,
+  "name": "tornadus-incarnate",
+  "types": [
+    "flying"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/641.png",
+  "abilities": [
+    "prankster",
+    "defiant"
+  ],
+  "description": "The lower half of its body is wrapped in\na cloud of energy. It zooms through\nthe sky at 200 mph."
+}

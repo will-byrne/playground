@@ -1,0 +1,15 @@
+{
+  "id": 85,
+  "name": "dodrio",
+  "types": [
+    "normal",
+    "flying"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/85.png",
+  "abilities": [
+    "run-away",
+    "early-bird",
+    "tangled-feet"
+  ],
+  "description": "Uses its three\nbrains to execute\ncomplex plans.\fWhile two heads\nsleep, one head\nstays awake."
+}

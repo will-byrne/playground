@@ -1,0 +1,13 @@
+{
+  "id": 673,
+  "name": "gogoat",
+  "types": [
+    "grass"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/673.png",
+  "abilities": [
+    "sap-sipper",
+    "grass-pelt"
+  ],
+  "description": "It can tell how its Trainer is feeling by\nsubtle shifts in the grip on its horns.\nThis empathic sense lets them run as if one being."
+}

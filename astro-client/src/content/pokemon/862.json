@@ -1,0 +1,15 @@
+{
+  "id": 862,
+  "name": "obstagoon",
+  "types": [
+    "dark",
+    "normal"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/862.png",
+  "abilities": [
+    "reckless",
+    "guts",
+    "defiant"
+  ],
+  "description": "Its voice is staggering in volume. Obstagoon\nhas a tendency to take on a threatening posture\nand shout—this move is known as Obstruct."
+}

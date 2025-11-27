@@ -1,0 +1,14 @@
+{
+  "id": 218,
+  "name": "slugma",
+  "types": [
+    "fire"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/218.png",
+  "abilities": [
+    "magma-armor",
+    "flame-body",
+    "weak-armor"
+  ],
+  "description": "It never sleeps.\nIt has to keep\nmoving because if\fit stopped, its\nmagma body would\ncool and harden."
+}

@@ -1,0 +1,13 @@
+{
+  "id": 471,
+  "name": "glaceon",
+  "types": [
+    "ice"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/471.png",
+  "abilities": [
+    "snow-cloak",
+    "ice-body"
+  ],
+  "description": "As a protective technique, it can\ncompletely freeze its fur to make\nits hairs stand like needles."
+}

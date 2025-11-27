@@ -1,0 +1,14 @@
+{
+  "id": 217,
+  "name": "ursaring",
+  "types": [
+    "normal"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/217.png",
+  "abilities": [
+    "guts",
+    "quick-feet",
+    "unnerve"
+  ],
+  "description": "Although it is a\ngood climber, it\nprefers to snap\ftrees with its\nforelegs and eat\nfallen BERRIES."
+}

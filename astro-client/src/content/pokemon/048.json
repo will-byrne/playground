@@ -1,0 +1,15 @@
+{
+  "id": 48,
+  "name": "venonat",
+  "types": [
+    "bug",
+    "poison"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/48.png",
+  "abilities": [
+    "compound-eyes",
+    "tinted-lens",
+    "run-away"
+  ],
+  "description": "Lives in the\nshadows of tall\ntrees where it\feats insects. It\nis attracted by\nlight at night."
+}

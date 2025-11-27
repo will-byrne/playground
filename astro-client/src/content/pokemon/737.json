@@ -1,0 +1,13 @@
+{
+  "id": 737,
+  "name": "charjabug",
+  "types": [
+    "bug",
+    "electric"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/737.png",
+  "abilities": [
+    "battery"
+  ],
+  "description": "Its body is capable of storing electricity. On\ncamping trips, people are grateful to have\none around."
+}

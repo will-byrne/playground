@@ -1,0 +1,14 @@
+{
+  "id": 349,
+  "name": "feebas",
+  "types": [
+    "water"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/349.png",
+  "abilities": [
+    "swift-swim",
+    "oblivious",
+    "adaptability"
+  ],
+  "description": "FEEBAS’s fins are ragged and\ntattered from the start of its life.\nBecause of its shoddy appearance, this\fPOKéMON is largely ignored.\nIt is capable of living in both the sea\nand in rivers."
+}

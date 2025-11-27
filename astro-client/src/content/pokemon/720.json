@@ -1,0 +1,13 @@
+{
+  "id": 720,
+  "name": "hoopa",
+  "types": [
+    "psychic",
+    "ghost"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/720.png",
+  "abilities": [
+    "magician"
+  ],
+  "description": "This troublemaker sends anything\nand everything to faraway places\nusing its loop, which can warp space."
+}

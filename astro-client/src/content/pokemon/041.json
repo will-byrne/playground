@@ -1,0 +1,14 @@
+{
+  "id": 41,
+  "name": "zubat",
+  "types": [
+    "poison",
+    "flying"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/41.png",
+  "abilities": [
+    "inner-focus",
+    "infiltrator"
+  ],
+  "description": "Forms colonies in\nperpetually dark\nplaces. Uses\fultrasonic waves\nto identify and\napproach targets."
+}

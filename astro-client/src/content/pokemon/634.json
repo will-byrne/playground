@@ -1,0 +1,13 @@
+{
+  "id": 634,
+  "name": "zweilous",
+  "types": [
+    "dark",
+    "dragon"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/634.png",
+  "abilities": [
+    "hustle"
+  ],
+  "description": "After it has eaten up all the food in its territory,\nit moves to another area. Its two heads do not\nget along."
+}

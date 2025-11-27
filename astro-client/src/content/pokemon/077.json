@@ -1,0 +1,14 @@
+{
+  "id": 77,
+  "name": "ponyta",
+  "types": [
+    "fire"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/77.png",
+  "abilities": [
+    "run-away",
+    "flash-fire",
+    "flame-body"
+  ],
+  "description": "Its hooves are 10\ntimes harder than\ndiamonds. It can\ftrample anything\ncompletely flat\nin little time."
+}

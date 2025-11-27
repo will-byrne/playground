@@ -1,0 +1,15 @@
+{
+  "id": 272,
+  "name": "ludicolo",
+  "types": [
+    "water",
+    "grass"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/272.png",
+  "abilities": [
+    "swift-swim",
+    "rain-dish",
+    "own-tempo"
+  ],
+  "description": "LUDICOLO begins dancing as soon as\nit hears cheerful, festive music.\nThis POKéMON is said to appear when it\fhears the singing of children on hiking\noutings."
+}

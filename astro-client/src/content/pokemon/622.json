@@ -1,0 +1,15 @@
+{
+  "id": 622,
+  "name": "golett",
+  "types": [
+    "ground",
+    "ghost"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/622.png",
+  "abilities": [
+    "iron-fist",
+    "klutz",
+    "no-guard"
+  ],
+  "description": "The energy that burns inside it\nenables it to move, but no one has yet\nbeen able to identify this energy."
+}

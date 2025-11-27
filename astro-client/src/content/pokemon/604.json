@@ -1,0 +1,12 @@
+{
+  "id": 604,
+  "name": "eelektross",
+  "types": [
+    "electric"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/604.png",
+  "abilities": [
+    "levitate"
+  ],
+  "description": "They crawl out of the ocean using their\narms. They will attack prey on shore and\nimmediately drag it into the ocean."
+}

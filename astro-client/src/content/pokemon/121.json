@@ -1,0 +1,15 @@
+{
+  "id": 121,
+  "name": "starmie",
+  "types": [
+    "water",
+    "psychic"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/121.png",
+  "abilities": [
+    "illuminate",
+    "natural-cure",
+    "analytic"
+  ],
+  "description": "Its central core\nglows with the\nseven colors of\fthe rainbow. Some\npeople value the\ncore as a gem."
+}

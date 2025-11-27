@@ -1,0 +1,12 @@
+{
+  "id": 773,
+  "name": "silvally",
+  "types": [
+    "normal"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/773.png",
+  "abilities": [
+    "rks-system"
+  ],
+  "description": "Its trust in its partner is what awakens it.\nThis Pokémon is capable of changing its type,\na flexibility that is well displayed in battle."
+}

@@ -1,0 +1,14 @@
+{
+  "id": 376,
+  "name": "metagross",
+  "types": [
+    "steel",
+    "psychic"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/376.png",
+  "abilities": [
+    "clear-body",
+    "light-metal"
+  ],
+  "description": "METAGROSS has four brains in total.\nCombined, the four brains can breeze\nthrough difficult calculations faster\fthan a supercomputer.\nThis POKéMON can float in the air by\ntucking in its four legs."
+}

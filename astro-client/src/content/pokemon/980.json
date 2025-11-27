@@ -1,0 +1,15 @@
+{
+  "id": 980,
+  "name": "clodsire",
+  "types": [
+    "poison",
+    "ground"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/980.png",
+  "abilities": [
+    "poison-point",
+    "water-absorb",
+    "unaware"
+  ],
+  "description": "When attacked, this Pokémon will retaliate by sticking thick spines out from its body. It’s a risky move that puts everything on the line."
+}

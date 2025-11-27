@@ -1,0 +1,14 @@
+{
+  "id": 856,
+  "name": "hatenna",
+  "types": [
+    "psychic"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/856.png",
+  "abilities": [
+    "healer",
+    "anticipation",
+    "magic-bounce"
+  ],
+  "description": "Via the protrusion on its head, it senses other\ncreatures’ emotions. If you don’t have a calm\ndisposition, it will never warm up to you."
+}

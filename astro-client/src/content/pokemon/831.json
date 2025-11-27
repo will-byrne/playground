@@ -1,0 +1,14 @@
+{
+  "id": 831,
+  "name": "wooloo",
+  "types": [
+    "normal"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/831.png",
+  "abilities": [
+    "fluffy",
+    "run-away",
+    "bulletproof"
+  ],
+  "description": "Its curly fleece is such an effective cushion that\nthis Pokémon could fall off a cliff and stand right\nback up at the bottom, unharmed."
+}

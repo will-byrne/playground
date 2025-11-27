@@ -1,0 +1,15 @@
+{
+  "id": 198,
+  "name": "murkrow",
+  "types": [
+    "dark",
+    "flying"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/198.png",
+  "abilities": [
+    "insomnia",
+    "super-luck",
+    "prankster"
+  ],
+  "description": "Feared and loathed\nby many, it is\nbelieved to bring\fmisfortune to all\nthose who see it\nat night."
+}

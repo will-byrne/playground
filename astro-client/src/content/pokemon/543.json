@@ -1,0 +1,15 @@
+{
+  "id": 543,
+  "name": "venipede",
+  "types": [
+    "bug",
+    "poison"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/543.png",
+  "abilities": [
+    "poison-point",
+    "swarm",
+    "speed-boost"
+  ],
+  "description": "Its bite injects a potent poison, enough\nto paralyze large bird Pokémon that try\nto prey on it."
+}

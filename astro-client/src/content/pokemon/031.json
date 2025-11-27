@@ -1,0 +1,15 @@
+{
+  "id": 31,
+  "name": "nidoqueen",
+  "types": [
+    "poison",
+    "ground"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/31.png",
+  "abilities": [
+    "poison-point",
+    "rivalry",
+    "sheer-force"
+  ],
+  "description": "Its hard scales\nprovide strong\nprotection. It\fuses its hefty\nbulk to execute\npowerful moves."
+}

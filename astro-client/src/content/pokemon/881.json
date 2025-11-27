@@ -1,0 +1,15 @@
+{
+  "id": 881,
+  "name": "arctozolt",
+  "types": [
+    "electric",
+    "ice"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/881.png",
+  "abilities": [
+    "volt-absorb",
+    "static",
+    "slush-rush"
+  ],
+  "description": "The shaking of its freezing upper half is what\ngenerates its electricity. It has a hard time\nwalking around."
+}

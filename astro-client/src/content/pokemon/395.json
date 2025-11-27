@@ -1,0 +1,14 @@
+{
+  "id": 395,
+  "name": "empoleon",
+  "types": [
+    "water",
+    "steel"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/395.png",
+  "abilities": [
+    "torrent",
+    "competitive"
+  ],
+  "description": "The three horns that extend from\nits beak attest to its power. The\nleader has the biggest horns."
+}

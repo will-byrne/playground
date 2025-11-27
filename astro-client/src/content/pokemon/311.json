@@ -1,0 +1,13 @@
+{
+  "id": 311,
+  "name": "plusle",
+  "types": [
+    "electric"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/311.png",
+  "abilities": [
+    "plus",
+    "lightning-rod"
+  ],
+  "description": "PLUSLE always acts as a cheerleader\nfor its partners. Whenever a teammate\nputs out a good effort in battle, this\fPOKéMON shorts out its body to create\nthe crackling noises of sparks to show\nits joy."
+}

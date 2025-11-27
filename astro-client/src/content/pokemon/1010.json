@@ -1,0 +1,13 @@
+{
+  "id": 1010,
+  "name": "iron-leaves",
+  "types": [
+    "grass",
+    "psychic"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1010.png",
+  "abilities": [
+    "quark-drive"
+  ],
+  "description": "Many of its physical characteristics match those of a Virizion from the future that was covered in a paranormal magazine."
+}

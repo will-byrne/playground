@@ -1,0 +1,13 @@
+{
+  "id": 367,
+  "name": "huntail",
+  "types": [
+    "water"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/367.png",
+  "abilities": [
+    "swift-swim",
+    "water-veil"
+  ],
+  "description": "HUNTAIL’s presence went unnoticed by\npeople for a long time because it lives\nat extreme depths in the sea.\fThis POKéMON’s eyes can see clearly\neven in the murky dark depths of the\nocean."
+}

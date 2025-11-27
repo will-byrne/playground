@@ -1,0 +1,13 @@
+{
+  "id": 368,
+  "name": "gorebyss",
+  "types": [
+    "water"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/368.png",
+  "abilities": [
+    "swift-swim",
+    "hydration"
+  ],
+  "description": "GOREBYSS lives in the southern seas\nat extreme depths. Its body is built to\nwithstand the enormous pressure of\fwater at incredible depths. Because of\nthis, this POKéMON’s body is unharmed\nby ordinary attacks."
+}

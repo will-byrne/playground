@@ -1,0 +1,15 @@
+{
+  "id": 163,
+  "name": "hoothoot",
+  "types": [
+    "normal",
+    "flying"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/163.png",
+  "abilities": [
+    "insomnia",
+    "keen-eye",
+    "tinted-lens"
+  ],
+  "description": "It always stands\non one foot. It\nchanges feet so\ffast, the movement\ncan rarely be\nseen."
+}

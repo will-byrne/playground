@@ -1,0 +1,13 @@
+{
+  "id": 738,
+  "name": "vikavolt",
+  "types": [
+    "bug",
+    "electric"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/738.png",
+  "abilities": [
+    "levitate"
+  ],
+  "description": "It zips around, on sharp lookout for an opening.\nIt concentrates electrical energy within its large\njaws and uses it to zap its enemies."
+}

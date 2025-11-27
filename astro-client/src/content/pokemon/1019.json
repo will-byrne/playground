@@ -1,0 +1,15 @@
+{
+  "id": 1019,
+  "name": "hydrapple",
+  "types": [
+    "grass",
+    "dragon"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1019.png",
+  "abilities": [
+    "supersweet-syrup",
+    "regenerator",
+    "sticky-hold"
+  ],
+  "description": "Seven syrpents live inside an apple made of syrup. The syrpent in the center is the commander."
+}

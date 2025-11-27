@@ -1,0 +1,15 @@
+{
+  "id": 439,
+  "name": "mime-jr",
+  "types": [
+    "psychic",
+    "fairy"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/439.png",
+  "abilities": [
+    "soundproof",
+    "filter",
+    "technician"
+  ],
+  "description": "It habitually mimics foes. Once\nmimicked, the foe cannot take its\neyes off this Pokémon."
+}

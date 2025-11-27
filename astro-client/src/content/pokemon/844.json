@@ -1,0 +1,14 @@
+{
+  "id": 844,
+  "name": "sandaconda",
+  "types": [
+    "ground"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/844.png",
+  "abilities": [
+    "sand-spit",
+    "shed-skin",
+    "sand-veil"
+  ],
+  "description": "When it contracts its body, over 220 pounds of\nsand sprays from its nose. If it ever runs out of\nsand, it becomes disheartened."
+}

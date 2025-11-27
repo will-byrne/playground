@@ -1,0 +1,15 @@
+{
+  "id": 519,
+  "name": "pidove",
+  "types": [
+    "normal",
+    "flying"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/519.png",
+  "abilities": [
+    "big-pecks",
+    "super-luck",
+    "rivalry"
+  ],
+  "description": "Each follows its Trainer’s orders as\nbest it can, but they sometimes fail to\nunderstand complicated commands."
+}

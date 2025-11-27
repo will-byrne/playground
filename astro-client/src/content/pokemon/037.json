@@ -1,0 +1,13 @@
+{
+  "id": 37,
+  "name": "vulpix",
+  "types": [
+    "fire"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/37.png",
+  "abilities": [
+    "flash-fire",
+    "drought"
+  ],
+  "description": "At the time of\nbirth, it has\njust one tail.\fThe tail splits\nfrom its tip as\nit grows older."
+}

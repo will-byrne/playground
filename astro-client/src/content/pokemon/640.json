@@ -1,0 +1,13 @@
+{
+  "id": 640,
+  "name": "virizion",
+  "types": [
+    "grass",
+    "fighting"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/640.png",
+  "abilities": [
+    "justified"
+  ],
+  "description": "This Pokémon fought humans in order\nto protect its friends. Legends about it\ncontinue to be passed down."
+}

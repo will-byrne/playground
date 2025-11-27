@@ -1,0 +1,14 @@
+{
+  "id": 413,
+  "name": "wormadam-plant",
+  "types": [
+    "bug",
+    "grass"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/413.png",
+  "abilities": [
+    "anticipation",
+    "overcoat"
+  ],
+  "description": "When BURMY evolved, its cloak\nbecame a part of this Pokémon’s\nbody. The cloak is never shed."
+}

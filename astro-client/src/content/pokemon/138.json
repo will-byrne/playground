@@ -1,0 +1,15 @@
+{
+  "id": 138,
+  "name": "omanyte",
+  "types": [
+    "rock",
+    "water"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/138.png",
+  "abilities": [
+    "swift-swim",
+    "shell-armor",
+    "weak-armor"
+  ],
+  "description": "Although long\nextinct, in rare\ncases, it can be\fgenetically\nresurrected from\nfossils."
+}

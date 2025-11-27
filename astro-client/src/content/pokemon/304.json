@@ -1,0 +1,15 @@
+{
+  "id": 304,
+  "name": "aron",
+  "types": [
+    "steel",
+    "rock"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/304.png",
+  "abilities": [
+    "sturdy",
+    "rock-head",
+    "heavy-metal"
+  ],
+  "description": "This POKéMON has a body of steel.\nTo make its body, ARON feeds on\niron ore that it digs from mountains.\fOccasionally, it causes major trouble by\neating bridges and rails."
+}

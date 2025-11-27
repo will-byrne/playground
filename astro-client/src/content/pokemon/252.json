@@ -1,0 +1,13 @@
+{
+  "id": 252,
+  "name": "treecko",
+  "types": [
+    "grass"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/252.png",
+  "abilities": [
+    "overgrow",
+    "unburden"
+  ],
+  "description": "TREECKO has small hooks on the bottom\nof its feet that enable it to scale\nvertical walls.\fThis POKéMON attacks by slamming foes\nwith its thick tail."
+}

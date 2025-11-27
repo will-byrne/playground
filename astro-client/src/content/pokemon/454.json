@@ -1,0 +1,15 @@
+{
+  "id": 454,
+  "name": "toxicroak",
+  "types": [
+    "poison",
+    "fighting"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/454.png",
+  "abilities": [
+    "anticipation",
+    "dry-skin",
+    "poison-touch"
+  ],
+  "description": "Its knuckle claws secrete a toxin\nso vile that even a scratch could\nprove fatal."
+}

@@ -1,0 +1,14 @@
+{
+  "id": 761,
+  "name": "bounsweet",
+  "types": [
+    "grass"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/761.png",
+  "abilities": [
+    "leaf-guard",
+    "oblivious",
+    "sweet-veil"
+  ],
+  "description": "A delectable aroma pours from its body.\nThey are often swallowed whole by Toucannon\nlured by that wafting deliciousness."
+}

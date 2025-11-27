@@ -1,0 +1,14 @@
+{
+  "id": 106,
+  "name": "hitmonlee",
+  "types": [
+    "fighting"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/106.png",
+  "abilities": [
+    "limber",
+    "reckless",
+    "unburden"
+  ],
+  "description": "When in a hurry,\nits legs lengthen\nprogressively.\fIt runs smoothly\nwith extra long,\nloping strides."
+}

@@ -1,0 +1,14 @@
+{
+  "id": 830,
+  "name": "eldegoss",
+  "types": [
+    "grass"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/830.png",
+  "abilities": [
+    "cotton-down",
+    "regenerator",
+    "effect-spore"
+  ],
+  "description": "The seeds attached to its cotton fluff are full of\nnutrients. It spreads them on the wind so that\nplants and other Pokémon can benefit from them."
+}

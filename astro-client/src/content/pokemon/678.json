@@ -1,0 +1,14 @@
+{
+  "id": 678,
+  "name": "meowstic-male",
+  "types": [
+    "psychic"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/678.png",
+  "abilities": [
+    "keen-eye",
+    "infiltrator",
+    "prankster"
+  ],
+  "description": "When in danger, it raises its ears and\nreleases enough psychic power to\ngrind a 10-ton truck into dust."
+}

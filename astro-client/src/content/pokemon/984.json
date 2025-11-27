@@ -1,0 +1,13 @@
+{
+  "id": 984,
+  "name": "great-tusk",
+  "types": [
+    "ground",
+    "fighting"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/984.png",
+  "abilities": [
+    "protosynthesis"
+  ],
+  "description": "Sightings of this Pokémon have occurred in recent years. The name Great Tusk was taken from a creature listed in a certain book."
+}

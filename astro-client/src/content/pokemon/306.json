@@ -1,0 +1,15 @@
+{
+  "id": 306,
+  "name": "aggron",
+  "types": [
+    "steel",
+    "rock"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/306.png",
+  "abilities": [
+    "sturdy",
+    "rock-head",
+    "heavy-metal"
+  ],
+  "description": "AGGRON claims an entire mountain as its\nown territory. It mercilessly beats up\nanything that violates its environment.\fThis POKéMON vigilantly patrols its\nterritory at all times."
+}

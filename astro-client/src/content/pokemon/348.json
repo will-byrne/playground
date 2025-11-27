@@ -1,0 +1,14 @@
+{
+  "id": 348,
+  "name": "armaldo",
+  "types": [
+    "rock",
+    "bug"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/348.png",
+  "abilities": [
+    "battle-armor",
+    "swift-swim"
+  ],
+  "description": "ARMALDO’s tough armor makes all attacks\nbounce off. This POKéMON’s two\nenormous claws can be freely extended\for contracted. They have the power to\npunch right through a steel slab."
+}

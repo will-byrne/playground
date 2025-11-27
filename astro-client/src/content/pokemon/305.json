@@ -1,0 +1,15 @@
+{
+  "id": 305,
+  "name": "lairon",
+  "types": [
+    "steel",
+    "rock"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/305.png",
+  "abilities": [
+    "sturdy",
+    "rock-head",
+    "heavy-metal"
+  ],
+  "description": "LAIRON tempers its steel body by\ndrinking highly nutritious mineral\nspringwater until it is bloated.\fThis POKéMON makes its nest close to\nsprings of delicious water."
+}

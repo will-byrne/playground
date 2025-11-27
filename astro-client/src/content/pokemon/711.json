@@ -1,0 +1,15 @@
+{
+  "id": 711,
+  "name": "gourgeist-average",
+  "types": [
+    "ghost",
+    "grass"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/711.png",
+  "abilities": [
+    "pickup",
+    "frisk",
+    "insomnia"
+  ],
+  "description": "Singing in eerie voices, they wander\ntown streets on the night of the new moon.\nAnyone who hears their song is cursed."
+}

@@ -1,0 +1,14 @@
+{
+  "id": 598,
+  "name": "ferrothorn",
+  "types": [
+    "grass",
+    "steel"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/598.png",
+  "abilities": [
+    "iron-barbs",
+    "anticipation"
+  ],
+  "description": "It fights by swinging around its three\nspiky feelers. A hit from these steel\nspikes can reduce a boulder to rubble."
+}

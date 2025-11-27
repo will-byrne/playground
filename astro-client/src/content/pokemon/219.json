@@ -1,0 +1,15 @@
+{
+  "id": 219,
+  "name": "magcargo",
+  "types": [
+    "fire",
+    "rock"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/219.png",
+  "abilities": [
+    "magma-armor",
+    "flame-body",
+    "weak-armor"
+  ],
+  "description": "The shell on its\nback is just skin\nthat has cooled\fand hardened. It\nbreaks easily with\na slight touch."
+}

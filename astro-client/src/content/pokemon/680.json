@@ -1,0 +1,13 @@
+{
+  "id": 680,
+  "name": "doublade",
+  "types": [
+    "steel",
+    "ghost"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/680.png",
+  "abilities": [
+    "no-guard"
+  ],
+  "description": "When Honedge evolves, it divides into two swords,\nwhich cooperate via telepathy to coordinate attacks\nand slash their enemies to ribbons."
+}

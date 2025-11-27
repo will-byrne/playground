@@ -1,0 +1,14 @@
+{
+  "id": 934,
+  "name": "garganacl",
+  "types": [
+    "rock"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/934.png",
+  "abilities": [
+    "purifying-salt",
+    "sturdy",
+    "clear-body"
+  ],
+  "description": "Garganacl will rub its fingertips together and sprinkle injured Pokémon with salt. Even severe wounds will promptly heal afterward."
+}

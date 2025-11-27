@@ -1,0 +1,13 @@
+{
+  "id": 503,
+  "name": "samurott",
+  "types": [
+    "water"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/503.png",
+  "abilities": [
+    "torrent",
+    "shell-armor"
+  ],
+  "description": "One swing of the sword incorporated in\nits armor can fell an opponent. A simple\nglare from one of them quiets everybody."
+}

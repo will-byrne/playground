@@ -1,0 +1,15 @@
+{
+  "id": 580,
+  "name": "ducklett",
+  "types": [
+    "water",
+    "flying"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/580.png",
+  "abilities": [
+    "keen-eye",
+    "big-pecks",
+    "hydration"
+  ],
+  "description": "These bird Pokémon are excellent divers.\nThey swim around in the water eating\ntheir favorite food--peat moss."
+}

@@ -1,0 +1,14 @@
+{
+  "id": 361,
+  "name": "snorunt",
+  "types": [
+    "ice"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/361.png",
+  "abilities": [
+    "inner-focus",
+    "ice-body",
+    "moody"
+  ],
+  "description": "SNORUNT live in regions with heavy\nsnowfall. In seasons without snow, such\nas spring and summer, this POKéMON\fsteals away to live quietly among\nstalactites and stalagmites deep in\ncaverns."
+}

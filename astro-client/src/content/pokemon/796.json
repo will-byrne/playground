@@ -1,0 +1,12 @@
+{
+  "id": 796,
+  "name": "xurkitree",
+  "types": [
+    "electric"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/796.png",
+  "abilities": [
+    "beast-boost"
+  ],
+  "description": "One of the mysterious life-forms known as Ultra\nBeasts. Astonishing electric shocks emanate\nfrom its entire body, according to witnesses."
+}

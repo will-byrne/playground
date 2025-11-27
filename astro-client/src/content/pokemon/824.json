@@ -1,0 +1,14 @@
+{
+  "id": 824,
+  "name": "blipbug",
+  "types": [
+    "bug"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/824.png",
+  "abilities": [
+    "swarm",
+    "compound-eyes",
+    "telepathy"
+  ],
+  "description": "A constant collector of information, this Pokémon\nis very smart. Very strong is what it isn’t."
+}

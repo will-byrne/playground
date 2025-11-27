@@ -1,0 +1,13 @@
+{
+  "id": 972,
+  "name": "houndstone",
+  "types": [
+    "ghost"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/972.png",
+  "abilities": [
+    "sand-rush",
+    "fluffy"
+  ],
+  "description": "Houndstone spends most of its time sleeping in graveyards. Among all the dog Pokémon, this one is most loyal to its master."
+}

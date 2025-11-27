@@ -1,0 +1,13 @@
+{
+  "id": 7,
+  "name": "squirtle",
+  "types": [
+    "water"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/7.png",
+  "abilities": [
+    "torrent",
+    "rain-dish"
+  ],
+  "description": "After birth, its\nback swells and\nhardens into a\fshell. Powerfully\nsprays foam from\nits mouth."
+}

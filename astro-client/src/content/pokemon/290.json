@@ -1,0 +1,14 @@
+{
+  "id": 290,
+  "name": "nincada",
+  "types": [
+    "bug",
+    "ground"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/290.png",
+  "abilities": [
+    "compound-eyes",
+    "run-away"
+  ],
+  "description": "NINCADA lives underground for many\nyears in complete darkness.\nThis POKéMON absorbs nutrients from\fthe roots of trees. It stays motionless\nas it waits for evolution."
+}

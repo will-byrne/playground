@@ -1,0 +1,14 @@
+{
+  "id": 770,
+  "name": "palossand",
+  "types": [
+    "ghost",
+    "ground"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/770.png",
+  "abilities": [
+    "water-compaction",
+    "sand-veil"
+  ],
+  "description": "Possessed people controlled by this Pokémon\ntransformed its sand mound into a castle. As it\nevolved, its power to curse grew ever stronger."
+}

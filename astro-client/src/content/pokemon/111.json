@@ -1,0 +1,15 @@
+{
+  "id": 111,
+  "name": "rhyhorn",
+  "types": [
+    "ground",
+    "rock"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/111.png",
+  "abilities": [
+    "lightning-rod",
+    "rock-head",
+    "reckless"
+  ],
+  "description": "A POKéMON with a\none-track mind.\nOnce it charges, \fit won't stop\nrunning until it\nfalls asleep."
+}

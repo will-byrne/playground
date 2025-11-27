@@ -1,0 +1,14 @@
+{
+  "id": 350,
+  "name": "milotic",
+  "types": [
+    "water"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/350.png",
+  "abilities": [
+    "marvel-scale",
+    "competitive",
+    "cute-charm"
+  ],
+  "description": "Its lovely scales are described as\nrainbow colored. They change color\ndepending on the viewing angle."
+}

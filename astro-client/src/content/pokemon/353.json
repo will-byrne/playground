@@ -1,0 +1,14 @@
+{
+  "id": 353,
+  "name": "shuppet",
+  "types": [
+    "ghost"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/353.png",
+  "abilities": [
+    "insomnia",
+    "frisk",
+    "cursed-body"
+  ],
+  "description": "SHUPPET is attracted by feelings\nof jealousy and vindictiveness.\nIf someone develops strong feelings of\fvengeance, this POKéMON will appear\nin a swarm and line up beneath the eaves\nof that person’s home."
+}

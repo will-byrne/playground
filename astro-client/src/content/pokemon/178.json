@@ -1,0 +1,15 @@
+{
+  "id": 178,
+  "name": "xatu",
+  "types": [
+    "psychic",
+    "flying"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/178.png",
+  "abilities": [
+    "synchronize",
+    "early-bird",
+    "magic-bounce"
+  ],
+  "description": "They say that it\nstays still and\nquiet because it\fis seeing both the\npast and future at\nthe same time."
+}

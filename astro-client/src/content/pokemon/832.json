@@ -1,0 +1,14 @@
+{
+  "id": 832,
+  "name": "dubwool",
+  "types": [
+    "normal"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/832.png",
+  "abilities": [
+    "fluffy",
+    "steadfast",
+    "bulletproof"
+  ],
+  "description": "Weave a carpet from its springy wool, and you end\nup with something closer to a trampoline. You’ll\nstart to bounce the moment you set foot on it."
+}

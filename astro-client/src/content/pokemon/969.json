@@ -1,0 +1,14 @@
+{
+  "id": 969,
+  "name": "glimmet",
+  "types": [
+    "rock",
+    "poison"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/969.png",
+  "abilities": [
+    "toxic-debris",
+    "corrosion"
+  ],
+  "description": "It absorbs nutrients from cave walls. The petals it wears are made of crystallized poison."
+}

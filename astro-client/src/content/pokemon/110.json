@@ -1,0 +1,14 @@
+{
+  "id": 110,
+  "name": "weezing",
+  "types": [
+    "poison"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/110.png",
+  "abilities": [
+    "levitate",
+    "neutralizing-gas",
+    "stench"
+  ],
+  "description": "Where two kinds\nof poison gases\nmeet, 2 KOFFINGs\fcan fuse into a\nWEEZING over many\nyears."
+}

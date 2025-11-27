@@ -1,0 +1,14 @@
+{
+  "id": 525,
+  "name": "boldore",
+  "types": [
+    "rock"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/525.png",
+  "abilities": [
+    "sturdy",
+    "weak-armor",
+    "sand-force"
+  ],
+  "description": "When it overflows with power,\nthe orange crystal on its body glows.\nIt looks for underground water in caves."
+}

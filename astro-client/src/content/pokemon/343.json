@@ -1,0 +1,13 @@
+{
+  "id": 343,
+  "name": "baltoy",
+  "types": [
+    "ground",
+    "psychic"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/343.png",
+  "abilities": [
+    "levitate"
+  ],
+  "description": "BALTOY moves while spinning around on\nits one foot. Primitive wall paintings\ndepicting this POKéMON living among\fpeople were discovered in some ancient\nruins."
+}

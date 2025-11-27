@@ -1,0 +1,14 @@
+{
+  "id": 626,
+  "name": "bouffalant",
+  "types": [
+    "normal"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/626.png",
+  "abilities": [
+    "reckless",
+    "sap-sipper",
+    "soundproof"
+  ],
+  "description": "Their fluffy fur absorbs damage,\neven if they strike foes with a\nfierce headbutt."
+}

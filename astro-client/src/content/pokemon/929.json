@@ -1,0 +1,14 @@
+{
+  "id": 929,
+  "name": "dolliv",
+  "types": [
+    "grass",
+    "normal"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/929.png",
+  "abilities": [
+    "early-bird",
+    "harvest"
+  ],
+  "description": "Dolliv shares its tasty, fresh-scented oil with others. This species has coexisted with humans since times long gone."
+}

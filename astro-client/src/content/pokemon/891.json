@@ -1,0 +1,12 @@
+{
+  "id": 891,
+  "name": "kubfu",
+  "types": [
+    "fighting"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/891.png",
+  "abilities": [
+    "inner-focus"
+  ],
+  "description": "Kubfu trains hard to perfect its moves. The moves\nit masters will determine which form it takes when\nit evolves."
+}

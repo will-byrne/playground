@@ -1,0 +1,15 @@
+{
+  "id": 302,
+  "name": "sableye",
+  "types": [
+    "dark",
+    "ghost"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/302.png",
+  "abilities": [
+    "keen-eye",
+    "stall",
+    "prankster"
+  ],
+  "description": "SABLEYE lead quiet lives deep inside\ncaverns. They are feared, however,\nbecause these POKéMON are thought to\fsteal the spirits of people when their\neyes burn with a sinister glow in the\ndarkness."
+}

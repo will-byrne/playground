@@ -1,0 +1,15 @@
+{
+  "id": 76,
+  "name": "golem",
+  "types": [
+    "rock",
+    "ground"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/76.png",
+  "abilities": [
+    "rock-head",
+    "sturdy",
+    "sand-veil"
+  ],
+  "description": "Its boulder-like\nbody is extremely\nhard. It can\feasily withstand\ndynamite blasts\nwithout damage."
+}

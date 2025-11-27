@@ -1,0 +1,12 @@
+{
+  "id": 789,
+  "name": "cosmog",
+  "types": [
+    "psychic"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/789.png",
+  "abilities": [
+    "unaware"
+  ],
+  "description": "Its body is gaseous and frail. It slowly grows as\nit collects dust from the atmosphere."
+}

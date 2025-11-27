@@ -1,0 +1,15 @@
+{
+  "id": 124,
+  "name": "jynx",
+  "types": [
+    "ice",
+    "psychic"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/124.png",
+  "abilities": [
+    "oblivious",
+    "forewarn",
+    "dry-skin"
+  ],
+  "description": "It seductively\nwiggles its hips\nas it walks. It\fcan cause people\nto dance in\nunison with it."
+}

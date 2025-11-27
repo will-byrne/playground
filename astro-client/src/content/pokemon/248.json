@@ -1,0 +1,14 @@
+{
+  "id": 248,
+  "name": "tyranitar",
+  "types": [
+    "rock",
+    "dark"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/248.png",
+  "abilities": [
+    "sand-stream",
+    "unnerve"
+  ],
+  "description": "Its body can't be\nharmed by any sort\nof attack, so it\fis very eager to\nmake challenges\nagainst enemies."
+}

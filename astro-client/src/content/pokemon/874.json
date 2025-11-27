@@ -1,0 +1,12 @@
+{
+  "id": 874,
+  "name": "stonjourner",
+  "types": [
+    "rock"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/874.png",
+  "abilities": [
+    "power-spot"
+  ],
+  "description": "It stands in grasslands, watching the sun’s descent\nfrom zenith to horizon. This Pokémon has a talent\nfor delivering dynamic kicks."
+}

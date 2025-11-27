@@ -1,0 +1,14 @@
+{
+  "id": 821,
+  "name": "rookidee",
+  "types": [
+    "flying"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/821.png",
+  "abilities": [
+    "keen-eye",
+    "unnerve",
+    "big-pecks"
+  ],
+  "description": "It will bravely challenge any opponent, no matter\nhow powerful. This Pokémon benefits from every\nbattle—even a defeat increases its strength a bit."
+}

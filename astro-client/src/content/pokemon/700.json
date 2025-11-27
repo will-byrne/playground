@@ -1,0 +1,13 @@
+{
+  "id": 700,
+  "name": "sylveon",
+  "types": [
+    "fairy"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/700.png",
+  "abilities": [
+    "cute-charm",
+    "pixilate"
+  ],
+  "description": "It sends a soothing aura from its\nribbonlike feelers to calm fights."
+}

@@ -1,0 +1,14 @@
+{
+  "id": 463,
+  "name": "lickilicky",
+  "types": [
+    "normal"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/463.png",
+  "abilities": [
+    "own-tempo",
+    "oblivious",
+    "cloud-nine"
+  ],
+  "description": "It wraps things with its extensible\ntongue. Getting too close to it\nwill leave you soaked with drool."
+}

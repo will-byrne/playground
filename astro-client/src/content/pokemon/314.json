@@ -1,0 +1,14 @@
+{
+  "id": 314,
+  "name": "illumise",
+  "types": [
+    "bug"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/314.png",
+  "abilities": [
+    "oblivious",
+    "tinted-lens",
+    "prankster"
+  ],
+  "description": "With its sweet aroma, it guides\nVolbeat to draw signs with light in\nthe night sky."
+}

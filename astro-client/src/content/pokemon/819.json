@@ -1,0 +1,13 @@
+{
+  "id": 819,
+  "name": "skwovet",
+  "types": [
+    "normal"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/819.png",
+  "abilities": [
+    "cheek-pouch",
+    "gluttony"
+  ],
+  "description": "Found throughout the Galar region, this Pokémon\nbecomes uneasy if its cheeks are ever completely\nempty of berries."
+}

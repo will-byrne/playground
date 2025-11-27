@@ -1,0 +1,15 @@
+{
+  "id": 434,
+  "name": "stunky",
+  "types": [
+    "poison",
+    "dark"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/434.png",
+  "abilities": [
+    "stench",
+    "aftermath",
+    "keen-eye"
+  ],
+  "description": "It protects itself by spraying a\nnoxious fluid from its rear. The\nstench lingers for 24 hours."
+}

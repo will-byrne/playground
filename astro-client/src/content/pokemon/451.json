@@ -1,0 +1,15 @@
+{
+  "id": 451,
+  "name": "skorupi",
+  "types": [
+    "poison",
+    "bug"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/451.png",
+  "abilities": [
+    "battle-armor",
+    "sniper",
+    "keen-eye"
+  ],
+  "description": "It grips prey with its tail claws\nand injects poison. It tenaciously\nhangs on until the poison takes."
+}

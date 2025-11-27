@@ -1,0 +1,15 @@
+{
+  "id": 565,
+  "name": "carracosta",
+  "types": [
+    "water",
+    "rock"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/565.png",
+  "abilities": [
+    "solid-rock",
+    "sturdy",
+    "swift-swim"
+  ],
+  "description": "They can live both in the ocean and on\nland. A slap from one of them is enough\nto open a hole in the bottom of a tanker."
+}

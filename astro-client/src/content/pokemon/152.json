@@ -1,0 +1,13 @@
+{
+  "id": 152,
+  "name": "chikorita",
+  "types": [
+    "grass"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/152.png",
+  "abilities": [
+    "overgrow",
+    "leaf-guard"
+  ],
+  "description": "A sweet aroma\ngently wafts from\nthe leaf on its\fhead. It is docile\nand loves to soak\nup the sun's rays."
+}

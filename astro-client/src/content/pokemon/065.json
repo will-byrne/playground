@@ -1,0 +1,14 @@
+{
+  "id": 65,
+  "name": "alakazam",
+  "types": [
+    "psychic"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/65.png",
+  "abilities": [
+    "synchronize",
+    "inner-focus",
+    "magic-guard"
+  ],
+  "description": "Its brain can out­\nperform a super­\ncomputer.\fIts intelligence\nquotient is said\nto be 5,000."
+}

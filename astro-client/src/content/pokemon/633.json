@@ -1,0 +1,13 @@
+{
+  "id": 633,
+  "name": "deino",
+  "types": [
+    "dark",
+    "dragon"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/633.png",
+  "abilities": [
+    "hustle"
+  ],
+  "description": "It tends to bite everything, and it\nis not a picky eater. Approaching it\ncarelessly is dangerous."
+}

@@ -1,0 +1,14 @@
+{
+  "id": 600,
+  "name": "klang",
+  "types": [
+    "steel"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/600.png",
+  "abilities": [
+    "plus",
+    "minus",
+    "clear-body"
+  ],
+  "description": "By changing the direction in which it\nrotates, it communicates its feelings to\nothers. When angry, it rotates faster."
+}

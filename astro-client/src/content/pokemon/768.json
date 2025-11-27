@@ -1,0 +1,13 @@
+{
+  "id": 768,
+  "name": "golisopod",
+  "types": [
+    "bug",
+    "water"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/768.png",
+  "abilities": [
+    "emergency-exit"
+  ],
+  "description": "With a flashing slash of its giant sharp claws,\nit cleaves seawater—or even air—right in two."
+}

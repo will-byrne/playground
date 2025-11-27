@@ -1,0 +1,14 @@
+{
+  "id": 664,
+  "name": "scatterbug",
+  "types": [
+    "bug"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/664.png",
+  "abilities": [
+    "shield-dust",
+    "compound-eyes",
+    "friend-guard"
+  ],
+  "description": "When under attack from bird Pokémon,\nit spews a poisonous black powder\nthat causes paralysis on contact."
+}

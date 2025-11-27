@@ -1,0 +1,14 @@
+{
+  "id": 487,
+  "name": "giratina-altered",
+  "types": [
+    "ghost",
+    "dragon"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/487.png",
+  "abilities": [
+    "pressure",
+    "telepathy"
+  ],
+  "description": "A Pokémon that is said to live in a\nworld on the reverse side of ours.\nIt appears in an ancient cemetery."
+}

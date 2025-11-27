@@ -1,0 +1,14 @@
+{
+  "id": 173,
+  "name": "cleffa",
+  "types": [
+    "fairy"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/173.png",
+  "abilities": [
+    "cute-charm",
+    "magic-guard",
+    "friend-guard"
+  ],
+  "description": "Because of its\nunusual, star-like\nsilhouette, people\fbelieve that it\ncame here on\na meteor."
+}

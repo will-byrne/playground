@@ -1,0 +1,12 @@
+{
+  "id": 775,
+  "name": "komala",
+  "types": [
+    "normal"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/775.png",
+  "abilities": [
+    "comatose"
+  ],
+  "description": "It is born asleep, and it dies asleep. All its\nmovements are apparently no more than the\nresults of it tossing and turning in its dreams."
+}

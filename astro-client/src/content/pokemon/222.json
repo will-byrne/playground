@@ -1,0 +1,15 @@
+{
+  "id": 222,
+  "name": "corsola",
+  "types": [
+    "water",
+    "rock"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/222.png",
+  "abilities": [
+    "hustle",
+    "natural-cure",
+    "regenerator"
+  ],
+  "description": "It continuously\nsheds and grows.\nThe tip of its\fhead is prized as\na treasure for its\nbeauty."
+}

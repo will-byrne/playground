@@ -1,0 +1,12 @@
+{
+  "id": 571,
+  "name": "zoroark",
+  "types": [
+    "dark"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/571.png",
+  "abilities": [
+    "illusion"
+  ],
+  "description": "Bonds between these Pokémon are very\nstrong. It protects the safety of its\npack by tricking its opponents."
+}

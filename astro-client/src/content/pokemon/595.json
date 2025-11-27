@@ -1,0 +1,15 @@
+{
+  "id": 595,
+  "name": "joltik",
+  "types": [
+    "bug",
+    "electric"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/595.png",
+  "abilities": [
+    "compound-eyes",
+    "unnerve",
+    "swarm"
+  ],
+  "description": "Joltik that live in cities have learned\na technique for sucking electricity\nfrom the outlets in houses."
+}

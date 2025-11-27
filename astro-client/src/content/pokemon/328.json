@@ -1,0 +1,14 @@
+{
+  "id": 328,
+  "name": "trapinch",
+  "types": [
+    "ground"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/328.png",
+  "abilities": [
+    "hyper-cutter",
+    "arena-trap",
+    "sheer-force"
+  ],
+  "description": "TRAPINCH’s nest is a sloped, bowl-like\npit dug in sand. This POKéMON patiently\nwaits for prey to tumble down the pit.\fIts giant jaws have enough strength\nto crush even boulders."
+}

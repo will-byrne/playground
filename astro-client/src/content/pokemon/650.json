@@ -1,0 +1,13 @@
+{
+  "id": 650,
+  "name": "chespin",
+  "types": [
+    "grass"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/650.png",
+  "abilities": [
+    "overgrow",
+    "bulletproof"
+  ],
+  "description": "The quills on its head are usually soft.\nWhen it flexes them, the points become\nso hard and sharp that they can pierce rock."
+}

@@ -1,0 +1,14 @@
+{
+  "id": 359,
+  "name": "absol",
+  "types": [
+    "dark"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/359.png",
+  "abilities": [
+    "pressure",
+    "super-luck",
+    "justified"
+  ],
+  "description": "Every time ABSOL appears before people,\nit is followed by a disaster such as an\nearthquake or a tidal wave.\fAs a result, it came to be known as the\ndisaster POKéMON."
+}

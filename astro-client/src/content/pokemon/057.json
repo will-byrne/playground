@@ -1,0 +1,14 @@
+{
+  "id": 57,
+  "name": "primeape",
+  "types": [
+    "fighting"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/57.png",
+  "abilities": [
+    "vital-spirit",
+    "anger-point",
+    "defiant"
+  ],
+  "description": "Always furious\nand tenacious to\nboot. It will not\fabandon chasing\nits quarry until\nit is caught."
+}

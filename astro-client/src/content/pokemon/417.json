@@ -1,0 +1,14 @@
+{
+  "id": 417,
+  "name": "pachirisu",
+  "types": [
+    "electric"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/417.png",
+  "abilities": [
+    "run-away",
+    "pickup",
+    "volt-absorb"
+  ],
+  "description": "It makes fur balls that crackle\nwith static electricity. It stores\nthem with berries in tree holes."
+}

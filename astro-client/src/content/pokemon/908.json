@@ -1,0 +1,14 @@
+{
+  "id": 908,
+  "name": "meowscarada",
+  "types": [
+    "grass",
+    "dark"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/908.png",
+  "abilities": [
+    "overgrow",
+    "protean"
+  ],
+  "description": "This Pokémon uses the reflective fur lining its cape to camouflage the stem of its flower, creating the illusion that the flower is floating."
+}

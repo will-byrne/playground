@@ -1,0 +1,13 @@
+{
+  "id": 497,
+  "name": "serperior",
+  "types": [
+    "grass"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/497.png",
+  "abilities": [
+    "overgrow",
+    "contrary"
+  ],
+  "description": "It can stop its opponents’\nmovements with just a glare. It takes\nin solar energy and boosts it internally."
+}

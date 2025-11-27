@@ -1,0 +1,13 @@
+{
+  "id": 643,
+  "name": "reshiram",
+  "types": [
+    "dragon",
+    "fire"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/643.png",
+  "abilities": [
+    "turboblaze"
+  ],
+  "description": "This Pokémon appears in legends.\nIt sends flames into the air from its\ntail, burning up everything around it."
+}

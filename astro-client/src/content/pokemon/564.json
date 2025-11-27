@@ -1,0 +1,15 @@
+{
+  "id": 564,
+  "name": "tirtouga",
+  "types": [
+    "water",
+    "rock"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/564.png",
+  "abilities": [
+    "solid-rock",
+    "sturdy",
+    "swift-swim"
+  ],
+  "description": "Restored from a fossil, this Pokémon\ncan dive to depths beyond half a mile."
+}

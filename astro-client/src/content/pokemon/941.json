@@ -1,0 +1,15 @@
+{
+  "id": 941,
+  "name": "kilowattrel",
+  "types": [
+    "electric",
+    "flying"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/941.png",
+  "abilities": [
+    "wind-power",
+    "volt-absorb",
+    "competitive"
+  ],
+  "description": "Kilowattrel inflates its throat sac to amplify its electricity. By riding the wind, this Pokémon can fly over 430 miles in a day."
+}

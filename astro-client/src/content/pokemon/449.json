@@ -1,0 +1,13 @@
+{
+  "id": 449,
+  "name": "hippopotas",
+  "types": [
+    "ground"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/449.png",
+  "abilities": [
+    "sand-stream",
+    "sand-force"
+  ],
+  "description": "It lives in arid places. Instead\nof perspiration, it expels grainy\nsand from its body."
+}

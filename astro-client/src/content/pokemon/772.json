@@ -1,0 +1,12 @@
+{
+  "id": 772,
+  "name": "type-null",
+  "types": [
+    "normal"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/772.png",
+  "abilities": [
+    "battle-armor"
+  ],
+  "description": "The heavy control mask it wears suppresses its\nintrinsic capabilities. This Pokémon has some\nhidden special power."
+}

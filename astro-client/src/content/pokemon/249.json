@@ -1,0 +1,14 @@
+{
+  "id": 249,
+  "name": "lugia",
+  "types": [
+    "psychic",
+    "flying"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/249.png",
+  "abilities": [
+    "pressure",
+    "multiscale"
+  ],
+  "description": "It is said that it\nquietly spends its\ntime deep at the\fbottom of the sea\nbecause its powers\nare too strong."
+}

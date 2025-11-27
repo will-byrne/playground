@@ -1,0 +1,15 @@
+{
+  "id": 973,
+  "name": "flamigo",
+  "types": [
+    "flying",
+    "fighting"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/973.png",
+  "abilities": [
+    "scrappy",
+    "tangled-feet",
+    "costar"
+  ],
+  "description": "This Pokémon apparently ties the base of its neck into a knot so that energy stored in its belly does not escape from its beak."
+}

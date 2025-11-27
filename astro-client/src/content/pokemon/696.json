@@ -1,0 +1,14 @@
+{
+  "id": 696,
+  "name": "tyrunt",
+  "types": [
+    "rock",
+    "dragon"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/696.png",
+  "abilities": [
+    "strong-jaw",
+    "sturdy"
+  ],
+  "description": "This Pokémon was restored from a fossil.\nIf something happens that it doesn’t like,\nit throws a tantrum and runs wild."
+}

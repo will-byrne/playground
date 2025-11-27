@@ -1,0 +1,14 @@
+{
+  "id": 259,
+  "name": "marshtomp",
+  "types": [
+    "water",
+    "ground"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/259.png",
+  "abilities": [
+    "torrent",
+    "damp"
+  ],
+  "description": "The surface of MARSHTOMP’s body is\nenveloped by a thin, sticky film that\nenables it to live on land.\fThis POKéMON plays in mud on beaches\nwhen the ocean tide is low."
+}

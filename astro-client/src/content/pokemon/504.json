@@ -1,0 +1,14 @@
+{
+  "id": 504,
+  "name": "patrat",
+  "types": [
+    "normal"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/504.png",
+  "abilities": [
+    "run-away",
+    "keen-eye",
+    "analytic"
+  ],
+  "description": "Using food stored in cheek pouches,\nthey can keep watch for days. They use\ntheir tails to communicate with others."
+}

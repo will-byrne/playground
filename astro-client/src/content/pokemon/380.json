@@ -1,0 +1,13 @@
+{
+  "id": 380,
+  "name": "latias",
+  "types": [
+    "dragon",
+    "psychic"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/380.png",
+  "abilities": [
+    "levitate"
+  ],
+  "description": "LATIAS is highly sensitive to the\nemotions of people. If it senses any\nhostility, this POKéMON ruffles the\ffeathers all over its body and cries\nshrilly to intimidate the foe."
+}

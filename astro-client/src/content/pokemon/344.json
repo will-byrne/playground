@@ -1,0 +1,13 @@
+{
+  "id": 344,
+  "name": "claydol",
+  "types": [
+    "ground",
+    "psychic"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/344.png",
+  "abilities": [
+    "levitate"
+  ],
+  "description": "CLAYDOL are said to be dolls of mud made\nby primitive humans and brought to life\nby exposure to a mysterious ray.\fThis POKéMON moves about while\nlevitating."
+}

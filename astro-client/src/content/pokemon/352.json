@@ -1,0 +1,13 @@
+{
+  "id": 352,
+  "name": "kecleon",
+  "types": [
+    "normal"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/352.png",
+  "abilities": [
+    "color-change",
+    "protean"
+  ],
+  "description": "It changes body color to blend in with\nits surroundings. It also changes color if\nit is happy or sad."
+}

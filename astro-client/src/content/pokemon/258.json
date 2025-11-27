@@ -1,0 +1,13 @@
+{
+  "id": 258,
+  "name": "mudkip",
+  "types": [
+    "water"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/258.png",
+  "abilities": [
+    "torrent",
+    "damp"
+  ],
+  "description": "The fin on MUDKIP’s head acts as highly\nsensitive radar. Using this fin to sense\nmovements of water and air, this\fPOKéMON can determine what is taking\nplace around it without using its eyes."
+}

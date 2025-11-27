@@ -1,0 +1,14 @@
+{
+  "id": 277,
+  "name": "swellow",
+  "types": [
+    "normal",
+    "flying"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/277.png",
+  "abilities": [
+    "guts",
+    "scrappy"
+  ],
+  "description": "SWELLOW flies high above our heads,\nmaking graceful arcs in the sky.\nThis POKéMON dives at a steep angle as\fsoon as it spots its prey. The hapless\nprey is tightly grasped by SWELLOW’s\nclawed feet, preventing escape."
+}

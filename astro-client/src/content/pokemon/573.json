@@ -1,0 +1,14 @@
+{
+  "id": 573,
+  "name": "cinccino",
+  "types": [
+    "normal"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/573.png",
+  "abilities": [
+    "cute-charm",
+    "technician",
+    "skill-link"
+  ],
+  "description": "Their white fur is coated in a special oil\nthat makes it easy for them to\ndeflect attacks."
+}

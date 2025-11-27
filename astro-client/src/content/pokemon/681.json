@@ -1,0 +1,13 @@
+{
+  "id": 681,
+  "name": "aegislash-shield",
+  "types": [
+    "steel",
+    "ghost"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/681.png",
+  "abilities": [
+    "stance-change"
+  ],
+  "description": "Generations of kings were attended by these\nPokémon, which used their spectral power to\nmanipulate and control people and Pokémon."
+}

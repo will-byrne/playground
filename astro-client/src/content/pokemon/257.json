@@ -1,0 +1,14 @@
+{
+  "id": 257,
+  "name": "blaziken",
+  "types": [
+    "fire",
+    "fighting"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/257.png",
+  "abilities": [
+    "blaze",
+    "speed-boost"
+  ],
+  "description": "In battle, BLAZIKEN blows out intense\nflames from its wrists and attacks foes\ncourageously.\fThe stronger the foe, the more\nintensely this POKéMON’s wrists burn."
+}

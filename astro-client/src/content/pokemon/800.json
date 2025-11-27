@@ -1,0 +1,12 @@
+{
+  "id": 800,
+  "name": "necrozma",
+  "types": [
+    "psychic"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/800.png",
+  "abilities": [
+    "prism-armor"
+  ],
+  "description": "Reminiscent of the Ultra Beasts, this life-form,\napparently asleep underground, is thought to\nhave come from another world in ancient times."
+}

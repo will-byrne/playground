@@ -1,0 +1,13 @@
+{
+  "id": 244,
+  "name": "entei",
+  "types": [
+    "fire"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/244.png",
+  "abilities": [
+    "pressure",
+    "inner-focus"
+  ],
+  "description": "Volcanoes erupt\nwhen it barks. Un­\nable to restrain\fits extreme power,\nit races headlong\naround the land."
+}

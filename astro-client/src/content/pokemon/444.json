@@ -1,0 +1,14 @@
+{
+  "id": 444,
+  "name": "gabite",
+  "types": [
+    "dragon",
+    "ground"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/444.png",
+  "abilities": [
+    "sand-veil",
+    "rough-skin"
+  ],
+  "description": "There is a long-held belief that\nmedicine made from its scales will\nheal even incurable illnesses."
+}

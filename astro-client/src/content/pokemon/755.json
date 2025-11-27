@@ -1,0 +1,15 @@
+{
+  "id": 755,
+  "name": "morelull",
+  "types": [
+    "grass",
+    "fairy"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/755.png",
+  "abilities": [
+    "illuminate",
+    "effect-spore",
+    "rain-dish"
+  ],
+  "description": "It scatters spores that flicker and glow. Anyone\nseeing these lights falls into a deep slumber."
+}

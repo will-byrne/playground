@@ -1,0 +1,13 @@
+{
+  "id": 265,
+  "name": "wurmple",
+  "types": [
+    "bug"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/265.png",
+  "abilities": [
+    "shield-dust",
+    "run-away"
+  ],
+  "description": "Using the spikes on its rear end,  \nWURMPLE peels the bark off trees and\nfeeds on the sap that oozes out.\fThis POKéMON’s feet are tipped with\nsuction pads that allow it to cling to\nglass without slipping."
+}

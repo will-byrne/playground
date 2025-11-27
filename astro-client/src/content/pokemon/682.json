@@ -1,0 +1,13 @@
+{
+  "id": 682,
+  "name": "spritzee",
+  "types": [
+    "fairy"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/682.png",
+  "abilities": [
+    "healer",
+    "aroma-veil"
+  ],
+  "description": "It emits a scent that enraptures those\nwho smell it. This fragrance changes\ndepending on what it has eaten."
+}

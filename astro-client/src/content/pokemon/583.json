@@ -1,0 +1,14 @@
+{
+  "id": 583,
+  "name": "vanillish",
+  "types": [
+    "ice"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/583.png",
+  "abilities": [
+    "ice-body",
+    "snow-cloak",
+    "weak-armor"
+  ],
+  "description": "Snowy mountains are this Pokémon’s\nhabitat. During an ancient ice age, they\nmoved to southern areas."
+}

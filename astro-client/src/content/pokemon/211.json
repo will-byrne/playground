@@ -1,0 +1,15 @@
+{
+  "id": 211,
+  "name": "qwilfish",
+  "types": [
+    "water",
+    "poison"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/211.png",
+  "abilities": [
+    "poison-point",
+    "swift-swim",
+    "intimidate"
+  ],
+  "description": "To fire its poison\nspikes, it must\ninflate its body\fby drinking over\n2.6 gallons of\nwater all at once."
+}

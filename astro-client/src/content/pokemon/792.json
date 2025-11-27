@@ -1,0 +1,13 @@
+{
+  "id": 792,
+  "name": "lunala",
+  "types": [
+    "psychic",
+    "ghost"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/792.png",
+  "abilities": [
+    "shadow-shield"
+  ],
+  "description": "It is said to be a female evolution of Cosmog.\nWhen its third eye activates, away it flies to\nanother world."
+}

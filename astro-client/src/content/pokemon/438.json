@@ -1,0 +1,14 @@
+{
+  "id": 438,
+  "name": "bonsly",
+  "types": [
+    "rock"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/438.png",
+  "abilities": [
+    "sturdy",
+    "rock-head",
+    "rattled"
+  ],
+  "description": "It looks as if it is always crying.\nIt is actually adjusting its body’s\nfluid levels by eliminating excess."
+}

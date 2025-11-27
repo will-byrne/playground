@@ -1,0 +1,13 @@
+{
+  "id": 419,
+  "name": "floatzel",
+  "types": [
+    "water"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/419.png",
+  "abilities": [
+    "swift-swim",
+    "water-veil"
+  ],
+  "description": "It floats using its well-developed\nflotation sac. It assists in the\nrescues of drowning people."
+}

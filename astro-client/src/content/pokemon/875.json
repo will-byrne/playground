@@ -1,0 +1,12 @@
+{
+  "id": 875,
+  "name": "eiscue-ice",
+  "types": [
+    "ice"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/875.png",
+  "abilities": [
+    "ice-face"
+  ],
+  "description": "It drifted in on the flow of ocean waters from a\nfrigid place. It keeps its head iced constantly to\nmake sure it stays nice and cold."
+}

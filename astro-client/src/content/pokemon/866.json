@@ -1,0 +1,15 @@
+{
+  "id": 866,
+  "name": "mr-rime",
+  "types": [
+    "ice",
+    "psychic"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/866.png",
+  "abilities": [
+    "tangled-feet",
+    "screen-cleaner",
+    "ice-body"
+  ],
+  "description": "It’s highly skilled at tap-dancing. It waves its cane\nof ice in time with its graceful movements."
+}

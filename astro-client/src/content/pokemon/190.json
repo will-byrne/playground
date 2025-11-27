@@ -1,0 +1,14 @@
+{
+  "id": 190,
+  "name": "aipom",
+  "types": [
+    "normal"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/190.png",
+  "abilities": [
+    "run-away",
+    "pickup",
+    "skill-link"
+  ],
+  "description": "Its tail is so\npowerful that it\ncan use it to grab\fa tree branch and\nhold itself up in\nthe air."
+}

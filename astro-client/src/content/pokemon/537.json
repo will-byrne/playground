@@ -1,0 +1,15 @@
+{
+  "id": 537,
+  "name": "seismitoad",
+  "types": [
+    "water",
+    "ground"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/537.png",
+  "abilities": [
+    "swift-swim",
+    "poison-touch",
+    "water-absorb"
+  ],
+  "description": "They shoot paralyzing liquid from their\nhead bumps. They use vibration to hurt\ntheir opponents."
+}

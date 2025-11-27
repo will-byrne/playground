@@ -1,0 +1,14 @@
+{
+  "id": 442,
+  "name": "spiritomb",
+  "types": [
+    "ghost",
+    "dark"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/442.png",
+  "abilities": [
+    "pressure",
+    "infiltrator"
+  ],
+  "description": "A Pokémon that was formed by 108\nspirits. It is bound to a fissure\nin an odd keystone."
+}

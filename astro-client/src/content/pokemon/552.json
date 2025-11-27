@@ -1,0 +1,15 @@
+{
+  "id": 552,
+  "name": "krokorok",
+  "types": [
+    "ground",
+    "dark"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/552.png",
+  "abilities": [
+    "intimidate",
+    "moxie",
+    "anger-point"
+  ],
+  "description": "They live in groups of a few individuals.\nProtective membranes shield their eyes\nfrom sandstorms."
+}

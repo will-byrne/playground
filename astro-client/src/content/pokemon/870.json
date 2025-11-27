@@ -1,0 +1,13 @@
+{
+  "id": 870,
+  "name": "falinks",
+  "types": [
+    "fighting"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/870.png",
+  "abilities": [
+    "battle-armor",
+    "defiant"
+  ],
+  "description": "Five of them are troopers, and one is the brass.\nThe brass’s orders are absolute."
+}

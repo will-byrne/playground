@@ -1,0 +1,14 @@
+{
+  "id": 925,
+  "name": "maushold-family-of-four",
+  "types": [
+    "normal"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/925.png",
+  "abilities": [
+    "friend-guard",
+    "cheek-pouch",
+    "technician"
+  ],
+  "description": "The two little ones just appeared one day. The group might be a family of related Pokémon, but nobody knows for sure."
+}

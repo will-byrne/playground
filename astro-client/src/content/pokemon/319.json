@@ -1,0 +1,14 @@
+{
+  "id": 319,
+  "name": "sharpedo",
+  "types": [
+    "water",
+    "dark"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/319.png",
+  "abilities": [
+    "rough-skin",
+    "speed-boost"
+  ],
+  "description": "Nicknamed “the bully of the sea,”\nSHARPEDO is widely feared.\nIts cruel fangs grow back immediately\fif they snap off.\nJust one of these POKéMON can\nthoroughly tear apart a supertanker."
+}

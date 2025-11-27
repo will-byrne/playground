@@ -1,0 +1,15 @@
+{
+  "id": 547,
+  "name": "whimsicott",
+  "types": [
+    "grass",
+    "fairy"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/547.png",
+  "abilities": [
+    "prankster",
+    "infiltrator",
+    "chlorophyll"
+  ],
+  "description": "Like the wind, it can slip through any\ngap, no matter how small. It leaves\nballs of white fluff behind."
+}

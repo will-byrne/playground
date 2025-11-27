@@ -1,0 +1,13 @@
+{
+  "id": 255,
+  "name": "torchic",
+  "types": [
+    "fire"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/255.png",
+  "abilities": [
+    "blaze",
+    "speed-boost"
+  ],
+  "description": "TORCHIC sticks with its TRAINER,\nfollowing behind with unsteady\nsteps.\fThis POKéMON breathes fire of over\n1,800 degrees F, including fireballs\nthat leave the foe scorched black."
+}

@@ -1,0 +1,13 @@
+{
+  "id": 989,
+  "name": "sandy-shocks",
+  "types": [
+    "electric",
+    "ground"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/989.png",
+  "abilities": [
+    "protosynthesis"
+  ],
+  "description": "No records exist of this Pokémon being caught. Data is lacking, but the Pokémon’s traits match up with a creature shown in an expedition journal."
+}

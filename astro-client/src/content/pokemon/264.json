@@ -1,0 +1,14 @@
+{
+  "id": 264,
+  "name": "linoone",
+  "types": [
+    "normal"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/264.png",
+  "abilities": [
+    "pickup",
+    "gluttony",
+    "quick-feet"
+  ],
+  "description": "LINOONE always runs full speed and only\nin straight lines. If facing an obstacle,\nit makes a right-angle turn to evade it.\fThis POKéMON is very challenged by\ngently curving roads."
+}

@@ -1,0 +1,14 @@
+{
+  "id": 446,
+  "name": "munchlax",
+  "types": [
+    "normal"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/446.png",
+  "abilities": [
+    "pickup",
+    "thick-fat",
+    "gluttony"
+  ],
+  "description": "It wolfs down its weight in food\nonce a day, swallowing food whole\nwith almost no chewing."
+}

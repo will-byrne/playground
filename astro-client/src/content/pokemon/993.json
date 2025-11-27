@@ -1,0 +1,13 @@
+{
+  "id": 993,
+  "name": "iron-jugulis",
+  "types": [
+    "dark",
+    "flying"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/993.png",
+  "abilities": [
+    "quark-drive"
+  ],
+  "description": "It resembles a certain Pokémon introduced in a paranormal magazine, described as the offspring of a Hydreigon that fell in love with a robot."
+}

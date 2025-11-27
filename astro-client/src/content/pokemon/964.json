@@ -1,0 +1,13 @@
+{
+  "id": 964,
+  "name": "palafin-zero",
+  "types": [
+    "water"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/964.png",
+  "abilities": [
+    "zero-to-hero",
+    "zero-to-hero"
+  ],
+  "description": "This Pokémon changes its appearance if it hears its allies calling for help. Palafin will never show anybody its moment of transformation."
+}

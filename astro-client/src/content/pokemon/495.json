@@ -1,0 +1,13 @@
+{
+  "id": 495,
+  "name": "snivy",
+  "types": [
+    "grass"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/495.png",
+  "abilities": [
+    "overgrow",
+    "contrary"
+  ],
+  "description": "It is very intelligent and calm.\nBeing exposed to lots of sunlight makes\nits movements swifter."
+}

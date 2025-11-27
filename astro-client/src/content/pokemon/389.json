@@ -1,0 +1,14 @@
+{
+  "id": 389,
+  "name": "torterra",
+  "types": [
+    "grass",
+    "ground"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/389.png",
+  "abilities": [
+    "overgrow",
+    "shell-armor"
+  ],
+  "description": "Small Pokémon occasionally gather\non its unmoving back to begin\nbuilding their nests."
+}

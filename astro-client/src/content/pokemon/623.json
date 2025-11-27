@@ -1,0 +1,15 @@
+{
+  "id": 623,
+  "name": "golurk",
+  "types": [
+    "ground",
+    "ghost"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/623.png",
+  "abilities": [
+    "iron-fist",
+    "klutz",
+    "no-guard"
+  ],
+  "description": "It flies across the sky at Mach speeds.\nRemoving the seal on its chest makes\nits internal energy go out of control."
+}

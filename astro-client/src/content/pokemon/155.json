@@ -1,0 +1,13 @@
+{
+  "id": 155,
+  "name": "cyndaquil",
+  "types": [
+    "fire"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/155.png",
+  "abilities": [
+    "blaze",
+    "flash-fire"
+  ],
+  "description": "It has a timid nature. If it is startled, the flames on\nits back burn more vigorously."
+}

@@ -1,0 +1,15 @@
+{
+  "id": 131,
+  "name": "lapras",
+  "types": [
+    "water",
+    "ice"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/131.png",
+  "abilities": [
+    "water-absorb",
+    "shell-armor",
+    "hydration"
+  ],
+  "description": "A POKéMON that\nhas been over­\nhunted almost to\fextinction. It\ncan ferry people\nacross the water."
+}

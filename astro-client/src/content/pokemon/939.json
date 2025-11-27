@@ -1,0 +1,14 @@
+{
+  "id": 939,
+  "name": "bellibolt",
+  "types": [
+    "electric"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/939.png",
+  "abilities": [
+    "electromorphosis",
+    "static",
+    "damp"
+  ],
+  "description": "When this Pokémon expands and contracts its wobbly body, the belly-button dynamo in its stomach produces a huge amount of electricity."
+}

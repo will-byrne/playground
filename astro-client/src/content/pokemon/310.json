@@ -1,0 +1,14 @@
+{
+  "id": 310,
+  "name": "manectric",
+  "types": [
+    "electric"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/310.png",
+  "abilities": [
+    "static",
+    "lightning-rod",
+    "minus"
+  ],
+  "description": "MANECTRIC is constantly discharging\nelectricity from its mane. The sparks\nsometimes ignite forest fires.\fWhen it enters a battle, this POKéMON\ncreates thunderclouds."
+}

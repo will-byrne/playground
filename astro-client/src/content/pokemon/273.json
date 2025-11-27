@@ -1,0 +1,14 @@
+{
+  "id": 273,
+  "name": "seedot",
+  "types": [
+    "grass"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/273.png",
+  "abilities": [
+    "chlorophyll",
+    "early-bird",
+    "pickpocket"
+  ],
+  "description": "SEEDOT attaches itself to a tree\nbranch using the top of its head.\nIt sucks moisture from the tree while\fhanging off the branch.\nThe more water it drinks, the glossier\nthis POKéMON’s body becomes."
+}

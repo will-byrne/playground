@@ -1,0 +1,13 @@
+{
+  "id": 865,
+  "name": "sirfetchd",
+  "types": [
+    "fighting"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/865.png",
+  "abilities": [
+    "steadfast",
+    "scrappy"
+  ],
+  "description": "Only Farfetch’d that have survived many battles\ncan attain this evolution. When this Pokémon’s\nleek withers, it will retire from combat."
+}

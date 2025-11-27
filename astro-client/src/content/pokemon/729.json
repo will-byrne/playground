@@ -1,0 +1,13 @@
+{
+  "id": 729,
+  "name": "brionne",
+  "types": [
+    "water"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/729.png",
+  "abilities": [
+    "torrent",
+    "liquid-voice"
+  ],
+  "description": "A skillful dancer, it creates a sequence of water\nballoons as it dances, and briskly bombards\nits enemies."
+}

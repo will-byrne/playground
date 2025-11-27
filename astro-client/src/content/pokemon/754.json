@@ -1,0 +1,13 @@
+{
+  "id": 754,
+  "name": "lurantis",
+  "types": [
+    "grass"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/754.png",
+  "abilities": [
+    "leaf-guard",
+    "contrary"
+  ],
+  "description": "It requires a lot of effort to maintain Lurantis’s\nvivid coloring, but some collectors enjoy this\nwork and treat it as their hobby."
+}

@@ -1,0 +1,14 @@
+{
+  "id": 308,
+  "name": "medicham",
+  "types": [
+    "fighting",
+    "psychic"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/308.png",
+  "abilities": [
+    "pure-power",
+    "telepathy"
+  ],
+  "description": "It is said that through meditation,\nMEDICHAM heightens energy inside\nits body and sharpens its sixth sense.\fThis POKéMON hides its presence by\nmerging itself with fields and\nmountains."
+}

@@ -1,0 +1,13 @@
+{
+  "id": 867,
+  "name": "runerigus",
+  "types": [
+    "ground",
+    "ghost"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/867.png",
+  "abilities": [
+    "wandering-spirit"
+  ],
+  "description": "A powerful curse was woven into an ancient\npainting. After absorbing the spirit of a Yamask,\nthe painting began to move."
+}

@@ -1,0 +1,15 @@
+{
+  "id": 95,
+  "name": "onix",
+  "types": [
+    "rock",
+    "ground"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/95.png",
+  "abilities": [
+    "rock-head",
+    "sturdy",
+    "weak-armor"
+  ],
+  "description": "As it grows, the\nstone portions of\nits body harden\fto become similar\nto a diamond, but\ncolored black."
+}

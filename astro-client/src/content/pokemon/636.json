@@ -1,0 +1,14 @@
+{
+  "id": 636,
+  "name": "larvesta",
+  "types": [
+    "bug",
+    "fire"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/636.png",
+  "abilities": [
+    "flame-body",
+    "swarm"
+  ],
+  "description": "This Pokémon was believed to have\nbeen born from the sun. When it evolves,\nits entire body is engulfed in flames."
+}

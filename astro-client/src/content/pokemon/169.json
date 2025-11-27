@@ -1,0 +1,14 @@
+{
+  "id": 169,
+  "name": "crobat",
+  "types": [
+    "poison",
+    "flying"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/169.png",
+  "abilities": [
+    "inner-focus",
+    "infiltrator"
+  ],
+  "description": "It flies so si­\nlently through the\ndark on its four\fwings that it may\nnot be noticed\neven when nearby."
+}

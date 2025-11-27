@@ -1,0 +1,14 @@
+{
+  "id": 699,
+  "name": "aurorus",
+  "types": [
+    "rock",
+    "ice"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/699.png",
+  "abilities": [
+    "refrigerate",
+    "snow-warning"
+  ],
+  "description": "The diamond-shaped crystals on its body\nexpel air as cold as -240 degrees Fahrenheit,\nsurrounding its enemies and encasing them in ice."
+}

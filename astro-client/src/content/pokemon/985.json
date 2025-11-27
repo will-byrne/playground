@@ -1,0 +1,13 @@
+{
+  "id": 985,
+  "name": "scream-tail",
+  "types": [
+    "fairy",
+    "psychic"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/985.png",
+  "abilities": [
+    "protosynthesis"
+  ],
+  "description": "There has been only one reported sighting of this Pokémon. It resembles a mysterious creature depicted in an old expedition journal."
+}

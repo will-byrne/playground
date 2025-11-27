@@ -1,0 +1,14 @@
+{
+  "id": 70,
+  "name": "weepinbell",
+  "types": [
+    "grass",
+    "poison"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/70.png",
+  "abilities": [
+    "chlorophyll",
+    "gluttony"
+  ],
+  "description": "It spits out\nPOISONPOWDER to\nimmobilize the\fenemy and then\nfinishes it with\na spray of ACID."
+}

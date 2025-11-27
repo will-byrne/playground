@@ -1,0 +1,13 @@
+{
+  "id": 1020,
+  "name": "gouging-fire",
+  "types": [
+    "fire",
+    "dragon"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1020.png",
+  "abilities": [
+    "protosynthesis"
+  ],
+  "description": "There are scant few reports of this creature being sighted. One short video shows it rampaging and spouting pillars of flame."
+}

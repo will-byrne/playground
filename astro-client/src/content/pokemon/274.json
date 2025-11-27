@@ -1,0 +1,15 @@
+{
+  "id": 274,
+  "name": "nuzleaf",
+  "types": [
+    "grass",
+    "dark"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/274.png",
+  "abilities": [
+    "chlorophyll",
+    "early-bird",
+    "pickpocket"
+  ],
+  "description": "NUZLEAF live in densely overgrown\nforests. They occasionally venture out\nof the forest to startle people.\fThis POKéMON dislikes having its long\nnose pinched."
+}

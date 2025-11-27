@@ -1,0 +1,13 @@
+{
+  "id": 5,
+  "name": "charmeleon",
+  "types": [
+    "fire"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/5.png",
+  "abilities": [
+    "blaze",
+    "solar-power"
+  ],
+  "description": "When it swings\nits burning tail,\nit elevates the\ftemperature to\nunbearably high\nlevels."
+}

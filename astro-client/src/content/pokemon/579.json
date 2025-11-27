@@ -1,0 +1,14 @@
+{
+  "id": 579,
+  "name": "reuniclus",
+  "types": [
+    "psychic"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/579.png",
+  "abilities": [
+    "overcoat",
+    "magic-guard",
+    "regenerator"
+  ],
+  "description": "When Reuniclus shake hands, a network\nforms between their brains, increasing\ntheir psychic power."
+}

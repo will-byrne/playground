@@ -1,0 +1,14 @@
+{
+  "id": 857,
+  "name": "hattrem",
+  "types": [
+    "psychic"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/857.png",
+  "abilities": [
+    "healer",
+    "anticipation",
+    "magic-bounce"
+  ],
+  "description": "No matter who you are, if you bring strong\nemotions near this Pokémon, it will silence\nyou violently."
+}

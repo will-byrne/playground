@@ -1,0 +1,14 @@
+{
+  "id": 930,
+  "name": "arboliva",
+  "types": [
+    "grass",
+    "normal"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/930.png",
+  "abilities": [
+    "seed-sower",
+    "harvest"
+  ],
+  "description": "This calm Pokémon is very compassionate. It will share its delicious, nutrient-rich oil with weakened Pokémon."
+}

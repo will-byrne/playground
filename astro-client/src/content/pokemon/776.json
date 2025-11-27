@@ -1,0 +1,13 @@
+{
+  "id": 776,
+  "name": "turtonator",
+  "types": [
+    "fire",
+    "dragon"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/776.png",
+  "abilities": [
+    "shell-armor"
+  ],
+  "description": "The shell on its back is chemically unstable\nand explodes violently if struck. The hole in its\nstomach is its weak point."
+}

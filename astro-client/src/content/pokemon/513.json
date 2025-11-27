@@ -1,0 +1,13 @@
+{
+  "id": 513,
+  "name": "pansear",
+  "types": [
+    "fire"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/513.png",
+  "abilities": [
+    "gluttony",
+    "blaze"
+  ],
+  "description": "When it is angered, the temperature\nof its head tuft reaches 600° F.\nIt uses its tuft to roast berries."
+}

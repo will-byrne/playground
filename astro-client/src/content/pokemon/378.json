@@ -1,0 +1,13 @@
+{
+  "id": 378,
+  "name": "regice",
+  "types": [
+    "ice"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/378.png",
+  "abilities": [
+    "clear-body",
+    "ice-body"
+  ],
+  "description": "REGICE’s body was made during an ice\nage. The deep-frozen body can’t be\nmelted, even by fire.\fThis POKéMON controls frigid air of\nminus 328 degrees F."
+}

@@ -1,0 +1,13 @@
+{
+  "id": 728,
+  "name": "popplio",
+  "types": [
+    "water"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/728.png",
+  "abilities": [
+    "torrent",
+    "liquid-voice"
+  ],
+  "description": "This Pokémon snorts body fluids from its nose,\nblowing balloons to smash into its foes.\nIt’s famous for being a hard worker."
+}

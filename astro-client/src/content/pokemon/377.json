@@ -1,0 +1,13 @@
+{
+  "id": 377,
+  "name": "regirock",
+  "types": [
+    "rock"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/377.png",
+  "abilities": [
+    "clear-body",
+    "sturdy"
+  ],
+  "description": "Its entire body is made of rock.\nIf any part chips off in battle, it\nattaches rocks to repair itself."
+}

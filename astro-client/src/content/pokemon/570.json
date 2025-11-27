@@ -1,0 +1,12 @@
+{
+  "id": 570,
+  "name": "zorua",
+  "types": [
+    "dark"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/570.png",
+  "abilities": [
+    "illusion"
+  ],
+  "description": "It changes into the forms of others\nto surprise them. Apparently, it\noften transforms into a silent child."
+}

@@ -1,0 +1,15 @@
+{
+  "id": 687,
+  "name": "malamar",
+  "types": [
+    "dark",
+    "psychic"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/687.png",
+  "abilities": [
+    "contrary",
+    "suction-cups",
+    "infiltrator"
+  ],
+  "description": "It wields the most compelling hypnotic powers\nof any Pokémon, and it forces others to do\nwhatever it wants."
+}

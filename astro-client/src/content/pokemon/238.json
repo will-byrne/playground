@@ -1,0 +1,15 @@
+{
+  "id": 238,
+  "name": "smoochum",
+  "types": [
+    "ice",
+    "psychic"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/238.png",
+  "abilities": [
+    "oblivious",
+    "forewarn",
+    "hydration"
+  ],
+  "description": "Its lips are the\nmost sensitive\nparts on its body.\fIt always uses its\nlips first to\nexamine things."
+}

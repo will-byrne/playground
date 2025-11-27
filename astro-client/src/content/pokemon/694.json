@@ -1,0 +1,15 @@
+{
+  "id": 694,
+  "name": "helioptile",
+  "types": [
+    "electric",
+    "normal"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/694.png",
+  "abilities": [
+    "dry-skin",
+    "sand-veil",
+    "solar-power"
+  ],
+  "description": "They make their home in deserts. They can\ngenerate their energy from basking in the sun,\nso eating food is not a requirement."
+}

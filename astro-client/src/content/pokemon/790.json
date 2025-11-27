@@ -1,0 +1,12 @@
+{
+  "id": 790,
+  "name": "cosmoem",
+  "types": [
+    "psychic"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/790.png",
+  "abilities": [
+    "sturdy"
+  ],
+  "description": "Motionless as if dead, its body is faintly warm to\nthe touch. In the distant past, it was called the\ncocoon of the stars."
+}

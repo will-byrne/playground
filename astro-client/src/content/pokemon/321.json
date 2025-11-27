@@ -1,0 +1,14 @@
+{
+  "id": 321,
+  "name": "wailord",
+  "types": [
+    "water"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/321.png",
+  "abilities": [
+    "water-veil",
+    "oblivious",
+    "pressure"
+  ],
+  "description": "WAILORD is the largest of all identified\nPOKéMON up to now.\nThis giant POKéMON swims languorously\fin the vast open sea, eating massive\namounts of food at once with its\nenormous mouth."
+}

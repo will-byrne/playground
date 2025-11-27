@@ -1,0 +1,12 @@
+{
+  "id": 895,
+  "name": "regidrago",
+  "types": [
+    "dragon"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/895.png",
+  "abilities": [
+    "dragons-maw"
+  ],
+  "description": "An academic theory proposes that Regidrago’s\narms were once the head of an ancient dragon\nPokémon. The theory remains unproven."
+}

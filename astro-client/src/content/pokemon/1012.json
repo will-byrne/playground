@@ -1,0 +1,14 @@
+{
+  "id": 1012,
+  "name": "poltchageist",
+  "types": [
+    "grass",
+    "ghost"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1012.png",
+  "abilities": [
+    "hospitality",
+    "heatproof"
+  ],
+  "description": "Supposedly, the regrets of a tea ceremony master who died before perfecting his craft lingered in some matcha and became a Pokémon."
+}

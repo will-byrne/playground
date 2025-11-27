@@ -1,0 +1,15 @@
+{
+  "id": 407,
+  "name": "roserade",
+  "types": [
+    "grass",
+    "poison"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/407.png",
+  "abilities": [
+    "natural-cure",
+    "poison-point",
+    "technician"
+  ],
+  "description": "It attracts prey with a sweet\naroma, then downs it with\nthorny whips hidden in its arms."
+}

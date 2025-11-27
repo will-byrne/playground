@@ -1,0 +1,12 @@
+{
+  "id": 562,
+  "name": "yamask",
+  "types": [
+    "ghost"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/562.png",
+  "abilities": [
+    "mummy"
+  ],
+  "description": "Each of them carries a mask that used\nto be its face when it was human.\nSometimes they look at it and cry."
+}

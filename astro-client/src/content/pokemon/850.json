@@ -1,0 +1,15 @@
+{
+  "id": 850,
+  "name": "sizzlipede",
+  "types": [
+    "fire",
+    "bug"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/850.png",
+  "abilities": [
+    "flash-fire",
+    "white-smoke",
+    "flame-body"
+  ],
+  "description": "It stores flammable gas in its body and uses it to\ngenerate heat. The yellow sections on its belly\nget particularly hot."
+}

@@ -1,0 +1,13 @@
+{
+  "id": 774,
+  "name": "minior-red-meteor",
+  "types": [
+    "rock",
+    "flying"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/774.png",
+  "abilities": [
+    "shields-down"
+  ],
+  "description": "Originally making its home in the ozone layer,\nit hurtles to the ground when the shell enclosing\nits body grows too heavy."
+}

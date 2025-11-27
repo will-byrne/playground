@@ -1,0 +1,14 @@
+{
+  "id": 398,
+  "name": "staraptor",
+  "types": [
+    "normal",
+    "flying"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/398.png",
+  "abilities": [
+    "intimidate",
+    "reckless"
+  ],
+  "description": "It has a savage nature. It will\ncourageously challenge foes that\nare much larger."
+}

@@ -1,0 +1,13 @@
+{
+  "id": 336,
+  "name": "seviper",
+  "types": [
+    "poison"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/336.png",
+  "abilities": [
+    "shed-skin",
+    "infiltrator"
+  ],
+  "description": "SEVIPER shares a generations-long\nfeud with ZANGOOSE. The scars on its\nbody are evidence of vicious battles.\fThis POKéMON attacks using its sword-\nedged tail."
+}

@@ -1,0 +1,15 @@
+{
+  "id": 627,
+  "name": "rufflet",
+  "types": [
+    "normal",
+    "flying"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/627.png",
+  "abilities": [
+    "keen-eye",
+    "sheer-force",
+    "hustle"
+  ],
+  "description": "They crush berries with their talons. They bravely\nstand up to any opponent, no matter how strong\nit is."
+}

@@ -1,0 +1,14 @@
+{
+  "id": 478,
+  "name": "froslass",
+  "types": [
+    "ice",
+    "ghost"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/478.png",
+  "abilities": [
+    "snow-cloak",
+    "cursed-body"
+  ],
+  "description": "It freezes foes with an icy breath\nnearly -60 degrees F. What seems\nto be its body is actually hollow."
+}

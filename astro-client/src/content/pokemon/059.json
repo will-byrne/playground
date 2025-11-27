@@ -1,0 +1,14 @@
+{
+  "id": 59,
+  "name": "arcanine",
+  "types": [
+    "fire"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/59.png",
+  "abilities": [
+    "intimidate",
+    "flash-fire",
+    "justified"
+  ],
+  "description": "A POKéMON that\nhas been admired\nsince the past\ffor its beauty.\nIt runs agilely\nas if on wings."
+}

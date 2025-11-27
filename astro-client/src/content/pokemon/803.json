@@ -1,0 +1,12 @@
+{
+  "id": 803,
+  "name": "poipole",
+  "types": [
+    "poison"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/803.png",
+  "abilities": [
+    "beast-boost"
+  ],
+  "description": "This Ultra Beast is well enough liked to be\nchosen as a first partner in its own world."
+}

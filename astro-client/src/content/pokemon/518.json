@@ -1,0 +1,14 @@
+{
+  "id": 518,
+  "name": "musharna",
+  "types": [
+    "psychic"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/518.png",
+  "abilities": [
+    "forewarn",
+    "synchronize",
+    "telepathy"
+  ],
+  "description": "The mist emanating from their foreheads\nis packed with the dreams of people\nand Pokémon."
+}

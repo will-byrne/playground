@@ -1,0 +1,15 @@
+{
+  "id": 425,
+  "name": "drifloon",
+  "types": [
+    "ghost",
+    "flying"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/425.png",
+  "abilities": [
+    "aftermath",
+    "unburden",
+    "flare-boost"
+  ],
+  "description": "A Pokémon formed by the spirits\nof people and Pokémon. It loves\ndamp, humid seasons."
+}

@@ -1,0 +1,15 @@
+{
+  "id": 286,
+  "name": "breloom",
+  "types": [
+    "grass",
+    "fighting"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/286.png",
+  "abilities": [
+    "effect-spore",
+    "poison-heal",
+    "technician"
+  ],
+  "description": "BRELOOM closes in on its foe with light\nand sprightly footwork, then throws\npunches with its stretchy arms.\fThis POKéMON’s fighting technique puts\nboxers to shame."
+}

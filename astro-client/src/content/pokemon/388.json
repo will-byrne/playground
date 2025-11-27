@@ -1,0 +1,13 @@
+{
+  "id": 388,
+  "name": "grotle",
+  "types": [
+    "grass"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/388.png",
+  "abilities": [
+    "overgrow",
+    "shell-armor"
+  ],
+  "description": "It knows where pure water wells\nup. It carries fellow Pokémon there\non its back."
+}

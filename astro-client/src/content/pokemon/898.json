@@ -1,0 +1,13 @@
+{
+  "id": 898,
+  "name": "calyrex",
+  "types": [
+    "psychic",
+    "grass"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/898.png",
+  "abilities": [
+    "unnerve"
+  ],
+  "description": "Calyrex is a merciful Pokémon, capable of\nproviding healing and blessings. It reigned over\nthe Galar region in times of yore."
+}

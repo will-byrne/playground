@@ -1,0 +1,12 @@
+{
+  "id": 383,
+  "name": "groudon",
+  "types": [
+    "ground"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/383.png",
+  "abilities": [
+    "drought"
+  ],
+  "description": "GROUDON has long been described in \nmythology as the POKéMON that raised\nlands and expanded continents.\fThis POKéMON took to sleep after a\ncataclysmic battle with KYOGRE."
+}

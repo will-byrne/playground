@@ -1,0 +1,15 @@
+{
+  "id": 423,
+  "name": "gastrodon",
+  "types": [
+    "water",
+    "ground"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/423.png",
+  "abilities": [
+    "sticky-hold",
+    "storm-drain",
+    "sand-force"
+  ],
+  "description": "It has a pliable body without any\nbones. If any part of its body is\ntorn off, it grows right back."
+}

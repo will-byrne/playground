@@ -1,0 +1,13 @@
+{
+  "id": 1008,
+  "name": "miraidon",
+  "types": [
+    "electric",
+    "dragon"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1008.png",
+  "abilities": [
+    "hadron-engine"
+  ],
+  "description": "Much remains unknown about this creature. It resembles Cyclizar, but it is far more ruthless and powerful."
+}

@@ -1,0 +1,40 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+import PokemonCard from "../../components/PokemonCard.astro";
+
+export async function getStaticPaths() {
+  const entries = await getCollection("pokemon");
+  return entries.map((entry) => ({
+    params: { slug: entry.id },
+    props: { pokemon: entry },
+  }));
+}
+
+const { pokemon } = Astro.props;
+---
+<style>
+  .back-link {
+    display: inline-block;
+    margin: 1rem 0;
+    padding: 0.4rem 0.8rem;
+    background: var(--ctp-surface0);
+    border: 1px solid var(--ctp-surface1);
+    border-radius: 8px;
+    color: var(--ctp-blue);
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.2s ease, border-color 0.2s ease;
+  }
+
+  .back-link:hover {
+    background: var(--ctp-surface1);
+    border-color: var(--ctp-blue);
+    color: var(--ctp-lavender);
+  }
+</style>
+
+<BaseLayout title={pokemon.data.name}>
+  <a href="/" class="back-link">← Back to Pokédex</a>
+  <PokemonCard pokemon={pokemon.data} />
+</BaseLayout>

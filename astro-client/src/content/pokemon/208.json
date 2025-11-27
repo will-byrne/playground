@@ -1,0 +1,15 @@
+{
+  "id": 208,
+  "name": "steelix",
+  "types": [
+    "steel",
+    "ground"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/208.png",
+  "abilities": [
+    "rock-head",
+    "sturdy",
+    "sheer-force"
+  ],
+  "description": "It is thought its body transformed\nas a result of iron accumulating\ninternally from swallowing soil."
+}

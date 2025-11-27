@@ -1,0 +1,14 @@
+{
+  "id": 461,
+  "name": "weavile",
+  "types": [
+    "dark",
+    "ice"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/461.png",
+  "abilities": [
+    "pressure",
+    "pickpocket"
+  ],
+  "description": "They live in cold regions, forming\ngroups of four or five that hunt\nprey with impressive coordination."
+}

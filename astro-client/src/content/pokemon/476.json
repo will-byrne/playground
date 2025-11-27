@@ -1,0 +1,15 @@
+{
+  "id": 476,
+  "name": "probopass",
+  "types": [
+    "rock",
+    "steel"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/476.png",
+  "abilities": [
+    "sturdy",
+    "magnet-pull",
+    "sand-force"
+  ],
+  "description": "It freely controls three small\nunits called Mini-Noses using\nmagnetic force."
+}

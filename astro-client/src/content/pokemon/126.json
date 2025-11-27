@@ -1,0 +1,13 @@
+{
+  "id": 126,
+  "name": "magmar",
+  "types": [
+    "fire"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/126.png",
+  "abilities": [
+    "flame-body",
+    "vital-spirit"
+  ],
+  "description": "Its body always\nburns with an\norange glow that\fenables it to\nhide perfectly\namong flames."
+}

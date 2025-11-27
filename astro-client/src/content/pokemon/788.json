@@ -1,0 +1,14 @@
+{
+  "id": 788,
+  "name": "tapu-fini",
+  "types": [
+    "water",
+    "fairy"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/788.png",
+  "abilities": [
+    "misty-surge",
+    "telepathy"
+  ],
+  "description": "The dense fog it creates brings the downfall\nand destruction of its confused enemies.\nOcean currents are the source of its energy."
+}

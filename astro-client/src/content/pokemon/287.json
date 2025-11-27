@@ -1,0 +1,12 @@
+{
+  "id": 287,
+  "name": "slakoth",
+  "types": [
+    "normal"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/287.png",
+  "abilities": [
+    "truant"
+  ],
+  "description": "SLAKOTH lolls around for over twenty\nhours every day. Because it moves so\nlittle, it does not need much food.\fThis POKéMON’s sole daily meal consists\nof just three leaves."
+}

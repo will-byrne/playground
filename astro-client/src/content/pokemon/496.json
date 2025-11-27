@@ -1,0 +1,13 @@
+{
+  "id": 496,
+  "name": "servine",
+  "types": [
+    "grass"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/496.png",
+  "abilities": [
+    "overgrow",
+    "contrary"
+  ],
+  "description": "It moves along the ground as if sliding.\nIts swift movements befuddle its foes,\nand it then attacks with a vine whip."
+}

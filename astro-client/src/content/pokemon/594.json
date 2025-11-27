@@ -1,0 +1,14 @@
+{
+  "id": 594,
+  "name": "alomomola",
+  "types": [
+    "water"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/594.png",
+  "abilities": [
+    "healer",
+    "hydration",
+    "regenerator"
+  ],
+  "description": "The special membrane enveloping\nAlomomola has the ability to heal wounds."
+}

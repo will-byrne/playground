@@ -1,0 +1,15 @@
+{
+  "id": 369,
+  "name": "relicanth",
+  "types": [
+    "water",
+    "rock"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/369.png",
+  "abilities": [
+    "swift-swim",
+    "rock-head",
+    "sturdy"
+  ],
+  "description": "RELICANTH is a POKéMON species that\nexisted for a hundred million years\nwithout ever changing its form.\fThis ancient POKéMON feeds on\nmicroscopic organisms with its\ntoothless mouth."
+}

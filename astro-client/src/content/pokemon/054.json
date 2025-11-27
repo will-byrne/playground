@@ -1,0 +1,14 @@
+{
+  "id": 54,
+  "name": "psyduck",
+  "types": [
+    "water"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/54.png",
+  "abilities": [
+    "damp",
+    "cloud-nine",
+    "swift-swim"
+  ],
+  "description": "While lulling its\nenemies with its\nvacant look, this\fwily POKéMON will\nuse psychokinetic\npowers."
+}

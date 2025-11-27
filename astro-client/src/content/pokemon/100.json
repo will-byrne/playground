@@ -1,0 +1,14 @@
+{
+  "id": 100,
+  "name": "voltorb",
+  "types": [
+    "electric"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/100.png",
+  "abilities": [
+    "soundproof",
+    "static",
+    "aftermath"
+  ],
+  "description": "Usually found in\npower plants.\nEasily mistaken\ffor a POKé BALL,\nthey have zapped\nmany people."
+}

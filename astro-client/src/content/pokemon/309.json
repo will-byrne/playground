@@ -1,0 +1,14 @@
+{
+  "id": 309,
+  "name": "electrike",
+  "types": [
+    "electric"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/309.png",
+  "abilities": [
+    "static",
+    "lightning-rod",
+    "minus"
+  ],
+  "description": "ELECTRIKE stores electricity in its\nlong body hair. This POKéMON stimulates\nits leg muscles with electric charges.\fThese jolts of power give its legs\nexplosive acceleration performance."
+}

@@ -1,0 +1,15 @@
+{
+  "id": 666,
+  "name": "vivillon",
+  "types": [
+    "bug",
+    "flying"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/666.png",
+  "abilities": [
+    "shield-dust",
+    "compound-eyes",
+    "friend-guard"
+  ],
+  "description": "Vivillon with many different patterns are\nfound all over the world. These patterns\nare affected by the climate of their habitat."
+}

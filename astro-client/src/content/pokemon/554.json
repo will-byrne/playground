@@ -1,0 +1,13 @@
+{
+  "id": 554,
+  "name": "darumaka",
+  "types": [
+    "fire"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/554.png",
+  "abilities": [
+    "hustle",
+    "inner-focus"
+  ],
+  "description": "When its internal fire is burning, it\ncannot calm down and it runs around.\nWhen the fire diminishes, it falls asleep."
+}

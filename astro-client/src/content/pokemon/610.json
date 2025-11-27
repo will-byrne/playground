@@ -1,0 +1,14 @@
+{
+  "id": 610,
+  "name": "axew",
+  "types": [
+    "dragon"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/610.png",
+  "abilities": [
+    "rivalry",
+    "mold-breaker",
+    "unnerve"
+  ],
+  "description": "They use their tusks to crush the\nberries they eat. Repeated regrowth\nmakes their tusks strong and sharp."
+}

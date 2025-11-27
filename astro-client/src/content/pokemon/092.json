@@ -1,0 +1,13 @@
+{
+  "id": 92,
+  "name": "gastly",
+  "types": [
+    "ghost",
+    "poison"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/92.png",
+  "abilities": [
+    "levitate"
+  ],
+  "description": "Almost invisible,\nthis gaseous\nPOKéMON cloaks\fthe target and\nputs it to sleep\nwithout notice."
+}

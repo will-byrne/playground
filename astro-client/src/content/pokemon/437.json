@@ -1,0 +1,15 @@
+{
+  "id": 437,
+  "name": "bronzong",
+  "types": [
+    "steel",
+    "psychic"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/437.png",
+  "abilities": [
+    "levitate",
+    "heatproof",
+    "heavy-metal"
+  ],
+  "description": "One caused a news sensation when\nit was dug up at a construction\nsite after a 2,000-year sleep."
+}

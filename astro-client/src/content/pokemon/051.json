@@ -1,0 +1,14 @@
+{
+  "id": 51,
+  "name": "dugtrio",
+  "types": [
+    "ground"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/51.png",
+  "abilities": [
+    "sand-veil",
+    "arena-trap",
+    "sand-force"
+  ],
+  "description": "A team of DIGLETT\ntriplets.\nIt triggers huge\fearthquakes by\nburrowing 60 miles\nunderground."
+}

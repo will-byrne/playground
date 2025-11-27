@@ -1,0 +1,13 @@
+{
+  "id": 657,
+  "name": "frogadier",
+  "types": [
+    "water"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/657.png",
+  "abilities": [
+    "torrent",
+    "protean"
+  ],
+  "description": "It can throw bubble-covered pebbles with precise\ncontrol, hitting empty cans up to a hundred feet away."
+}

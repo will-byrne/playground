@@ -1,0 +1,13 @@
+{
+  "id": 812,
+  "name": "rillaboom",
+  "types": [
+    "grass"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/812.png",
+  "abilities": [
+    "overgrow",
+    "grassy-surge"
+  ],
+  "description": "By drumming, it taps into the power of its special\ntree stump. The roots of the stump follow its\ndirection in battle."
+}

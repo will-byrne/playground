@@ -1,0 +1,15 @@
+{
+  "id": 840,
+  "name": "applin",
+  "types": [
+    "grass",
+    "dragon"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/840.png",
+  "abilities": [
+    "ripen",
+    "gluttony",
+    "bulletproof"
+  ],
+  "description": "It spends its entire life inside an apple. It hides\nfrom its natural enemies, bird Pokémon, by\npretending it’s just an apple and nothing more."
+}

@@ -1,0 +1,13 @@
+{
+  "id": 795,
+  "name": "pheromosa",
+  "types": [
+    "bug",
+    "fighting"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/795.png",
+  "abilities": [
+    "beast-boost"
+  ],
+  "description": "One of the dangerous Ultra Beasts, it has been\nspotted running across the land at\nterrific speeds."
+}

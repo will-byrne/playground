@@ -1,0 +1,15 @@
+{
+  "id": 931,
+  "name": "squawkabilly-green-plumage",
+  "types": [
+    "normal",
+    "flying"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/931.png",
+  "abilities": [
+    "intimidate",
+    "hustle",
+    "guts"
+  ],
+  "description": "These Pokémon prefer to live in cities. They form flocks based on the color of their feathers, and they fight over territory."
+}

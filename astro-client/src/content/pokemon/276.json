@@ -1,0 +1,14 @@
+{
+  "id": 276,
+  "name": "taillow",
+  "types": [
+    "normal",
+    "flying"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/276.png",
+  "abilities": [
+    "guts",
+    "scrappy"
+  ],
+  "description": "TAILLOW courageously stands its\nground against foes, however strong\nthey may be.\fThis gutsy POKéMON will remain defiant\neven after a loss. On the other hand,\nit cries loudly if it becomes hungry."
+}

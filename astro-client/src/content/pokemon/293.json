@@ -1,0 +1,13 @@
+{
+  "id": 293,
+  "name": "whismur",
+  "types": [
+    "normal"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/293.png",
+  "abilities": [
+    "soundproof",
+    "rattled"
+  ],
+  "description": "Normally, WHISMUR’s voice is very quiet -\nit is barely audible even if one is\npaying close attention.\fHowever, if this POKéMON senses danger,\nit starts crying at an earsplitting\nvolume."
+}

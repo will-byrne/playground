@@ -1,0 +1,14 @@
+{
+  "id": 734,
+  "name": "yungoos",
+  "types": [
+    "normal"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/734.png",
+  "abilities": [
+    "stakeout",
+    "strong-jaw",
+    "adaptability"
+  ],
+  "description": "With its sharp fangs, it will bite anything.\nIt did not originally live in Alola but was\nimported from another region."
+}

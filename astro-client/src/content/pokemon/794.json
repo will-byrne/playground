@@ -1,0 +1,13 @@
+{
+  "id": 794,
+  "name": "buzzwole",
+  "types": [
+    "bug",
+    "fighting"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/794.png",
+  "abilities": [
+    "beast-boost"
+  ],
+  "description": "This Ultra Beast appeared from another world.\nIt shows off its body, but whether that display\nis a boast or a threat remains unclear."
+}

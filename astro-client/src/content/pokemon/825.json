@@ -1,0 +1,15 @@
+{
+  "id": 825,
+  "name": "dottler",
+  "types": [
+    "bug",
+    "psychic"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/825.png",
+  "abilities": [
+    "swarm",
+    "compound-eyes",
+    "telepathy"
+  ],
+  "description": "It barely moves, but it’s still alive. Hiding in its\nshell without food or water seems to have\nawakened its psychic powers."
+}

@@ -1,0 +1,14 @@
+{
+  "id": 508,
+  "name": "stoutland",
+  "types": [
+    "normal"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/508.png",
+  "abilities": [
+    "intimidate",
+    "sand-rush",
+    "scrappy"
+  ],
+  "description": "It rescues people stranded by\nblizzards in the mountains. Its\nshaggy fur shields it from the cold."
+}

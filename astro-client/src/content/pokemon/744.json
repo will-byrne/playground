@@ -1,0 +1,14 @@
+{
+  "id": 744,
+  "name": "rockruff",
+  "types": [
+    "rock"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/744.png",
+  "abilities": [
+    "keen-eye",
+    "vital-spirit",
+    "steadfast"
+  ],
+  "description": "It’s considered to be a good Pokémon for\nbeginners because of its friendliness, but its\ndisposition grows rougher as it grows up."
+}

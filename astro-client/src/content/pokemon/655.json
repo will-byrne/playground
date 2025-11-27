@@ -1,0 +1,14 @@
+{
+  "id": 655,
+  "name": "delphox",
+  "types": [
+    "fire",
+    "psychic"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/655.png",
+  "abilities": [
+    "blaze",
+    "magician"
+  ],
+  "description": "It gazes into the flame at the tip of\nits branch to achieve a focused state,\nwhich allows it to see into the future."
+}

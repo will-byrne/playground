@@ -1,0 +1,13 @@
+{
+  "id": 791,
+  "name": "solgaleo",
+  "types": [
+    "psychic",
+    "steel"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/791.png",
+  "abilities": [
+    "full-metal-body"
+  ],
+  "description": "It is said to live in another world. The intense\nlight it radiates from the surface of its body can\nmake the darkest of nights light up like midday."
+}

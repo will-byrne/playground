@@ -1,0 +1,14 @@
+{
+  "id": 88,
+  "name": "grimer",
+  "types": [
+    "poison"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/88.png",
+  "abilities": [
+    "stench",
+    "sticky-hold",
+    "poison-touch"
+  ],
+  "description": "Appears in filthy\nareas. Thrives by\nsucking up\fpolluted sludge\nthat is pumped\nout of factories."
+}

@@ -1,0 +1,14 @@
+{
+  "id": 107,
+  "name": "hitmonchan",
+  "types": [
+    "fighting"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/107.png",
+  "abilities": [
+    "keen-eye",
+    "iron-fist",
+    "inner-focus"
+  ],
+  "description": "While apparently\ndoing nothing, it\nfires punches in\flightning fast\nvolleys that are\nimpossible to see."
+}

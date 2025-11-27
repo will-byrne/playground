@@ -1,0 +1,15 @@
+{
+  "id": 708,
+  "name": "phantump",
+  "types": [
+    "ghost",
+    "grass"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/708.png",
+  "abilities": [
+    "natural-cure",
+    "frisk",
+    "harvest"
+  ],
+  "description": "These Pokémon are created when\nspirits possess rotten tree stumps.\nThey prefer to live in abandoned forests."
+}

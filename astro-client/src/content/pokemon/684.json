@@ -1,0 +1,13 @@
+{
+  "id": 684,
+  "name": "swirlix",
+  "types": [
+    "fairy"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/684.png",
+  "abilities": [
+    "sweet-veil",
+    "unburden"
+  ],
+  "description": "To entangle its opponents in battle, it extrudes\nwhite threads as sweet and sticky as cotton candy."
+}

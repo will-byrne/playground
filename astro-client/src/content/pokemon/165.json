@@ -1,0 +1,15 @@
+{
+  "id": 165,
+  "name": "ledyba",
+  "types": [
+    "bug",
+    "flying"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/165.png",
+  "abilities": [
+    "swarm",
+    "early-bird",
+    "rattled"
+  ],
+  "description": "It is very timid.\nIt will be afraid\nto move if it is\falone. But it will\nbe active if it is\nin a group."
+}

@@ -1,0 +1,14 @@
+{
+  "id": 15,
+  "name": "beedrill",
+  "types": [
+    "bug",
+    "poison"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/15.png",
+  "abilities": [
+    "swarm",
+    "sniper"
+  ],
+  "description": "It has three poisonous stingers on its forelegs and\nits tail. They are used to jab its enemy repeatedly."
+}

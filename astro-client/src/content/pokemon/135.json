@@ -1,0 +1,13 @@
+{
+  "id": 135,
+  "name": "jolteon",
+  "types": [
+    "electric"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/135.png",
+  "abilities": [
+    "volt-absorb",
+    "quick-feet"
+  ],
+  "description": "It accumulates\nnegative ions in\nthe atmosphere to\fblast out 10000-\nvolt lightning\nbolts."
+}

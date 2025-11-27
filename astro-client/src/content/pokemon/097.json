@@ -1,0 +1,14 @@
+{
+  "id": 97,
+  "name": "hypno",
+  "types": [
+    "psychic"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/97.png",
+  "abilities": [
+    "insomnia",
+    "forewarn",
+    "inner-focus"
+  ],
+  "description": "When it locks eyes\nwith an enemy, it\nwill use a mix of\fPSI moves such as\nHYPNOSIS and\nCONFUSION."
+}

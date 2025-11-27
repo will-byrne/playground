@@ -1,0 +1,14 @@
+{
+  "id": 465,
+  "name": "tangrowth",
+  "types": [
+    "grass"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/465.png",
+  "abilities": [
+    "chlorophyll",
+    "leaf-guard",
+    "regenerator"
+  ],
+  "description": "It ensnares prey by extending\narms made of vines. Losing arms to\npredators does not trouble it."
+}

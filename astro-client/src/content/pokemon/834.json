@@ -1,0 +1,15 @@
+{
+  "id": 834,
+  "name": "drednaw",
+  "types": [
+    "water",
+    "rock"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/834.png",
+  "abilities": [
+    "strong-jaw",
+    "shell-armor",
+    "swift-swim"
+  ],
+  "description": "With jaws that can shear through steel rods,\nthis highly aggressive Pokémon chomps down\non its unfortunate prey."
+}

@@ -1,0 +1,14 @@
+{
+  "id": 932,
+  "name": "nacli",
+  "types": [
+    "rock"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/932.png",
+  "abilities": [
+    "purifying-salt",
+    "sturdy",
+    "clear-body"
+  ],
+  "description": "It was born in a layer of rock salt deep under the earth. This species was particularly treasured in the old days, as they would share precious salt."
+}

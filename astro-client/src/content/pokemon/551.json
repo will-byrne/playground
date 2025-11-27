@@ -1,0 +1,15 @@
+{
+  "id": 551,
+  "name": "sandile",
+  "types": [
+    "ground",
+    "dark"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/551.png",
+  "abilities": [
+    "intimidate",
+    "moxie",
+    "anger-point"
+  ],
+  "description": "They live buried in the sands of the\ndesert. The sun-warmed sands prevent\ntheir body temperature from dropping."
+}

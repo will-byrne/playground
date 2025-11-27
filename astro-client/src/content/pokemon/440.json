@@ -1,0 +1,14 @@
+{
+  "id": 440,
+  "name": "happiny",
+  "types": [
+    "normal"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/440.png",
+  "abilities": [
+    "natural-cure",
+    "serene-grace",
+    "friend-guard"
+  ],
+  "description": "It loves round white things.\nIt carries an egg-shaped rock in\nimitation of CHANSEY."
+}

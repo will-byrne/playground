@@ -1,0 +1,15 @@
+{
+  "id": 859,
+  "name": "impidimp",
+  "types": [
+    "dark",
+    "fairy"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/859.png",
+  "abilities": [
+    "prankster",
+    "frisk",
+    "pickpocket"
+  ],
+  "description": "Through its nose, it sucks in the emanations\nproduced by people and Pokémon when they\nfeel annoyed. It thrives off this negative energy."
+}

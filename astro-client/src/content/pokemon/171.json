@@ -1,0 +1,15 @@
+{
+  "id": 171,
+  "name": "lanturn",
+  "types": [
+    "water",
+    "electric"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/171.png",
+  "abilities": [
+    "volt-absorb",
+    "illuminate",
+    "water-absorb"
+  ],
+  "description": "The light it emits\nis so bright that\nit can illuminate\fthe sea's surface\nfrom a depth of\nover three miles."
+}

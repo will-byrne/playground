@@ -1,0 +1,13 @@
+{
+  "id": 836,
+  "name": "boltund",
+  "types": [
+    "electric"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/836.png",
+  "abilities": [
+    "strong-jaw",
+    "competitive"
+  ],
+  "description": "This Pokémon generates electricity and channels\nit into its legs to keep them going strong.\nBoltund can run nonstop for three full days."
+}

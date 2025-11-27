@@ -1,0 +1,14 @@
+{
+  "id": 524,
+  "name": "roggenrola",
+  "types": [
+    "rock"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/524.png",
+  "abilities": [
+    "sturdy",
+    "weak-armor",
+    "sand-force"
+  ],
+  "description": "Its ear is hexagonal in shape.\nCompressed underground,\nits body is as hard as steel."
+}

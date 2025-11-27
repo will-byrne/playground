@@ -1,0 +1,15 @@
+{
+  "id": 901,
+  "name": "ursaluna",
+  "types": [
+    "ground",
+    "normal"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/901.png",
+  "abilities": [
+    "guts",
+    "bulletproof",
+    "unnerve"
+  ],
+  "description": "I believe it was Hisui's swampy terrain that gave Ursaluna its\nburly physique and newfound capacity to manipulate peat\nat will."
+}

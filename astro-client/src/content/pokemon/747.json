@@ -1,0 +1,15 @@
+{
+  "id": 747,
+  "name": "mareanie",
+  "types": [
+    "poison",
+    "water"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/747.png",
+  "abilities": [
+    "merciless",
+    "limber",
+    "regenerator"
+  ],
+  "description": "It plunges the poison spike on its head into its\nprey. When the prey has weakened, Mareanie\ndeals the finishing blow with its 10 tentacles."
+}

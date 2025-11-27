@@ -1,0 +1,13 @@
+{
+  "id": 890,
+  "name": "eternatus",
+  "types": [
+    "poison",
+    "dragon"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/890.png",
+  "abilities": [
+    "pressure"
+  ],
+  "description": "The core on its chest absorbs energy emanating\nfrom the lands of the Galar region. This energy is\nwhat allows Eternatus to stay active."
+}

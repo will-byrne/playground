@@ -1,0 +1,13 @@
+{
+  "id": 671,
+  "name": "florges",
+  "types": [
+    "fairy"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/671.png",
+  "abilities": [
+    "flower-veil",
+    "symbiosis"
+  ],
+  "description": "It claims exquisite flower gardens as its territory,\nand it obtains power from basking in the energy\nemitted by flowering plants."
+}

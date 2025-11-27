@@ -1,0 +1,13 @@
+{
+  "id": 466,
+  "name": "electivire",
+  "types": [
+    "electric"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/466.png",
+  "abilities": [
+    "motor-drive",
+    "vital-spirit"
+  ],
+  "description": "As its electric charge amplifies,\nblue sparks begin to crackle between\nits horns."
+}

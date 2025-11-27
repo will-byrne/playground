@@ -1,0 +1,15 @@
+{
+  "id": 141,
+  "name": "kabutops",
+  "types": [
+    "rock",
+    "water"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/141.png",
+  "abilities": [
+    "swift-swim",
+    "battle-armor",
+    "weak-armor"
+  ],
+  "description": "Its sleek shape is\nperfect for swim­\nming. It slashes\fprey with its\nclaws and drains\nthe body fluids."
+}

@@ -1,0 +1,15 @@
+{
+  "id": 468,
+  "name": "togekiss",
+  "types": [
+    "fairy",
+    "flying"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/468.png",
+  "abilities": [
+    "hustle",
+    "serene-grace",
+    "super-luck"
+  ],
+  "description": "It will never appear where there\nis strife. Its sightings have\nbecome rare recently."
+}

@@ -1,0 +1,13 @@
+{
+  "id": 910,
+  "name": "crocalor",
+  "types": [
+    "fire"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/910.png",
+  "abilities": [
+    "blaze",
+    "unaware"
+  ],
+  "description": "The combination of Crocalor’s fire energy and overflowing vitality has caused an egg-shaped fireball to appear on the Pokémon’s head."
+}

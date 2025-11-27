@@ -1,0 +1,14 @@
+{
+  "id": 751,
+  "name": "dewpider",
+  "types": [
+    "water",
+    "bug"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/751.png",
+  "abilities": [
+    "water-bubble",
+    "water-absorb"
+  ],
+  "description": "It crawls onto the land in search of food.\nIts water bubble allows it to breathe and\nprotects its soft head."
+}

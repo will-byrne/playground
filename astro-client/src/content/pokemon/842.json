@@ -1,0 +1,15 @@
+{
+  "id": 842,
+  "name": "appletun",
+  "types": [
+    "grass",
+    "dragon"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/842.png",
+  "abilities": [
+    "ripen",
+    "gluttony",
+    "thick-fat"
+  ],
+  "description": "Eating a sweet apple caused its evolution.\nA nectarous scent wafts from its body, luring in\nthe bug Pokémon it preys on."
+}

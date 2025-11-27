@@ -1,0 +1,13 @@
+{
+  "id": 912,
+  "name": "quaxly",
+  "types": [
+    "water"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/912.png",
+  "abilities": [
+    "torrent",
+    "moxie"
+  ],
+  "description": "This Pokémon migrated to Paldea from distant lands long ago. The gel secreted by its feathers repels water and grime.\""
+}

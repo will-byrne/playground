@@ -1,0 +1,14 @@
+{
+  "id": 205,
+  "name": "forretress",
+  "types": [
+    "bug",
+    "steel"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/205.png",
+  "abilities": [
+    "sturdy",
+    "overcoat"
+  ],
+  "description": "Its entire body is\nshielded by a\nsteel-hard shell.\fWhat lurks inside\nthe armor is a\ntotal mystery."
+}

@@ -1,0 +1,12 @@
+{
+  "id": 382,
+  "name": "kyogre",
+  "types": [
+    "water"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/382.png",
+  "abilities": [
+    "drizzle"
+  ],
+  "description": "KYOGRE has the power to create massive\nrain clouds that cover the entire sky\nand bring about torrential downpours.\fThis POKéMON saved people who were\nsuffering from droughts."
+}

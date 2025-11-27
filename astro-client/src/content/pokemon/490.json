@@ -1,0 +1,12 @@
+{
+  "id": 490,
+  "name": "manaphy",
+  "types": [
+    "water"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/490.png",
+  "abilities": [
+    "hydration"
+  ],
+  "description": "Born on a cold seafloor, it\nwill swim great distances to\nreturn to its birthplace."
+}

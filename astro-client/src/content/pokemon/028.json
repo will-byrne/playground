@@ -1,0 +1,13 @@
+{
+  "id": 28,
+  "name": "sandslash",
+  "types": [
+    "ground"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/28.png",
+  "abilities": [
+    "sand-veil",
+    "sand-rush"
+  ],
+  "description": "Curls up into a\nspiny ball when\nthreatened. It\fcan roll while\ncurled up to\nattack or escape."
+}

@@ -1,0 +1,12 @@
+{
+  "id": 603,
+  "name": "eelektrik",
+  "types": [
+    "electric"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/603.png",
+  "abilities": [
+    "levitate"
+  ],
+  "description": "They coil around foes and shock them\nwith electricity-generating organs that\nseem simply to be circular patterns."
+}

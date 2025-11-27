@@ -1,0 +1,13 @@
+{
+  "id": 179,
+  "name": "mareep",
+  "types": [
+    "electric"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/179.png",
+  "abilities": [
+    "static",
+    "plus"
+  ],
+  "description": "If static elec­\ntricity builds in\nits body, its\ffleece doubles in\nvolume. Touching\nit will shock you."
+}

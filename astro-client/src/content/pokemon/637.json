@@ -1,0 +1,14 @@
+{
+  "id": 637,
+  "name": "volcarona",
+  "types": [
+    "bug",
+    "fire"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/637.png",
+  "abilities": [
+    "flame-body",
+    "swarm"
+  ],
+  "description": "When volcanic ash darkened the\natmosphere, it is said that Volcarona’s\nfire provided a replacement for the sun."
+}

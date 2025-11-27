@@ -1,0 +1,14 @@
+{
+  "id": 577,
+  "name": "solosis",
+  "types": [
+    "psychic"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/577.png",
+  "abilities": [
+    "overcoat",
+    "magic-guard",
+    "regenerator"
+  ],
+  "description": "They drive away attackers by unleashing\npsychic power. They can use telepathy\nto talk with others."
+}

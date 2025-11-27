@@ -1,0 +1,12 @@
+{
+  "id": 692,
+  "name": "clauncher",
+  "types": [
+    "water"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/692.png",
+  "abilities": [
+    "mega-launcher"
+  ],
+  "description": "They knock down flying prey by firing\ncompressed water from their massive\nclaws like shooting a pistol."
+}

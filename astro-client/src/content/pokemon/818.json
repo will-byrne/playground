@@ -1,0 +1,13 @@
+{
+  "id": 818,
+  "name": "inteleon",
+  "types": [
+    "water"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/818.png",
+  "abilities": [
+    "torrent",
+    "sniper"
+  ],
+  "description": "It has many hidden capabilities, such as fingertips\nthat can shoot water and a membrane on its back\nthat it can use to glide through the air."
+}

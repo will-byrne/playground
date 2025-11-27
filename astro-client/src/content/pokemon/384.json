@@ -1,0 +1,13 @@
+{
+  "id": 384,
+  "name": "rayquaza",
+  "types": [
+    "dragon",
+    "flying"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/384.png",
+  "abilities": [
+    "air-lock"
+  ],
+  "description": "RAYQUAZA lived for hundreds of millions\nof years in the earth’s ozone layer, \nnever descending to the ground.\fThis POKéMON appears to feed on water\nand particles in the atmosphere."
+}

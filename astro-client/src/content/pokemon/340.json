@@ -1,0 +1,15 @@
+{
+  "id": 340,
+  "name": "whiscash",
+  "types": [
+    "water",
+    "ground"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/340.png",
+  "abilities": [
+    "oblivious",
+    "anticipation",
+    "hydration"
+  ],
+  "description": "WHISCASH is extremely territorial.\nJust one of these POKéMON will claim a\nlarge pond as its exclusive territory.\fIf a foe approaches it, it thrashes\nabout and triggers a massive\nearthquake."
+}

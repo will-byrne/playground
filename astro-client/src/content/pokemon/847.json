@@ -1,0 +1,13 @@
+{
+  "id": 847,
+  "name": "barraskewda",
+  "types": [
+    "water"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/847.png",
+  "abilities": [
+    "swift-swim",
+    "propeller-tail"
+  ],
+  "description": "This Pokémon has a jaw that’s as sharp as a spear\nand as strong as steel. Apparently Barraskewda’s\nflesh is surprisingly tasty, too."
+}

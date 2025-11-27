@@ -1,0 +1,14 @@
+{
+  "id": 507,
+  "name": "herdier",
+  "types": [
+    "normal"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/507.png",
+  "abilities": [
+    "intimidate",
+    "sand-rush",
+    "scrappy"
+  ],
+  "description": "It has black, cape-like fur that is\nvery hard and decreases the amount\nof damage it receives."
+}

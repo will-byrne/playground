@@ -1,0 +1,13 @@
+{
+  "id": 906,
+  "name": "sprigatito",
+  "types": [
+    "grass"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/906.png",
+  "abilities": [
+    "overgrow",
+    "protean"
+  ],
+  "description": "Its fluffy fur is similar in composition to plants. This Pokémon frequently washes its face to keep it from drying out."
+}

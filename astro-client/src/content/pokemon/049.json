@@ -1,0 +1,15 @@
+{
+  "id": 49,
+  "name": "venomoth",
+  "types": [
+    "bug",
+    "poison"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/49.png",
+  "abilities": [
+    "shield-dust",
+    "tinted-lens",
+    "wonder-skin"
+  ],
+  "description": "The dustlike scales covering its wings\nare color-coded to indicate the kinds of\npoison it has."
+}

@@ -1,0 +1,13 @@
+{
+  "id": 202,
+  "name": "wobbuffet",
+  "types": [
+    "psychic"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/202.png",
+  "abilities": [
+    "shadow-tag",
+    "telepathy"
+  ],
+  "description": "It hates light and\nshock. If attack­\ned, it inflates\fits body to pump\nup its counter­\nstrike."
+}

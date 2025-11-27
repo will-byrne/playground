@@ -1,0 +1,14 @@
+{
+  "id": 712,
+  "name": "bergmite",
+  "types": [
+    "ice"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/712.png",
+  "abilities": [
+    "own-tempo",
+    "ice-body",
+    "sturdy"
+  ],
+  "description": "It blocks opponents’ attacks with the\nice that shields its body. It uses cold air\nto repair any cracks with new ice."
+}

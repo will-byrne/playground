@@ -1,0 +1,13 @@
+{
+  "id": 502,
+  "name": "dewott",
+  "types": [
+    "water"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/502.png",
+  "abilities": [
+    "torrent",
+    "shell-armor"
+  ],
+  "description": "Strict training is how it learns its\nflowing double-scalchop technique."
+}

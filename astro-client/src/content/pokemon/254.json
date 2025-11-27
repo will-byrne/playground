@@ -1,0 +1,13 @@
+{
+  "id": 254,
+  "name": "sceptile",
+  "types": [
+    "grass"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/254.png",
+  "abilities": [
+    "overgrow",
+    "unburden"
+  ],
+  "description": "The leaves growing on SCEPTILE’s body\nare very sharp edged. This POKéMON is\nvery agile - it leaps all over the\fbranches of trees and jumps on its foe\nfrom above or behind."
+}

@@ -1,0 +1,13 @@
+{
+  "id": 814,
+  "name": "raboot",
+  "types": [
+    "fire"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/814.png",
+  "abilities": [
+    "blaze",
+    "libero"
+  ],
+  "description": "Its thick and fluffy fur protects it from the cold\nand enables it to use hotter fire moves."
+}

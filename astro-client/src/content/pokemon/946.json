@@ -1,0 +1,14 @@
+{
+  "id": 946,
+  "name": "bramblin",
+  "types": [
+    "grass",
+    "ghost"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/946.png",
+  "abilities": [
+    "wind-rider",
+    "infiltrator"
+  ],
+  "description": "A soul unable to move on to the afterlife was blown around by the wind until it got tangled up with dried grass and became a Pokémon."
+}

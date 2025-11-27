@@ -1,0 +1,14 @@
+{
+  "id": 459,
+  "name": "snover",
+  "types": [
+    "grass",
+    "ice"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/459.png",
+  "abilities": [
+    "snow-warning",
+    "soundproof"
+  ],
+  "description": "It lives on snowy mountains.\nHaving had little contact with\nhumans, it is boldly inquisitive."
+}

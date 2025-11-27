@@ -1,0 +1,14 @@
+{
+  "id": 674,
+  "name": "pancham",
+  "types": [
+    "fighting"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/674.png",
+  "abilities": [
+    "iron-fist",
+    "mold-breaker",
+    "scrappy"
+  ],
+  "description": "It does its best to be taken seriously by its enemies,\nbut its glare is not sufficiently intimidating.\nChewing on a leaf is its trademark."
+}

@@ -1,0 +1,14 @@
+{
+  "id": 422,
+  "name": "shellos",
+  "types": [
+    "water"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/422.png",
+  "abilities": [
+    "sticky-hold",
+    "storm-drain",
+    "sand-force"
+  ],
+  "description": "Its colors and shapes differ from\nregion to region. In the Sinnoh\nregion, two types are confirmed."
+}

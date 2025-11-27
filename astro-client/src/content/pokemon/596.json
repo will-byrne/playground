@@ -1,0 +1,15 @@
+{
+  "id": 596,
+  "name": "galvantula",
+  "types": [
+    "bug",
+    "electric"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/596.png",
+  "abilities": [
+    "compound-eyes",
+    "unnerve",
+    "swarm"
+  ],
+  "description": "When attacked, they create an\nelectric barrier by spitting out\nmany electrically charged threads."
+}

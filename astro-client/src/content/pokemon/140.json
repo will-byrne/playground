@@ -1,0 +1,15 @@
+{
+  "id": 140,
+  "name": "kabuto",
+  "types": [
+    "rock",
+    "water"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/140.png",
+  "abilities": [
+    "swift-swim",
+    "battle-armor",
+    "weak-armor"
+  ],
+  "description": "A POKéMON that\nwas resurrected\nfrom a fossil\ffound in what was\nonce the ocean\nfloor eons ago."
+}

@@ -1,0 +1,12 @@
+{
+  "id": 736,
+  "name": "grubbin",
+  "types": [
+    "bug"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/736.png",
+  "abilities": [
+    "swarm"
+  ],
+  "description": "Its strong jaw enables it to scrape trees and\nslurp out the sap. It normally lives underground."
+}

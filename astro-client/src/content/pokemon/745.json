@@ -1,0 +1,14 @@
+{
+  "id": 745,
+  "name": "lycanroc-midday",
+  "types": [
+    "rock"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/745.png",
+  "abilities": [
+    "keen-eye",
+    "sand-rush",
+    "steadfast"
+  ],
+  "description": "Its quick movements confuse its enemies.\nWell equipped with claws and fangs, it also uses\nthe sharp rocks in its mane as weapons."
+}

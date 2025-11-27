@@ -1,0 +1,15 @@
+{
+  "id": 184,
+  "name": "azumarill",
+  "types": [
+    "water",
+    "fairy"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/184.png",
+  "abilities": [
+    "thick-fat",
+    "huge-power",
+    "sap-sipper"
+  ],
+  "description": "It lives in water virtually all day long.\nIts body color and pattern act as\ncamouflage that makes it tough for\nenemies to spot in water."
+}

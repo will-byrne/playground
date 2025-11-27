@@ -1,0 +1,13 @@
+{
+  "id": 147,
+  "name": "dratini",
+  "types": [
+    "dragon"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/147.png",
+  "abilities": [
+    "shed-skin",
+    "marvel-scale"
+  ],
+  "description": "Long considered a\nmythical POKéMON\nuntil recently\fwhen a small\ncolony was found\nliving underwater."
+}

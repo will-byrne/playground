@@ -1,0 +1,149 @@
+---
+const { pokemon } = Astro.props;
+---
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap');
+
+  :root {
+    --ctp-base: #24273a;
+    --ctp-surface0: #363a4f;
+    --ctp-surface1: #494d64;
+    --ctp-text: #cad3f5;
+    --ctp-subtext: #a5adcb;
+    --ctp-blue: #8aadf4;
+    --ctp-lavender: #b7bdf8;
+    --ctp-yellow: #eed49f;
+  }
+
+  .card {
+    background: var(--ctp-surface0);
+    padding: 2rem;
+    border-radius: 16px;
+    border: 1px solid var(--ctp-surface1);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.4);
+    font-family: 'Noto Sans', sans-serif;
+    max-width: 450px;
+    margin: 2rem auto;
+    color: var(--ctp-text);
+    transition: transform .25s ease, box-shadow .25s ease;
+  }
+
+  .card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 22px rgba(0,0,0,0.5);
+  }
+
+  .header {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  .name {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin: 0;
+    color: var(--ctp-lavender);
+    letter-spacing: 1px;
+  }
+
+  .dex-no {
+    font-size: .9rem;
+    color: var(--ctp-subtext);
+    margin-top: .3rem;
+  }
+
+  .sprite-container {
+    display: flex;
+    justify-content: center;
+    margin: 1.5rem 0;
+  }
+
+  .sprite-container img {
+    width: 140px;
+    height: 140px;
+    object-fit: contain;
+    background: var(--ctp-base);
+    border-radius: 12px;
+    padding: .5rem;
+    border: 1px solid var(--ctp-surface1);
+  }
+
+  .types {
+    display: flex;
+    justify-content: center;
+    gap: .4rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+  }
+
+  .type-badge {
+    padding: .25rem .75rem;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: .85rem;
+    text-transform: capitalize;
+    background: var(--ctp-blue);
+    color: #1a1b26;
+  }
+
+  .description {
+    text-align: center;
+    max-width: 45ch;
+    margin: 1rem auto;
+    line-height: 1.6;
+    color: var(--ctp-text);
+  }
+
+  h3 {
+    color: var(--ctp-yellow);
+    margin-top: 1.5rem;
+    margin-bottom: .4rem;
+    font-size: 1.1rem;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin-left: 0;
+  }
+
+  li {
+    background: var(--ctp-surface0);
+    border: 1px solid var(--ctp-surface1);
+    border-radius: 10px;
+    padding: .6rem .8rem;
+    margin-bottom: .6rem;
+    transition: border-color .2s ease;
+  }
+
+  li:hover {
+    border-color: var(--ctp-blue);
+  }
+</style>
+
+<div class="card">
+  <div class="header">
+    <h2 class="name">{pokemon.name}</h2>
+    <div class="dex-no">#{pokemon.id}</div>
+  </div>
+
+  <div class="sprite-container">
+    <img src={pokemon.sprite} alt={pokemon.name} />
+  </div>
+
+  <div class="types">
+    {pokemon.types.map(type => (
+      <span class="type-badge">{type}</span>
+    ))}
+  </div>
+
+  <p class="description">{pokemon.description}</p>
+
+  <h3>Abilities</h3>
+  <ul>
+    {pokemon.abilities.map(ability => (
+      <li>{ability}</li>
+    ))}
+  </ul>
+</div>

@@ -1,0 +1,13 @@
+{
+  "id": 717,
+  "name": "yveltal",
+  "types": [
+    "dark",
+    "flying"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/717.png",
+  "abilities": [
+    "dark-aura"
+  ],
+  "description": "When this legendary Pokémon’s wings and\ntail feathers spread wide and glow red,\nit absorbs the life force of living creatures."
+}

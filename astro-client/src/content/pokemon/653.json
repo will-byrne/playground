@@ -1,0 +1,13 @@
+{
+  "id": 653,
+  "name": "fennekin",
+  "types": [
+    "fire"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/653.png",
+  "abilities": [
+    "blaze",
+    "magician"
+  ],
+  "description": "Eating a twig fills it with energy,\nand its roomy ears give vent to air\nhotter than 390 degrees Fahrenheit."
+}

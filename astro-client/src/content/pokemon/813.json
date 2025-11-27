@@ -1,0 +1,13 @@
+{
+  "id": 813,
+  "name": "scorbunny",
+  "types": [
+    "fire"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/813.png",
+  "abilities": [
+    "blaze",
+    "libero"
+  ],
+  "description": "A warm-up of running around gets fire energy\ncoursing through this Pokémon’s body. Once that\nhappens, it’s ready to fight at full power."
+}

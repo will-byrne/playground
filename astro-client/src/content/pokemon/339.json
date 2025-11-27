@@ -1,0 +1,15 @@
+{
+  "id": 339,
+  "name": "barboach",
+  "types": [
+    "water",
+    "ground"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/339.png",
+  "abilities": [
+    "oblivious",
+    "anticipation",
+    "hydration"
+  ],
+  "description": "BARBOACH’s sensitive whiskers serve\nas a superb radar system.\nThis POKéMON hides in mud, leaving only\fits two whiskers exposed while it waits\nfor prey to come along."
+}

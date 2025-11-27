@@ -1,0 +1,14 @@
+{
+  "id": 713,
+  "name": "avalugg",
+  "types": [
+    "ice"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/713.png",
+  "abilities": [
+    "own-tempo",
+    "ice-body",
+    "sturdy"
+  ],
+  "description": "Its ice-covered body is as hard as steel.\nIts cumbersome frame crushes anything that\nstands in its way."
+}

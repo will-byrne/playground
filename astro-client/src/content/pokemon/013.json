@@ -1,0 +1,14 @@
+{
+  "id": 13,
+  "name": "weedle",
+  "types": [
+    "bug",
+    "poison"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/13.png",
+  "abilities": [
+    "shield-dust",
+    "run-away"
+  ],
+  "description": "Often found in\nforests, eating\nleaves.\fIt has a sharp\nvenomous stinger\non its head."
+}

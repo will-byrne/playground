@@ -1,0 +1,14 @@
+{
+  "id": 267,
+  "name": "beautifly",
+  "types": [
+    "bug",
+    "flying"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/267.png",
+  "abilities": [
+    "swarm",
+    "rivalry"
+  ],
+  "description": "BEAUTIFLY’s favorite food is the sweet\npollen of flowers. If you want to see\nthis POKéMON, just leave a potted\fflower by an open window. BEAUTIFLY\nis sure to come looking for pollen."
+}

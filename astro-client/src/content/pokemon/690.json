@@ -1,0 +1,15 @@
+{
+  "id": 690,
+  "name": "skrelp",
+  "types": [
+    "poison",
+    "water"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/690.png",
+  "abilities": [
+    "poison-point",
+    "poison-touch",
+    "adaptability"
+  ],
+  "description": "Camouflaged as rotten kelp, they spray\nliquid poison on prey that approaches\nunawares and then finish it off."
+}

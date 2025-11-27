@@ -1,0 +1,15 @@
+{
+  "id": 546,
+  "name": "cottonee",
+  "types": [
+    "grass",
+    "fairy"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/546.png",
+  "abilities": [
+    "prankster",
+    "infiltrator",
+    "chlorophyll"
+  ],
+  "description": "When attacked, it escapes by shooting\ncotton from its body. The cotton serves\nas a decoy to distract the attacker."
+}

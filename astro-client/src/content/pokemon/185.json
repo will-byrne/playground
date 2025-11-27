@@ -1,0 +1,14 @@
+{
+  "id": 185,
+  "name": "sudowoodo",
+  "types": [
+    "rock"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/185.png",
+  "abilities": [
+    "sturdy",
+    "rock-head",
+    "rattled"
+  ],
+  "description": "Although it always\npretends to be a\ntree, its composi­\ftion appears to be\ncloser to a rock\nthan a plant."
+}

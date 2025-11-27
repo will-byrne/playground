@@ -1,0 +1,12 @@
+{
+  "id": 433,
+  "name": "chingling",
+  "types": [
+    "psychic"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/433.png",
+  "abilities": [
+    "levitate"
+  ],
+  "description": "It emits cries by agitating an orb\nat the back of its throat.\nIt moves with flouncing hops."
+}

@@ -1,0 +1,14 @@
+{
+  "id": 326,
+  "name": "grumpig",
+  "types": [
+    "psychic"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/326.png",
+  "abilities": [
+    "thick-fat",
+    "own-tempo",
+    "gluttony"
+  ],
+  "description": "GRUMPIG uses the black pearls on its\nbody to amplify its psychic power waves\nfor gaining total control over its foe.\fWhen this POKéMON uses its special\npower, its snorting breath grows\nlabored."
+}

@@ -1,0 +1,13 @@
+{
+  "id": 467,
+  "name": "magmortar",
+  "types": [
+    "fire"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/467.png",
+  "abilities": [
+    "flame-body",
+    "vital-spirit"
+  ],
+  "description": "It blasts fireballs of over 3,600\ndegrees F from the ends of its\narms. It lives in volcanic craters."
+}

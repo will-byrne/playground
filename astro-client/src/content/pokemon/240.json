@@ -1,0 +1,13 @@
+{
+  "id": 240,
+  "name": "magby",
+  "types": [
+    "fire"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/240.png",
+  "abilities": [
+    "flame-body",
+    "vital-spirit"
+  ],
+  "description": "Each and every\ntime it inhales\nand exhales, hot\fembers dribble out\nof its mouth and\nnostrils."
+}

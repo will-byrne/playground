@@ -1,0 +1,13 @@
+{
+  "id": 366,
+  "name": "clamperl",
+  "types": [
+    "water"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/366.png",
+  "abilities": [
+    "shell-armor",
+    "rattled"
+  ],
+  "description": "CLAMPERL’s sturdy shell is not only good\nfor protection - it is also used for\nclamping and catching prey.\fA fully grown CLAMPERL’s shell will be\nscored with nicks and scratches all\nover."
+}

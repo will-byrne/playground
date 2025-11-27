@@ -1,0 +1,15 @@
+{
+  "id": 884,
+  "name": "duraludon",
+  "types": [
+    "steel",
+    "dragon"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/884.png",
+  "abilities": [
+    "light-metal",
+    "heavy-metal",
+    "stalwart"
+  ],
+  "description": "Its body resembles polished metal, and it’s both\nlightweight and strong. The only drawback is that\nit rusts easily."
+}

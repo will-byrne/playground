@@ -1,0 +1,15 @@
+{
+  "id": 780,
+  "name": "drampa",
+  "types": [
+    "normal",
+    "dragon"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/780.png",
+  "abilities": [
+    "berserk",
+    "sap-sipper",
+    "cloud-nine"
+  ],
+  "description": "It has a compassionate personality, but if it is\nangered, it completely destroys its surroundings\nwith its intense breath."
+}

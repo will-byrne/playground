@@ -1,0 +1,14 @@
+{
+  "id": 143,
+  "name": "snorlax",
+  "types": [
+    "normal"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/143.png",
+  "abilities": [
+    "immunity",
+    "thick-fat",
+    "gluttony"
+  ],
+  "description": "Very lazy. Just\neats and sleeps.\nAs its rotund\fbulk builds, it\nbecomes steadily\nmore slothful."
+}

@@ -1,0 +1,15 @@
+{
+  "id": 166,
+  "name": "ledian",
+  "types": [
+    "bug",
+    "flying"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/166.png",
+  "abilities": [
+    "swarm",
+    "early-bird",
+    "iron-fist"
+  ],
+  "description": "When the stars\nflicker in the\nnight sky, it\fflutters about,\nscattering a\nglowing powder."
+}

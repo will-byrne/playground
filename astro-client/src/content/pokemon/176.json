@@ -1,0 +1,15 @@
+{
+  "id": 176,
+  "name": "togetic",
+  "types": [
+    "fairy",
+    "flying"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/176.png",
+  "abilities": [
+    "hustle",
+    "serene-grace",
+    "super-luck"
+  ],
+  "description": "They say that it\nwill appear before\nkindhearted, car­\fing people and\nshower them with\nhappiness."
+}

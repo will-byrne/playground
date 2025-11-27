@@ -1,0 +1,15 @@
+{
+  "id": 688,
+  "name": "binacle",
+  "types": [
+    "rock",
+    "water"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/688.png",
+  "abilities": [
+    "tough-claws",
+    "sniper",
+    "pickpocket"
+  ],
+  "description": "Two Binacle live together on one rock.\nWhen they fight, one of them will move\nto a different rock."
+}

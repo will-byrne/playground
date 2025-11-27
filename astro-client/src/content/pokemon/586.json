@@ -1,0 +1,15 @@
+{
+  "id": 586,
+  "name": "sawsbuck",
+  "types": [
+    "normal",
+    "grass"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/586.png",
+  "abilities": [
+    "chlorophyll",
+    "sap-sipper",
+    "serene-grace"
+  ],
+  "description": "They migrate according to the seasons.\nPeople can tell the season by looking at\nSawsbuck’s horns."
+}

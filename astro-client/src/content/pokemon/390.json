@@ -1,0 +1,13 @@
+{
+  "id": 390,
+  "name": "chimchar",
+  "types": [
+    "fire"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/390.png",
+  "abilities": [
+    "blaze",
+    "iron-fist"
+  ],
+  "description": "It agilely scales sheer cliffs to\nlive atop craggy mountains. Its\nfire is put out when it sleeps."
+}

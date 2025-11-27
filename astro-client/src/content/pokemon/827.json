@@ -1,0 +1,14 @@
+{
+  "id": 827,
+  "name": "nickit",
+  "types": [
+    "dark"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/827.png",
+  "abilities": [
+    "run-away",
+    "unburden",
+    "stakeout"
+  ],
+  "description": "Aided by the soft pads on its feet, it silently raids\nthe food stores of other Pokémon. It survives off\nits ill-gotten gains."
+}

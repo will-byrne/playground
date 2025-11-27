@@ -1,0 +1,13 @@
+{
+  "id": 514,
+  "name": "simisear",
+  "types": [
+    "fire"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/514.png",
+  "abilities": [
+    "gluttony",
+    "blaze"
+  ],
+  "description": "It loves sweets because they become\nenergy for the fire burning inside\nits body."
+}

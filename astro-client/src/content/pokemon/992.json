@@ -1,0 +1,13 @@
+{
+  "id": 992,
+  "name": "iron-hands",
+  "types": [
+    "fighting",
+    "electric"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/992.png",
+  "abilities": [
+    "quark-drive"
+  ],
+  "description": "It is very similar to a cyborg covered exclusively by a paranormal magazine. The cyborg was said to be the modified form of a certain athlete."
+}

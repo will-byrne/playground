@@ -1,0 +1,13 @@
+{
+  "id": 648,
+  "name": "meloetta-aria",
+  "types": [
+    "normal",
+    "psychic"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/648.png",
+  "abilities": [
+    "serene-grace"
+  ],
+  "description": "Its melodies are sung with a special vocalization\nmethod that can control the feelings of those who\nhear it."
+}

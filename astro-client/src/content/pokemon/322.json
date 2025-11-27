@@ -1,0 +1,15 @@
+{
+  "id": 322,
+  "name": "numel",
+  "types": [
+    "fire",
+    "ground"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/322.png",
+  "abilities": [
+    "oblivious",
+    "simple",
+    "own-tempo"
+  ],
+  "description": "NUMEL is extremely dull witted - it\ndoesn’t notice being hit. However, it\ncan’t stand hunger for even a second.\fThis POKéMON’s body is a seething\ncauldron of boiling magma."
+}

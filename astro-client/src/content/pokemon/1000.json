@@ -1,0 +1,13 @@
+{
+  "id": 1000,
+  "name": "gholdengo",
+  "types": [
+    "steel",
+    "ghost"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1000.png",
+  "abilities": [
+    "good-as-gold"
+  ],
+  "description": "Its body seems to be made up of 1,000 coins. This Pokémon gets along well with others and is quick to make friends with anybody."
+}

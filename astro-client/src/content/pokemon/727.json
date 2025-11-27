@@ -1,0 +1,14 @@
+{
+  "id": 727,
+  "name": "incineroar",
+  "types": [
+    "fire",
+    "dark"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/727.png",
+  "abilities": [
+    "blaze",
+    "intimidate"
+  ],
+  "description": "This Pokémon has a violent, selfish disposition.\nIf it’s not in the mood to listen, it will ignore its\nTrainer’s orders with complete nonchalance."
+}

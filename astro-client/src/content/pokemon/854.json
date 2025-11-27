@@ -1,0 +1,13 @@
+{
+  "id": 854,
+  "name": "sinistea",
+  "types": [
+    "ghost"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/854.png",
+  "abilities": [
+    "weak-armor",
+    "cursed-body"
+  ],
+  "description": "This Pokémon is said to have been born when\na lonely spirit possessed a cold, leftover cup\nof tea."
+}

@@ -1,0 +1,13 @@
+{
+  "id": 815,
+  "name": "cinderace",
+  "types": [
+    "fire"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/815.png",
+  "abilities": [
+    "blaze",
+    "libero"
+  ],
+  "description": "It juggles a pebble with its feet, turning it into a\nburning soccer ball. Its shots strike opponents\nhard and leave them scorched."
+}

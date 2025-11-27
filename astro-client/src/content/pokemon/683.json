@@ -1,0 +1,13 @@
+{
+  "id": 683,
+  "name": "aromatisse",
+  "types": [
+    "fairy"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/683.png",
+  "abilities": [
+    "healer",
+    "aroma-veil"
+  ],
+  "description": "It devises various scents, pleasant and unpleasant,\nand emits scents that its enemies dislike in order\nto gain an edge in battle."
+}

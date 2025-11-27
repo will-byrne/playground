@@ -1,0 +1,13 @@
+{
+  "id": 125,
+  "name": "electabuzz",
+  "types": [
+    "electric"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/125.png",
+  "abilities": [
+    "static",
+    "vital-spirit"
+  ],
+  "description": "Normally found\nnear power plants,\nthey can wander\faway and cause\nmajor blackouts\nin cities."
+}

@@ -1,0 +1,14 @@
+{
+  "id": 936,
+  "name": "armarouge",
+  "types": [
+    "fire",
+    "psychic"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/936.png",
+  "abilities": [
+    "flash-fire",
+    "weak-armor"
+  ],
+  "description": "Armarouge evolved through the use of a set of armor that belonged to a distinguished warrior. This Pokémon is incredibly loyal."
+}

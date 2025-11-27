@@ -1,0 +1,13 @@
+{
+  "id": 338,
+  "name": "solrock",
+  "types": [
+    "rock",
+    "psychic"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/338.png",
+  "abilities": [
+    "levitate"
+  ],
+  "description": "Solar energy is the source of its power,\nso it is strong during the daytime.\nWhen it spins, its body shines."
+}

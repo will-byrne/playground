@@ -1,0 +1,14 @@
+{
+  "id": 242,
+  "name": "blissey",
+  "types": [
+    "normal"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/242.png",
+  "abilities": [
+    "natural-cure",
+    "serene-grace",
+    "healer"
+  ],
+  "description": "Anyone who takes\neven one bite of\nBLISSEY's egg be­\fcomes unfailingly\ncaring and pleas­\nant to everyone."
+}

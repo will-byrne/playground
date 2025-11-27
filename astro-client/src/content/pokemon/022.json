@@ -1,0 +1,14 @@
+{
+  "id": 22,
+  "name": "fearow",
+  "types": [
+    "normal",
+    "flying"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/22.png",
+  "abilities": [
+    "keen-eye",
+    "sniper"
+  ],
+  "description": "With its huge and\nmagnificent wings,\nit can keep aloft\fwithout ever\nhaving to land\nfor rest."
+}

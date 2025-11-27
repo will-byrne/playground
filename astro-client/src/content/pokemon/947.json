@@ -1,0 +1,14 @@
+{
+  "id": 947,
+  "name": "brambleghast",
+  "types": [
+    "grass",
+    "ghost"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/947.png",
+  "abilities": [
+    "wind-rider",
+    "infiltrator"
+  ],
+  "description": "It will open the branches of its head to envelop its prey. Once it absorbs all the life energy it needs, it expels the prey and discards it."
+}

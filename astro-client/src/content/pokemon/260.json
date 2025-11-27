@@ -1,0 +1,14 @@
+{
+  "id": 260,
+  "name": "swampert",
+  "types": [
+    "water",
+    "ground"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/260.png",
+  "abilities": [
+    "torrent",
+    "damp"
+  ],
+  "description": "SWAMPERT is very strong. It has enough\npower to easily drag a boulder weighing\nmore than a ton.\fThis POKéMON also has powerful vision\nthat lets it see even in murky water."
+}

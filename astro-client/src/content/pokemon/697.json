@@ -1,0 +1,14 @@
+{
+  "id": 697,
+  "name": "tyrantrum",
+  "types": [
+    "rock",
+    "dragon"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/697.png",
+  "abilities": [
+    "strong-jaw",
+    "rock-head"
+  ],
+  "description": "Thanks to its gargantuan jaws, which could shred\nthick metal plates as if they were paper, it was\ninvincible in the ancient world it once inhabited."
+}

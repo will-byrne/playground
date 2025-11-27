@@ -1,0 +1,14 @@
+{
+  "id": 698,
+  "name": "amaura",
+  "types": [
+    "rock",
+    "ice"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/698.png",
+  "abilities": [
+    "refrigerate",
+    "snow-warning"
+  ],
+  "description": "This ancient Pokémon was restored\nfrom part of its body that had been\nfrozen in ice for over 100 million years."
+}

@@ -1,0 +1,15 @@
+{
+  "id": 743,
+  "name": "ribombee",
+  "types": [
+    "bug",
+    "fairy"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/743.png",
+  "abilities": [
+    "honey-gather",
+    "shield-dust",
+    "sweet-veil"
+  ],
+  "description": "It rolls up pollen into puffs. It makes many\ndifferent varieties, some used as food and\nothers used in battle."
+}

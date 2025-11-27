@@ -1,0 +1,15 @@
+{
+  "id": 714,
+  "name": "noibat",
+  "types": [
+    "flying",
+    "dragon"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/714.png",
+  "abilities": [
+    "frisk",
+    "infiltrator",
+    "telepathy"
+  ],
+  "description": "They live in pitch-black caves. Their enormous ears\ncan emit ultrasonic waves of 200,000 hertz."
+}

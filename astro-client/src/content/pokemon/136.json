@@ -1,0 +1,13 @@
+{
+  "id": 136,
+  "name": "flareon",
+  "types": [
+    "fire"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/136.png",
+  "abilities": [
+    "flash-fire",
+    "guts"
+  ],
+  "description": "When storing\nthermal energy in\nits body, its\ftemperature could\nsoar to over 1600\ndegrees."
+}

@@ -1,0 +1,13 @@
+{
+  "id": 516,
+  "name": "simipour",
+  "types": [
+    "water"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/516.png",
+  "abilities": [
+    "gluttony",
+    "torrent"
+  ],
+  "description": "The tuft on its head holds water. When\nthe level runs low, it replenishes the\ntuft by siphoning up water with its tail."
+}

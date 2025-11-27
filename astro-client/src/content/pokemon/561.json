@@ -1,0 +1,15 @@
+{
+  "id": 561,
+  "name": "sigilyph",
+  "types": [
+    "psychic",
+    "flying"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/561.png",
+  "abilities": [
+    "wonder-skin",
+    "magic-guard",
+    "tinted-lens"
+  ],
+  "description": "They never vary the route they fly,\nbecause their memories of guarding\nan ancient city remain steadfast."
+}

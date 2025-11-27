@@ -1,0 +1,14 @@
+{
+  "id": 114,
+  "name": "tangela",
+  "types": [
+    "grass"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/114.png",
+  "abilities": [
+    "chlorophyll",
+    "leaf-guard",
+    "regenerator"
+  ],
+  "description": "The whole body is\nswathed with wide\nvines that are\fsimilar to sea­\nweed. Its vines\nshake as it walks."
+}

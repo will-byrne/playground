@@ -1,0 +1,14 @@
+{
+  "id": 998,
+  "name": "baxcalibur",
+  "types": [
+    "dragon",
+    "ice"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/998.png",
+  "abilities": [
+    "thermal-exchange",
+    "ice-body"
+  ],
+  "description": "This Pokémon blasts cryogenic air out from its mouth. This air can instantly freeze even liquid-hot lava."
+}

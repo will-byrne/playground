@@ -1,0 +1,14 @@
+{
+  "id": 722,
+  "name": "rowlet",
+  "types": [
+    "grass",
+    "flying"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/722.png",
+  "abilities": [
+    "overgrow",
+    "long-reach"
+  ],
+  "description": "This wary Pokémon uses photosynthesis to\nstore up energy during the day, while becoming\nactive at night."
+}

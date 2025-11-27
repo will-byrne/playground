@@ -1,0 +1,15 @@
+{
+  "id": 174,
+  "name": "igglybuff",
+  "types": [
+    "normal",
+    "fairy"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/174.png",
+  "abilities": [
+    "cute-charm",
+    "competitive",
+    "friend-guard"
+  ],
+  "description": "It has a very soft\nbody. If it starts\nto roll, it will\fbounce all over\nand be impossible\nto stop."
+}

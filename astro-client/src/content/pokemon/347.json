@@ -1,0 +1,14 @@
+{
+  "id": 347,
+  "name": "anorith",
+  "types": [
+    "rock",
+    "bug"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/347.png",
+  "abilities": [
+    "battle-armor",
+    "swift-swim"
+  ],
+  "description": "ANORITH was regenerated from a\nprehistoric fossil. This primitive\nPOKéMON once lived in warm seas.\fIt grips its prey firmly between its\ntwo large claws."
+}

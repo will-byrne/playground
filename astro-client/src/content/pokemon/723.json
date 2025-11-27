@@ -1,0 +1,14 @@
+{
+  "id": 723,
+  "name": "dartrix",
+  "types": [
+    "grass",
+    "flying"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/723.png",
+  "abilities": [
+    "overgrow",
+    "long-reach"
+  ],
+  "description": "A bit of a dandy, it spends its free time\npreening its wings. Its preoccupation with any\ndirt on its plumage can leave it unable to battle."
+}

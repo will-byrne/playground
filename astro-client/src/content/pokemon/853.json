@@ -1,0 +1,13 @@
+{
+  "id": 853,
+  "name": "grapploct",
+  "types": [
+    "fighting"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/853.png",
+  "abilities": [
+    "limber",
+    "technician"
+  ],
+  "description": "A body made up of nothing but muscle makes\nthe grappling moves this Pokémon performs with\nits tentacles tremendously powerful."
+}

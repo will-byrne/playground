@@ -1,0 +1,12 @@
+{
+  "id": 807,
+  "name": "zeraora",
+  "types": [
+    "electric"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/807.png",
+  "abilities": [
+    "volt-absorb"
+  ],
+  "description": "It electrifies its claws and tears its opponents\napart with them. Even if they dodge its attack,\nthey’ll be electrocuted by the flying sparks."
+}

@@ -1,0 +1,13 @@
+{
+  "id": 379,
+  "name": "registeel",
+  "types": [
+    "steel"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/379.png",
+  "abilities": [
+    "clear-body",
+    "light-metal"
+  ],
+  "description": "REGISTEEL has a body that is harder\nthan any kind of metal.\nIts body is apparently hollow.\fNo one has any idea what this POKéMON\neats."
+}

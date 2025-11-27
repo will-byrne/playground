@@ -1,0 +1,14 @@
+{
+  "id": 837,
+  "name": "rolycoly",
+  "types": [
+    "rock"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/837.png",
+  "abilities": [
+    "steam-engine",
+    "heatproof",
+    "flash-fire"
+  ],
+  "description": "Most of its body has the same composition as\ncoal. Fittingly, this Pokémon was first discovered\nin coal mines about 400 years ago."
+}

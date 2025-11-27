@@ -1,0 +1,14 @@
+{
+  "id": 531,
+  "name": "audino",
+  "types": [
+    "normal"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/531.png",
+  "abilities": [
+    "healer",
+    "regenerator",
+    "klutz"
+  ],
+  "description": "It touches others with the feelers on\nits ears, using the sound of their\nheartbeats to tell how they are feeling."
+}

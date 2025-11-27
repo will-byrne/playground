@@ -1,0 +1,14 @@
+{
+  "id": 291,
+  "name": "ninjask",
+  "types": [
+    "bug",
+    "flying"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/291.png",
+  "abilities": [
+    "speed-boost",
+    "infiltrator"
+  ],
+  "description": "NINJASK moves around at such a high\nspeed that it cannot be seen, even\nwhile its crying can be clearly heard.\fFor that reason, this POKéMON was long\nbelieved to be invisible."
+}

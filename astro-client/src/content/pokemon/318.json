@@ -1,0 +1,14 @@
+{
+  "id": 318,
+  "name": "carvanha",
+  "types": [
+    "water",
+    "dark"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/318.png",
+  "abilities": [
+    "rough-skin",
+    "speed-boost"
+  ],
+  "description": "CARVANHA’s strongly developed jaws\nand its sharply pointed fangs pack the\ndestructive power to rip out boat hulls.\fMany boats have been attacked and\nsunk by this POKéMON."
+}

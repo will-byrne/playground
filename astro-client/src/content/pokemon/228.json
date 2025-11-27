@@ -1,0 +1,15 @@
+{
+  "id": 228,
+  "name": "houndour",
+  "types": [
+    "dark",
+    "fire"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/228.png",
+  "abilities": [
+    "early-bird",
+    "flash-fire",
+    "unnerve"
+  ],
+  "description": "It uses different\nkinds of cries for\ncommunicating with\fothers of its kind\nand for pursuing\nits prey."
+}

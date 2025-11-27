@@ -1,0 +1,13 @@
+{
+  "id": 991,
+  "name": "iron-bundle",
+  "types": [
+    "ice",
+    "water"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/991.png",
+  "abilities": [
+    "quark-drive"
+  ],
+  "description": "Its shape is similar to a robot featured in a paranormal magazine article. The robot was said to have been created by an ancient civilization."
+}

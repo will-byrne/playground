@@ -1,0 +1,14 @@
+{
+  "id": 948,
+  "name": "toedscool",
+  "types": [
+    "ground",
+    "grass"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/948.png",
+  "abilities": [
+    "mycelium-might",
+    "mycelium-might"
+  ],
+  "description": "Toedscool lives in muggy forests. The flaps that fall from its body are chewy and very delicious."
+}

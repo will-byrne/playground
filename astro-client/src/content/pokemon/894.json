@@ -1,0 +1,12 @@
+{
+  "id": 894,
+  "name": "regieleki",
+  "types": [
+    "electric"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/894.png",
+  "abilities": [
+    "transistor"
+  ],
+  "description": "This Pokémon is a cluster of electrical energy.\nIt’s said that removing the rings on Regieleki’s\nbody will unleash the Pokémon’s latent power."
+}

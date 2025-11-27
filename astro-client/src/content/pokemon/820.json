@@ -1,0 +1,13 @@
+{
+  "id": 820,
+  "name": "greedent",
+  "types": [
+    "normal"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/820.png",
+  "abilities": [
+    "cheek-pouch",
+    "gluttony"
+  ],
+  "description": "It stashes berries in its tail—so many berries that\nthey fall out constantly. But this Pokémon is a bit\nslow-witted, so it doesn’t notice the loss."
+}

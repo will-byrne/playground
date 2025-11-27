@@ -1,0 +1,15 @@
+{
+  "id": 839,
+  "name": "coalossal",
+  "types": [
+    "rock",
+    "fire"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/839.png",
+  "abilities": [
+    "steam-engine",
+    "flame-body",
+    "flash-fire"
+  ],
+  "description": "It’s usually peaceful, but the vandalism of mines\nenrages it. Offenders will be incinerated with\nflames that reach 2,700 degrees Fahrenheit."
+}

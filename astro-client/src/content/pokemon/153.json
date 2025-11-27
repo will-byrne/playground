@@ -1,0 +1,13 @@
+{
+  "id": 153,
+  "name": "bayleef",
+  "types": [
+    "grass"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/153.png",
+  "abilities": [
+    "overgrow",
+    "leaf-guard"
+  ],
+  "description": "The scent of\nspices comes from\naround its neck.\fSomehow, sniffing\nit makes you want\nto fight."
+}

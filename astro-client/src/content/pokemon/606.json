@@ -1,0 +1,14 @@
+{
+  "id": 606,
+  "name": "beheeyem",
+  "types": [
+    "psychic"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/606.png",
+  "abilities": [
+    "telepathy",
+    "synchronize",
+    "analytic"
+  ],
+  "description": "It can manipulate an opponent’s memory.\nApparently, it communicates by flashing\nits three different-colored fingers."
+}

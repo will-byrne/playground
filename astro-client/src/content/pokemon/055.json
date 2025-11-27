@@ -1,0 +1,14 @@
+{
+  "id": 55,
+  "name": "golduck",
+  "types": [
+    "water"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/55.png",
+  "abilities": [
+    "damp",
+    "cloud-nine",
+    "swift-swim"
+  ],
+  "description": "Often seen swim­\nming elegantly by\nlake shores. It\fis often mistaken\nfor the Japanese\nmonster, Kappa."
+}

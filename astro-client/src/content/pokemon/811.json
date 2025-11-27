@@ -1,0 +1,13 @@
+{
+  "id": 811,
+  "name": "thwackey",
+  "types": [
+    "grass"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/811.png",
+  "abilities": [
+    "overgrow",
+    "grassy-surge"
+  ],
+  "description": "The faster a Thwackey can beat out a rhythm\nwith its two sticks, the more respect it wins from\nits peers."
+}

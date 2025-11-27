@@ -1,0 +1,15 @@
+{
+  "id": 168,
+  "name": "ariados",
+  "types": [
+    "bug",
+    "poison"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/168.png",
+  "abilities": [
+    "swarm",
+    "insomnia",
+    "sniper"
+  ],
+  "description": "It spins string\nnot only from its\nrear but also from\fits mouth. It is\nhard to tell which\nend is which."
+}

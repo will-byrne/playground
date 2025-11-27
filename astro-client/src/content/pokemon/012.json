@@ -1,0 +1,14 @@
+{
+  "id": 12,
+  "name": "butterfree",
+  "types": [
+    "bug",
+    "flying"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/12.png",
+  "abilities": [
+    "compound-eyes",
+    "tinted-lens"
+  ],
+  "description": "In battle, it\nflaps its wings\nat high speed to\frelease highly\ntoxic dust into\nthe air."
+}

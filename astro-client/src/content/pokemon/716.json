@@ -1,0 +1,12 @@
+{
+  "id": 716,
+  "name": "xerneas",
+  "types": [
+    "fairy"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/716.png",
+  "abilities": [
+    "fairy-aura"
+  ],
+  "description": "Legends say it can share eternal life.\nIt slept for a thousand years in the form\nof a tree before its revival."
+}

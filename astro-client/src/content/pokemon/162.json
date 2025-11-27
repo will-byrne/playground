@@ -1,0 +1,14 @@
+{
+  "id": 162,
+  "name": "furret",
+  "types": [
+    "normal"
+  ],
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/162.png",
+  "abilities": [
+    "run-away",
+    "keen-eye",
+    "frisk"
+  ],
+  "description": "It makes a nest to\nsuit its long and\nskinny body. The\fnest is impossible\nfor other POKéMON\nto enter."
+}
