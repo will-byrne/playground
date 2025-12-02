@@ -19,7 +19,7 @@ fn generate_random_no_with_exclude(excludes: &Vec<i64>) -> i64 {
     let mut rng = rand::rng();
 
     while rand == 0 || excludes.contains(&rand) {
-        rand = rng.random_range(1..1025);
+        rand = rng.random_range(1..=1025);
     }
     rand
 }
@@ -101,4 +101,15 @@ async fn rocket() -> _ {
         .attach(CORS)
         .manage(client)
         .mount("/", routes![index, pokedex, random_new, specific_pokemon, all_options])
+}
+
+#[test]
+fn test_generate_random_no_with_exclude() {
+    let excludes = vec![1, 2, 3, 1000];
+
+    for _ in 0..500 {
+        let v = generate_random_no_with_exclude(&excludes);
+        assert!(v >= 1 && v <= 1025);
+        assert!(!excludes.contains(&v));
+    }
 }

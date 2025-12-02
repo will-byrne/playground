@@ -4,6 +4,7 @@ use rustemon::model::pokemon::{Ability, Pokemon, PokemonSpecies, PokemonSprites,
 use mongodb::{bson::doc, Client, Collection};
 use mongodb::error::Result;
 use rocket::serde::{ Deserialize, Serialize};
+use rocket::serde::json::serde_json;
 
 #[derive(Serialize, Deserialize)]
 pub struct PokedexEntry {
@@ -114,4 +115,23 @@ pub async fn get_pokedex(mongodb: &Client) -> Vec<PokedexEntry> {
     }
 
     vec![]
+}
+
+#[test]
+fn test_pokebox_entry_json_roundtrip() {
+    let sprites: PokemonSprites = serde_json::from_str(include_str!("bulbasaur_sprites.json")).unwrap();
+    let entry = PokeboxEntry {
+        name: "bulbasaur".into(),
+        id: 1,
+        species_description: "Seed Pokemon".into(),
+        types: vec!["grass".into(), "poison".into()],
+        abilities: vec![],
+        sprites,
+    };
+
+    let json = serde_json::to_string(&entry).unwrap();
+    let decoded: PokeboxEntry = serde_json::from_str(&json).unwrap();
+
+    assert_eq!(decoded.id, 1);
+    assert_eq!(decoded.name, "bulbasaur");
 }
