@@ -4,7 +4,101 @@
   "types": [
     "bug"
   ],
-  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/665.png",
+  "sprites": {
+    "official": {
+      "default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/665.png"
+    },
+    "home": {
+      "default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/665.png",
+      "shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/shiny/665.png"
+    },
+    "default": {
+      "default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/665.png",
+      "shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/665.png"
+    },
+    "variants": {
+      "spewpa-icy-snow": {
+        "default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/665.png",
+        "shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/665.png"
+      },
+      "spewpa-polar": {
+        "default": null,
+        "shiny": null
+      },
+      "spewpa-tundra": {
+        "default": null,
+        "shiny": null
+      },
+      "spewpa-continental": {
+        "default": null,
+        "shiny": null
+      },
+      "spewpa-garden": {
+        "default": null,
+        "shiny": null
+      },
+      "spewpa-elegant": {
+        "default": null,
+        "shiny": null
+      },
+      "spewpa-meadow": {
+        "default": null,
+        "shiny": null
+      },
+      "spewpa-modern": {
+        "default": null,
+        "shiny": null
+      },
+      "spewpa-marine": {
+        "default": null,
+        "shiny": null
+      },
+      "spewpa-archipelago": {
+        "default": null,
+        "shiny": null
+      },
+      "spewpa-high-plains": {
+        "default": null,
+        "shiny": null
+      },
+      "spewpa-sandstorm": {
+        "default": null,
+        "shiny": null
+      },
+      "spewpa-river": {
+        "default": null,
+        "shiny": null
+      },
+      "spewpa-monsoon": {
+        "default": null,
+        "shiny": null
+      },
+      "spewpa-savanna": {
+        "default": null,
+        "shiny": null
+      },
+      "spewpa-sun": {
+        "default": null,
+        "shiny": null
+      },
+      "spewpa-ocean": {
+        "default": null,
+        "shiny": null
+      },
+      "spewpa-jungle": {
+        "default": null,
+        "shiny": null
+      },
+      "spewpa-fancy": {
+        "default": null,
+        "shiny": null
+      },
+      "spewpa-poke-ball": {
+        "default": null,
+        "shiny": null
+      }
+    }
+  },
   "abilities": [
     "shed-skin",
     "friend-guard"

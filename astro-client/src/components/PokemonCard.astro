@@ -1,4 +1,6 @@
 ---
+import PokemonSprites from "./PokemonSprites.astro";
+
 const { pokemon } = Astro.props;
 ---
 
@@ -129,7 +131,7 @@ const { pokemon } = Astro.props;
   </div>
 
   <div class="sprite-container">
-    <img src={pokemon.sprite} alt={pokemon.name} />
+    <PokemonSprites sprites={pokemon.sprites} />
   </div>
 
   <div class="types">

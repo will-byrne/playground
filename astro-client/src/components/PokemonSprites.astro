@@ -1,0 +1,59 @@
+---
+const { sprites } = Astro.props;
+---
+
+<div class="sprites">
+
+  <h3>Official Artwork</h3>
+  <div class="row">
+    {sprites.official.default && <img src={sprites.official.default} alt="official"/>}
+    {sprites.official.shiny && <img src={sprites.official.shiny} alt="official shiny"/>}
+  </div>
+
+  <h3>Home</h3>
+  <div class="row">
+    {sprites.home.default && <img src={sprites.home.default} alt="home"/>}
+    {sprites.home.shiny && <img src={sprites.home.shiny} alt="home shiny"/>}
+  </div>
+
+  <h3>Default Game Sprites</h3>
+  <div class="row">
+    {sprites.default.default && <img src={sprites.default.default} alt="default"/>}
+    {sprites.default.shiny && <img src={sprites.default.shiny} alt="default shiny"/>}
+  </div>
+
+  {Object.keys(sprites.variants).length > 0 && (
+    <>
+      <h3>Regional / Form Variants</h3>
+      <div class="variants">
+        {Object.entries(sprites.variants).map(([form, v]) => (
+          <div class="variant">
+            <h4>{form}</h4>
+            {v.default && <img src={v.default} alt={form} />}
+            {v.shiny && <img src={v.shiny} alt={`${form} shiny`} />}
+          </div>
+        ))}
+      </div>
+    </>
+  )}
+</div>
+
+<style>
+  .row {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  img {
+    width: 128px;
+    image-rendering: pixelated;
+  }
+  .variants {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 1rem;
+  }
+  .variant {
+    text-align: center;
+  }
+</style>

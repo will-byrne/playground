@@ -5,7 +5,41 @@
     "electric",
     "dragon"
   ],
-  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1008.png",
+  "sprites": {
+    "official": {
+      "default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1008.png"
+    },
+    "home": {
+      "default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/1008.png",
+      "shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/shiny/1008.png"
+    },
+    "default": {
+      "default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1008.png",
+      "shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/1008.png"
+    },
+    "variants": {
+      "miraidon-ultimate-mode": {
+        "default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1008.png",
+        "shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/1008.png"
+      },
+      "miraidon-low-power-mode": {
+        "default": null,
+        "shiny": null
+      },
+      "miraidon-drive-mode": {
+        "default": null,
+        "shiny": null
+      },
+      "miraidon-aquatic-mode": {
+        "default": null,
+        "shiny": null
+      },
+      "miraidon-glide-mode": {
+        "default": null,
+        "shiny": null
+      }
+    }
+  },
   "abilities": [
     "hadron-engine"
   ],

@@ -5,7 +5,41 @@
     "fighting",
     "dragon"
   ],
-  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1007.png",
+  "sprites": {
+    "official": {
+      "default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1007.png"
+    },
+    "home": {
+      "default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/1007.png",
+      "shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/shiny/1007.png"
+    },
+    "default": {
+      "default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1007.png",
+      "shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/1007.png"
+    },
+    "variants": {
+      "koraidon-apex-build": {
+        "default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1007.png",
+        "shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/1007.png"
+      },
+      "koraidon-limited-build": {
+        "default": null,
+        "shiny": null
+      },
+      "koraidon-sprinting-build": {
+        "default": null,
+        "shiny": null
+      },
+      "koraidon-swimming-build": {
+        "default": null,
+        "shiny": null
+      },
+      "koraidon-gliding-build": {
+        "default": null,
+        "shiny": null
+      }
+    }
+  },
   "abilities": [
     "orichalcum-pulse"
   ],

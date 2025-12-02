@@ -6,7 +6,7 @@ const pokemon = defineCollection({
     id: z.number(),
     name: z.string(),
     types: z.array(z.string()),
-    sprite: z.string().url(),
+    sprites: z.any(),
     description: z.string(),
     abilities: z.array(z.string()),
   })

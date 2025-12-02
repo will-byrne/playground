@@ -4,7 +4,101 @@
   "types": [
     "bug"
   ],
-  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/664.png",
+  "sprites": {
+    "official": {
+      "default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/664.png"
+    },
+    "home": {
+      "default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/664.png",
+      "shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/shiny/664.png"
+    },
+    "default": {
+      "default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/664.png",
+      "shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/664.png"
+    },
+    "variants": {
+      "scatterbug-icy-snow": {
+        "default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/664.png",
+        "shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/664.png"
+      },
+      "scatterbug-polar": {
+        "default": null,
+        "shiny": null
+      },
+      "scatterbug-tundra": {
+        "default": null,
+        "shiny": null
+      },
+      "scatterbug-continental": {
+        "default": null,
+        "shiny": null
+      },
+      "scatterbug-garden": {
+        "default": null,
+        "shiny": null
+      },
+      "scatterbug-elegant": {
+        "default": null,
+        "shiny": null
+      },
+      "scatterbug-meadow": {
+        "default": null,
+        "shiny": null
+      },
+      "scatterbug-modern": {
+        "default": null,
+        "shiny": null
+      },
+      "scatterbug-marine": {
+        "default": null,
+        "shiny": null
+      },
+      "scatterbug-archipelago": {
+        "default": null,
+        "shiny": null
+      },
+      "scatterbug-high-plains": {
+        "default": null,
+        "shiny": null
+      },
+      "scatterbug-sandstorm": {
+        "default": null,
+        "shiny": null
+      },
+      "scatterbug-river": {
+        "default": null,
+        "shiny": null
+      },
+      "scatterbug-monsoon": {
+        "default": null,
+        "shiny": null
+      },
+      "scatterbug-savanna": {
+        "default": null,
+        "shiny": null
+      },
+      "scatterbug-sun": {
+        "default": null,
+        "shiny": null
+      },
+      "scatterbug-ocean": {
+        "default": null,
+        "shiny": null
+      },
+      "scatterbug-jungle": {
+        "default": null,
+        "shiny": null
+      },
+      "scatterbug-fancy": {
+        "default": null,
+        "shiny": null
+      },
+      "scatterbug-poke-ball": {
+        "default": null,
+        "shiny": null
+      }
+    }
+  },
   "abilities": [
     "shield-dust",
     "compound-eyes",
