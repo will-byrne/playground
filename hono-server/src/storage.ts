@@ -1,4 +1,4 @@
-import { type Ability, MainClient } from 'pokenode-ts';
+import { type Ability, MainClient, PokemonSprites } from 'pokenode-ts';
 import { MongoClient } from 'mongodb';
 
 const api = new MainClient();
@@ -11,6 +11,7 @@ export type PokeboxEntry = {
   name: string,
   species_description: string,
   types: string[],
+  sprites: PokemonSprites,
   abilities: {
     name: string,
     flavour_text: string,
@@ -37,6 +38,7 @@ export const getPokemonById = async (id: number): Promise<PokeboxEntry> => {
         name: pokemon.name,
         species_description,
         types: pokemon.types.map(({ type }) => type.name),
+        sprites: pokemon.sprites,
         abilities: abilities.map(({ name, flavor_text_entries, effect_entries}) => ({
           name, 
           flavour_text: flavor_text_entries.find(({language}) => language.name === "en")?.flavor_text || "",
