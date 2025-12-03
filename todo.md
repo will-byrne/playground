@@ -11,8 +11,8 @@
   [] rust-server
     [] docker container
     [] tests
-      [] linter
-      [] unit tests
+      [*] linter
+      [*] unit tests
     [] readme
       [] description
       [] run commands
