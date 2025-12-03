@@ -1,10 +1,63 @@
 use futures::TryStreamExt;
 use rustemon::model::moves::Move;
 use rustemon::model::pokemon::{Ability, Pokemon, PokemonSpecies, PokemonSprites, PokemonType};
-use mongodb::{bson::doc, Client, Collection};
+use mongodb::{bson::doc, Client, Collection, options::ClientOptions};
 use mongodb::error::Result;
 use rocket::serde::{ Deserialize, Serialize};
 use rocket::serde::json::serde_json;
+
+#[async_trait::async_trait]
+pub trait PokeboxDb {
+    async fn get_pokedex(&self) -> Vec<PokedexEntry>;
+    async fn get_pokemon_by_id(&self, id: i64) -> PokeboxEntry;
+    async fn store_pokemon(&self, pokemon: &PokeboxEntry) -> bool;
+}
+
+pub struct MongoDb {
+    pub client: mongodb::Client,
+}
+
+#[async_trait::async_trait]
+impl PokeboxDb for MongoDb {
+    async fn get_pokedex(&self) -> Vec<PokedexEntry> {
+        get_pokedex(&self.client).await
+    }
+
+    async fn get_pokemon_by_id(&self, id: i64) -> PokeboxEntry {
+        get_pokemon_by_id(&self.client, id).await
+    }
+
+    async fn store_pokemon(&self, pokemon: &PokeboxEntry) -> bool {
+        store_pokemon(&self.client, pokemon).await.unwrap_or(false)
+    }
+}
+
+pub struct MockDb;
+
+#[async_trait::async_trait]
+impl PokeboxDb for MockDb {
+    async fn get_pokedex(&self) -> Vec<PokedexEntry> {
+        vec![
+            PokedexEntry { id: 1, name: "bulbasaur".into() },
+            PokedexEntry { id: 2, name: "ivysaur".into() },
+        ]
+    }
+
+    async fn get_pokemon_by_id(&self, id: i64) -> PokeboxEntry {
+        PokeboxEntry {
+            id,
+            name: format!("pokemon{}", id),
+            species_description: "Mock description".into(),
+            types: vec!["grass".into()],
+            abilities: vec![],
+            sprites: serde_json::from_str(include_str!("bulbasaur_sprites.json")).unwrap(),
+        }
+    }
+
+    async fn store_pokemon(&self, _pokemon: &PokeboxEntry) -> bool {
+        true
+    }
+}
 
 #[derive(Serialize, Deserialize)]
 pub struct PokedexEntry {
@@ -41,6 +94,12 @@ pub struct PokeboxEntry {
     types: Vec<String>,
     abilities: Vec<PokemonAbility>,
     sprites: PokemonSprites
+}
+
+pub async fn create_db() -> Client {
+    let client_options = ClientOptions::parse("mongodb://admin:testtest@localhost:27017")
+        .await.unwrap();
+    Client::with_options(client_options).unwrap()
 }
 
 pub async fn store_pokemon(mongodb: &Client, new_pokemon: &PokeboxEntry) -> Result<bool> {
