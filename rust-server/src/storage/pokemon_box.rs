@@ -97,7 +97,9 @@ pub struct PokeboxEntry {
 }
 
 pub async fn create_db() -> Client {
-    let client_options = ClientOptions::parse("mongodb://admin:testtest@localhost:27017")
+    let uri = std::env::var("MONGODB_URI").unwrap_or_else(|_| "mongodb://admin:testtest@localhost:27017".to_string());
+    println!("connecting to mongo at: {}", uri);
+    let client_options = ClientOptions::parse(&uri)
         .await.unwrap();
     Client::with_options(client_options).unwrap()
 }

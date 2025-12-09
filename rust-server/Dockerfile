@@ -1,7 +1,8 @@
 # BUILDER
-FROM rust:alpine3.22 AS builder
+FROM rust:1.91 AS builder
 
-RUN apk add pkgconf openssl-dev
+RUN apt-get update && apt-get install -y musl-tools pkg-config libssl-dev
+RUN rustup target add x86_64-unknown-linux-musl
 
 WORKDIR /app
 
@@ -12,18 +13,18 @@ ENV OPENSSL_DIR="/usr"
 ENV OPENSSL_LIB_DIR="/usr/lib"
 ENV OPENSSL_INCLUDE_DIR="/usr/include"
 
-RUN cargo build --release 
+RUN cargo build --release --target x86_64-unknown-linux-musl
 
 # RUNTIME
 FROM alpine:3.19
 
-RUN apk add --no-cache ca-certificates openssl-dev
+RUN apk add --no-cache ca-certificates
 
 WORKDIR /app
 
 ENV ROCKET_ADDRESS=0.0.0.0
 
-COPY --from=builder /app/target/release/rust-server /app/server
+COPY --from=builder /app/target/x86_64-unknown-linux-musl/release/rust-server /app/server
 
 CMD ["./server"]
 

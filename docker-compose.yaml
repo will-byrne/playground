@@ -38,7 +38,17 @@ services:
       timeout: 5s
       retries: 10
       start_period: 2s
-
+  
+  rust-server:
+    build:
+      context: ./rust-server
+    environment:
+      ROCKET_PORT: 3000
+      MONGODB_URI: mongodb://admin:testtest@mongodb:27017
+    depends_on:
+      - mongodb
+    ports:
+      - 3000:3000
 volumes:
   data: {}
   minio_storage: {}
