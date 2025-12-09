@@ -14,7 +14,7 @@
       [*] linter
       [*] unit tests
     [] readme
-      [] description
+      [*] description
       [] run commands
   [] rust-client
     [] docker container

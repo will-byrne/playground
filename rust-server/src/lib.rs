@@ -89,7 +89,6 @@ pub async fn rocket_app() -> Rocket<Build> {
 
   let db: Arc<dyn PokeboxDb + Send + Sync> = Arc::new(MongoDb { client });
   rocket::build()
-    .configure(rocket::Config::figment().merge(("port", 3000)))
     .attach(CORS)
     .manage(db)
     .mount("/", routes![index, pokedex, random_new, specific_pokemon, all_options])
