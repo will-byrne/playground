@@ -44,14 +44,14 @@ pub async fn random_new(db: &State<Arc<dyn PokeboxDb + Send + Sync>>) -> Json<Po
 }
 
 #[get("/pokemon/<id>")]
-async fn specific_pokemon(db: &State<Arc<dyn PokeboxDb + Send + Sync>>, id: i64) -> Json<PokeboxEntry>  {
+pub async fn specific_pokemon(db: &State<Arc<dyn PokeboxDb + Send + Sync>>, id: i64) -> Json<PokeboxEntry>  {
     let pokemon_deets = db.inner().get_pokemon_by_id(id).await;
 
     Json(pokemon_deets)
 }
 
 #[get("/pokedex")]
-async fn pokedex(db: &State<Arc<dyn PokeboxDb + Send + Sync>>) -> Json<Vec<PokedexEntry>> {
+pub async fn pokedex(db: &State<Arc<dyn PokeboxDb + Send + Sync>>) -> Json<Vec<PokedexEntry>> {
     let pokedex = db.inner().get_pokedex().await;
 
     Json(pokedex)

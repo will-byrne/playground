@@ -1,6 +1,6 @@
 use rust_server::MockDb;
 use rust_server::PokeboxDb;
-use rust_server::{index, random_new};
+use rust_server::{index, pokedex, random_new, specific_pokemon};
 use std::sync::Arc;
 use rocket::local::asynchronous::Client;
 use rocket::routes;
@@ -45,4 +45,49 @@ async fn test_random_new_pokemon_route() {
     let body = response.into_string().await.unwrap();
     assert!(body.contains("name"));
     assert!(body.contains("id"));
+}
+
+#[tokio::test]
+async fn test_specific_pokemon_route() {
+    let db: Arc<dyn PokeboxDb + Send + Sync> = Arc::new(MockDb);
+
+    let rocket = rocket::build()
+        .manage(db)
+        .mount("/", routes![specific_pokemon])
+        .ignite()
+        .await
+        .unwrap();
+
+    let client = Client::tracked(rocket).await.unwrap();
+
+    let response = client.get("/pokemon/5").dispatch().await;
+    assert_eq!(response.status(), Status::Ok);
+
+    let body = response.into_string().await.unwrap();
+    assert!(body.contains("name"));
+    assert!(body.contains("id"));
+    assert!(body.contains("\"id\":5"));
+}
+
+#[tokio::test]
+async fn test_pokedex_route() {
+    let db: Arc<dyn PokeboxDb + Send + Sync> = Arc::new(MockDb);
+
+    let rocket = rocket::build()
+        .manage(db)
+        .mount("/", routes![pokedex])
+        .ignite()
+        .await
+        .unwrap();
+
+    let client = Client::tracked(rocket).await.unwrap();
+
+    let response = client.get("/pokedex").dispatch().await;
+    assert_eq!(response.status(), Status::Ok);
+
+    let body = response.into_string().await.unwrap();
+    assert!(body.contains("bulbasaur"));
+    assert!(body.contains("ivysaur"));
+    assert!(body.contains("1"));
+    assert!(body.contains("2"));
 }
