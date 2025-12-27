@@ -1,7 +1,10 @@
-import { expect, test } from "bun:test";
-import { getSprites } from "./pokemon-card";
+import { test, expect } from 'bun:test';
+import { screen, render } from '@testing-library/react';
+import { PokemonCard } from './pokemon-card';
+import type { PokeboxEntry } from './hero';
+import type { PokemonSprites } from 'pokenode-ts';
 
-const sprites = {
+const bulbasaurSprites: PokemonSprites = {
   "back_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/77.png",
   "back_female": null,
   "back_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/shiny/77.png",
@@ -188,9 +191,44 @@ const sprites = {
   }
 };
 
-test("2 + 2", () => {
-  const result = getSprites(sprites);
+const bulbasaur: PokeboxEntry = {
+  id: 1,
+  name: 'bulbasaur',
+  species_description: 'leafy pokemon',
+  abilities: [{name: 'leafplosion', effect: 'lots', flavour_text: 'does stuff'}],
+  types: ['grass'],
+  sprites: bulbasaurSprites,
+}
 
-  console.log(result);
-  expect(2 + 2).toBe(4);
-});
+test('Happy path render', () => {
+  render(<PokemonCard pokeboxEntry={bulbasaur} setCurrentPokemon={() => {}}/>);
+  expect(screen.getByText('1: bulbasaur')).toBeInTheDocument();
+})
+
+test('abilities', () => {
+  render(<PokemonCard pokeboxEntry={bulbasaur} setCurrentPokemon={() => {}}/>);
+  expect(screen.getByText('does stuff')).toBeInTheDocument();
+  expect(screen.getByText('lots')).toBeInTheDocument();
+  expect(screen.getByText('leafplosion')).toBeInTheDocument();
+})
+
+test('types', () => {
+  render(<PokemonCard pokeboxEntry={bulbasaur} setCurrentPokemon={() => {}}/>);
+  expect(screen.getByText('grass')).toBeInTheDocument();
+})
+
+test('description', () => {
+  render(<PokemonCard pokeboxEntry={bulbasaur} setCurrentPokemon={() => {}}/>);
+  expect(screen.getByText('leafy pokemon'));
+})
+
+test('description replacement', () => {
+  render(<PokemonCard pokeboxEntry={{...bulbasaur, species_description: 'this has a \n newline'}} setCurrentPokemon={() => {}}/>);
+  expect(screen.getByText('this has a newline')).toBeInTheDocument();
+})
+
+test('sprites', () => {
+  render(<PokemonCard pokeboxEntry={{...bulbasaur, species_description: 'this has a \n newline'}} setCurrentPokemon={() => {}}/>);
+  
+  expect(document.getElementsByTagName('img').length).toStrictEqual(81);
+})

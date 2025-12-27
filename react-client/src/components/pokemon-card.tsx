@@ -9,7 +9,7 @@ const getSprites = (sp: PokemonSprites, k?: string): Record<string, string> => {
       const toReturn: Record<string, string> = { ...prev };
       const newKey = `${k ? `${k}-` : ''}${current[0]}`;
       toReturn[newKey] = (current[1] as string);
-      console.log('was a string')
+
       return toReturn;
     }
     else if (current[1] != null && typeof current[1] === 'object') {
