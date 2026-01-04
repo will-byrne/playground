@@ -1,4 +1,4 @@
-import { test, expect } from 'bun:test';
+import { test, describe, expect } from 'bun:test';
 import { screen, render } from '@testing-library/react';
 import { PokemonCard } from './pokemon-card';
 import type { PokeboxEntry } from './hero';
@@ -200,35 +200,39 @@ const bulbasaur: PokeboxEntry = {
   sprites: bulbasaurSprites,
 }
 
-test('Happy path render', () => {
-  render(<PokemonCard pokeboxEntry={bulbasaur} setCurrentPokemon={() => {}}/>);
-  expect(screen.getByText('1: bulbasaur')).toBeInTheDocument();
-})
+describe('pokemon-card', () => {
+  test('Happy path render', () => {
+    render(<PokemonCard pokeboxEntry={bulbasaur} setCurrentPokemon={() => {}}/>);
+    expect(screen.getByText('1: bulbasaur')).toBeInTheDocument();
+  })
 
-test('abilities', () => {
-  render(<PokemonCard pokeboxEntry={bulbasaur} setCurrentPokemon={() => {}}/>);
-  expect(screen.getByText('does stuff')).toBeInTheDocument();
-  expect(screen.getByText('lots')).toBeInTheDocument();
-  expect(screen.getByText('leafplosion')).toBeInTheDocument();
-})
+  test('abilities', () => {
+    render(<PokemonCard pokeboxEntry={bulbasaur} setCurrentPokemon={() => {}}/>);
+    expect(screen.getByText('does stuff')).toBeInTheDocument();
+    expect(screen.getByText('lots')).toBeInTheDocument();
+    expect(screen.getByText('leafplosion')).toBeInTheDocument();
+  })
 
-test('types', () => {
-  render(<PokemonCard pokeboxEntry={bulbasaur} setCurrentPokemon={() => {}}/>);
-  expect(screen.getByText('grass')).toBeInTheDocument();
-})
+  test('types', () => {
+    render(<PokemonCard pokeboxEntry={bulbasaur} setCurrentPokemon={() => {}}/>);
+    expect(screen.getByText('grass')).toBeInTheDocument();
+  })
 
-test('description', () => {
-  render(<PokemonCard pokeboxEntry={bulbasaur} setCurrentPokemon={() => {}}/>);
-  expect(screen.getByText('leafy pokemon'));
-})
+  describe('description renders', () => {
+    test('description', () => {
+      render(<PokemonCard pokeboxEntry={bulbasaur} setCurrentPokemon={() => {}}/>);
+      expect(screen.getByText('leafy pokemon'));
+    })
 
-test('description replacement', () => {
-  render(<PokemonCard pokeboxEntry={{...bulbasaur, species_description: 'this has a \n newline'}} setCurrentPokemon={() => {}}/>);
-  expect(screen.getByText('this has a newline')).toBeInTheDocument();
-})
+    test('description replaces special characters', () => {
+      render(<PokemonCard pokeboxEntry={{...bulbasaur, species_description: 'this has a \n newline'}} setCurrentPokemon={() => {}}/>);
+      expect(screen.getByText('this has a newline')).toBeInTheDocument();
+    })
+  });
 
-test('sprites', () => {
-  render(<PokemonCard pokeboxEntry={{...bulbasaur, species_description: 'this has a \n newline'}} setCurrentPokemon={() => {}}/>);
-  
-  expect(document.getElementsByTagName('img').length).toStrictEqual(81);
-})
+  test('correct number of sprites are present', () => {
+    render(<PokemonCard pokeboxEntry={{...bulbasaur, species_description: 'this has a \n newline'}} setCurrentPokemon={() => {}}/>);
+    
+    expect(document.getElementsByTagName('img').length).toStrictEqual(81);
+  })
+});
