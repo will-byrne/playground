@@ -33,6 +33,7 @@
             # pkgs.yarn
             # pkgs.pnpm
             pkgs.bun
+            pkgs.biome
 
             # Required to enable the language server
             pkgs.nodePackages.typescript
@@ -42,6 +43,7 @@
 
             # pkgs.python3
           ];
+          BIOME_BINARY="@biomejs/cli-linux-x64-musl/biome";
         };
       });
     };

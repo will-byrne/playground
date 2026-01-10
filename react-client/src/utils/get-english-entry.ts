@@ -1,3 +1,5 @@
-import type { NamedAPIResource } from "pokenode-ts"
+import type { NamedAPIResource } from "pokenode-ts";
 
-export const getEnglishEntry = <T extends { language: NamedAPIResource}>(t: T[]) => t.find(({ language}) => language.name === "en");
+export const getEnglishEntry = <T extends { language: NamedAPIResource }>(
+	t: T[],
+) => t.find(({ language }) => language.name === "en");
