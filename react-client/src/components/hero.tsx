@@ -34,8 +34,9 @@ export const Hero = ({
 				<div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
 					<div className="card-body">
 						<fieldset className="fieldset">
-							<label className="label">Pokedex no.</label>
+							<label htmlFor="#dexInput" className="label">Pokedex no.</label>
 							<input
+								id="dexInput"
 								type="number"
 								min={1}
 								max={1025}
@@ -45,6 +46,7 @@ export const Hero = ({
 								onChange={(e) => setDexNo(Number(e.currentTarget.value))}
 							/>
 							<button
+								type="button"
 								onClick={() => loadSpecificPokemon(dexNo)}
 								className="btn btn-neutral mt-4"
 							>

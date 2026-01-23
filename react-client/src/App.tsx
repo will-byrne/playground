@@ -1,34 +1,35 @@
 import "./App.css";
-import { useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { Hero, type PokeboxEntry } from "./components/hero";
 import { PokemonCard } from "./components/pokemon-card.tsx";
 import { typedFetch } from "./utils/typed-fetch.ts";
+import { usePokedexCache, type PokedexEntry } from "./hooks/usePokedexCache.ts";
 
-type PokedexEntry = { id: number; name: string };
 
 function App() {
 	const [currentPokemon, setCurrentPokemon] = useState<PokeboxEntry>();
-	const [cachedDex, setCachedDex] = useState<PokedexEntry[]>([]);
+	const { dex: cachedDex, addToDex, hasInDex } = usePokedexCache();
 
-	const setSortedCachedDex = (dex: PokedexEntry[]) => {
-		setCachedDex(dex.sort(({ id: ida }, { id: idb }) => ida - idb));
-	};
+	useEffect(() => {
+		const loadDex = async() => {
+			const unsortedDex = await typedFetch<PokedexEntry[]>(
+				"http://localhost:3000/pokedex",
+			);
+		
+			unsortedDex.forEach(addToDex);
+		};
 
-	useMemo(async () => {
-		const unsortedDex = await typedFetch<PokedexEntry[]>(
-			"http://localhost:3000/pokedex",
-		);
-		setSortedCachedDex(unsortedDex);
-	}, []);
+		loadDex();
+	}, [addToDex]);
 
 	const loadSpecificPokemon = async (dexNo: number) => {
 		const pokeboxEntry = await typedFetch<PokeboxEntry>(
 			`http://localhost:3000/pokemon/${dexNo}`,
 		);
 		setCurrentPokemon(pokeboxEntry);
-		if (!cachedDex.find(({ id }) => id === dexNo)) {
+		if (!hasInDex(dexNo)) {
 			const { id, name } = pokeboxEntry;
-			setSortedCachedDex([...cachedDex, { id, name }]);
+			addToDex({id, name});
 		}
 	};
 
@@ -38,44 +39,44 @@ function App() {
 		);
 		setCurrentPokemon(pokeboxEntry);
 		const { id, name } = pokeboxEntry;
-		setSortedCachedDex([...cachedDex, { id, name }]);
+			addToDex({id, name});
 	};
 
 	return (
 		<>
-			<div className="sticky top-0 navbar bg-base-300">
+			<div className="sticky top-0 navbar bg-base-300 z-50">
 				<div className="ps-4">
-					<a
+					<button
+						type="button"
 						onClick={() => setCurrentPokemon(undefined)}
-						className="text-lg font-bold cursor-pointer"
-					>
+						className="btn btn-ghost rounded-field text-lg font-bold cursor-pointer nav title">
 						Pokemon Viewer
-					</a>
+					</button>
 				</div>
 				<div className="flex grow justify-end px-2">
 					<div className="flex items-stretch">
-						<a
-							className="btn btn-ghost rounded-field"
+						<button
+							type="button"
+							className="btn btn-ghost rounded-field nav"
 							onClick={loadRandomPokemon}
 						>
 							Load Random
-						</a>
+						</button>
 						{cachedDex && cachedDex.length > 0 && (
 							<div className="dropdown dropdown-end">
-								<div
+								<button
 									tabIndex={0}
-									role="button"
-									className="btn btn-ghost rounded-field"
+									type="button"
+									className="btn btn-secondary btn-ghost rounded-field nav text"
 								>
 									Cached Pokemon
-								</div>
+								</button>
 								<ul
-									tabIndex={0}
 									className="menu dropdown-content bg-base-200 rounded-box z-1 mt-4 w-52 p-2 shadow-sm"
 								>
-									{cachedDex.map(({ name, id }, i) => (
-										<li key={`cached-${i}`}>
-											<a onClick={() => loadSpecificPokemon(id)}>{name}</a>
+									{cachedDex.map(({ name, id }) => (
+										<li key={`${id}-${name}`}>
+											<button type="button" onClick={() => loadSpecificPokemon(id)}>{name}</button>
 										</li>
 									))}
 								</ul>

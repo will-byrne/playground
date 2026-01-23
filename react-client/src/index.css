@@ -54,6 +54,17 @@ button:focus-visible {
 	outline: 4px auto -webkit-focus-ring-color;
 }
 
+button.title {
+	color: #646cff;
+}
+
+button.nav {
+	font-weight: 500;
+	text-decoration: inherit;
+	background-color: unset;
+	border: none;
+}
+
 @media (prefers-color-scheme: light) {
 	:root {
 		color: #213547;

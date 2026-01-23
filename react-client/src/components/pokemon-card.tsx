@@ -4,18 +4,14 @@ import { Abilities } from "./ablities.tsx";
 import type { PokeboxEntry } from "./hero.tsx";
 
 const getSprites = (sp: PokemonSprites, k?: string): Record<string, string> => {
-	return Object.entries(sp).reduce((prev, current) => {
-		const toReturn: Record<string, string> = structuredClone(prev);
-
-		if (typeof current[1] === "string") {
-			const newKey = `${k ? `${k}-` : ""}${current[0]}`;
-			toReturn[newKey] = current[1] as string;
-
-			return toReturn;
-		} else if (current[1] != null && typeof current[1] === "object") {
-			return { ...prev, ...getSprites(current[1], current[0]) };
+	return Object.entries(sp).reduce<Record<string, string>>((acc, [key, value]) => {
+		if (typeof value === "string") {
+			const newKey = `${k ? `${k}-` : ""}${key}`;
+			acc[newKey] = value;
+		} else if (value && typeof value === "object") {
+			Object.assign(acc, getSprites(value, key));
 		}
-		return prev;
+		return acc;
 	}, {});
 };
 
@@ -48,6 +44,7 @@ export const PokemonCard = ({
 						/>
 					)}
 					<img
+						alt="official art"
 						src={showShiny ? officialShinyArtFront : officialArtFront}
 						className="max-w-sm rounded-lg shadow-2xl h-96"
 					/>
@@ -55,8 +52,8 @@ export const PokemonCard = ({
 				<div>
 					<h1 className="text-5xl font-bold">{`${id}: ${name}`}</h1>
 					<div>
-						{types.map((type, i) => (
-							<div key={i} className="badge badge-secondary mr-1">
+						{types.map((type) => (
+							<div key={type} className="badge badge-secondary mr-1">
 								{type}
 							</div>
 						))}
@@ -65,12 +62,13 @@ export const PokemonCard = ({
 					<Abilities abilities={abilities} />
 					<div className="carousel rounded-box">
 						<div className="carousel-item">
-							{Object.entries(spriteList).map(([, url], i) => (
-								<img className="h-36" key={i} src={url} />
+							{Object.entries(spriteList).map(([name, url]) => (
+								<img alt={name} className="h-36" key={url} src={url} />
 							))}
 						</div>
 					</div>
 					<button
+						type="button"
 						onClick={() => setCurrentPokemon(undefined)}
 						className="btn btn-primary mt-2 block"
 					>
