@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "levitate",
-    "heatproof",
-    "heavy-metal"
+    {
+      "name": "levitate",
+      "description": "Gives full immunity to all Ground-type moves."
+    },
+    {
+      "name": "heatproof",
+      "description": "Weakens the power of Fire-type moves."
+    },
+    {
+      "name": "heavy-metal",
+      "description": "Doubles the Pokémon’s weight."
+    }
   ],
   "description": "Implements shaped like it were\ndiscovered in ancient tombs. It is\nunknown if they are related."
 }

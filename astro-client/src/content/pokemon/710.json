@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "pickup",
-    "frisk",
-    "insomnia"
+    {
+      "name": "pickup",
+      "description": "May pick up items."
+    },
+    {
+      "name": "frisk",
+      "description": "The Pokémon can check the foe’s held item."
+    },
+    {
+      "name": "insomnia",
+      "description": "Prevents sleep."
+    }
   ],
   "description": "The pumpkin body is inhabited by a spirit\ntrapped in this world. As the sun sets,\nit becomes restless and active."
 }

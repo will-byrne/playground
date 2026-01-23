@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "intimidate",
-    "guard-dog",
-    "stakeout"
+    {
+      "name": "intimidate",
+      "description": "Lowers the foe’s ATTACK."
+    },
+    {
+      "name": "guard-dog",
+      "description": "Boosts the Pokémon’s Attack stat if intimidated. Moves and items that would force the Pokémon to switch out also fail to work."
+    },
+    {
+      "name": "stakeout",
+      "description": "Doubles the damage dealt to the target’s replacement if the target switches out."
+    }
   ],
   "description": "This Pokémon can store energy in its large dewlap. Mabosstiff unleashes this energy all at once to blow away enemies."
 }

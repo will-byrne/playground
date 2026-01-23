@@ -132,7 +132,10 @@
     }
   },
   "abilities": [
-    "levitate"
+    {
+      "name": "levitate",
+      "description": "Gives full immunity to all Ground-type moves."
+    }
   ],
   "description": "Their shapes look\nlike hieroglyphs\non ancient tab­\flets. It is said\nthat the two are\nsomehow related."
 }

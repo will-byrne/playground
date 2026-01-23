@@ -28,9 +28,18 @@
     }
   },
   "abilities": [
-    "sand-spit",
-    "shed-skin",
-    "sand-veil"
+    {
+      "name": "sand-spit",
+      "description": "The Pokémon creates a sandstorm when it’s hit by an attack."
+    },
+    {
+      "name": "shed-skin",
+      "description": "Heals the body by shedding."
+    },
+    {
+      "name": "sand-veil",
+      "description": "Ups evasion in a sandstorm."
+    }
   ],
   "description": "When it contracts its body, over 220 pounds of\nsand sprays from its nose. If it ever runs out of\nsand, it becomes disheartened."
 }

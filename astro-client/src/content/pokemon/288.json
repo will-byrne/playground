@@ -24,7 +24,10 @@
     }
   },
   "abilities": [
-    "vital-spirit"
+    {
+      "name": "vital-spirit",
+      "description": "Prevents sleep."
+    }
   ],
   "description": "VIGOROTH is always itching and agitated\nto go on a wild rampage. It simply can’t\ntolerate sitting still for even a minute.\fThis POKéMON’s stress level rises if it\ncan’t be moving constantly."
 }

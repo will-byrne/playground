@@ -25,7 +25,10 @@
     }
   },
   "abilities": [
-    "shed-skin"
+    {
+      "name": "shed-skin",
+      "description": "Heals the body by shedding."
+    }
   ],
   "description": "Its shell is as\nhard as sheet\nrock, and it is\falso very strong.\nIts THRASHING can\ntopple a mountain."
 }

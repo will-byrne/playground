@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "overgrow",
-    "grassy-surge"
+    {
+      "name": "overgrow",
+      "description": "Powers up Grass-type moves in a pinch."
+    },
+    {
+      "name": "grassy-surge",
+      "description": "Turns the ground into Grassy Terrain when the Pokémon enters a battle."
+    }
   ],
   "description": "When it uses its special stick to strike up a beat,\nthe sound waves produced carry revitalizing\nenergy to the plants and flowers in the area."
 }

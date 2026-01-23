@@ -25,8 +25,14 @@
     }
   },
   "abilities": [
-    "wind-rider",
-    "infiltrator"
+    {
+      "name": "wind-rider",
+      "description": "Boosts the Pokémon's Attack stat if Tailwind takes effect or if the Pokémon is hit by a wind move. The Pokémon also takes no damage from wind moves."
+    },
+    {
+      "name": "infiltrator",
+      "description": "Passes through the foe’s barrier and strikes."
+    }
   ],
   "description": "A soul unable to move on to the afterlife was blown around by the wind until it got tangled up with dried grass and became a Pokémon."
 }

@@ -25,8 +25,14 @@
     }
   },
   "abilities": [
-    "speed-boost",
-    "infiltrator"
+    {
+      "name": "speed-boost",
+      "description": "Gradually boosts SPEED."
+    },
+    {
+      "name": "infiltrator",
+      "description": "Passes through the foe’s barrier and strikes."
+    }
   ],
   "description": "NINJASK moves around at such a high\nspeed that it cannot be seen, even\nwhile its crying can be clearly heard.\fFor that reason, this POKéMON was long\nbelieved to be invisible."
 }

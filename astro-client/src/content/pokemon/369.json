@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "swift-swim",
-    "rock-head",
-    "sturdy"
+    {
+      "name": "swift-swim",
+      "description": "Raises SPEED in rain."
+    },
+    {
+      "name": "rock-head",
+      "description": "Protects the Pokémon from recoil damage."
+    },
+    {
+      "name": "sturdy",
+      "description": "Negates 1-hit KO attacks."
+    }
   ],
   "description": "RELICANTH is a POKéMON species that\nexisted for a hundred million years\nwithout ever changing its form.\fThis ancient POKéMON feeds on\nmicroscopic organisms with its\ntoothless mouth."
 }

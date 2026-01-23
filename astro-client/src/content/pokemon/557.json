@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "sturdy",
-    "shell-armor",
-    "weak-armor"
+    {
+      "name": "sturdy",
+      "description": "Negates 1-hit KO attacks."
+    },
+    {
+      "name": "shell-armor",
+      "description": "Blocks critical hits."
+    },
+    {
+      "name": "weak-armor",
+      "description": "Physical attacks lower Defense and raise Speed."
+    }
   ],
   "description": "This Pokémon can easily melt holes in\nhard rocks with a liquid secreted from\nits mouth."
 }

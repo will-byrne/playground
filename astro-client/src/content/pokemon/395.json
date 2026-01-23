@@ -25,8 +25,14 @@
     }
   },
   "abilities": [
-    "torrent",
-    "competitive"
+    {
+      "name": "torrent",
+      "description": "Ups WATER moves in a pinch."
+    },
+    {
+      "name": "competitive",
+      "description": "Boosts the Sp. Atk stat when a stat is lowered."
+    }
   ],
   "description": "The three horns that extend from\nits beak attest to its power. The\nleader has the biggest horns."
 }

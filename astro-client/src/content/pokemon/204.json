@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "sturdy",
-    "overcoat"
+    {
+      "name": "sturdy",
+      "description": "Negates 1-hit KO attacks."
+    },
+    {
+      "name": "overcoat",
+      "description": "Protects the Pokémon from damage from weather."
+    }
   ],
   "description": "It likes to make\nits shell thicker\nby adding layers\fof tree bark. The\nadditional weight\ndoesn't bother it."
 }

@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "volt-absorb",
-    "illuminate",
-    "water-absorb"
+    {
+      "name": "volt-absorb",
+      "description": "Turns electricity into HP."
+    },
+    {
+      "name": "illuminate",
+      "description": "Encounter rate increases."
+    },
+    {
+      "name": "water-absorb",
+      "description": "Restores HP if hit by a Water-type move."
+    }
   ],
   "description": "Chinchou blink their shining antennae at one\nanother to claim their respective turf."
 }

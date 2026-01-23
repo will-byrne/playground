@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "guts",
-    "no-guard",
-    "steadfast"
+    {
+      "name": "guts",
+      "description": "Ups ATTACK if suffering."
+    },
+    {
+      "name": "no-guard",
+      "description": "Ensures the Pokémon and its foe’s attacks land."
+    },
+    {
+      "name": "steadfast",
+      "description": "Raises Speed each time the Pokémon flinches."
+    }
   ],
   "description": "Loves to build\nits muscles.\nIt trains in all\fstyles of martial\narts to become\neven stronger."
 }

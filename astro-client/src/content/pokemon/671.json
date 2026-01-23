@@ -40,8 +40,14 @@
     }
   },
   "abilities": [
-    "flower-veil",
-    "symbiosis"
+    {
+      "name": "flower-veil",
+      "description": "Prevents lowering of ally Grass-type Pokémon’s stats."
+    },
+    {
+      "name": "symbiosis",
+      "description": "The Pokémon can pass an item to an ally."
+    }
   ],
   "description": "It claims exquisite flower gardens as its territory,\nand it obtains power from basking in the energy\nemitted by flowering plants."
 }

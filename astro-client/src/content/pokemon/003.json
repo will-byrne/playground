@@ -33,8 +33,14 @@
     }
   },
   "abilities": [
-    "overgrow",
-    "chlorophyll"
+    {
+      "name": "overgrow",
+      "description": "Powers up Grass-type moves in a pinch."
+    },
+    {
+      "name": "chlorophyll",
+      "description": "Raises SPEED in sunshine."
+    }
   ],
   "description": "The plant blooms\nwhen it is\nabsorbing solar\fenergy. It stays\non the move to\nseek sunlight."
 }

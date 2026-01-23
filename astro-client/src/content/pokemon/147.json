@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "shed-skin",
-    "marvel-scale"
+    {
+      "name": "shed-skin",
+      "description": "Heals the body by shedding."
+    },
+    {
+      "name": "marvel-scale",
+      "description": "Ups DEFENSE if suffering."
+    }
   ],
   "description": "Long considered a\nmythical POKéMON\nuntil recently\fwhen a small\ncolony was found\nliving underwater."
 }

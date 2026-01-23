@@ -29,8 +29,14 @@
     }
   },
   "abilities": [
-    "corrosion",
-    "oblivious"
+    {
+      "name": "corrosion",
+      "description": "The Pokémon can poison the target even if it’s a Steel or Poison type."
+    },
+    {
+      "name": "oblivious",
+      "description": "Prevents attraction."
+    }
   ],
   "description": "For some reason, only females have been found.\nIt creates a reverse harem of male Salandit that\nit lives with."
 }

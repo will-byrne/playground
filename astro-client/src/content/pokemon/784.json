@@ -29,9 +29,18 @@
     }
   },
   "abilities": [
-    "bulletproof",
-    "soundproof",
-    "overcoat"
+    {
+      "name": "bulletproof",
+      "description": "Protects the Pokémon from some ball and bomb moves."
+    },
+    {
+      "name": "soundproof",
+      "description": "Avoids sound-based moves."
+    },
+    {
+      "name": "overcoat",
+      "description": "Protects the Pokémon from damage from weather."
+    }
   ],
   "description": "When it spots enemies, it threatens them by\njingling the scales on its tail. Weak opponents\nwill crack and flee in panic."
 }

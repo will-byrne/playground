@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "soundproof",
-    "scrappy"
+    {
+      "name": "soundproof",
+      "description": "Avoids sound-based moves."
+    },
+    {
+      "name": "scrappy",
+      "description": "Enables moves to hit Ghost-type foes."
+    }
   ],
   "description": "EXPLOUD triggers earthquakes with the\ntremors it creates by bellowing. If this\nPOKéMON violently inhales from the\fports on its body, it’s a sign that it is\npreparing to let loose a huge bellow."
 }

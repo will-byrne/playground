@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "chlorophyll",
-    "leaf-guard",
-    "regenerator"
+    {
+      "name": "chlorophyll",
+      "description": "Raises SPEED in sunshine."
+    },
+    {
+      "name": "leaf-guard",
+      "description": "Prevents status problems in sunny weather."
+    },
+    {
+      "name": "regenerator",
+      "description": "Restores a little HP when withdrawn from battle."
+    }
   ],
   "description": "The whole body is\nswathed with wide\nvines that are\fsimilar to sea­\nweed. Its vines\nshake as it walks."
 }

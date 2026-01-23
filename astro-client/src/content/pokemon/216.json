@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "pickup",
-    "quick-feet",
-    "honey-gather"
+    {
+      "name": "pickup",
+      "description": "May pick up items."
+    },
+    {
+      "name": "quick-feet",
+      "description": "Boosts Speed if there is a status problem."
+    },
+    {
+      "name": "honey-gather",
+      "description": "The Pokémon may gather Honey from somewhere."
+    }
   ],
   "description": "If it finds honey,\nits crescent mark\nglows. It always\flicks its paws\nbecause they are\nsoaked with honey."
 }

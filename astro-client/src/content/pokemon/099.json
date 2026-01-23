@@ -28,9 +28,18 @@
     }
   },
   "abilities": [
-    "hyper-cutter",
-    "shell-armor",
-    "sheer-force"
+    {
+      "name": "hyper-cutter",
+      "description": "Prevents ATTACK reduction."
+    },
+    {
+      "name": "shell-armor",
+      "description": "Blocks critical hits."
+    },
+    {
+      "name": "sheer-force",
+      "description": "Removes added effects to increase move damage."
+    }
   ],
   "description": "The large pincer\nhas 10000 hp of\ncrushing power.\fHowever, its huge\nsize makes it\nunwieldy to use."
 }

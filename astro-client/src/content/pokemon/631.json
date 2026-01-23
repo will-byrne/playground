@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "gluttony",
-    "flash-fire",
-    "white-smoke"
+    {
+      "name": "gluttony",
+      "description": "Encourages the early use of a held Berry."
+    },
+    {
+      "name": "flash-fire",
+      "description": "Powers up if hit by fire."
+    },
+    {
+      "name": "white-smoke",
+      "description": "Prevents ability reduction."
+    }
   ],
   "description": "It breathes through a hole in its tail\nwhile it burns with an internal fire.\nDurant is its prey."
 }

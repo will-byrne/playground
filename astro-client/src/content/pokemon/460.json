@@ -29,8 +29,14 @@
     }
   },
   "abilities": [
-    "snow-warning",
-    "soundproof"
+    {
+      "name": "snow-warning",
+      "description": "The Pokémon summons a hailstorm in battle."
+    },
+    {
+      "name": "soundproof",
+      "description": "Avoids sound-based moves."
+    }
   ],
   "description": "It whips up blizzards in mountains\nthat are always buried in snow.\nIt is the abominable snowman."
 }

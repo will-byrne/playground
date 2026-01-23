@@ -25,8 +25,14 @@
     }
   },
   "abilities": [
-    "sand-force",
-    "sheer-force"
+    {
+      "name": "sand-force",
+      "description": "Boosts certain moves’ power in a sandstorm."
+    },
+    {
+      "name": "sheer-force",
+      "description": "Removes added effects to increase move damage."
+    }
   ],
   "description": "Lands visited by Landorus grant such\nbountiful crops that it has been hailed\nas “The Guardian of the Fields.”"
 }

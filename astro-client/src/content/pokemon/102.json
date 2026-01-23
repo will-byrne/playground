@@ -25,8 +25,14 @@
     }
   },
   "abilities": [
-    "chlorophyll",
-    "harvest"
+    {
+      "name": "chlorophyll",
+      "description": "Raises SPEED in sunshine."
+    },
+    {
+      "name": "harvest",
+      "description": "May create another Berry after one is used."
+    }
   ],
   "description": "Often mistaken\nfor eggs.\nWhen disturbed,\fthey quickly\ngather and attack\nin swarms."
 }

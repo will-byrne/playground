@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "fluffy",
-    "klutz",
-    "unnerve"
+    {
+      "name": "fluffy",
+      "description": "Halves the damage taken from moves that make direct contact, but doubles that of Fire-type moves."
+    },
+    {
+      "name": "klutz",
+      "description": "The Pokémon can’t use any held items."
+    },
+    {
+      "name": "unnerve",
+      "description": "Makes the foe nervous and unable to eat Berries."
+    }
   ],
   "description": "This immensely dangerous Pokémon\npossesses overwhelming physical strength.\nIts habitat is generally off-limits."
 }

@@ -25,8 +25,14 @@
     }
   },
   "abilities": [
-    "sturdy",
-    "soundproof"
+    {
+      "name": "sturdy",
+      "description": "Negates 1-hit KO attacks."
+    },
+    {
+      "name": "soundproof",
+      "description": "Avoids sound-based moves."
+    }
   ],
   "description": "A Pokémon that lived in jungles\naround 100 million years ago. Its\nfacial hide is extremely hard."
 }

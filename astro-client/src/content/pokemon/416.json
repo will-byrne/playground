@@ -25,8 +25,14 @@
     }
   },
   "abilities": [
-    "pressure",
-    "unnerve"
+    {
+      "name": "pressure",
+      "description": "Raises foe’s PP usage."
+    },
+    {
+      "name": "unnerve",
+      "description": "Makes the foe nervous and unable to eat Berries."
+    }
   ],
   "description": "Its abdomen is a honeycomb for\ngrubs. It raises its grubs on\nhoney collected by COMBEE."
 }

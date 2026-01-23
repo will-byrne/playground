@@ -33,7 +33,10 @@
     }
   },
   "abilities": [
-    "unnerve"
+    {
+      "name": "unnerve",
+      "description": "Makes the foe nervous and unable to eat Berries."
+    }
   ],
   "description": "Calyrex is a merciful Pokémon, capable of\nproviding healing and blessings. It reigned over\nthe Galar region in times of yore."
 }

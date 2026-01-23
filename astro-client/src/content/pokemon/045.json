@@ -25,8 +25,14 @@
     }
   },
   "abilities": [
-    "chlorophyll",
-    "effect-spore"
+    {
+      "name": "chlorophyll",
+      "description": "Raises SPEED in sunshine."
+    },
+    {
+      "name": "effect-spore",
+      "description": "Leaves spores on contact."
+    }
   ],
   "description": "It has the world’s largest petals. With every step,\nthe petals shake out heavy clouds of toxic pollen."
 }

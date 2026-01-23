@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "blaze",
-    "magician"
+    {
+      "name": "blaze",
+      "description": "Ups FIRE moves in a pinch."
+    },
+    {
+      "name": "magician",
+      "description": "The Pokémon steals the held item of a Pokémon it hits with a move."
+    }
   ],
   "description": "It has a twig stuck in its tail. With\nfriction from its tail fur, it sets the\ntwig on fire and launches into battle."
 }

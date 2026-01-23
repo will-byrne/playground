@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "weak-armor",
-    "perish-body"
+    {
+      "name": "weak-armor",
+      "description": "Physical attacks lower Defense and raise Speed."
+    },
+    {
+      "name": "perish-body",
+      "description": "When hit by a move that makes direct contact, the Pokémon and the attacker will faint after three turns unless they switch out of battle."
+    }
   ],
   "description": "Its shell is overflowing with its heightened\notherworldly energy. The ectoplasm serves as\nprotection for this Pokémon’s core spirit."
 }

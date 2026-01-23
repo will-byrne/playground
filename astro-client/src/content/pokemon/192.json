@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "chlorophyll",
-    "solar-power",
-    "early-bird"
+    {
+      "name": "chlorophyll",
+      "description": "Raises SPEED in sunshine."
+    },
+    {
+      "name": "solar-power",
+      "description": "Boosts Sp. Atk, but lowers HP in sunshine."
+    },
+    {
+      "name": "early-bird",
+      "description": "Awakens quickly from sleep."
+    }
   ],
   "description": "It converts sun­\nlight into energy.\nIn the darkness\fafter sunset, it\ncloses its petals\nand becomes still."
 }

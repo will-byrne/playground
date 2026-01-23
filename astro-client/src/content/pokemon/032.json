@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "poison-point",
-    "rivalry",
-    "hustle"
+    {
+      "name": "poison-point",
+      "description": "Poisons foe on contact."
+    },
+    {
+      "name": "rivalry",
+      "description": "Raises Attack if the foe is of the same gender."
+    },
+    {
+      "name": "hustle",
+      "description": "Trades accuracy for power."
+    }
   ],
   "description": "Stiffens its ears\nto sense danger.\nThe larger its\fhorns, the more\npowerful its\nsecreted venom."
 }

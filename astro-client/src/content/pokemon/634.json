@@ -25,7 +25,10 @@
     }
   },
   "abilities": [
-    "hustle"
+    {
+      "name": "hustle",
+      "description": "Trades accuracy for power."
+    }
   ],
   "description": "After it has eaten up all the food in its territory,\nit moves to another area. Its two heads do not\nget along."
 }

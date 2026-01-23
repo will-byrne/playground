@@ -25,8 +25,14 @@
     }
   },
   "abilities": [
-    "guts",
-    "sand-veil"
+    {
+      "name": "guts",
+      "description": "Ups ATTACK if suffering."
+    },
+    {
+      "name": "sand-veil",
+      "description": "Ups evasion in a sandstorm."
+    }
   ],
   "description": "It feeds on soil.\nAfter it has eaten\na large mountain,\fit will fall\nasleep so it can\ngrow."
 }

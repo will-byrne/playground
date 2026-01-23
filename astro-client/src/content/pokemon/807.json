@@ -20,11 +20,18 @@
       "zeraora": {
         "default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/807.png",
         "shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/807.png"
+      },
+      "zeraora-mega": {
+        "default": null,
+        "shiny": null
       }
     }
   },
   "abilities": [
-    "volt-absorb"
+    {
+      "name": "volt-absorb",
+      "description": "Turns electricity into HP."
+    }
   ],
   "description": "It electrifies its claws and tears its opponents\napart with them. Even if they dodge its attack,\nthey’ll be electrocuted by the flying sparks."
 }

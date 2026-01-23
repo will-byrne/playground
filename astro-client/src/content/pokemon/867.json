@@ -25,7 +25,10 @@
     }
   },
   "abilities": [
-    "wandering-spirit"
+    {
+      "name": "wandering-spirit",
+      "description": "The Pokémon exchanges Abilities with a Pokémon that hits it with a move that makes direct contact."
+    }
   ],
   "description": "A powerful curse was woven into an ancient\npainting. After absorbing the spirit of a Yamask,\nthe painting began to move."
 }

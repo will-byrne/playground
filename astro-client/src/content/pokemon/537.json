@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "swift-swim",
-    "poison-touch",
-    "water-absorb"
+    {
+      "name": "swift-swim",
+      "description": "Raises SPEED in rain."
+    },
+    {
+      "name": "poison-touch",
+      "description": "May poison targets when a Pokémon makes contact."
+    },
+    {
+      "name": "water-absorb",
+      "description": "Restores HP if hit by a Water-type move."
+    }
   ],
   "description": "They shoot paralyzing liquid from their\nhead bumps. They use vibration to hurt\ntheir opponents."
 }

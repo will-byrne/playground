@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "merciless",
-    "limber",
-    "regenerator"
+    {
+      "name": "merciless",
+      "description": "The Pokémon’s attacks become critical hits if the target is poisoned."
+    },
+    {
+      "name": "limber",
+      "description": "Prevents paralysis."
+    },
+    {
+      "name": "regenerator",
+      "description": "Restores a little HP when withdrawn from battle."
+    }
   ],
   "description": "It plunges the poison spike on its head into its\nprey. When the prey has weakened, Mareanie\ndeals the finishing blow with its 10 tentacles."
 }

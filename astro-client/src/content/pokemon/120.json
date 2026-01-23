@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "illuminate",
-    "natural-cure",
-    "analytic"
+    {
+      "name": "illuminate",
+      "description": "Encounter rate increases."
+    },
+    {
+      "name": "natural-cure",
+      "description": "Heals upon switching out."
+    },
+    {
+      "name": "analytic",
+      "description": "Boosts move power when the Pokémon moves last."
+    }
   ],
   "description": "If its body is torn, it can grow\nback if the red core remains.\nThe core flashes at midnight."
 }

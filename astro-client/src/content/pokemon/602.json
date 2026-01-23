@@ -24,7 +24,10 @@
     }
   },
   "abilities": [
-    "levitate"
+    {
+      "name": "levitate",
+      "description": "Gives full immunity to all Ground-type moves."
+    }
   ],
   "description": "While one alone doesn’t have much power,\na chain of many Tynamo can be as\npowerful as lightning."
 }

@@ -29,9 +29,18 @@
     }
   },
   "abilities": [
-    "oblivious",
-    "own-tempo",
-    "regenerator"
+    {
+      "name": "oblivious",
+      "description": "Prevents attraction."
+    },
+    {
+      "name": "own-tempo",
+      "description": "Prevents confusion."
+    },
+    {
+      "name": "regenerator",
+      "description": "Restores a little HP when withdrawn from battle."
+    }
   ],
   "description": "Incredibly slow\nand dopey. It\ntakes 5 seconds\ffor it to feel\npain when under\nattack."
 }

@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "intimidate",
-    "sand-rush",
-    "scrappy"
+    {
+      "name": "intimidate",
+      "description": "Lowers the foe’s ATTACK."
+    },
+    {
+      "name": "sand-rush",
+      "description": "Boosts the Pokémon’s Speed in a sandstorm."
+    },
+    {
+      "name": "scrappy",
+      "description": "Enables moves to hit Ghost-type foes."
+    }
   ],
   "description": "It rescues people stranded by\nblizzards in the mountains. Its\nshaggy fur shields it from the cold."
 }

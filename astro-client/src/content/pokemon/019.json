@@ -28,9 +28,18 @@
     }
   },
   "abilities": [
-    "run-away",
-    "guts",
-    "hustle"
+    {
+      "name": "run-away",
+      "description": "Makes escaping easier."
+    },
+    {
+      "name": "guts",
+      "description": "Ups ATTACK if suffering."
+    },
+    {
+      "name": "hustle",
+      "description": "Trades accuracy for power."
+    }
   ],
   "description": "Bites anything\nwhen it attacks.\nSmall and very\fquick, it is a\ncommon sight in\nmany places."
 }

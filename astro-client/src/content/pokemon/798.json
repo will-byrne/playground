@@ -25,7 +25,10 @@
     }
   },
   "abilities": [
-    "beast-boost"
+    {
+      "name": "beast-boost",
+      "description": "The Pokémon boosts its most proficient stat each time it knocks out a Pokémon."
+    }
   ],
   "description": "This Ultra Beast came from the Ultra Wormhole.\nIt seems not to attack enemies on its own, but\nits sharp body is a dangerous weapon in itself."
 }

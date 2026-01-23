@@ -25,7 +25,10 @@
     }
   },
   "abilities": [
-    "levitate"
+    {
+      "name": "levitate",
+      "description": "Gives full immunity to all Ground-type moves."
+    }
   ],
   "description": "This brutal Pokémon travels the skies on\nits six wings. Anything that moves seems\nlike a foe to it, triggering its attack."
 }

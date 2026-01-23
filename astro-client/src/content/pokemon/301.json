@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "cute-charm",
-    "normalize",
-    "wonder-skin"
+    {
+      "name": "cute-charm",
+      "description": "Infatuates on contact."
+    },
+    {
+      "name": "normalize",
+      "description": "All the Pokémon’s moves become the Normal type."
+    },
+    {
+      "name": "wonder-skin",
+      "description": "Makes status-changing moves more likely to miss."
+    }
   ],
   "description": "DELCATTY prefers to live an unfettered\nexistence in which it can do as it\npleases at its own pace.\fBecause this POKéMON eats and sleeps\nwhenever it decides, its daily routines\nare completely random."
 }

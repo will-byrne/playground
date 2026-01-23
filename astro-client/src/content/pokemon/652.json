@@ -21,12 +21,22 @@
       "chesnaught": {
         "default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/652.png",
         "shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/652.png"
+      },
+      "chesnaught-mega": {
+        "default": null,
+        "shiny": null
       }
     }
   },
   "abilities": [
-    "overgrow",
-    "bulletproof"
+    {
+      "name": "overgrow",
+      "description": "Powers up Grass-type moves in a pinch."
+    },
+    {
+      "name": "bulletproof",
+      "description": "Protects the Pokémon from some ball and bomb moves."
+    }
   ],
   "description": "Its Tackle is forceful enough to flip a 50-ton tank.\nIt shields its allies from danger with its own body."
 }

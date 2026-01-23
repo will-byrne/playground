@@ -25,8 +25,14 @@
     }
   },
   "abilities": [
-    "toxic-chain",
-    "technician"
+    {
+      "name": "toxic-chain",
+      "description": "The power of the Pokémon's toxic chain may badly poison any target the Pokémon hits with a move"
+    },
+    {
+      "name": "technician",
+      "description": "Powers up the Pokémon’s weaker moves."
+    }
   ],
   "description": "Fezandipiti owes its beautiful looks and lovely voice to the toxic stimulants emanating from the chain wrapped around its body."
 }

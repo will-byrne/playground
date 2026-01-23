@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "poison-point",
-    "water-absorb",
-    "unaware"
+    {
+      "name": "poison-point",
+      "description": "Poisons foe on contact."
+    },
+    {
+      "name": "water-absorb",
+      "description": "Restores HP if hit by a Water-type move."
+    },
+    {
+      "name": "unaware",
+      "description": "Ignores any change in ability by the foe."
+    }
   ],
   "description": "When attacked, this Pokémon will retaliate by sticking thick spines out from its body. It’s a risky move that puts everything on the line."
 }

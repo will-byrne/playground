@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "flash-fire",
-    "white-smoke",
-    "flame-body"
+    {
+      "name": "flash-fire",
+      "description": "Powers up if hit by fire."
+    },
+    {
+      "name": "white-smoke",
+      "description": "Prevents ability reduction."
+    },
+    {
+      "name": "flame-body",
+      "description": "Burns the foe on contact."
+    }
   ],
   "description": "It stores flammable gas in its body and uses it to\ngenerate heat. The yellow sections on its belly\nget particularly hot."
 }

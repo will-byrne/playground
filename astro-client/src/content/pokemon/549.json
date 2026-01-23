@@ -28,9 +28,18 @@
     }
   },
   "abilities": [
-    "chlorophyll",
-    "own-tempo",
-    "leaf-guard"
+    {
+      "name": "chlorophyll",
+      "description": "Raises SPEED in sunshine."
+    },
+    {
+      "name": "own-tempo",
+      "description": "Prevents confusion."
+    },
+    {
+      "name": "leaf-guard",
+      "description": "Prevents status problems in sunny weather."
+    }
   ],
   "description": "Even veteran Trainers face a challenge\nin getting its beautiful flower to bloom.\nThis Pokémon is popular with celebrities."
 }

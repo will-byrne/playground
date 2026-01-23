@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "gluttony",
-    "torrent"
+    {
+      "name": "gluttony",
+      "description": "Encourages the early use of a held Berry."
+    },
+    {
+      "name": "torrent",
+      "description": "Ups WATER moves in a pinch."
+    }
   ],
   "description": "The water stored inside the tuft on\nits head is full of nutrients. Plants\nthat receive its water grow large."
 }

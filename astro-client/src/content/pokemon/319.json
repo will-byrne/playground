@@ -29,8 +29,14 @@
     }
   },
   "abilities": [
-    "rough-skin",
-    "speed-boost"
+    {
+      "name": "rough-skin",
+      "description": "Hurts to touch."
+    },
+    {
+      "name": "speed-boost",
+      "description": "Gradually boosts SPEED."
+    }
   ],
   "description": "Nicknamed “the bully of the sea,”\nSHARPEDO is widely feared.\nIts cruel fangs grow back immediately\fif they snap off.\nJust one of these POKéMON can\nthoroughly tear apart a supertanker."
 }

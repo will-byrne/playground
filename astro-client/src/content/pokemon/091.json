@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "shell-armor",
-    "skill-link",
-    "overcoat"
+    {
+      "name": "shell-armor",
+      "description": "Blocks critical hits."
+    },
+    {
+      "name": "skill-link",
+      "description": "Increases the frequency of multi-strike moves."
+    },
+    {
+      "name": "overcoat",
+      "description": "Protects the Pokémon from damage from weather."
+    }
   ],
   "description": "When attacked, it\nlaunches its\nhorns in quick\fvolleys. Its\ninnards have\nnever been seen."
 }

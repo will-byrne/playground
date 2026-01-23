@@ -29,8 +29,14 @@
     }
   },
   "abilities": [
-    "swarm",
-    "sniper"
+    {
+      "name": "swarm",
+      "description": "Ups BUG moves in a pinch."
+    },
+    {
+      "name": "sniper",
+      "description": "Powers up moves if they become critical hits."
+    }
   ],
   "description": "It has three poisonous stingers on its forelegs and\nits tail. They are used to jab its enemy repeatedly."
 }

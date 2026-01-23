@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "thick-fat",
-    "huge-power",
-    "sap-sipper"
+    {
+      "name": "thick-fat",
+      "description": "Heat-and-cold protection."
+    },
+    {
+      "name": "huge-power",
+      "description": "Raises ATTACK."
+    },
+    {
+      "name": "sap-sipper",
+      "description": "Boosts Attack when hit by a Grass-type move."
+    }
   ],
   "description": "The tip of its\ntail, which con­\ntains oil that is\flighter than wa­\nter, lets it swim\nwithout drowning."
 }

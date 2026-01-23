@@ -25,8 +25,14 @@
     }
   },
   "abilities": [
-    "overgrow",
-    "shell-armor"
+    {
+      "name": "overgrow",
+      "description": "Powers up Grass-type moves in a pinch."
+    },
+    {
+      "name": "shell-armor",
+      "description": "Blocks critical hits."
+    }
   ],
   "description": "Small Pokémon occasionally gather\non its unmoving back to begin\nbuilding their nests."
 }

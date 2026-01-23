@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "rivalry",
-    "mold-breaker",
-    "unnerve"
+    {
+      "name": "rivalry",
+      "description": "Raises Attack if the foe is of the same gender."
+    },
+    {
+      "name": "mold-breaker",
+      "description": "Moves can be used regardless of abilities."
+    },
+    {
+      "name": "unnerve",
+      "description": "Makes the foe nervous and unable to eat Berries."
+    }
   ],
   "description": "They are kind but can be relentless\nwhen defending territory. They challenge\nfoes with tusks that can cut steel."
 }

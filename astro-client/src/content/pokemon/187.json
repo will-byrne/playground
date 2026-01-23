@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "chlorophyll",
-    "leaf-guard",
-    "infiltrator"
+    {
+      "name": "chlorophyll",
+      "description": "Raises SPEED in sunshine."
+    },
+    {
+      "name": "leaf-guard",
+      "description": "Prevents status problems in sunny weather."
+    },
+    {
+      "name": "infiltrator",
+      "description": "Passes through the foe’s barrier and strikes."
+    }
   ],
   "description": "To keep from being\nblown away by the\nwind, they gather\fin clusters. They\ndo enjoy gentle\nbreezes, though."
 }

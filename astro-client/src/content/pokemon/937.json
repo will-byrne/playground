@@ -25,8 +25,14 @@
     }
   },
   "abilities": [
-    "flash-fire",
-    "weak-armor"
+    {
+      "name": "flash-fire",
+      "description": "Powers up if hit by fire."
+    },
+    {
+      "name": "weak-armor",
+      "description": "Physical attacks lower Defense and raise Speed."
+    }
   ],
   "description": "The fiery blades on its arms burn fiercely with the lingering resentment of a sword wielder who fell before accomplishing their goal."
 }

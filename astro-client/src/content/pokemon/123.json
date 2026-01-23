@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "swarm",
-    "technician",
-    "steadfast"
+    {
+      "name": "swarm",
+      "description": "Ups BUG moves in a pinch."
+    },
+    {
+      "name": "technician",
+      "description": "Powers up the Pokémon’s weaker moves."
+    },
+    {
+      "name": "steadfast",
+      "description": "Raises Speed each time the Pokémon flinches."
+    }
   ],
   "description": "With ninja-like\nagility and speed,\nit can create the\fillusion that\nthere is more\nthan one."
 }

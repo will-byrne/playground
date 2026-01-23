@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "cute-charm",
-    "competitive",
-    "frisk"
+    {
+      "name": "cute-charm",
+      "description": "Infatuates on contact."
+    },
+    {
+      "name": "competitive",
+      "description": "Boosts the Sp. Atk stat when a stat is lowered."
+    },
+    {
+      "name": "frisk",
+      "description": "The Pokémon can check the foe’s held item."
+    }
   ],
   "description": "The body is soft\nand rubbery. When\nangered, it will\fsuck in air and\ninflate itself to\nan enormous size."
 }

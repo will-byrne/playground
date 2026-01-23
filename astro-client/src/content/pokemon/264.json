@@ -28,9 +28,18 @@
     }
   },
   "abilities": [
-    "pickup",
-    "gluttony",
-    "quick-feet"
+    {
+      "name": "pickup",
+      "description": "May pick up items."
+    },
+    {
+      "name": "gluttony",
+      "description": "Encourages the early use of a held Berry."
+    },
+    {
+      "name": "quick-feet",
+      "description": "Boosts Speed if there is a status problem."
+    }
   ],
   "description": "LINOONE always runs full speed and only\nin straight lines. If facing an obstacle,\nit makes a right-angle turn to evade it.\fThis POKéMON is very challenged by\ngently curving roads."
 }

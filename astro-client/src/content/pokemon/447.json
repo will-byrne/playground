@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "steadfast",
-    "inner-focus",
-    "prankster"
+    {
+      "name": "steadfast",
+      "description": "Raises Speed each time the Pokémon flinches."
+    },
+    {
+      "name": "inner-focus",
+      "description": "Prevents flinching."
+    },
+    {
+      "name": "prankster",
+      "description": "Gives priority to a status move."
+    }
   ],
   "description": "The aura that emanates from its\nbody intensifies to alert others\nif it is afraid or sad."
 }

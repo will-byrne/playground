@@ -25,8 +25,14 @@
     }
   },
   "abilities": [
-    "overcoat",
-    "slow-start"
+    {
+      "name": "overcoat",
+      "description": "Protects the Pokémon from damage from weather."
+    },
+    {
+      "name": "slow-start",
+      "description": "Temporarily halves Attack and Speed."
+    }
   ],
   "description": "It is said that this Pokémon was born when an unknown poison Pokémon entered and inspirited an engine left at a scrap-processing factory."
 }

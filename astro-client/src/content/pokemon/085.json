@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "run-away",
-    "early-bird",
-    "tangled-feet"
+    {
+      "name": "run-away",
+      "description": "Makes escaping easier."
+    },
+    {
+      "name": "early-bird",
+      "description": "Awakens quickly from sleep."
+    },
+    {
+      "name": "tangled-feet",
+      "description": "Raises evasion if the Pokémon is confused."
+    }
   ],
   "description": "Uses its three\nbrains to execute\ncomplex plans.\fWhile two heads\nsleep, one head\nstays awake."
 }

@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "keen-eye",
-    "skill-link",
-    "pickup"
+    {
+      "name": "keen-eye",
+      "description": "Prevents loss of accuracy."
+    },
+    {
+      "name": "skill-link",
+      "description": "Increases the frequency of multi-strike moves."
+    },
+    {
+      "name": "pickup",
+      "description": "May pick up items."
+    }
   ],
   "description": "It eats berries and stores their seeds in its\nbeak. When it encounters enemies or prey,\nit fires off all the seeds in a burst."
 }

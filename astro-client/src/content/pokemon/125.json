@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "static",
-    "vital-spirit"
+    {
+      "name": "static",
+      "description": "Paralyzes on contact."
+    },
+    {
+      "name": "vital-spirit",
+      "description": "Prevents sleep."
+    }
   ],
   "description": "Normally found\nnear power plants,\nthey can wander\faway and cause\nmajor blackouts\nin cities."
 }

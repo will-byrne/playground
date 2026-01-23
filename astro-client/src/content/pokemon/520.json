@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "big-pecks",
-    "super-luck",
-    "rivalry"
+    {
+      "name": "big-pecks",
+      "description": "Protects the Pokémon from Defense-lowering attacks."
+    },
+    {
+      "name": "super-luck",
+      "description": "Heightens the critical-hit ratios of moves."
+    },
+    {
+      "name": "rivalry",
+      "description": "Raises Attack if the foe is of the same gender."
+    }
   ],
   "description": "It can return to its Trainer’s location\nregardless of the distance\nseparating them."
 }

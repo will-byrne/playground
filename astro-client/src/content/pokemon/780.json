@@ -21,13 +21,26 @@
       "drampa": {
         "default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/780.png",
         "shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/780.png"
+      },
+      "drampa-mega": {
+        "default": null,
+        "shiny": null
       }
     }
   },
   "abilities": [
-    "berserk",
-    "sap-sipper",
-    "cloud-nine"
+    {
+      "name": "berserk",
+      "description": "Boosts the Pokémon’s Sp. Atk stat when it takes a  hit that causes its HP to become half or less."
+    },
+    {
+      "name": "sap-sipper",
+      "description": "Boosts Attack when hit by a Grass-type move."
+    },
+    {
+      "name": "cloud-nine",
+      "description": "Negates weather effects."
+    }
   ],
   "description": "It has a compassionate personality, but if it is\nangered, it completely destroys its surroundings\nwith its intense breath."
 }

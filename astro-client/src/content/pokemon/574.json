@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "frisk",
-    "competitive",
-    "shadow-tag"
+    {
+      "name": "frisk",
+      "description": "The Pokémon can check the foe’s held item."
+    },
+    {
+      "name": "competitive",
+      "description": "Boosts the Sp. Atk stat when a stat is lowered."
+    },
+    {
+      "name": "shadow-tag",
+      "description": "Prevents the foe’s escape."
+    }
   ],
   "description": "Their ribbonlike feelers increase their\npsychic power. They are always staring\nat something."
 }

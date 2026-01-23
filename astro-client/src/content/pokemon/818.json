@@ -28,8 +28,14 @@
     }
   },
   "abilities": [
-    "torrent",
-    "sniper"
+    {
+      "name": "torrent",
+      "description": "Ups WATER moves in a pinch."
+    },
+    {
+      "name": "sniper",
+      "description": "Powers up moves if they become critical hits."
+    }
   ],
   "description": "It has many hidden capabilities, such as fingertips\nthat can shoot water and a membrane on its back\nthat it can use to glide through the air."
 }

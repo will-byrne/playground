@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "swift-swim",
-    "water-veil"
+    {
+      "name": "swift-swim",
+      "description": "Raises SPEED in rain."
+    },
+    {
+      "name": "water-veil",
+      "description": "Prevents burns."
+    }
   ],
   "description": "HUNTAIL’s presence went unnoticed by\npeople for a long time because it lives\nat extreme depths in the sea.\fThis POKéMON’s eyes can see clearly\neven in the murky dark depths of the\nocean."
 }

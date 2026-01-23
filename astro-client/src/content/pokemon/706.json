@@ -28,9 +28,18 @@
     }
   },
   "abilities": [
-    "sap-sipper",
-    "hydration",
-    "gooey"
+    {
+      "name": "sap-sipper",
+      "description": "Boosts Attack when hit by a Grass-type move."
+    },
+    {
+      "name": "hydration",
+      "description": "Heals status problems if it is raining."
+    },
+    {
+      "name": "gooey",
+      "description": "Contact with the Pokémon lowers the attacker’s Speed stat."
+    }
   ],
   "description": "This very friendly Dragon-type Pokémon\nwill hug its beloved Trainer, leaving\nthat Trainer covered in sticky slime."
 }

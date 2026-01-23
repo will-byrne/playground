@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "insomnia",
-    "stakeout"
+    {
+      "name": "insomnia",
+      "description": "Prevents sleep."
+    },
+    {
+      "name": "stakeout",
+      "description": "Doubles the damage dealt to the target’s replacement if the target switches out."
+    }
   ],
   "description": "It clings to branches and ceilings using its threads and moves without a sound. It takes out its prey before the prey even notices it."
 }

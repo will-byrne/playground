@@ -29,9 +29,18 @@
     }
   },
   "abilities": [
-    "healer",
-    "anticipation",
-    "magic-bounce"
+    {
+      "name": "healer",
+      "description": "May heal an ally’s status conditions."
+    },
+    {
+      "name": "anticipation",
+      "description": "Senses the foe’s dangerous moves."
+    },
+    {
+      "name": "magic-bounce",
+      "description": "Reflects status- changing moves."
+    }
   ],
   "description": "It emits psychic power strong enough to cause\nheadaches as a deterrent to the approach\nof others."
 }

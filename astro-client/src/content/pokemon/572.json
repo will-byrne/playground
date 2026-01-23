@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "cute-charm",
-    "technician",
-    "skill-link"
+    {
+      "name": "cute-charm",
+      "description": "Infatuates on contact."
+    },
+    {
+      "name": "technician",
+      "description": "Powers up the Pokémon’s weaker moves."
+    },
+    {
+      "name": "skill-link",
+      "description": "Increases the frequency of multi-strike moves."
+    }
   ],
   "description": "They greet one another by rubbing each\nother with their tails, which are always\nkept well groomed and clean."
 }

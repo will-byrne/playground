@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "aroma-veil",
-    "gluttony",
-    "thick-fat"
+    {
+      "name": "aroma-veil",
+      "description": "Protects allies from attacks that limit their move choices."
+    },
+    {
+      "name": "gluttony",
+      "description": "Encourages the early use of a held Berry."
+    },
+    {
+      "name": "thick-fat",
+      "description": "Heat-and-cold protection."
+    }
   ],
   "description": "It searches for food all day. It possesses a keen sense of smell but doesn’t use it for anything other than foraging."
 }

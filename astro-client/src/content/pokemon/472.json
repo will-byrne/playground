@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "hyper-cutter",
-    "sand-veil",
-    "poison-heal"
+    {
+      "name": "hyper-cutter",
+      "description": "Prevents ATTACK reduction."
+    },
+    {
+      "name": "sand-veil",
+      "description": "Ups evasion in a sandstorm."
+    },
+    {
+      "name": "poison-heal",
+      "description": "Restores HP if the Pokémon is poisoned."
+    }
   ],
   "description": "It observes prey while hanging\ninverted from branches. When the\nchance presents itself, it swoops!"
 }

@@ -45,7 +45,10 @@
     }
   },
   "abilities": [
-    "levitate"
+    {
+      "name": "levitate",
+      "description": "Gives full immunity to all Ground-type moves."
+    }
   ],
   "description": "Its body is composed of plasma. It\nis known to infiltrate electronic\ndevices and wreak havoc."
 }

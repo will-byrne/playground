@@ -25,8 +25,14 @@
     }
   },
   "abilities": [
-    "shed-skin",
-    "regenerator"
+    {
+      "name": "shed-skin",
+      "description": "Heals the body by shedding."
+    },
+    {
+      "name": "regenerator",
+      "description": "Restores a little HP when withdrawn from battle."
+    }
   ],
   "description": "Apparently Cyclizar has been allowing people to ride on its back since ancient times. Depictions of this have been found in 10,000-year-old murals."
 }

@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "keen-eye",
-    "hydration",
-    "rain-dish"
+    {
+      "name": "keen-eye",
+      "description": "Prevents loss of accuracy."
+    },
+    {
+      "name": "hydration",
+      "description": "Heals status problems if it is raining."
+    },
+    {
+      "name": "rain-dish",
+      "description": "Slight HP recovery in rain."
+    }
   ],
   "description": "WINGULL has the habit of carrying prey\nand valuables in its beak and hiding\nthem in all sorts of locations.\fThis POKéMON rides the winds and flies\nas if it were skating across the sky."
 }

@@ -25,8 +25,14 @@
     }
   },
   "abilities": [
-    "sand-veil",
-    "rough-skin"
+    {
+      "name": "sand-veil",
+      "description": "Ups evasion in a sandstorm."
+    },
+    {
+      "name": "rough-skin",
+      "description": "Hurts to touch."
+    }
   ],
   "description": "It nests in small, horizontal holes\nin cave walls. It pounces to catch\nprey that stray too close."
 }

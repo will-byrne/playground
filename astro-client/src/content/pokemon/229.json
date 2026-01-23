@@ -29,9 +29,18 @@
     }
   },
   "abilities": [
-    "early-bird",
-    "flash-fire",
-    "unnerve"
+    {
+      "name": "early-bird",
+      "description": "Awakens quickly from sleep."
+    },
+    {
+      "name": "flash-fire",
+      "description": "Powers up if hit by fire."
+    },
+    {
+      "name": "unnerve",
+      "description": "Makes the foe nervous and unable to eat Berries."
+    }
   ],
   "description": "If you are burned\nby the flames it\nshoots from its\fmouth, the pain\nwill never go\naway."
 }

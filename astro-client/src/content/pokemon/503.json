@@ -28,8 +28,14 @@
     }
   },
   "abilities": [
-    "torrent",
-    "shell-armor"
+    {
+      "name": "torrent",
+      "description": "Ups WATER moves in a pinch."
+    },
+    {
+      "name": "shell-armor",
+      "description": "Blocks critical hits."
+    }
   ],
   "description": "One swing of the sword incorporated in\nits armor can fell an opponent. A simple\nglare from one of them quiets everybody."
 }

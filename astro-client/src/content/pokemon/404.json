@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "rivalry",
-    "intimidate",
-    "guts"
+    {
+      "name": "rivalry",
+      "description": "Raises Attack if the foe is of the same gender."
+    },
+    {
+      "name": "intimidate",
+      "description": "Lowers the foe’s ATTACK."
+    },
+    {
+      "name": "guts",
+      "description": "Ups ATTACK if suffering."
+    }
   ],
   "description": "Its claws loose electricity with\nenough amperage to cause fainting.\nThey live in small groups."
 }

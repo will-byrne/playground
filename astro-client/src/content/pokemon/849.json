@@ -29,9 +29,18 @@
     }
   },
   "abilities": [
-    "punk-rock",
-    "plus",
-    "technician"
+    {
+      "name": "punk-rock",
+      "description": "Boosts the power of sound-based moves. The Pokémon also takes half the damage from these kinds of moves."
+    },
+    {
+      "name": "plus",
+      "description": "Powers up with MINUS."
+    },
+    {
+      "name": "technician",
+      "description": "Powers up the Pokémon’s weaker moves."
+    }
   ],
   "description": "When this Pokémon sounds as if it’s strumming a\nguitar, it’s actually clawing at the protrusions on\nits chest to generate electricity."
 }

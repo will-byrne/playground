@@ -25,11 +25,22 @@
       "magearna-original": {
         "default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/10147.png",
         "shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/10147.png"
+      },
+      "magearna-mega": {
+        "default": null,
+        "shiny": null
+      },
+      "magearna-original-mega": {
+        "default": null,
+        "shiny": null
       }
     }
   },
   "abilities": [
-    "soul-heart"
+    {
+      "name": "soul-heart",
+      "description": "Boosts its Sp. Atk stat every time a Pokémon faints."
+    }
   ],
   "description": "This artificial Pokémon, constructed more than\n500 years ago, can understand human speech\nbut cannot itself speak."
 }

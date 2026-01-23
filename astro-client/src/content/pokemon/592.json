@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "water-absorb",
-    "cursed-body",
-    "damp"
+    {
+      "name": "water-absorb",
+      "description": "Restores HP if hit by a Water-type move."
+    },
+    {
+      "name": "cursed-body",
+      "description": "May disable a move used on the Pokémon."
+    },
+    {
+      "name": "damp",
+      "description": "Prevents self-destruction."
+    }
   ],
   "description": "With its thin, veil-like arms wrapped\naround the body of its opponent,\nit sinks to the ocean floor."
 }

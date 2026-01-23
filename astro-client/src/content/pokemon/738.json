@@ -29,7 +29,10 @@
     }
   },
   "abilities": [
-    "levitate"
+    {
+      "name": "levitate",
+      "description": "Gives full immunity to all Ground-type moves."
+    }
   ],
   "description": "It zips around, on sharp lookout for an opening.\nIt concentrates electrical energy within its large\njaws and uses it to zap its enemies."
 }

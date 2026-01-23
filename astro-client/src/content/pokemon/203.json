@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "inner-focus",
-    "early-bird",
-    "sap-sipper"
+    {
+      "name": "inner-focus",
+      "description": "Prevents flinching."
+    },
+    {
+      "name": "early-bird",
+      "description": "Awakens quickly from sleep."
+    },
+    {
+      "name": "sap-sipper",
+      "description": "Boosts Attack when hit by a Grass-type move."
+    }
   ],
   "description": "Its tail has a\nsmall brain of its\nown. Beware! If\fyou get close, it\nmay react to your\nscent and bite."
 }

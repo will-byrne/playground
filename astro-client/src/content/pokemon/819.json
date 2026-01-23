@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "cheek-pouch",
-    "gluttony"
+    {
+      "name": "cheek-pouch",
+      "description": "Restores HP as well when the Pokémon eats a Berry."
+    },
+    {
+      "name": "gluttony",
+      "description": "Encourages the early use of a held Berry."
+    }
   ],
   "description": "Found throughout the Galar region, this Pokémon\nbecomes uneasy if its cheeks are ever completely\nempty of berries."
 }

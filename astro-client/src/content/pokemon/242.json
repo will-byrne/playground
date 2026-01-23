@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "natural-cure",
-    "serene-grace",
-    "healer"
+    {
+      "name": "natural-cure",
+      "description": "Heals upon switching out."
+    },
+    {
+      "name": "serene-grace",
+      "description": "Promotes added effects."
+    },
+    {
+      "name": "healer",
+      "description": "May heal an ally’s status conditions."
+    }
   ],
   "description": "Anyone who takes\neven one bite of\nBLISSEY's egg be­\fcomes unfailingly\ncaring and pleas­\nant to everyone."
 }

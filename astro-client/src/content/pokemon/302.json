@@ -29,9 +29,18 @@
     }
   },
   "abilities": [
-    "keen-eye",
-    "stall",
-    "prankster"
+    {
+      "name": "keen-eye",
+      "description": "Prevents loss of accuracy."
+    },
+    {
+      "name": "stall",
+      "description": "The Pokémon moves after even slower foes."
+    },
+    {
+      "name": "prankster",
+      "description": "Gives priority to a status move."
+    }
   ],
   "description": "SABLEYE lead quiet lives deep inside\ncaverns. They are feared, however,\nbecause these POKéMON are thought to\fsteal the spirits of people when their\neyes burn with a sinister glow in the\ndarkness."
 }

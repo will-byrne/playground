@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "guts",
-    "sheer-force",
-    "iron-fist"
+    {
+      "name": "guts",
+      "description": "Ups ATTACK if suffering."
+    },
+    {
+      "name": "sheer-force",
+      "description": "Removes added effects to increase move damage."
+    },
+    {
+      "name": "iron-fist",
+      "description": "Boosts the power of punching moves."
+    }
   ],
   "description": "It fights by swinging a piece of lumber\naround. It is close to evolving when it\ncan handle the lumber without difficulty."
 }

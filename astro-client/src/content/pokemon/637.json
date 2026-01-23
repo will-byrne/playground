@@ -25,8 +25,14 @@
     }
   },
   "abilities": [
-    "flame-body",
-    "swarm"
+    {
+      "name": "flame-body",
+      "description": "Burns the foe on contact."
+    },
+    {
+      "name": "swarm",
+      "description": "Ups BUG moves in a pinch."
+    }
   ],
   "description": "When volcanic ash darkened the\natmosphere, it is said that Volcarona’s\nfire provided a replacement for the sun."
 }

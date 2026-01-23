@@ -21,13 +21,26 @@
       "malamar": {
         "default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/687.png",
         "shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/687.png"
+      },
+      "malamar-mega": {
+        "default": null,
+        "shiny": null
       }
     }
   },
   "abilities": [
-    "contrary",
-    "suction-cups",
-    "infiltrator"
+    {
+      "name": "contrary",
+      "description": "Makes stat changes have an opposite effect."
+    },
+    {
+      "name": "suction-cups",
+      "description": "Firmly anchors the body."
+    },
+    {
+      "name": "infiltrator",
+      "description": "Passes through the foe’s barrier and strikes."
+    }
   ],
   "description": "It wields the most compelling hypnotic powers\nof any Pokémon, and it forces others to do\nwhatever it wants."
 }

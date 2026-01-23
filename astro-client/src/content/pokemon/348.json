@@ -25,8 +25,14 @@
     }
   },
   "abilities": [
-    "battle-armor",
-    "swift-swim"
+    {
+      "name": "battle-armor",
+      "description": "Blocks critical hits."
+    },
+    {
+      "name": "swift-swim",
+      "description": "Raises SPEED in rain."
+    }
   ],
   "description": "ARMALDO’s tough armor makes all attacks\nbounce off. This POKéMON’s two\nenormous claws can be freely extended\for contracted. They have the power to\npunch right through a steel slab."
 }

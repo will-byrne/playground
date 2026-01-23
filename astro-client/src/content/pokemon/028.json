@@ -28,8 +28,14 @@
     }
   },
   "abilities": [
-    "sand-veil",
-    "sand-rush"
+    {
+      "name": "sand-veil",
+      "description": "Ups evasion in a sandstorm."
+    },
+    {
+      "name": "sand-rush",
+      "description": "Boosts the Pokémon’s Speed in a sandstorm."
+    }
   ],
   "description": "Curls up into a\nspiny ball when\nthreatened. It\fcan roll while\ncurled up to\nattack or escape."
 }

@@ -25,8 +25,14 @@
     }
   },
   "abilities": [
-    "shield-dust",
-    "ice-scales"
+    {
+      "name": "shield-dust",
+      "description": "Prevents added effects."
+    },
+    {
+      "name": "ice-scales",
+      "description": "The Pokémon is protected by ice scales, which halve the damage taken from special moves."
+    }
   ],
   "description": "It spits out thread imbued with a frigid sort of\nenergy and uses it to tie its body to branches,\ndisguising itself as an icicle while it sleeps."
 }

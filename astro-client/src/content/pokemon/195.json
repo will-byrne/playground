@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "damp",
-    "water-absorb",
-    "unaware"
+    {
+      "name": "damp",
+      "description": "Prevents self-destruction."
+    },
+    {
+      "name": "water-absorb",
+      "description": "Restores HP if hit by a Water-type move."
+    },
+    {
+      "name": "unaware",
+      "description": "Ignores any change in ability by the foe."
+    }
   ],
   "description": "This carefree\nPOKéMON has an\neasy-going nature.\fWhile swimming, it\nalways bumps into\nboat hulls."
 }

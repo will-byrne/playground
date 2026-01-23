@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "volt-absorb",
-    "static",
-    "slush-rush"
+    {
+      "name": "volt-absorb",
+      "description": "Turns electricity into HP."
+    },
+    {
+      "name": "static",
+      "description": "Paralyzes on contact."
+    },
+    {
+      "name": "slush-rush",
+      "description": "Boosts the Pokémon’s Speed stat in a hailstorm."
+    }
   ],
   "description": "The shaking of its freezing upper half is what\ngenerates its electricity. It has a hard time\nwalking around."
 }

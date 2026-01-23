@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "tangled-feet",
-    "screen-cleaner",
-    "ice-body"
+    {
+      "name": "tangled-feet",
+      "description": "Raises evasion if the Pokémon is confused."
+    },
+    {
+      "name": "screen-cleaner",
+      "description": "When the Pokémon enters a battle, the effects of Light Screen, Reflect, and Aurora Veil are nullified for both opposing and ally Pokémon."
+    },
+    {
+      "name": "ice-body",
+      "description": "The Pokémon regains HP in a hailstorm."
+    }
   ],
   "description": "It’s highly skilled at tap-dancing. It waves its cane\nof ice in time with its graceful movements."
 }

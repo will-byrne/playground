@@ -25,8 +25,14 @@
     }
   },
   "abilities": [
-    "pure-power",
-    "telepathy"
+    {
+      "name": "pure-power",
+      "description": "Raises ATTACK."
+    },
+    {
+      "name": "telepathy",
+      "description": "Anticipates an ally’s attack and dodges it."
+    }
   ],
   "description": "MEDITITE undertakes rigorous mental\ntraining deep in the mountains.\nHowever, whenever it meditates, this\fPOKéMON always loses its concentration\nand focus. As a result, its training\nnever ends."
 }

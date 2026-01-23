@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "thick-fat",
-    "guts",
-    "sheer-force"
+    {
+      "name": "thick-fat",
+      "description": "Heat-and-cold protection."
+    },
+    {
+      "name": "guts",
+      "description": "Ups ATTACK if suffering."
+    },
+    {
+      "name": "sheer-force",
+      "description": "Removes added effects to increase move damage."
+    }
   ],
   "description": "MAKUHITA is tenacious - it will keep\ngetting up and attacking its foe\nhowever many times it is knocked down.\fEvery time it gets back up, this\nPOKéMON stores more energy in its body\nfor evolving."
 }

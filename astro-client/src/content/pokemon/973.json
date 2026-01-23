@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "scrappy",
-    "tangled-feet",
-    "costar"
+    {
+      "name": "scrappy",
+      "description": "Enables moves to hit Ghost-type foes."
+    },
+    {
+      "name": "tangled-feet",
+      "description": "Raises evasion if the Pokémon is confused."
+    },
+    {
+      "name": "costar",
+      "description": "When the Pokémon enters a battle, it copies an ally's stat changes."
+    }
   ],
   "description": "This Pokémon apparently ties the base of its neck into a knot so that energy stored in its belly does not escape from its beak."
 }

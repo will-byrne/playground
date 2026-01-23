@@ -25,7 +25,10 @@
     }
   },
   "abilities": [
-    "serene-grace"
+    {
+      "name": "serene-grace",
+      "description": "Promotes added effects."
+    }
   ],
   "description": "A legend states that JIRACHI will make\ntrue any wish that is written on notes\nattached to its head when it awakens.\fIf this POKéMON senses danger, it will\nfight without awakening."
 }

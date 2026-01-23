@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "swarm",
-    "chlorophyll",
-    "overcoat"
+    {
+      "name": "swarm",
+      "description": "Ups BUG moves in a pinch."
+    },
+    {
+      "name": "chlorophyll",
+      "description": "Raises SPEED in sunshine."
+    },
+    {
+      "name": "overcoat",
+      "description": "Protects the Pokémon from damage from weather."
+    }
   ],
   "description": "Upon finding a small Pokémon, it weaves\nclothing for it from leaves, using the\ncutters on its arms and sticky silk."
 }

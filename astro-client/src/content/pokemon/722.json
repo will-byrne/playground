@@ -25,8 +25,14 @@
     }
   },
   "abilities": [
-    "overgrow",
-    "long-reach"
+    {
+      "name": "overgrow",
+      "description": "Powers up Grass-type moves in a pinch."
+    },
+    {
+      "name": "long-reach",
+      "description": "The Pokémon uses its moves without making contact with the target."
+    }
   ],
   "description": "This wary Pokémon uses photosynthesis to\nstore up energy during the day, while becoming\nactive at night."
 }

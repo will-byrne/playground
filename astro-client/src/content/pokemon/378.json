@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "clear-body",
-    "ice-body"
+    {
+      "name": "clear-body",
+      "description": "Prevents ability reduction."
+    },
+    {
+      "name": "ice-body",
+      "description": "The Pokémon regains HP in a hailstorm."
+    }
   ],
   "description": "REGICE’s body was made during an ice\nage. The deep-frozen body can’t be\nmelted, even by fire.\fThis POKéMON controls frigid air of\nminus 328 degrees F."
 }

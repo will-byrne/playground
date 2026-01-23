@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "chlorophyll",
-    "solar-power",
-    "early-bird"
+    {
+      "name": "chlorophyll",
+      "description": "Raises SPEED in sunshine."
+    },
+    {
+      "name": "solar-power",
+      "description": "Boosts Sp. Atk, but lowers HP in sunshine."
+    },
+    {
+      "name": "early-bird",
+      "description": "Awakens quickly from sleep."
+    }
   ],
   "description": "It may drop out of\nthe sky suddenly.\nIf attacked by a\fSPEAROW, it will\nviolently shake\nits leaves."
 }

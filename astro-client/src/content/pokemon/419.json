@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "swift-swim",
-    "water-veil"
+    {
+      "name": "swift-swim",
+      "description": "Raises SPEED in rain."
+    },
+    {
+      "name": "water-veil",
+      "description": "Prevents burns."
+    }
   ],
   "description": "It floats using its well-developed\nflotation sac. It assists in the\nrescues of drowning people."
 }

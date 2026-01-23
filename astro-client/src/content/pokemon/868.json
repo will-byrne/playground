@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "sweet-veil",
-    "aroma-veil"
+    {
+      "name": "sweet-veil",
+      "description": "Prevents itself and ally Pokémon from falling asleep."
+    },
+    {
+      "name": "aroma-veil",
+      "description": "Protects allies from attacks that limit their move choices."
+    }
   ],
   "description": "This Pokémon was born from sweet-smelling\nparticles in the air. Its body is made of cream."
 }

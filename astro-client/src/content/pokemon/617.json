@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "hydration",
-    "sticky-hold",
-    "unburden"
+    {
+      "name": "hydration",
+      "description": "Heals status problems if it is raining."
+    },
+    {
+      "name": "sticky-hold",
+      "description": "Prevents item theft."
+    },
+    {
+      "name": "unburden",
+      "description": "Raises Speed if a held item is used."
+    }
   ],
   "description": "When its body dries out, it weakens.\nSo, to prevent dehydration, it wraps\nitself in many layers of thin membrane."
 }

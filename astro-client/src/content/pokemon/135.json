@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "volt-absorb",
-    "quick-feet"
+    {
+      "name": "volt-absorb",
+      "description": "Turns electricity into HP."
+    },
+    {
+      "name": "quick-feet",
+      "description": "Boosts Speed if there is a status problem."
+    }
   ],
   "description": "It accumulates\nnegative ions in\nthe atmosphere to\fblast out 10000-\nvolt lightning\nbolts."
 }

@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "run-away",
-    "pickup",
-    "own-tempo"
+    {
+      "name": "run-away",
+      "description": "Makes escaping easier."
+    },
+    {
+      "name": "pickup",
+      "description": "May pick up items."
+    },
+    {
+      "name": "own-tempo",
+      "description": "Prevents confusion."
+    }
   ],
   "description": "Exhibiting great teamwork, they use their incisors to cut pieces out of any material that might be useful for a nest, then make off with them."
 }

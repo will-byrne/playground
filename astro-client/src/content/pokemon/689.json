@@ -21,13 +21,26 @@
       "barbaracle": {
         "default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/689.png",
         "shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/689.png"
+      },
+      "barbaracle-mega": {
+        "default": null,
+        "shiny": null
       }
     }
   },
   "abilities": [
-    "tough-claws",
-    "sniper",
-    "pickpocket"
+    {
+      "name": "tough-claws",
+      "description": "Powers up moves that make direct contact."
+    },
+    {
+      "name": "sniper",
+      "description": "Powers up moves if they become critical hits."
+    },
+    {
+      "name": "pickpocket",
+      "description": "Steals an item when hit by another Pokémon."
+    }
   ],
   "description": "When they evolve, two Binacle multiply into seven.\nThey fight with the power of seven Binacle."
 }

@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "overgrow",
-    "protean"
+    {
+      "name": "overgrow",
+      "description": "Powers up Grass-type moves in a pinch."
+    },
+    {
+      "name": "protean",
+      "description": "Changes the Pokémon’s type to the type of the move it’s using."
+    }
   ],
   "description": "Floragato deftly wields the vine hidden beneath its long fur, slamming the hard flower bud against its opponents."
 }

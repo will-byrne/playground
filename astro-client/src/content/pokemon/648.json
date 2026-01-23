@@ -25,7 +25,10 @@
     }
   },
   "abilities": [
-    "serene-grace"
+    {
+      "name": "serene-grace",
+      "description": "Promotes added effects."
+    }
   ],
   "description": "Its melodies are sung with a special vocalization\nmethod that can control the feelings of those who\nhear it."
 }

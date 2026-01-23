@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "swift-swim",
-    "battle-armor",
-    "weak-armor"
+    {
+      "name": "swift-swim",
+      "description": "Raises SPEED in rain."
+    },
+    {
+      "name": "battle-armor",
+      "description": "Blocks critical hits."
+    },
+    {
+      "name": "weak-armor",
+      "description": "Physical attacks lower Defense and raise Speed."
+    }
   ],
   "description": "A POKéMON that\nwas resurrected\nfrom a fossil\ffound in what was\nonce the ocean\nfloor eons ago."
 }

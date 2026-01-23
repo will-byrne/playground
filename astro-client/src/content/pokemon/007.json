@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "torrent",
-    "rain-dish"
+    {
+      "name": "torrent",
+      "description": "Ups WATER moves in a pinch."
+    },
+    {
+      "name": "rain-dish",
+      "description": "Slight HP recovery in rain."
+    }
   ],
   "description": "After birth, its\nback swells and\nhardens into a\fshell. Powerfully\nsprays foam from\nits mouth."
 }

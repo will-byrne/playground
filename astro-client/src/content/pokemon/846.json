@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "swift-swim",
-    "propeller-tail"
+    {
+      "name": "swift-swim",
+      "description": "Raises SPEED in rain."
+    },
+    {
+      "name": "propeller-tail",
+      "description": "Ignores the effects of opposing Pokémon’s Abilities and moves that draw in moves."
+    }
   ],
   "description": "If it sees any movement around it, this Pokémon\ncharges for it straightaway, leading with its\nsharply pointed jaw. It’s very proud of that jaw."
 }

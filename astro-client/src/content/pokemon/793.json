@@ -25,7 +25,10 @@
     }
   },
   "abilities": [
-    "beast-boost"
+    {
+      "name": "beast-boost",
+      "description": "The Pokémon boosts its most proficient stat each time it knocks out a Pokémon."
+    }
   ],
   "description": "One of several mysterious Ultra Beasts. People\non the street report observing those infested\nby it suddenly becoming violent."
 }

@@ -24,7 +24,10 @@
     }
   },
   "abilities": [
-    "levitate"
+    {
+      "name": "levitate",
+      "description": "Gives full immunity to all Ground-type moves."
+    }
   ],
   "description": "When its body temperature goes up, it\nturns into steam and vanishes. When its\ntemperature lowers, it returns to ice."
 }

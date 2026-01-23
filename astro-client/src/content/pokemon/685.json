@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "sweet-veil",
-    "unburden"
+    {
+      "name": "sweet-veil",
+      "description": "Prevents itself and ally Pokémon from falling asleep."
+    },
+    {
+      "name": "unburden",
+      "description": "Raises Speed if a held item is used."
+    }
   ],
   "description": "It can distinguish the faintest of scents.\nIt puts its sensitive sense of smell to use\nby helping pastry chefs in their work."
 }

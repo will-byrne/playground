@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "levitate",
-    "neutralizing-gas",
-    "stench"
+    {
+      "name": "levitate",
+      "description": "Gives full immunity to all Ground-type moves."
+    },
+    {
+      "name": "neutralizing-gas",
+      "description": "If the Pokémon with Neutralizing Gas is in the battle, the effects of all Pokémon’s Abilities will be nullified or will not be triggered."
+    },
+    {
+      "name": "stench",
+      "description": "Helps repel wild POKéMON."
+    }
   ],
   "description": "Because it stores\nseveral kinds of\ntoxic gases in\fits body, it is\nprone to exploding\nwithout warning."
 }

@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "vital-spirit",
-    "anger-point",
-    "defiant"
+    {
+      "name": "vital-spirit",
+      "description": "Prevents sleep."
+    },
+    {
+      "name": "anger-point",
+      "description": "Raises Attack upon taking a critical hit."
+    },
+    {
+      "name": "defiant",
+      "description": "When its stats are lowered its Attack increases."
+    }
   ],
   "description": "Always furious\nand tenacious to\nboot. It will not\fabandon chasing\nits quarry until\nit is caught."
 }

@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "innards-out",
-    "unaware"
+    {
+      "name": "innards-out",
+      "description": "Damages the attacker landing the finishing hit by the amount equal to its last HP."
+    },
+    {
+      "name": "unaware",
+      "description": "Ignores any change in ability by the foe."
+    }
   ],
   "description": "It’s covered in a slime that keeps its skin moist,\nallowing it to stay on land for days without\ndrying up."
 }

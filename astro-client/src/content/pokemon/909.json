@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "blaze",
-    "unaware"
+    {
+      "name": "blaze",
+      "description": "Ups FIRE moves in a pinch."
+    },
+    {
+      "name": "unaware",
+      "description": "Ignores any change in ability by the foe."
+    }
   ],
   "description": "It lies on warm rocks and uses the heat absorbed by its square-shaped scales to create fire energy."
 }

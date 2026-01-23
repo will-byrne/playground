@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "suction-cups",
-    "sniper",
-    "moody"
+    {
+      "name": "suction-cups",
+      "description": "Firmly anchors the body."
+    },
+    {
+      "name": "sniper",
+      "description": "Powers up moves if they become critical hits."
+    },
+    {
+      "name": "moody",
+      "description": "Raises one stat and lowers another."
+    }
   ],
   "description": "It traps enemies\nwith its suction-\ncupped tentacles\fthen smashes them\nwith its rock-hard\nhead."
 }

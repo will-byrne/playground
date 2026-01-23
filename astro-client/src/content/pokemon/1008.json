@@ -41,7 +41,10 @@
     }
   },
   "abilities": [
-    "hadron-engine"
+    {
+      "name": "hadron-engine",
+      "description": "Turns the ground into Electric Terrain when the Pokémon enters a battle. The futuristic engine within the Pokémon also boosts its Sp. Atk stat on Electric Terrain."
+    }
   ],
   "description": "Much remains unknown about this creature. It resembles Cyclizar, but it is far more ruthless and powerful."
 }

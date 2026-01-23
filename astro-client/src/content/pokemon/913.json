@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "torrent",
-    "moxie"
+    {
+      "name": "torrent",
+      "description": "Ups WATER moves in a pinch."
+    },
+    {
+      "name": "moxie",
+      "description": "Boosts Attack after knocking out any Pokémon."
+    }
   ],
   "description": "These Pokémon constantly run through shallow waters to train their legs, then compete with each other to see which of them kicks most gracefully."
 }

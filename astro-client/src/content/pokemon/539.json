@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "sturdy",
-    "inner-focus",
-    "mold-breaker"
+    {
+      "name": "sturdy",
+      "description": "Negates 1-hit KO attacks."
+    },
+    {
+      "name": "inner-focus",
+      "description": "Prevents flinching."
+    },
+    {
+      "name": "mold-breaker",
+      "description": "Moves can be used regardless of abilities."
+    }
   ],
   "description": "The sound of Sawk punching boulders\nand trees can be heard all the way from\nthe mountains where they train."
 }

@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "intimidate",
-    "shed-skin",
-    "unnerve"
+    {
+      "name": "intimidate",
+      "description": "Lowers the foe’s ATTACK."
+    },
+    {
+      "name": "shed-skin",
+      "description": "Heals the body by shedding."
+    },
+    {
+      "name": "unnerve",
+      "description": "Makes the foe nervous and unable to eat Berries."
+    }
   ],
   "description": "It is rumored that\nthe ferocious\nwarning markings\fon its belly\ndiffer from area\nto area."
 }

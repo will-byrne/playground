@@ -25,8 +25,14 @@
     }
   },
   "abilities": [
-    "seed-sower",
-    "harvest"
+    {
+      "name": "seed-sower",
+      "description": "Turns the ground into Grassy Terrain when the Pokémon is hit by an attack."
+    },
+    {
+      "name": "harvest",
+      "description": "May create another Berry after one is used."
+    }
   ],
   "description": "This calm Pokémon is very compassionate. It will share its delicious, nutrient-rich oil with weakened Pokémon."
 }

@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "blaze",
-    "magician"
+    {
+      "name": "blaze",
+      "description": "Ups FIRE moves in a pinch."
+    },
+    {
+      "name": "magician",
+      "description": "The Pokémon steals the held item of a Pokémon it hits with a move."
+    }
   ],
   "description": "Eating a twig fills it with energy,\nand its roomy ears give vent to air\nhotter than 390 degrees Fahrenheit."
 }

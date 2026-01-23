@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "cotton-down",
-    "regenerator",
-    "effect-spore"
+    {
+      "name": "cotton-down",
+      "description": "When the Pokémon is hit by an attack, it scatters cotton fluff around and lowers the Speed stat of all Pokémon except itself."
+    },
+    {
+      "name": "regenerator",
+      "description": "Restores a little HP when withdrawn from battle."
+    },
+    {
+      "name": "effect-spore",
+      "description": "Leaves spores on contact."
+    }
   ],
   "description": "It anchors itself in the ground with its single leg,\nthen basks in the sun. After absorbing enough\nsunlight, its petals spread as it blooms brilliantly."
 }

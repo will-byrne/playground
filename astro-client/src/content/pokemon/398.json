@@ -21,12 +21,22 @@
       "staraptor": {
         "default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/398.png",
         "shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/398.png"
+      },
+      "staraptor-mega": {
+        "default": null,
+        "shiny": null
       }
     }
   },
   "abilities": [
-    "intimidate",
-    "reckless"
+    {
+      "name": "intimidate",
+      "description": "Lowers the foe’s ATTACK."
+    },
+    {
+      "name": "reckless",
+      "description": "Powers up moves that have recoil damage."
+    }
   ],
   "description": "It has a savage nature. It will\ncourageously challenge foes that\nare much larger."
 }

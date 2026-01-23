@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "plus",
-    "minus",
-    "clear-body"
+    {
+      "name": "plus",
+      "description": "Powers up with MINUS."
+    },
+    {
+      "name": "minus",
+      "description": "Powers up with PLUS."
+    },
+    {
+      "name": "clear-body",
+      "description": "Prevents ability reduction."
+    }
   ],
   "description": "The gear with the red core is\nrotated at high speed for a\nrapid energy charge."
 }

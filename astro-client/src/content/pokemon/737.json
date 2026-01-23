@@ -25,7 +25,10 @@
     }
   },
   "abilities": [
-    "battery"
+    {
+      "name": "battery",
+      "description": "Powers up ally Pokémon’s special moves."
+    }
   ],
   "description": "Its body is capable of storing electricity. On\ncamping trips, people are grateful to have\none around."
 }

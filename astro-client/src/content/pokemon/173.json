@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "cute-charm",
-    "magic-guard",
-    "friend-guard"
+    {
+      "name": "cute-charm",
+      "description": "Infatuates on contact."
+    },
+    {
+      "name": "magic-guard",
+      "description": "The Pokémon only takes damage from attacks."
+    },
+    {
+      "name": "friend-guard",
+      "description": "Reduces damage done to allies."
+    }
   ],
   "description": "Because of its\nunusual, star-like\nsilhouette, people\fbelieve that it\ncame here on\na meteor."
 }

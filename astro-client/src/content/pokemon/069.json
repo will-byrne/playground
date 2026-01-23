@@ -25,8 +25,14 @@
     }
   },
   "abilities": [
-    "chlorophyll",
-    "gluttony"
+    {
+      "name": "chlorophyll",
+      "description": "Raises SPEED in sunshine."
+    },
+    {
+      "name": "gluttony",
+      "description": "Encourages the early use of a held Berry."
+    }
   ],
   "description": "A carnivorous\nPOKéMON that traps\nand eats bugs.\fIt uses its root\nfeet to soak up\nneeded moisture."
 }

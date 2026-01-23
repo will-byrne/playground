@@ -25,8 +25,14 @@
     }
   },
   "abilities": [
-    "pressure",
-    "multiscale"
+    {
+      "name": "pressure",
+      "description": "Raises foe’s PP usage."
+    },
+    {
+      "name": "multiscale",
+      "description": "Reduces damage when HP is full."
+    }
   ],
   "description": "It is said that it\nquietly spends its\ntime deep at the\fbottom of the sea\nbecause its powers\nare too strong."
 }

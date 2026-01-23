@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "swarm",
-    "tinted-lens"
+    {
+      "name": "swarm",
+      "description": "Ups BUG moves in a pinch."
+    },
+    {
+      "name": "tinted-lens",
+      "description": "Powers up “not very effective” moves."
+    }
   ],
   "description": "It has its third set of legs folded up. When it’s in a tough spot, this Pokémon jumps over 30 feet using the strength of its legs."
 }

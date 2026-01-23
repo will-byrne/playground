@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "poison-point",
-    "poison-touch",
-    "adaptability"
+    {
+      "name": "poison-point",
+      "description": "Poisons foe on contact."
+    },
+    {
+      "name": "poison-touch",
+      "description": "May poison targets when a Pokémon makes contact."
+    },
+    {
+      "name": "adaptability",
+      "description": "Powers up moves of the same type."
+    }
   ],
   "description": "Camouflaged as rotten kelp, they spray\nliquid poison on prey that approaches\nunawares and then finish it off."
 }

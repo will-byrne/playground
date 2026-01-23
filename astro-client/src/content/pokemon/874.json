@@ -24,7 +24,10 @@
     }
   },
   "abilities": [
-    "power-spot"
+    {
+      "name": "power-spot",
+      "description": "Just being next to the Pokémon powers up moves."
+    }
   ],
   "description": "It stands in grasslands, watching the sun’s descent\nfrom zenith to horizon. This Pokémon has a talent\nfor delivering dynamic kicks."
 }

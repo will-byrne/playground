@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "own-tempo",
-    "oblivious",
-    "cloud-nine"
+    {
+      "name": "own-tempo",
+      "description": "Prevents confusion."
+    },
+    {
+      "name": "oblivious",
+      "description": "Prevents attraction."
+    },
+    {
+      "name": "cloud-nine",
+      "description": "Negates weather effects."
+    }
   ],
   "description": "Its tongue can be\nextended like a\nchameleon's. It\fleaves a tingling\nsensation when it\nlicks enemies."
 }

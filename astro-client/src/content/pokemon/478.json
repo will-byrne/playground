@@ -21,12 +21,22 @@
       "froslass": {
         "default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/478.png",
         "shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/478.png"
+      },
+      "froslass-mega": {
+        "default": null,
+        "shiny": null
       }
     }
   },
   "abilities": [
-    "snow-cloak",
-    "cursed-body"
+    {
+      "name": "snow-cloak",
+      "description": "Raises evasion in a hailstorm."
+    },
+    {
+      "name": "cursed-body",
+      "description": "May disable a move used on the Pokémon."
+    }
   ],
   "description": "It freezes foes with an icy breath\nnearly -60 degrees F. What seems\nto be its body is actually hollow."
 }

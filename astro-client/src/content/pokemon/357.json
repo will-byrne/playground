@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "chlorophyll",
-    "solar-power",
-    "harvest"
+    {
+      "name": "chlorophyll",
+      "description": "Raises SPEED in sunshine."
+    },
+    {
+      "name": "solar-power",
+      "description": "Boosts Sp. Atk, but lowers HP in sunshine."
+    },
+    {
+      "name": "harvest",
+      "description": "May create another Berry after one is used."
+    }
   ],
   "description": "The bunches of fruit around TROPIUS’s\nneck are very popular with children.\nThis POKéMON loves fruit, and eats it\fcontinuously. Apparently, its love for\nfruit resulted in its own outgrowth\nof fruit."
 }

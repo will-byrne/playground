@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "thick-fat",
-    "slush-rush",
-    "sheer-force"
+    {
+      "name": "thick-fat",
+      "description": "Heat-and-cold protection."
+    },
+    {
+      "name": "slush-rush",
+      "description": "Boosts the Pokémon’s Speed stat in a hailstorm."
+    },
+    {
+      "name": "sheer-force",
+      "description": "Removes added effects to increase move damage."
+    }
   ],
   "description": "This Pokémon wanders around snowy, icy areas. It protects its body with powerful muscles and a thick layer of fat under its skin."
 }

@@ -24,7 +24,10 @@
     }
   },
   "abilities": [
-    "sturdy"
+    {
+      "name": "sturdy",
+      "description": "Negates 1-hit KO attacks."
+    }
   ],
   "description": "Motionless as if dead, its body is faintly warm to\nthe touch. In the distant past, it was called the\ncocoon of the stars."
 }

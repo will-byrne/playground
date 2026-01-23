@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "thick-fat",
-    "own-tempo",
-    "gluttony"
+    {
+      "name": "thick-fat",
+      "description": "Heat-and-cold protection."
+    },
+    {
+      "name": "own-tempo",
+      "description": "Prevents confusion."
+    },
+    {
+      "name": "gluttony",
+      "description": "Encourages the early use of a held Berry."
+    }
   ],
   "description": "GRUMPIG uses the black pearls on its\nbody to amplify its psychic power waves\nfor gaining total control over its foe.\fWhen this POKéMON uses its special\npower, its snorting breath grows\nlabored."
 }

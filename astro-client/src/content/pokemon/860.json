@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "prankster",
-    "frisk",
-    "pickpocket"
+    {
+      "name": "prankster",
+      "description": "Gives priority to a status move."
+    },
+    {
+      "name": "frisk",
+      "description": "The Pokémon can check the foe’s held item."
+    },
+    {
+      "name": "pickpocket",
+      "description": "Steals an item when hit by another Pokémon."
+    }
   ],
   "description": "When it gets down on all fours as if to beg for\nforgiveness, it’s trying to lure opponents in so\nthat it can stab them with its spear-like hair."
 }

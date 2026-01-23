@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "lightning-rod",
-    "solid-rock",
-    "reckless"
+    {
+      "name": "lightning-rod",
+      "description": "Draws electrical moves."
+    },
+    {
+      "name": "solid-rock",
+      "description": "Powers down super­ effective moves."
+    },
+    {
+      "name": "reckless",
+      "description": "Powers up moves that have recoil damage."
+    }
   ],
   "description": "It puts rocks in holes in its palms\nand uses its muscles to shoot them.\nGEODUDE are shot at rare times."
 }

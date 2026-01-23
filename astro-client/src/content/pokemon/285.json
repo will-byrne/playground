@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "effect-spore",
-    "poison-heal",
-    "quick-feet"
+    {
+      "name": "effect-spore",
+      "description": "Leaves spores on contact."
+    },
+    {
+      "name": "poison-heal",
+      "description": "Restores HP if the Pokémon is poisoned."
+    },
+    {
+      "name": "quick-feet",
+      "description": "Boosts Speed if there is a status problem."
+    }
   ],
   "description": "SHROOMISH live in damp soil in the dark\ndepths of forests. They are often\nfound keeping still under fallen leaves.\fThis POKéMON feeds on compost that\nis made up of fallen, rotted leaves."
 }

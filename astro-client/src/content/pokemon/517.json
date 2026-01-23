@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "forewarn",
-    "synchronize",
-    "telepathy"
+    {
+      "name": "forewarn",
+      "description": "Determines what moves the foe has."
+    },
+    {
+      "name": "synchronize",
+      "description": "Passes on status problems."
+    },
+    {
+      "name": "telepathy",
+      "description": "Anticipates an ally’s attack and dodges it."
+    }
   ],
   "description": "Munna always float in the air. People\nwhose dreams are eaten by them\nforget what the dreams had been about."
 }

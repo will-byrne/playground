@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "thick-fat",
-    "huge-power",
-    "sap-sipper"
+    {
+      "name": "thick-fat",
+      "description": "Heat-and-cold protection."
+    },
+    {
+      "name": "huge-power",
+      "description": "Raises ATTACK."
+    },
+    {
+      "name": "sap-sipper",
+      "description": "Boosts Attack when hit by a Grass-type move."
+    }
   ],
   "description": "It lives in water virtually all day long.\nIts body color and pattern act as\ncamouflage that makes it tough for\nenemies to spot in water."
 }

@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "hyper-cutter",
-    "iron-fist",
-    "anger-point"
+    {
+      "name": "hyper-cutter",
+      "description": "Prevents ATTACK reduction."
+    },
+    {
+      "name": "iron-fist",
+      "description": "Boosts the power of punching moves."
+    },
+    {
+      "name": "anger-point",
+      "description": "Raises Attack upon taking a critical hit."
+    }
   ],
   "description": "While guarding its weak points with its pincers,\nit looks for an opening and unleashes punches.\nWhen it loses, it foams at the mouth and faints."
 }

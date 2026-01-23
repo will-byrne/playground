@@ -29,9 +29,18 @@
     }
   },
   "abilities": [
-    "ripen",
-    "gluttony",
-    "thick-fat"
+    {
+      "name": "ripen",
+      "description": "Ripens Berries and doubles their effect."
+    },
+    {
+      "name": "gluttony",
+      "description": "Encourages the early use of a held Berry."
+    },
+    {
+      "name": "thick-fat",
+      "description": "Heat-and-cold protection."
+    }
   ],
   "description": "Eating a sweet apple caused its evolution.\nA nectarous scent wafts from its body, luring in\nthe bug Pokémon it preys on."
 }

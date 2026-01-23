@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "telepathy",
-    "synchronize",
-    "analytic"
+    {
+      "name": "telepathy",
+      "description": "Anticipates an ally’s attack and dodges it."
+    },
+    {
+      "name": "synchronize",
+      "description": "Passes on status problems."
+    },
+    {
+      "name": "analytic",
+      "description": "Boosts move power when the Pokémon moves last."
+    }
   ],
   "description": "It uses its strong psychic power\nto squeeze its opponent’s brain,\ncausing unendurable headaches."
 }

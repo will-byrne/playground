@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "swift-swim",
-    "rain-dish",
-    "own-tempo"
+    {
+      "name": "swift-swim",
+      "description": "Raises SPEED in rain."
+    },
+    {
+      "name": "rain-dish",
+      "description": "Slight HP recovery in rain."
+    },
+    {
+      "name": "own-tempo",
+      "description": "Prevents confusion."
+    }
   ],
   "description": "LUDICOLO begins dancing as soon as\nit hears cheerful, festive music.\nThis POKéMON is said to appear when it\fhears the singing of children on hiking\noutings."
 }

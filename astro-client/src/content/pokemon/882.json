@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "water-absorb",
-    "strong-jaw",
-    "sand-rush"
+    {
+      "name": "water-absorb",
+      "description": "Restores HP if hit by a Water-type move."
+    },
+    {
+      "name": "strong-jaw",
+      "description": "The Pokémon’s strong jaw gives it tremendous biting power."
+    },
+    {
+      "name": "sand-rush",
+      "description": "Boosts the Pokémon’s Speed in a sandstorm."
+    }
   ],
   "description": "Powerful legs and jaws made it the apex predator\nof its time. Its own overhunting of its prey was\nwhat drove it to extinction."
 }

@@ -25,7 +25,10 @@
     }
   },
   "abilities": [
-    "levitate"
+    {
+      "name": "levitate",
+      "description": "Gives full immunity to all Ground-type moves."
+    }
   ],
   "description": "FLYGON is nicknamed “the elemental \nspirit of the desert.” Because its\nflapping wings whip up a cloud of sand,\fthis POKéMON is always enveloped in a\nsandstorm while flying."
 }

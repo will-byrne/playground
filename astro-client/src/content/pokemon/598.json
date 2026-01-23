@@ -25,8 +25,14 @@
     }
   },
   "abilities": [
-    "iron-barbs",
-    "anticipation"
+    {
+      "name": "iron-barbs",
+      "description": "Inflicts damage to the Pokémon on contact."
+    },
+    {
+      "name": "anticipation",
+      "description": "Senses the foe’s dangerous moves."
+    }
   ],
   "description": "It fights by swinging around its three\nspiky feelers. A hit from these steel\nspikes can reduce a boulder to rubble."
 }

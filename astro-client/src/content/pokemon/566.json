@@ -25,7 +25,10 @@
     }
   },
   "abilities": [
-    "defeatist"
+    {
+      "name": "defeatist",
+      "description": "Lowers stats when HP becomes half or less."
+    }
   ],
   "description": "Said to be an ancestor of bird Pokémon,\nthey were unable to fly and moved about\nby hopping from one branch to another."
 }

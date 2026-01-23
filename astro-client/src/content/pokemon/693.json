@@ -24,7 +24,10 @@
     }
   },
   "abilities": [
-    "mega-launcher"
+    {
+      "name": "mega-launcher",
+      "description": "Powers up aura and pulse moves."
+    }
   ],
   "description": "Their enormous claws launch cannonballs of\nwater powerful enough to pierce tanker hulls."
 }

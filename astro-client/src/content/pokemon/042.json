@@ -25,8 +25,14 @@
     }
   },
   "abilities": [
-    "inner-focus",
-    "infiltrator"
+    {
+      "name": "inner-focus",
+      "description": "Prevents flinching."
+    },
+    {
+      "name": "infiltrator",
+      "description": "Passes through the foe’s barrier and strikes."
+    }
   ],
   "description": "Once it strikes,\nit will not stop\ndraining energy\ffrom the victim\neven if it gets\ntoo heavy to fly."
 }

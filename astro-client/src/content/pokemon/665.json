@@ -100,8 +100,14 @@
     }
   },
   "abilities": [
-    "shed-skin",
-    "friend-guard"
+    {
+      "name": "shed-skin",
+      "description": "Heals the body by shedding."
+    },
+    {
+      "name": "friend-guard",
+      "description": "Reduces damage done to allies."
+    }
   ],
   "description": "It lives hidden within thicket shadows.\nWhen predators attack, it quickly bristles the fur\ncovering its body in an effort to threaten them."
 }

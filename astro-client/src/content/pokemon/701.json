@@ -21,13 +21,26 @@
       "hawlucha": {
         "default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/701.png",
         "shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/701.png"
+      },
+      "hawlucha-mega": {
+        "default": null,
+        "shiny": null
       }
     }
   },
   "abilities": [
-    "limber",
-    "unburden",
-    "mold-breaker"
+    {
+      "name": "limber",
+      "description": "Prevents paralysis."
+    },
+    {
+      "name": "unburden",
+      "description": "Raises Speed if a held item is used."
+    },
+    {
+      "name": "mold-breaker",
+      "description": "Moves can be used regardless of abilities."
+    }
   ],
   "description": "Although its body is small, its proficient\nfighting skills enable it to keep up with\nbig bruisers like Machamp and Hariyama."
 }

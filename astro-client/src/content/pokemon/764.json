@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "flower-veil",
-    "triage",
-    "natural-cure"
+    {
+      "name": "flower-veil",
+      "description": "Prevents lowering of ally Grass-type Pokémon’s stats."
+    },
+    {
+      "name": "triage",
+      "description": "Gives priority to a healing move."
+    },
+    {
+      "name": "natural-cure",
+      "description": "Heals upon switching out."
+    }
   ],
   "description": "It attaches flowers to its highly nutritious vine.\nThis revitalizes the flowers, and they give off\nan aromatic scent."
 }

@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "overgrow",
-    "contrary"
+    {
+      "name": "overgrow",
+      "description": "Powers up Grass-type moves in a pinch."
+    },
+    {
+      "name": "contrary",
+      "description": "Makes stat changes have an opposite effect."
+    }
   ],
   "description": "It moves along the ground as if sliding.\nIts swift movements befuddle its foes,\nand it then attacks with a vine whip."
 }

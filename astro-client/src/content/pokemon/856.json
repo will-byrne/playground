@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "healer",
-    "anticipation",
-    "magic-bounce"
+    {
+      "name": "healer",
+      "description": "May heal an ally’s status conditions."
+    },
+    {
+      "name": "anticipation",
+      "description": "Senses the foe’s dangerous moves."
+    },
+    {
+      "name": "magic-bounce",
+      "description": "Reflects status- changing moves."
+    }
   ],
   "description": "Via the protrusion on its head, it senses other\ncreatures’ emotions. If you don’t have a calm\ndisposition, it will never warm up to you."
 }

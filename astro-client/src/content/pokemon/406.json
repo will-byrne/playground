@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "natural-cure",
-    "poison-point",
-    "leaf-guard"
+    {
+      "name": "natural-cure",
+      "description": "Heals upon switching out."
+    },
+    {
+      "name": "poison-point",
+      "description": "Poisons foe on contact."
+    },
+    {
+      "name": "leaf-guard",
+      "description": "Prevents status problems in sunny weather."
+    }
   ],
   "description": "Over the winter, it closes its bud\nand endures the cold. In spring,\nthe bud opens and releases pollen."
 }

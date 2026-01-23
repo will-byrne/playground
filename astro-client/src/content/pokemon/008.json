@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "torrent",
-    "rain-dish"
+    {
+      "name": "torrent",
+      "description": "Ups WATER moves in a pinch."
+    },
+    {
+      "name": "rain-dish",
+      "description": "Slight HP recovery in rain."
+    }
   ],
   "description": "Often hides in\nwater to stalk\nunwary prey. For\fswimming fast, it\nmoves its ears to\nmaintain balance."
 }

@@ -25,8 +25,14 @@
     }
   },
   "abilities": [
-    "inner-focus",
-    "infiltrator"
+    {
+      "name": "inner-focus",
+      "description": "Prevents flinching."
+    },
+    {
+      "name": "infiltrator",
+      "description": "Passes through the foe’s barrier and strikes."
+    }
   ],
   "description": "It flies so si­\nlently through the\ndark on its four\fwings that it may\nnot be noticed\neven when nearby."
 }

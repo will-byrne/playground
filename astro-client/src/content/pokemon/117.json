@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "poison-point",
-    "sniper",
-    "damp"
+    {
+      "name": "poison-point",
+      "description": "Poisons foe on contact."
+    },
+    {
+      "name": "sniper",
+      "description": "Powers up moves if they become critical hits."
+    },
+    {
+      "name": "damp",
+      "description": "Prevents self-destruction."
+    }
   ],
   "description": "Capable of swim­\nming backwards by\nrapidly flapping\fits wing-like\npectoral fins and\nstout tail."
 }

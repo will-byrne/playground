@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "clear-body",
-    "liquid-ooze",
-    "rain-dish"
+    {
+      "name": "clear-body",
+      "description": "Prevents ability reduction."
+    },
+    {
+      "name": "liquid-ooze",
+      "description": "Draining causes injury."
+    },
+    {
+      "name": "rain-dish",
+      "description": "Slight HP recovery in rain."
+    }
   ],
   "description": "The tentacles are\nnormally kept\nshort. On hunts,\fthey are extended\nto ensnare and\nimmobilize prey."
 }

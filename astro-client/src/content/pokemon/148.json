@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "shed-skin",
-    "marvel-scale"
+    {
+      "name": "shed-skin",
+      "description": "Heals the body by shedding."
+    },
+    {
+      "name": "marvel-scale",
+      "description": "Ups DEFENSE if suffering."
+    }
   ],
   "description": "A mystical POKéMON\nthat exudes a\ngentle aura.\fHas the ability\nto change climate\nconditions."
 }

@@ -25,13 +25,26 @@
       "lucario-mega": {
         "default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/10059.png",
         "shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/10059.png"
+      },
+      "lucario-mega-z": {
+        "default": null,
+        "shiny": null
       }
     }
   },
   "abilities": [
-    "steadfast",
-    "inner-focus",
-    "justified"
+    {
+      "name": "steadfast",
+      "description": "Raises Speed each time the Pokémon flinches."
+    },
+    {
+      "name": "inner-focus",
+      "description": "Prevents flinching."
+    },
+    {
+      "name": "justified",
+      "description": "Raises Attack when hit by a Dark-type move."
+    }
   ],
   "description": "It has the ability to sense the\nauras of all things.\nIt understands human speech."
 }

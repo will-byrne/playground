@@ -28,9 +28,18 @@
     }
   },
   "abilities": [
-    "limber",
-    "technician",
-    "unnerve"
+    {
+      "name": "limber",
+      "description": "Prevents paralysis."
+    },
+    {
+      "name": "technician",
+      "description": "Powers up the Pokémon’s weaker moves."
+    },
+    {
+      "name": "unnerve",
+      "description": "Makes the foe nervous and unable to eat Berries."
+    }
   ],
   "description": "Although its fur\nhas many admirers,\nit is tough to\fraise as a pet\nbecause of its\nfickle meanness."
 }

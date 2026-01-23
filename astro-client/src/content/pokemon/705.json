@@ -28,9 +28,18 @@
     }
   },
   "abilities": [
-    "sap-sipper",
-    "hydration",
-    "gooey"
+    {
+      "name": "sap-sipper",
+      "description": "Boosts Attack when hit by a Grass-type move."
+    },
+    {
+      "name": "hydration",
+      "description": "Heals status problems if it is raining."
+    },
+    {
+      "name": "gooey",
+      "description": "Contact with the Pokémon lowers the attacker’s Speed stat."
+    }
   ],
   "description": "It drives away opponents by excreting a\nsticky liquid that can dissolve anything.\nIts eyes devolved, so it can’t see anything."
 }

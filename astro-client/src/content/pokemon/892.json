@@ -29,7 +29,10 @@
     }
   },
   "abilities": [
-    "unseen-fist"
+    {
+      "name": "unseen-fist",
+      "description": "If the Pokémon uses moves that make direct contact, it can attack the target even if the target protects itself."
+    }
   ],
   "description": "This form of Urshifu is a strong believer in the\none-hit KO. Its strategy is to leap in close to foes\nand land a devastating blow with a hardened fist."
 }

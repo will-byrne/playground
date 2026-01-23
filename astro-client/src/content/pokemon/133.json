@@ -32,9 +32,18 @@
     }
   },
   "abilities": [
-    "run-away",
-    "adaptability",
-    "anticipation"
+    {
+      "name": "run-away",
+      "description": "Makes escaping easier."
+    },
+    {
+      "name": "adaptability",
+      "description": "Powers up moves of the same type."
+    },
+    {
+      "name": "anticipation",
+      "description": "Senses the foe’s dangerous moves."
+    }
   ],
   "description": "Its genetic code\nis irregular.\nIt may mutate if\fit is exposed to\nradiation from\nelement STONEs."
 }

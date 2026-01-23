@@ -29,9 +29,18 @@
     }
   },
   "abilities": [
-    "keen-eye",
-    "inner-focus",
-    "defiant"
+    {
+      "name": "keen-eye",
+      "description": "Prevents loss of accuracy."
+    },
+    {
+      "name": "inner-focus",
+      "description": "Prevents flinching."
+    },
+    {
+      "name": "defiant",
+      "description": "When its stats are lowered its Attack increases."
+    }
   ],
   "description": "The sprig of\ngreen onions it\nholds is its\fweapon. It is\nused much like a\nmetal sword."
 }

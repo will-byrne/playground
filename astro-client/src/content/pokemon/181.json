@@ -28,8 +28,14 @@
     }
   },
   "abilities": [
-    "static",
-    "plus"
+    {
+      "name": "static",
+      "description": "Paralyzes on contact."
+    },
+    {
+      "name": "plus",
+      "description": "Powers up with MINUS."
+    }
   ],
   "description": "The tail's tip\nshines brightly\nand can be seen\ffrom far away. It\nacts as a beacon\nfor lost people."
 }

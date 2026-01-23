@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "leaf-guard",
-    "queenly-majesty",
-    "sweet-veil"
+    {
+      "name": "leaf-guard",
+      "description": "Prevents status problems in sunny weather."
+    },
+    {
+      "name": "queenly-majesty",
+      "description": "Its majesty pressures the opposing Pokémon, making it unable to attack using priority moves."
+    },
+    {
+      "name": "sweet-veil",
+      "description": "Prevents itself and ally Pokémon from falling asleep."
+    }
   ],
   "description": "Its long, striking legs aren’t just for show but to\nbe used to kick with skill. In victory, it shows off\nby kicking the defeated, laughing boisterously."
 }

@@ -28,9 +28,18 @@
     }
   },
   "abilities": [
-    "soundproof",
-    "static",
-    "aftermath"
+    {
+      "name": "soundproof",
+      "description": "Avoids sound-based moves."
+    },
+    {
+      "name": "static",
+      "description": "Paralyzes on contact."
+    },
+    {
+      "name": "aftermath",
+      "description": "Damages the foe landing the finishing hit."
+    }
   ],
   "description": "Usually found in\npower plants.\nEasily mistaken\ffor a POKé BALL,\nthey have zapped\nmany people."
 }

@@ -20,11 +20,18 @@
       "eelektross": {
         "default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/604.png",
         "shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/604.png"
+      },
+      "eelektross-mega": {
+        "default": null,
+        "shiny": null
       }
     }
   },
   "abilities": [
-    "levitate"
+    {
+      "name": "levitate",
+      "description": "Gives full immunity to all Ground-type moves."
+    }
   ],
   "description": "They crawl out of the ocean using their\narms. They will attack prey on shore and\nimmediately drag it into the ocean."
 }

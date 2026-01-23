@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "own-tempo",
-    "klutz"
+    {
+      "name": "own-tempo",
+      "description": "Prevents confusion."
+    },
+    {
+      "name": "klutz",
+      "description": "The Pokémon can’t use any held items."
+    }
   ],
   "description": "This Pokémon is smooth and moist to the touch. Yeast in Fidough’s breath induces fermentation in the Pokémon’s vicinity."
 }

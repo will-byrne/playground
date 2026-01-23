@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "pressure",
-    "inner-focus"
+    {
+      "name": "pressure",
+      "description": "Raises foe’s PP usage."
+    },
+    {
+      "name": "inner-focus",
+      "description": "Prevents flinching."
+    }
   ],
   "description": "Volcanoes erupt\nwhen it barks. Un­\nable to restrain\fits extreme power,\nit races headlong\naround the land."
 }

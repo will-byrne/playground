@@ -24,7 +24,10 @@
     }
   },
   "abilities": [
-    "mega-launcher"
+    {
+      "name": "mega-launcher",
+      "description": "Powers up aura and pulse moves."
+    }
   ],
   "description": "They knock down flying prey by firing\ncompressed water from their massive\nclaws like shooting a pistol."
 }

@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "swarm",
-    "insomnia",
-    "sniper"
+    {
+      "name": "swarm",
+      "description": "Ups BUG moves in a pinch."
+    },
+    {
+      "name": "insomnia",
+      "description": "Prevents sleep."
+    },
+    {
+      "name": "sniper",
+      "description": "Powers up moves if they become critical hits."
+    }
   ],
   "description": "It lies still in\nthe same pose for\ndays in its web,\fwaiting for its\nunsuspecting prey\nto wander close."
 }

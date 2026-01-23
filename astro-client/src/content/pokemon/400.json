@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "simple",
-    "unaware",
-    "moody"
+    {
+      "name": "simple",
+      "description": "The Pokémon is prone to wild stat changes."
+    },
+    {
+      "name": "unaware",
+      "description": "Ignores any change in ability by the foe."
+    },
+    {
+      "name": "moody",
+      "description": "Raises one stat and lowers another."
+    }
   ],
   "description": "It makes its nest by damming\nstreams with bark and mud. It is\nknown as an industrious worker."
 }

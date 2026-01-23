@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "ripen",
-    "gluttony",
-    "bulletproof"
+    {
+      "name": "ripen",
+      "description": "Ripens Berries and doubles their effect."
+    },
+    {
+      "name": "gluttony",
+      "description": "Encourages the early use of a held Berry."
+    },
+    {
+      "name": "bulletproof",
+      "description": "Protects the Pokémon from some ball and bomb moves."
+    }
   ],
   "description": "It spends its entire life inside an apple. It hides\nfrom its natural enemies, bird Pokémon, by\npretending it’s just an apple and nothing more."
 }

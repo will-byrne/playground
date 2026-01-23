@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "swarm",
-    "shell-armor",
-    "overcoat"
+    {
+      "name": "swarm",
+      "description": "Ups BUG moves in a pinch."
+    },
+    {
+      "name": "shell-armor",
+      "description": "Blocks critical hits."
+    },
+    {
+      "name": "overcoat",
+      "description": "Protects the Pokémon from damage from weather."
+    }
   ],
   "description": "They fly around at high speed, striking\nwith their pointed spears. Even when in\ntrouble, they face opponents bravely."
 }

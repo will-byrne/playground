@@ -25,7 +25,10 @@
     }
   },
   "abilities": [
-    "natural-cure"
+    {
+      "name": "natural-cure",
+      "description": "Heals upon switching out."
+    }
   ],
   "description": "This POKéMON wan­\nders across time.\nGrass and trees\fflourish in the\nforests in which\nit has appeared."
 }

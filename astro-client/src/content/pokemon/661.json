@@ -25,8 +25,14 @@
     }
   },
   "abilities": [
-    "big-pecks",
-    "gale-wings"
+    {
+      "name": "big-pecks",
+      "description": "Protects the Pokémon from Defense-lowering attacks."
+    },
+    {
+      "name": "gale-wings",
+      "description": "Gives priority to Flying-type moves."
+    }
   ],
   "description": "These friendly Pokémon send signals\nto one another with beautiful chirps\nand tail-feather movements."
 }

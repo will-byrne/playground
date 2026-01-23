@@ -25,8 +25,14 @@
     }
   },
   "abilities": [
-    "shield-dust",
-    "ice-scales"
+    {
+      "name": "shield-dust",
+      "description": "Prevents added effects."
+    },
+    {
+      "name": "ice-scales",
+      "description": "The Pokémon is protected by ice scales, which halve the damage taken from special moves."
+    }
   ],
   "description": "Icy scales fall from its wings like snow as it flies\nover fields and mountains. The temperature of its\nwings is less than −290 degrees Fahrenheit."
 }

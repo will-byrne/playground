@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "big-pecks",
-    "overcoat",
-    "weak-armor"
+    {
+      "name": "big-pecks",
+      "description": "Protects the Pokémon from Defense-lowering attacks."
+    },
+    {
+      "name": "overcoat",
+      "description": "Protects the Pokémon from damage from weather."
+    },
+    {
+      "name": "weak-armor",
+      "description": "Physical attacks lower Defense and raise Speed."
+    }
   ],
   "description": "Their wings are too tiny to allow them to fly.\nThey guard their posteriors with bones that were\ngathered by Mandibuzz."
 }

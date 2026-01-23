@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "shell-armor",
-    "skill-link",
-    "overcoat"
+    {
+      "name": "shell-armor",
+      "description": "Blocks critical hits."
+    },
+    {
+      "name": "skill-link",
+      "description": "Increases the frequency of multi-strike moves."
+    },
+    {
+      "name": "overcoat",
+      "description": "Protects the Pokémon from damage from weather."
+    }
   ],
   "description": "Its hard shell\nrepels any kind\nof attack.\fIt is vulnerable\nonly when its\nshell is open."
 }

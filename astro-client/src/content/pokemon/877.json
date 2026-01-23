@@ -25,7 +25,10 @@
     }
   },
   "abilities": [
-    "hunger-switch"
+    {
+      "name": "hunger-switch",
+      "description": "The Pokémon changes its form, alternating between its Full Belly Mode and Hangry Mode after the end of each turn."
+    }
   ],
   "description": "As it eats the seeds stored up in its pocket-like\npouches, this Pokémon is not just satisfying its\nconstant hunger. It’s also generating electricity."
 }

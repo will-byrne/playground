@@ -28,8 +28,14 @@
     }
   },
   "abilities": [
-    "static",
-    "lightning-rod"
+    {
+      "name": "static",
+      "description": "Paralyzes on contact."
+    },
+    {
+      "name": "lightning-rod",
+      "description": "Draws electrical moves."
+    }
   ],
   "description": "It is not yet\nskilled at storing\nelectricity.\fIt may send out a\njolt if amused\nor startled."
 }

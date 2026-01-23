@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "water-veil",
-    "oblivious",
-    "pressure"
+    {
+      "name": "water-veil",
+      "description": "Prevents burns."
+    },
+    {
+      "name": "oblivious",
+      "description": "Prevents attraction."
+    },
+    {
+      "name": "pressure",
+      "description": "Raises foe’s PP usage."
+    }
   ],
   "description": "WAILORD is the largest of all identified\nPOKéMON up to now.\nThis giant POKéMON swims languorously\fin the vast open sea, eating massive\namounts of food at once with its\nenormous mouth."
 }

@@ -25,8 +25,14 @@
     }
   },
   "abilities": [
-    "pressure",
-    "infiltrator"
+    {
+      "name": "pressure",
+      "description": "Raises foe’s PP usage."
+    },
+    {
+      "name": "infiltrator",
+      "description": "Passes through the foe’s barrier and strikes."
+    }
   ],
   "description": "A Pokémon that was formed by 108\nspirits. It is bound to a fissure\nin an odd keystone."
 }

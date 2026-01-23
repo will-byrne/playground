@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "shield-dust",
-    "run-away"
+    {
+      "name": "shield-dust",
+      "description": "Prevents added effects."
+    },
+    {
+      "name": "run-away",
+      "description": "Makes escaping easier."
+    }
   ],
   "description": "Its short feet are tipped with suction\npads that enable it to tirelessly climb\nslopes and walls."
 }

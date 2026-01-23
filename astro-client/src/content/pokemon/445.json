@@ -25,12 +25,22 @@
       "garchomp-mega": {
         "default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/10058.png",
         "shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/10058.png"
+      },
+      "garchomp-mega-z": {
+        "default": null,
+        "shiny": null
       }
     }
   },
   "abilities": [
-    "sand-veil",
-    "rough-skin"
+    {
+      "name": "sand-veil",
+      "description": "Ups evasion in a sandstorm."
+    },
+    {
+      "name": "rough-skin",
+      "description": "Hurts to touch."
+    }
   ],
   "description": "When it folds up its body and\nextends its wings, it looks like a\njet plane. It flies at sonic speed."
 }

@@ -29,9 +29,18 @@
     }
   },
   "abilities": [
-    "honey-gather",
-    "shield-dust",
-    "sweet-veil"
+    {
+      "name": "honey-gather",
+      "description": "The Pokémon may gather Honey from somewhere."
+    },
+    {
+      "name": "shield-dust",
+      "description": "Prevents added effects."
+    },
+    {
+      "name": "sweet-veil",
+      "description": "Prevents itself and ally Pokémon from falling asleep."
+    }
   ],
   "description": "It rolls up pollen into puffs. It makes many\ndifferent varieties, some used as food and\nothers used in battle."
 }

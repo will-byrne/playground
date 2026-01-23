@@ -20,11 +20,18 @@
       "darkrai": {
         "default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/491.png",
         "shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/491.png"
+      },
+      "darkrai-mega": {
+        "default": null,
+        "shiny": null
       }
     }
   },
   "abilities": [
-    "bad-dreams"
+    {
+      "name": "bad-dreams",
+      "description": "Reduces a sleeping foe’s HP."
+    }
   ],
   "description": "It can lull people to sleep and\nmake them dream. It is active\nduring nights of the new moon."
 }

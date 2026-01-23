@@ -25,7 +25,10 @@
     }
   },
   "abilities": [
-    "disguise"
+    {
+      "name": "disguise",
+      "description": "Once per battle, the shroud that covers the Pokémon can protect it from an attack."
+    }
   ],
   "description": "Its actual appearance is unknown. A scholar\nwho saw what was under its rag was\noverwhelmed by terror and died from the shock."
 }

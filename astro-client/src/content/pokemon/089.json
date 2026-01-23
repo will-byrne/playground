@@ -28,9 +28,18 @@
     }
   },
   "abilities": [
-    "stench",
-    "sticky-hold",
-    "poison-touch"
+    {
+      "name": "stench",
+      "description": "Helps repel wild POKéMON."
+    },
+    {
+      "name": "sticky-hold",
+      "description": "Prevents item theft."
+    },
+    {
+      "name": "poison-touch",
+      "description": "May poison targets when a Pokémon makes contact."
+    }
   ],
   "description": "Thickly covered\nwith a filthy,\nvile sludge. It\fis so toxic, even\nits footprints\ncontain poison."
 }

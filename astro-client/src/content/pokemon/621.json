@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "rough-skin",
-    "sheer-force",
-    "mold-breaker"
+    {
+      "name": "rough-skin",
+      "description": "Hurts to touch."
+    },
+    {
+      "name": "sheer-force",
+      "description": "Removes added effects to increase move damage."
+    },
+    {
+      "name": "mold-breaker",
+      "description": "Moves can be used regardless of abilities."
+    }
   ],
   "description": "It warms its body by absorbing sunlight\nwith its wings. When its body temperature\nfalls, it can no longer move."
 }

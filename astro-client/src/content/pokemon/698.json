@@ -25,8 +25,14 @@
     }
   },
   "abilities": [
-    "refrigerate",
-    "snow-warning"
+    {
+      "name": "refrigerate",
+      "description": "Normal-type moves become Ice-type moves."
+    },
+    {
+      "name": "snow-warning",
+      "description": "The Pokémon summons a hailstorm in battle."
+    }
   ],
   "description": "This ancient Pokémon was restored\nfrom part of its body that had been\nfrozen in ice for over 100 million years."
 }

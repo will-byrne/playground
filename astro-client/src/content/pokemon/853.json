@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "limber",
-    "technician"
+    {
+      "name": "limber",
+      "description": "Prevents paralysis."
+    },
+    {
+      "name": "technician",
+      "description": "Powers up the Pokémon’s weaker moves."
+    }
   ],
   "description": "A body made up of nothing but muscle makes\nthe grappling moves this Pokémon performs with\nits tentacles tremendously powerful."
 }

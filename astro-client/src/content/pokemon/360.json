@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "shadow-tag",
-    "telepathy"
+    {
+      "name": "shadow-tag",
+      "description": "Prevents the foe’s escape."
+    },
+    {
+      "name": "telepathy",
+      "description": "Anticipates an ally’s attack and dodges it."
+    }
   ],
   "description": "WYNAUT can always be seen with a big,\nhappy smile on its face. Look at its tail\nto determine if it is angry.\fWhen angered, this POKéMON will be\nslapping the ground with its tail."
 }

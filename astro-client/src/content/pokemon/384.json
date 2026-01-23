@@ -29,7 +29,10 @@
     }
   },
   "abilities": [
-    "air-lock"
+    {
+      "name": "air-lock",
+      "description": "Negates weather effects."
+    }
   ],
   "description": "RAYQUAZA lived for hundreds of millions\nof years in the earth’s ozone layer, \nnever descending to the ground.\fThis POKéMON appears to feed on water\nand particles in the atmosphere."
 }

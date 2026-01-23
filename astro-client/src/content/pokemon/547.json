@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "prankster",
-    "infiltrator",
-    "chlorophyll"
+    {
+      "name": "prankster",
+      "description": "Gives priority to a status move."
+    },
+    {
+      "name": "infiltrator",
+      "description": "Passes through the foe’s barrier and strikes."
+    },
+    {
+      "name": "chlorophyll",
+      "description": "Raises SPEED in sunshine."
+    }
   ],
   "description": "Like the wind, it can slip through any\ngap, no matter how small. It leaves\nballs of white fluff behind."
 }

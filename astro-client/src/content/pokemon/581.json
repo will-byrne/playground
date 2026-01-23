@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "keen-eye",
-    "big-pecks",
-    "hydration"
+    {
+      "name": "keen-eye",
+      "description": "Prevents loss of accuracy."
+    },
+    {
+      "name": "big-pecks",
+      "description": "Protects the Pokémon from Defense-lowering attacks."
+    },
+    {
+      "name": "hydration",
+      "description": "Heals status problems if it is raining."
+    }
   ],
   "description": "Swanna start to dance at dusk.\nThe one dancing in the middle is\nthe leader of the flock."
 }

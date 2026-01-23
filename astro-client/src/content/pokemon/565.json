@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "solid-rock",
-    "sturdy",
-    "swift-swim"
+    {
+      "name": "solid-rock",
+      "description": "Powers down super­ effective moves."
+    },
+    {
+      "name": "sturdy",
+      "description": "Negates 1-hit KO attacks."
+    },
+    {
+      "name": "swift-swim",
+      "description": "Raises SPEED in rain."
+    }
   ],
   "description": "They can live both in the ocean and on\nland. A slap from one of them is enough\nto open a hole in the bottom of a tanker."
 }

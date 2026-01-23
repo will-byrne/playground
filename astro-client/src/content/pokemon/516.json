@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "gluttony",
-    "torrent"
+    {
+      "name": "gluttony",
+      "description": "Encourages the early use of a held Berry."
+    },
+    {
+      "name": "torrent",
+      "description": "Ups WATER moves in a pinch."
+    }
   ],
   "description": "The tuft on its head holds water. When\nthe level runs low, it replenishes the\ntuft by siphoning up water with its tail."
 }

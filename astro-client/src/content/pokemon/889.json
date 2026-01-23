@@ -28,7 +28,10 @@
     }
   },
   "abilities": [
-    "dauntless-shield"
+    {
+      "name": "dauntless-shield",
+      "description": "Boosts the Pokémon’s Defense stat when the Pokémon enters a battle."
+    }
   ],
   "description": "In times past, it worked together with a king of\nthe people to save the Galar region. It absorbs\nmetal that it then uses in battle."
 }

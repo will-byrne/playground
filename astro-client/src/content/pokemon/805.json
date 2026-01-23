@@ -25,7 +25,10 @@
     }
   },
   "abilities": [
-    "beast-boost"
+    {
+      "name": "beast-boost",
+      "description": "The Pokémon boosts its most proficient stat each time it knocks out a Pokémon."
+    }
   ],
   "description": "It appeared from an Ultra Wormhole. Each one\nappears to be made up of many life-forms\nstacked one on top of each other."
 }

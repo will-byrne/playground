@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "snow-cloak",
-    "slush-rush",
-    "swift-swim"
+    {
+      "name": "snow-cloak",
+      "description": "Raises evasion in a hailstorm."
+    },
+    {
+      "name": "slush-rush",
+      "description": "Boosts the Pokémon’s Speed stat in a hailstorm."
+    },
+    {
+      "name": "swift-swim",
+      "description": "Raises SPEED in rain."
+    }
   ],
   "description": "It can make its breath freeze at will.\nVery able in the water, it swims around\nin northern seas and catches prey."
 }

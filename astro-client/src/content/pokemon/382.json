@@ -28,7 +28,10 @@
     }
   },
   "abilities": [
-    "drizzle"
+    {
+      "name": "drizzle",
+      "description": "Summons rain in battle."
+    }
   ],
   "description": "KYOGRE has the power to create massive\nrain clouds that cover the entire sky\nand bring about torrential downpours.\fThis POKéMON saved people who were\nsuffering from droughts."
 }

@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "chlorophyll",
-    "wind-rider",
-    "pickpocket"
+    {
+      "name": "chlorophyll",
+      "description": "Raises SPEED in sunshine."
+    },
+    {
+      "name": "wind-rider",
+      "description": "Boosts the Pokémon's Attack stat if Tailwind takes effect or if the Pokémon is hit by a wind move. The Pokémon also takes no damage from wind moves."
+    },
+    {
+      "name": "pickpocket",
+      "description": "Steals an item when hit by another Pokémon."
+    }
   ],
   "description": "It lives quietly in the deep forest.\nIt is said to create chilly winter\nwinds with the fans it holds."
 }

@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "reckless",
-    "sap-sipper",
-    "soundproof"
+    {
+      "name": "reckless",
+      "description": "Powers up moves that have recoil damage."
+    },
+    {
+      "name": "sap-sipper",
+      "description": "Boosts Attack when hit by a Grass-type move."
+    },
+    {
+      "name": "soundproof",
+      "description": "Avoids sound-based moves."
+    }
   ],
   "description": "Their fluffy fur absorbs damage,\neven if they strike foes with a\nfierce headbutt."
 }

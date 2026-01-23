@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "pickup",
-    "frisk",
-    "insomnia"
+    {
+      "name": "pickup",
+      "description": "May pick up items."
+    },
+    {
+      "name": "frisk",
+      "description": "The Pokémon can check the foe’s held item."
+    },
+    {
+      "name": "insomnia",
+      "description": "Prevents sleep."
+    }
   ],
   "description": "Singing in eerie voices, they wander\ntown streets on the night of the new moon.\nAnyone who hears their song is cursed."
 }

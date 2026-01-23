@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "swarm",
-    "early-bird",
-    "iron-fist"
+    {
+      "name": "swarm",
+      "description": "Ups BUG moves in a pinch."
+    },
+    {
+      "name": "early-bird",
+      "description": "Awakens quickly from sleep."
+    },
+    {
+      "name": "iron-fist",
+      "description": "Boosts the power of punching moves."
+    }
   ],
   "description": "When the stars\nflicker in the\nnight sky, it\fflutters about,\nscattering a\nglowing powder."
 }

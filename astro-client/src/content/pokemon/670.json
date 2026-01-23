@@ -40,12 +40,22 @@
       "floette-eternal": {
         "default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/10061.png",
         "shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/10061.png"
+      },
+      "floette-mega": {
+        "default": null,
+        "shiny": null
       }
     }
   },
   "abilities": [
-    "flower-veil",
-    "symbiosis"
+    {
+      "name": "flower-veil",
+      "description": "Prevents lowering of ally Grass-type Pokémon’s stats."
+    },
+    {
+      "name": "symbiosis",
+      "description": "The Pokémon can pass an item to an ally."
+    }
   ],
   "description": "It flutters around fields of flowers and cares for\nflowers that are starting to wilt. It draws\nout the hidden power of flowers to battle."
 }

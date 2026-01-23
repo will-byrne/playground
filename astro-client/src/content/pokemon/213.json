@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "sturdy",
-    "gluttony",
-    "contrary"
+    {
+      "name": "sturdy",
+      "description": "Negates 1-hit KO attacks."
+    },
+    {
+      "name": "gluttony",
+      "description": "Encourages the early use of a held Berry."
+    },
+    {
+      "name": "contrary",
+      "description": "Makes stat changes have an opposite effect."
+    }
   ],
   "description": "The BERRIES it\nstores in its\nvase-like shell\fdecompose and\nbecome a gooey\nliquid."
 }

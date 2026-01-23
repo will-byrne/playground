@@ -24,7 +24,10 @@
     }
   },
   "abilities": [
-    "comatose"
+    {
+      "name": "comatose",
+      "description": "It’s always drowsing and will never wake up. It can attack without waking up."
+    }
   ],
   "description": "It is born asleep, and it dies asleep. All its\nmovements are apparently no more than the\nresults of it tossing and turning in its dreams."
 }

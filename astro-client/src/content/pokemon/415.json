@@ -25,8 +25,14 @@
     }
   },
   "abilities": [
-    "honey-gather",
-    "hustle"
+    {
+      "name": "honey-gather",
+      "description": "The Pokémon may gather Honey from somewhere."
+    },
+    {
+      "name": "hustle",
+      "description": "Trades accuracy for power."
+    }
   ],
   "description": "A Pokémon formed by three others.\nIt busily carries sweet floral\nhoney to VESPIQUEN."
 }

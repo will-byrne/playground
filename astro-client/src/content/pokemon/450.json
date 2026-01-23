@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "sand-stream",
-    "sand-force"
+    {
+      "name": "sand-stream",
+      "description": "Summons a sandstorm."
+    },
+    {
+      "name": "sand-force",
+      "description": "Boosts certain moves’ power in a sandstorm."
+    }
   ],
   "description": "It blasts internally stored sand\nfrom ports on its body to create\na towering twister for attack."
 }

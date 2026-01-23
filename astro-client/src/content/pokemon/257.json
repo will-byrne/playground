@@ -29,8 +29,14 @@
     }
   },
   "abilities": [
-    "blaze",
-    "speed-boost"
+    {
+      "name": "blaze",
+      "description": "Ups FIRE moves in a pinch."
+    },
+    {
+      "name": "speed-boost",
+      "description": "Gradually boosts SPEED."
+    }
   ],
   "description": "In battle, BLAZIKEN blows out intense\nflames from its wrists and attacks foes\ncourageously.\fThe stronger the foe, the more\nintensely this POKéMON’s wrists burn."
 }

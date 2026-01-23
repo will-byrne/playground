@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "illuminate",
-    "keen-eye",
-    "analytic"
+    {
+      "name": "illuminate",
+      "description": "Encounter rate increases."
+    },
+    {
+      "name": "keen-eye",
+      "description": "Prevents loss of accuracy."
+    },
+    {
+      "name": "analytic",
+      "description": "Boosts move power when the Pokémon moves last."
+    }
   ],
   "description": "When they see an enemy, their tails\nstand high, and they spit the seeds of\nberries stored in their cheek pouches."
 }

@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "shed-skin",
-    "moxie",
-    "intimidate"
+    {
+      "name": "shed-skin",
+      "description": "Heals the body by shedding."
+    },
+    {
+      "name": "moxie",
+      "description": "Boosts Attack after knocking out any Pokémon."
+    },
+    {
+      "name": "intimidate",
+      "description": "Lowers the foe’s ATTACK."
+    }
   ],
   "description": "Its skin has a rubbery elasticity, so\nit can reduce damage by defensively\npulling its skin up to its neck."
 }

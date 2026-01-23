@@ -24,7 +24,10 @@
     }
   },
   "abilities": [
-    "levitate"
+    {
+      "name": "levitate",
+      "description": "Gives full immunity to all Ground-type moves."
+    }
   ],
   "description": "Known as “The Being of Knowledge.”\nIt is said that it can wipe out the\nmemory of those who see its eyes."
 }

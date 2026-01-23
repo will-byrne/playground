@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "swift-swim",
-    "rain-dish",
-    "own-tempo"
+    {
+      "name": "swift-swim",
+      "description": "Raises SPEED in rain."
+    },
+    {
+      "name": "rain-dish",
+      "description": "Slight HP recovery in rain."
+    },
+    {
+      "name": "own-tempo",
+      "description": "Prevents confusion."
+    }
   ],
   "description": "It searches about for clean water. If it does not\ndrink water for too long, the leaf on its head wilts."
 }

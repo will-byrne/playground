@@ -25,8 +25,14 @@
     }
   },
   "abilities": [
-    "battle-armor",
-    "swift-swim"
+    {
+      "name": "battle-armor",
+      "description": "Blocks critical hits."
+    },
+    {
+      "name": "swift-swim",
+      "description": "Raises SPEED in rain."
+    }
   ],
   "description": "ANORITH was regenerated from a\nprehistoric fossil. This primitive\nPOKéMON once lived in warm seas.\fIt grips its prey firmly between its\ntwo large claws."
 }

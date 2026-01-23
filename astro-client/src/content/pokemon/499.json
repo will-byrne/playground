@@ -25,8 +25,14 @@
     }
   },
   "abilities": [
-    "blaze",
-    "thick-fat"
+    {
+      "name": "blaze",
+      "description": "Ups FIRE moves in a pinch."
+    },
+    {
+      "name": "thick-fat",
+      "description": "Heat-and-cold protection."
+    }
   ],
   "description": "When its internal fire flares up, its\nmovements grow sharper and faster.\nWhen in trouble, it emits smoke."
 }

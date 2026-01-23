@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "thick-fat",
-    "scrappy",
-    "sap-sipper"
+    {
+      "name": "thick-fat",
+      "description": "Heat-and-cold protection."
+    },
+    {
+      "name": "scrappy",
+      "description": "Enables moves to hit Ghost-type foes."
+    },
+    {
+      "name": "sap-sipper",
+      "description": "Boosts Attack when hit by a Grass-type move."
+    }
   ],
   "description": "Its milk is packed\nwith nutrition,\nmaking it the\fultimate beverage\nfor the sick or\nweary."
 }

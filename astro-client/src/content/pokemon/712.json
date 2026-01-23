@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "own-tempo",
-    "ice-body",
-    "sturdy"
+    {
+      "name": "own-tempo",
+      "description": "Prevents confusion."
+    },
+    {
+      "name": "ice-body",
+      "description": "The Pokémon regains HP in a hailstorm."
+    },
+    {
+      "name": "sturdy",
+      "description": "Negates 1-hit KO attacks."
+    }
   ],
   "description": "It blocks opponents’ attacks with the\nice that shields its body. It uses cold air\nto repair any cracks with new ice."
 }

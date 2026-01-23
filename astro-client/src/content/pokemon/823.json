@@ -29,9 +29,18 @@
     }
   },
   "abilities": [
-    "pressure",
-    "unnerve",
-    "mirror-armor"
+    {
+      "name": "pressure",
+      "description": "Raises foe’s PP usage."
+    },
+    {
+      "name": "unnerve",
+      "description": "Makes the foe nervous and unable to eat Berries."
+    },
+    {
+      "name": "mirror-armor",
+      "description": "Bounces back only the stat-lowering effects that the Pokémon receives."
+    }
   ],
   "description": "This Pokémon reigns supreme in the skies of the\nGalar region. The black luster of its steel body\ncould drive terror into the heart of any foe."
 }

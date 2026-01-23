@@ -28,9 +28,18 @@
     }
   },
   "abilities": [
-    "sticky-hold",
-    "storm-drain",
-    "sand-force"
+    {
+      "name": "sticky-hold",
+      "description": "Prevents item theft."
+    },
+    {
+      "name": "storm-drain",
+      "description": "The Pokémon draws in all Water-type moves."
+    },
+    {
+      "name": "sand-force",
+      "description": "Boosts certain moves’ power in a sandstorm."
+    }
   ],
   "description": "Its colors and shapes differ from\nregion to region. In the Sinnoh\nregion, two types are confirmed."
 }

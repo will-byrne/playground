@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "torrent",
-    "damp"
+    {
+      "name": "torrent",
+      "description": "Ups WATER moves in a pinch."
+    },
+    {
+      "name": "damp",
+      "description": "Prevents self-destruction."
+    }
   ],
   "description": "The fin on MUDKIP’s head acts as highly\nsensitive radar. Using this fin to sense\nmovements of water and air, this\fPOKéMON can determine what is taking\nplace around it without using its eyes."
 }

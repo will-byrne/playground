@@ -25,7 +25,10 @@
     }
   },
   "abilities": [
-    "iron-barbs"
+    {
+      "name": "iron-barbs",
+      "description": "Inflicts damage to the Pokémon on contact."
+    }
   ],
   "description": "When threatened, it attacks by\nshooting a barrage of spikes, which gives\nit a chance to escape by rolling away."
 }

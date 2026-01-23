@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "effect-spore",
-    "poison-heal",
-    "technician"
+    {
+      "name": "effect-spore",
+      "description": "Leaves spores on contact."
+    },
+    {
+      "name": "poison-heal",
+      "description": "Restores HP if the Pokémon is poisoned."
+    },
+    {
+      "name": "technician",
+      "description": "Powers up the Pokémon’s weaker moves."
+    }
   ],
   "description": "BRELOOM closes in on its foe with light\nand sprightly footwork, then throws\npunches with its stretchy arms.\fThis POKéMON’s fighting technique puts\nboxers to shame."
 }

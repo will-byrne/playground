@@ -28,8 +28,14 @@
     }
   },
   "abilities": [
-    "blaze",
-    "libero"
+    {
+      "name": "blaze",
+      "description": "Ups FIRE moves in a pinch."
+    },
+    {
+      "name": "libero",
+      "description": "Changes the Pokémon’s type to the type of the move it’s about to use."
+    }
   ],
   "description": "It juggles a pebble with its feet, turning it into a\nburning soccer ball. Its shots strike opponents\nhard and leave them scorched."
 }

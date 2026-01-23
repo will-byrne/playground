@@ -29,8 +29,14 @@
     }
   },
   "abilities": [
-    "pressure",
-    "snow-cloak"
+    {
+      "name": "pressure",
+      "description": "Raises foe’s PP usage."
+    },
+    {
+      "name": "snow-cloak",
+      "description": "Raises evasion in a hailstorm."
+    }
   ],
   "description": "A legendary bird\nPOKéMON that is\nsaid to appear to\fdoomed people who\nare lost in icy\nmountains."
 }

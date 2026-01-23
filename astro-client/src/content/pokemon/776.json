@@ -25,7 +25,10 @@
     }
   },
   "abilities": [
-    "shell-armor"
+    {
+      "name": "shell-armor",
+      "description": "Blocks critical hits."
+    }
   ],
   "description": "The shell on its back is chemically unstable\nand explodes violently if struck. The hole in its\nstomach is its weak point."
 }

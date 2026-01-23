@@ -28,9 +28,18 @@
     }
   },
   "abilities": [
-    "synchronize",
-    "inner-focus",
-    "magic-guard"
+    {
+      "name": "synchronize",
+      "description": "Passes on status problems."
+    },
+    {
+      "name": "inner-focus",
+      "description": "Prevents flinching."
+    },
+    {
+      "name": "magic-guard",
+      "description": "The Pokémon only takes damage from attacks."
+    }
   ],
   "description": "Its brain can out­\nperform a super­\ncomputer.\fIts intelligence\nquotient is said\nto be 5,000."
 }

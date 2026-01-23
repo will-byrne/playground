@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "sap-sipper",
-    "hydration",
-    "gooey"
+    {
+      "name": "sap-sipper",
+      "description": "Boosts Attack when hit by a Grass-type move."
+    },
+    {
+      "name": "hydration",
+      "description": "Heals status problems if it is raining."
+    },
+    {
+      "name": "gooey",
+      "description": "Contact with the Pokémon lowers the attacker’s Speed stat."
+    }
   ],
   "description": "The weakest Dragon-type Pokémon,\nit lives in damp, shady places, so its\nbody doesn’t dry out."
 }

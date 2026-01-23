@@ -36,7 +36,10 @@
     }
   },
   "abilities": [
-    "prism-armor"
+    {
+      "name": "prism-armor",
+      "description": "Reduces the power of supereffective attacks taken."
+    }
   ],
   "description": "Reminiscent of the Ultra Beasts, this life-form,\napparently asleep underground, is thought to\nhave come from another world in ancient times."
 }

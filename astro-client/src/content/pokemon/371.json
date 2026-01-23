@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "rock-head",
-    "sheer-force"
+    {
+      "name": "rock-head",
+      "description": "Protects the Pokémon from recoil damage."
+    },
+    {
+      "name": "sheer-force",
+      "description": "Removes added effects to increase move damage."
+    }
   ],
   "description": "Dreaming of one day flying, it practices by leaping\noff cliffs every day."
 }

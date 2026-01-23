@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "keen-eye",
-    "skill-link",
-    "sheer-force"
+    {
+      "name": "keen-eye",
+      "description": "Prevents loss of accuracy."
+    },
+    {
+      "name": "skill-link",
+      "description": "Increases the frequency of multi-strike moves."
+    },
+    {
+      "name": "sheer-force",
+      "description": "Removes added effects to increase move damage."
+    }
   ],
   "description": "When it battles, its beak heats up. The\ntemperature can easily exceed 212 degrees\nFahrenheit, causing severe burns when it hits."
 }

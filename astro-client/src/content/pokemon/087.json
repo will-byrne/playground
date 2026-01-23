@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "thick-fat",
-    "hydration",
-    "ice-body"
+    {
+      "name": "thick-fat",
+      "description": "Heat-and-cold protection."
+    },
+    {
+      "name": "hydration",
+      "description": "Heals status problems if it is raining."
+    },
+    {
+      "name": "ice-body",
+      "description": "The Pokémon regains HP in a hailstorm."
+    }
   ],
   "description": "Stores thermal\nenergy in its\nbody. Swims at a\fsteady 8 knots\neven in intensely\ncold waters."
 }

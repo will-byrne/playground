@@ -25,8 +25,14 @@
     }
   },
   "abilities": [
-    "pressure",
-    "regenerator"
+    {
+      "name": "pressure",
+      "description": "Raises foe’s PP usage."
+    },
+    {
+      "name": "regenerator",
+      "description": "Restores a little HP when withdrawn from battle."
+    }
   ],
   "description": "Legends claim this\nPOKéMON flies the\nworld's skies con­\ftinuously on its\nmagnificent seven-\ncolored wings."
 }

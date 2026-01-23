@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "chlorophyll",
-    "healer"
+    {
+      "name": "chlorophyll",
+      "description": "Raises SPEED in sunshine."
+    },
+    {
+      "name": "healer",
+      "description": "May heal an ally’s status conditions."
+    }
   ],
   "description": "Plentiful in the tropics. When it\ndances, its petals rub together and\nmake a pleasant ringing sound."
 }

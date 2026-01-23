@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "intimidate",
-    "frisk",
-    "sap-sipper"
+    {
+      "name": "intimidate",
+      "description": "Lowers the foe’s ATTACK."
+    },
+    {
+      "name": "frisk",
+      "description": "The Pokémon can check the foe’s held item."
+    },
+    {
+      "name": "sap-sipper",
+      "description": "Boosts Attack when hit by a Grass-type move."
+    }
   ],
   "description": "The curved antlers\nsubtly change the\nflow of air to\fcreate a strange\nspace where real­\nity is distorted."
 }

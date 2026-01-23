@@ -28,7 +28,10 @@
     }
   },
   "abilities": [
-    "fairy-aura"
+    {
+      "name": "fairy-aura",
+      "description": "Powers up each Pokémon’s Fairy-type moves."
+    }
   ],
   "description": "Legends say it can share eternal life.\nIt slept for a thousand years in the form\nof a tree before its revival."
 }

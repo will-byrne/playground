@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "defiant",
-    "inner-focus",
-    "pressure"
+    {
+      "name": "defiant",
+      "description": "When its stats are lowered its Attack increases."
+    },
+    {
+      "name": "inner-focus",
+      "description": "Prevents flinching."
+    },
+    {
+      "name": "pressure",
+      "description": "Raises foe’s PP usage."
+    }
   ],
   "description": "It leads a group of Pawniard.\nIt battles to become the boss, but will\nbe driven from the group if it loses."
 }

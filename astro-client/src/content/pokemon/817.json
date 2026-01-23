@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "torrent",
-    "sniper"
+    {
+      "name": "torrent",
+      "description": "Ups WATER moves in a pinch."
+    },
+    {
+      "name": "sniper",
+      "description": "Powers up moves if they become critical hits."
+    }
   ],
   "description": "A clever combatant, this Pokémon battles using\nwater balloons created with moisture secreted\nfrom its palms."
 }

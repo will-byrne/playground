@@ -28,7 +28,10 @@
     }
   },
   "abilities": [
-    "iron-fist"
+    {
+      "name": "iron-fist",
+      "description": "Boosts the power of punching moves."
+    }
   ],
   "description": "Revered long ago for its capacity to create iron\nfrom nothing, for some reason it has come back\nto life after 3,000 years."
 }

@@ -21,13 +21,26 @@
       "pyroar": {
         "default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/668.png",
         "shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/668.png"
+      },
+      "pyroar-mega": {
+        "default": null,
+        "shiny": null
       }
     }
   },
   "abilities": [
-    "rivalry",
-    "unnerve",
-    "moxie"
+    {
+      "name": "rivalry",
+      "description": "Raises Attack if the foe is of the same gender."
+    },
+    {
+      "name": "unnerve",
+      "description": "Makes the foe nervous and unable to eat Berries."
+    },
+    {
+      "name": "moxie",
+      "description": "Boosts Attack after knocking out any Pokémon."
+    }
   ],
   "description": "The male with the largest mane of fire\nis the leader of the pride."
 }

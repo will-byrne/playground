@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "trace",
-    "download",
-    "analytic"
+    {
+      "name": "trace",
+      "description": "Copies special ability."
+    },
+    {
+      "name": "download",
+      "description": "Adjusts power according to the foe’s ability."
+    },
+    {
+      "name": "analytic",
+      "description": "Boosts move power when the Pokémon moves last."
+    }
   ],
   "description": "This upgraded\nversion of PORYGON\nis designed for\fspace exploration.\nIt can't fly,\nthough."
 }

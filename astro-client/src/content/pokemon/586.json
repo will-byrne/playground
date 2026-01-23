@@ -37,9 +37,18 @@
     }
   },
   "abilities": [
-    "chlorophyll",
-    "sap-sipper",
-    "serene-grace"
+    {
+      "name": "chlorophyll",
+      "description": "Raises SPEED in sunshine."
+    },
+    {
+      "name": "sap-sipper",
+      "description": "Boosts Attack when hit by a Grass-type move."
+    },
+    {
+      "name": "serene-grace",
+      "description": "Promotes added effects."
+    }
   ],
   "description": "They migrate according to the seasons.\nPeople can tell the season by looking at\nSawsbuck’s horns."
 }

@@ -25,7 +25,10 @@
     }
   },
   "abilities": [
-    "justified"
+    {
+      "name": "justified",
+      "description": "Raises Attack when hit by a Dark-type move."
+    }
   ],
   "description": "This Pokémon came to the defense of\nPokémon that had lost their homes in\na war among humans."
 }

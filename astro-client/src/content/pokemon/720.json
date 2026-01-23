@@ -29,7 +29,10 @@
     }
   },
   "abilities": [
-    "magician"
+    {
+      "name": "magician",
+      "description": "The Pokémon steals the held item of a Pokémon it hits with a move."
+    }
   ],
   "description": "This troublemaker sends anything\nand everything to faraway places\nusing its loop, which can warp space."
 }

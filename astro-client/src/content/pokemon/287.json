@@ -24,7 +24,10 @@
     }
   },
   "abilities": [
-    "truant"
+    {
+      "name": "truant",
+      "description": "Moves only every two turns."
+    }
   ],
   "description": "SLAKOTH lolls around for over twenty\nhours every day. Because it moves so\nlittle, it does not need much food.\fThis POKéMON’s sole daily meal consists\nof just three leaves."
 }

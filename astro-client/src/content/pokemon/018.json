@@ -29,9 +29,18 @@
     }
   },
   "abilities": [
-    "keen-eye",
-    "tangled-feet",
-    "big-pecks"
+    {
+      "name": "keen-eye",
+      "description": "Prevents loss of accuracy."
+    },
+    {
+      "name": "tangled-feet",
+      "description": "Raises evasion if the Pokémon is confused."
+    },
+    {
+      "name": "big-pecks",
+      "description": "Protects the Pokémon from Defense-lowering attacks."
+    }
   ],
   "description": "When hunting, it\nskims the surface\nof water at high\fspeed to pick off\nunwary prey such\nas MAGIKARP."
 }

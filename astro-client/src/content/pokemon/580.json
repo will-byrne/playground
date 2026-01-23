@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "keen-eye",
-    "big-pecks",
-    "hydration"
+    {
+      "name": "keen-eye",
+      "description": "Prevents loss of accuracy."
+    },
+    {
+      "name": "big-pecks",
+      "description": "Protects the Pokémon from Defense-lowering attacks."
+    },
+    {
+      "name": "hydration",
+      "description": "Heals status problems if it is raining."
+    }
   ],
   "description": "These bird Pokémon are excellent divers.\nThey swim around in the water eating\ntheir favorite food--peat moss."
 }

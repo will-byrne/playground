@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "vital-spirit",
-    "hustle",
-    "insomnia"
+    {
+      "name": "vital-spirit",
+      "description": "Prevents sleep."
+    },
+    {
+      "name": "hustle",
+      "description": "Trades accuracy for power."
+    },
+    {
+      "name": "insomnia",
+      "description": "Prevents sleep."
+    }
   ],
   "description": "It carries food\nall day long.\nThere are tales\fabout lost people\nwho were saved by\nthe food it had."
 }

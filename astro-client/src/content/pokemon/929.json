@@ -25,8 +25,14 @@
     }
   },
   "abilities": [
-    "early-bird",
-    "harvest"
+    {
+      "name": "early-bird",
+      "description": "Awakens quickly from sleep."
+    },
+    {
+      "name": "harvest",
+      "description": "May create another Berry after one is used."
+    }
   ],
   "description": "Dolliv shares its tasty, fresh-scented oil with others. This species has coexisted with humans since times long gone."
 }

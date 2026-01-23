@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "keen-eye",
-    "infiltrator",
-    "own-tempo"
+    {
+      "name": "keen-eye",
+      "description": "Prevents loss of accuracy."
+    },
+    {
+      "name": "infiltrator",
+      "description": "Passes through the foe’s barrier and strikes."
+    },
+    {
+      "name": "own-tempo",
+      "description": "Prevents confusion."
+    }
   ],
   "description": "The organ that emits its intense psychic power is\nsheltered by its ears to keep power from leaking out."
 }

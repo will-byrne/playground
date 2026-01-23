@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "overgrow",
-    "unburden"
+    {
+      "name": "overgrow",
+      "description": "Powers up Grass-type moves in a pinch."
+    },
+    {
+      "name": "unburden",
+      "description": "Raises Speed if a held item is used."
+    }
   ],
   "description": "The leaves growing out of GROVYLE’s\nbody are convenient for camouflaging\nit from enemies in the forest.\fThis POKéMON is a master at climbing\ntrees in jungles."
 }

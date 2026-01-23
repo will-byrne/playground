@@ -24,7 +24,10 @@
     }
   },
   "abilities": [
-    "beast-boost"
+    {
+      "name": "beast-boost",
+      "description": "The Pokémon boosts its most proficient stat each time it knocks out a Pokémon."
+    }
   ],
   "description": "One of the mysterious life-forms known as Ultra\nBeasts. Astonishing electric shocks emanate\nfrom its entire body, according to witnesses."
 }

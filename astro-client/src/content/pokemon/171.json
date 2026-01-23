@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "volt-absorb",
-    "illuminate",
-    "water-absorb"
+    {
+      "name": "volt-absorb",
+      "description": "Turns electricity into HP."
+    },
+    {
+      "name": "illuminate",
+      "description": "Encounter rate increases."
+    },
+    {
+      "name": "water-absorb",
+      "description": "Restores HP if hit by a Water-type move."
+    }
   ],
   "description": "The light it emits\nis so bright that\nit can illuminate\fthe sea's surface\nfrom a depth of\nover three miles."
 }

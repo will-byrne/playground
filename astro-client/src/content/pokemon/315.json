@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "natural-cure",
-    "poison-point",
-    "leaf-guard"
+    {
+      "name": "natural-cure",
+      "description": "Heals upon switching out."
+    },
+    {
+      "name": "poison-point",
+      "description": "Poisons foe on contact."
+    },
+    {
+      "name": "leaf-guard",
+      "description": "Prevents status problems in sunny weather."
+    }
   ],
   "description": "ROSELIA shoots sharp thorns as\nprojectiles at any opponent that tries\nto steal the flowers on its arms.\fThe aroma of this POKéMON brings\nserenity to living things."
 }

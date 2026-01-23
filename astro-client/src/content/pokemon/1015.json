@@ -25,8 +25,14 @@
     }
   },
   "abilities": [
-    "toxic-chain",
-    "frisk"
+    {
+      "name": "toxic-chain",
+      "description": "The power of the Pokémon's toxic chain may badly poison any target the Pokémon hits with a move"
+    },
+    {
+      "name": "frisk",
+      "description": "The Pokémon can check the foe’s held item."
+    }
   ],
   "description": "The chain is made from toxins that enhance capabilities. It stimulated Munkidori's brain and caused the Pokémon's psychic powers to bloom."
 }

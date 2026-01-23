@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "pressure",
-    "inner-focus"
+    {
+      "name": "pressure",
+      "description": "Raises foe’s PP usage."
+    },
+    {
+      "name": "inner-focus",
+      "description": "Prevents flinching."
+    }
   ],
   "description": "The rain clouds it\ncarries let it\nfire thunderbolts\fat will. They say\nthat it descended\nwith lightning."
 }

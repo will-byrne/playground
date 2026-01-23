@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "reckless",
-    "adaptability",
-    "mold-breaker"
+    {
+      "name": "reckless",
+      "description": "Powers up moves that have recoil damage."
+    },
+    {
+      "name": "adaptability",
+      "description": "Powers up moves of the same type."
+    },
+    {
+      "name": "mold-breaker",
+      "description": "Moves can be used regardless of abilities."
+    }
   ],
   "description": "Red and blue Basculin get along so\npoorly, they’ll start fighting instantly.\nThese Pokémon are very hostile."
 }

@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "natural-cure",
-    "frisk",
-    "harvest"
+    {
+      "name": "natural-cure",
+      "description": "Heals upon switching out."
+    },
+    {
+      "name": "frisk",
+      "description": "The Pokémon can check the foe’s held item."
+    },
+    {
+      "name": "harvest",
+      "description": "May create another Berry after one is used."
+    }
   ],
   "description": "These Pokémon are created when\nspirits possess rotten tree stumps.\nThey prefer to live in abandoned forests."
 }

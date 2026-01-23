@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "clear-body",
-    "light-metal"
+    {
+      "name": "clear-body",
+      "description": "Prevents ability reduction."
+    },
+    {
+      "name": "light-metal",
+      "description": "Halves the Pokémon’s weight."
+    }
   ],
   "description": "REGISTEEL has a body that is harder\nthan any kind of metal.\nIts body is apparently hollow.\fNo one has any idea what this POKéMON\neats."
 }

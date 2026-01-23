@@ -25,8 +25,14 @@
     }
   },
   "abilities": [
-    "overgrow",
-    "protean"
+    {
+      "name": "overgrow",
+      "description": "Powers up Grass-type moves in a pinch."
+    },
+    {
+      "name": "protean",
+      "description": "Changes the Pokémon’s type to the type of the move it’s using."
+    }
   ],
   "description": "This Pokémon uses the reflective fur lining its cape to camouflage the stem of its flower, creating the illusion that the flower is floating."
 }

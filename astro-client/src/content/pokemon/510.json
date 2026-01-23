@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "limber",
-    "unburden",
-    "prankster"
+    {
+      "name": "limber",
+      "description": "Prevents paralysis."
+    },
+    {
+      "name": "unburden",
+      "description": "Raises Speed if a held item is used."
+    },
+    {
+      "name": "prankster",
+      "description": "Gives priority to a status move."
+    }
   ],
   "description": "These Pokémon vanish and appear\nunexpectedly. Many Trainers are drawn\nto their beautiful form and fur."
 }

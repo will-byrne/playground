@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "soundproof",
-    "filter",
-    "technician"
+    {
+      "name": "soundproof",
+      "description": "Avoids sound-based moves."
+    },
+    {
+      "name": "filter",
+      "description": "Powers down super­ effective moves."
+    },
+    {
+      "name": "technician",
+      "description": "Powers up the Pokémon’s weaker moves."
+    }
   ],
   "description": "It habitually mimics foes. Once\nmimicked, the foe cannot take its\neyes off this Pokémon."
 }

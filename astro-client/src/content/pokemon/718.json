@@ -29,7 +29,10 @@
     }
   },
   "abilities": [
-    "aura-break"
+    {
+      "name": "aura-break",
+      "description": "The effects of “Aura” Abilities are reversed."
+    }
   ],
   "description": "When the Kalos region’s ecosystem falls into\ndisarray, it appears and reveals its secret power."
 }

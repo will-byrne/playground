@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "chlorophyll",
-    "leaf-guard",
-    "regenerator"
+    {
+      "name": "chlorophyll",
+      "description": "Raises SPEED in sunshine."
+    },
+    {
+      "name": "leaf-guard",
+      "description": "Prevents status problems in sunny weather."
+    },
+    {
+      "name": "regenerator",
+      "description": "Restores a little HP when withdrawn from battle."
+    }
   ],
   "description": "It ensnares prey by extending\narms made of vines. Losing arms to\npredators does not trouble it."
 }

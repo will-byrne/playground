@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "frisk",
-    "competitive",
-    "shadow-tag"
+    {
+      "name": "frisk",
+      "description": "The Pokémon can check the foe’s held item."
+    },
+    {
+      "name": "competitive",
+      "description": "Boosts the Sp. Atk stat when a stat is lowered."
+    },
+    {
+      "name": "shadow-tag",
+      "description": "Prevents the foe’s escape."
+    }
   ],
   "description": "They use hypnosis to control people and\nPokémon. Tales of Gothorita leading\npeople astray are told in every corner."
 }

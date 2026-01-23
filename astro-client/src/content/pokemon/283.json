@@ -25,8 +25,14 @@
     }
   },
   "abilities": [
-    "swift-swim",
-    "rain-dish"
+    {
+      "name": "swift-swim",
+      "description": "Raises SPEED in rain."
+    },
+    {
+      "name": "rain-dish",
+      "description": "Slight HP recovery in rain."
+    }
   ],
   "description": "From the tips of its feet, SURSKIT\nsecretes an oil that enables it to walk\non water as if it were skating.\fThis POKéMON feeds on microscopic\norganisms in ponds and lakes."
 }

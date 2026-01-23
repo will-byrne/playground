@@ -24,7 +24,10 @@
     }
   },
   "abilities": [
-    "shed-skin"
+    {
+      "name": "shed-skin",
+      "description": "Heals the body by shedding."
+    }
   ],
   "description": "This POKéMON is\nvulnerable to\nattack while its\fshell is soft,\nexposing its weak\nand tender body."
 }

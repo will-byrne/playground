@@ -25,8 +25,14 @@
     }
   },
   "abilities": [
-    "psychic-surge",
-    "telepathy"
+    {
+      "name": "psychic-surge",
+      "description": "Turns the ground into Psychic Terrain when the Pokémon enters a battle."
+    },
+    {
+      "name": "telepathy",
+      "description": "Anticipates an ally’s attack and dodges it."
+    }
   ],
   "description": "This guardian deity of Akala is guilelessly cruel.\nThe fragrant aroma of flowers is the source of\nits energy."
 }

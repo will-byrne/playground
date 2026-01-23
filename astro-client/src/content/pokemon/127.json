@@ -28,9 +28,18 @@
     }
   },
   "abilities": [
-    "hyper-cutter",
-    "mold-breaker",
-    "moxie"
+    {
+      "name": "hyper-cutter",
+      "description": "Prevents ATTACK reduction."
+    },
+    {
+      "name": "mold-breaker",
+      "description": "Moves can be used regardless of abilities."
+    },
+    {
+      "name": "moxie",
+      "description": "Boosts Attack after knocking out any Pokémon."
+    }
   ],
   "description": "If it fails to\ncrush the victim\nin its pincers,\fit will swing it\naround and toss\nit hard."
 }

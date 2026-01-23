@@ -24,7 +24,10 @@
     }
   },
   "abilities": [
-    "unaware"
+    {
+      "name": "unaware",
+      "description": "Ignores any change in ability by the foe."
+    }
   ],
   "description": "Its body is gaseous and frail. It slowly grows as\nit collects dust from the atmosphere."
 }

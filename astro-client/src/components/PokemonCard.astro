@@ -97,6 +97,55 @@ const { pokemon } = Astro.props;
     color: var(--ctp-text);
   }
 
+  .abilities {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+
+  .ability-badge-collapsible {
+    position: relative;
+    background: var(--ctp-lavender);
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .ability-badge-collapsible:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  }
+
+  .ability-badge-collapsible input {
+    display: none; /* hide the checkbox */
+  }
+
+  .ability-badge-collapsible label {
+    display: block;
+    padding: 0.5rem 0.8rem;
+    font-weight: 600;
+    color: #1a1b26;
+  }
+
+  .ability-badge-collapsible .ability-description {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 0.8rem;
+    background: var(--ctp-surface1);
+    color: var(--ctp-text);
+    font-size: 0.85rem;
+    line-height: 1.4;
+    transition: max-height 0.25s ease, padding 0.25s ease;
+  }
+
+  .ability-badge-collapsible input:checked ~ .ability-description {
+    max-height: 200px; /* enough for most descriptions */
+    padding: 0.5rem 0.8rem;
+  }
+
+
   h3 {
     color: var(--ctp-yellow);
     margin-top: 1.5rem;
@@ -130,8 +179,8 @@ const { pokemon } = Astro.props;
     <div class="dex-no">#{pokemon.id}</div>
   </div>
 
-  <div class="sprite-container">
-    <PokemonSprites sprites={pokemon.sprites} />
+  <div class="row">
+    {pokemon.sprites.official.default && <img src={pokemon.sprites.official.default} alt="official"/>}
   </div>
 
   <div class="types">
@@ -143,9 +192,17 @@ const { pokemon } = Astro.props;
   <p class="description">{pokemon.description}</p>
 
   <h3>Abilities</h3>
-  <ul>
-    {pokemon.abilities.map(ability => (
-      <li>{ability}</li>
+  <div class="abilities">
+    {pokemon.abilities.map((ability, index) => (
+      <div class="ability-badge-collapsible">
+        <input type="checkbox" id={`ability-${index}`} />
+        <label for={`ability-${index}`}>{ability.name}</label>
+        <div class="ability-description">{ability.description}</div>
+      </div>
     ))}
-  </ul>
+  </div>
+
+  <div class="sprite-container">
+    <PokemonSprites sprites={pokemon.sprites} />
+  </div>
 </div>

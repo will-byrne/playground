@@ -28,7 +28,10 @@
     }
   },
   "abilities": [
-    "drought"
+    {
+      "name": "drought",
+      "description": "Summons sunlight in battle."
+    }
   ],
   "description": "GROUDON has long been described in \nmythology as the POKéMON that raised\nlands and expanded continents.\fThis POKéMON took to sleep after a\ncataclysmic battle with KYOGRE."
 }

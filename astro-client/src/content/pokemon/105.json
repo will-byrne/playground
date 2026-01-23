@@ -32,9 +32,18 @@
     }
   },
   "abilities": [
-    "rock-head",
-    "lightning-rod",
-    "battle-armor"
+    {
+      "name": "rock-head",
+      "description": "Protects the Pokémon from recoil damage."
+    },
+    {
+      "name": "lightning-rod",
+      "description": "Draws electrical moves."
+    },
+    {
+      "name": "battle-armor",
+      "description": "Blocks critical hits."
+    }
   ],
   "description": "The bone it holds\nis its key weapon.\nIt throws the\fbone skillfully\nlike a boomerang\nto KO targets."
 }

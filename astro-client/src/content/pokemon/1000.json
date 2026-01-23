@@ -25,7 +25,10 @@
     }
   },
   "abilities": [
-    "good-as-gold"
+    {
+      "name": "good-as-gold",
+      "description": "A body of pure, solid gold gives the Pokémon full immunity to other Pokémon's status moves."
+    }
   ],
   "description": "Its body seems to be made up of 1,000 coins. This Pokémon gets along well with others and is quick to make friends with anybody."
 }

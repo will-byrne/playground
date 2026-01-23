@@ -24,7 +24,10 @@
     }
   },
   "abilities": [
-    "shed-skin"
+    {
+      "name": "shed-skin",
+      "description": "Heals the body by shedding."
+    }
   ],
   "description": "CASCOON makes its protective cocoon\nby wrapping its body entirely with a\nfine silk from its mouth. Once the silk\fgoes around its body, it hardens.\nThis POKéMON prepares for its evolution\ninside the cocoon."
 }

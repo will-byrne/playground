@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "static",
-    "vital-spirit"
+    {
+      "name": "static",
+      "description": "Paralyzes on contact."
+    },
+    {
+      "name": "vital-spirit",
+      "description": "Prevents sleep."
+    }
   ],
   "description": "It rotates its\narms to generate\nelectricity, but\fit tires easily,\nso it charges up\nonly a little bit."
 }

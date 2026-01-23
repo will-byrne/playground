@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "blaze",
-    "intimidate"
+    {
+      "name": "blaze",
+      "description": "Ups FIRE moves in a pinch."
+    },
+    {
+      "name": "intimidate",
+      "description": "Lowers the foe’s ATTACK."
+    }
   ],
   "description": "At its throat, it bears a bell of fire. The bell rings\nbrightly whenever this Pokémon spits fire."
 }

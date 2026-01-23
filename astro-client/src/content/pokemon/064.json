@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "synchronize",
-    "inner-focus",
-    "magic-guard"
+    {
+      "name": "synchronize",
+      "description": "Passes on status problems."
+    },
+    {
+      "name": "inner-focus",
+      "description": "Prevents flinching."
+    },
+    {
+      "name": "magic-guard",
+      "description": "The Pokémon only takes damage from attacks."
+    }
   ],
   "description": "It emits special\nalpha waves from\nits body that\finduce headaches\njust by being\nclose by."
 }

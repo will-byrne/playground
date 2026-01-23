@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "magnet-pull",
-    "sturdy",
-    "analytic"
+    {
+      "name": "magnet-pull",
+      "description": "Traps STEEL-type POKéMON."
+    },
+    {
+      "name": "sturdy",
+      "description": "Negates 1-hit KO attacks."
+    },
+    {
+      "name": "analytic",
+      "description": "Boosts move power when the Pokémon moves last."
+    }
   ],
   "description": "Formed by several\nMAGNEMITEs linked\ntogether. They\ffrequently appear\nwhen sunspots\nflare up."
 }

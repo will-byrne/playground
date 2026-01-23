@@ -36,7 +36,10 @@
     }
   },
   "abilities": [
-    "forecast"
+    {
+      "name": "forecast",
+      "description": "Changes with the weather."
+    }
   ],
   "description": "CASTFORM’s appearance changes with\nthe weather.\nThis POKéMON gained the ability to use\fthe vast power of nature to protect\nits tiny body."
 }

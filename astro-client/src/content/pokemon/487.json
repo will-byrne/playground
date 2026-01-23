@@ -25,8 +25,14 @@
     }
   },
   "abilities": [
-    "pressure",
-    "telepathy"
+    {
+      "name": "pressure",
+      "description": "Raises foe’s PP usage."
+    },
+    {
+      "name": "telepathy",
+      "description": "Anticipates an ally’s attack and dodges it."
+    }
   ],
   "description": "A Pokémon that is said to live in a\nworld on the reverse side of ours.\nIt appears in an ancient cemetery."
 }

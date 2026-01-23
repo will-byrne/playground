@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "overgrow",
-    "leaf-guard"
+    {
+      "name": "overgrow",
+      "description": "Powers up Grass-type moves in a pinch."
+    },
+    {
+      "name": "leaf-guard",
+      "description": "Prevents status problems in sunny weather."
+    }
   ],
   "description": "The scent of\nspices comes from\naround its neck.\fSomehow, sniffing\nit makes you want\nto fight."
 }

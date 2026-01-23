@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "lightning-rod",
-    "electric-surge"
+    {
+      "name": "lightning-rod",
+      "description": "Draws electrical moves."
+    },
+    {
+      "name": "electric-surge",
+      "description": "Turns the ground into Electric Terrain when the Pokémon enters a battle."
+    }
   ],
   "description": "It feeds on seaweed, using its teeth to scrape it\noff rocks. Electric current flows from the tips of\nits spines."
 }

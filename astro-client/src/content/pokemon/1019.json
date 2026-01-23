@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "supersweet-syrup",
-    "regenerator",
-    "sticky-hold"
+    {
+      "name": "supersweet-syrup",
+      "description": "Lowers the evasion of opposing Pokémon by 1 stage when first sent into battle"
+    },
+    {
+      "name": "regenerator",
+      "description": "Restores a little HP when withdrawn from battle."
+    },
+    {
+      "name": "sticky-hold",
+      "description": "Prevents item theft."
+    }
   ],
   "description": "Seven syrpents live inside an apple made of syrup. The syrpent in the center is the commander."
 }

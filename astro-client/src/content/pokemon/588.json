@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "swarm",
-    "shed-skin",
-    "no-guard"
+    {
+      "name": "swarm",
+      "description": "Ups BUG moves in a pinch."
+    },
+    {
+      "name": "shed-skin",
+      "description": "Heals the body by shedding."
+    },
+    {
+      "name": "no-guard",
+      "description": "Ensures the Pokémon and its foe’s attacks land."
+    }
   ],
   "description": "These mysterious Pokémon evolve when\nthey receive electrical stimulation while\nthey are in the same place as Shelmet."
 }

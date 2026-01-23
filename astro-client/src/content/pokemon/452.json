@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "battle-armor",
-    "sniper",
-    "keen-eye"
+    {
+      "name": "battle-armor",
+      "description": "Blocks critical hits."
+    },
+    {
+      "name": "sniper",
+      "description": "Powers up moves if they become critical hits."
+    },
+    {
+      "name": "keen-eye",
+      "description": "Prevents loss of accuracy."
+    }
   ],
   "description": "It has the power in its clawed\narms to make scrap of a car. The\ntips of its claws release poison."
 }

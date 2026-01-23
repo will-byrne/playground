@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "static",
-    "plus"
+    {
+      "name": "static",
+      "description": "Paralyzes on contact."
+    },
+    {
+      "name": "plus",
+      "description": "Powers up with MINUS."
+    }
   ],
   "description": "As a result of\nstoring too much\nelectricity, it\fdeveloped patches\nwhere even downy\nwool won't grow."
 }

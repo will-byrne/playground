@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "keen-eye",
-    "iron-fist",
-    "inner-focus"
+    {
+      "name": "keen-eye",
+      "description": "Prevents loss of accuracy."
+    },
+    {
+      "name": "iron-fist",
+      "description": "Boosts the power of punching moves."
+    },
+    {
+      "name": "inner-focus",
+      "description": "Prevents flinching."
+    }
   ],
   "description": "While apparently\ndoing nothing, it\nfires punches in\flightning fast\nvolleys that are\nimpossible to see."
 }

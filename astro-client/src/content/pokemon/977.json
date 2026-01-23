@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "unaware",
-    "oblivious",
-    "water-veil"
+    {
+      "name": "unaware",
+      "description": "Ignores any change in ability by the foe."
+    },
+    {
+      "name": "oblivious",
+      "description": "Prevents attraction."
+    },
+    {
+      "name": "water-veil",
+      "description": "Prevents burns."
+    }
   ],
   "description": "This Pokémon is a glutton, but it’s bad at getting food. It teams up with a Tatsugiri to catch prey."
 }

@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "plus",
-    "lightning-rod"
+    {
+      "name": "plus",
+      "description": "Powers up with MINUS."
+    },
+    {
+      "name": "lightning-rod",
+      "description": "Draws electrical moves."
+    }
   ],
   "description": "PLUSLE always acts as a cheerleader\nfor its partners. Whenever a teammate\nputs out a good effort in battle, this\fPOKéMON shorts out its body to create\nthe crackling noises of sparks to show\nits joy."
 }

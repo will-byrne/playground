@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "unaware",
-    "klutz",
-    "simple"
+    {
+      "name": "unaware",
+      "description": "Ignores any change in ability by the foe."
+    },
+    {
+      "name": "klutz",
+      "description": "The Pokémon can’t use any held items."
+    },
+    {
+      "name": "simple",
+      "description": "The Pokémon is prone to wild stat changes."
+    }
   ],
   "description": "It emits sound waves of various\nfrequencies from its nose, including\nsome powerful enough to destroy rocks."
 }

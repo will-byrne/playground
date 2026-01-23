@@ -32,8 +32,14 @@
     }
   },
   "abilities": [
-    "torrent",
-    "rain-dish"
+    {
+      "name": "torrent",
+      "description": "Ups WATER moves in a pinch."
+    },
+    {
+      "name": "rain-dish",
+      "description": "Slight HP recovery in rain."
+    }
   ],
   "description": "A brutal POKéMON\nwith pressurized\nwater jets on its\fshell. They are\nused for high\nspeed tackles."
 }

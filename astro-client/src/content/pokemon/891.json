@@ -24,7 +24,10 @@
     }
   },
   "abilities": [
-    "inner-focus"
+    {
+      "name": "inner-focus",
+      "description": "Prevents flinching."
+    }
   ],
   "description": "Kubfu trains hard to perfect its moves. The moves\nit masters will determine which form it takes when\nit evolves."
 }

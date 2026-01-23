@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "cheek-pouch",
-    "pickup",
-    "plus"
+    {
+      "name": "cheek-pouch",
+      "description": "Restores HP as well when the Pokémon eats a Berry."
+    },
+    {
+      "name": "pickup",
+      "description": "May pick up items."
+    },
+    {
+      "name": "plus",
+      "description": "Powers up with MINUS."
+    }
   ],
   "description": "Its whiskers serve as antennas. By sending and\nreceiving electrical waves, it can communicate\nwith others over vast distances."
 }

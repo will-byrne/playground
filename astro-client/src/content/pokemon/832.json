@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "fluffy",
-    "steadfast",
-    "bulletproof"
+    {
+      "name": "fluffy",
+      "description": "Halves the damage taken from moves that make direct contact, but doubles that of Fire-type moves."
+    },
+    {
+      "name": "steadfast",
+      "description": "Raises Speed each time the Pokémon flinches."
+    },
+    {
+      "name": "bulletproof",
+      "description": "Protects the Pokémon from some ball and bomb moves."
+    }
   ],
   "description": "Weave a carpet from its springy wool, and you end\nup with something closer to a trampoline. You’ll\nstart to bounce the moment you set foot on it."
 }

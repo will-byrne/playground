@@ -21,13 +21,26 @@
       "chandelure": {
         "default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/609.png",
         "shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/609.png"
+      },
+      "chandelure-mega": {
+        "default": null,
+        "shiny": null
       }
     }
   },
   "abilities": [
-    "flash-fire",
-    "flame-body",
-    "infiltrator"
+    {
+      "name": "flash-fire",
+      "description": "Powers up if hit by fire."
+    },
+    {
+      "name": "flame-body",
+      "description": "Burns the foe on contact."
+    },
+    {
+      "name": "infiltrator",
+      "description": "Passes through the foe’s barrier and strikes."
+    }
   ],
   "description": "It absorbs a spirit, which it then burns.\nBy waving the flames on its arms,\nit puts its foes into a hypnotic trance."
 }

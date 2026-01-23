@@ -25,8 +25,14 @@
     }
   },
   "abilities": [
-    "keen-eye",
-    "sniper"
+    {
+      "name": "keen-eye",
+      "description": "Prevents loss of accuracy."
+    },
+    {
+      "name": "sniper",
+      "description": "Powers up moves if they become critical hits."
+    }
   ],
   "description": "With its huge and\nmagnificent wings,\nit can keep aloft\fwithout ever\nhaving to land\nfor rest."
 }

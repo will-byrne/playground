@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "swift-swim",
-    "adaptability",
-    "mold-breaker"
+    {
+      "name": "swift-swim",
+      "description": "Raises SPEED in rain."
+    },
+    {
+      "name": "adaptability",
+      "description": "Powers up moves of the same type."
+    },
+    {
+      "name": "mold-breaker",
+      "description": "Moves can be used regardless of abilities."
+    }
   ],
   "description": "Clads itself in the souls of comrades that perished before\nfulfilling their goals of journeying upstream. No other species\nthroughout all Hisui's rivers is Basculegion's equal."
 }

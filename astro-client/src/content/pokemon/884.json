@@ -29,9 +29,18 @@
     }
   },
   "abilities": [
-    "light-metal",
-    "heavy-metal",
-    "stalwart"
+    {
+      "name": "light-metal",
+      "description": "Halves the Pokémon’s weight."
+    },
+    {
+      "name": "heavy-metal",
+      "description": "Doubles the Pokémon’s weight."
+    },
+    {
+      "name": "stalwart",
+      "description": "Ignores the effects of opposing Pokémon’s Abilities and moves that draw in moves."
+    }
   ],
   "description": "Its body resembles polished metal, and it’s both\nlightweight and strong. The only drawback is that\nit rusts easily."
 }

@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "aftermath",
-    "unburden",
-    "flare-boost"
+    {
+      "name": "aftermath",
+      "description": "Damages the foe landing the finishing hit."
+    },
+    {
+      "name": "unburden",
+      "description": "Raises Speed if a held item is used."
+    },
+    {
+      "name": "flare-boost",
+      "description": "Powers up special attacks when burned."
+    }
   ],
   "description": "At dusk, swarms of them are\ncarried aloft on winds. When\nnoticed, they suddenly vanish."
 }

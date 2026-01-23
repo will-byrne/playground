@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "overgrow",
-    "leaf-guard"
+    {
+      "name": "overgrow",
+      "description": "Powers up Grass-type moves in a pinch."
+    },
+    {
+      "name": "leaf-guard",
+      "description": "Prevents status problems in sunny weather."
+    }
   ],
   "description": "A sweet aroma\ngently wafts from\nthe leaf on its\fhead. It is docile\nand loves to soak\nup the sun's rays."
 }

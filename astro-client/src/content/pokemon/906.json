@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "overgrow",
-    "protean"
+    {
+      "name": "overgrow",
+      "description": "Powers up Grass-type moves in a pinch."
+    },
+    {
+      "name": "protean",
+      "description": "Changes the Pokémon’s type to the type of the move it’s using."
+    }
   ],
   "description": "Its fluffy fur is similar in composition to plants. This Pokémon frequently washes its face to keep it from drying out."
 }

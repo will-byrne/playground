@@ -25,7 +25,10 @@
     }
   },
   "abilities": [
-    "tablets-of-ruin"
+    {
+      "name": "tablets-of-ruin",
+      "description": "The power of the Pokémon's ruinous wooden tablets lowers the Attack stats of all Pokémon except itself."
+    }
   ],
   "description": "The grudge of a person punished for writing the king’s evil deeds upon wooden tablets has clad itself in dead leaves to become a Pokémon."
 }

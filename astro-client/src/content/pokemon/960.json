@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "gooey",
-    "rattled",
-    "sand-veil"
+    {
+      "name": "gooey",
+      "description": "Contact with the Pokémon lowers the attacker’s Speed stat."
+    },
+    {
+      "name": "rattled",
+      "description": "Some move types scare it and boost its Speed."
+    },
+    {
+      "name": "sand-veil",
+      "description": "Ups evasion in a sandstorm."
+    }
   ],
   "description": "This Pokémon can pick up the scent of a Veluza just over 65 feet away and will hide itself in the sand."
 }

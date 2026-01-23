@@ -21,12 +21,22 @@
       "delphox": {
         "default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/655.png",
         "shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/655.png"
+      },
+      "delphox-mega": {
+        "default": null,
+        "shiny": null
       }
     }
   },
   "abilities": [
-    "blaze",
-    "magician"
+    {
+      "name": "blaze",
+      "description": "Ups FIRE moves in a pinch."
+    },
+    {
+      "name": "magician",
+      "description": "The Pokémon steals the held item of a Pokémon it hits with a move."
+    }
   ],
   "description": "It gazes into the flame at the tip of\nits branch to achieve a focused state,\nwhich allows it to see into the future."
 }

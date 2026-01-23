@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "stench",
-    "aftermath",
-    "keen-eye"
+    {
+      "name": "stench",
+      "description": "Helps repel wild POKéMON."
+    },
+    {
+      "name": "aftermath",
+      "description": "Damages the foe landing the finishing hit."
+    },
+    {
+      "name": "keen-eye",
+      "description": "Prevents loss of accuracy."
+    }
   ],
   "description": "It protects itself by spraying a\nnoxious fluid from its rear. The\nstench lingers for 24 hours."
 }

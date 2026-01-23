@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "big-pecks",
-    "keen-eye",
-    "rocky-payload"
+    {
+      "name": "big-pecks",
+      "description": "Protects the Pokémon from Defense-lowering attacks."
+    },
+    {
+      "name": "keen-eye",
+      "description": "Prevents loss of accuracy."
+    },
+    {
+      "name": "rocky-payload",
+      "description": "Powers up Rock-type moves."
+    }
   ],
   "description": "It gathers things up in an apron made from shed feathers added to the Pokémon’s chest feathers, then drops those things from high places for fun."
 }

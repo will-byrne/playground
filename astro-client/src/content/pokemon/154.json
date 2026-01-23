@@ -20,12 +20,22 @@
       "meganium": {
         "default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/154.png",
         "shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/154.png"
+      },
+      "meganium-mega": {
+        "default": null,
+        "shiny": null
       }
     }
   },
   "abilities": [
-    "overgrow",
-    "leaf-guard"
+    {
+      "name": "overgrow",
+      "description": "Powers up Grass-type moves in a pinch."
+    },
+    {
+      "name": "leaf-guard",
+      "description": "Prevents status problems in sunny weather."
+    }
   ],
   "description": "The aroma that\nrises from its\npetals contains a\fsubstance that\ncalms aggressive\nfeelings."
 }

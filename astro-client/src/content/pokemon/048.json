@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "compound-eyes",
-    "tinted-lens",
-    "run-away"
+    {
+      "name": "compound-eyes",
+      "description": "Raises accuracy."
+    },
+    {
+      "name": "tinted-lens",
+      "description": "Powers up “not very effective” moves."
+    },
+    {
+      "name": "run-away",
+      "description": "Makes escaping easier."
+    }
   ],
   "description": "Lives in the\nshadows of tall\ntrees where it\feats insects. It\nis attracted by\nlight at night."
 }

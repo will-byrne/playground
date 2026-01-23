@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "prankster",
-    "defiant"
+    {
+      "name": "prankster",
+      "description": "Gives priority to a status move."
+    },
+    {
+      "name": "defiant",
+      "description": "When its stats are lowered its Attack increases."
+    }
   ],
   "description": "The lower half of its body is wrapped in\na cloud of energy. It zooms through\nthe sky at 200 mph."
 }

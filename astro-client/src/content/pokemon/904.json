@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "poison-point",
-    "swift-swim",
-    "intimidate"
+    {
+      "name": "poison-point",
+      "description": "Poisons foe on contact."
+    },
+    {
+      "name": "swift-swim",
+      "description": "Raises SPEED in rain."
+    },
+    {
+      "name": "intimidate",
+      "description": "Lowers the foe’s ATTACK."
+    }
   ],
   "description": "Its lancelike spikes and savage temperament have earned it the\nnickname ”sea fiend.” It slurps up poison to nourish itself."
 }

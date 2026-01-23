@@ -25,7 +25,10 @@
     }
   },
   "abilities": [
-    "turboblaze"
+    {
+      "name": "turboblaze",
+      "description": "Moves can be used regardless of Abilities."
+    }
   ],
   "description": "This Pokémon appears in legends.\nIt sends flames into the air from its\ntail, burning up everything around it."
 }

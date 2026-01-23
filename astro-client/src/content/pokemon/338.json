@@ -25,7 +25,10 @@
     }
   },
   "abilities": [
-    "levitate"
+    {
+      "name": "levitate",
+      "description": "Gives full immunity to all Ground-type moves."
+    }
   ],
   "description": "Solar energy is the source of its power,\nso it is strong during the daytime.\nWhen it spins, its body shines."
 }

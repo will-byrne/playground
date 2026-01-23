@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "pickup",
-    "cheek-pouch",
-    "huge-power"
+    {
+      "name": "pickup",
+      "description": "May pick up items."
+    },
+    {
+      "name": "cheek-pouch",
+      "description": "Restores HP as well when the Pokémon eats a Berry."
+    },
+    {
+      "name": "huge-power",
+      "description": "Raises ATTACK."
+    }
   ],
   "description": "With their powerful ears, they can heft\nboulders of a ton or more with ease.\nThey can be a big help at construction sites."
 }

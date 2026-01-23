@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "hustle",
-    "sniper",
-    "moody"
+    {
+      "name": "hustle",
+      "description": "Trades accuracy for power."
+    },
+    {
+      "name": "sniper",
+      "description": "Powers up moves if they become critical hits."
+    },
+    {
+      "name": "moody",
+      "description": "Raises one stat and lowers another."
+    }
   ],
   "description": "It has superb ac­\ncuracy. The water\nit shoots out can\fstrike even moving\nprey from more\nthan 300 feet."
 }

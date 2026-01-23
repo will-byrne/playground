@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "flash-fire",
-    "flame-body"
+    {
+      "name": "flash-fire",
+      "description": "Powers up if hit by fire."
+    },
+    {
+      "name": "flame-body",
+      "description": "Burns the foe on contact."
+    }
   ],
   "description": "Burnt charcoal came to life and became a Pokémon. Possessing a fiery fighting spirit, Charcadet will battle even tough opponents."
 }

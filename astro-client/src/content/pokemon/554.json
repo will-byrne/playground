@@ -28,8 +28,14 @@
     }
   },
   "abilities": [
-    "hustle",
-    "inner-focus"
+    {
+      "name": "hustle",
+      "description": "Trades accuracy for power."
+    },
+    {
+      "name": "inner-focus",
+      "description": "Prevents flinching."
+    }
   ],
   "description": "When its internal fire is burning, it\ncannot calm down and it runs around.\nWhen the fire diminishes, it falls asleep."
 }

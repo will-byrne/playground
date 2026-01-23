@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "intimidate",
-    "run-away",
-    "rattled"
+    {
+      "name": "intimidate",
+      "description": "Lowers the foe’s ATTACK."
+    },
+    {
+      "name": "run-away",
+      "description": "Makes escaping easier."
+    },
+    {
+      "name": "rattled",
+      "description": "Some move types scare it and boost its Speed."
+    }
   ],
   "description": "Although it looks\nfrightening, it is\nactually kind and\faffectionate. It\nis very popular\namong women."
 }

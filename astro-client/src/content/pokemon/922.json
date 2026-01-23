@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "volt-absorb",
-    "natural-cure",
-    "iron-fist"
+    {
+      "name": "volt-absorb",
+      "description": "Turns electricity into HP."
+    },
+    {
+      "name": "natural-cure",
+      "description": "Heals upon switching out."
+    },
+    {
+      "name": "iron-fist",
+      "description": "Boosts the power of punching moves."
+    }
   ],
   "description": "When its group is attacked, Pawmo is the first to leap into battle, defeating enemies with a fighting technique that utilizes electric shocks."
 }

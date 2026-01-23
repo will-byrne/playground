@@ -29,9 +29,18 @@
     }
   },
   "abilities": [
-    "swarm",
-    "guts",
-    "moxie"
+    {
+      "name": "swarm",
+      "description": "Ups BUG moves in a pinch."
+    },
+    {
+      "name": "guts",
+      "description": "Ups ATTACK if suffering."
+    },
+    {
+      "name": "moxie",
+      "description": "Boosts Attack after knocking out any Pokémon."
+    }
   ],
   "description": "It is usually docile, but if it is\ndisturbed while sipping honey,\nit chases off the intruder with its horn."
 }

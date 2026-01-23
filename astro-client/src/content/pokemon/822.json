@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "keen-eye",
-    "unnerve",
-    "big-pecks"
+    {
+      "name": "keen-eye",
+      "description": "Prevents loss of accuracy."
+    },
+    {
+      "name": "unnerve",
+      "description": "Makes the foe nervous and unable to eat Berries."
+    },
+    {
+      "name": "big-pecks",
+      "description": "Protects the Pokémon from Defense-lowering attacks."
+    }
   ],
   "description": "Smart enough to use tools in battle, these\nPokémon have been seen picking up rocks and\nflinging them or using ropes to wrap up enemies."
 }

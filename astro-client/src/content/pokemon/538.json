@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "guts",
-    "inner-focus",
-    "mold-breaker"
+    {
+      "name": "guts",
+      "description": "Ups ATTACK if suffering."
+    },
+    {
+      "name": "inner-focus",
+      "description": "Prevents flinching."
+    },
+    {
+      "name": "mold-breaker",
+      "description": "Moves can be used regardless of abilities."
+    }
   ],
   "description": "When it tightens its belt, it becomes\nstronger. Wild Throh use vines to weave\ntheir own belts."
 }

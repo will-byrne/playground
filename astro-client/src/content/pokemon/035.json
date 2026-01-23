@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "cute-charm",
-    "magic-guard",
-    "friend-guard"
+    {
+      "name": "cute-charm",
+      "description": "Infatuates on contact."
+    },
+    {
+      "name": "magic-guard",
+      "description": "The Pokémon only takes damage from attacks."
+    },
+    {
+      "name": "friend-guard",
+      "description": "Reduces damage done to allies."
+    }
   ],
   "description": "Its magical and\ncute appeal has\nmany admirers.\fIt is rare and\nfound only in\ncertain areas."
 }

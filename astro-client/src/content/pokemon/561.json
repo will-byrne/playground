@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "wonder-skin",
-    "magic-guard",
-    "tinted-lens"
+    {
+      "name": "wonder-skin",
+      "description": "Makes status-changing moves more likely to miss."
+    },
+    {
+      "name": "magic-guard",
+      "description": "The Pokémon only takes damage from attacks."
+    },
+    {
+      "name": "tinted-lens",
+      "description": "Powers up “not very effective” moves."
+    }
   ],
   "description": "They never vary the route they fly,\nbecause their memories of guarding\nan ancient city remain steadfast."
 }

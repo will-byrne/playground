@@ -25,8 +25,14 @@
     }
   },
   "abilities": [
-    "blaze",
-    "iron-fist"
+    {
+      "name": "blaze",
+      "description": "Ups FIRE moves in a pinch."
+    },
+    {
+      "name": "iron-fist",
+      "description": "Boosts the power of punching moves."
+    }
   ],
   "description": "To intimidate attackers, it\nstretches the fire on its tail\nto make itself appear bigger."
 }

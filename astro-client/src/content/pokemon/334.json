@@ -29,8 +29,14 @@
     }
   },
   "abilities": [
-    "natural-cure",
-    "cloud-nine"
+    {
+      "name": "natural-cure",
+      "description": "Heals upon switching out."
+    },
+    {
+      "name": "cloud-nine",
+      "description": "Negates weather effects."
+    }
   ],
   "description": "ALTARIA dances and wheels through the\nsky among billowing, cotton-like clouds.\nBy singing melodies in its crystal-clear\fvoice, this POKéMON makes its listeners\nexperience dreamy wonderment."
 }

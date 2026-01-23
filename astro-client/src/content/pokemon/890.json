@@ -29,7 +29,10 @@
     }
   },
   "abilities": [
-    "pressure"
+    {
+      "name": "pressure",
+      "description": "Raises foe’s PP usage."
+    }
   ],
   "description": "The core on its chest absorbs energy emanating\nfrom the lands of the Galar region. This energy is\nwhat allows Eternatus to stay active."
 }

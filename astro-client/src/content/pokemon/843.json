@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "sand-spit",
-    "shed-skin",
-    "sand-veil"
+    {
+      "name": "sand-spit",
+      "description": "The Pokémon creates a sandstorm when it’s hit by an attack."
+    },
+    {
+      "name": "shed-skin",
+      "description": "Heals the body by shedding."
+    },
+    {
+      "name": "sand-veil",
+      "description": "Ups evasion in a sandstorm."
+    }
   ],
   "description": "As it digs, it swallows sand and stores it in its\nneck pouch. The pouch can hold more than\n17 pounds of sand."
 }

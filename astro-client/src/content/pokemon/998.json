@@ -21,12 +21,22 @@
       "baxcalibur": {
         "default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/998.png",
         "shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/998.png"
+      },
+      "baxcalibur-mega": {
+        "default": null,
+        "shiny": null
       }
     }
   },
   "abilities": [
-    "thermal-exchange",
-    "ice-body"
+    {
+      "name": "thermal-exchange",
+      "description": "Boosts the Attack stat when the Pokémon is hit by a Fire-type move. The Pokémon also cannot be burned."
+    },
+    {
+      "name": "ice-body",
+      "description": "The Pokémon regains HP in a hailstorm."
+    }
   ],
   "description": "This Pokémon blasts cryogenic air out from its mouth. This air can instantly freeze even liquid-hot lava."
 }

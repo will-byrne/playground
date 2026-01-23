@@ -28,7 +28,10 @@
     }
   },
   "abilities": [
-    "flower-gift"
+    {
+      "name": "flower-gift",
+      "description": "Powers up party Pokémon when it is sunny."
+    }
   ],
   "description": "It blooms during times of strong\nsunlight. It tries to make up for\neverything it endured as a bud."
 }

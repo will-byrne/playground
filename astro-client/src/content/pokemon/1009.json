@@ -25,7 +25,10 @@
     }
   },
   "abilities": [
-    "protosynthesis"
+    {
+      "name": "protosynthesis",
+      "description": "Boosts the Pokémon's most proficient stat in harsh sunlight or if the Pokémon is holding Booster Energy."
+    }
   ],
   "description": "This ferocious creature is shrouded in mystery. It's named after an aquatic monster mentioned in an old expedition journal."
 }

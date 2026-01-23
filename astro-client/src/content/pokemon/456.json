@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "swift-swim",
-    "storm-drain",
-    "water-veil"
+    {
+      "name": "swift-swim",
+      "description": "Raises SPEED in rain."
+    },
+    {
+      "name": "storm-drain",
+      "description": "The Pokémon draws in all Water-type moves."
+    },
+    {
+      "name": "water-veil",
+      "description": "Prevents burns."
+    }
   ],
   "description": "After long exposure to sunlight,\nthe patterns on its tail fins shine\nvividly when darkness arrives."
 }

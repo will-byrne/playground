@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "earth-eater",
-    "sand-veil"
+    {
+      "name": "earth-eater",
+      "description": "If hit by a Ground-type move, the Pokémon has its HP restored instead of taking damage."
+    },
+    {
+      "name": "sand-veil",
+      "description": "Ups evasion in a sandstorm."
+    }
   ],
   "description": "When attacked, this Pokémon will wield the tendrils on its body like fists and pelt the opponent with a storm of punches."
 }

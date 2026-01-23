@@ -28,9 +28,18 @@
     }
   },
   "abilities": [
-    "keen-eye",
-    "vital-spirit",
-    "steadfast"
+    {
+      "name": "keen-eye",
+      "description": "Prevents loss of accuracy."
+    },
+    {
+      "name": "vital-spirit",
+      "description": "Prevents sleep."
+    },
+    {
+      "name": "steadfast",
+      "description": "Raises Speed each time the Pokémon flinches."
+    }
   ],
   "description": "It’s considered to be a good Pokémon for\nbeginners because of its friendliness, but its\ndisposition grows rougher as it grows up."
 }

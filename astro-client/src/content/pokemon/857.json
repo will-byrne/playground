@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "healer",
-    "anticipation",
-    "magic-bounce"
+    {
+      "name": "healer",
+      "description": "May heal an ally’s status conditions."
+    },
+    {
+      "name": "anticipation",
+      "description": "Senses the foe’s dangerous moves."
+    },
+    {
+      "name": "magic-bounce",
+      "description": "Reflects status- changing moves."
+    }
   ],
   "description": "No matter who you are, if you bring strong\nemotions near this Pokémon, it will silence\nyou violently."
 }

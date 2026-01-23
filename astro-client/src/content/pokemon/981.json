@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "cud-chew",
-    "armor-tail",
-    "sap-sipper"
+    {
+      "name": "cud-chew",
+      "description": "When the Pokémon eats a Berry, it will regurgitate that Berry at the end of the next turn and eat it one more time."
+    },
+    {
+      "name": "armor-tail",
+      "description": "The mysterious tail covering the Pokémon's head makes opponents unable to use priority moves against the Pokémon or its allies."
+    },
+    {
+      "name": "sap-sipper",
+      "description": "Boosts Attack when hit by a Grass-type move."
+    }
   ],
   "description": "Now that the brain waves from the head and tail are synced up, the psychic power of this Pokémon is 10 times stronger than Girafarig’s."
 }

@@ -32,8 +32,14 @@
     }
   },
   "abilities": [
-    "shed-skin",
-    "overcoat"
+    {
+      "name": "shed-skin",
+      "description": "Heals the body by shedding."
+    },
+    {
+      "name": "overcoat",
+      "description": "Protects the Pokémon from damage from weather."
+    }
   ],
   "description": "To shelter itself from cold, wintry\nwinds, it covers itself with a cloak\nmade of twigs and leaves."
 }

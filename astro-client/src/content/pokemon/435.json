@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "stench",
-    "aftermath",
-    "keen-eye"
+    {
+      "name": "stench",
+      "description": "Helps repel wild POKéMON."
+    },
+    {
+      "name": "aftermath",
+      "description": "Damages the foe landing the finishing hit."
+    },
+    {
+      "name": "keen-eye",
+      "description": "Prevents loss of accuracy."
+    }
   ],
   "description": "It sprays a vile-smelling fluid\nfrom the tip of its tail to attack.\nIts range is over 160 feet."
 }

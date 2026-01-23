@@ -24,7 +24,10 @@
     }
   },
   "abilities": [
-    "levitate"
+    {
+      "name": "levitate",
+      "description": "Gives full immunity to all Ground-type moves."
+    }
   ],
   "description": "Known as “The Being of Willpower.”\nIt sleeps at the bottom of a lake\nto keep the world in balance."
 }

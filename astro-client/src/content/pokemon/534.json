@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "guts",
-    "sheer-force",
-    "iron-fist"
+    {
+      "name": "guts",
+      "description": "Ups ATTACK if suffering."
+    },
+    {
+      "name": "sheer-force",
+      "description": "Removes added effects to increase move damage."
+    },
+    {
+      "name": "iron-fist",
+      "description": "Boosts the power of punching moves."
+    }
   ],
   "description": "It is thought that Conkeldurr taught\nhumans how to make concrete more\nthan 2,000 years ago."
 }

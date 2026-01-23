@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "shed-skin",
-    "infiltrator"
+    {
+      "name": "shed-skin",
+      "description": "Heals the body by shedding."
+    },
+    {
+      "name": "infiltrator",
+      "description": "Passes through the foe’s barrier and strikes."
+    }
   ],
   "description": "SEVIPER shares a generations-long\nfeud with ZANGOOSE. The scars on its\nbody are evidence of vicious battles.\fThis POKéMON attacks using its sword-\nedged tail."
 }

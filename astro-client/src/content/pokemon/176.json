@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "hustle",
-    "serene-grace",
-    "super-luck"
+    {
+      "name": "hustle",
+      "description": "Trades accuracy for power."
+    },
+    {
+      "name": "serene-grace",
+      "description": "Promotes added effects."
+    },
+    {
+      "name": "super-luck",
+      "description": "Heightens the critical-hit ratios of moves."
+    }
   ],
   "description": "They say that it\nwill appear before\nkindhearted, car­\fing people and\nshower them with\nhappiness."
 }

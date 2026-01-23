@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "levitate",
-    "frisk"
+    {
+      "name": "levitate",
+      "description": "Gives full immunity to all Ground-type moves."
+    },
+    {
+      "name": "frisk",
+      "description": "The Pokémon can check the foe’s held item."
+    }
   ],
   "description": "DUSKULL can pass through any wall no\nmatter how thick it may be.\nOnce this POKéMON chooses a target,\fit will doggedly pursue the intended\nvictim until the break of dawn."
 }

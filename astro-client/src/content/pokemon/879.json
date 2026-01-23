@@ -28,8 +28,14 @@
     }
   },
   "abilities": [
-    "sheer-force",
-    "heavy-metal"
+    {
+      "name": "sheer-force",
+      "description": "Removes added effects to increase move damage."
+    },
+    {
+      "name": "heavy-metal",
+      "description": "Doubles the Pokémon’s weight."
+    }
   ],
   "description": "They came over from another region long\nago and worked together with humans.\nTheir green skin is resistant to water."
 }

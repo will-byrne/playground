@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "liquid-ooze",
-    "sticky-hold",
-    "gluttony"
+    {
+      "name": "liquid-ooze",
+      "description": "Draining causes injury."
+    },
+    {
+      "name": "sticky-hold",
+      "description": "Prevents item theft."
+    },
+    {
+      "name": "gluttony",
+      "description": "Encourages the early use of a held Berry."
+    }
   ],
   "description": "When SWALOT spots prey, it spurts out\na hideously toxic fluid from its pores\nand sprays the target.\fOnce the prey has weakened, this\nPOKéMON gulps it down whole with its\ncavernous mouth."
 }

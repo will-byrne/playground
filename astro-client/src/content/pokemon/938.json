@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "own-tempo",
-    "static",
-    "damp"
+    {
+      "name": "own-tempo",
+      "description": "Prevents confusion."
+    },
+    {
+      "name": "static",
+      "description": "Paralyzes on contact."
+    },
+    {
+      "name": "damp",
+      "description": "Prevents self-destruction."
+    }
   ],
   "description": "Tadbulb shakes its tail to generate electricity. If it senses danger, it will make its head blink on and off to alert its allies."
 }

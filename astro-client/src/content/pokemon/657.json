@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "torrent",
-    "protean"
+    {
+      "name": "torrent",
+      "description": "Ups WATER moves in a pinch."
+    },
+    {
+      "name": "protean",
+      "description": "Changes the Pokémon’s type to the type of the move it’s using."
+    }
   ],
   "description": "It can throw bubble-covered pebbles with precise\ncontrol, hitting empty cans up to a hundred feet away."
 }

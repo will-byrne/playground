@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "plus",
-    "minus",
-    "clear-body"
+    {
+      "name": "plus",
+      "description": "Powers up with MINUS."
+    },
+    {
+      "name": "minus",
+      "description": "Powers up with PLUS."
+    },
+    {
+      "name": "clear-body",
+      "description": "Prevents ability reduction."
+    }
   ],
   "description": "By changing the direction in which it\nrotates, it communicates its feelings to\nothers. When angry, it rotates faster."
 }

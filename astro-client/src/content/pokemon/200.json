@@ -24,7 +24,10 @@
     }
   },
   "abilities": [
-    "levitate"
+    {
+      "name": "levitate",
+      "description": "Gives full immunity to all Ground-type moves."
+    }
   ],
   "description": "It likes playing\nmischievous tricks\nsuch as screaming\fand wailing to\nstartle people at\nnight."
 }

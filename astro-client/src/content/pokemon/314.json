@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "oblivious",
-    "tinted-lens",
-    "prankster"
+    {
+      "name": "oblivious",
+      "description": "Prevents attraction."
+    },
+    {
+      "name": "tinted-lens",
+      "description": "Powers up “not very effective” moves."
+    },
+    {
+      "name": "prankster",
+      "description": "Gives priority to a status move."
+    }
   ],
   "description": "With its sweet aroma, it guides\nVolbeat to draw signs with light in\nthe night sky."
 }

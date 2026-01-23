@@ -29,9 +29,18 @@
     }
   },
   "abilities": [
-    "prankster",
-    "frisk",
-    "pickpocket"
+    {
+      "name": "prankster",
+      "description": "Gives priority to a status move."
+    },
+    {
+      "name": "frisk",
+      "description": "The Pokémon can check the foe’s held item."
+    },
+    {
+      "name": "pickpocket",
+      "description": "Steals an item when hit by another Pokémon."
+    }
   ],
   "description": "With the hair wrapped around its body helping to\nenhance its muscles, this Pokémon can overwhelm\neven Machamp."
 }

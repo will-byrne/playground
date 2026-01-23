@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "blaze",
-    "iron-fist"
+    {
+      "name": "blaze",
+      "description": "Ups FIRE moves in a pinch."
+    },
+    {
+      "name": "iron-fist",
+      "description": "Boosts the power of punching moves."
+    }
   ],
   "description": "It agilely scales sheer cliffs to\nlive atop craggy mountains. Its\nfire is put out when it sleeps."
 }

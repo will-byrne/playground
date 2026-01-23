@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "rattled",
-    "static",
-    "klutz"
+    {
+      "name": "rattled",
+      "description": "Some move types scare it and boost its Speed."
+    },
+    {
+      "name": "static",
+      "description": "Paralyzes on contact."
+    },
+    {
+      "name": "klutz",
+      "description": "The Pokémon can’t use any held items."
+    }
   ],
   "description": "It stores poison in an internal poison sac and\nsecretes that poison through its skin. If you touch\nthis Pokémon, a tingling sensation follows."
 }

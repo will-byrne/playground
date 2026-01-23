@@ -25,7 +25,10 @@
     }
   },
   "abilities": [
-    "justified"
+    {
+      "name": "justified",
+      "description": "Raises Attack when hit by a Dark-type move."
+    }
   ],
   "description": "By blasting water from its hooves, it can\nglide across water. It excels at using\nleg moves while battling."
 }

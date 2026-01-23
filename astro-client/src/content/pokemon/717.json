@@ -25,7 +25,10 @@
     }
   },
   "abilities": [
-    "dark-aura"
+    {
+      "name": "dark-aura",
+      "description": "Powers up each Pokémon’s Dark-type moves."
+    }
   ],
   "description": "When this legendary Pokémon’s wings and\ntail feathers spread wide and glow red,\nit absorbs the life force of living creatures."
 }

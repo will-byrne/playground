@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "inner-focus",
-    "regenerator",
-    "reckless"
+    {
+      "name": "inner-focus",
+      "description": "Prevents flinching."
+    },
+    {
+      "name": "regenerator",
+      "description": "Restores a little HP when withdrawn from battle."
+    },
+    {
+      "name": "reckless",
+      "description": "Powers up moves that have recoil damage."
+    }
   ],
   "description": "It wields the fur on its arms like a whip.\nIts arm attacks come with such rapidity\nthat they cannot even be seen."
 }

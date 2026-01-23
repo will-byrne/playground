@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "blaze",
-    "solar-power"
+    {
+      "name": "blaze",
+      "description": "Ups FIRE moves in a pinch."
+    },
+    {
+      "name": "solar-power",
+      "description": "Boosts Sp. Atk, but lowers HP in sunshine."
+    }
   ],
   "description": "Obviously prefers\nhot places. When\nit rains, steam\fis said to spout\nfrom the tip of\nits tail."
 }

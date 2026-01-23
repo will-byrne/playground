@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "inner-focus",
-    "synchronize",
-    "psychic-surge"
+    {
+      "name": "inner-focus",
+      "description": "Prevents flinching."
+    },
+    {
+      "name": "synchronize",
+      "description": "Passes on status problems."
+    },
+    {
+      "name": "psychic-surge",
+      "description": "Turns the ground into Psychic Terrain when the Pokémon enters a battle."
+    }
   ],
   "description": "It uses the horns on its head to sense the\nemotions of others. Males will act as valets for\nthose they serve, looking after their every need."
 }

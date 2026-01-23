@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "keen-eye",
-    "sheer-force",
-    "hustle"
+    {
+      "name": "keen-eye",
+      "description": "Prevents loss of accuracy."
+    },
+    {
+      "name": "sheer-force",
+      "description": "Removes added effects to increase move damage."
+    },
+    {
+      "name": "hustle",
+      "description": "Trades accuracy for power."
+    }
   ],
   "description": "They crush berries with their talons. They bravely\nstand up to any opponent, no matter how strong\nit is."
 }

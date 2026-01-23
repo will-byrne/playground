@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "shield-dust",
-    "run-away"
+    {
+      "name": "shield-dust",
+      "description": "Prevents added effects."
+    },
+    {
+      "name": "run-away",
+      "description": "Makes escaping easier."
+    }
   ],
   "description": "Using the spikes on its rear end,  \nWURMPLE peels the bark off trees and\nfeeds on the sap that oozes out.\fThis POKéMON’s feet are tipped with\nsuction pads that allow it to cling to\nglass without slipping."
 }

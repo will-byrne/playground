@@ -21,13 +21,26 @@
       "golurk": {
         "default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/623.png",
         "shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/623.png"
+      },
+      "golurk-mega": {
+        "default": null,
+        "shiny": null
       }
     }
   },
   "abilities": [
-    "iron-fist",
-    "klutz",
-    "no-guard"
+    {
+      "name": "iron-fist",
+      "description": "Boosts the power of punching moves."
+    },
+    {
+      "name": "klutz",
+      "description": "The Pokémon can’t use any held items."
+    },
+    {
+      "name": "no-guard",
+      "description": "Ensures the Pokémon and its foe’s attacks land."
+    }
   ],
   "description": "It flies across the sky at Mach speeds.\nRemoving the seal on its chest makes\nits internal energy go out of control."
 }

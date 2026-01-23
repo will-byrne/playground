@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "rock-head",
-    "lightning-rod",
-    "battle-armor"
+    {
+      "name": "rock-head",
+      "description": "Protects the Pokémon from recoil damage."
+    },
+    {
+      "name": "lightning-rod",
+      "description": "Draws electrical moves."
+    },
+    {
+      "name": "battle-armor",
+      "description": "Blocks critical hits."
+    }
   ],
   "description": "Because it never\nremoves its skull\nhelmet, no one\fhas ever seen\nthis POKéMON's\nreal face."
 }

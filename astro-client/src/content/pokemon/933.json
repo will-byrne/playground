@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "purifying-salt",
-    "sturdy",
-    "clear-body"
+    {
+      "name": "purifying-salt",
+      "description": "The Pokémon's pure salt protects it from status conditions and halves the damage taken from Ghost-type moves."
+    },
+    {
+      "name": "sturdy",
+      "description": "Negates 1-hit KO attacks."
+    },
+    {
+      "name": "clear-body",
+      "description": "Prevents ability reduction."
+    }
   ],
   "description": "This Pokémon dry cures its prey by spraying salt over them. The curing process steals away the water in the prey’s body."
 }

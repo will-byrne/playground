@@ -21,13 +21,26 @@
       "dragalge": {
         "default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/691.png",
         "shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/691.png"
+      },
+      "dragalge-mega": {
+        "default": null,
+        "shiny": null
       }
     }
   },
   "abilities": [
-    "poison-point",
-    "poison-touch",
-    "adaptability"
+    {
+      "name": "poison-point",
+      "description": "Poisons foe on contact."
+    },
+    {
+      "name": "poison-touch",
+      "description": "May poison targets when a Pokémon makes contact."
+    },
+    {
+      "name": "adaptability",
+      "description": "Powers up moves of the same type."
+    }
   ],
   "description": "Their poison is strong enough to eat through\nthe hull of a tanker, and they spit it indiscriminately\nat anything that enters their territory."
 }

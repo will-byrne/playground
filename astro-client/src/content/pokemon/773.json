@@ -92,7 +92,10 @@
     }
   },
   "abilities": [
-    "rks-system"
+    {
+      "name": "rks-system",
+      "description": "Changes the Pokémon’s type to match the memory disc it holds."
+    }
   ],
   "description": "Its trust in its partner is what awakens it.\nThis Pokémon is capable of changing its type,\na flexibility that is well displayed in battle."
 }

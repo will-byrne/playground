@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "synchronize",
-    "inner-focus",
-    "magic-guard"
+    {
+      "name": "synchronize",
+      "description": "Passes on status problems."
+    },
+    {
+      "name": "inner-focus",
+      "description": "Prevents flinching."
+    },
+    {
+      "name": "magic-guard",
+      "description": "The Pokémon only takes damage from attacks."
+    }
   ],
   "description": "Using its ability\nto read minds, it\nwill identify\fimpending danger\nand TELEPORT to\nsafety."
 }

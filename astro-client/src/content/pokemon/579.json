@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "overcoat",
-    "magic-guard",
-    "regenerator"
+    {
+      "name": "overcoat",
+      "description": "Protects the Pokémon from damage from weather."
+    },
+    {
+      "name": "magic-guard",
+      "description": "The Pokémon only takes damage from attacks."
+    },
+    {
+      "name": "regenerator",
+      "description": "Restores a little HP when withdrawn from battle."
+    }
   ],
   "description": "When Reuniclus shake hands, a network\nforms between their brains, increasing\ntheir psychic power."
 }

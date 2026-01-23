@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "run-away",
-    "unburden",
-    "stakeout"
+    {
+      "name": "run-away",
+      "description": "Makes escaping easier."
+    },
+    {
+      "name": "unburden",
+      "description": "Raises Speed if a held item is used."
+    },
+    {
+      "name": "stakeout",
+      "description": "Doubles the damage dealt to the target’s replacement if the target switches out."
+    }
   ],
   "description": "It secretly marks potential targets with a scent.\nBy following the scent, it stalks its targets\nand steals from them when they least expect it."
 }

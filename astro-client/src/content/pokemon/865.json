@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "steadfast",
-    "scrappy"
+    {
+      "name": "steadfast",
+      "description": "Raises Speed each time the Pokémon flinches."
+    },
+    {
+      "name": "scrappy",
+      "description": "Enables moves to hit Ghost-type foes."
+    }
   ],
   "description": "Only Farfetch’d that have survived many battles\ncan attain this evolution. When this Pokémon’s\nleek withers, it will retire from combat."
 }

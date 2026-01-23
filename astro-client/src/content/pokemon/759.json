@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "fluffy",
-    "klutz",
-    "cute-charm"
+    {
+      "name": "fluffy",
+      "description": "Halves the damage taken from moves that make direct contact, but doubles that of Fire-type moves."
+    },
+    {
+      "name": "klutz",
+      "description": "The Pokémon can’t use any held items."
+    },
+    {
+      "name": "cute-charm",
+      "description": "Infatuates on contact."
+    }
   ],
   "description": "Despite its adorable appearance, when it gets\nangry and flails about, its arms and legs could\nknock a pro wrestler sprawling."
 }

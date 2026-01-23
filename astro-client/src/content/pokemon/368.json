@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "swift-swim",
-    "hydration"
+    {
+      "name": "swift-swim",
+      "description": "Raises SPEED in rain."
+    },
+    {
+      "name": "hydration",
+      "description": "Heals status problems if it is raining."
+    }
   ],
   "description": "GOREBYSS lives in the southern seas\nat extreme depths. Its body is built to\nwithstand the enormous pressure of\fwater at incredible depths. Because of\nthis, this POKéMON’s body is unharmed\nby ordinary attacks."
 }

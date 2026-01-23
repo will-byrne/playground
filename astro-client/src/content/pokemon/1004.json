@@ -25,7 +25,10 @@
     }
   },
   "abilities": [
-    "beads-of-ruin"
+    {
+      "name": "beads-of-ruin",
+      "description": "The power of the Pokémon's ruinous beads lowers the Sp. Def stats of all Pokémon except itself."
+    }
   ],
   "description": "It controls flames burning at over 5,400 degrees Fahrenheit. It casually swims through the sea of lava it creates by melting rock and sand."
 }

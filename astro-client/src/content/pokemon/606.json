@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "telepathy",
-    "synchronize",
-    "analytic"
+    {
+      "name": "telepathy",
+      "description": "Anticipates an ally’s attack and dodges it."
+    },
+    {
+      "name": "synchronize",
+      "description": "Passes on status problems."
+    },
+    {
+      "name": "analytic",
+      "description": "Boosts move power when the Pokémon moves last."
+    }
   ],
   "description": "It can manipulate an opponent’s memory.\nApparently, it communicates by flashing\nits three different-colored fingers."
 }

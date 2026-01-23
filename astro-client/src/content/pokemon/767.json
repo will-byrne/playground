@@ -25,7 +25,10 @@
     }
   },
   "abilities": [
-    "wimp-out"
+    {
+      "name": "wimp-out",
+      "description": "The Pokémon cowardly switches out when its HP becomes half or less."
+    }
   ],
   "description": "This Pokémon is a coward. As it desperately\ndashes off, the flailing of its many legs leaves a\nsparkling clean path in its wake."
 }

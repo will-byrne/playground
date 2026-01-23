@@ -25,8 +25,14 @@
     }
   },
   "abilities": [
-    "water-compaction",
-    "sand-veil"
+    {
+      "name": "water-compaction",
+      "description": "Boosts the Pokémon’s Defense stat sharply when hit by a Water-type move."
+    },
+    {
+      "name": "sand-veil",
+      "description": "Ups evasion in a sandstorm."
+    }
   ],
   "description": "Born from a sand mound playfully built by a\nchild, this Pokémon embodies the grudges of\nthe departed."
 }

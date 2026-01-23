@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "clear-body",
-    "sturdy"
+    {
+      "name": "clear-body",
+      "description": "Prevents ability reduction."
+    },
+    {
+      "name": "sturdy",
+      "description": "Negates 1-hit KO attacks."
+    }
   ],
   "description": "Its entire body is made of rock.\nIf any part chips off in battle, it\nattaches rocks to repair itself."
 }

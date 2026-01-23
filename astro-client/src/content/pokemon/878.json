@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "sheer-force",
-    "heavy-metal"
+    {
+      "name": "sheer-force",
+      "description": "Removes added effects to increase move damage."
+    },
+    {
+      "name": "heavy-metal",
+      "description": "Doubles the Pokémon’s weight."
+    }
   ],
   "description": "It digs up the ground with its trunk. It’s also very\nstrong, being able to carry loads of over\nfive tons without any problem at all."
 }

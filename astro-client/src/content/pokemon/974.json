@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "thick-fat",
-    "snow-cloak",
-    "sheer-force"
+    {
+      "name": "thick-fat",
+      "description": "Heat-and-cold protection."
+    },
+    {
+      "name": "snow-cloak",
+      "description": "Raises evasion in a hailstorm."
+    },
+    {
+      "name": "sheer-force",
+      "description": "Removes added effects to increase move damage."
+    }
   ],
   "description": "This species left the ocean and began living on land a very long time ago. It seems to be closely related to Wailmer."
 }

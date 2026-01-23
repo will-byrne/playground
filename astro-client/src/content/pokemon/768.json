@@ -21,11 +21,18 @@
       "golisopod": {
         "default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/768.png",
         "shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/768.png"
+      },
+      "golisopod-mega": {
+        "default": null,
+        "shiny": null
       }
     }
   },
   "abilities": [
-    "emergency-exit"
+    {
+      "name": "emergency-exit",
+      "description": "The Pokémon, sensing danger, switches out when its HP becomes half or less."
+    }
   ],
   "description": "With a flashing slash of its giant sharp claws,\nit cleaves seawater—or even air—right in two."
 }

@@ -21,12 +21,22 @@
       "victreebel": {
         "default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/71.png",
         "shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/71.png"
+      },
+      "victreebel-mega": {
+        "default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/10279.png",
+        "shiny": null
       }
     }
   },
   "abilities": [
-    "chlorophyll",
-    "gluttony"
+    {
+      "name": "chlorophyll",
+      "description": "Raises SPEED in sunshine."
+    },
+    {
+      "name": "gluttony",
+      "description": "Encourages the early use of a held Berry."
+    }
   ],
   "description": "Said to live in\nhuge colonies\ndeep in jungles,\falthough no one\nhas ever returned\nfrom there."
 }

@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "static",
-    "lightning-rod",
-    "minus"
+    {
+      "name": "static",
+      "description": "Paralyzes on contact."
+    },
+    {
+      "name": "lightning-rod",
+      "description": "Draws electrical moves."
+    },
+    {
+      "name": "minus",
+      "description": "Powers up with PLUS."
+    }
   ],
   "description": "ELECTRIKE stores electricity in its\nlong body hair. This POKéMON stimulates\nits leg muscles with electric charges.\fThese jolts of power give its legs\nexplosive acceleration performance."
 }

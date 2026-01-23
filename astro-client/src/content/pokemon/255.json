@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "blaze",
-    "speed-boost"
+    {
+      "name": "blaze",
+      "description": "Ups FIRE moves in a pinch."
+    },
+    {
+      "name": "speed-boost",
+      "description": "Gradually boosts SPEED."
+    }
   ],
   "description": "TORCHIC sticks with its TRAINER,\nfollowing behind with unsteady\nsteps.\fThis POKéMON breathes fire of over\n1,800 degrees F, including fireballs\nthat leave the foe scorched black."
 }

@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "leaf-guard",
-    "contrary"
+    {
+      "name": "leaf-guard",
+      "description": "Prevents status problems in sunny weather."
+    },
+    {
+      "name": "contrary",
+      "description": "Makes stat changes have an opposite effect."
+    }
   ],
   "description": "During the day, it sleeps and soaks up light.\nWhen night falls, it walks around looking\nfor a safer place to sleep."
 }

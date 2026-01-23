@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "inner-focus",
-    "ice-body",
-    "moody"
+    {
+      "name": "inner-focus",
+      "description": "Prevents flinching."
+    },
+    {
+      "name": "ice-body",
+      "description": "The Pokémon regains HP in a hailstorm."
+    },
+    {
+      "name": "moody",
+      "description": "Raises one stat and lowers another."
+    }
   ],
   "description": "SNORUNT live in regions with heavy\nsnowfall. In seasons without snow, such\nas spring and summer, this POKéMON\fsteals away to live quietly among\nstalactites and stalagmites deep in\ncaverns."
 }

@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "ball-fetch",
-    "rattled"
+    {
+      "name": "ball-fetch",
+      "description": "If the Pokémon is not holding an item, it will fetch the Poké Ball from the first failed throw of the battle."
+    },
+    {
+      "name": "rattled",
+      "description": "Some move types scare it and boost its Speed."
+    }
   ],
   "description": "This Pokémon is very popular as a herding dog\nin the Galar region. As it runs, it generates\nelectricity from the base of its tail."
 }

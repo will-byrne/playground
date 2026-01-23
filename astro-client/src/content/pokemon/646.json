@@ -33,7 +33,10 @@
     }
   },
   "abilities": [
-    "pressure"
+    {
+      "name": "pressure",
+      "description": "Raises foe’s PP usage."
+    }
   ],
   "description": "It generates a powerful, freezing\nenergy inside itself, but its body became\nfrozen when the energy leaked out."
 }

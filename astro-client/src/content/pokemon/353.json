@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "insomnia",
-    "frisk",
-    "cursed-body"
+    {
+      "name": "insomnia",
+      "description": "Prevents sleep."
+    },
+    {
+      "name": "frisk",
+      "description": "The Pokémon can check the foe’s held item."
+    },
+    {
+      "name": "cursed-body",
+      "description": "May disable a move used on the Pokémon."
+    }
   ],
   "description": "SHUPPET is attracted by feelings\nof jealousy and vindictiveness.\nIf someone develops strong feelings of\fvengeance, this POKéMON will appear\nin a swarm and line up beneath the eaves\nof that person’s home."
 }

@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "flame-body",
-    "vital-spirit"
+    {
+      "name": "flame-body",
+      "description": "Burns the foe on contact."
+    },
+    {
+      "name": "vital-spirit",
+      "description": "Prevents sleep."
+    }
   ],
   "description": "Its body always\nburns with an\norange glow that\fenables it to\nhide perfectly\namong flames."
 }

@@ -28,9 +28,18 @@
     }
   },
   "abilities": [
-    "inner-focus",
-    "ice-body",
-    "moody"
+    {
+      "name": "inner-focus",
+      "description": "Prevents flinching."
+    },
+    {
+      "name": "ice-body",
+      "description": "The Pokémon regains HP in a hailstorm."
+    },
+    {
+      "name": "moody",
+      "description": "Raises one stat and lowers another."
+    }
   ],
   "description": "GLALIE has a body made of rock, which it\nhardens with an armor of ice.\nThis POKéMON has the ability to freeze\fmoisture in the atmosphere into any\nshape it desires."
 }

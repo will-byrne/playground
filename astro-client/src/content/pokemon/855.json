@@ -28,8 +28,14 @@
     }
   },
   "abilities": [
-    "weak-armor",
-    "cursed-body"
+    {
+      "name": "weak-armor",
+      "description": "Physical attacks lower Defense and raise Speed."
+    },
+    {
+      "name": "cursed-body",
+      "description": "May disable a move used on the Pokémon."
+    }
   ],
   "description": "This species lives in antique teapots.\nMost pots are forgeries, but on rare occasions,\nan authentic work is found."
 }

@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "gluttony",
-    "blaze"
+    {
+      "name": "gluttony",
+      "description": "Encourages the early use of a held Berry."
+    },
+    {
+      "name": "blaze",
+      "description": "Ups FIRE moves in a pinch."
+    }
   ],
   "description": "When it is angered, the temperature\nof its head tuft reaches 600° F.\nIt uses its tuft to roast berries."
 }

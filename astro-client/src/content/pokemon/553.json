@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "intimidate",
-    "moxie",
-    "anger-point"
+    {
+      "name": "intimidate",
+      "description": "Lowers the foe’s ATTACK."
+    },
+    {
+      "name": "moxie",
+      "description": "Boosts Attack after knocking out any Pokémon."
+    },
+    {
+      "name": "anger-point",
+      "description": "Raises Attack upon taking a critical hit."
+    }
   ],
   "description": "They never allow prey to escape.\nTheir jaws are so powerful, they can\ncrush the body of an automobile."
 }

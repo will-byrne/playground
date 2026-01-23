@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "mold-breaker",
-    "sheer-force"
+    {
+      "name": "mold-breaker",
+      "description": "Moves can be used regardless of abilities."
+    },
+    {
+      "name": "sheer-force",
+      "description": "Removes added effects to increase move damage."
+    }
   ],
   "description": "Its powerful head butt has enough\npower to shatter even the most\ndurable things upon impact."
 }

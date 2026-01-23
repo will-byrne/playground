@@ -29,9 +29,18 @@
     }
   },
   "abilities": [
-    "hyper-cutter",
-    "intimidate",
-    "sheer-force"
+    {
+      "name": "hyper-cutter",
+      "description": "Prevents ATTACK reduction."
+    },
+    {
+      "name": "intimidate",
+      "description": "Lowers the foe’s ATTACK."
+    },
+    {
+      "name": "sheer-force",
+      "description": "Removes added effects to increase move damage."
+    }
   ],
   "description": "MAWHILE’s huge jaws are actually steel\nhorns that have been transformed.\nIts docile-looking face serves to lull\fits foe into letting down its guard.\nWhen the foe least expects it, MAWHILE\nchomps it with its gaping jaws."
 }

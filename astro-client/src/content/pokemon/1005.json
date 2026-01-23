@@ -25,7 +25,10 @@
     }
   },
   "abilities": [
-    "protosynthesis"
+    {
+      "name": "protosynthesis",
+      "description": "Boosts the Pokémon's most proficient stat in harsh sunlight or if the Pokémon is holding Booster Energy."
+    }
   ],
   "description": "It is possible that this is the creature listed as Roaring Moon in an expedition journal that still holds many mysteries."
 }

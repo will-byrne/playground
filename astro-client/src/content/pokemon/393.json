@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "torrent",
-    "competitive"
+    {
+      "name": "torrent",
+      "description": "Ups WATER moves in a pinch."
+    },
+    {
+      "name": "competitive",
+      "description": "Boosts the Sp. Atk stat when a stat is lowered."
+    }
   ],
   "description": "Because it is very proud, it hates\naccepting food from people. Its\nthick down guards it from cold."
 }

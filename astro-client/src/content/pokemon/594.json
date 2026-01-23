@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "healer",
-    "hydration",
-    "regenerator"
+    {
+      "name": "healer",
+      "description": "May heal an ally’s status conditions."
+    },
+    {
+      "name": "hydration",
+      "description": "Heals status problems if it is raining."
+    },
+    {
+      "name": "regenerator",
+      "description": "Restores a little HP when withdrawn from battle."
+    }
   ],
   "description": "The special membrane enveloping\nAlomomola has the ability to heal wounds."
 }

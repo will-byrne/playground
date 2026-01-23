@@ -20,11 +20,18 @@
       "chimecho": {
         "default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/358.png",
         "shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/358.png"
+      },
+      "chimecho-mega": {
+        "default": null,
+        "shiny": null
       }
     }
   },
   "abilities": [
-    "levitate"
+    {
+      "name": "levitate",
+      "description": "Gives full immunity to all Ground-type moves."
+    }
   ],
   "description": "CHIMECHO makes its cries echo\ninside its hollow body. When this\nPOKéMON becomes enraged, its cries\fresult in ultrasonic waves that have\nthe power to knock foes flying."
 }

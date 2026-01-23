@@ -29,9 +29,18 @@
     }
   },
   "abilities": [
-    "magma-armor",
-    "solid-rock",
-    "anger-point"
+    {
+      "name": "magma-armor",
+      "description": "Prevents freezing."
+    },
+    {
+      "name": "solid-rock",
+      "description": "Powers down super­ effective moves."
+    },
+    {
+      "name": "anger-point",
+      "description": "Raises Attack upon taking a critical hit."
+    }
   ],
   "description": "CAMERUPT has a volcano inside its body.\nMagma of 18,000 degrees F courses\nthrough its body.\fOccasionally, the humps on this\nPOKéMON’s back erupt, spewing the\nsuperheated magma."
 }

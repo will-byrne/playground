@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "cute-charm",
-    "competitive",
-    "friend-guard"
+    {
+      "name": "cute-charm",
+      "description": "Infatuates on contact."
+    },
+    {
+      "name": "competitive",
+      "description": "Boosts the Sp. Atk stat when a stat is lowered."
+    },
+    {
+      "name": "friend-guard",
+      "description": "Reduces damage done to allies."
+    }
   ],
   "description": "It has a very soft\nbody. If it starts\nto roll, it will\fbounce all over\nand be impossible\nto stop."
 }

@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "synchronize",
-    "trace",
-    "telepathy"
+    {
+      "name": "synchronize",
+      "description": "Passes on status problems."
+    },
+    {
+      "name": "trace",
+      "description": "Copies special ability."
+    },
+    {
+      "name": "telepathy",
+      "description": "Anticipates an ally’s attack and dodges it."
+    }
   ],
   "description": "RALTS senses the emotions of\npeople using the horns on its head.\nThis POKéMON rarely appears before\fpeople. But when it does, it draws\ncloser if it senses that the person has\na positive disposition."
 }

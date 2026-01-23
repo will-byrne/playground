@@ -25,7 +25,10 @@
     }
   },
   "abilities": [
-    "quark-drive"
+    {
+      "name": "quark-drive",
+      "description": "Boosts the Pokémon's most proficient stat on Electric Terrain or if the Pokémon is holding Booster Energy."
+    }
   ],
   "description": "It resembles a Pokémon described in a dubious magazine as a Terrakion that had been modified by an evil organization."
 }

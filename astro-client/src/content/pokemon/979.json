@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "vital-spirit",
-    "inner-focus",
-    "defiant"
+    {
+      "name": "vital-spirit",
+      "description": "Prevents sleep."
+    },
+    {
+      "name": "inner-focus",
+      "description": "Prevents flinching."
+    },
+    {
+      "name": "defiant",
+      "description": "When its stats are lowered its Attack increases."
+    }
   ],
   "description": "When its anger rose beyond a critical point, this Pokémon gained power that is unfettered by the limits of its physical body."
 }

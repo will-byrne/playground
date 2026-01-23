@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "keen-eye",
-    "infiltrator",
-    "prankster"
+    {
+      "name": "keen-eye",
+      "description": "Prevents loss of accuracy."
+    },
+    {
+      "name": "infiltrator",
+      "description": "Passes through the foe’s barrier and strikes."
+    },
+    {
+      "name": "prankster",
+      "description": "Gives priority to a status move."
+    }
   ],
   "description": "When in danger, it raises its ears and\nreleases enough psychic power to\ngrind a 10-ton truck into dust."
 }

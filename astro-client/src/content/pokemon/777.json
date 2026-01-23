@@ -29,9 +29,18 @@
     }
   },
   "abilities": [
-    "iron-barbs",
-    "lightning-rod",
-    "sturdy"
+    {
+      "name": "iron-barbs",
+      "description": "Inflicts damage to the Pokémon on contact."
+    },
+    {
+      "name": "lightning-rod",
+      "description": "Draws electrical moves."
+    },
+    {
+      "name": "sturdy",
+      "description": "Negates 1-hit KO attacks."
+    }
   ],
   "description": "The spiny fur on its back is normally at rest.\nWhen this Pokémon becomes agitated, its fur\nstands on end and stabs into its attackers."
 }

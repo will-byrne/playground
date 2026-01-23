@@ -24,13 +24,26 @@
       "absol-mega": {
         "default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/10057.png",
         "shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/10057.png"
+      },
+      "absol-mega-z": {
+        "default": null,
+        "shiny": null
       }
     }
   },
   "abilities": [
-    "pressure",
-    "super-luck",
-    "justified"
+    {
+      "name": "pressure",
+      "description": "Raises foe’s PP usage."
+    },
+    {
+      "name": "super-luck",
+      "description": "Heightens the critical-hit ratios of moves."
+    },
+    {
+      "name": "justified",
+      "description": "Raises Attack when hit by a Dark-type move."
+    }
   ],
   "description": "Every time ABSOL appears before people,\nit is followed by a disaster such as an\nearthquake or a tidal wave.\fAs a result, it came to be known as the\ndisaster POKéMON."
 }

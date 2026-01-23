@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "shield-dust",
-    "tinted-lens",
-    "wonder-skin"
+    {
+      "name": "shield-dust",
+      "description": "Prevents added effects."
+    },
+    {
+      "name": "tinted-lens",
+      "description": "Powers up “not very effective” moves."
+    },
+    {
+      "name": "wonder-skin",
+      "description": "Makes status-changing moves more likely to miss."
+    }
   ],
   "description": "The dustlike scales covering its wings\nare color-coded to indicate the kinds of\npoison it has."
 }

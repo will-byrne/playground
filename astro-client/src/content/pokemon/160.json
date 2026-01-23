@@ -20,12 +20,22 @@
       "feraligatr": {
         "default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/160.png",
         "shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/160.png"
+      },
+      "feraligatr-mega": {
+        "default": null,
+        "shiny": null
       }
     }
   },
   "abilities": [
-    "torrent",
-    "sheer-force"
+    {
+      "name": "torrent",
+      "description": "Ups WATER moves in a pinch."
+    },
+    {
+      "name": "sheer-force",
+      "description": "Removes added effects to increase move damage."
+    }
   ],
   "description": "When it bites with\nits massive and\npowerful jaws, it\fshakes its head\nand savagely tears\nits victim up."
 }

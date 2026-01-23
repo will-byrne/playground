@@ -24,7 +24,10 @@
     }
   },
   "abilities": [
-    "hydration"
+    {
+      "name": "hydration",
+      "description": "Heals status problems if it is raining."
+    }
   ],
   "description": "It drifts in warm seas. It always returns to where it\nwas born, no matter how far it may have drifted."
 }

@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "oblivious",
-    "anticipation",
-    "hydration"
+    {
+      "name": "oblivious",
+      "description": "Prevents attraction."
+    },
+    {
+      "name": "anticipation",
+      "description": "Senses the foe’s dangerous moves."
+    },
+    {
+      "name": "hydration",
+      "description": "Heals status problems if it is raining."
+    }
   ],
   "description": "WHISCASH is extremely territorial.\nJust one of these POKéMON will claim a\nlarge pond as its exclusive territory.\fIf a foe approaches it, it thrashes\nabout and triggers a massive\nearthquake."
 }

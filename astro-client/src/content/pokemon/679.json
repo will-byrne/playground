@@ -25,7 +25,10 @@
     }
   },
   "abilities": [
-    "no-guard"
+    {
+      "name": "no-guard",
+      "description": "Ensures the Pokémon and its foe’s attacks land."
+    }
   ],
   "description": "Apparently this Pokémon is born when a\ndeparted spirit inhabits a sword. It attaches itself\nto people and drinks their life force."
 }

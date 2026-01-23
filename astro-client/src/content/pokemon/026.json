@@ -24,12 +24,26 @@
       "raichu-alola": {
         "default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/10100.png",
         "shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/10100.png"
+      },
+      "raichu-mega-x": {
+        "default": null,
+        "shiny": null
+      },
+      "raichu-mega-y": {
+        "default": null,
+        "shiny": null
       }
     }
   },
   "abilities": [
-    "static",
-    "lightning-rod"
+    {
+      "name": "static",
+      "description": "Paralyzes on contact."
+    },
+    {
+      "name": "lightning-rod",
+      "description": "Draws electrical moves."
+    }
   ],
   "description": "Its long tail serves as a ground to protect itself\nfrom its own high-voltage power."
 }

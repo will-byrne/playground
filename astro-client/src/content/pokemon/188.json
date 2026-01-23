@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "chlorophyll",
-    "leaf-guard",
-    "infiltrator"
+    {
+      "name": "chlorophyll",
+      "description": "Raises SPEED in sunshine."
+    },
+    {
+      "name": "leaf-guard",
+      "description": "Prevents status problems in sunny weather."
+    },
+    {
+      "name": "infiltrator",
+      "description": "Passes through the foe’s barrier and strikes."
+    }
   ],
   "description": "The bloom on top\nof its head opens\nand closes as the\ftemperature fluc­\ntuates up and\ndown."
 }

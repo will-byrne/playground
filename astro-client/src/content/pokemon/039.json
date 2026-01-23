@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "cute-charm",
-    "competitive",
-    "friend-guard"
+    {
+      "name": "cute-charm",
+      "description": "Infatuates on contact."
+    },
+    {
+      "name": "competitive",
+      "description": "Boosts the Sp. Atk stat when a stat is lowered."
+    },
+    {
+      "name": "friend-guard",
+      "description": "Reduces damage done to allies."
+    }
   ],
   "description": "When its huge eyes\nlight up, it sings\na mysteriously\fsoothing melody\nthat lulls its\nenemies to sleep."
 }

@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "sturdy",
-    "rock-head",
-    "rattled"
+    {
+      "name": "sturdy",
+      "description": "Negates 1-hit KO attacks."
+    },
+    {
+      "name": "rock-head",
+      "description": "Protects the Pokémon from recoil damage."
+    },
+    {
+      "name": "rattled",
+      "description": "Some move types scare it and boost its Speed."
+    }
   ],
   "description": "Although it always\npretends to be a\ntree, its composi­\ftion appears to be\ncloser to a rock\nthan a plant."
 }

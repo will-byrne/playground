@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "supersweet-syrup",
-    "gluttony",
-    "sticky-hold"
+    {
+      "name": "supersweet-syrup",
+      "description": "Lowers the evasion of opposing Pokémon by 1 stage when first sent into battle"
+    },
+    {
+      "name": "gluttony",
+      "description": "Encourages the early use of a held Berry."
+    },
+    {
+      "name": "sticky-hold",
+      "description": "Prevents item theft."
+    }
   ],
   "description": "Dipplin is two creatures in one Pokémon. Its evolution was triggered by a special apple grown only in one place."
 }

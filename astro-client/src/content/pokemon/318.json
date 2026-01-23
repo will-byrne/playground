@@ -25,8 +25,14 @@
     }
   },
   "abilities": [
-    "rough-skin",
-    "speed-boost"
+    {
+      "name": "rough-skin",
+      "description": "Hurts to touch."
+    },
+    {
+      "name": "speed-boost",
+      "description": "Gradually boosts SPEED."
+    }
   ],
   "description": "CARVANHA’s strongly developed jaws\nand its sharply pointed fangs pack the\ndestructive power to rip out boat hulls.\fMany boats have been attacked and\nsunk by this POKéMON."
 }

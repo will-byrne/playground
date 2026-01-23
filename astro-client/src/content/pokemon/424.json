@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "technician",
-    "pickup",
-    "skill-link"
+    {
+      "name": "technician",
+      "description": "Powers up the Pokémon’s weaker moves."
+    },
+    {
+      "name": "pickup",
+      "description": "May pick up items."
+    },
+    {
+      "name": "skill-link",
+      "description": "Increases the frequency of multi-strike moves."
+    }
   ],
   "description": "To eat, it deftly shucks nuts\nwith its two tails. It rarely uses\nits arms now."
 }

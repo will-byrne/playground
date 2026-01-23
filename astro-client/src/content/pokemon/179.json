@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "static",
-    "plus"
+    {
+      "name": "static",
+      "description": "Paralyzes on contact."
+    },
+    {
+      "name": "plus",
+      "description": "Powers up with MINUS."
+    }
   ],
   "description": "If static elec­\ntricity builds in\nits body, its\ffleece doubles in\nvolume. Touching\nit will shock you."
 }

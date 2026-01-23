@@ -25,7 +25,10 @@
     }
   },
   "abilities": [
-    "shields-down"
+    {
+      "name": "shields-down",
+      "description": "When its HP becomes half or less, the Pokémon’s shell breaks and it becomes aggressive."
+    }
   ],
   "description": "Originally making its home in the ozone layer,\nit hurtles to the ground when the shell enclosing\nits body grows too heavy."
 }

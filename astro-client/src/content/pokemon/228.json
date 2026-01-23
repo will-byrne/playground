@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "early-bird",
-    "flash-fire",
-    "unnerve"
+    {
+      "name": "early-bird",
+      "description": "Awakens quickly from sleep."
+    },
+    {
+      "name": "flash-fire",
+      "description": "Powers up if hit by fire."
+    },
+    {
+      "name": "unnerve",
+      "description": "Makes the foe nervous and unable to eat Berries."
+    }
   ],
   "description": "It uses different\nkinds of cries for\ncommunicating with\fothers of its kind\nand for pursuing\nits prey."
 }

@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "tough-claws",
-    "sniper",
-    "pickpocket"
+    {
+      "name": "tough-claws",
+      "description": "Powers up moves that make direct contact."
+    },
+    {
+      "name": "sniper",
+      "description": "Powers up moves if they become critical hits."
+    },
+    {
+      "name": "pickpocket",
+      "description": "Steals an item when hit by another Pokémon."
+    }
   ],
   "description": "Two Binacle live together on one rock.\nWhen they fight, one of them will move\nto a different rock."
 }

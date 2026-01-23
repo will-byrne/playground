@@ -28,9 +28,18 @@
     }
   },
   "abilities": [
-    "intimidate",
-    "flash-fire",
-    "justified"
+    {
+      "name": "intimidate",
+      "description": "Lowers the foe’s ATTACK."
+    },
+    {
+      "name": "flash-fire",
+      "description": "Powers up if hit by fire."
+    },
+    {
+      "name": "justified",
+      "description": "Raises Attack when hit by a Dark-type move."
+    }
   ],
   "description": "A POKéMON that\nhas been admired\nsince the past\ffor its beauty.\nIt runs agilely\nas if on wings."
 }

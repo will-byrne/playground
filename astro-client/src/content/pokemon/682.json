@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "healer",
-    "aroma-veil"
+    {
+      "name": "healer",
+      "description": "May heal an ally’s status conditions."
+    },
+    {
+      "name": "aroma-veil",
+      "description": "Protects allies from attacks that limit their move choices."
+    }
   ],
   "description": "It emits a scent that enraptures those\nwho smell it. This fragrance changes\ndepending on what it has eaten."
 }

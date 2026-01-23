@@ -25,8 +25,14 @@
     }
   },
   "abilities": [
-    "blaze",
-    "intimidate"
+    {
+      "name": "blaze",
+      "description": "Ups FIRE moves in a pinch."
+    },
+    {
+      "name": "intimidate",
+      "description": "Lowers the foe’s ATTACK."
+    }
   ],
   "description": "This Pokémon has a violent, selfish disposition.\nIf it’s not in the mood to listen, it will ignore its\nTrainer’s orders with complete nonchalance."
 }

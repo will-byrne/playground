@@ -28,8 +28,14 @@
     }
   },
   "abilities": [
-    "leaf-guard",
-    "contrary"
+    {
+      "name": "leaf-guard",
+      "description": "Prevents status problems in sunny weather."
+    },
+    {
+      "name": "contrary",
+      "description": "Makes stat changes have an opposite effect."
+    }
   ],
   "description": "It requires a lot of effort to maintain Lurantis’s\nvivid coloring, but some collectors enjoy this\nwork and treat it as their hobby."
 }

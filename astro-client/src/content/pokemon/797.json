@@ -25,7 +25,10 @@
     }
   },
   "abilities": [
-    "beast-boost"
+    {
+      "name": "beast-boost",
+      "description": "The Pokémon boosts its most proficient stat each time it knocks out a Pokémon."
+    }
   ],
   "description": "It appeared from the Ultra Wormhole. Witnesses\nobserved it flying across the sky at high speed."
 }

@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "thick-fat",
-    "own-tempo",
-    "defiant"
+    {
+      "name": "thick-fat",
+      "description": "Heat-and-cold protection."
+    },
+    {
+      "name": "own-tempo",
+      "description": "Prevents confusion."
+    },
+    {
+      "name": "defiant",
+      "description": "When its stats are lowered its Attack increases."
+    }
   ],
   "description": "It is a brazen brute that barges\nits way into another Pokémon’s\nnest and claims it as its own."
 }

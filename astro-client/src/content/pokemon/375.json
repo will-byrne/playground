@@ -25,8 +25,14 @@
     }
   },
   "abilities": [
-    "clear-body",
-    "light-metal"
+    {
+      "name": "clear-body",
+      "description": "Prevents ability reduction."
+    },
+    {
+      "name": "light-metal",
+      "description": "Halves the Pokémon’s weight."
+    }
   ],
   "description": "When two BELDUM fuse together, METANG\nis formed. The brains of the BELDUM are\njoined by a magnetic nervous system.\fBy linking its brains magnetically,\nthis POKéMON generates strong\npsychokinetic power."
 }

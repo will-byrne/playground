@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "pickup",
-    "cheek-pouch",
-    "huge-power"
+    {
+      "name": "pickup",
+      "description": "May pick up items."
+    },
+    {
+      "name": "cheek-pouch",
+      "description": "Restores HP as well when the Pokémon eats a Berry."
+    },
+    {
+      "name": "huge-power",
+      "description": "Raises ATTACK."
+    }
   ],
   "description": "They use their large ears to dig burrows.\nThey will dig the whole night through."
 }

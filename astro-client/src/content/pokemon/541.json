@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "leaf-guard",
-    "chlorophyll",
-    "overcoat"
+    {
+      "name": "leaf-guard",
+      "description": "Prevents status problems in sunny weather."
+    },
+    {
+      "name": "chlorophyll",
+      "description": "Raises SPEED in sunshine."
+    },
+    {
+      "name": "overcoat",
+      "description": "Protects the Pokémon from damage from weather."
+    }
   ],
   "description": "Forests where Swadloon live have superb\nfoliage because the nutrients they make\nfrom fallen leaves nourish the plant life."
 }

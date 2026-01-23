@@ -25,8 +25,14 @@
     }
   },
   "abilities": [
-    "flash-fire",
-    "weak-armor"
+    {
+      "name": "flash-fire",
+      "description": "Powers up if hit by fire."
+    },
+    {
+      "name": "weak-armor",
+      "description": "Physical attacks lower Defense and raise Speed."
+    }
   ],
   "description": "Armarouge evolved through the use of a set of armor that belonged to a distinguished warrior. This Pokémon is incredibly loyal."
 }

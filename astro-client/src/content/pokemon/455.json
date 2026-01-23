@@ -24,7 +24,10 @@
     }
   },
   "abilities": [
-    "levitate"
+    {
+      "name": "levitate",
+      "description": "Gives full immunity to all Ground-type moves."
+    }
   ],
   "description": "It attracts prey with its sweet-\nsmelling saliva, then chomps down.\nIt takes a whole day to eat prey."
 }

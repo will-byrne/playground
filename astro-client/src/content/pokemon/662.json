@@ -25,8 +25,14 @@
     }
   },
   "abilities": [
-    "flame-body",
-    "gale-wings"
+    {
+      "name": "flame-body",
+      "description": "Burns the foe on contact."
+    },
+    {
+      "name": "gale-wings",
+      "description": "Gives priority to Flying-type moves."
+    }
   ],
   "description": "From its beak, it expels embers that set\nthe tall grass on fire. Then it pounces on\nthe bewildered prey that pop out of the grass."
 }

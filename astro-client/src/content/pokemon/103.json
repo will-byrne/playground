@@ -29,8 +29,14 @@
     }
   },
   "abilities": [
-    "chlorophyll",
-    "harvest"
+    {
+      "name": "chlorophyll",
+      "description": "Raises SPEED in sunshine."
+    },
+    {
+      "name": "harvest",
+      "description": "May create another Berry after one is used."
+    }
   ],
   "description": "Legend has it that\non rare occasions,\none of its heads\fwill drop off and\ncontinue on as an\nEXEGGCUTE."
 }

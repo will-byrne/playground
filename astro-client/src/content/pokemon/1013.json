@@ -29,8 +29,14 @@
     }
   },
   "abilities": [
-    "hospitality",
-    "heatproof"
+    {
+      "name": "hospitality",
+      "description": "When the Pokémon enters a battle, it showers its ally with hospitality, restoring a small amount of the ally's HP"
+    },
+    {
+      "name": "heatproof",
+      "description": "Weakens the power of Fire-type moves."
+    }
   ],
   "description": "It pretends to be tea, trying to fool people into drinking it so it can drain their life-force. Its ruse is generally unsuccessful."
 }

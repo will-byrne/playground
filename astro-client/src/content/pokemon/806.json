@@ -25,7 +25,10 @@
     }
   },
   "abilities": [
-    "beast-boost"
+    {
+      "name": "beast-boost",
+      "description": "The Pokémon boosts its most proficient stat each time it knocks out a Pokémon."
+    }
   ],
   "description": "It slithers toward people. Then, without warning,\nit triggers the explosion of its own head.\nIt’s apparently one kind of Ultra Beast."
 }

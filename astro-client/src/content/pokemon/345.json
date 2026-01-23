@@ -25,8 +25,14 @@
     }
   },
   "abilities": [
-    "suction-cups",
-    "storm-drain"
+    {
+      "name": "suction-cups",
+      "description": "Firmly anchors the body."
+    },
+    {
+      "name": "storm-drain",
+      "description": "The Pokémon draws in all Water-type moves."
+    }
   ],
   "description": "LILEEP became extinct approximately\na hundred million years ago.\nThis ancient POKéMON attaches itself\fto a rock on the seafloor and catches\napproaching prey using tentacles \nshaped like flower petals."
 }

@@ -25,8 +25,14 @@
     }
   },
   "abilities": [
-    "chlorophyll",
-    "run-away"
+    {
+      "name": "chlorophyll",
+      "description": "Raises SPEED in sunshine."
+    },
+    {
+      "name": "run-away",
+      "description": "Makes escaping easier."
+    }
   ],
   "description": "During the day,\nit keeps its face\nburied in the\fground. At night,\nit wanders around\nsowing its seeds."
 }

@@ -29,9 +29,18 @@
     }
   },
   "abilities": [
-    "steam-engine",
-    "flame-body",
-    "flash-fire"
+    {
+      "name": "steam-engine",
+      "description": "Boosts the Pokémon’s Speed stat drastically if hit by a Fire- or Water-type move."
+    },
+    {
+      "name": "flame-body",
+      "description": "Burns the foe on contact."
+    },
+    {
+      "name": "flash-fire",
+      "description": "Powers up if hit by fire."
+    }
   ],
   "description": "It’s usually peaceful, but the vandalism of mines\nenrages it. Offenders will be incinerated with\nflames that reach 2,700 degrees Fahrenheit."
 }

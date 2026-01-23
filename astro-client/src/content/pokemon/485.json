@@ -21,12 +21,22 @@
       "heatran": {
         "default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/485.png",
         "shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/485.png"
+      },
+      "heatran-mega": {
+        "default": null,
+        "shiny": null
       }
     }
   },
   "abilities": [
-    "flash-fire",
-    "flame-body"
+    {
+      "name": "flash-fire",
+      "description": "Powers up if hit by fire."
+    },
+    {
+      "name": "flame-body",
+      "description": "Burns the foe on contact."
+    }
   ],
   "description": "It dwells in volcanic caves. It\ndigs in with its cross-shaped feet\nto crawl on ceilings and walls."
 }

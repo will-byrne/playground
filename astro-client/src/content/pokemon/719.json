@@ -29,7 +29,10 @@
     }
   },
   "abilities": [
-    "clear-body"
+    {
+      "name": "clear-body",
+      "description": "Prevents ability reduction."
+    }
   ],
   "description": "A sudden transformation of Carbink,\nits pink, glimmering body is said to be\nthe loveliest sight in the whole world."
 }

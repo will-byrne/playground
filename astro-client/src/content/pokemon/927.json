@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "well-baked-body",
-    "aroma-veil"
+    {
+      "name": "well-baked-body",
+      "description": "The Pokémon takes no damage when hit by Fire-type moves. Instead, its Defense stat is sharply boosted."
+    },
+    {
+      "name": "aroma-veil",
+      "description": "Protects allies from attacks that limit their move choices."
+    }
   ],
   "description": "The pleasant aroma that emanates from this Pokémon’s body helps wheat grow, so Dachsbun has been treasured by farming villages."
 }

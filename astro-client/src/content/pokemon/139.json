@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "swift-swim",
-    "shell-armor",
-    "weak-armor"
+    {
+      "name": "swift-swim",
+      "description": "Raises SPEED in rain."
+    },
+    {
+      "name": "shell-armor",
+      "description": "Blocks critical hits."
+    },
+    {
+      "name": "weak-armor",
+      "description": "Physical attacks lower Defense and raise Speed."
+    }
   ],
   "description": "A prehistoric\nPOKéMON that died\nout when its\fheavy shell made\nit impossible to\ncatch prey."
 }

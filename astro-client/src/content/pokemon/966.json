@@ -25,8 +25,14 @@
     }
   },
   "abilities": [
-    "overcoat",
-    "filter"
+    {
+      "name": "overcoat",
+      "description": "Protects the Pokémon from damage from weather."
+    },
+    {
+      "name": "filter",
+      "description": "Powers down super­ effective moves."
+    }
   ],
   "description": "It creates a gas out of poison and minerals from rocks. It then detonates the gas in its cylinders—now numbering eight—to generate energy."
 }

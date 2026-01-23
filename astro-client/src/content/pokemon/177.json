@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "synchronize",
-    "early-bird",
-    "magic-bounce"
+    {
+      "name": "synchronize",
+      "description": "Passes on status problems."
+    },
+    {
+      "name": "early-bird",
+      "description": "Awakens quickly from sleep."
+    },
+    {
+      "name": "magic-bounce",
+      "description": "Reflects status- changing moves."
+    }
   ],
   "description": "Because its wings\naren't yet fully\ngrown, it has to\fhop to get around.\nIt is always star­\ning at something."
 }

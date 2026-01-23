@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "pickup",
-    "sand-veil"
+    {
+      "name": "pickup",
+      "description": "May pick up items."
+    },
+    {
+      "name": "sand-veil",
+      "description": "Ups evasion in a sandstorm."
+    }
   ],
   "description": "It swings its long\nsnout around play­\nfully, but because\fit is so strong,\nthat can be dan­\ngerous."
 }

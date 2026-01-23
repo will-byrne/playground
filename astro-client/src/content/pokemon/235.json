@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "own-tempo",
-    "technician",
-    "moody"
+    {
+      "name": "own-tempo",
+      "description": "Prevents confusion."
+    },
+    {
+      "name": "technician",
+      "description": "Powers up the Pokémon’s weaker moves."
+    },
+    {
+      "name": "moody",
+      "description": "Raises one stat and lowers another."
+    }
   ],
   "description": "A special fluid\noozes from the tip\nof its tail. It\fpaints the fluid\neverywhere to mark\nits territory."
 }

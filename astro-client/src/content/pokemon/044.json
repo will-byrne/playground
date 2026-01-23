@@ -25,8 +25,14 @@
     }
   },
   "abilities": [
-    "chlorophyll",
-    "stench"
+    {
+      "name": "chlorophyll",
+      "description": "Raises SPEED in sunshine."
+    },
+    {
+      "name": "stench",
+      "description": "Helps repel wild POKéMON."
+    }
   ],
   "description": "The fluid that\noozes from its\nmouth isn't drool.\fIt is a nectar\nthat is used to\nattract prey."
 }

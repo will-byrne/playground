@@ -24,7 +24,10 @@
     }
   },
   "abilities": [
-    "ice-face"
+    {
+      "name": "ice-face",
+      "description": "The Pokémon’s ice head can take a physical attack as a substitute, but the attack also changes the Pokémon’s appearance. The ice will be restored when it hails."
+    }
   ],
   "description": "It drifted in on the flow of ocean waters from a\nfrigid place. It keeps its head iced constantly to\nmake sure it stays nice and cold."
 }

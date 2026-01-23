@@ -21,13 +21,26 @@
       "crabominable": {
         "default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/740.png",
         "shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/740.png"
+      },
+      "crabominable-mega": {
+        "default": null,
+        "shiny": null
       }
     }
   },
   "abilities": [
-    "hyper-cutter",
-    "iron-fist",
-    "anger-point"
+    {
+      "name": "hyper-cutter",
+      "description": "Prevents ATTACK reduction."
+    },
+    {
+      "name": "iron-fist",
+      "description": "Boosts the power of punching moves."
+    },
+    {
+      "name": "anger-point",
+      "description": "Raises Attack upon taking a critical hit."
+    }
   ],
   "description": "It aimed for the top but got lost and ended up\non a snowy mountain. Being forced to endure\nthe cold, this Pokémon evolved and grew fur."
 }

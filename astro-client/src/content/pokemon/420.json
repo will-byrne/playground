@@ -24,7 +24,10 @@
     }
   },
   "abilities": [
-    "chlorophyll"
+    {
+      "name": "chlorophyll",
+      "description": "Raises SPEED in sunshine."
+    }
   ],
   "description": "The small ball holds the nutrients\nneeded for evolution. Apparently,\nit is very sweet and tasty."
 }

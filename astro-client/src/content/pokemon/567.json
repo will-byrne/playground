@@ -25,7 +25,10 @@
     }
   },
   "abilities": [
-    "defeatist"
+    {
+      "name": "defeatist",
+      "description": "Lowers stats when HP becomes half or less."
+    }
   ],
   "description": "They are intelligent and will cooperate\nto catch prey. From the ground, they\nuse a running start to take flight."
 }

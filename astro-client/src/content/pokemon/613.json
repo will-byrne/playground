@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "snow-cloak",
-    "slush-rush",
-    "rattled"
+    {
+      "name": "snow-cloak",
+      "description": "Raises evasion in a hailstorm."
+    },
+    {
+      "name": "slush-rush",
+      "description": "Boosts the Pokémon’s Speed stat in a hailstorm."
+    },
+    {
+      "name": "rattled",
+      "description": "Some move types scare it and boost its Speed."
+    }
   ],
   "description": "When it is not feeling well, its mucus\ngets watery and the power of its\nIce-type moves decreases."
 }

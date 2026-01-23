@@ -25,7 +25,10 @@
     }
   },
   "abilities": [
-    "stance-change"
+    {
+      "name": "stance-change",
+      "description": "The Pokémon changes form depending on how it battles."
+    }
   ],
   "description": "Generations of kings were attended by these\nPokémon, which used their spectral power to\nmanipulate and control people and Pokémon."
 }

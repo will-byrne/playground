@@ -29,9 +29,18 @@
     }
   },
   "abilities": [
-    "swarm",
-    "frisk",
-    "telepathy"
+    {
+      "name": "swarm",
+      "description": "Ups BUG moves in a pinch."
+    },
+    {
+      "name": "frisk",
+      "description": "The Pokémon can check the foe’s held item."
+    },
+    {
+      "name": "telepathy",
+      "description": "Anticipates an ally’s attack and dodges it."
+    }
   ],
   "description": "It’s famous for its high level of intelligence, and\nthe large size of its brain is proof that it also\npossesses immense psychic power."
 }

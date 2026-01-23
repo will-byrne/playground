@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "anticipation",
-    "frisk",
-    "speed-boost"
+    {
+      "name": "anticipation",
+      "description": "Senses the foe’s dangerous moves."
+    },
+    {
+      "name": "frisk",
+      "description": "The Pokémon can check the foe’s held item."
+    },
+    {
+      "name": "speed-boost",
+      "description": "Gradually boosts SPEED."
+    }
   ],
   "description": "Flittle’s toes levitate about half an inch above the ground because of the psychic power emitted from the frills on the Pokémon’s belly."
 }

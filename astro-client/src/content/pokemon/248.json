@@ -29,8 +29,14 @@
     }
   },
   "abilities": [
-    "sand-stream",
-    "unnerve"
+    {
+      "name": "sand-stream",
+      "description": "Summons a sandstorm."
+    },
+    {
+      "name": "unnerve",
+      "description": "Makes the foe nervous and unable to eat Berries."
+    }
   ],
   "description": "Its body can't be\nharmed by any sort\nof attack, so it\fis very eager to\nmake challenges\nagainst enemies."
 }

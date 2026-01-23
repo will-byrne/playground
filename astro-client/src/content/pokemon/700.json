@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "cute-charm",
-    "pixilate"
+    {
+      "name": "cute-charm",
+      "description": "Infatuates on contact."
+    },
+    {
+      "name": "pixilate",
+      "description": "Normal-type moves become Fairy-type moves."
+    }
   ],
   "description": "It sends a soothing aura from its\nribbonlike feelers to calm fights."
 }

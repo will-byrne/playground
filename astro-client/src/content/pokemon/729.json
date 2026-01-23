@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "torrent",
-    "liquid-voice"
+    {
+      "name": "torrent",
+      "description": "Ups WATER moves in a pinch."
+    },
+    {
+      "name": "liquid-voice",
+      "description": "All sound-based moves become Water-type moves."
+    }
   ],
   "description": "A skillful dancer, it creates a sequence of water\nballoons as it dances, and briskly bombards\nits enemies."
 }

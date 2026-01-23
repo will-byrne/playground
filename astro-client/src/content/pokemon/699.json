@@ -25,8 +25,14 @@
     }
   },
   "abilities": [
-    "refrigerate",
-    "snow-warning"
+    {
+      "name": "refrigerate",
+      "description": "Normal-type moves become Ice-type moves."
+    },
+    {
+      "name": "snow-warning",
+      "description": "The Pokémon summons a hailstorm in battle."
+    }
   ],
   "description": "The diamond-shaped crystals on its body\nexpel air as cold as -240 degrees Fahrenheit,\nsurrounding its enemies and encasing them in ice."
 }

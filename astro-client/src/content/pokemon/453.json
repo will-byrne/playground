@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "anticipation",
-    "dry-skin",
-    "poison-touch"
+    {
+      "name": "anticipation",
+      "description": "Senses the foe’s dangerous moves."
+    },
+    {
+      "name": "dry-skin",
+      "description": "Reduces HP if it is hot. Water restores HP."
+    },
+    {
+      "name": "poison-touch",
+      "description": "May poison targets when a Pokémon makes contact."
+    }
   ],
   "description": "Its cheeks hold poison sacs.\nIt tries to catch foes off guard\nto jab them with toxic fingers."
 }

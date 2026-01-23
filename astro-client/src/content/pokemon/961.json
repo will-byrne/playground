@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "gooey",
-    "rattled",
-    "sand-veil"
+    {
+      "name": "gooey",
+      "description": "Contact with the Pokémon lowers the attacker’s Speed stat."
+    },
+    {
+      "name": "rattled",
+      "description": "Some move types scare it and boost its Speed."
+    },
+    {
+      "name": "sand-veil",
+      "description": "Ups evasion in a sandstorm."
+    }
   ],
   "description": "It has a vicious temperament, contrary to what its appearance may suggest. It wraps its long bodies around prey, then drags the prey into its den."
 }

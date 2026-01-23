@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "dry-skin",
-    "sand-veil",
-    "solar-power"
+    {
+      "name": "dry-skin",
+      "description": "Reduces HP if it is hot. Water restores HP."
+    },
+    {
+      "name": "sand-veil",
+      "description": "Ups evasion in a sandstorm."
+    },
+    {
+      "name": "solar-power",
+      "description": "Boosts Sp. Atk, but lowers HP in sunshine."
+    }
   ],
   "description": "They flare their frills and generate energy.\nA single Heliolisk can generate sufficient\nelectricity to power a skyscraper."
 }

@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "overgrow",
-    "shell-armor"
+    {
+      "name": "overgrow",
+      "description": "Powers up Grass-type moves in a pinch."
+    },
+    {
+      "name": "shell-armor",
+      "description": "Blocks critical hits."
+    }
   ],
   "description": "It knows where pure water wells\nup. It carries fellow Pokémon there\non its back."
 }

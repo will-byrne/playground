@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "swift-swim",
-    "hydration",
-    "water-absorb"
+    {
+      "name": "swift-swim",
+      "description": "Raises SPEED in rain."
+    },
+    {
+      "name": "hydration",
+      "description": "Heals status problems if it is raining."
+    },
+    {
+      "name": "water-absorb",
+      "description": "Restores HP if hit by a Water-type move."
+    }
   ],
   "description": "When they vibrate the bumps on their\nheads, they can make waves in water\nor earthquake-like vibrations on land."
 }

@@ -25,7 +25,10 @@
     }
   },
   "abilities": [
-    "levitate"
+    {
+      "name": "levitate",
+      "description": "Gives full immunity to all Ground-type moves."
+    }
   ],
   "description": "LUNATONE was discovered at a location\nwhere a meteorite fell. As a result, some\npeople theorize that this POKéMON\fcame from space. However, no one has\nbeen able to prove this theory so far."
 }

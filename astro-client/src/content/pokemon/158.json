@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "torrent",
-    "sheer-force"
+    {
+      "name": "torrent",
+      "description": "Ups WATER moves in a pinch."
+    },
+    {
+      "name": "sheer-force",
+      "description": "Removes added effects to increase move damage."
+    }
   ],
   "description": "Its well-developed\njaws are powerful\nand capable of\fcrushing anything.\nEven its trainer\nmust be careful."
 }

@@ -25,8 +25,14 @@
     }
   },
   "abilities": [
-    "clear-body",
-    "sturdy"
+    {
+      "name": "clear-body",
+      "description": "Prevents ability reduction."
+    },
+    {
+      "name": "sturdy",
+      "description": "Negates 1-hit KO attacks."
+    }
   ],
   "description": "Born from the temperatures and pressures\ndeep underground, it fires beams from the\nstone in its head."
 }

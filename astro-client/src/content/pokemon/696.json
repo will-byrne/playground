@@ -25,8 +25,14 @@
     }
   },
   "abilities": [
-    "strong-jaw",
-    "sturdy"
+    {
+      "name": "strong-jaw",
+      "description": "The Pokémon’s strong jaw gives it tremendous biting power."
+    },
+    {
+      "name": "sturdy",
+      "description": "Negates 1-hit KO attacks."
+    }
   ],
   "description": "This Pokémon was restored from a fossil.\nIf something happens that it doesn’t like,\nit throws a tantrum and runs wild."
 }

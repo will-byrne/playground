@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "torrent",
-    "sniper"
+    {
+      "name": "torrent",
+      "description": "Ups WATER moves in a pinch."
+    },
+    {
+      "name": "sniper",
+      "description": "Powers up moves if they become critical hits."
+    }
   ],
   "description": "When scared, this Pokémon cries. Its tears pack\nthe chemical punch of 100 onions, and attackers\nwon’t be able to resist weeping."
 }

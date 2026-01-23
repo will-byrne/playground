@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "mold-breaker",
-    "own-tempo",
-    "pickpocket"
+    {
+      "name": "mold-breaker",
+      "description": "Moves can be used regardless of abilities."
+    },
+    {
+      "name": "own-tempo",
+      "description": "Prevents confusion."
+    },
+    {
+      "name": "pickpocket",
+      "description": "Steals an item when hit by another Pokémon."
+    }
   ],
   "description": "It swings its handmade hammer around to protect itself, but the hammer is often stolen by Pokémon that eat metal."
 }

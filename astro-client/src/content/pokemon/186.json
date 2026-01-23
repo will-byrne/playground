@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "water-absorb",
-    "damp",
-    "drizzle"
+    {
+      "name": "water-absorb",
+      "description": "Restores HP if hit by a Water-type move."
+    },
+    {
+      "name": "damp",
+      "description": "Prevents self-destruction."
+    },
+    {
+      "name": "drizzle",
+      "description": "Summons rain in battle."
+    }
   ],
   "description": "If POLIWAG and\nPOLIWHIRL hear its\nechoing cry, they\frespond by gather­\ning from far and\nwide."
 }

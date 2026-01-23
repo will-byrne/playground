@@ -28,9 +28,18 @@
     }
   },
   "abilities": [
-    "healer",
-    "regenerator",
-    "klutz"
+    {
+      "name": "healer",
+      "description": "May heal an ally’s status conditions."
+    },
+    {
+      "name": "regenerator",
+      "description": "Restores a little HP when withdrawn from battle."
+    },
+    {
+      "name": "klutz",
+      "description": "The Pokémon can’t use any held items."
+    }
   ],
   "description": "It touches others with the feelers on\nits ears, using the sound of their\nheartbeats to tell how they are feeling."
 }

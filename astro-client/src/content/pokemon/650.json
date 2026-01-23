@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "overgrow",
-    "bulletproof"
+    {
+      "name": "overgrow",
+      "description": "Powers up Grass-type moves in a pinch."
+    },
+    {
+      "name": "bulletproof",
+      "description": "Protects the Pokémon from some ball and bomb moves."
+    }
   ],
   "description": "The quills on its head are usually soft.\nWhen it flexes them, the points become\nso hard and sharp that they can pierce rock."
 }

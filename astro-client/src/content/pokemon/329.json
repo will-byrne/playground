@@ -25,7 +25,10 @@
     }
   },
   "abilities": [
-    "levitate"
+    {
+      "name": "levitate",
+      "description": "Gives full immunity to all Ground-type moves."
+    }
   ],
   "description": "To make prey faint, VIBRAVA generates\nultrasonic waves by vigorously making\nits two wings vibrate.\fThis POKéMON’s ultrasonic waves are so\npowerful, they can bring on headaches\nin people."
 }

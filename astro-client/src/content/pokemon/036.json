@@ -20,13 +20,26 @@
       "clefable": {
         "default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/36.png",
         "shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/36.png"
+      },
+      "clefable-mega": {
+        "default": null,
+        "shiny": null
       }
     }
   },
   "abilities": [
-    "cute-charm",
-    "magic-guard",
-    "unaware"
+    {
+      "name": "cute-charm",
+      "description": "Infatuates on contact."
+    },
+    {
+      "name": "magic-guard",
+      "description": "The Pokémon only takes damage from attacks."
+    },
+    {
+      "name": "unaware",
+      "description": "Ignores any change in ability by the foe."
+    }
   ],
   "description": "A timid fairy\nPOKéMON that is\nrarely seen. It\fwill run and hide\nthe moment it\nsenses people."
 }

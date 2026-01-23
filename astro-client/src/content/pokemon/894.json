@@ -24,7 +24,10 @@
     }
   },
   "abilities": [
-    "transistor"
+    {
+      "name": "transistor",
+      "description": "Powers up Electric-type moves."
+    }
   ],
   "description": "This Pokémon is a cluster of electrical energy.\nIt’s said that removing the rings on Regieleki’s\nbody will unleash the Pokémon’s latent power."
 }

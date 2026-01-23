@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "pickup",
-    "thick-fat",
-    "gluttony"
+    {
+      "name": "pickup",
+      "description": "May pick up items."
+    },
+    {
+      "name": "thick-fat",
+      "description": "Heat-and-cold protection."
+    },
+    {
+      "name": "gluttony",
+      "description": "Encourages the early use of a held Berry."
+    }
   ],
   "description": "It wolfs down its weight in food\nonce a day, swallowing food whole\nwith almost no chewing."
 }

@@ -28,9 +28,18 @@
     }
   },
   "abilities": [
-    "soundproof",
-    "static",
-    "aftermath"
+    {
+      "name": "soundproof",
+      "description": "Avoids sound-based moves."
+    },
+    {
+      "name": "static",
+      "description": "Paralyzes on contact."
+    },
+    {
+      "name": "aftermath",
+      "description": "Damages the foe landing the finishing hit."
+    }
   ],
   "description": "It stores electric\nenergy under very\nhigh pressure.\fIt often explodes\nwith little or no\nprovocation."
 }

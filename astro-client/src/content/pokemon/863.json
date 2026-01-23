@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "battle-armor",
-    "tough-claws",
-    "steely-spirit"
+    {
+      "name": "battle-armor",
+      "description": "Blocks critical hits."
+    },
+    {
+      "name": "tough-claws",
+      "description": "Powers up moves that make direct contact."
+    },
+    {
+      "name": "steely-spirit",
+      "description": "Powers up ally Pokémon’s Steel-type moves."
+    }
   ],
   "description": "What appears to be an iron helmet is actually\nhardened hair. This Pokémon lives for the thrill\nof battle."
 }

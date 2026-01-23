@@ -25,7 +25,10 @@
     }
   },
   "abilities": [
-    "levitate"
+    {
+      "name": "levitate",
+      "description": "Gives full immunity to all Ground-type moves."
+    }
   ],
   "description": "BALTOY moves while spinning around on\nits one foot. Primitive wall paintings\ndepicting this POKéMON living among\fpeople were discovered in some ancient\nruins."
 }

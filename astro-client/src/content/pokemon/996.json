@@ -25,8 +25,14 @@
     }
   },
   "abilities": [
-    "thermal-exchange",
-    "ice-body"
+    {
+      "name": "thermal-exchange",
+      "description": "Boosts the Attack stat when the Pokémon is hit by a Fire-type move. The Pokémon also cannot be burned."
+    },
+    {
+      "name": "ice-body",
+      "description": "The Pokémon regains HP in a hailstorm."
+    }
   ],
   "description": "Frigibax absorbs heat through its dorsal fin and converts the heat into ice energy. The higher the temperature, the more energy Frigibax stores."
 }

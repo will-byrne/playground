@@ -29,8 +29,14 @@
     }
   },
   "abilities": [
-    "hospitality",
-    "heatproof"
+    {
+      "name": "hospitality",
+      "description": "When the Pokémon enters a battle, it showers its ally with hospitality, restoring a small amount of the ally's HP"
+    },
+    {
+      "name": "heatproof",
+      "description": "Weakens the power of Fire-type moves."
+    }
   ],
   "description": "Supposedly, the regrets of a tea ceremony master who died before perfecting his craft lingered in some matcha and became a Pokémon."
 }

@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "stakeout",
-    "strong-jaw",
-    "adaptability"
+    {
+      "name": "stakeout",
+      "description": "Doubles the damage dealt to the target’s replacement if the target switches out."
+    },
+    {
+      "name": "strong-jaw",
+      "description": "The Pokémon’s strong jaw gives it tremendous biting power."
+    },
+    {
+      "name": "adaptability",
+      "description": "Powers up moves of the same type."
+    }
   ],
   "description": "With its sharp fangs, it will bite anything.\nIt did not originally live in Alola but was\nimported from another region."
 }

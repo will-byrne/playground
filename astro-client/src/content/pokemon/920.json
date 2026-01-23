@@ -25,8 +25,14 @@
     }
   },
   "abilities": [
-    "swarm",
-    "tinted-lens"
+    {
+      "name": "swarm",
+      "description": "Ups BUG moves in a pinch."
+    },
+    {
+      "name": "tinted-lens",
+      "description": "Powers up “not very effective” moves."
+    }
   ],
   "description": "When it decides to fight all out, it stands on its previously folded legs to enter Showdown Mode. It neutralizes its enemies in short order."
 }

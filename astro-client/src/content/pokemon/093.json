@@ -25,7 +25,10 @@
     }
   },
   "abilities": [
-    "levitate"
+    {
+      "name": "levitate",
+      "description": "Gives full immunity to all Ground-type moves."
+    }
   ],
   "description": "Because of its\nability to slip\nthrough block\fwalls, it is said\nto be from an­\nother dimension."
 }

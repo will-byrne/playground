@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "friend-guard",
-    "cheek-pouch",
-    "technician"
+    {
+      "name": "friend-guard",
+      "description": "Reduces damage done to allies."
+    },
+    {
+      "name": "cheek-pouch",
+      "description": "Restores HP as well when the Pokémon eats a Berry."
+    },
+    {
+      "name": "technician",
+      "description": "Powers up the Pokémon’s weaker moves."
+    }
   ],
   "description": "The two little ones just appeared one day. The group might be a family of related Pokémon, but nobody knows for sure."
 }

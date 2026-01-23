@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "blaze",
-    "solar-power"
+    {
+      "name": "blaze",
+      "description": "Ups FIRE moves in a pinch."
+    },
+    {
+      "name": "solar-power",
+      "description": "Boosts Sp. Atk, but lowers HP in sunshine."
+    }
   ],
   "description": "When it swings\nits burning tail,\nit elevates the\ftemperature to\nunbearably high\nlevels."
 }

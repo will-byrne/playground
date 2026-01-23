@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "rock-head",
-    "overcoat"
+    {
+      "name": "rock-head",
+      "description": "Protects the Pokémon from recoil damage."
+    },
+    {
+      "name": "overcoat",
+      "description": "Protects the Pokémon from damage from weather."
+    }
   ],
   "description": "Inside SHELGON’s armor-like shell, cells\nare in the midst of transformation\nto create an entirely new body.\fThis POKéMON’s shell is extremely heavy,\nmaking its movements sluggish."
 }

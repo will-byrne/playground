@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "gluttony",
-    "overgrow"
+    {
+      "name": "gluttony",
+      "description": "Encourages the early use of a held Berry."
+    },
+    {
+      "name": "overgrow",
+      "description": "Powers up Grass-type moves in a pinch."
+    }
   ],
   "description": "This Pokémon dwells deep in the forest.\nEating a leaf from its head whisks\nweariness away as if by magic."
 }

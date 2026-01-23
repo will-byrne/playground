@@ -29,9 +29,18 @@
     }
   },
   "abilities": [
-    "ripen",
-    "gluttony",
-    "hustle"
+    {
+      "name": "ripen",
+      "description": "Ripens Berries and doubles their effect."
+    },
+    {
+      "name": "gluttony",
+      "description": "Encourages the early use of a held Berry."
+    },
+    {
+      "name": "hustle",
+      "description": "Trades accuracy for power."
+    }
   ],
   "description": "It ate a sour apple, and that induced its\nevolution. In its cheeks, it stores an acid\ncapable of causing chemical burns."
 }

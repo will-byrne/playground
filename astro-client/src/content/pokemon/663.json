@@ -25,8 +25,14 @@
     }
   },
   "abilities": [
-    "flame-body",
-    "gale-wings"
+    {
+      "name": "flame-body",
+      "description": "Burns the foe on contact."
+    },
+    {
+      "name": "gale-wings",
+      "description": "Gives priority to Flying-type moves."
+    }
   ],
   "description": "In the fever of an exciting battle, it\nshowers embers from the gaps between\nits feathers and takes to the air."
 }

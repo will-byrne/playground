@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "electromorphosis",
-    "static",
-    "damp"
+    {
+      "name": "electromorphosis",
+      "description": "The Pokémon becomes charged when it takes damage, boosting the power of the next Electric-type move the Pokémon uses."
+    },
+    {
+      "name": "static",
+      "description": "Paralyzes on contact."
+    },
+    {
+      "name": "damp",
+      "description": "Prevents self-destruction."
+    }
   ],
   "description": "When this Pokémon expands and contracts its wobbly body, the belly-button dynamo in its stomach produces a huge amount of electricity."
 }

@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "zero-to-hero",
-    "zero-to-hero"
+    {
+      "name": "zero-to-hero",
+      "description": "The Pokémon transforms into its Hero Form when it switches out."
+    },
+    {
+      "name": "zero-to-hero",
+      "description": "The Pokémon transforms into its Hero Form when it switches out."
+    }
   ],
   "description": "This Pokémon changes its appearance if it hears its allies calling for help. Palafin will never show anybody its moment of transformation."
 }

@@ -25,7 +25,10 @@
     }
   },
   "abilities": [
-    "hustle"
+    {
+      "name": "hustle",
+      "description": "Trades accuracy for power."
+    }
   ],
   "description": "It tends to bite everything, and it\nis not a picky eater. Approaching it\ncarelessly is dangerous."
 }

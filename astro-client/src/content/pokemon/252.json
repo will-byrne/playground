@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "overgrow",
-    "unburden"
+    {
+      "name": "overgrow",
+      "description": "Powers up Grass-type moves in a pinch."
+    },
+    {
+      "name": "unburden",
+      "description": "Raises Speed if a held item is used."
+    }
   ],
   "description": "TREECKO has small hooks on the bottom\nof its feet that enable it to scale\nvertical walls.\fThis POKéMON attacks by slamming foes\nwith its thick tail."
 }

@@ -29,9 +29,18 @@
     }
   },
   "abilities": [
-    "hustle",
-    "natural-cure",
-    "regenerator"
+    {
+      "name": "hustle",
+      "description": "Trades accuracy for power."
+    },
+    {
+      "name": "natural-cure",
+      "description": "Heals upon switching out."
+    },
+    {
+      "name": "regenerator",
+      "description": "Restores a little HP when withdrawn from battle."
+    }
   ],
   "description": "It continuously\nsheds and grows.\nThe tip of its\fhead is prized as\na treasure for its\nbeauty."
 }

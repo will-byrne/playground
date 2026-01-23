@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "torrent",
-    "sheer-force"
+    {
+      "name": "torrent",
+      "description": "Ups WATER moves in a pinch."
+    },
+    {
+      "name": "sheer-force",
+      "description": "Removes added effects to increase move damage."
+    }
   ],
   "description": "If it loses a\nfang, a new one\ngrows back in its\fplace. There are\nalways 48 fangs\nlining its mouth."
 }

@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "gluttony",
-    "overgrow"
+    {
+      "name": "gluttony",
+      "description": "Encourages the early use of a held Berry."
+    },
+    {
+      "name": "overgrow",
+      "description": "Powers up Grass-type moves in a pinch."
+    }
   ],
   "description": "Ill tempered, it fights by swinging its\nbarbed tail around wildly. The leaf\ngrowing on its head is very bitter."
 }

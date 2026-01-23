@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "swarm",
-    "compound-eyes",
-    "telepathy"
+    {
+      "name": "swarm",
+      "description": "Ups BUG moves in a pinch."
+    },
+    {
+      "name": "compound-eyes",
+      "description": "Raises accuracy."
+    },
+    {
+      "name": "telepathy",
+      "description": "Anticipates an ally’s attack and dodges it."
+    }
   ],
   "description": "A constant collector of information, this Pokémon\nis very smart. Very strong is what it isn’t."
 }

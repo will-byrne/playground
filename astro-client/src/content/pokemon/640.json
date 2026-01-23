@@ -25,7 +25,10 @@
     }
   },
   "abilities": [
-    "justified"
+    {
+      "name": "justified",
+      "description": "Raises Attack when hit by a Dark-type move."
+    }
   ],
   "description": "This Pokémon fought humans in order\nto protect its friends. Legends about it\ncontinue to be passed down."
 }

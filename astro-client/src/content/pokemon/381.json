@@ -29,7 +29,10 @@
     }
   },
   "abilities": [
-    "levitate"
+    {
+      "name": "levitate",
+      "description": "Gives full immunity to all Ground-type moves."
+    }
   ],
   "description": "LATIOS has the ability to make its foe\nsee an image of what it has seen or\nimagines in its head.\fThis POKéMON is intelligent and\nunderstands human speech."
 }

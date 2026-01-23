@@ -25,8 +25,14 @@
     }
   },
   "abilities": [
-    "mycelium-might",
-    "mycelium-might"
+    {
+      "name": "mycelium-might",
+      "description": "The Pokémon will always act more slowly when using status moves, but these moves will be unimpeded by the Ability of the target."
+    },
+    {
+      "name": "mycelium-might",
+      "description": "The Pokémon will always act more slowly when using status moves, but these moves will be unimpeded by the Ability of the target."
+    }
   ],
   "description": "Toedscool lives in muggy forests. The flaps that fall from its body are chewy and very delicious."
 }

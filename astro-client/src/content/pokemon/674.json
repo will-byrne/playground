@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "iron-fist",
-    "mold-breaker",
-    "scrappy"
+    {
+      "name": "iron-fist",
+      "description": "Boosts the power of punching moves."
+    },
+    {
+      "name": "mold-breaker",
+      "description": "Moves can be used regardless of abilities."
+    },
+    {
+      "name": "scrappy",
+      "description": "Enables moves to hit Ghost-type foes."
+    }
   ],
   "description": "It does its best to be taken seriously by its enemies,\nbut its glare is not sufficiently intimidating.\nChewing on a leaf is its trademark."
 }

@@ -32,7 +32,10 @@
     }
   },
   "abilities": [
-    "tera-shift"
+    {
+      "name": "tera-shift",
+      "description": "When the Pokémon enters a battle, it absorbs the energy around itself and transforms into its Terastal Form."
+    }
   ],
   "description": "Terapagos protects itself using its power to transform energy into hard crystals. This Pokémon is the source of the Terastal phenomenon."
 }

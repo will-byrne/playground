@@ -25,7 +25,10 @@
     }
   },
   "abilities": [
-    "teravolt"
+    {
+      "name": "teravolt",
+      "description": "Moves can be used regardless of Abilities."
+    }
   ],
   "description": "Concealing itself in lightning clouds,\nit flies throughout the Unova region.\nIt creates electricity in its tail."
 }

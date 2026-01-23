@@ -25,8 +25,14 @@
     }
   },
   "abilities": [
-    "flame-body",
-    "swarm"
+    {
+      "name": "flame-body",
+      "description": "Burns the foe on contact."
+    },
+    {
+      "name": "swarm",
+      "description": "Ups BUG moves in a pinch."
+    }
   ],
   "description": "This Pokémon was believed to have\nbeen born from the sun. When it evolves,\nits entire body is engulfed in flames."
 }

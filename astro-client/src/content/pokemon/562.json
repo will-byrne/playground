@@ -28,7 +28,10 @@
     }
   },
   "abilities": [
-    "mummy"
+    {
+      "name": "mummy",
+      "description": "Contact with this Pokémon spreads this Ability."
+    }
   ],
   "description": "Each of them carries a mask that used\nto be its face when it was human.\nSometimes they look at it and cry."
 }

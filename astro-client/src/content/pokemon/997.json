@@ -25,8 +25,14 @@
     }
   },
   "abilities": [
-    "thermal-exchange",
-    "ice-body"
+    {
+      "name": "thermal-exchange",
+      "description": "Boosts the Attack stat when the Pokémon is hit by a Fire-type move. The Pokémon also cannot be burned."
+    },
+    {
+      "name": "ice-body",
+      "description": "The Pokémon regains HP in a hailstorm."
+    }
   ],
   "description": "Arctibax freezes the air around it, protecting its face with an ice mask and turning its dorsal fin into a blade of ice."
 }

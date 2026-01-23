@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "guts",
-    "quick-feet",
-    "unnerve"
+    {
+      "name": "guts",
+      "description": "Ups ATTACK if suffering."
+    },
+    {
+      "name": "quick-feet",
+      "description": "Boosts Speed if there is a status problem."
+    },
+    {
+      "name": "unnerve",
+      "description": "Makes the foe nervous and unable to eat Berries."
+    }
   ],
   "description": "Although it is a\ngood climber, it\nprefers to snap\ftrees with its\nforelegs and eat\nfallen BERRIES."
 }

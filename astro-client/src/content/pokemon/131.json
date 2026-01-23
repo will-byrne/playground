@@ -29,9 +29,18 @@
     }
   },
   "abilities": [
-    "water-absorb",
-    "shell-armor",
-    "hydration"
+    {
+      "name": "water-absorb",
+      "description": "Restores HP if hit by a Water-type move."
+    },
+    {
+      "name": "shell-armor",
+      "description": "Blocks critical hits."
+    },
+    {
+      "name": "hydration",
+      "description": "Heals status problems if it is raining."
+    }
   ],
   "description": "A POKéMON that\nhas been over­\nhunted almost to\fextinction. It\ncan ferry people\nacross the water."
 }

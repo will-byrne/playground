@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "shed-skin",
-    "run-away"
+    {
+      "name": "shed-skin",
+      "description": "Heals the body by shedding."
+    },
+    {
+      "name": "run-away",
+      "description": "Makes escaping easier."
+    }
   ],
   "description": "It shakes its head back to front,\ncausing its antennae to hit each\nother and sound like a xylophone."
 }

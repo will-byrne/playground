@@ -25,7 +25,10 @@
     }
   },
   "abilities": [
-    "no-guard"
+    {
+      "name": "no-guard",
+      "description": "Ensures the Pokémon and its foe’s attacks land."
+    }
   ],
   "description": "When Honedge evolves, it divides into two swords,\nwhich cooperate via telepathy to coordinate attacks\nand slash their enemies to ribbons."
 }

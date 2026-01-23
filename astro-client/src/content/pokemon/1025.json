@@ -25,7 +25,10 @@
     }
   },
   "abilities": [
-    "poison-puppeteer"
+    {
+      "name": "poison-puppeteer",
+      "description": "Pokémon poisoned by Pecharunt's moves will also become confused."
+    }
   ],
   "description": "It feeds others toxic mochi that draw out desires and capabilities. Those who eat the mochi fall under Pecharunt’s control, chained to its will."
 }

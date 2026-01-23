@@ -25,8 +25,14 @@
     }
   },
   "abilities": [
-    "prankster",
-    "defiant"
+    {
+      "name": "prankster",
+      "description": "Gives priority to a status move."
+    },
+    {
+      "name": "defiant",
+      "description": "When its stats are lowered its Attack increases."
+    }
   ],
   "description": "Countless charred remains mar the\nlandscape of places through which\nThundurus has passed."
 }

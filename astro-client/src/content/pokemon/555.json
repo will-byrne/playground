@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "sheer-force",
-    "zen-mode"
+    {
+      "name": "sheer-force",
+      "description": "Removes added effects to increase move damage."
+    },
+    {
+      "name": "zen-mode",
+      "description": "Changes the Pokémon’s shape when HP is halved."
+    }
   ],
   "description": "Its internal fire burns at 2,500° F,\nmaking enough power that it can\ndestroy a dump truck with one punch."
 }

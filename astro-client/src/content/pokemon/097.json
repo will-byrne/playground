@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "insomnia",
-    "forewarn",
-    "inner-focus"
+    {
+      "name": "insomnia",
+      "description": "Prevents sleep."
+    },
+    {
+      "name": "forewarn",
+      "description": "Determines what moves the foe has."
+    },
+    {
+      "name": "inner-focus",
+      "description": "Prevents flinching."
+    }
   ],
   "description": "When it locks eyes\nwith an enemy, it\nwill use a mix of\fPSI moves such as\nHYPNOSIS and\nCONFUSION."
 }

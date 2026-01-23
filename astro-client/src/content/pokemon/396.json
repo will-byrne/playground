@@ -25,8 +25,14 @@
     }
   },
   "abilities": [
-    "keen-eye",
-    "reckless"
+    {
+      "name": "keen-eye",
+      "description": "Prevents loss of accuracy."
+    },
+    {
+      "name": "reckless",
+      "description": "Powers up moves that have recoil damage."
+    }
   ],
   "description": "They flock in great numbers.\nThough small, they flap their\nwings with great power."
 }

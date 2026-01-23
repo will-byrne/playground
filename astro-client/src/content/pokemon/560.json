@@ -21,13 +21,26 @@
       "scrafty": {
         "default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/560.png",
         "shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/560.png"
+      },
+      "scrafty-mega": {
+        "default": null,
+        "shiny": null
       }
     }
   },
   "abilities": [
-    "shed-skin",
-    "moxie",
-    "intimidate"
+    {
+      "name": "shed-skin",
+      "description": "Heals the body by shedding."
+    },
+    {
+      "name": "moxie",
+      "description": "Boosts Attack after knocking out any Pokémon."
+    },
+    {
+      "name": "intimidate",
+      "description": "Lowers the foe’s ATTACK."
+    }
   ],
   "description": "Groups of them beat up anything\nthat enters their territory. Each can\nspit acidic liquid from its mouth."
 }

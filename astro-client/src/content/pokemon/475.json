@@ -29,9 +29,18 @@
     }
   },
   "abilities": [
-    "steadfast",
-    "sharpness",
-    "justified"
+    {
+      "name": "steadfast",
+      "description": "Raises Speed each time the Pokémon flinches."
+    },
+    {
+      "name": "sharpness",
+      "description": "Powers up slicing moves."
+    },
+    {
+      "name": "justified",
+      "description": "Raises Attack when hit by a Dark-type move."
+    }
   ],
   "description": "A master of courtesy and\nswordsmanship, it fights using\nextending swords on its elbows."
 }

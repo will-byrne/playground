@@ -25,8 +25,14 @@
     }
   },
   "abilities": [
-    "keen-eye",
-    "sniper"
+    {
+      "name": "keen-eye",
+      "description": "Prevents loss of accuracy."
+    },
+    {
+      "name": "sniper",
+      "description": "Powers up moves if they become critical hits."
+    }
   ],
   "description": "It flaps its small wings busily to\nfly. Using its beak, it searches\nin grass for prey."
 }

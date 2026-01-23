@@ -88,8 +88,14 @@
     }
   },
   "abilities": [
-    "static",
-    "lightning-rod"
+    {
+      "name": "static",
+      "description": "Paralyzes on contact."
+    },
+    {
+      "name": "lightning-rod",
+      "description": "Draws electrical moves."
+    }
   ],
   "description": "When several of\nthese POKéMON\ngather, their\felectricity could\nbuild and cause\nlightning storms."
 }

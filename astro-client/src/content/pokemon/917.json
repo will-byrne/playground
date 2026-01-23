@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "insomnia",
-    "stakeout"
+    {
+      "name": "insomnia",
+      "description": "Prevents sleep."
+    },
+    {
+      "name": "stakeout",
+      "description": "Doubles the damage dealt to the target’s replacement if the target switches out."
+    }
   ],
   "description": "The ball of threads wrapped around its body is elastic enough to deflect the scythes of Scyther, this Pokémon’s natural enemy."
 }

@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "effect-spore",
-    "dry-skin",
-    "damp"
+    {
+      "name": "effect-spore",
+      "description": "Leaves spores on contact."
+    },
+    {
+      "name": "dry-skin",
+      "description": "Reduces HP if it is hot. Water restores HP."
+    },
+    {
+      "name": "damp",
+      "description": "Prevents self-destruction."
+    }
   ],
   "description": "A host-parasite\npair in which the\nparasite mushroom\fhas taken over the\nhost bug. Prefers\ndamp places."
 }

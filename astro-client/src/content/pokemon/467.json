@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "flame-body",
-    "vital-spirit"
+    {
+      "name": "flame-body",
+      "description": "Burns the foe on contact."
+    },
+    {
+      "name": "vital-spirit",
+      "description": "Prevents sleep."
+    }
   ],
   "description": "It blasts fireballs of over 3,600\ndegrees F from the ends of its\narms. It lives in volcanic craters."
 }

@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "limber",
-    "own-tempo",
-    "keen-eye"
+    {
+      "name": "limber",
+      "description": "Prevents paralysis."
+    },
+    {
+      "name": "own-tempo",
+      "description": "Prevents confusion."
+    },
+    {
+      "name": "keen-eye",
+      "description": "Prevents loss of accuracy."
+    }
   ],
   "description": "It claws if displeased and purrs\nwhen affectionate. Its fickleness\nis very popular among some."
 }

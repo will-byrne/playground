@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "fluffy",
-    "run-away",
-    "bulletproof"
+    {
+      "name": "fluffy",
+      "description": "Halves the damage taken from moves that make direct contact, but doubles that of Fire-type moves."
+    },
+    {
+      "name": "run-away",
+      "description": "Makes escaping easier."
+    },
+    {
+      "name": "bulletproof",
+      "description": "Protects the Pokémon from some ball and bomb moves."
+    }
   ],
   "description": "Its curly fleece is such an effective cushion that\nthis Pokémon could fall off a cliff and stand right\nback up at the bottom, unharmed."
 }

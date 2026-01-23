@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "limber",
-    "reckless",
-    "unburden"
+    {
+      "name": "limber",
+      "description": "Prevents paralysis."
+    },
+    {
+      "name": "reckless",
+      "description": "Powers up moves that have recoil damage."
+    },
+    {
+      "name": "unburden",
+      "description": "Raises Speed if a held item is used."
+    }
   ],
   "description": "When in a hurry,\nits legs lengthen\nprogressively.\fIt runs smoothly\nwith extra long,\nloping strides."
 }

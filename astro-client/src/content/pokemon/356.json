@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "pressure",
-    "frisk"
+    {
+      "name": "pressure",
+      "description": "Raises foe’s PP usage."
+    },
+    {
+      "name": "frisk",
+      "description": "The Pokémon can check the foe’s held item."
+    }
   ],
   "description": "DUSCLOPS’s body is completely hollow -\nthere is nothing at all inside.\nIt is said that its body is like a black\fhole. This POKéMON will absorb anything\ninto its body, but nothing will ever come\nback out."
 }

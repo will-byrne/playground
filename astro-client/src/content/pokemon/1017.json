@@ -36,7 +36,10 @@
     }
   },
   "abilities": [
-    "defiant"
+    {
+      "name": "defiant",
+      "description": "When its stats are lowered its Attack increases."
+    }
   ],
   "description": "This Pokémon's type changes based on which mask it's wearing. It confounds its enemies with nimble movements and kicks."
 }

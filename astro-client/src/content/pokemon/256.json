@@ -25,8 +25,14 @@
     }
   },
   "abilities": [
-    "blaze",
-    "speed-boost"
+    {
+      "name": "blaze",
+      "description": "Ups FIRE moves in a pinch."
+    },
+    {
+      "name": "speed-boost",
+      "description": "Gradually boosts SPEED."
+    }
   ],
   "description": "COMBUSKEN toughens up its legs and\nthighs by running through fields and\nmountains.\fThis POKéMON’s legs possess both speed\nand power, enabling it to dole out ten\nkicks in one second."
 }

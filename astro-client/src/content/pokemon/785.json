@@ -25,8 +25,14 @@
     }
   },
   "abilities": [
-    "electric-surge",
-    "telepathy"
+    {
+      "name": "electric-surge",
+      "description": "Turns the ground into Electric Terrain when the Pokémon enters a battle."
+    },
+    {
+      "name": "telepathy",
+      "description": "Anticipates an ally’s attack and dodges it."
+    }
   ],
   "description": "This guardian deity of Melemele is brimming with\ncuriosity. It summons thunderclouds and stores\ntheir lightning inside its body."
 }

@@ -25,7 +25,10 @@
     }
   },
   "abilities": [
-    "water-absorb"
+    {
+      "name": "water-absorb",
+      "description": "Restores HP if hit by a Water-type move."
+    }
   ],
   "description": "It lets out billows of steam and disappears into\nthe dense fog. It’s said to live in mountains\nwhere humans do not tread."
 }

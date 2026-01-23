@@ -25,8 +25,14 @@
     }
   },
   "abilities": [
-    "sturdy",
-    "overcoat"
+    {
+      "name": "sturdy",
+      "description": "Negates 1-hit KO attacks."
+    },
+    {
+      "name": "overcoat",
+      "description": "Protects the Pokémon from damage from weather."
+    }
   ],
   "description": "Its entire body is\nshielded by a\nsteel-hard shell.\fWhat lurks inside\nthe armor is a\ntotal mystery."
 }

@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "sturdy",
-    "sand-stream",
-    "sand-force"
+    {
+      "name": "sturdy",
+      "description": "Negates 1-hit KO attacks."
+    },
+    {
+      "name": "sand-stream",
+      "description": "Summons a sandstorm."
+    },
+    {
+      "name": "sand-force",
+      "description": "Boosts certain moves’ power in a sandstorm."
+    }
   ],
   "description": "Compressing the energy from its\ninternal core lets it fire off an attack\ncapable of blowing away a mountain."
 }

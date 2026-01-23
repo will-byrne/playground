@@ -25,7 +25,10 @@
     }
   },
   "abilities": [
-    "steelworker"
+    {
+      "name": "steelworker",
+      "description": "Powers up Steel-type moves."
+    }
   ],
   "description": "Swinging its massive anchor, it can KO Wailord\nin a single blow. What appears to be green\nseaweed is actually its body."
 }

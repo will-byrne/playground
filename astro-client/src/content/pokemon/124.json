@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "oblivious",
-    "forewarn",
-    "dry-skin"
+    {
+      "name": "oblivious",
+      "description": "Prevents attraction."
+    },
+    {
+      "name": "forewarn",
+      "description": "Determines what moves the foe has."
+    },
+    {
+      "name": "dry-skin",
+      "description": "Reduces HP if it is hot. Water restores HP."
+    }
   ],
   "description": "It seductively\nwiggles its hips\nas it walks. It\fcan cause people\nto dance in\nunison with it."
 }

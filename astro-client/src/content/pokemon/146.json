@@ -29,8 +29,14 @@
     }
   },
   "abilities": [
-    "pressure",
-    "flame-body"
+    {
+      "name": "pressure",
+      "description": "Raises foe’s PP usage."
+    },
+    {
+      "name": "flame-body",
+      "description": "Burns the foe on contact."
+    }
   ],
   "description": "Known as the\nlegendary bird of\nfire. Every flap\fof its wings\ncreates a dazzling\nflash of flames."
 }

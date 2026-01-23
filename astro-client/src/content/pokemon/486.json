@@ -24,7 +24,10 @@
     }
   },
   "abilities": [
-    "slow-start"
+    {
+      "name": "slow-start",
+      "description": "Temporarily halves Attack and Speed."
+    }
   ],
   "description": "There is an enduring legend that\nstates this Pokémon towed\ncontinents with ropes."
 }

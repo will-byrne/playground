@@ -41,7 +41,10 @@
     }
   },
   "abilities": [
-    "download"
+    {
+      "name": "download",
+      "description": "Adjusts power according to the foe’s ability."
+    }
   ],
   "description": "Over 300 million years ago, it was feared\nas the strongest of hunters.\nIt has been modified by Team Plasma."
 }

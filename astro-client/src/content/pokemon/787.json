@@ -25,8 +25,14 @@
     }
   },
   "abilities": [
-    "grassy-surge",
-    "telepathy"
+    {
+      "name": "grassy-surge",
+      "description": "Turns the ground into Grassy Terrain when the Pokémon enters a battle."
+    },
+    {
+      "name": "telepathy",
+      "description": "Anticipates an ally’s attack and dodges it."
+    }
   ],
   "description": "It pulls large trees up by the roots and swings\nthem around. It causes vegetation to grow,\nand then it absorbs energy from the growth."
 }

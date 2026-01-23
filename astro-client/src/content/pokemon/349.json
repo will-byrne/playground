@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "swift-swim",
-    "oblivious",
-    "adaptability"
+    {
+      "name": "swift-swim",
+      "description": "Raises SPEED in rain."
+    },
+    {
+      "name": "oblivious",
+      "description": "Prevents attraction."
+    },
+    {
+      "name": "adaptability",
+      "description": "Powers up moves of the same type."
+    }
   ],
   "description": "FEEBAS’s fins are ragged and\ntattered from the start of its life.\nBecause of its shoddy appearance, this\fPOKéMON is largely ignored.\nIt is capable of living in both the sea\nand in rivers."
 }

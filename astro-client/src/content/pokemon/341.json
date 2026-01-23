@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "hyper-cutter",
-    "shell-armor",
-    "adaptability"
+    {
+      "name": "hyper-cutter",
+      "description": "Prevents ATTACK reduction."
+    },
+    {
+      "name": "shell-armor",
+      "description": "Blocks critical hits."
+    },
+    {
+      "name": "adaptability",
+      "description": "Powers up moves of the same type."
+    }
   ],
   "description": "Its hardy vitality enables it to\nadapt to any environment. Its\npincers will never release prey."
 }

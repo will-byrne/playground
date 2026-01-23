@@ -29,8 +29,14 @@
     }
   },
   "abilities": [
-    "water-bubble",
-    "water-absorb"
+    {
+      "name": "water-bubble",
+      "description": "Lowers the power of Fire-type moves done to the Pokémon and prevents the Pokémon from getting a burn."
+    },
+    {
+      "name": "water-absorb",
+      "description": "Restores HP if hit by a Water-type move."
+    }
   ],
   "description": "It delivers headbutts with the water bubble\non its head. Small Pokémon get sucked into\nthe bubble, where they drown."
 }

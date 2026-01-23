@@ -21,13 +21,26 @@
       "starmie": {
         "default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/121.png",
         "shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/121.png"
+      },
+      "starmie-mega": {
+        "default": null,
+        "shiny": null
       }
     }
   },
   "abilities": [
-    "illuminate",
-    "natural-cure",
-    "analytic"
+    {
+      "name": "illuminate",
+      "description": "Encounter rate increases."
+    },
+    {
+      "name": "natural-cure",
+      "description": "Heals upon switching out."
+    },
+    {
+      "name": "analytic",
+      "description": "Boosts move power when the Pokémon moves last."
+    }
   ],
   "description": "Its central core\nglows with the\nseven colors of\fthe rainbow. Some\npeople value the\ncore as a gem."
 }

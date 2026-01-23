@@ -24,7 +24,10 @@
     }
   },
   "abilities": [
-    "levitate"
+    {
+      "name": "levitate",
+      "description": "Gives full immunity to all Ground-type moves."
+    }
   ],
   "description": "They coil around foes and shock them\nwith electricity-generating organs that\nseem simply to be circular patterns."
 }

@@ -25,8 +25,14 @@
     }
   },
   "abilities": [
-    "snow-warning",
-    "soundproof"
+    {
+      "name": "snow-warning",
+      "description": "The Pokémon summons a hailstorm in battle."
+    },
+    {
+      "name": "soundproof",
+      "description": "Avoids sound-based moves."
+    }
   ],
   "description": "It lives on snowy mountains.\nHaving had little contact with\nhumans, it is boldly inquisitive."
 }

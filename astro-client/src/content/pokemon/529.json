@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "sand-rush",
-    "sand-force",
-    "mold-breaker"
+    {
+      "name": "sand-rush",
+      "description": "Boosts the Pokémon’s Speed in a sandstorm."
+    },
+    {
+      "name": "sand-force",
+      "description": "Boosts certain moves’ power in a sandstorm."
+    },
+    {
+      "name": "mold-breaker",
+      "description": "Moves can be used regardless of abilities."
+    }
   ],
   "description": "It can dig through the ground\nat a speed of 30 mph. It could give\na car running aboveground a good race."
 }

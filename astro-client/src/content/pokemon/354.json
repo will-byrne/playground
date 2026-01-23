@@ -28,9 +28,18 @@
     }
   },
   "abilities": [
-    "insomnia",
-    "frisk",
-    "cursed-body"
+    {
+      "name": "insomnia",
+      "description": "Prevents sleep."
+    },
+    {
+      "name": "frisk",
+      "description": "The Pokémon can check the foe’s held item."
+    },
+    {
+      "name": "cursed-body",
+      "description": "May disable a move used on the Pokémon."
+    }
   ],
   "description": "BANETTE generates energy for laying\nstrong curses by sticking pins into its\nown body.\fThis POKéMON was originally a pitiful\nplush doll that was thrown away."
 }

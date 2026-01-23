@@ -25,8 +25,14 @@
     }
   },
   "abilities": [
-    "anticipation",
-    "overcoat"
+    {
+      "name": "anticipation",
+      "description": "Senses the foe’s dangerous moves."
+    },
+    {
+      "name": "overcoat",
+      "description": "Protects the Pokémon from damage from weather."
+    }
   ],
   "description": "When BURMY evolved, its cloak\nbecame a part of this Pokémon’s\nbody. The cloak is never shed."
 }

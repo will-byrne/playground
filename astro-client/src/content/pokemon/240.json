@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "flame-body",
-    "vital-spirit"
+    {
+      "name": "flame-body",
+      "description": "Burns the foe on contact."
+    },
+    {
+      "name": "vital-spirit",
+      "description": "Prevents sleep."
+    }
   ],
   "description": "Each and every\ntime it inhales\nand exhales, hot\fembers dribble out\nof its mouth and\nnostrils."
 }

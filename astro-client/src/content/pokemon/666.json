@@ -101,9 +101,18 @@
     }
   },
   "abilities": [
-    "shield-dust",
-    "compound-eyes",
-    "friend-guard"
+    {
+      "name": "shield-dust",
+      "description": "Prevents added effects."
+    },
+    {
+      "name": "compound-eyes",
+      "description": "Raises accuracy."
+    },
+    {
+      "name": "friend-guard",
+      "description": "Reduces damage done to allies."
+    }
   ],
   "description": "Vivillon with many different patterns are\nfound all over the world. These patterns\nare affected by the climate of their habitat."
 }

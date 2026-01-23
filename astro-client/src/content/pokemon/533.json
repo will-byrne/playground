@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "guts",
-    "sheer-force",
-    "iron-fist"
+    {
+      "name": "guts",
+      "description": "Ups ATTACK if suffering."
+    },
+    {
+      "name": "sheer-force",
+      "description": "Removes added effects to increase move damage."
+    },
+    {
+      "name": "iron-fist",
+      "description": "Boosts the power of punching moves."
+    }
   ],
   "description": "This Pokémon is so muscular and strongly\nbuilt that even a group of wrestlers\ncould not make it budge an inch."
 }

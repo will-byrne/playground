@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "liquid-ooze",
-    "sticky-hold",
-    "gluttony"
+    {
+      "name": "liquid-ooze",
+      "description": "Draining causes injury."
+    },
+    {
+      "name": "sticky-hold",
+      "description": "Prevents item theft."
+    },
+    {
+      "name": "gluttony",
+      "description": "Encourages the early use of a held Berry."
+    }
   ],
   "description": "Virtually all of GULPIN’s body is its\nstomach. As a result, it can swallow\nsomething its own size.\fThis POKéMON’s stomach contains a\nspecial fluid that digests anything."
 }

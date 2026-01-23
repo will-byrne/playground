@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "swift-swim",
-    "storm-drain",
-    "water-veil"
+    {
+      "name": "swift-swim",
+      "description": "Raises SPEED in rain."
+    },
+    {
+      "name": "storm-drain",
+      "description": "The Pokémon draws in all Water-type moves."
+    },
+    {
+      "name": "water-veil",
+      "description": "Prevents burns."
+    }
   ],
   "description": "It lives on the deep-sea floor.\nIt attracts prey by flashing the\npatterns on its four tail fins."
 }

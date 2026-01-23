@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "lightning-rod",
-    "rock-head",
-    "reckless"
+    {
+      "name": "lightning-rod",
+      "description": "Draws electrical moves."
+    },
+    {
+      "name": "rock-head",
+      "description": "Protects the Pokémon from recoil damage."
+    },
+    {
+      "name": "reckless",
+      "description": "Powers up moves that have recoil damage."
+    }
   ],
   "description": "Protected by an\narmor-like hide,\nit is capable of\fliving in molten\nlava of 3,600\ndegrees."
 }

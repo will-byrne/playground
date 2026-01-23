@@ -25,8 +25,14 @@
     }
   },
   "abilities": [
-    "torrent",
-    "liquid-voice"
+    {
+      "name": "torrent",
+      "description": "Ups WATER moves in a pinch."
+    },
+    {
+      "name": "liquid-voice",
+      "description": "All sound-based moves become Water-type moves."
+    }
   ],
   "description": "It controls its water balloons with song. The\nmelody is learned from others of its kind and is\npassed down from one generation to the next."
 }

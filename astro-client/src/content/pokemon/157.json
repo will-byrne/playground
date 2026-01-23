@@ -28,8 +28,14 @@
     }
   },
   "abilities": [
-    "blaze",
-    "flash-fire"
+    {
+      "name": "blaze",
+      "description": "Ups FIRE moves in a pinch."
+    },
+    {
+      "name": "flash-fire",
+      "description": "Powers up if hit by fire."
+    }
   ],
   "description": "If its rage peaks,\nit becomes so hot\nthat anything that\ftouches it will\ninstantly go\nup in flames."
 }

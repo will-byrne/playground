@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "rivalry",
-    "unnerve",
-    "moxie"
+    {
+      "name": "rivalry",
+      "description": "Raises Attack if the foe is of the same gender."
+    },
+    {
+      "name": "unnerve",
+      "description": "Makes the foe nervous and unable to eat Berries."
+    },
+    {
+      "name": "moxie",
+      "description": "Boosts Attack after knocking out any Pokémon."
+    }
   ],
   "description": "The stronger the opponent it faces,\nthe more heat surges from its mane\nand the more power flows through its body."
 }

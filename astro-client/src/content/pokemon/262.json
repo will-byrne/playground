@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "intimidate",
-    "quick-feet",
-    "moxie"
+    {
+      "name": "intimidate",
+      "description": "Lowers the foe’s ATTACK."
+    },
+    {
+      "name": "quick-feet",
+      "description": "Boosts Speed if there is a status problem."
+    },
+    {
+      "name": "moxie",
+      "description": "Boosts Attack after knocking out any Pokémon."
+    }
   ],
   "description": "MIGHTYENA gives obvious signals when\nit is preparing to attack. It starts to\ngrowl deeply and then flattens its body.\fThis POKéMON will bite savagely with its\nsharply pointed fangs."
 }

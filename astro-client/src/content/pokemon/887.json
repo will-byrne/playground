@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "clear-body",
-    "infiltrator",
-    "cursed-body"
+    {
+      "name": "clear-body",
+      "description": "Prevents ability reduction."
+    },
+    {
+      "name": "infiltrator",
+      "description": "Passes through the foe’s barrier and strikes."
+    },
+    {
+      "name": "cursed-body",
+      "description": "May disable a move used on the Pokémon."
+    }
   ],
   "description": "When it isn’t battling, it keeps Dreepy in the\nholes on its horns. Once a fight starts, it launches\nthe Dreepy like supersonic missiles."
 }

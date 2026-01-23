@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "own-tempo",
-    "stamina",
-    "inner-focus"
+    {
+      "name": "own-tempo",
+      "description": "Prevents confusion."
+    },
+    {
+      "name": "stamina",
+      "description": "Boosts the Defense stat when hit by an attack."
+    },
+    {
+      "name": "inner-focus",
+      "description": "Prevents flinching."
+    }
   ],
   "description": "The mud stuck to Mudbray’s hooves enhances\nits grip and its powerful running gait."
 }

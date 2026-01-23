@@ -25,8 +25,14 @@
     }
   },
   "abilities": [
-    "strong-jaw",
-    "rock-head"
+    {
+      "name": "strong-jaw",
+      "description": "The Pokémon’s strong jaw gives it tremendous biting power."
+    },
+    {
+      "name": "rock-head",
+      "description": "Protects the Pokémon from recoil damage."
+    }
   ],
   "description": "Thanks to its gargantuan jaws, which could shred\nthick metal plates as if they were paper, it was\ninvincible in the ancient world it once inhabited."
 }

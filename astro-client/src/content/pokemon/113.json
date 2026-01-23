@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "natural-cure",
-    "serene-grace",
-    "healer"
+    {
+      "name": "natural-cure",
+      "description": "Heals upon switching out."
+    },
+    {
+      "name": "serene-grace",
+      "description": "Promotes added effects."
+    },
+    {
+      "name": "healer",
+      "description": "May heal an ally’s status conditions."
+    }
   ],
   "description": "A rare and elusive\nPOKéMON that is\nsaid to bring\fhappiness to those\nwho manage to get\nit."
 }

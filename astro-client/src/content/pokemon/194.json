@@ -29,9 +29,18 @@
     }
   },
   "abilities": [
-    "damp",
-    "water-absorb",
-    "unaware"
+    {
+      "name": "damp",
+      "description": "Prevents self-destruction."
+    },
+    {
+      "name": "water-absorb",
+      "description": "Restores HP if hit by a Water-type move."
+    },
+    {
+      "name": "unaware",
+      "description": "Ignores any change in ability by the foe."
+    }
   ],
   "description": "This POKéMON lives\nin cold water. It\nwill leave the\fwater to search\nfor food when it\ngets cold outside."
 }

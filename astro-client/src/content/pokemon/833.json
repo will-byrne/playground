@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "strong-jaw",
-    "shell-armor",
-    "swift-swim"
+    {
+      "name": "strong-jaw",
+      "description": "The Pokémon’s strong jaw gives it tremendous biting power."
+    },
+    {
+      "name": "shell-armor",
+      "description": "Blocks critical hits."
+    },
+    {
+      "name": "swift-swim",
+      "description": "Raises SPEED in rain."
+    }
   ],
   "description": "Apparently the itch of its teething impels it to\nsnap its jaws at anything in front of it."
 }

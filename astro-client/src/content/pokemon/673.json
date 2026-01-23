@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "sap-sipper",
-    "grass-pelt"
+    {
+      "name": "sap-sipper",
+      "description": "Boosts Attack when hit by a Grass-type move."
+    },
+    {
+      "name": "grass-pelt",
+      "description": "Boosts the Defense stat in Grassy Terrain."
+    }
   ],
   "description": "It can tell how its Trainer is feeling by\nsubtle shifts in the grip on its horns.\nThis empathic sense lets them run as if one being."
 }

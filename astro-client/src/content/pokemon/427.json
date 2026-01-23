@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "run-away",
-    "klutz",
-    "limber"
+    {
+      "name": "run-away",
+      "description": "Makes escaping easier."
+    },
+    {
+      "name": "klutz",
+      "description": "The Pokémon can’t use any held items."
+    },
+    {
+      "name": "limber",
+      "description": "Prevents paralysis."
+    }
   ],
   "description": "It slams foes by sharply uncoiling\nits rolled ears. It stings enough\nto make a grown-up cry in pain."
 }

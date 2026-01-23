@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "pressure",
-    "inner-focus"
+    {
+      "name": "pressure",
+      "description": "Raises foe’s PP usage."
+    },
+    {
+      "name": "inner-focus",
+      "description": "Prevents flinching."
+    }
   ],
   "description": "It races around the world to\npurify fouled water. It dashes\naway with the north wind."
 }

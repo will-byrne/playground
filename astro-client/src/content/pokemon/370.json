@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "swift-swim",
-    "hydration"
+    {
+      "name": "swift-swim",
+      "description": "Raises SPEED in rain."
+    },
+    {
+      "name": "hydration",
+      "description": "Heals status problems if it is raining."
+    }
   ],
   "description": "LUVDISC live in shallow seas in the\ntropics. This heart-shaped POKéMON\nearned its name by swimming after\floving couples it spotted in the\nocean’s waves."
 }

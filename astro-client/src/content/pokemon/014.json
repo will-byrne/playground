@@ -25,7 +25,10 @@
     }
   },
   "abilities": [
-    "shed-skin"
+    {
+      "name": "shed-skin",
+      "description": "Heals the body by shedding."
+    }
   ],
   "description": "Almost incapable\nof moving, this\nPOKéMON can only\fharden its shell\nto protect itself\nfrom predators."
 }

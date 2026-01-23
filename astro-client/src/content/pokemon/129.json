@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "swift-swim",
-    "rattled"
+    {
+      "name": "swift-swim",
+      "description": "Raises SPEED in rain."
+    },
+    {
+      "name": "rattled",
+      "description": "Some move types scare it and boost its Speed."
+    }
   ],
   "description": "In the distant\npast, it was\nsomewhat stronger\fthan the horribly\nweak descendants\nthat exist today."
 }

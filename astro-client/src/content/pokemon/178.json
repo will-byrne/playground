@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "synchronize",
-    "early-bird",
-    "magic-bounce"
+    {
+      "name": "synchronize",
+      "description": "Passes on status problems."
+    },
+    {
+      "name": "early-bird",
+      "description": "Awakens quickly from sleep."
+    },
+    {
+      "name": "magic-bounce",
+      "description": "Reflects status- changing moves."
+    }
   ],
   "description": "They say that it\nstays still and\nquiet because it\fis seeing both the\npast and future at\nthe same time."
 }

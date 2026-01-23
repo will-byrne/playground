@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "lingering-aroma",
-    "gluttony",
-    "thick-fat"
+    {
+      "name": "lingering-aroma",
+      "description": "Contact with the Pokémon changes the attacker's Ability to Lingering Aroma."
+    },
+    {
+      "name": "gluttony",
+      "description": "Encourages the early use of a held Berry."
+    },
+    {
+      "name": "thick-fat",
+      "description": "Heat-and-cold protection."
+    }
   ],
   "description": "Oinkologne is proud of its fine, glossy skin. It emits a concentrated scent from the tip of its tail."
 }

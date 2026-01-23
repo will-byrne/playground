@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "keen-eye",
-    "drizzle",
-    "rain-dish"
+    {
+      "name": "keen-eye",
+      "description": "Prevents loss of accuracy."
+    },
+    {
+      "name": "drizzle",
+      "description": "Summons rain in battle."
+    },
+    {
+      "name": "rain-dish",
+      "description": "Slight HP recovery in rain."
+    }
   ],
   "description": "It is a messenger of the skies,\ncarrying small Pokémon and\neggs to safety in its bill."
 }

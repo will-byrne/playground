@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "hyper-cutter",
-    "sand-veil",
-    "immunity"
+    {
+      "name": "hyper-cutter",
+      "description": "Prevents ATTACK reduction."
+    },
+    {
+      "name": "sand-veil",
+      "description": "Ups evasion in a sandstorm."
+    },
+    {
+      "name": "immunity",
+      "description": "Prevents poisoning."
+    }
   ],
   "description": "It flies straight\nat its target's\nface then clamps\fdown on the star­\ntled victim to\ninject poison."
 }

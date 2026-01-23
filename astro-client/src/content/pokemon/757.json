@@ -25,8 +25,14 @@
     }
   },
   "abilities": [
-    "corrosion",
-    "oblivious"
+    {
+      "name": "corrosion",
+      "description": "The Pokémon can poison the target even if it’s a Steel or Poison type."
+    },
+    {
+      "name": "oblivious",
+      "description": "Prevents attraction."
+    }
   ],
   "description": "It burns its bodily fluids to create a poisonous\ngas. When its enemies become disoriented from\ninhaling the gas, it attacks them."
 }

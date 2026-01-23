@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "blaze",
-    "libero"
+    {
+      "name": "blaze",
+      "description": "Ups FIRE moves in a pinch."
+    },
+    {
+      "name": "libero",
+      "description": "Changes the Pokémon’s type to the type of the move it’s about to use."
+    }
   ],
   "description": "Its thick and fluffy fur protects it from the cold\nand enables it to use hotter fire moves."
 }

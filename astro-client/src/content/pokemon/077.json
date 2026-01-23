@@ -28,9 +28,18 @@
     }
   },
   "abilities": [
-    "run-away",
-    "flash-fire",
-    "flame-body"
+    {
+      "name": "run-away",
+      "description": "Makes escaping easier."
+    },
+    {
+      "name": "flash-fire",
+      "description": "Powers up if hit by fire."
+    },
+    {
+      "name": "flame-body",
+      "description": "Burns the foe on contact."
+    }
   ],
   "description": "Its hooves are 10\ntimes harder than\ndiamonds. It can\ftrample anything\ncompletely flat\nin little time."
 }

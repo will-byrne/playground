@@ -21,12 +21,22 @@
       "tatsugiri-curly": {
         "default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/978.png",
         "shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/978.png"
+      },
+      "tatsugiri-curly-mega": {
+        "default": null,
+        "shiny": null
       }
     }
   },
   "abilities": [
-    "commander",
-    "storm-drain"
+    {
+      "name": "commander",
+      "description": "When the Pokémon enters a battle, it goes inside the mouth of an ally Dondozo if one is on the field. The Pokémon then issues commands from there."
+    },
+    {
+      "name": "storm-drain",
+      "description": "The Pokémon draws in all Water-type moves."
+    }
   ],
   "description": "This is a small dragon Pokémon. It lives inside the mouth of Dondozo to protect itself from enemies on the outside."
 }

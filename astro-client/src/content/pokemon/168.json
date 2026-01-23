@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "swarm",
-    "insomnia",
-    "sniper"
+    {
+      "name": "swarm",
+      "description": "Ups BUG moves in a pinch."
+    },
+    {
+      "name": "insomnia",
+      "description": "Prevents sleep."
+    },
+    {
+      "name": "sniper",
+      "description": "Powers up moves if they become critical hits."
+    }
   ],
   "description": "It spins string\nnot only from its\nrear but also from\fits mouth. It is\nhard to tell which\nend is which."
 }

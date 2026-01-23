@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "torrent",
-    "shell-armor"
+    {
+      "name": "torrent",
+      "description": "Ups WATER moves in a pinch."
+    },
+    {
+      "name": "shell-armor",
+      "description": "Blocks critical hits."
+    }
   ],
   "description": "It fights using the scalchop on its\nstomach. In response to an attack,\nit retaliates immediately by slashing."
 }

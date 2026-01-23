@@ -24,7 +24,10 @@
     }
   },
   "abilities": [
-    "truant"
+    {
+      "name": "truant",
+      "description": "Moves only every two turns."
+    }
   ],
   "description": "SLAKING spends all day lying down and\nlolling about.\nIt eats grass growing within its reach.\fIf it eats all the grass it can reach,\nthis POKéMON reluctantly moves to\nanother spot."
 }

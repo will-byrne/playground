@@ -29,9 +29,18 @@
     }
   },
   "abilities": [
-    "oblivious",
-    "own-tempo",
-    "regenerator"
+    {
+      "name": "oblivious",
+      "description": "Prevents attraction."
+    },
+    {
+      "name": "own-tempo",
+      "description": "Prevents confusion."
+    },
+    {
+      "name": "regenerator",
+      "description": "Restores a little HP when withdrawn from battle."
+    }
   ],
   "description": "It has incredible\nintellect and in­\ntuition. Whatever\fthe situation, it\nremains calm and\ncollected."
 }

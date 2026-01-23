@@ -29,9 +29,18 @@
     }
   },
   "abilities": [
-    "rock-head",
-    "sturdy",
-    "sheer-force"
+    {
+      "name": "rock-head",
+      "description": "Protects the Pokémon from recoil damage."
+    },
+    {
+      "name": "sturdy",
+      "description": "Negates 1-hit KO attacks."
+    },
+    {
+      "name": "sheer-force",
+      "description": "Removes added effects to increase move damage."
+    }
   ],
   "description": "It is thought its body transformed\nas a result of iron accumulating\ninternally from swallowing soil."
 }

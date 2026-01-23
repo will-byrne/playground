@@ -29,9 +29,18 @@
     }
   },
   "abilities": [
-    "rock-head",
-    "sturdy",
-    "sand-veil"
+    {
+      "name": "rock-head",
+      "description": "Protects the Pokémon from recoil damage."
+    },
+    {
+      "name": "sturdy",
+      "description": "Negates 1-hit KO attacks."
+    },
+    {
+      "name": "sand-veil",
+      "description": "Ups evasion in a sandstorm."
+    }
   ],
   "description": "Found in fields\nand mountains.\nMistaking them\ffor boulders,\npeople often step\nor trip on them."
 }

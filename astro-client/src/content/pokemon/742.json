@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "honey-gather",
-    "shield-dust",
-    "sweet-veil"
+    {
+      "name": "honey-gather",
+      "description": "The Pokémon may gather Honey from somewhere."
+    },
+    {
+      "name": "shield-dust",
+      "description": "Prevents added effects."
+    },
+    {
+      "name": "sweet-veil",
+      "description": "Prevents itself and ally Pokémon from falling asleep."
+    }
   ],
   "description": "It feeds on the nectar and pollen of flowers.\nBecause it’s able to sense auras, it can identify\nwhich flowers are about to bloom."
 }

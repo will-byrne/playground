@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "stench",
-    "sticky-hold",
-    "aftermath"
+    {
+      "name": "stench",
+      "description": "Helps repel wild POKéMON."
+    },
+    {
+      "name": "sticky-hold",
+      "description": "Prevents item theft."
+    },
+    {
+      "name": "aftermath",
+      "description": "Damages the foe landing the finishing hit."
+    }
   ],
   "description": "Inhaling the gas they belch will make\nyou sleep for a week. They prefer\nunsanitary places."
 }

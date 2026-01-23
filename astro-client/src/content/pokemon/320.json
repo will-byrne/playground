@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "water-veil",
-    "oblivious",
-    "pressure"
+    {
+      "name": "water-veil",
+      "description": "Prevents burns."
+    },
+    {
+      "name": "oblivious",
+      "description": "Prevents attraction."
+    },
+    {
+      "name": "pressure",
+      "description": "Raises foe’s PP usage."
+    }
   ],
   "description": "WAILMER’s nostrils are located above\nits eyes. This playful POKéMON loves\nto startle people by forcefully snorting\fout seawater it stores inside its body\nout of its nostrils."
 }

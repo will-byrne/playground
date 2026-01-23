@@ -28,9 +28,18 @@
     }
   },
   "abilities": [
-    "pickup",
-    "gluttony",
-    "quick-feet"
+    {
+      "name": "pickup",
+      "description": "May pick up items."
+    },
+    {
+      "name": "gluttony",
+      "description": "Encourages the early use of a held Berry."
+    },
+    {
+      "name": "quick-feet",
+      "description": "Boosts Speed if there is a status problem."
+    }
   ],
   "description": "ZIGZAGOON restlessly wanders\neverywhere at all times. This POKéMON\ndoes so because it is very curious.\fIt becomes interested in anything\nthat it happens to see."
 }

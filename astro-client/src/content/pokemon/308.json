@@ -29,8 +29,14 @@
     }
   },
   "abilities": [
-    "pure-power",
-    "telepathy"
+    {
+      "name": "pure-power",
+      "description": "Raises ATTACK."
+    },
+    {
+      "name": "telepathy",
+      "description": "Anticipates an ally’s attack and dodges it."
+    }
   ],
   "description": "It is said that through meditation,\nMEDICHAM heightens energy inside\nits body and sharpens its sixth sense.\fThis POKéMON hides its presence by\nmerging itself with fields and\nmountains."
 }

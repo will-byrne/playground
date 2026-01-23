@@ -25,8 +25,14 @@
     }
   },
   "abilities": [
-    "effect-spore",
-    "regenerator"
+    {
+      "name": "effect-spore",
+      "description": "Leaves spores on contact."
+    },
+    {
+      "name": "regenerator",
+      "description": "Restores a little HP when withdrawn from battle."
+    }
   ],
   "description": "It lures prey close by dancing and\nwaving its arm caps, which resemble\nPoké Balls, in a swaying motion."
 }

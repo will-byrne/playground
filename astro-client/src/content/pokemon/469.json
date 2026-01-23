@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "speed-boost",
-    "tinted-lens",
-    "frisk"
+    {
+      "name": "speed-boost",
+      "description": "Gradually boosts SPEED."
+    },
+    {
+      "name": "tinted-lens",
+      "description": "Powers up “not very effective” moves."
+    },
+    {
+      "name": "frisk",
+      "description": "The Pokémon can check the foe’s held item."
+    }
   ],
   "description": "By churning its wings, it creates\nshock waves that inflict critical\ninternal injuries to foes."
 }

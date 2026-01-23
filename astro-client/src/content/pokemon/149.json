@@ -21,12 +21,22 @@
       "dragonite": {
         "default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/149.png",
         "shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/149.png"
+      },
+      "dragonite-mega": {
+        "default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/10281.png",
+        "shiny": null
       }
     }
   },
   "abilities": [
-    "inner-focus",
-    "multiscale"
+    {
+      "name": "inner-focus",
+      "description": "Prevents flinching."
+    },
+    {
+      "name": "multiscale",
+      "description": "Reduces damage when HP is full."
+    }
   ],
   "description": "An extremely\nrarely seen\nmarine POKéMON.\fIts intelligence\nis said to match\nthat of humans."
 }

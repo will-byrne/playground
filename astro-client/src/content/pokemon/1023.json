@@ -25,7 +25,10 @@
     }
   },
   "abilities": [
-    "quark-drive"
+    {
+      "name": "quark-drive",
+      "description": "Boosts the Pokémon's most proficient stat on Electric Terrain or if the Pokémon is holding Booster Energy."
+    }
   ],
   "description": "It resembles a mysterious object introduced in a paranormal magazine as a cutting-edge weapon shaped like a Cobalion."
 }

@@ -25,7 +25,10 @@
     }
   },
   "abilities": [
-    "vessel-of-ruin"
+    {
+      "name": "vessel-of-ruin",
+      "description": "The power of the Pokémon's ruinous vessel lowers the Sp. Atk stats of all Pokémon except itself."
+    }
   ],
   "description": "The fear poured into an ancient ritual vessel has clad itself in rocks and dirt to become a Pokémon."
 }

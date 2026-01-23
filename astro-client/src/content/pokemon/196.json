@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "synchronize",
-    "magic-bounce"
+    {
+      "name": "synchronize",
+      "description": "Passes on status problems."
+    },
+    {
+      "name": "magic-bounce",
+      "description": "Reflects status- changing moves."
+    }
   ],
   "description": "It uses the fine\nhair that covers\nits body to sense\fair currents and\npredict its ene­\nmy's actions."
 }

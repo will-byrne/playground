@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "leaf-guard",
-    "oblivious",
-    "sweet-veil"
+    {
+      "name": "leaf-guard",
+      "description": "Prevents status problems in sunny weather."
+    },
+    {
+      "name": "oblivious",
+      "description": "Prevents attraction."
+    },
+    {
+      "name": "sweet-veil",
+      "description": "Prevents itself and ally Pokémon from falling asleep."
+    }
   ],
   "description": "A delectable aroma pours from its body.\nThey are often swallowed whole by Toucannon\nlured by that wafting deliciousness."
 }

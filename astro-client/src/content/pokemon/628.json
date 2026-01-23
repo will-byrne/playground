@@ -29,9 +29,18 @@
     }
   },
   "abilities": [
-    "keen-eye",
-    "sheer-force",
-    "defiant"
+    {
+      "name": "keen-eye",
+      "description": "Prevents loss of accuracy."
+    },
+    {
+      "name": "sheer-force",
+      "description": "Removes added effects to increase move damage."
+    },
+    {
+      "name": "defiant",
+      "description": "When its stats are lowered its Attack increases."
+    }
   ],
   "description": "They fight for their friends without any\nthought about danger to themselves.\nOne can carry a car while flying."
 }

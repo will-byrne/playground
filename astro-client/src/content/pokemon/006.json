@@ -37,8 +37,14 @@
     }
   },
   "abilities": [
-    "blaze",
-    "solar-power"
+    {
+      "name": "blaze",
+      "description": "Ups FIRE moves in a pinch."
+    },
+    {
+      "name": "solar-power",
+      "description": "Boosts Sp. Atk, but lowers HP in sunshine."
+    }
   ],
   "description": "Spits fire that\nis hot enough to\nmelt boulders.\fKnown to cause\nforest fires\nunintentionally."
 }

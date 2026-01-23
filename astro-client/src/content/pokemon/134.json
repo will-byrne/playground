@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "water-absorb",
-    "hydration"
+    {
+      "name": "water-absorb",
+      "description": "Restores HP if hit by a Water-type move."
+    },
+    {
+      "name": "hydration",
+      "description": "Heals status problems if it is raining."
+    }
   ],
   "description": "Lives close to\nwater. Its long\ntail is ridged\fwith a fin which\nis often mistaken\nfor a mermaid's."
 }

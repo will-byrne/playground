@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "synchronize",
-    "inner-focus"
+    {
+      "name": "synchronize",
+      "description": "Passes on status problems."
+    },
+    {
+      "name": "inner-focus",
+      "description": "Prevents flinching."
+    }
   ],
   "description": "When agitated,\nthis POKéMON pro­\ntects itself by\fspraying poisonous\nsweat from its\npores."
 }

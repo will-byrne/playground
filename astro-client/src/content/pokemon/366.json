@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "shell-armor",
-    "rattled"
+    {
+      "name": "shell-armor",
+      "description": "Blocks critical hits."
+    },
+    {
+      "name": "rattled",
+      "description": "Some move types scare it and boost its Speed."
+    }
   ],
   "description": "CLAMPERL’s sturdy shell is not only good\nfor protection - it is also used for\nclamping and catching prey.\fA fully grown CLAMPERL’s shell will be\nscored with nicks and scratches all\nover."
 }

@@ -33,9 +33,18 @@
     }
   },
   "abilities": [
-    "oblivious",
-    "own-tempo",
-    "regenerator"
+    {
+      "name": "oblivious",
+      "description": "Prevents attraction."
+    },
+    {
+      "name": "own-tempo",
+      "description": "Prevents confusion."
+    },
+    {
+      "name": "regenerator",
+      "description": "Restores a little HP when withdrawn from battle."
+    }
   ],
   "description": "The SHELLDER that\nis latched onto\nSLOWPOKE's tail\fis said to feed\non the host's left\nover scraps."
 }

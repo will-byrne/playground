@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "sturdy",
-    "rock-head",
-    "rattled"
+    {
+      "name": "sturdy",
+      "description": "Negates 1-hit KO attacks."
+    },
+    {
+      "name": "rock-head",
+      "description": "Protects the Pokémon from recoil damage."
+    },
+    {
+      "name": "rattled",
+      "description": "Some move types scare it and boost its Speed."
+    }
   ],
   "description": "It looks as if it is always crying.\nIt is actually adjusting its body’s\nfluid levels by eliminating excess."
 }

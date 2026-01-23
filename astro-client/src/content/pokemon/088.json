@@ -28,9 +28,18 @@
     }
   },
   "abilities": [
-    "stench",
-    "sticky-hold",
-    "poison-touch"
+    {
+      "name": "stench",
+      "description": "Helps repel wild POKéMON."
+    },
+    {
+      "name": "sticky-hold",
+      "description": "Prevents item theft."
+    },
+    {
+      "name": "poison-touch",
+      "description": "May poison targets when a Pokémon makes contact."
+    }
   ],
   "description": "Appears in filthy\nareas. Thrives by\nsucking up\fpolluted sludge\nthat is pumped\nout of factories."
 }

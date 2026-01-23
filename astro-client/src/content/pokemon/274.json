@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "chlorophyll",
-    "early-bird",
-    "pickpocket"
+    {
+      "name": "chlorophyll",
+      "description": "Raises SPEED in sunshine."
+    },
+    {
+      "name": "early-bird",
+      "description": "Awakens quickly from sleep."
+    },
+    {
+      "name": "pickpocket",
+      "description": "Steals an item when hit by another Pokémon."
+    }
   ],
   "description": "NUZLEAF live in densely overgrown\nforests. They occasionally venture out\nof the forest to startle people.\fThis POKéMON dislikes having its long\nnose pinched."
 }

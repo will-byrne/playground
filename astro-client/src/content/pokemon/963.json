@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "water-veil",
-    "water-veil"
+    {
+      "name": "water-veil",
+      "description": "Prevents burns."
+    },
+    {
+      "name": "water-veil",
+      "description": "Prevents burns."
+    }
   ],
   "description": "It likes playing with others of its kind using the water ring on its tail. It uses ultrasonic waves to sense the emotions of other living creatures."
 }

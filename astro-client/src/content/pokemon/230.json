@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "swift-swim",
-    "sniper",
-    "damp"
+    {
+      "name": "swift-swim",
+      "description": "Raises SPEED in rain."
+    },
+    {
+      "name": "sniper",
+      "description": "Powers up moves if they become critical hits."
+    },
+    {
+      "name": "damp",
+      "description": "Prevents self-destruction."
+    }
   ],
   "description": "It is said that it\nusually hides in\nunderwater caves.\fIt can create\nwhirlpools by\nyawning."
 }

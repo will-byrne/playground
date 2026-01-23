@@ -24,7 +24,10 @@
     }
   },
   "abilities": [
-    "levitate"
+    {
+      "name": "levitate",
+      "description": "Gives full immunity to all Ground-type moves."
+    }
   ],
   "description": "Known as “The Being of Emotion.”\nIt taught humans the nobility of\nsorrow, pain, and joy."
 }

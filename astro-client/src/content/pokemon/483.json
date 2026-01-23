@@ -29,8 +29,14 @@
     }
   },
   "abilities": [
-    "pressure",
-    "telepathy"
+    {
+      "name": "pressure",
+      "description": "Raises foe’s PP usage."
+    },
+    {
+      "name": "telepathy",
+      "description": "Anticipates an ally’s attack and dodges it."
+    }
   ],
   "description": "It has the power to control time.\nIt appears in Sinnoh-region myths\nas an ancient deity."
 }

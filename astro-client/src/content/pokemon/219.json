@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "magma-armor",
-    "flame-body",
-    "weak-armor"
+    {
+      "name": "magma-armor",
+      "description": "Prevents freezing."
+    },
+    {
+      "name": "flame-body",
+      "description": "Burns the foe on contact."
+    },
+    {
+      "name": "weak-armor",
+      "description": "Physical attacks lower Defense and raise Speed."
+    }
   ],
   "description": "The shell on its\nback is just skin\nthat has cooled\fand hardened. It\nbreaks easily with\na slight touch."
 }

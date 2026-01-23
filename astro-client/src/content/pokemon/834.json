@@ -29,9 +29,18 @@
     }
   },
   "abilities": [
-    "strong-jaw",
-    "shell-armor",
-    "swift-swim"
+    {
+      "name": "strong-jaw",
+      "description": "The Pokémon’s strong jaw gives it tremendous biting power."
+    },
+    {
+      "name": "shell-armor",
+      "description": "Blocks critical hits."
+    },
+    {
+      "name": "swift-swim",
+      "description": "Raises SPEED in rain."
+    }
   ],
   "description": "With jaws that can shear through steel rods,\nthis highly aggressive Pokémon chomps down\non its unfortunate prey."
 }

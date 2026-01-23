@@ -36,9 +36,18 @@
     }
   },
   "abilities": [
-    "intimidate",
-    "anger-point",
-    "sheer-force"
+    {
+      "name": "intimidate",
+      "description": "Lowers the foe’s ATTACK."
+    },
+    {
+      "name": "anger-point",
+      "description": "Raises Attack upon taking a critical hit."
+    },
+    {
+      "name": "sheer-force",
+      "description": "Removes added effects to increase move damage."
+    }
   ],
   "description": "When it targets\nan enemy, it\ncharges furiously\fwhile whipping its\nbody with its\nlong tails."
 }

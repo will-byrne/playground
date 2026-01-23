@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "overgrow",
-    "grassy-surge"
+    {
+      "name": "overgrow",
+      "description": "Powers up Grass-type moves in a pinch."
+    },
+    {
+      "name": "grassy-surge",
+      "description": "Turns the ground into Grassy Terrain when the Pokémon enters a battle."
+    }
   ],
   "description": "The faster a Thwackey can beat out a rhythm\nwith its two sticks, the more respect it wins from\nits peers."
 }

@@ -25,8 +25,14 @@
     }
   },
   "abilities": [
-    "toxic-chain",
-    "guard-dog"
+    {
+      "name": "toxic-chain",
+      "description": "The power of the Pokémon's toxic chain may badly poison any target the Pokémon hits with a move"
+    },
+    {
+      "name": "guard-dog",
+      "description": "Boosts the Pokémon’s Attack stat if intimidated. Moves and items that would force the Pokémon to switch out also fail to work."
+    }
   ],
   "description": "After all its muscles were stimulated by the toxic chain around its neck, Okidogi transformed and gained a powerful physique."
 }

@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "poison-point",
-    "rivalry",
-    "sheer-force"
+    {
+      "name": "poison-point",
+      "description": "Poisons foe on contact."
+    },
+    {
+      "name": "rivalry",
+      "description": "Raises Attack if the foe is of the same gender."
+    },
+    {
+      "name": "sheer-force",
+      "description": "Removes added effects to increase move damage."
+    }
   ],
   "description": "It uses its\npowerful tail in\nbattle to smash,\fconstrict, then\nbreak the prey's\nbones."
 }

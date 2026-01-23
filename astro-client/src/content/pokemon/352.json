@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "color-change",
-    "protean"
+    {
+      "name": "color-change",
+      "description": "Changes type to foe’s move."
+    },
+    {
+      "name": "protean",
+      "description": "Changes the Pokémon’s type to the type of the move it’s using."
+    }
   ],
   "description": "It changes body color to blend in with\nits surroundings. It also changes color if\nit is happy or sad."
 }

@@ -33,7 +33,10 @@
     }
   },
   "abilities": [
-    "gulp-missile"
+    {
+      "name": "gulp-missile",
+      "description": "When the Pokémon uses Surf or Dive, it will come back with prey. When it takes damage, it will spit out the prey to attack."
+    }
   ],
   "description": "It’s so strong that it can knock out some\nopponents in a single hit, but it also may\nforget what it’s battling midfight."
 }

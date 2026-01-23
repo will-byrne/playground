@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "cheek-pouch",
-    "gluttony"
+    {
+      "name": "cheek-pouch",
+      "description": "Restores HP as well when the Pokémon eats a Berry."
+    },
+    {
+      "name": "gluttony",
+      "description": "Encourages the early use of a held Berry."
+    }
   ],
   "description": "It stashes berries in its tail—so many berries that\nthey fall out constantly. But this Pokémon is a bit\nslow-witted, so it doesn’t notice the loss."
 }

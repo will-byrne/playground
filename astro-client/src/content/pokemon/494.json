@@ -25,7 +25,10 @@
     }
   },
   "abilities": [
-    "victory-star"
+    {
+      "name": "victory-star",
+      "description": "Boosts the accuracy of its allies and itself."
+    }
   ],
   "description": "This Pokémon brings victory. It is said\nthat Trainers with Victini always win,\nregardless of the type of encounter."
 }

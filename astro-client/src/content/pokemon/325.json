@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "thick-fat",
-    "own-tempo",
-    "gluttony"
+    {
+      "name": "thick-fat",
+      "description": "Heat-and-cold protection."
+    },
+    {
+      "name": "own-tempo",
+      "description": "Prevents confusion."
+    },
+    {
+      "name": "gluttony",
+      "description": "Encourages the early use of a held Berry."
+    }
   ],
   "description": "SPOINK bounces around on its tail.\nThe shock of its bouncing makes its\nheart pump. As a result, this POKéMON\fcannot afford to stop bouncing - if it\nstops, its heart will stop."
 }

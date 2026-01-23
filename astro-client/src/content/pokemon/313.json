@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "illuminate",
-    "swarm",
-    "prankster"
+    {
+      "name": "illuminate",
+      "description": "Encounter rate increases."
+    },
+    {
+      "name": "swarm",
+      "description": "Ups BUG moves in a pinch."
+    },
+    {
+      "name": "prankster",
+      "description": "Gives priority to a status move."
+    }
   ],
   "description": "With the arrival of night, VOLBEAT emits\nlight from its tail. It communicates with\nothers by adjusting the intensity and\fflashing of its light.\nThis POKéMON is attracted by the sweet\naroma of ILLUMISE."
 }

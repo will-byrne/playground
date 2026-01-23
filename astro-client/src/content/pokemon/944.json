@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "unburden",
-    "pickpocket",
-    "prankster"
+    {
+      "name": "unburden",
+      "description": "Raises Speed if a held item is used."
+    },
+    {
+      "name": "pickpocket",
+      "description": "Steals an item when hit by another Pokémon."
+    },
+    {
+      "name": "prankster",
+      "description": "Gives priority to a status move."
+    }
   ],
   "description": "Though usually a mellow Pokémon, it will sink its sharp, poison-soaked front teeth into any that anger it, causing paralysis in the object of its ire."
 }

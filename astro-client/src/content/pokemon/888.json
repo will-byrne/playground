@@ -28,7 +28,10 @@
     }
   },
   "abilities": [
-    "intrepid-sword"
+    {
+      "name": "intrepid-sword",
+      "description": "Boosts the Pokémon’s Attack stat when the Pokémon enters a battle."
+    }
   ],
   "description": "Known as a legendary hero, this Pokémon\nabsorbs metal particles, transforming them\ninto a weapon it uses to battle."
 }

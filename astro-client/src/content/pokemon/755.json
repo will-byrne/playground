@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "illuminate",
-    "effect-spore",
-    "rain-dish"
+    {
+      "name": "illuminate",
+      "description": "Encounter rate increases."
+    },
+    {
+      "name": "effect-spore",
+      "description": "Leaves spores on contact."
+    },
+    {
+      "name": "rain-dish",
+      "description": "Slight HP recovery in rain."
+    }
   ],
   "description": "It scatters spores that flicker and glow. Anyone\nseeing these lights falls into a deep slumber."
 }

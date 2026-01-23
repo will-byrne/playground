@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "poison-point",
-    "swarm",
-    "speed-boost"
+    {
+      "name": "poison-point",
+      "description": "Poisons foe on contact."
+    },
+    {
+      "name": "swarm",
+      "description": "Ups BUG moves in a pinch."
+    },
+    {
+      "name": "speed-boost",
+      "description": "Gradually boosts SPEED."
+    }
   ],
   "description": "Its bite injects a potent poison, enough\nto paralyze large bird Pokémon that try\nto prey on it."
 }

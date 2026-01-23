@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "swarm",
-    "early-bird",
-    "rattled"
+    {
+      "name": "swarm",
+      "description": "Ups BUG moves in a pinch."
+    },
+    {
+      "name": "early-bird",
+      "description": "Awakens quickly from sleep."
+    },
+    {
+      "name": "rattled",
+      "description": "Some move types scare it and boost its Speed."
+    }
   ],
   "description": "It is very timid.\nIt will be afraid\nto move if it is\falone. But it will\nbe active if it is\nin a group."
 }

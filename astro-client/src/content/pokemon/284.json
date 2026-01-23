@@ -25,8 +25,14 @@
     }
   },
   "abilities": [
-    "intimidate",
-    "unnerve"
+    {
+      "name": "intimidate",
+      "description": "Lowers the foe’s ATTACK."
+    },
+    {
+      "name": "unnerve",
+      "description": "Makes the foe nervous and unable to eat Berries."
+    }
   ],
   "description": "MASQUERAIN intimidates enemies with\nthe eyelike patterns on its antennas.\nThis POKéMON flaps its four wings to\ffreely fly in any direction - even\nsideways and backwards - as if it were\na helicopter."
 }

@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "ice-body",
-    "snow-cloak",
-    "weak-armor"
+    {
+      "name": "ice-body",
+      "description": "The Pokémon regains HP in a hailstorm."
+    },
+    {
+      "name": "snow-cloak",
+      "description": "Raises evasion in a hailstorm."
+    },
+    {
+      "name": "weak-armor",
+      "description": "Physical attacks lower Defense and raise Speed."
+    }
   ],
   "description": "The temperature of their breath\nis -58° F. They create snow crystals and\nmake snow fall in the areas around them."
 }

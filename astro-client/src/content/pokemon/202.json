@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "shadow-tag",
-    "telepathy"
+    {
+      "name": "shadow-tag",
+      "description": "Prevents the foe’s escape."
+    },
+    {
+      "name": "telepathy",
+      "description": "Anticipates an ally’s attack and dodges it."
+    }
   ],
   "description": "It hates light and\nshock. If attack­\ned, it inflates\fits body to pump\nup its counter­\nstrike."
 }

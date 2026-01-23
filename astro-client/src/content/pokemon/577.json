@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "overcoat",
-    "magic-guard",
-    "regenerator"
+    {
+      "name": "overcoat",
+      "description": "Protects the Pokémon from damage from weather."
+    },
+    {
+      "name": "magic-guard",
+      "description": "The Pokémon only takes damage from attacks."
+    },
+    {
+      "name": "regenerator",
+      "description": "Restores a little HP when withdrawn from battle."
+    }
   ],
   "description": "They drive away attackers by unleashing\npsychic power. They can use telepathy\nto talk with others."
 }

@@ -25,8 +25,14 @@
     }
   },
   "abilities": [
-    "mold-breaker",
-    "sharpness"
+    {
+      "name": "mold-breaker",
+      "description": "Moves can be used regardless of abilities."
+    },
+    {
+      "name": "sharpness",
+      "description": "Powers up slicing moves."
+    }
   ],
   "description": "When Veluza discards unnecessary flesh, its mind becomes honed and its psychic power increases. The spare flesh has a mild but delicious flavor."
 }

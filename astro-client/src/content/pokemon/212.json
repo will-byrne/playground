@@ -29,9 +29,18 @@
     }
   },
   "abilities": [
-    "swarm",
-    "technician",
-    "light-metal"
+    {
+      "name": "swarm",
+      "description": "Ups BUG moves in a pinch."
+    },
+    {
+      "name": "technician",
+      "description": "Powers up the Pokémon’s weaker moves."
+    },
+    {
+      "name": "light-metal",
+      "description": "Halves the Pokémon’s weight."
+    }
   ],
   "description": "It has a steel-hard body. It\nintimidates foes by upraising its\neye-patterned pincers."
 }

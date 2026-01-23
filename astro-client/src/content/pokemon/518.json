@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "forewarn",
-    "synchronize",
-    "telepathy"
+    {
+      "name": "forewarn",
+      "description": "Determines what moves the foe has."
+    },
+    {
+      "name": "synchronize",
+      "description": "Passes on status problems."
+    },
+    {
+      "name": "telepathy",
+      "description": "Anticipates an ally’s attack and dodges it."
+    }
   ],
   "description": "The mist emanating from their foreheads\nis packed with the dreams of people\nand Pokémon."
 }

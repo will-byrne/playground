@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "iron-fist",
-    "mold-breaker",
-    "scrappy"
+    {
+      "name": "iron-fist",
+      "description": "Boosts the power of punching moves."
+    },
+    {
+      "name": "mold-breaker",
+      "description": "Moves can be used regardless of abilities."
+    },
+    {
+      "name": "scrappy",
+      "description": "Enables moves to hit Ghost-type foes."
+    }
   ],
   "description": "Although it possesses a violent temperament,\nit won’t put up with bullying. It uses the leaf in\nits mouth to sense the movements of its enemies."
 }

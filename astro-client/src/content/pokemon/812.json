@@ -28,8 +28,14 @@
     }
   },
   "abilities": [
-    "overgrow",
-    "grassy-surge"
+    {
+      "name": "overgrow",
+      "description": "Powers up Grass-type moves in a pinch."
+    },
+    {
+      "name": "grassy-surge",
+      "description": "Turns the ground into Grassy Terrain when the Pokémon enters a battle."
+    }
   ],
   "description": "By drumming, it taps into the power of its special\ntree stump. The roots of the stump follow its\ndirection in battle."
 }

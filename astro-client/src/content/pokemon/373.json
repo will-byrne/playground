@@ -29,8 +29,14 @@
     }
   },
   "abilities": [
-    "intimidate",
-    "moxie"
+    {
+      "name": "intimidate",
+      "description": "Lowers the foe’s ATTACK."
+    },
+    {
+      "name": "moxie",
+      "description": "Boosts Attack after knocking out any Pokémon."
+    }
   ],
   "description": "SALAMENCE came about as a result of a\nstrong, long-held dream of growing\nwings. It is said that this powerful\fdesire triggered a sudden mutation in\nthis POKéMON’s cells, causing it to\nsprout its magnificent wings."
 }

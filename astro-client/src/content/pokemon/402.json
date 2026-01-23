@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "swarm",
-    "technician"
+    {
+      "name": "swarm",
+      "description": "Ups BUG moves in a pinch."
+    },
+    {
+      "name": "technician",
+      "description": "Powers up the Pokémon’s weaker moves."
+    }
   ],
   "description": "It crosses its knifelike arms in\nfront of its chest when it cries.\nIt can compose melodies ad lib."
 }

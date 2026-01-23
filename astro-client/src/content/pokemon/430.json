@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "insomnia",
-    "super-luck",
-    "moxie"
+    {
+      "name": "insomnia",
+      "description": "Prevents sleep."
+    },
+    {
+      "name": "super-luck",
+      "description": "Heightens the critical-hit ratios of moves."
+    },
+    {
+      "name": "moxie",
+      "description": "Boosts Attack after knocking out any Pokémon."
+    }
   ],
   "description": "Becoming active at night, it is\nknown to swarm with numerous\nMURKROW in tow."
 }

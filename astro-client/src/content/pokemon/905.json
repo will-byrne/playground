@@ -25,8 +25,14 @@
     }
   },
   "abilities": [
-    "cute-charm",
-    "contrary"
+    {
+      "name": "cute-charm",
+      "description": "Infatuates on contact."
+    },
+    {
+      "name": "contrary",
+      "description": "Makes stat changes have an opposite effect."
+    }
   ],
   "description": "When it flies to this land from across the sea, the bitter winter\ncomes to an end. According to legend, this Pokémon's love\ngives rise to the budding of fresh life across Hisui."
 }

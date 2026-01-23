@@ -21,13 +21,26 @@
       "scovillain": {
         "default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/952.png",
         "shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/952.png"
+      },
+      "scovillain-mega": {
+        "default": null,
+        "shiny": null
       }
     }
   },
   "abilities": [
-    "chlorophyll",
-    "insomnia",
-    "moody"
+    {
+      "name": "chlorophyll",
+      "description": "Raises SPEED in sunshine."
+    },
+    {
+      "name": "insomnia",
+      "description": "Prevents sleep."
+    },
+    {
+      "name": "moody",
+      "description": "Raises one stat and lowers another."
+    }
   ],
   "description": "The red head converts spicy chemicals into fire energy and blasts the surrounding area with a super spicy stream of flame."
 }

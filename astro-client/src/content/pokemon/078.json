@@ -28,9 +28,18 @@
     }
   },
   "abilities": [
-    "run-away",
-    "flash-fire",
-    "flame-body"
+    {
+      "name": "run-away",
+      "description": "Makes escaping easier."
+    },
+    {
+      "name": "flash-fire",
+      "description": "Powers up if hit by fire."
+    },
+    {
+      "name": "flame-body",
+      "description": "Burns the foe on contact."
+    }
   ],
   "description": "Very competitive,\nthis POKéMON will\nchase anything\fthat moves fast\nin the hopes of\nracing it."
 }

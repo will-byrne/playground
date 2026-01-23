@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "keen-eye",
-    "sand-rush",
-    "steadfast"
+    {
+      "name": "keen-eye",
+      "description": "Prevents loss of accuracy."
+    },
+    {
+      "name": "sand-rush",
+      "description": "Boosts the Pokémon’s Speed in a sandstorm."
+    },
+    {
+      "name": "steadfast",
+      "description": "Raises Speed each time the Pokémon flinches."
+    }
   ],
   "description": "Its quick movements confuse its enemies.\nWell equipped with claws and fangs, it also uses\nthe sharp rocks in its mane as weapons."
 }

@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "sand-rush",
-    "fluffy"
+    {
+      "name": "sand-rush",
+      "description": "Boosts the Pokémon’s Speed in a sandstorm."
+    },
+    {
+      "name": "fluffy",
+      "description": "Halves the damage taken from moves that make direct contact, but doubles that of Fire-type moves."
+    }
   ],
   "description": "Houndstone spends most of its time sleeping in graveyards. Among all the dog Pokémon, this one is most loyal to its master."
 }

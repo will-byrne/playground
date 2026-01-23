@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "motor-drive",
-    "vital-spirit"
+    {
+      "name": "motor-drive",
+      "description": "Raises Speed if hit by an Electric-type move."
+    },
+    {
+      "name": "vital-spirit",
+      "description": "Prevents sleep."
+    }
   ],
   "description": "As its electric charge amplifies,\nblue sparks begin to crackle between\nits horns."
 }

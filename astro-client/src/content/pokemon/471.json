@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "snow-cloak",
-    "ice-body"
+    {
+      "name": "snow-cloak",
+      "description": "Raises evasion in a hailstorm."
+    },
+    {
+      "name": "ice-body",
+      "description": "The Pokémon regains HP in a hailstorm."
+    }
   ],
   "description": "As a protective technique, it can\ncompletely freeze its fur to make\nits hairs stand like needles."
 }

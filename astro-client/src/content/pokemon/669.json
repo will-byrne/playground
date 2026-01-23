@@ -40,8 +40,14 @@
     }
   },
   "abilities": [
-    "flower-veil",
-    "symbiosis"
+    {
+      "name": "flower-veil",
+      "description": "Prevents lowering of ally Grass-type Pokémon’s stats."
+    },
+    {
+      "name": "symbiosis",
+      "description": "The Pokémon can pass an item to an ally."
+    }
   ],
   "description": "It draws out and controls the hidden power\nof flowers. The flower Flabébé holds\nis most likely part of its body."
 }

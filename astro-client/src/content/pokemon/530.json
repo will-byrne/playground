@@ -21,13 +21,26 @@
       "excadrill": {
         "default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/530.png",
         "shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/530.png"
+      },
+      "excadrill-mega": {
+        "default": null,
+        "shiny": null
       }
     }
   },
   "abilities": [
-    "sand-rush",
-    "sand-force",
-    "mold-breaker"
+    {
+      "name": "sand-rush",
+      "description": "Boosts the Pokémon’s Speed in a sandstorm."
+    },
+    {
+      "name": "sand-force",
+      "description": "Boosts certain moves’ power in a sandstorm."
+    },
+    {
+      "name": "mold-breaker",
+      "description": "Moves can be used regardless of abilities."
+    }
   ],
   "description": "It can help in tunnel construction.\nIts drill has evolved into steel strong\nenough to bore through iron plates."
 }

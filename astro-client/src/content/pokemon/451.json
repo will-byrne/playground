@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "battle-armor",
-    "sniper",
-    "keen-eye"
+    {
+      "name": "battle-armor",
+      "description": "Blocks critical hits."
+    },
+    {
+      "name": "sniper",
+      "description": "Powers up moves if they become critical hits."
+    },
+    {
+      "name": "keen-eye",
+      "description": "Prevents loss of accuracy."
+    }
   ],
   "description": "It grips prey with its tail claws\nand injects poison. It tenaciously\nhangs on until the poison takes."
 }

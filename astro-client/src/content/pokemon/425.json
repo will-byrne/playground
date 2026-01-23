@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "aftermath",
-    "unburden",
-    "flare-boost"
+    {
+      "name": "aftermath",
+      "description": "Damages the foe landing the finishing hit."
+    },
+    {
+      "name": "unburden",
+      "description": "Raises Speed if a held item is used."
+    },
+    {
+      "name": "flare-boost",
+      "description": "Powers up special attacks when burned."
+    }
   ],
   "description": "A Pokémon formed by the spirits\nof people and Pokémon. It loves\ndamp, humid seasons."
 }

@@ -29,9 +29,18 @@
     }
   },
   "abilities": [
-    "sticky-hold",
-    "storm-drain",
-    "sand-force"
+    {
+      "name": "sticky-hold",
+      "description": "Prevents item theft."
+    },
+    {
+      "name": "storm-drain",
+      "description": "The Pokémon draws in all Water-type moves."
+    },
+    {
+      "name": "sand-force",
+      "description": "Boosts certain moves’ power in a sandstorm."
+    }
   ],
   "description": "It has a pliable body without any\nbones. If any part of its body is\ntorn off, it grows right back."
 }

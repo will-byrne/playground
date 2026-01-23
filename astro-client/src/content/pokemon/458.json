@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "swift-swim",
-    "water-absorb",
-    "water-veil"
+    {
+      "name": "swift-swim",
+      "description": "Raises SPEED in rain."
+    },
+    {
+      "name": "water-absorb",
+      "description": "Restores HP if hit by a Water-type move."
+    },
+    {
+      "name": "water-veil",
+      "description": "Prevents burns."
+    }
   ],
   "description": "A friendly Pokémon that captures\nthe subtle flows of seawater using\nits two antennae."
 }

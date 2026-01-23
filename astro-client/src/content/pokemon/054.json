@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "damp",
-    "cloud-nine",
-    "swift-swim"
+    {
+      "name": "damp",
+      "description": "Prevents self-destruction."
+    },
+    {
+      "name": "cloud-nine",
+      "description": "Negates weather effects."
+    },
+    {
+      "name": "swift-swim",
+      "description": "Raises SPEED in rain."
+    }
   ],
   "description": "While lulling its\nenemies with its\nvacant look, this\fwily POKéMON will\nuse psychokinetic\npowers."
 }

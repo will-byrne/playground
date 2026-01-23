@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "insomnia",
-    "forewarn",
-    "inner-focus"
+    {
+      "name": "insomnia",
+      "description": "Prevents sleep."
+    },
+    {
+      "name": "forewarn",
+      "description": "Determines what moves the foe has."
+    },
+    {
+      "name": "inner-focus",
+      "description": "Prevents flinching."
+    }
   ],
   "description": "Puts enemies to\nsleep then eats\ntheir dreams.\fOccasionally gets\nsick from eating\nbad dreams."
 }

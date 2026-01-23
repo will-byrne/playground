@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "dazzling",
-    "strong-jaw",
-    "wonder-skin"
+    {
+      "name": "dazzling",
+      "description": "Surprises the opposing Pokémon, making it unable to attack using priority moves."
+    },
+    {
+      "name": "strong-jaw",
+      "description": "The Pokémon’s strong jaw gives it tremendous biting power."
+    },
+    {
+      "name": "wonder-skin",
+      "description": "Makes status-changing moves more likely to miss."
+    }
   ],
   "description": "When it unleashes its psychic power from the\nprotuberance on its head, the grating sound\nof grinding teeth echoes through the area."
 }

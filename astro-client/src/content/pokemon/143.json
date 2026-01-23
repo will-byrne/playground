@@ -28,9 +28,18 @@
     }
   },
   "abilities": [
-    "immunity",
-    "thick-fat",
-    "gluttony"
+    {
+      "name": "immunity",
+      "description": "Prevents poisoning."
+    },
+    {
+      "name": "thick-fat",
+      "description": "Heat-and-cold protection."
+    },
+    {
+      "name": "gluttony",
+      "description": "Encourages the early use of a held Berry."
+    }
   ],
   "description": "Very lazy. Just\neats and sleeps.\nAs its rotund\fbulk builds, it\nbecomes steadily\nmore slothful."
 }

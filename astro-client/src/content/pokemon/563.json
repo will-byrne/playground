@@ -24,7 +24,10 @@
     }
   },
   "abilities": [
-    "mummy"
+    {
+      "name": "mummy",
+      "description": "Contact with this Pokémon spreads this Ability."
+    }
   ],
   "description": "It has been said that they swallow those\nwho get too close and turn them into\nmummies. They like to eat gold nuggets."
 }

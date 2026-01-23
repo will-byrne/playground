@@ -28,8 +28,14 @@
     }
   },
   "abilities": [
-    "overgrow",
-    "unburden"
+    {
+      "name": "overgrow",
+      "description": "Powers up Grass-type moves in a pinch."
+    },
+    {
+      "name": "unburden",
+      "description": "Raises Speed if a held item is used."
+    }
   ],
   "description": "The leaves growing on SCEPTILE’s body\nare very sharp edged. This POKéMON is\nvery agile - it leaps all over the\fbranches of trees and jumps on its foe\nfrom above or behind."
 }

@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "oblivious",
-    "snow-cloak",
-    "thick-fat"
+    {
+      "name": "oblivious",
+      "description": "Prevents attraction."
+    },
+    {
+      "name": "snow-cloak",
+      "description": "Raises evasion in a hailstorm."
+    },
+    {
+      "name": "thick-fat",
+      "description": "Heat-and-cold protection."
+    }
   ],
   "description": "Because the long\nhair all over its\nbody obscures its\fsight, it just\nkeeps charging\nrepeatedly."
 }

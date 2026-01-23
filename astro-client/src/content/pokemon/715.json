@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "frisk",
-    "infiltrator",
-    "telepathy"
+    {
+      "name": "frisk",
+      "description": "The Pokémon can check the foe’s held item."
+    },
+    {
+      "name": "infiltrator",
+      "description": "Passes through the foe’s barrier and strikes."
+    },
+    {
+      "name": "telepathy",
+      "description": "Anticipates an ally’s attack and dodges it."
+    }
   ],
   "description": "They fly around on moonless nights\nand attack careless prey. Nothing can\nbeat them in a battle in the dark."
 }

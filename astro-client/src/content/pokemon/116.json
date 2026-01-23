@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "swift-swim",
-    "sniper",
-    "damp"
+    {
+      "name": "swift-swim",
+      "description": "Raises SPEED in rain."
+    },
+    {
+      "name": "sniper",
+      "description": "Powers up moves if they become critical hits."
+    },
+    {
+      "name": "damp",
+      "description": "Prevents self-destruction."
+    }
   ],
   "description": "Known to shoot\ndown flying bugs\nwith precision\fblasts of ink\nfrom the surface\nof the water."
 }

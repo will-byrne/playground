@@ -33,7 +33,10 @@
     }
   },
   "abilities": [
-    "cursed-body"
+    {
+      "name": "cursed-body",
+      "description": "May disable a move used on the Pokémon."
+    }
   ],
   "description": "Under a full moon,\nthis POKéMON\nlikes to mimic\fthe shadows of\npeople and laugh\nat their fright."
 }

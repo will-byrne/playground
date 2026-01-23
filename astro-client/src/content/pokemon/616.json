@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "hydration",
-    "shell-armor",
-    "overcoat"
+    {
+      "name": "hydration",
+      "description": "Heals status problems if it is raining."
+    },
+    {
+      "name": "shell-armor",
+      "description": "Blocks critical hits."
+    },
+    {
+      "name": "overcoat",
+      "description": "Protects the Pokémon from damage from weather."
+    }
   ],
   "description": "When attacked, it defends itself by\nclosing the lid of its shell. It can spit\na sticky, poisonous liquid."
 }

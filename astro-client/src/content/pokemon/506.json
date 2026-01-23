@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "vital-spirit",
-    "pickup",
-    "run-away"
+    {
+      "name": "vital-spirit",
+      "description": "Prevents sleep."
+    },
+    {
+      "name": "pickup",
+      "description": "May pick up items."
+    },
+    {
+      "name": "run-away",
+      "description": "Makes escaping easier."
+    }
   ],
   "description": "It faces strong opponents with great\ncourage. But, when at a disadvantage in\na fight, this intelligent Pokémon flees."
 }

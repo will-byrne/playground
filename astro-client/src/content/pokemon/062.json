@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "water-absorb",
-    "damp",
-    "swift-swim"
+    {
+      "name": "water-absorb",
+      "description": "Restores HP if hit by a Water-type move."
+    },
+    {
+      "name": "damp",
+      "description": "Prevents self-destruction."
+    },
+    {
+      "name": "swift-swim",
+      "description": "Raises SPEED in rain."
+    }
   ],
   "description": "An adept swimmer\nat both the front\ncrawl and breast\fstroke. Easily\novertakes the best\nhuman swimmers."
 }

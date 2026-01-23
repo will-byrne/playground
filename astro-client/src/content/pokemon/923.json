@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "volt-absorb",
-    "natural-cure",
-    "iron-fist"
+    {
+      "name": "volt-absorb",
+      "description": "Turns electricity into HP."
+    },
+    {
+      "name": "natural-cure",
+      "description": "Heals upon switching out."
+    },
+    {
+      "name": "iron-fist",
+      "description": "Boosts the power of punching moves."
+    }
   ],
   "description": "This Pokémon normally is slow to react, but once it enters battle, it will strike down its enemies with lightning-fast movements."
 }

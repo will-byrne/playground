@@ -25,7 +25,10 @@
     }
   },
   "abilities": [
-    "shadow-shield"
+    {
+      "name": "shadow-shield",
+      "description": "Reduces the amount of damage the Pokémon takes while its HP is full."
+    }
   ],
   "description": "It is said to be a female evolution of Cosmog.\nWhen its third eye activates, away it flies to\nanother world."
 }

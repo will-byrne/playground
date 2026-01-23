@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "simple",
-    "unaware",
-    "moody"
+    {
+      "name": "simple",
+      "description": "The Pokémon is prone to wild stat changes."
+    },
+    {
+      "name": "unaware",
+      "description": "Ignores any change in ability by the foe."
+    },
+    {
+      "name": "moody",
+      "description": "Raises one stat and lowers another."
+    }
   ],
   "description": "With nerves of steel, nothing can\nperturb it. It is more agile and\nactive than it appears."
 }

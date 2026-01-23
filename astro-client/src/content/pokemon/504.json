@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "run-away",
-    "keen-eye",
-    "analytic"
+    {
+      "name": "run-away",
+      "description": "Makes escaping easier."
+    },
+    {
+      "name": "keen-eye",
+      "description": "Prevents loss of accuracy."
+    },
+    {
+      "name": "analytic",
+      "description": "Boosts move power when the Pokémon moves last."
+    }
   ],
   "description": "Using food stored in cheek pouches,\nthey can keep watch for days. They use\ntheir tails to communicate with others."
 }

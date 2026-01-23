@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "overgrow",
-    "contrary"
+    {
+      "name": "overgrow",
+      "description": "Powers up Grass-type moves in a pinch."
+    },
+    {
+      "name": "contrary",
+      "description": "Makes stat changes have an opposite effect."
+    }
   ],
   "description": "It can stop its opponents’\nmovements with just a glare. It takes\nin solar energy and boosts it internally."
 }

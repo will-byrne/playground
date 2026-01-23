@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "magma-armor",
-    "flame-body",
-    "weak-armor"
+    {
+      "name": "magma-armor",
+      "description": "Prevents freezing."
+    },
+    {
+      "name": "flame-body",
+      "description": "Burns the foe on contact."
+    },
+    {
+      "name": "weak-armor",
+      "description": "Physical attacks lower Defense and raise Speed."
+    }
   ],
   "description": "It never sleeps.\nIt has to keep\nmoving because if\fit stopped, its\nmagma body would\ncool and harden."
 }

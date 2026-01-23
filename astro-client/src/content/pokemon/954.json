@@ -25,8 +25,14 @@
     }
   },
   "abilities": [
-    "synchronize",
-    "telepathy"
+    {
+      "name": "synchronize",
+      "description": "Passes on status problems."
+    },
+    {
+      "name": "telepathy",
+      "description": "Anticipates an ally’s attack and dodges it."
+    }
   ],
   "description": "The body that supports the ball barely moves. Therefore, it is thought that the true body of this Pokémon is actually inside the ball."
 }

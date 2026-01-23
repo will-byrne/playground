@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "flash-fire",
-    "guts"
+    {
+      "name": "flash-fire",
+      "description": "Powers up if hit by fire."
+    },
+    {
+      "name": "guts",
+      "description": "Ups ATTACK if suffering."
+    }
   ],
   "description": "When storing\nthermal energy in\nits body, its\ftemperature could\nsoar to over 1600\ndegrees."
 }

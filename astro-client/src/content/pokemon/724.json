@@ -29,8 +29,14 @@
     }
   },
   "abilities": [
-    "overgrow",
-    "long-reach"
+    {
+      "name": "overgrow",
+      "description": "Powers up Grass-type moves in a pinch."
+    },
+    {
+      "name": "long-reach",
+      "description": "The Pokémon uses its moves without making contact with the target."
+    }
   ],
   "description": "It fires arrow quills from its wings with such\nprecision, they can pierce a pebble at distances\nover a hundred yards."
 }

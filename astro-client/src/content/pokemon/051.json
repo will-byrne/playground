@@ -28,9 +28,18 @@
     }
   },
   "abilities": [
-    "sand-veil",
-    "arena-trap",
-    "sand-force"
+    {
+      "name": "sand-veil",
+      "description": "Ups evasion in a sandstorm."
+    },
+    {
+      "name": "arena-trap",
+      "description": "Prevents fleeing."
+    },
+    {
+      "name": "sand-force",
+      "description": "Boosts certain moves’ power in a sandstorm."
+    }
   ],
   "description": "A team of DIGLETT\ntriplets.\nIt triggers huge\fearthquakes by\nburrowing 60 miles\nunderground."
 }

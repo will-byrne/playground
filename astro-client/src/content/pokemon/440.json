@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "natural-cure",
-    "serene-grace",
-    "friend-guard"
+    {
+      "name": "natural-cure",
+      "description": "Heals upon switching out."
+    },
+    {
+      "name": "serene-grace",
+      "description": "Promotes added effects."
+    },
+    {
+      "name": "friend-guard",
+      "description": "Reduces damage done to allies."
+    }
   ],
   "description": "It loves round white things.\nIt carries an egg-shaped rock in\nimitation of CHANSEY."
 }

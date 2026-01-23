@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "thick-fat",
-    "ice-body",
-    "oblivious"
+    {
+      "name": "thick-fat",
+      "description": "Heat-and-cold protection."
+    },
+    {
+      "name": "ice-body",
+      "description": "The Pokémon regains HP in a hailstorm."
+    },
+    {
+      "name": "oblivious",
+      "description": "Prevents attraction."
+    }
   ],
   "description": "SEALEO has the habit of always juggling\non the tip of its nose anything it sees\nfor the first time.\fThis POKéMON occasionally entertains\nitself by balancing and rolling a SPHEAL\non its nose."
 }

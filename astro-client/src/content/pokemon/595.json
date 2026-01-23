@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "compound-eyes",
-    "unnerve",
-    "swarm"
+    {
+      "name": "compound-eyes",
+      "description": "Raises accuracy."
+    },
+    {
+      "name": "unnerve",
+      "description": "Makes the foe nervous and unable to eat Berries."
+    },
+    {
+      "name": "swarm",
+      "description": "Ups BUG moves in a pinch."
+    }
   ],
   "description": "Joltik that live in cities have learned\na technique for sucking electricity\nfrom the outlets in houses."
 }

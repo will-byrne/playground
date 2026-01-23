@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "blaze",
-    "thick-fat"
+    {
+      "name": "blaze",
+      "description": "Ups FIRE moves in a pinch."
+    },
+    {
+      "name": "thick-fat",
+      "description": "Heat-and-cold protection."
+    }
   ],
   "description": "It can deftly dodge its foe’s attacks\nwhile shooting fireballs from its nose.\nIt roasts berries before it eats them."
 }

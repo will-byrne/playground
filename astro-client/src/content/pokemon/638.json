@@ -25,7 +25,10 @@
     }
   },
   "abilities": [
-    "justified"
+    {
+      "name": "justified",
+      "description": "Raises Attack when hit by a Dark-type move."
+    }
   ],
   "description": "This legendary Pokémon battled against\nhumans to protect Pokémon.\nIts personality is calm and composed."
 }

@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "wind-power",
-    "volt-absorb",
-    "competitive"
+    {
+      "name": "wind-power",
+      "description": "The Pokémon becomes charged when it is hit by a wind move, boosting the power of the next Electric-type move the Pokémon uses."
+    },
+    {
+      "name": "volt-absorb",
+      "description": "Turns electricity into HP."
+    },
+    {
+      "name": "competitive",
+      "description": "Boosts the Sp. Atk stat when a stat is lowered."
+    }
   ],
   "description": "Kilowattrel inflates its throat sac to amplify its electricity. By riding the wind, this Pokémon can fly over 430 miles in a day."
 }

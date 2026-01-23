@@ -25,8 +25,14 @@
     }
   },
   "abilities": [
-    "shield-dust",
-    "compound-eyes"
+    {
+      "name": "shield-dust",
+      "description": "Prevents added effects."
+    },
+    {
+      "name": "compound-eyes",
+      "description": "Raises accuracy."
+    }
   ],
   "description": "DUSTOX is instinctively drawn to light.\nSwarms of this POKéMON are attracted\nby the bright lights of cities, where\fthey wreak havoc by stripping the\nleaves off roadside trees for food."
 }

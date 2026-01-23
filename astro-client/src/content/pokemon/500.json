@@ -21,12 +21,22 @@
       "emboar": {
         "default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/500.png",
         "shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/500.png"
+      },
+      "emboar-mega": {
+        "default": null,
+        "shiny": null
       }
     }
   },
   "abilities": [
-    "blaze",
-    "reckless"
+    {
+      "name": "blaze",
+      "description": "Ups FIRE moves in a pinch."
+    },
+    {
+      "name": "reckless",
+      "description": "Powers up moves that have recoil damage."
+    }
   ],
   "description": "It can throw a fire punch by setting its\nfists on fire with its fiery chin. It cares\ndeeply about its friends."
 }

@@ -29,8 +29,14 @@
     }
   },
   "abilities": [
-    "pressure",
-    "telepathy"
+    {
+      "name": "pressure",
+      "description": "Raises foe’s PP usage."
+    },
+    {
+      "name": "telepathy",
+      "description": "Anticipates an ally’s attack and dodges it."
+    }
   ],
   "description": "It has the ability to distort\nspace. It is described as a deity\nin Sinnoh-region mythology."
 }

@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "blaze",
-    "intimidate"
+    {
+      "name": "blaze",
+      "description": "Ups FIRE moves in a pinch."
+    },
+    {
+      "name": "intimidate",
+      "description": "Lowers the foe’s ATTACK."
+    }
   ],
   "description": "While grooming itself, it builds up fur inside its\nstomach. It sets the fur alight and spews fiery\nattacks, which change based on how it coughs."
 }

@@ -24,7 +24,10 @@
     }
   },
   "abilities": [
-    "hydration"
+    {
+      "name": "hydration",
+      "description": "Heals status problems if it is raining."
+    }
   ],
   "description": "Born on a cold seafloor, it\nwill swim great distances to\nreturn to its birthplace."
 }

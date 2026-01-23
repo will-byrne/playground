@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "clear-body",
-    "infiltrator",
-    "cursed-body"
+    {
+      "name": "clear-body",
+      "description": "Prevents ability reduction."
+    },
+    {
+      "name": "infiltrator",
+      "description": "Passes through the foe’s barrier and strikes."
+    },
+    {
+      "name": "cursed-body",
+      "description": "May disable a move used on the Pokémon."
+    }
   ],
   "description": "It’s capable of flying faster than 120 mph.\nIt battles alongside Dreepy and\ndotes on them until they successfully evolve."
 }

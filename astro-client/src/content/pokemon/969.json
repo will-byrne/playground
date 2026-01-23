@@ -25,8 +25,14 @@
     }
   },
   "abilities": [
-    "toxic-debris",
-    "corrosion"
+    {
+      "name": "toxic-debris",
+      "description": "Scatters poison spikes at the feet of the opposing team when the Pokémon takes damage from physical moves."
+    },
+    {
+      "name": "corrosion",
+      "description": "The Pokémon can poison the target even if it’s a Steel or Poison type."
+    }
   ],
   "description": "It absorbs nutrients from cave walls. The petals it wears are made of crystallized poison."
 }

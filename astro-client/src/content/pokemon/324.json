@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "white-smoke",
-    "drought",
-    "shell-armor"
+    {
+      "name": "white-smoke",
+      "description": "Prevents ability reduction."
+    },
+    {
+      "name": "drought",
+      "description": "Summons sunlight in battle."
+    },
+    {
+      "name": "shell-armor",
+      "description": "Blocks critical hits."
+    }
   ],
   "description": "You can tell how it’s feeling by the smoke\nspouting from its shell. Tremendous velocity\nis a sign of good health."
 }

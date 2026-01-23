@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "insomnia",
-    "super-luck",
-    "prankster"
+    {
+      "name": "insomnia",
+      "description": "Prevents sleep."
+    },
+    {
+      "name": "super-luck",
+      "description": "Heightens the critical-hit ratios of moves."
+    },
+    {
+      "name": "prankster",
+      "description": "Gives priority to a status move."
+    }
   ],
   "description": "Feared and loathed\nby many, it is\nbelieved to bring\fmisfortune to all\nthose who see it\nat night."
 }

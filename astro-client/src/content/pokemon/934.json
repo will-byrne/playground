@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "purifying-salt",
-    "sturdy",
-    "clear-body"
+    {
+      "name": "purifying-salt",
+      "description": "The Pokémon's pure salt protects it from status conditions and halves the damage taken from Ghost-type moves."
+    },
+    {
+      "name": "sturdy",
+      "description": "Negates 1-hit KO attacks."
+    },
+    {
+      "name": "clear-body",
+      "description": "Prevents ability reduction."
+    }
   ],
   "description": "Garganacl will rub its fingertips together and sprinkle injured Pokémon with salt. Even severe wounds will promptly heal afterward."
 }

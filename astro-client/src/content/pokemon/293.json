@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "soundproof",
-    "rattled"
+    {
+      "name": "soundproof",
+      "description": "Avoids sound-based moves."
+    },
+    {
+      "name": "rattled",
+      "description": "Some move types scare it and boost its Speed."
+    }
   ],
   "description": "Normally, WHISMUR’s voice is very quiet -\nit is barely audible even if one is\npaying close attention.\fHowever, if this POKéMON senses danger,\nit starts crying at an earsplitting\nvolume."
 }

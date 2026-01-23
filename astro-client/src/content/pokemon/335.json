@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "immunity",
-    "toxic-boost"
+    {
+      "name": "immunity",
+      "description": "Prevents poisoning."
+    },
+    {
+      "name": "toxic-boost",
+      "description": "Powers up physical attacks when poisoned."
+    }
   ],
   "description": "Memories of battling its arch-rival\nSEVIPER are etched into every cell of\nZANGOOSE’s body.\fThis POKéMON adroitly dodges attacks\nwith incredible agility."
 }

@@ -28,9 +28,18 @@
     }
   },
   "abilities": [
-    "guts",
-    "no-guard",
-    "steadfast"
+    {
+      "name": "guts",
+      "description": "Ups ATTACK if suffering."
+    },
+    {
+      "name": "no-guard",
+      "description": "Ensures the Pokémon and its foe’s attacks land."
+    },
+    {
+      "name": "steadfast",
+      "description": "Raises Speed each time the Pokémon flinches."
+    }
   ],
   "description": "Using its heavy\nmuscles, it throws\npowerful punches\fthat can send the\nvictim clear over\nthe horizon."
 }

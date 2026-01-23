@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "swift-swim",
-    "propeller-tail"
+    {
+      "name": "swift-swim",
+      "description": "Raises SPEED in rain."
+    },
+    {
+      "name": "propeller-tail",
+      "description": "Ignores the effects of opposing Pokémon’s Abilities and moves that draw in moves."
+    }
   ],
   "description": "This Pokémon has a jaw that’s as sharp as a spear\nand as strong as steel. Apparently Barraskewda’s\nflesh is surprisingly tasty, too."
 }

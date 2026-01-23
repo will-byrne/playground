@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "swift-swim",
-    "water-veil",
-    "lightning-rod"
+    {
+      "name": "swift-swim",
+      "description": "Raises SPEED in rain."
+    },
+    {
+      "name": "water-veil",
+      "description": "Prevents burns."
+    },
+    {
+      "name": "lightning-rod",
+      "description": "Draws electrical moves."
+    }
   ],
   "description": "In the autumn spawning season, they can\nbe seen swimming powerfully up rivers and\ncreeks."
 }

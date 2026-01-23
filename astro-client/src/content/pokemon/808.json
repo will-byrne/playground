@@ -24,7 +24,10 @@
     }
   },
   "abilities": [
-    "magnet-pull"
+    {
+      "name": "magnet-pull",
+      "description": "Traps STEEL-type POKéMON."
+    }
   ],
   "description": "It melts particles of iron and other metals found\nin the subsoil, so it can absorb them into its\nbody of molten steel."
 }

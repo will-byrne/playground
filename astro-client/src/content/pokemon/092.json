@@ -25,7 +25,10 @@
     }
   },
   "abilities": [
-    "levitate"
+    {
+      "name": "levitate",
+      "description": "Gives full immunity to all Ground-type moves."
+    }
   ],
   "description": "Almost invisible,\nthis gaseous\nPOKéMON cloaks\fthe target and\nputs it to sleep\nwithout notice."
 }

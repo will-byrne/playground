@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "flash-fire",
-    "flame-body",
-    "infiltrator"
+    {
+      "name": "flash-fire",
+      "description": "Powers up if hit by fire."
+    },
+    {
+      "name": "flame-body",
+      "description": "Burns the foe on contact."
+    },
+    {
+      "name": "infiltrator",
+      "description": "Passes through the foe’s barrier and strikes."
+    }
   ],
   "description": "This ominous Pokémon is feared.\nThrough cities it wanders, searching\nfor the spirits of the fallen."
 }

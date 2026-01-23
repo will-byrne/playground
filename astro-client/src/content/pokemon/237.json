@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "intimidate",
-    "technician",
-    "steadfast"
+    {
+      "name": "intimidate",
+      "description": "Lowers the foe’s ATTACK."
+    },
+    {
+      "name": "technician",
+      "description": "Powers up the Pokémon’s weaker moves."
+    },
+    {
+      "name": "steadfast",
+      "description": "Raises Speed each time the Pokémon flinches."
+    }
   ],
   "description": "If you become\nenchanted by its\nsmooth, elegant,\fdance-like kicks,\nyou may get\ndrilled hard."
 }

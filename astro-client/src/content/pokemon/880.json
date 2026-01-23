@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "volt-absorb",
-    "hustle",
-    "sand-rush"
+    {
+      "name": "volt-absorb",
+      "description": "Turns electricity into HP."
+    },
+    {
+      "name": "hustle",
+      "description": "Trades accuracy for power."
+    },
+    {
+      "name": "sand-rush",
+      "description": "Boosts the Pokémon’s Speed in a sandstorm."
+    }
   ],
   "description": "In ancient times, it was unbeatable thanks to its\npowerful lower body, but it went extinct anyway\nafter it depleted all its plant-based food sources."
 }

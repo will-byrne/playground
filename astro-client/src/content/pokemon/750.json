@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "own-tempo",
-    "stamina",
-    "inner-focus"
+    {
+      "name": "own-tempo",
+      "description": "Prevents confusion."
+    },
+    {
+      "name": "stamina",
+      "description": "Boosts the Defense stat when hit by an attack."
+    },
+    {
+      "name": "inner-focus",
+      "description": "Prevents flinching."
+    }
   ],
   "description": "It spits a mud that provides resistance to both\nwind and rain, so the walls of old houses were\noften coated with it."
 }

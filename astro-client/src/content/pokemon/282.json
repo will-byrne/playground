@@ -29,9 +29,18 @@
     }
   },
   "abilities": [
-    "synchronize",
-    "trace",
-    "telepathy"
+    {
+      "name": "synchronize",
+      "description": "Passes on status problems."
+    },
+    {
+      "name": "trace",
+      "description": "Copies special ability."
+    },
+    {
+      "name": "telepathy",
+      "description": "Anticipates an ally’s attack and dodges it."
+    }
   ],
   "description": "GARDEVOIR has the ability to read the\nfuture. If it senses impending danger\nto its TRAINER, this POKéMON is said to\funleash its psychokinetic energy at\nfull power."
 }

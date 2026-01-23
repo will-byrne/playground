@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "insomnia",
-    "keen-eye",
-    "tinted-lens"
+    {
+      "name": "insomnia",
+      "description": "Prevents sleep."
+    },
+    {
+      "name": "keen-eye",
+      "description": "Prevents loss of accuracy."
+    },
+    {
+      "name": "tinted-lens",
+      "description": "Powers up “not very effective” moves."
+    }
   ],
   "description": "It always stands\non one foot. It\nchanges feet so\ffast, the movement\ncan rarely be\nseen."
 }

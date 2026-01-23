@@ -25,8 +25,14 @@
     }
   },
   "abilities": [
-    "guts",
-    "scrappy"
+    {
+      "name": "guts",
+      "description": "Ups ATTACK if suffering."
+    },
+    {
+      "name": "scrappy",
+      "description": "Enables moves to hit Ghost-type foes."
+    }
   ],
   "description": "SWELLOW flies high above our heads,\nmaking graceful arcs in the sky.\nThis POKéMON dives at a steep angle as\fsoon as it spots its prey. The hapless\nprey is tightly grasped by SWELLOW’s\nclawed feet, preventing escape."
 }

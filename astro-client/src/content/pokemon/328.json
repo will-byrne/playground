@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "hyper-cutter",
-    "arena-trap",
-    "sheer-force"
+    {
+      "name": "hyper-cutter",
+      "description": "Prevents ATTACK reduction."
+    },
+    {
+      "name": "arena-trap",
+      "description": "Prevents fleeing."
+    },
+    {
+      "name": "sheer-force",
+      "description": "Removes added effects to increase move damage."
+    }
   ],
   "description": "TRAPINCH’s nest is a sloped, bowl-like\npit dug in sand. This POKéMON patiently\nwaits for prey to tumble down the pit.\fIts giant jaws have enough strength\nto crush even boulders."
 }

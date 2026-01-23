@@ -100,9 +100,18 @@
     }
   },
   "abilities": [
-    "shield-dust",
-    "compound-eyes",
-    "friend-guard"
+    {
+      "name": "shield-dust",
+      "description": "Prevents added effects."
+    },
+    {
+      "name": "compound-eyes",
+      "description": "Raises accuracy."
+    },
+    {
+      "name": "friend-guard",
+      "description": "Reduces damage done to allies."
+    }
   ],
   "description": "When under attack from bird Pokémon,\nit spews a poisonous black powder\nthat causes paralysis on contact."
 }

@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "thick-fat",
-    "ice-body",
-    "oblivious"
+    {
+      "name": "thick-fat",
+      "description": "Heat-and-cold protection."
+    },
+    {
+      "name": "ice-body",
+      "description": "The Pokémon regains HP in a hailstorm."
+    },
+    {
+      "name": "oblivious",
+      "description": "Prevents attraction."
+    }
   ],
   "description": "It swims through icy seas while shattering\nice floes with its large tusks. It is\nprotected by its thick blubber."
 }

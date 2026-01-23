@@ -25,8 +25,14 @@
     }
   },
   "abilities": [
-    "shield-dust",
-    "run-away"
+    {
+      "name": "shield-dust",
+      "description": "Prevents added effects."
+    },
+    {
+      "name": "run-away",
+      "description": "Makes escaping easier."
+    }
   ],
   "description": "Often found in\nforests, eating\nleaves.\fIt has a sharp\nvenomous stinger\non its head."
 }

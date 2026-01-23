@@ -25,8 +25,14 @@
     }
   },
   "abilities": [
-    "water-bubble",
-    "water-absorb"
+    {
+      "name": "water-bubble",
+      "description": "Lowers the power of Fire-type moves done to the Pokémon and prevents the Pokémon from getting a burn."
+    },
+    {
+      "name": "water-absorb",
+      "description": "Restores HP if hit by a Water-type move."
+    }
   ],
   "description": "It crawls onto the land in search of food.\nIts water bubble allows it to breathe and\nprotects its soft head."
 }

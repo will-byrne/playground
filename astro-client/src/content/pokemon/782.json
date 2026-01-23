@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "bulletproof",
-    "soundproof",
-    "overcoat"
+    {
+      "name": "bulletproof",
+      "description": "Protects the Pokémon from some ball and bomb moves."
+    },
+    {
+      "name": "soundproof",
+      "description": "Avoids sound-based moves."
+    },
+    {
+      "name": "overcoat",
+      "description": "Protects the Pokémon from damage from weather."
+    }
   ],
   "description": "It expresses its feelings by smacking\nits scales. Metallic sounds echo through\nthe tall mountains where Jangmo-o lives."
 }

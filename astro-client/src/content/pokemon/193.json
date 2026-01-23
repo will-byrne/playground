@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "speed-boost",
-    "compound-eyes",
-    "frisk"
+    {
+      "name": "speed-boost",
+      "description": "Gradually boosts SPEED."
+    },
+    {
+      "name": "compound-eyes",
+      "description": "Raises accuracy."
+    },
+    {
+      "name": "frisk",
+      "description": "The Pokémon can check the foe’s held item."
+    }
   ],
   "description": "If it flaps its\nwings really fast,\nit can generate\fshock waves that\nwill shatter win­\ndows in the area."
 }

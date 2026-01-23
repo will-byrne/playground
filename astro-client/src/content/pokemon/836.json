@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "strong-jaw",
-    "competitive"
+    {
+      "name": "strong-jaw",
+      "description": "The Pokémon’s strong jaw gives it tremendous biting power."
+    },
+    {
+      "name": "competitive",
+      "description": "Boosts the Sp. Atk stat when a stat is lowered."
+    }
   ],
   "description": "This Pokémon generates electricity and channels\nit into its legs to keep them going strong.\nBoltund can run nonstop for three full days."
 }

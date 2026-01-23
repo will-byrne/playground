@@ -60,7 +60,10 @@
     }
   },
   "abilities": [
-    "fur-coat"
+    {
+      "name": "fur-coat",
+      "description": "Halves damage from physical moves."
+    }
   ],
   "description": "Trimming its fluffy fur not only makes\nit more elegant but also increases the\nswiftness of its movements."
 }

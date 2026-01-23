@@ -21,13 +21,26 @@
       "skarmory": {
         "default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/227.png",
         "shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/227.png"
+      },
+      "skarmory-mega": {
+        "default": null,
+        "shiny": null
       }
     }
   },
   "abilities": [
-    "keen-eye",
-    "sturdy",
-    "weak-armor"
+    {
+      "name": "keen-eye",
+      "description": "Prevents loss of accuracy."
+    },
+    {
+      "name": "sturdy",
+      "description": "Negates 1-hit KO attacks."
+    },
+    {
+      "name": "weak-armor",
+      "description": "Physical attacks lower Defense and raise Speed."
+    }
   ],
   "description": "Its sturdy wings\nlook heavy, but\nthey are actually\fhollow and light,\nallowing it to fly\nfreely in the sky."
 }

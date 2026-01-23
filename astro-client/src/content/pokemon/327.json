@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "own-tempo",
-    "tangled-feet",
-    "contrary"
+    {
+      "name": "own-tempo",
+      "description": "Prevents confusion."
+    },
+    {
+      "name": "tangled-feet",
+      "description": "Raises evasion if the Pokémon is confused."
+    },
+    {
+      "name": "contrary",
+      "description": "Makes stat changes have an opposite effect."
+    }
   ],
   "description": "No two Spinda have the same\npattern of spots. Its tottering\nstep fouls the aim of foes."
 }

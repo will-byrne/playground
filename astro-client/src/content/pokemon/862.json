@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "reckless",
-    "guts",
-    "defiant"
+    {
+      "name": "reckless",
+      "description": "Powers up moves that have recoil damage."
+    },
+    {
+      "name": "guts",
+      "description": "Ups ATTACK if suffering."
+    },
+    {
+      "name": "defiant",
+      "description": "When its stats are lowered its Attack increases."
+    }
   ],
   "description": "Its voice is staggering in volume. Obstagoon\nhas a tendency to take on a threatening posture\nand shout—this move is known as Obstruct."
 }

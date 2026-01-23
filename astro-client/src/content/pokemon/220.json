@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "oblivious",
-    "snow-cloak",
-    "thick-fat"
+    {
+      "name": "oblivious",
+      "description": "Prevents attraction."
+    },
+    {
+      "name": "snow-cloak",
+      "description": "Raises evasion in a hailstorm."
+    },
+    {
+      "name": "thick-fat",
+      "description": "Heat-and-cold protection."
+    }
   ],
   "description": "It rubs its snout\non the ground to\nfind and dig up\ffood. It sometimes\ndiscovers hot\nsprings."
 }

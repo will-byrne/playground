@@ -28,9 +28,18 @@
     }
   },
   "abilities": [
-    "early-bird",
-    "scrappy",
-    "inner-focus"
+    {
+      "name": "early-bird",
+      "description": "Awakens quickly from sleep."
+    },
+    {
+      "name": "scrappy",
+      "description": "Enables moves to hit Ghost-type foes."
+    },
+    {
+      "name": "inner-focus",
+      "description": "Prevents flinching."
+    }
   ],
   "description": "The infant rarely\nventures out of\nits mother's\fprotective pouch\nuntil it is 3\nyears old."
 }

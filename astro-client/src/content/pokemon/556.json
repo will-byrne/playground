@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "water-absorb",
-    "chlorophyll",
-    "storm-drain"
+    {
+      "name": "water-absorb",
+      "description": "Restores HP if hit by a Water-type move."
+    },
+    {
+      "name": "chlorophyll",
+      "description": "Raises SPEED in sunshine."
+    },
+    {
+      "name": "storm-drain",
+      "description": "The Pokémon draws in all Water-type moves."
+    }
   ],
   "description": "It uses an up-tempo song and dance\nto drive away the bird Pokémon that\nprey on its flower seeds."
 }

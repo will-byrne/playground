@@ -29,8 +29,14 @@
     }
   },
   "abilities": [
-    "clear-body",
-    "light-metal"
+    {
+      "name": "clear-body",
+      "description": "Prevents ability reduction."
+    },
+    {
+      "name": "light-metal",
+      "description": "Halves the Pokémon’s weight."
+    }
   ],
   "description": "METAGROSS has four brains in total.\nCombined, the four brains can breeze\nthrough difficult calculations faster\fthan a supercomputer.\nThis POKéMON can float in the air by\ntucking in its four legs."
 }

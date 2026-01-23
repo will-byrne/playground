@@ -96,7 +96,10 @@
     }
   },
   "abilities": [
-    "multitype"
+    {
+      "name": "multitype",
+      "description": "Changes type to match the held Plate."
+    }
   ],
   "description": "It is described in mythology as\nthe Pokémon that shaped the\nuniverse with its 1,000 arms."
 }

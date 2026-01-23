@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "torrent",
-    "liquid-voice"
+    {
+      "name": "torrent",
+      "description": "Ups WATER moves in a pinch."
+    },
+    {
+      "name": "liquid-voice",
+      "description": "All sound-based moves become Water-type moves."
+    }
   ],
   "description": "This Pokémon snorts body fluids from its nose,\nblowing balloons to smash into its foes.\nIt’s famous for being a hard worker."
 }

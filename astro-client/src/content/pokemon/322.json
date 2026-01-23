@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "oblivious",
-    "simple",
-    "own-tempo"
+    {
+      "name": "oblivious",
+      "description": "Prevents attraction."
+    },
+    {
+      "name": "simple",
+      "description": "The Pokémon is prone to wild stat changes."
+    },
+    {
+      "name": "own-tempo",
+      "description": "Prevents confusion."
+    }
   ],
   "description": "NUMEL is extremely dull witted - it\ndoesn’t notice being hit. However, it\ncan’t stand hunger for even a second.\fThis POKéMON’s body is a seething\ncauldron of boiling magma."
 }

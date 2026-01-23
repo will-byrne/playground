@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "prankster",
-    "infiltrator",
-    "chlorophyll"
+    {
+      "name": "prankster",
+      "description": "Gives priority to a status move."
+    },
+    {
+      "name": "infiltrator",
+      "description": "Passes through the foe’s barrier and strikes."
+    },
+    {
+      "name": "chlorophyll",
+      "description": "Raises SPEED in sunshine."
+    }
   ],
   "description": "When attacked, it escapes by shooting\ncotton from its body. The cotton serves\nas a decoy to distract the attacker."
 }

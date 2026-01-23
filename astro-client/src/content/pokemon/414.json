@@ -33,8 +33,14 @@
     }
   },
   "abilities": [
-    "swarm",
-    "tinted-lens"
+    {
+      "name": "swarm",
+      "description": "Ups BUG moves in a pinch."
+    },
+    {
+      "name": "tinted-lens",
+      "description": "Powers up “not very effective” moves."
+    }
   ],
   "description": "It loves the honey of flowers\nand steals honey collected by\nCOMBEE."
 }

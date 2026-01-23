@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "swarm",
-    "hustle",
-    "truant"
+    {
+      "name": "swarm",
+      "description": "Ups BUG moves in a pinch."
+    },
+    {
+      "name": "hustle",
+      "description": "Trades accuracy for power."
+    },
+    {
+      "name": "truant",
+      "description": "Moves only every two turns."
+    }
   ],
   "description": "They attack in groups, covering\nthemselves in steel armor to\nprotect themselves from Heatmor."
 }

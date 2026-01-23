@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "soundproof",
-    "scrappy"
+    {
+      "name": "soundproof",
+      "description": "Avoids sound-based moves."
+    },
+    {
+      "name": "scrappy",
+      "description": "Enables moves to hit Ghost-type foes."
+    }
   ],
   "description": "LOUDRED’s bellowing can completely\ndecimate a wood-frame house. It uses\nits voice to punish its foes.\fThis POKéMON’s round ears serve as\nloudspeakers."
 }

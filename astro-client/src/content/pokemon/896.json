@@ -24,7 +24,10 @@
     }
   },
   "abilities": [
-    "chilling-neigh"
+    {
+      "name": "chilling-neigh",
+      "description": "When the Pokémon knocks out a target, it utters a chilling neigh, which boosts its Attack stat."
+    }
   ],
   "description": "Glastrier emits intense cold from its hooves.\nIt’s also a belligerent Pokémon—anything it\nwants, it takes by force."
 }

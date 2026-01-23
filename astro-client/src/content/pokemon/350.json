@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "marvel-scale",
-    "competitive",
-    "cute-charm"
+    {
+      "name": "marvel-scale",
+      "description": "Ups DEFENSE if suffering."
+    },
+    {
+      "name": "competitive",
+      "description": "Boosts the Sp. Atk stat when a stat is lowered."
+    },
+    {
+      "name": "cute-charm",
+      "description": "Infatuates on contact."
+    }
   ],
   "description": "Its lovely scales are described as\nrainbow colored. They change color\ndepending on the viewing angle."
 }

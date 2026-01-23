@@ -29,8 +29,14 @@
     }
   },
   "abilities": [
-    "pressure",
-    "static"
+    {
+      "name": "pressure",
+      "description": "Raises foe’s PP usage."
+    },
+    {
+      "name": "static",
+      "description": "Paralyzes on contact."
+    }
   ],
   "description": "A legendary bird\nPOKéMON that is\nsaid to appear\ffrom clouds while\ndropping enormous\nlightning bolts."
 }

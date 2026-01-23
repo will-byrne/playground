@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "leaf-guard",
-    "chlorophyll"
+    {
+      "name": "leaf-guard",
+      "description": "Prevents status problems in sunny weather."
+    },
+    {
+      "name": "chlorophyll",
+      "description": "Raises SPEED in sunshine."
+    }
   ],
   "description": "Just like a plant, it uses\nphotosynthesis. As a result, it is\nalways enveloped in clear air."
 }

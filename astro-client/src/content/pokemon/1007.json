@@ -41,7 +41,10 @@
     }
   },
   "abilities": [
-    "orichalcum-pulse"
+    {
+      "name": "orichalcum-pulse",
+      "description": "Turns the sunlight harsh when the Pokémon enters a battle. The ancient pulse thrumming through the Pokémon also boosts its Attack stat in harsh sunlight."
+    }
   ],
   "description": "This seems to be the Winged King mentioned in an old expedition journal. It was said to have split the land with its bare fists."
 }

@@ -21,12 +21,22 @@
       "glimmora": {
         "default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/970.png",
         "shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/970.png"
+      },
+      "glimmora-mega": {
+        "default": null,
+        "shiny": null
       }
     }
   },
   "abilities": [
-    "toxic-debris",
-    "corrosion"
+    {
+      "name": "toxic-debris",
+      "description": "Scatters poison spikes at the feet of the opposing team when the Pokémon takes damage from physical moves."
+    },
+    {
+      "name": "corrosion",
+      "description": "The Pokémon can poison the target even if it’s a Steel or Poison type."
+    }
   ],
   "description": "When this Pokémon detects danger, it will open up its crystalline petals and fire beams from its conical body."
 }

@@ -29,8 +29,14 @@
     }
   },
   "abilities": [
-    "intimidate",
-    "moxie"
+    {
+      "name": "intimidate",
+      "description": "Lowers the foe’s ATTACK."
+    },
+    {
+      "name": "moxie",
+      "description": "Boosts Attack after knocking out any Pokémon."
+    }
   ],
   "description": "Once it begins to rampage, a\nGYARADOS will burn everything\ndown, even in a harsh storm."
 }

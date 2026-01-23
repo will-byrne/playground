@@ -28,9 +28,18 @@
     }
   },
   "abilities": [
-    "levitate",
-    "neutralizing-gas",
-    "stench"
+    {
+      "name": "levitate",
+      "description": "Gives full immunity to all Ground-type moves."
+    },
+    {
+      "name": "neutralizing-gas",
+      "description": "If the Pokémon with Neutralizing Gas is in the battle, the effects of all Pokémon’s Abilities will be nullified or will not be triggered."
+    },
+    {
+      "name": "stench",
+      "description": "Helps repel wild POKéMON."
+    }
   ],
   "description": "Where two kinds\nof poison gases\nmeet, 2 KOFFINGs\fcan fuse into a\nWEEZING over many\nyears."
 }

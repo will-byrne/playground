@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "lightning-rod",
-    "motor-drive",
-    "sap-sipper"
+    {
+      "name": "lightning-rod",
+      "description": "Draws electrical moves."
+    },
+    {
+      "name": "motor-drive",
+      "description": "Raises Speed if hit by an Electric-type move."
+    },
+    {
+      "name": "sap-sipper",
+      "description": "Boosts Attack when hit by a Grass-type move."
+    }
   ],
   "description": "When thunderclouds cover the sky, it will appear.\nIt can catch lightning with its mane and store\nthe electricity."
 }

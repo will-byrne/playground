@@ -25,8 +25,14 @@
     }
   },
   "abilities": [
-    "sand-veil",
-    "water-absorb"
+    {
+      "name": "sand-veil",
+      "description": "Ups evasion in a sandstorm."
+    },
+    {
+      "name": "water-absorb",
+      "description": "Restores HP if hit by a Water-type move."
+    }
   ],
   "description": "During the daytime, CACTURNE remains\nunmoving so that it does not lose any\nmoisture to the harsh desert sun.\fThis POKéMON becomes active at night\nwhen the temperature drops."
 }

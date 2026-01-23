@@ -24,7 +24,10 @@
     }
   },
   "abilities": [
-    "natural-cure"
+    {
+      "name": "natural-cure",
+      "description": "Heals upon switching out."
+    }
   ],
   "description": "It lives in flower patches and\navoids detection by curling up\nto look like a flowering plant."
 }

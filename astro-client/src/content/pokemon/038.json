@@ -28,8 +28,14 @@
     }
   },
   "abilities": [
-    "flash-fire",
-    "drought"
+    {
+      "name": "flash-fire",
+      "description": "Powers up if hit by fire."
+    },
+    {
+      "name": "drought",
+      "description": "Summons sunlight in battle."
+    }
   ],
   "description": "Very smart and\nvery vengeful.\nGrabbing one of\fits many tails\ncould result in a\n1000-year curse."
 }

@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "iron-fist",
-    "klutz",
-    "no-guard"
+    {
+      "name": "iron-fist",
+      "description": "Boosts the power of punching moves."
+    },
+    {
+      "name": "klutz",
+      "description": "The Pokémon can’t use any held items."
+    },
+    {
+      "name": "no-guard",
+      "description": "Ensures the Pokémon and its foe’s attacks land."
+    }
   ],
   "description": "The energy that burns inside it\nenables it to move, but no one has yet\nbeen able to identify this energy."
 }

@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "swarm",
-    "compound-eyes",
-    "telepathy"
+    {
+      "name": "swarm",
+      "description": "Ups BUG moves in a pinch."
+    },
+    {
+      "name": "compound-eyes",
+      "description": "Raises accuracy."
+    },
+    {
+      "name": "telepathy",
+      "description": "Anticipates an ally’s attack and dodges it."
+    }
   ],
   "description": "It barely moves, but it’s still alive. Hiding in its\nshell without food or water seems to have\nawakened its psychic powers."
 }

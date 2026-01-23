@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "intimidate",
-    "hustle",
-    "guts"
+    {
+      "name": "intimidate",
+      "description": "Lowers the foe’s ATTACK."
+    },
+    {
+      "name": "hustle",
+      "description": "Trades accuracy for power."
+    },
+    {
+      "name": "guts",
+      "description": "Ups ATTACK if suffering."
+    }
   ],
   "description": "These Pokémon prefer to live in cities. They form flocks based on the color of their feathers, and they fight over territory."
 }

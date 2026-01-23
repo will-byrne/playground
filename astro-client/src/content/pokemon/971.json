@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "pickup",
-    "fluffy"
+    {
+      "name": "pickup",
+      "description": "May pick up items."
+    },
+    {
+      "name": "fluffy",
+      "description": "Halves the damage taken from moves that make direct contact, but doubles that of Fire-type moves."
+    }
   ],
   "description": "It is said that a dog Pokémon that died in the wild without ever interacting with a human was reborn as this Pokémon."
 }

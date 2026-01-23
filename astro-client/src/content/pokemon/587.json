@@ -25,8 +25,14 @@
     }
   },
   "abilities": [
-    "static",
-    "motor-drive"
+    {
+      "name": "static",
+      "description": "Paralyzes on contact."
+    },
+    {
+      "name": "motor-drive",
+      "description": "Raises Speed if hit by an Electric-type move."
+    }
   ],
   "description": "The energy made in its cheeks’ electric\npouches is stored inside its membrane\nand released while it is gliding."
 }

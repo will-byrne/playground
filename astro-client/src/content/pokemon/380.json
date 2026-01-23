@@ -29,7 +29,10 @@
     }
   },
   "abilities": [
-    "levitate"
+    {
+      "name": "levitate",
+      "description": "Gives full immunity to all Ground-type moves."
+    }
   ],
   "description": "LATIAS is highly sensitive to the\nemotions of people. If it senses any\nhostility, this POKéMON ruffles the\ffeathers all over its body and cries\nshrilly to intimidate the foe."
 }

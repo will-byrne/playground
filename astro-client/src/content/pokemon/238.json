@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "oblivious",
-    "forewarn",
-    "hydration"
+    {
+      "name": "oblivious",
+      "description": "Prevents attraction."
+    },
+    {
+      "name": "forewarn",
+      "description": "Determines what moves the foe has."
+    },
+    {
+      "name": "hydration",
+      "description": "Heals status problems if it is raining."
+    }
   ],
   "description": "Its lips are the\nmost sensitive\nparts on its body.\fIt always uses its\nlips first to\nexamine things."
 }

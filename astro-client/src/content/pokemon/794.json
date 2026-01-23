@@ -25,7 +25,10 @@
     }
   },
   "abilities": [
-    "beast-boost"
+    {
+      "name": "beast-boost",
+      "description": "The Pokémon boosts its most proficient stat each time it knocks out a Pokémon."
+    }
   ],
   "description": "This Ultra Beast appeared from another world.\nIt shows off its body, but whether that display\nis a boast or a threat remains unclear."
 }

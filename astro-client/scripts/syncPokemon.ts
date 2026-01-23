@@ -1,4 +1,4 @@
-import { PokemonClient, type Pokemon, type PokemonSpecies, type PokemonForm, type NamedAPIResourceList } from "pokenode-ts";
+import { PokemonClient, type Pokemon, type PokemonSpecies, type PokemonForm, type NamedAPIResourceList, type PokemonAbility, type Ability } from "pokenode-ts";
 import fs from "fs";
 import path from "path";
 
@@ -54,9 +54,26 @@ async function fetchFormSprites(formList: NamedAPIResourceList, api: PokemonClie
   }
 }
 
+async function getAbilities(api: PokemonClient, pokemon: Pokemon): Promise<Ability[]> {
+  const abilities = await Promise.all(
+    pokemon.abilities.map(async (a) => {
+      try {
+        const abilityData = await api.getAbilityByName(a.ability.name);
+        return abilityData;
+      } catch (err) {
+        console.error(`⚠️ Failed to fetch ability ${a.ability.name}`, err);
+        throw err;
+      }
+    })
+  );
+
+  return abilities;
+};
+
 function makePokemonJson(
   pokemon: Pokemon,
   species: PokemonSpecies,
+  abilities: Ability[],
   spriteGroups: any,
   variants: Record<string, any>
 ) {
@@ -68,7 +85,7 @@ function makePokemonJson(
       ...spriteGroups,
       variants, // <-- add regional forms here
     },
-    abilities: pokemon.abilities.map((a: any) => a.ability.name),
+    abilities: abilities.map((a) => ({ name: a.name, description: a.flavor_text_entries.find(e => e.language.name === 'en')?.flavor_text.replace(/\f/g, ' ').replace(/\n/g, ' ') ?? ''})),
     description:
       species.flavor_text_entries.find((e: any) => e.language.name === "en")
         ?.flavor_text ?? "",
@@ -115,10 +132,13 @@ async function main() {
     console.log(`   🆕 Fetching sprites…`);
     const spriteGroups = extractSprites(pokemon);
 
+    console.log(`   ⚔️ Fetching abilities...`);
+    const abilities = await getAbilities(api, pokemon);
+
     console.log(`   🌍 Fetching regional forms…`);
     const variants = await fetchFormSprites(formList, api, pokemon.name);
 
-    const data = makePokemonJson(pokemon, species, spriteGroups, variants);
+    const data = makePokemonJson(pokemon, species, abilities, spriteGroups, variants);
     const filePath = path.join(OUTPUT_DIR, `${fileId}.json`);
 
     fs.writeFileSync(filePath, JSON.stringify(data, null, 2));

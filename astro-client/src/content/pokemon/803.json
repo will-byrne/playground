@@ -24,7 +24,10 @@
     }
   },
   "abilities": [
-    "beast-boost"
+    {
+      "name": "beast-boost",
+      "description": "The Pokémon boosts its most proficient stat each time it knocks out a Pokémon."
+    }
   ],
   "description": "This Ultra Beast is well enough liked to be\nchosen as a first partner in its own world."
 }

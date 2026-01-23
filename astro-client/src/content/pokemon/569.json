@@ -28,9 +28,18 @@
     }
   },
   "abilities": [
-    "stench",
-    "weak-armor",
-    "aftermath"
+    {
+      "name": "stench",
+      "description": "Helps repel wild POKéMON."
+    },
+    {
+      "name": "weak-armor",
+      "description": "Physical attacks lower Defense and raise Speed."
+    },
+    {
+      "name": "aftermath",
+      "description": "Damages the foe landing the finishing hit."
+    }
   ],
   "description": "It clenches opponents with its left arm\nand finishes them off with foul-smelling\npoison gas belched from its mouth."
 }

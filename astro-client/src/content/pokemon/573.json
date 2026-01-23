@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "cute-charm",
-    "technician",
-    "skill-link"
+    {
+      "name": "cute-charm",
+      "description": "Infatuates on contact."
+    },
+    {
+      "name": "technician",
+      "description": "Powers up the Pokémon’s weaker moves."
+    },
+    {
+      "name": "skill-link",
+      "description": "Increases the frequency of multi-strike moves."
+    }
   ],
   "description": "Their white fur is coated in a special oil\nthat makes it easy for them to\ndeflect attacks."
 }

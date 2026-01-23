@@ -28,8 +28,14 @@
     }
   },
   "abilities": [
-    "sand-veil",
-    "sand-rush"
+    {
+      "name": "sand-veil",
+      "description": "Ups evasion in a sandstorm."
+    },
+    {
+      "name": "sand-rush",
+      "description": "Boosts the Pokémon’s Speed in a sandstorm."
+    }
   ],
   "description": "Burrows deep\nunderground in\narid locations\ffar from water.\nIt only emerges\nto hunt for food."
 }

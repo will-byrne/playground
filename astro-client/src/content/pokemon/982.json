@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "serene-grace",
-    "run-away",
-    "rattled"
+    {
+      "name": "serene-grace",
+      "description": "Promotes added effects."
+    },
+    {
+      "name": "run-away",
+      "description": "Makes escaping easier."
+    },
+    {
+      "name": "rattled",
+      "description": "Some move types scare it and boost its Speed."
+    }
   ],
   "description": "This Pokémon uses its hard tail to make its nest by boring holes into bedrock deep underground. The nest can reach lengths of over six miles."
 }

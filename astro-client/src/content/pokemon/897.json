@@ -24,7 +24,10 @@
     }
   },
   "abilities": [
-    "grim-neigh"
+    {
+      "name": "grim-neigh",
+      "description": "When the Pokémon knocks out a target, it utters a terrifying neigh, which boosts its Sp. Atk stat."
+    }
   ],
   "description": "It probes its surroundings with all its senses save\none—it doesn’t use its sense of sight. Spectrier’s\nkicks are said to separate soul from body."
 }

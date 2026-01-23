@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "pressure",
-    "frisk"
+    {
+      "name": "pressure",
+      "description": "Raises foe’s PP usage."
+    },
+    {
+      "name": "frisk",
+      "description": "The Pokémon can check the foe’s held item."
+    }
   ],
   "description": "The antenna on its head captures\nradio waves from the world of spirits\nthat command it to take people there."
 }

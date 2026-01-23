@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "minus",
-    "volt-absorb"
+    {
+      "name": "minus",
+      "description": "Powers up with PLUS."
+    },
+    {
+      "name": "volt-absorb",
+      "description": "Turns electricity into HP."
+    }
   ],
   "description": "MINUN is more concerned about cheering\non its partners than its own safety.\nIt shorts out the electricity in its\fbody to create brilliant showers of\nsparks to cheer on its teammates."
 }

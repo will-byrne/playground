@@ -20,12 +20,22 @@
       "falinks": {
         "default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/870.png",
         "shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/870.png"
+      },
+      "falinks-mega": {
+        "default": null,
+        "shiny": null
       }
     }
   },
   "abilities": [
-    "battle-armor",
-    "defiant"
+    {
+      "name": "battle-armor",
+      "description": "Blocks critical hits."
+    },
+    {
+      "name": "defiant",
+      "description": "When its stats are lowered its Attack increases."
+    }
   ],
   "description": "Five of them are troopers, and one is the brass.\nThe brass’s orders are absolute."
 }

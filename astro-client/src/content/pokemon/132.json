@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "limber",
-    "imposter"
+    {
+      "name": "limber",
+      "description": "Prevents paralysis."
+    },
+    {
+      "name": "imposter",
+      "description": "It transforms itself into the Pokémon it is facing."
+    }
   ],
   "description": "Capable of copying\nan enemy's genetic\ncode to instantly\ftransform itself\ninto a duplicate\nof the enemy."
 }

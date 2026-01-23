@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "contrary",
-    "suction-cups",
-    "infiltrator"
+    {
+      "name": "contrary",
+      "description": "Makes stat changes have an opposite effect."
+    },
+    {
+      "name": "suction-cups",
+      "description": "Firmly anchors the body."
+    },
+    {
+      "name": "infiltrator",
+      "description": "Passes through the foe’s barrier and strikes."
+    }
   ],
   "description": "Opponents who stare at the flashing of the\nlight-emitting spots on its body become\ndazed and lose their will to fight."
 }

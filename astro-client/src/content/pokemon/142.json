@@ -29,9 +29,18 @@
     }
   },
   "abilities": [
-    "rock-head",
-    "pressure",
-    "unnerve"
+    {
+      "name": "rock-head",
+      "description": "Protects the Pokémon from recoil damage."
+    },
+    {
+      "name": "pressure",
+      "description": "Raises foe’s PP usage."
+    },
+    {
+      "name": "unnerve",
+      "description": "Makes the foe nervous and unable to eat Berries."
+    }
   ],
   "description": "A Pokémon that roamed the skies\nin the dinosaur era. Its teeth are\nlike saw blades."
 }

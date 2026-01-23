@@ -25,7 +25,10 @@
     }
   },
   "abilities": [
-    "quark-drive"
+    {
+      "name": "quark-drive",
+      "description": "Boosts the Pokémon's most proficient stat on Electric Terrain or if the Pokémon is holding Booster Energy."
+    }
   ],
   "description": "Its shape is similar to a robot featured in a paranormal magazine article. The robot was said to have been created by an ancient civilization."
 }

@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "adaptability",
-    "download",
-    "analytic"
+    {
+      "name": "adaptability",
+      "description": "Powers up moves of the same type."
+    },
+    {
+      "name": "download",
+      "description": "Adjusts power according to the foe’s ability."
+    },
+    {
+      "name": "analytic",
+      "description": "Boosts move power when the Pokémon moves last."
+    }
   ],
   "description": "Additional software was installed\nto make it a better Pokémon.\nIt began acting oddly, however."
 }

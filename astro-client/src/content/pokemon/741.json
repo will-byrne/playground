@@ -25,7 +25,10 @@
     }
   },
   "abilities": [
-    "dancer"
+    {
+      "name": "dancer",
+      "description": "When another Pokémon uses a dance move, it can use a dance move following it regardless of its Speed."
+    }
   ],
   "description": "It beats its wings together to create fire.\nAs it moves in the steps of its beautiful dance,\nit bathes opponents in intense flames."
 }

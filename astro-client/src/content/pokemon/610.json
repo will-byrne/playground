@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "rivalry",
-    "mold-breaker",
-    "unnerve"
+    {
+      "name": "rivalry",
+      "description": "Raises Attack if the foe is of the same gender."
+    },
+    {
+      "name": "mold-breaker",
+      "description": "Moves can be used regardless of abilities."
+    },
+    {
+      "name": "unnerve",
+      "description": "Makes the foe nervous and unable to eat Berries."
+    }
   ],
   "description": "They use their tusks to crush the\nberries they eat. Repeated regrowth\nmakes their tusks strong and sharp."
 }

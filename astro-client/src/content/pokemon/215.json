@@ -29,9 +29,18 @@
     }
   },
   "abilities": [
-    "inner-focus",
-    "keen-eye",
-    "pickpocket"
+    {
+      "name": "inner-focus",
+      "description": "Prevents flinching."
+    },
+    {
+      "name": "keen-eye",
+      "description": "Prevents loss of accuracy."
+    },
+    {
+      "name": "pickpocket",
+      "description": "Steals an item when hit by another Pokémon."
+    }
   ],
   "description": "Its paws conceal\nsharp claws. If\nattacked, it sud­\fdenly extends the\nclaws and startles\nits enemy."
 }

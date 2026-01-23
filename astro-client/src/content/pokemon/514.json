@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "gluttony",
-    "blaze"
+    {
+      "name": "gluttony",
+      "description": "Encourages the early use of a held Berry."
+    },
+    {
+      "name": "blaze",
+      "description": "Ups FIRE moves in a pinch."
+    }
   ],
   "description": "It loves sweets because they become\nenergy for the fire burning inside\nits body."
 }

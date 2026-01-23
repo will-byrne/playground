@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "thick-fat",
-    "guts",
-    "sheer-force"
+    {
+      "name": "thick-fat",
+      "description": "Heat-and-cold protection."
+    },
+    {
+      "name": "guts",
+      "description": "Ups ATTACK if suffering."
+    },
+    {
+      "name": "sheer-force",
+      "description": "Removes added effects to increase move damage."
+    }
   ],
   "description": "It has the habit of challenging others\nwithout hesitation to tests of strength.\nIt’s been known to stand on train tracks\nand stop trains using forearm thrusts."
 }

@@ -28,7 +28,10 @@
     }
   },
   "abilities": [
-    "illusion"
+    {
+      "name": "illusion",
+      "description": "Comes out disguised as the Pokémon in back."
+    }
   ],
   "description": "It changes into the forms of others\nto surprise them. Apparently, it\noften transforms into a silent child."
 }

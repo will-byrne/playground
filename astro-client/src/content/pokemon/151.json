@@ -24,7 +24,10 @@
     }
   },
   "abilities": [
-    "synchronize"
+    {
+      "name": "synchronize",
+      "description": "Passes on status problems."
+    }
   ],
   "description": "So rare that it\nis still said to\nbe a mirage by\fmany experts. Only\na few people have\nseen it worldwide."
 }

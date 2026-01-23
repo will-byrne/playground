@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "receiver",
-    "defiant"
+    {
+      "name": "receiver",
+      "description": "The Pokémon copies the Ability of a defeated ally."
+    },
+    {
+      "name": "defiant",
+      "description": "When its stats are lowered its Attack increases."
+    }
   ],
   "description": "They form groups of roughly 20 individuals.\nTheir mutual bond is remarkable—they will never\nlet down a comrade."
 }

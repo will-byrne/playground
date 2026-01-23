@@ -25,8 +25,14 @@
     }
   },
   "abilities": [
-    "natural-cure",
-    "cloud-nine"
+    {
+      "name": "natural-cure",
+      "description": "Heals upon switching out."
+    },
+    {
+      "name": "cloud-nine",
+      "description": "Negates weather effects."
+    }
   ],
   "description": "SWABLU has light and fluffy wings that\nare like cottony clouds. This POKéMON\nis not frightened of people.\fIt lands on the heads of people and\nsits there like a cotton-fluff hat."
 }

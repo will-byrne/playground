@@ -25,8 +25,14 @@
     }
   },
   "abilities": [
-    "swarm",
-    "rivalry"
+    {
+      "name": "swarm",
+      "description": "Ups BUG moves in a pinch."
+    },
+    {
+      "name": "rivalry",
+      "description": "Raises Attack if the foe is of the same gender."
+    }
   ],
   "description": "BEAUTIFLY’s favorite food is the sweet\npollen of flowers. If you want to see\nthis POKéMON, just leave a potted\fflower by an open window. BEAUTIFLY\nis sure to come looking for pollen."
 }

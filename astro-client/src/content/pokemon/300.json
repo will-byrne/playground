@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "cute-charm",
-    "normalize",
-    "wonder-skin"
+    {
+      "name": "cute-charm",
+      "description": "Infatuates on contact."
+    },
+    {
+      "name": "normalize",
+      "description": "All the Pokémon’s moves become the Normal type."
+    },
+    {
+      "name": "wonder-skin",
+      "description": "Makes status-changing moves more likely to miss."
+    }
   ],
   "description": "SKITTY has the habit of becoming\nfascinated by moving objects and\nchasing them around.\fThis POKéMON is known to chase after\nits own tail and become dizzy."
 }

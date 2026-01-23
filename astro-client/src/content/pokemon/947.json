@@ -25,8 +25,14 @@
     }
   },
   "abilities": [
-    "wind-rider",
-    "infiltrator"
+    {
+      "name": "wind-rider",
+      "description": "Boosts the Pokémon's Attack stat if Tailwind takes effect or if the Pokémon is hit by a wind move. The Pokémon also takes no damage from wind moves."
+    },
+    {
+      "name": "infiltrator",
+      "description": "Passes through the foe’s barrier and strikes."
+    }
   ],
   "description": "It will open the branches of its head to envelop its prey. Once it absorbs all the life energy it needs, it expels the prey and discards it."
 }

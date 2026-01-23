@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "sap-sipper",
-    "grass-pelt"
+    {
+      "name": "sap-sipper",
+      "description": "Boosts Attack when hit by a Grass-type move."
+    },
+    {
+      "name": "grass-pelt",
+      "description": "Boosts the Defense stat in Grassy Terrain."
+    }
   ],
   "description": "Thought to be one of the first Pokémon to live in\nharmony with humans, it has a placid disposition."
 }

@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "unaware",
-    "klutz",
-    "simple"
+    {
+      "name": "unaware",
+      "description": "Ignores any change in ability by the foe."
+    },
+    {
+      "name": "klutz",
+      "description": "The Pokémon can’t use any held items."
+    },
+    {
+      "name": "simple",
+      "description": "The Pokémon is prone to wild stat changes."
+    }
   ],
   "description": "Its habitat is dark forests and caves.\nIt emits ultrasonic waves from its\nnose to learn about its surroundings."
 }

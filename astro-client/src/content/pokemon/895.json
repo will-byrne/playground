@@ -24,7 +24,10 @@
     }
   },
   "abilities": [
-    "dragons-maw"
+    {
+      "name": "dragons-maw",
+      "description": "Powers up Dragon-type moves."
+    }
   ],
   "description": "An academic theory proposes that Regidrago’s\narms were once the head of an ancient dragon\nPokémon. The theory remains unproven."
 }

@@ -36,9 +36,18 @@
     }
   },
   "abilities": [
-    "pickup",
-    "technician",
-    "unnerve"
+    {
+      "name": "pickup",
+      "description": "May pick up items."
+    },
+    {
+      "name": "technician",
+      "description": "Powers up the Pokémon’s weaker moves."
+    },
+    {
+      "name": "unnerve",
+      "description": "Makes the foe nervous and unable to eat Berries."
+    }
   ],
   "description": "It washes its face regularly to keep the coin on\nits forehead spotless. It doesn’t get along with\nGalarian Meowth."
 }

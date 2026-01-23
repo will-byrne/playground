@@ -25,7 +25,10 @@
     }
   },
   "abilities": [
-    "full-metal-body"
+    {
+      "name": "full-metal-body",
+      "description": "Prevents other Pokémon’s moves or Abilities from lowering the Pokémon’s stats."
+    }
   ],
   "description": "It is said to live in another world. The intense\nlight it radiates from the surface of its body can\nmake the darkest of nights light up like midday."
 }

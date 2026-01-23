@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "overgrow",
-    "bulletproof"
+    {
+      "name": "overgrow",
+      "description": "Powers up Grass-type moves in a pinch."
+    },
+    {
+      "name": "bulletproof",
+      "description": "Protects the Pokémon from some ball and bomb moves."
+    }
   ],
   "description": "It relies on its sturdy shell to deflect predators’\nattacks. It counterattacks with its sharp quills."
 }

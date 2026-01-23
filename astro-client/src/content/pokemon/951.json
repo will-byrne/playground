@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "chlorophyll",
-    "insomnia",
-    "klutz"
+    {
+      "name": "chlorophyll",
+      "description": "Raises SPEED in sunshine."
+    },
+    {
+      "name": "insomnia",
+      "description": "Prevents sleep."
+    },
+    {
+      "name": "klutz",
+      "description": "The Pokémon can’t use any held items."
+    }
   ],
   "description": "The more sunlight this Pokémon bathes in, the more spicy chemicals are produced by its body, and thus the spicier its moves become."
 }

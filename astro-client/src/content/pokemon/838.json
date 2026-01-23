@@ -25,9 +25,18 @@
     }
   },
   "abilities": [
-    "steam-engine",
-    "flame-body",
-    "flash-fire"
+    {
+      "name": "steam-engine",
+      "description": "Boosts the Pokémon’s Speed stat drastically if hit by a Fire- or Water-type move."
+    },
+    {
+      "name": "flame-body",
+      "description": "Burns the foe on contact."
+    },
+    {
+      "name": "flash-fire",
+      "description": "Powers up if hit by fire."
+    }
   ],
   "description": "It forms coal inside its body. Coal dropped by\nthis Pokémon once helped fuel the lives of\npeople in the Galar region."
 }

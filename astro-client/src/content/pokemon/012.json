@@ -29,8 +29,14 @@
     }
   },
   "abilities": [
-    "compound-eyes",
-    "tinted-lens"
+    {
+      "name": "compound-eyes",
+      "description": "Raises accuracy."
+    },
+    {
+      "name": "tinted-lens",
+      "description": "Powers up “not very effective” moves."
+    }
   ],
   "description": "In battle, it\nflaps its wings\nat high speed to\frelease highly\ntoxic dust into\nthe air."
 }

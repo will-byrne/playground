@@ -25,8 +25,14 @@
     }
   },
   "abilities": [
-    "misty-surge",
-    "telepathy"
+    {
+      "name": "misty-surge",
+      "description": "Turns the ground into Misty Terrain when the Pokémon enters a battle."
+    },
+    {
+      "name": "telepathy",
+      "description": "Anticipates an ally’s attack and dodges it."
+    }
   ],
   "description": "The dense fog it creates brings the downfall\nand destruction of its confused enemies.\nOcean currents are the source of its energy."
 }

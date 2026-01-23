@@ -25,8 +25,14 @@
     }
   },
   "abilities": [
-    "pressure",
-    "pickpocket"
+    {
+      "name": "pressure",
+      "description": "Raises foe’s PP usage."
+    },
+    {
+      "name": "pickpocket",
+      "description": "Steals an item when hit by another Pokémon."
+    }
   ],
   "description": "They live in cold regions, forming\ngroups of four or five that hunt\nprey with impressive coordination."
 }

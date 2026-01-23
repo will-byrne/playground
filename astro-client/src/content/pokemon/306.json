@@ -29,9 +29,18 @@
     }
   },
   "abilities": [
-    "sturdy",
-    "rock-head",
-    "heavy-metal"
+    {
+      "name": "sturdy",
+      "description": "Negates 1-hit KO attacks."
+    },
+    {
+      "name": "rock-head",
+      "description": "Protects the Pokémon from recoil damage."
+    },
+    {
+      "name": "heavy-metal",
+      "description": "Doubles the Pokémon’s weight."
+    }
   ],
   "description": "AGGRON claims an entire mountain as its\nown territory. It mercilessly beats up\nanything that violates its environment.\fThis POKéMON vigilantly patrols its\nterritory at all times."
 }

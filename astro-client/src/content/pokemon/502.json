@@ -24,8 +24,14 @@
     }
   },
   "abilities": [
-    "torrent",
-    "shell-armor"
+    {
+      "name": "torrent",
+      "description": "Ups WATER moves in a pinch."
+    },
+    {
+      "name": "shell-armor",
+      "description": "Blocks critical hits."
+    }
   ],
   "description": "Strict training is how it learns its\nflowing double-scalchop technique."
 }

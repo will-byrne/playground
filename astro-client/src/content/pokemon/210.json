@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "intimidate",
-    "quick-feet",
-    "rattled"
+    {
+      "name": "intimidate",
+      "description": "Lowers the foe’s ATTACK."
+    },
+    {
+      "name": "quick-feet",
+      "description": "Boosts Speed if there is a status problem."
+    },
+    {
+      "name": "rattled",
+      "description": "Some move types scare it and boost its Speed."
+    }
   ],
   "description": "It is actually\ntimid and easily\nspooked. If at­\ftacked, it flails\nabout to fend off\nits attacker."
 }

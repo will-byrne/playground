@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "damp",
-    "cloud-nine",
-    "swift-swim"
+    {
+      "name": "damp",
+      "description": "Prevents self-destruction."
+    },
+    {
+      "name": "cloud-nine",
+      "description": "Negates weather effects."
+    },
+    {
+      "name": "swift-swim",
+      "description": "Raises SPEED in rain."
+    }
   ],
   "description": "Often seen swim­\nming elegantly by\nlake shores. It\fis often mistaken\nfor the Japanese\nmonster, Kappa."
 }

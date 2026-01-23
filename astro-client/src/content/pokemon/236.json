@@ -24,9 +24,18 @@
     }
   },
   "abilities": [
-    "guts",
-    "steadfast",
-    "vital-spirit"
+    {
+      "name": "guts",
+      "description": "Ups ATTACK if suffering."
+    },
+    {
+      "name": "steadfast",
+      "description": "Raises Speed each time the Pokémon flinches."
+    },
+    {
+      "name": "vital-spirit",
+      "description": "Prevents sleep."
+    }
   ],
   "description": "It is always\nbursting with en­\nergy. To make it­\fself stronger, it\nkeeps on fighting\neven if it loses."
 }
