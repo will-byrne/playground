@@ -1,4 +1,11 @@
 #[tokio::main]
 async fn main() {
-    rust_server::rocket_app().await.launch().await.unwrap();
+    match rust_server::rocket_app().await {
+        Ok(app) => {
+            if let Err(e) = app.launch().await {
+                eprintln!("Failed to launch rocket: {}", e);
+            }
+        }
+        Err(e) => eprintln!("Failed to initialize app: {}", e),
+    }
 }

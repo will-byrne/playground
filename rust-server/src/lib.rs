@@ -84,14 +84,15 @@ impl Fairing for CORS {
     }
 }
 
-pub async fn rocket_app() -> Rocket<Build> {
-  let client = storage::pokemon_box::create_db().await;
+pub async fn rocket_app() -> Result<Rocket<Build>, Box<dyn std::error::Error>> {
+  let client = storage::pokemon_box::create_db().await?;
 
   let db: Arc<dyn PokeboxDb + Send + Sync> = Arc::new(MongoDb { client });
-  rocket::build()
+  Ok(rocket::build()
     .attach(CORS)
     .manage(db)
     .mount("/", routes![index, pokedex, random_new, specific_pokemon, all_options])
+  )
 }
 
 #[test]
