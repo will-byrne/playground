@@ -16,6 +16,10 @@
       "default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/832.png",
       "shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/832.png"
     },
+    "showdown": {
+      "default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/832.gif",
+      "shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/shiny/832.gif"
+    },
     "variants": {
       "dubwool": {
         "default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/832.png",

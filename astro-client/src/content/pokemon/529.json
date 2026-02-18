@@ -16,6 +16,10 @@
       "default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/529.png",
       "shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/529.png"
     },
+    "showdown": {
+      "default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/529.gif",
+      "shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/shiny/529.gif"
+    },
     "variants": {
       "drilbur": {
         "default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/529.png",

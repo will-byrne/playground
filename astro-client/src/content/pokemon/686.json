@@ -17,6 +17,10 @@
       "default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/686.png",
       "shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/686.png"
     },
+    "showdown": {
+      "default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/686.gif",
+      "shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/shiny/686.gif"
+    },
     "variants": {
       "inkay": {
         "default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/686.png",

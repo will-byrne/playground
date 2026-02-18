@@ -17,6 +17,10 @@
       "default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/992.png",
       "shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/992.png"
     },
+    "showdown": {
+      "default": null,
+      "shiny": null
+    },
     "variants": {
       "iron-hands": {
         "default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/992.png",

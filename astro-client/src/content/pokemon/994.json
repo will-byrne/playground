@@ -17,6 +17,10 @@
       "default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/994.png",
       "shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/994.png"
     },
+    "showdown": {
+      "default": null,
+      "shiny": null
+    },
     "variants": {
       "iron-moth": {
         "default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/994.png",

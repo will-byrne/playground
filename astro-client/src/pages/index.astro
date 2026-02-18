@@ -22,12 +22,21 @@ pokedex.sort((a, b) => a.data.id - b.data.id)
       border: 1px solid var(--ctp-surface1);
       background: var(--ctp-surface0);
       color: var(--ctp-text);
+      transition: border-color 0.2s ease;
     }
 
     input[type="text"]:focus {
       outline: none;
       border-color: var(--ctp-blue);
       box-shadow: 0 0 0 2px rgba(138,173,244,0.3);
+    }
+
+    .results-info {
+      text-align: center;
+      color: var(--ctp-subtext);
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+      min-height: 1.2em;
     }
 
     .grid {
@@ -38,58 +47,157 @@ pokedex.sort((a, b) => a.data.id - b.data.id)
 
     .card {
       background: var(--ctp-surface0);
-      padding: 1rem;
+      padding: 0; /* allow thumbnail to reach edges */
       border-radius: var(--radius);
-      text-align: center;
       text-decoration: none;
       color: var(--ctp-text);
       border: 1px solid var(--ctp-surface1);
       transition: transform 0.2s ease, border-color 0.2s ease;
+      display: flex;
+      align-items: stretch;
+      gap: 0.75rem;
+      overflow: hidden; /* clip children so rounded corners apply */
     }
 
     .card:hover {
-      transform: translateY(-4px);
+      transform: translateY(-2px);
       border-color: var(--ctp-blue);
     }
 
+    .card.hidden {
+      display: none;
+    }
+
     .card h2 {
-      margin: 0.5rem 0 0;
+      margin: 0;
       color: var(--ctp-lavender);
-      font-size: 1.2rem;
+      font-size: 1rem;
+      text-transform: capitalize;
+    }
+
+    .thumb {
+      flex: 0 0 96px;
+      display: block;
+      height: auto;
+    }
+
+    .thumb img {
+      width: 96px;
+      height: 100%;
+      display: block;
+      object-fit: cover; /* fill the card's vertical space */
+      background: var(--ctp-base);
+      border-radius: var(--radius) 0 0 var(--radius); /* rounded left corners only */
+      padding: 0;
+      border: none;
+    }
+
+    .card-body {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.15rem;
+      padding: 0.6rem 0.75rem; /* inner padding moved here */
+      width: 100%;
+    }
+
+    @media (max-width: 420px) {
+      .grid {
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      }
+      .thumb { flex: 0 0 72px; }
+      .thumb img { width: 72px; height: 100%; }
+      .card-body { padding: 0.5rem; }
     }
 
     .id {
       color: var(--ctp-subtext);
       font-size: 0.85rem;
     }
+
+    .no-results {
+      grid-column: 1 / -1;
+      padding: 2rem;
+      text-align: center;
+      color: var(--ctp-subtext);
+      font-size: 1.1rem;
+    }
   </style>
 
   <div class="search-container">
-    <input id="search" type="text" placeholder="Search by name or ID…" />
+    <input 
+      id="search" 
+      type="text" 
+      placeholder="Search by name or ID…" 
+      aria-label="Search Pokédex"
+    />
   </div>
+
+  <div class="results-info" id="resultsInfo"></div>
 
   <div id="results" class="grid">
     {pokedex.map((p) => (
-      <a class="card" href={`/pokemon/${p.id}`}>
-        <div class="id">#{p.data.id}</div>
-        <h2>{p.data.name}</h2>
+      <a class="card" href={`/pokemon/${p.id}`} data-name={p.data.name.toLowerCase()} data-id={p.data.id}>
+        <div class="thumb">
+          {p.data.sprites?.official?.default && (
+            <img src={p.data.sprites.official.default} alt={`${p.data.name} artwork`} loading="lazy" />
+          )}
+        </div>
+
+        <div class="card-body">
+          <div class="id">#{p.data.id}</div>
+          <h2>{p.data.name}</h2>
+        </div>
       </a>
     ))}
   </div>
 
   <script>
-    const input = document.getElementById("search");
-    const results = document.getElementById("results");
-    const cards = [...results!.children];
+    // Debounce function to avoid excessive filtering
+    function debounce<T extends (...args: any[]) => any>(
+      func: T,
+      delay: number
+    ): (...args: Parameters<T>) => void {
+      let timeoutId: NodeJS.Timeout | null = null;
+      return (...args: Parameters<T>) => {
+        if (timeoutId) clearTimeout(timeoutId);
+        timeoutId = setTimeout(() => func(...args), delay);
+      };
+    }
 
-    input!.addEventListener("input", () => {
-      const q = input.value.toLowerCase().trim();
-      for (const card of cards) {
-        const name = card.querySelector("h2")!.textContent.toLowerCase();
-        const number = card.querySelector(".id")!.textContent;
-        const show = name.includes(q) || number.includes(q);
-        card.style.display = show ? "" : "none";
+    const input = document.getElementById("search") as HTMLInputElement;
+    const results = document.getElementById("results") as HTMLElement;
+    const resultsInfo = document.getElementById("resultsInfo") as HTMLElement;
+    const cards = Array.from(results.querySelectorAll(".card"));
+    const totalCards = cards.length;
+
+    // Filter function
+    function filterCards(query: string) {
+      const q = query.toLowerCase().trim();
+      let visibleCount = 0;
+
+      cards.forEach((card) => {
+        const name = card.getAttribute("data-name") || "";
+        const id = card.getAttribute("data-id") || "";
+        const isVisible = name.includes(q) || id.startsWith(q);
+        
+        card.classList.toggle("hidden", !isVisible);
+        if (isVisible) visibleCount++;
+      });
+
+      // Update results info
+      if (q.length === 0) {
+        resultsInfo.textContent = "";
+      } else {
+        resultsInfo.textContent = `Found ${visibleCount} of ${totalCards} Pokémon`;
       }
+    }
+
+    // Debounced search handler
+    const debouncedFilter = debounce(filterCards, 150);
+
+    input.addEventListener("input", (e) => {
+      debouncedFilter((e.target as HTMLInputElement).value);
     });
   </script>
 

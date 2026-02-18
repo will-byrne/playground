@@ -1,0 +1,12 @@
+:root {
+  --ctp-base: #24273a;
+  --ctp-surface0: #363a4f;
+  --ctp-surface1: #494d64;
+  --ctp-text: #cad3f5;
+  --ctp-subtext: #a5adcb;
+  --ctp-blue: #8aadf4;
+  --ctp-lavender: #b7bdf8;
+  --ctp-pink: #f5bde6;
+  --ctp-yellow: #eed49f;
+  --radius: 12px;
+}

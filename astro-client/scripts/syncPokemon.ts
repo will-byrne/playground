@@ -1,9 +1,45 @@
-import { PokemonClient, type Pokemon, type PokemonSpecies, type PokemonForm, type NamedAPIResourceList, type PokemonAbility, type Ability } from "pokenode-ts";
+import { PokemonClient, type Pokemon, type PokemonSpecies, type PokemonForm, type NamedAPIResourceList, type Ability } from "pokenode-ts";
 import fs from "fs";
 import path from "path";
 
 const OUTPUT_DIR = path.resolve("src/content/pokemon");
 const POKEDEX_SIZE = 1025;
+const RATE_LIMIT_DELAY = 100; // ms between requests to avoid API throttling
+const MAX_RETRIES = 3;
+const RETRY_DELAY_BASE = 1000; // ms, will be multiplied by attempt number
+
+/**
+ * Sleep for a given number of milliseconds
+ */
+function sleep(ms: number): Promise<void> {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+/**
+ * Exponential backoff retry logic
+ */
+async function withRetry<T>(
+  fn: () => Promise<T>,
+  maxAttempts = MAX_RETRIES,
+  initialDelay = RETRY_DELAY_BASE
+): Promise<T> {
+  let lastError: Error | null = null;
+
+  for (let attempt = 1; attempt <= maxAttempts; attempt++) {
+    try {
+      return await fn();
+    } catch (err) {
+      lastError = err as Error;
+      if (attempt < maxAttempts) {
+        const delay = initialDelay * attempt;
+        console.log(`   ⏳ Retry attempt ${attempt}/${maxAttempts - 1}, waiting ${delay}ms...`);
+        await sleep(delay);
+      }
+    }
+  }
+
+  throw lastError;
+}
 
 function padId(id: number) {
   return String(id).padStart(3, "0");
@@ -22,22 +58,40 @@ function extractSprites(p: Pokemon) {
       default: p.sprites.front_default ?? null,
       shiny: p.sprites.front_shiny ?? null,
     },
+    showdown: {
+      default: p.sprites.other?.showdown?.front_default ?? null,
+      shiny: p.sprites.other?.showdown?.front_shiny ?? null,
+    }
   };
 }
 
-async function fetchFormSprites(formList: NamedAPIResourceList, api: PokemonClient, pokemonName: string) {
+async function fetchFormSprites(
+  formList: NamedAPIResourceList,
+  api: PokemonClient,
+  pokemonName: string
+) {
   try {
-
     // filter forms that belong to this Pokémon
-    const relatedForms = formList.results.filter((f) =>
-      f.name === pokemonName ||
-      f.name.startsWith(`${pokemonName}-`) ||
-      f.name.includes(`${pokemonName}-`)
+    const relatedForms = formList.results.filter(
+      (f) =>
+        f.name === pokemonName ||
+        f.name.startsWith(`${pokemonName}-`) ||
+        f.name.includes(`${pokemonName}-`)
     );
 
-    const forms = await Promise.all(
-      relatedForms.map((f) => api.getPokemonFormByName(f.name))
-    );
+    // Fetch forms with rate limiting to avoid API throttling
+    const forms: PokemonForm[] = [];
+    for (const form of relatedForms) {
+      try {
+        const formData = await withRetry(() =>
+          api.getPokemonFormByName(form.name)
+        );
+        forms.push(formData);
+        await sleep(RATE_LIMIT_DELAY);
+      } catch (err) {
+        console.warn(`   ⚠️  Failed to fetch form ${form.name}: ${err}`);
+      }
+    }
 
     const variants: Record<string, { default: string | null; shiny: string | null }> = {};
 
@@ -49,26 +103,29 @@ async function fetchFormSprites(formList: NamedAPIResourceList, api: PokemonClie
     });
 
     return variants;
-  } catch {
+  } catch (err) {
+    console.warn(`   ⚠️  Error fetching variants: ${err}`);
     return {};
   }
 }
 
 async function getAbilities(api: PokemonClient, pokemon: Pokemon): Promise<Ability[]> {
-  const abilities = await Promise.all(
-    pokemon.abilities.map(async (a) => {
-      try {
-        const abilityData = await api.getAbilityByName(a.ability.name);
-        return abilityData;
-      } catch (err) {
-        console.error(`⚠️ Failed to fetch ability ${a.ability.name}`, err);
-        throw err;
-      }
-    })
-  );
+  const abilities: Ability[] = [];
+
+  for (const ability of pokemon.abilities) {
+    try {
+      const abilityData = await withRetry(() =>
+        api.getAbilityByName(ability.ability.name)
+      );
+      abilities.push(abilityData);
+      await sleep(RATE_LIMIT_DELAY);
+    } catch (err) {
+      console.warn(`   ⚠️  Failed to fetch ability ${ability.ability.name}: ${err}`);
+    }
+  }
 
   return abilities;
-};
+}
 
 function makePokemonJson(
   pokemon: Pokemon,
@@ -124,25 +181,41 @@ async function main() {
 
     console.log(`\n➡ Processing ${id} (${i + 1}/${missingPokemon.length})`);
 
-    const pokemon = await api.getPokemonById(id);
-    const species = await api.getPokemonSpeciesById(id);
+    try {
+      const pokemon = await withRetry(() => api.getPokemonById(id));
+      await sleep(RATE_LIMIT_DELAY);
 
-    const fileId = padId(pokemon.id);
+      const species = await withRetry(() => api.getPokemonSpeciesById(id));
+      await sleep(RATE_LIMIT_DELAY);
 
-    console.log(`   🆕 Fetching sprites…`);
-    const spriteGroups = extractSprites(pokemon);
+      const fileId = padId(pokemon.id);
 
-    console.log(`   ⚔️ Fetching abilities...`);
-    const abilities = await getAbilities(api, pokemon);
+      console.log(`   🆕 Fetching sprites…`);
+      const spriteGroups = extractSprites(pokemon);
 
-    console.log(`   🌍 Fetching regional forms…`);
-    const variants = await fetchFormSprites(formList, api, pokemon.name);
+      console.log(`   ⚔️ Fetching abilities...`);
+      const abilities = await getAbilities(api, pokemon);
 
-    const data = makePokemonJson(pokemon, species, abilities, spriteGroups, variants);
-    const filePath = path.join(OUTPUT_DIR, `${fileId}.json`);
+      console.log(`   🌍 Fetching regional forms…`);
+      const variants = await fetchFormSprites(formList, api, pokemon.name);
 
-    fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
-    console.log(`   💾 Saved ${fileId}.json`);
+      const data = makePokemonJson(
+        pokemon,
+        species,
+        abilities,
+        spriteGroups,
+        variants
+      );
+      const filePath = path.join(OUTPUT_DIR, `${fileId}.json`);
+
+      fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
+      console.log(`   💾 Saved ${fileId}.json`);
+    } catch (err) {
+      console.error(
+        `❌ Failed to process Pokémon ${id}: ${err instanceof Error ? err.message : err}`
+      );
+      console.log(`   💾 Skipping ${id} and continuing...\n`);
+    }
   }
 
   console.log("\n🎉 Sync complete!");

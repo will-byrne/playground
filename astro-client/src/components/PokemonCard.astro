@@ -1,4 +1,5 @@
 ---
+import "../styles/theme.css";
 import PokemonSprites from "./PokemonSprites.astro";
 
 const { pokemon } = Astro.props;
@@ -6,17 +7,6 @@ const { pokemon } = Astro.props;
 
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap');
-
-  :root {
-    --ctp-base: #24273a;
-    --ctp-surface0: #363a4f;
-    --ctp-surface1: #494d64;
-    --ctp-text: #cad3f5;
-    --ctp-subtext: #a5adcb;
-    --ctp-blue: #8aadf4;
-    --ctp-lavender: #b7bdf8;
-    --ctp-yellow: #eed49f;
-  }
 
   .card {
     background: var(--ctp-surface0);
@@ -203,6 +193,6 @@ const { pokemon } = Astro.props;
   </div>
 
   <div class="sprite-container">
-    <PokemonSprites sprites={pokemon.sprites} />
+    <PokemonSprites sprites={pokemon.sprites} pokemonName={pokemon.name} />
   </div>
 </div>

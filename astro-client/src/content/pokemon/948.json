@@ -17,6 +17,10 @@
       "default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/948.png",
       "shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/948.png"
     },
+    "showdown": {
+      "default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/948.gif",
+      "shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/shiny/948.gif"
+    },
     "variants": {
       "toedscool": {
         "default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/948.png",
@@ -25,10 +29,6 @@
     }
   },
   "abilities": [
-    {
-      "name": "mycelium-might",
-      "description": "The Pokémon will always act more slowly when using status moves, but these moves will be unimpeded by the Ability of the target."
-    },
     {
       "name": "mycelium-might",
       "description": "The Pokémon will always act more slowly when using status moves, but these moves will be unimpeded by the Ability of the target."

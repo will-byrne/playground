@@ -1,4 +1,6 @@
 ---
+import "../styles/theme.css";
+
 const { title = "Pokédex" } = Astro.props;
 ---
 
@@ -6,24 +8,15 @@ const { title = "Pokédex" } = Astro.props;
 <html lang="en">
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link
       href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap"
       rel="stylesheet"
     />
     <style>
-      :root {
-        --ctp-base: #24273a;
-        --ctp-surface0: #363a4f;
-        --ctp-surface1: #494d64;
-        --ctp-text: #cad3f5;
-        --ctp-subtext: #a5adcb;
-        --ctp-blue: #8aadf4;
-        --ctp-lavender: #b7bdf8;
-        --ctp-pink: #f5bde6;
-        --radius: 12px;
-      }
 
       body {
         background: var(--ctp-base);

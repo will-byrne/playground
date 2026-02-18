@@ -22,3 +22,7 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# Pokemon content (synced via script)
+# Uncomment below if syncing via CI/CD
+# src/content/pokemon/*.json

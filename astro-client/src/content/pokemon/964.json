@@ -16,6 +16,10 @@
       "default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/964.png",
       "shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/964.png"
     },
+    "showdown": {
+      "default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/964.gif",
+      "shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/shiny/964.gif"
+    },
     "variants": {
       "palafin-zero": {
         "default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/964.png",
@@ -24,10 +28,6 @@
     }
   },
   "abilities": [
-    {
-      "name": "zero-to-hero",
-      "description": "The Pokémon transforms into its Hero Form when it switches out."
-    },
     {
       "name": "zero-to-hero",
       "description": "The Pokémon transforms into its Hero Form when it switches out."

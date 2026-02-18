@@ -1,25 +1,31 @@
 ---
-const { sprites } = Astro.props;
+const { sprites, pokemonName } = Astro.props;
 ---
 
 <div class="sprites">
 
   <h3>Official Artwork</h3>
   <div class="row">
-    {sprites.official.default && <img src={sprites.official.default} alt="official"/>}
-    {sprites.official.shiny && <img src={sprites.official.shiny} alt="official shiny"/>}
+    {sprites.official.default && <img src={sprites.official.default} alt={`Official artwork of ${pokemonName}`} loading="lazy"/>}
+    {sprites.official.shiny && <img src={sprites.official.shiny} alt={`${pokemonName} - official artwork (shiny)`} loading="lazy"/>}
   </div>
 
   <h3>Home</h3>
   <div class="row">
-    {sprites.home.default && <img src={sprites.home.default} alt="home"/>}
-    {sprites.home.shiny && <img src={sprites.home.shiny} alt="home shiny"/>}
+    {sprites.home.default && <img src={sprites.home.default} alt={`${pokemonName} - Home sprite`} loading="lazy"/>}
+    {sprites.home.shiny && <img src={sprites.home.shiny} alt={`${pokemonName} - Home sprite (shiny)`} loading="lazy"/>}
+  </div>
+  
+  <h3>Showdown</h3>
+  <div class="row">
+    {sprites.showdown.default && <img src={sprites.showdown.default} alt={`${pokemonName} - Showdown sprite`} loading="lazy"/>}
+    {sprites.showdown.shiny && <img src={sprites.showdown.shiny} alt={`${pokemonName} - Showdown sprite (shiny)`} loading="lazy"/>}
   </div>
 
   <h3>Default Game Sprites</h3>
   <div class="row">
-    {sprites.default.default && <img src={sprites.default.default} alt="default"/>}
-    {sprites.default.shiny && <img src={sprites.default.shiny} alt="default shiny"/>}
+    {sprites.default.default && <img src={sprites.default.default} alt={`${pokemonName} - game sprite`} loading="lazy"/>}
+    {sprites.default.shiny && <img src={sprites.default.shiny} alt={`${pokemonName} - game sprite (shiny)`} loading="lazy"/>}
   </div>
 
   {Object.keys(sprites.variants).length > 0 && (
@@ -29,8 +35,8 @@ const { sprites } = Astro.props;
         {Object.entries(sprites.variants).map(([form, v]) => (
           <div class="variant">
             <h4>{form}</h4>
-            {v.default && <img src={v.default} alt={form} />}
-            {v.shiny && <img src={v.shiny} alt={`${form} shiny`} />}
+            {v.default && <img src={v.default} alt={`${pokemonName} - ${form} form`} loading="lazy"/>}
+            {v.shiny && <img src={v.shiny} alt={`${pokemonName} - ${form} form (shiny)`} loading="lazy"/>}
           </div>
         ))}
       </div>
