@@ -1,15 +1,16 @@
-#[macro_use] extern crate rocket;
+#[macro_use]
+extern crate rocket;
 pub mod storage;
 
-use std::sync::Arc;
-pub use storage::pokemon_box::{PokeboxDb, MockDb, PokeboxEntry, PokedexEntry};
-use rocket::{Rocket, Build};
-use rocket::{serde::json::Json, State};
+use crate::storage::pokemon_box::MongoDb;
+use rand::Rng;
 use rocket::fairing::{Fairing, Info, Kind};
 use rocket::http::{Header, Status};
+use rocket::{Build, Rocket};
 use rocket::{Request, Response};
-use rand::Rng;
-use crate::storage::pokemon_box::MongoDb;
+use rocket::{State, serde::json::Json};
+use std::sync::Arc;
+pub use storage::pokemon_box::{MockDb, PokeboxDb, PokeboxEntry, PokedexEntry};
 
 fn generate_random_no_with_exclude(excludes: &Vec<i64>) -> i64 {
     let mut rand: i64 = 0;
@@ -36,7 +37,13 @@ pub async fn random_new(db: &State<Arc<dyn PokeboxDb + Send + Sync>>) -> Json<Po
     fn mapper(dex_entry: PokedexEntry) -> i64 {
         dex_entry.id
     }
-    let used_ids: Vec<i64> = db.inner().get_pokedex().await.into_iter().map(mapper).collect();
+    let used_ids: Vec<i64> = db
+        .inner()
+        .get_pokedex()
+        .await
+        .into_iter()
+        .map(mapper)
+        .collect();
     let random_new_id = generate_random_no_with_exclude(&used_ids);
     let pokemon_deets = db.inner().get_pokemon_by_id(random_new_id).await;
 
@@ -44,7 +51,10 @@ pub async fn random_new(db: &State<Arc<dyn PokeboxDb + Send + Sync>>) -> Json<Po
 }
 
 #[get("/pokemon/<id>")]
-pub async fn specific_pokemon(db: &State<Arc<dyn PokeboxDb + Send + Sync>>, id: i64) -> Json<PokeboxEntry>  {
+pub async fn specific_pokemon(
+    db: &State<Arc<dyn PokeboxDb + Send + Sync>>,
+    id: i64,
+) -> Json<PokeboxEntry> {
     let pokemon_deets = db.inner().get_pokemon_by_id(id).await;
 
     Json(pokemon_deets)
@@ -76,23 +86,19 @@ impl Fairing for CORS {
             "Access-Control-Allow-Methods",
             "POST, PATCH, GET, DELETE, OPTIONS",
         ));
-        response.set_header(Header::new(
-            "Access-Control-Allow-Headers",
-            "*",
-        ));
+        response.set_header(Header::new("Access-Control-Allow-Headers", "*"));
         response.set_header(Header::new("Access-Control-Allow-Credentials", "true"));
     }
 }
 
 pub async fn rocket_app() -> Result<Rocket<Build>, Box<dyn std::error::Error>> {
-  let client = storage::pokemon_box::create_db().await?;
+    let client = storage::pokemon_box::create_db().await?;
 
-  let db: Arc<dyn PokeboxDb + Send + Sync> = Arc::new(MongoDb { client });
-  Ok(rocket::build()
-    .attach(CORS)
-    .manage(db)
-    .mount("/", routes![index, pokedex, random_new, specific_pokemon, all_options])
-  )
+    let db: Arc<dyn PokeboxDb + Send + Sync> = Arc::new(MongoDb { client });
+    Ok(rocket::build().attach(CORS).manage(db).mount(
+        "/",
+        routes![index, pokedex, random_new, specific_pokemon, all_options],
+    ))
 }
 
 #[test]

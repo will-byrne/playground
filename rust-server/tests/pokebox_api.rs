@@ -1,10 +1,10 @@
+use rocket::http::Status;
+use rocket::local::asynchronous::Client;
+use rocket::routes;
 use rust_server::MockDb;
 use rust_server::PokeboxDb;
 use rust_server::{index, pokedex, random_new, specific_pokemon};
 use std::sync::Arc;
-use rocket::local::asynchronous::Client;
-use rocket::routes;
-use rocket::http::Status;
 
 #[tokio::test]
 async fn test_index_route() {
@@ -91,3 +91,4 @@ async fn test_pokedex_route() {
     assert!(body.contains("1"));
     assert!(body.contains("2"));
 }
+

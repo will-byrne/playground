@@ -1,10 +1,10 @@
 use futures::TryStreamExt;
+use mongodb::error::Result;
+use mongodb::{Client, Collection, bson::doc, options::ClientOptions};
+use rocket::serde::json::serde_json;
+use rocket::serde::{Deserialize, Serialize};
 use rustemon::model::moves::Move;
 use rustemon::model::pokemon::{Ability, Pokemon, PokemonSpecies, PokemonSprites, PokemonType};
-use mongodb::{bson::doc, Client, Collection, options::ClientOptions};
-use mongodb::error::Result;
-use rocket::serde::{ Deserialize, Serialize};
-use rocket::serde::json::serde_json;
 
 #[async_trait::async_trait]
 pub trait PokeboxDb {
@@ -65,8 +65,14 @@ pub struct MockDb;
 impl PokeboxDb for MockDb {
     async fn get_pokedex(&self) -> Vec<PokedexEntry> {
         vec![
-            PokedexEntry { id: 1, name: "bulbasaur".into() },
-            PokedexEntry { id: 2, name: "ivysaur".into() },
+            PokedexEntry {
+                id: 1,
+                name: "bulbasaur".into(),
+            },
+            PokedexEntry {
+                id: 2,
+                name: "ivysaur".into(),
+            },
         ]
     }
 
@@ -116,14 +122,14 @@ pub struct PokemonDeets {
 #[derive(Serialize, Deserialize)]
 pub struct PokemonMove {
     name: String,
-    description: String
+    description: String,
 }
 
 #[derive(Serialize, Deserialize)]
 pub struct PokemonAbility {
     name: String,
     flavour_text: String,
-    effect: String
+    effect: String,
 }
 
 #[derive(Serialize, Deserialize)]
@@ -133,34 +139,35 @@ pub struct PokeboxEntry {
     species_description: String,
     types: Vec<String>,
     abilities: Vec<PokemonAbility>,
-    sprites: PokemonSprites
+    sprites: PokemonSprites,
 }
 
 pub async fn create_db() -> std::result::Result<Client, Box<dyn std::error::Error>> {
-    let uri = std::env::var("MONGODB_URI").unwrap_or_else(|_| "mongodb://admin:testtest@localhost:27017".to_string());
+    let uri = std::env::var("MONGODB_URI")
+        .unwrap_or_else(|_| "mongodb://admin:testtest@localhost:27017".to_string());
     println!("connecting to mongo at: {}", uri);
     let client_options = ClientOptions::parse(&uri).await?;
     Ok(Client::with_options(client_options)?)
 }
 
 pub async fn store_pokemon(mongodb: &Client, new_pokemon: &PokeboxEntry) -> Result<bool> {
-    let pokemon_collection: Collection<PokeboxEntry> = mongodb
-        .database("pokemon")
-        .collection("pokemon");
+    let pokemon_collection: Collection<PokeboxEntry> =
+        mongodb.database("pokemon").collection("pokemon");
     pokemon_collection.insert_one(new_pokemon).await?;
     Ok(true)
 }
 
-pub async fn get_pokemon_by_id(mongodb: &Client, id: i64) -> std::result::Result<PokeboxEntry, Box<dyn std::error::Error>> {
-    let pokebox: Collection<PokeboxEntry> = mongodb
-        .database("pokemon")
-        .collection("pokemon");
+pub async fn get_pokemon_by_id(
+    mongodb: &Client,
+    id: i64,
+) -> std::result::Result<PokeboxEntry, Box<dyn std::error::Error>> {
+    let pokebox: Collection<PokeboxEntry> = mongodb.database("pokemon").collection("pokemon");
     let filter = doc! {"id": id};
     let pokemon = pokebox
         .find_one(filter)
         .projection(doc! { "_id": 0 })
         .await?;
-    
+
     if let Some(pokemon) = pokemon {
         return Ok(pokemon);
     }
@@ -170,43 +177,56 @@ pub async fn get_pokemon_by_id(mongodb: &Client, id: i64) -> std::result::Result
         .await
         .map_err(|e| Box::new(e) as Box<dyn std::error::Error>)?;
     let mut abilities: Vec<Ability> = vec![];
-    
+
     for ab in new_pokemon.abilities.iter() {
-        if let Ok(ability) = rustemon::pokemon::ability::get_by_name(ab.ability.name.as_str(), &rustemon_client).await {
+        if let Ok(ability) =
+            rustemon::pokemon::ability::get_by_name(ab.ability.name.as_str(), &rustemon_client)
+                .await
+        {
             abilities.push(ability);
         }
     }
-    
-    let species = rustemon::pokemon::pokemon_species::get_by_name(&new_pokemon.species.name, &rustemon_client)
-        .await
-        .map_err(|e| Box::new(e) as Box<dyn std::error::Error>)?;
-    
+
+    let species = rustemon::pokemon::pokemon_species::get_by_name(
+        &new_pokemon.species.name,
+        &rustemon_client,
+    )
+    .await
+    .map_err(|e| Box::new(e) as Box<dyn std::error::Error>)?;
+
     fn ability_mapper(ab: Ability) -> PokemonAbility {
-        let flavour_text = ab.flavor_text_entries
+        let flavour_text = ab
+            .flavor_text_entries
             .into_iter()
             .find(|entry| entry.language.name == "en")
             .map(|entry| entry.flavor_text)
             .unwrap_or_else(|| "No description available".to_string());
-        
-        let effect = ab.effect_entries
+
+        let effect = ab
+            .effect_entries
             .into_iter()
             .find(|entry| entry.language.name == "en")
             .map(|entry| entry.short_effect)
             .unwrap_or_else(|| "No effect available".to_string());
-        
-        PokemonAbility { name: ab.name, flavour_text, effect }
+
+        PokemonAbility {
+            name: ab.name,
+            flavour_text,
+            effect,
+        }
     }
-    
+
     fn type_mapper(tp: PokemonType) -> String {
         tp.type_.name
     }
-    
-    let species_description = species.flavor_text_entries
+
+    let species_description = species
+        .flavor_text_entries
         .into_iter()
         .find(|entry| entry.language.name == "en")
         .map(|entry| entry.flavor_text)
         .unwrap_or_else(|| "No description available".to_string());
-    
+
     let pokebox_entry = PokeboxEntry {
         id: new_pokemon.id,
         name: new_pokemon.name,

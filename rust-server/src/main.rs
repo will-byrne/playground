@@ -9,3 +9,4 @@ async fn main() {
         Err(e) => eprintln!("Failed to initialize app: {}", e),
     }
 }
+
