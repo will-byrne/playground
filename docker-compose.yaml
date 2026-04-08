@@ -2,7 +2,7 @@ services:
   # Dependant services
   ## Database (MongoDB) server
   mongodb:
-    image: mongo
+    image: mongo:7
     environment:
       MONGO_INITDB_ROOT_USERNAME: admin
       MONGO_INITDB_ROOT_PASSWORD: testtest
