@@ -46,6 +46,11 @@ export const Hero = ({
                 placeholder="001"
                 value={dexNo}
                 onChange={(e) => setDexNo(Number(e.currentTarget.value))}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") {
+                    loadSpecificPokemon(dexNo);
+                  }
+                }}
               />
               <button
                 type="button"
