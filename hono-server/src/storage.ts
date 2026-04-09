@@ -22,10 +22,10 @@ export type PokeboxEntry = {
 export const getPokemonById = async (id: number): Promise<PokeboxEntry> => {
   let pokeboxEntry: PokeboxEntry | null = await pokemonCollection.findOne({ id });
 
-  if(!pokeboxEntry) {
+  if (!pokeboxEntry) {
     try {
       const pokemon = await api.pokemon.getPokemonById(id);
-      const abilities: Ability[] = await Promise.all(pokemon.abilities.map(async ({ability}) => {
+      const abilities: Ability[] = await Promise.all(pokemon.abilities.map(async ({ ability }) => {
         const abilityResult = await api.pokemon.getAbilityByName(ability.name);
         return abilityResult;
       }));
@@ -39,18 +39,57 @@ export const getPokemonById = async (id: number): Promise<PokeboxEntry> => {
         species_description,
         types: pokemon.types.map(({ type }) => type.name),
         sprites: pokemon.sprites,
-        abilities: abilities.map(({ name, flavor_text_entries, effect_entries}) => ({
-          name, 
-          flavour_text: flavor_text_entries.find(({language}) => language.name === "en")?.flavor_text || "",
-          effect: effect_entries.find(({language}) => language.name === "en")?.effect || "",
+        abilities: abilities.map(({ name, flavor_text_entries, effect_entries }) => ({
+          name,
+          flavour_text: flavor_text_entries.find(({ language }) => language.name === "en")?.flavor_text || "",
+          effect: effect_entries.find(({ language }) => language.name === "en")?.effect || "",
         })),
       }
-      
+
       await pokemonCollection.insertOne(newPokeboxEntry);
 
       return newPokeboxEntry
     } catch (error) {
       console.log(`Could not find Pokemon with id: ${id}: ${error}`);
+      throw error;
+    }
+  } else {
+    return pokeboxEntry;
+  }
+};
+
+export const getPokemonByName = async (name: string): Promise<PokeboxEntry> => {
+  let pokeboxEntry: PokeboxEntry | null = await pokemonCollection.findOne({ name });
+
+  if (!pokeboxEntry) {
+    try {
+      const pokemon = await api.pokemon.getPokemonByName(name);
+      const abilities: Ability[] = await Promise.all(pokemon.abilities.map(async ({ ability }) => {
+        const abilityResult = await api.pokemon.getAbilityByName(ability.name);
+        return abilityResult;
+      }));
+      const species = await api.pokemon.getPokemonSpeciesByName(pokemon.species.name);
+      const species_description = species.flavor_text_entries.find((entry) => entry.language.name === "en")?.flavor_text;
+      if (!species_description) throw new Error("Unable to retrieve species");
+
+      const newPokeboxEntry: PokeboxEntry = {
+        id: pokemon.id,
+        name: pokemon.name,
+        species_description,
+        types: pokemon.types.map(({ type }) => type.name),
+        sprites: pokemon.sprites,
+        abilities: abilities.map(({ name, flavor_text_entries, effect_entries }) => ({
+          name,
+          flavour_text: flavor_text_entries.find(({ language }) => language.name === "en")?.flavor_text || "",
+          effect: effect_entries.find(({ language }) => language.name === "en")?.effect || "",
+        })),
+      }
+
+      await pokemonCollection.insertOne(newPokeboxEntry);
+
+      return newPokeboxEntry
+    } catch (error) {
+      console.log(`Could not find Pokemon with name: ${name}: ${error}`);
       throw error;
     }
   } else {
