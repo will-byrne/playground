@@ -7,7 +7,7 @@
     [] implement for clients
         [] mantine-client
         [*] react-client
-        [] rust client
+        [*] rust client
         [] lit client
         [] remix client
         [] svelte client

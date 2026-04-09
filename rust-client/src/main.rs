@@ -8,15 +8,15 @@ use std::time::Duration;
 use crossterm::{
     event::{self, Event, KeyCode},
     execute,
-    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},
+    terminal::{EnterAlternateScreen, LeaveAlternateScreen, disable_raw_mode, enable_raw_mode},
 };
 use ratatui::{
+    Terminal,
     backend::CrosstermBackend,
     layout::{Constraint, Direction, Layout},
     style::{Color, Modifier, Style},
     text::{Line, Span},
     widgets::{Block, Borders, List, ListItem, ListState, Paragraph},
-    Terminal,
 };
 use reqwest::Client;
 use serde::Deserialize;
@@ -89,19 +89,13 @@ async fn main() -> anyhow::Result<()> {
             // Split screen vertically
             let chunks = Layout::default()
                 .direction(Direction::Vertical)
-                .constraints([
-                    Constraint::Percentage(90),
-                    Constraint::Length(3),
-                ])
+                .constraints([Constraint::Percentage(90), Constraint::Length(3)])
                 .split(size);
 
             // Split main area horizontally: list on left, details on right
             let main_chunks = Layout::default()
                 .direction(Direction::Horizontal)
-                .constraints([
-                    Constraint::Percentage(30),
-                    Constraint::Percentage(70),
-                ])
+                .constraints([Constraint::Percentage(30), Constraint::Percentage(70)])
                 .split(chunks[0]);
 
             // Pokémon list with highlight
@@ -146,10 +140,10 @@ async fn main() -> anyhow::Result<()> {
 
             // Input box or hint line
             let footer = match mode {
-                AppMode::Browsing => Paragraph::new(
-                    "↑/↓ navigate  •  Enter view  •  i input ID  •  q quit",
-                )
-                .block(Block::default().borders(Borders::ALL)),
+                AppMode::Browsing => {
+                    Paragraph::new("↑/↓ navigate  •  Enter view  •  i input ID  •  q quit")
+                        .block(Block::default().borders(Borders::ALL))
+                }
                 AppMode::EnteringId => Paragraph::new(format!("Enter Pokémon ID: {}", id_input))
                     .block(
                         Block::default()
@@ -180,8 +174,8 @@ async fn main() -> anyhow::Result<()> {
                             }
                         }
                         KeyCode::Enter => {
-                            let id = pokedex[selected].id;
-                            current_pokemon = Some(fetch_pokemon(&client, id).await?);
+                            let id = &pokedex[selected].name;
+                            current_pokemon = Some(fetch_pokemon(&client, &id).await?);
                         }
                         KeyCode::Char('i') => {
                             mode = AppMode::EnteringId;
@@ -195,16 +189,15 @@ async fn main() -> anyhow::Result<()> {
                             mode = AppMode::Browsing;
                         }
                         KeyCode::Enter => {
-                            if let Ok(id) = id_input.trim().parse::<u32>() {
-                                current_pokemon = Some(fetch_pokemon(&client, id).await?);
-                            }
+                            let id = id_input.trim();
+                            current_pokemon = Some(fetch_pokemon(&client, &id).await?);
                             id_input.clear();
                             mode = AppMode::Browsing;
                         }
                         KeyCode::Backspace => {
                             id_input.pop();
                         }
-                        KeyCode::Char(c) if c.is_ascii_digit() => id_input.push(c),
+                        KeyCode::Char(c) if c.is_ascii_alphanumeric() => id_input.push(c),
                         _ => {}
                     },
                 }
@@ -220,7 +213,7 @@ async fn main() -> anyhow::Result<()> {
     Ok(())
 }
 
-async fn fetch_pokemon(client: &Client, id: u32) -> anyhow::Result<PokeboxEntry> {
+async fn fetch_pokemon(client: &Client, id: &str) -> anyhow::Result<PokeboxEntry> {
     let res = client
         .get(&format!("http://localhost:3000/pokemon/{}", id))
         .send()
