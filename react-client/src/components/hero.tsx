@@ -17,9 +17,9 @@ export type PokeboxEntry = {
 export const Hero = ({
   loadSpecificPokemon,
 }: {
-  loadSpecificPokemon: (id: number) => void;
+  loadSpecificPokemon: (idOrName: string) => void;
 }) => {
-  const [dexNo, setDexNo] = useState<number>(1);
+  const [dexNo, setDexNo] = useState<string>("bulbasaur");
 
   return (
     <div className="hero bg-base-200 min-h-screen min-w-screen">
@@ -39,13 +39,11 @@ export const Hero = ({
               </label>
               <input
                 id="dexInput"
-                type="number"
-                min={1}
-                max={1025}
+                type="string"
                 className="input"
-                placeholder="001"
+                placeholder="sylveon"
                 value={dexNo}
-                onChange={(e) => setDexNo(Number(e.currentTarget.value))}
+                onChange={(e) => setDexNo(e.currentTarget.value)}
                 onKeyDown={(e) => {
                   if (e.key === "Enter") {
                     loadSpecificPokemon(dexNo);

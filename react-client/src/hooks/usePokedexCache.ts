@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useState } from "react";
 
 export type PokedexEntry = {
   id: number;
@@ -9,7 +9,7 @@ export const usePokedexCache = () => {
   const [dex, setDex] = useState<PokedexEntry[]>([]);
 
   const addToDex = useCallback((entry: PokedexEntry) => {
-    setDex(prev => {
+    setDex((prev) => {
       if (prev.some((p) => p.id === entry.id)) {
         return prev;
       }
@@ -18,7 +18,18 @@ export const usePokedexCache = () => {
     });
   }, []);
 
-  const hasInDex = useCallback((id: number) => dex.some(p => p.id === id), [dex]);
+  const hasInDex = useCallback(
+    (idOrName: string) => {
+      if (!isNaN(Number(idOrName))) {
+        const id = Number(idOrName);
+        return dex.some((p) => p.id === id);
+      } else {
+        return dex.some((p) => p.name === idOrName);
+      }
+    },
+    [dex]
+  );
 
-  return { dex, addToDex, hasInDex};
-}
+  return { dex, addToDex, hasInDex };
+};
+
