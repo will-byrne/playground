@@ -50,14 +50,18 @@ pub async fn random_new(db: &State<Arc<dyn PokeboxDb + Send + Sync>>) -> Json<Po
     Json(pokemon_deets)
 }
 
-#[get("/pokemon/<id>")]
+#[get("/pokemon/<id_or_name>")]
 pub async fn specific_pokemon(
     db: &State<Arc<dyn PokeboxDb + Send + Sync>>,
-    id: i64,
+    id_or_name: String,
 ) -> Json<PokeboxEntry> {
-    let pokemon_deets = db.inner().get_pokemon_by_id(id).await;
-
-    Json(pokemon_deets)
+    if let Ok(id) = id_or_name.parse::<i64>() {
+        let pokemon_deets = db.inner().get_pokemon_by_id(id).await;
+        return Json(pokemon_deets);
+    } else {
+        let pokemon_deets = db.inner().get_pokemon_by_name(&id_or_name).await;
+        return Json(pokemon_deets);
+    }
 }
 
 #[get("/pokedex")]
