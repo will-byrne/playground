@@ -1,10 +1,10 @@
-import { Button, Container, NumberInput, Text, Title } from '@mantine/core';
+import { Button, Container, Text, TextInput, Title } from '@mantine/core';
 import { Dots } from '../../dots';
 import classes from './homepage.module.css';
 import { useState } from 'react';
 
-export function HomePage({ loadSpecificPokemon }: { loadSpecificPokemon: (id: number) => void}) {
-  const [selectedId, setSelectedId] = useState<string | number>(1);
+export function HomePage({ loadSpecificPokemon }: { loadSpecificPokemon: (id: string) => void }) {
+  const [selectedId, setSelectedId] = useState<string>("bulbasaur");
   return (
     <Container className={classes.wrapper} size={1400}>
       <Dots className={classes.dots} style={{ left: 0, top: 0 }} />
@@ -28,8 +28,8 @@ export function HomePage({ loadSpecificPokemon }: { loadSpecificPokemon: (id: nu
         </Container>
 
         <div className={classes.controls}>
-          <NumberInput label="Pokémon ID" min={1} max={1025} size="md" value={selectedId} onChange={setSelectedId} clampBehavior='strict'/>
-          <Button className={classes.control} size="md" variant="default" color="gray" onClick={() => loadSpecificPokemon(+selectedId)} >
+          <TextInput label="Pokémon ID" size="md" value={selectedId} onChange={(e) => setSelectedId(e.target.value)} />
+          <Button className={classes.control} size="md" variant="default" color="gray" onClick={() => loadSpecificPokemon(selectedId)} >
             Load
           </Button>
         </div>

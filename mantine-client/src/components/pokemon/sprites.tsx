@@ -8,12 +8,11 @@ export type SpriteEntry = {
   url: string,
 };
 
-export function Sprites({spriteEntries}: { spriteEntries: SpriteEntry[]}) {
-  console.log(spriteEntries);
+export function Sprites({ spriteEntries }: { spriteEntries: SpriteEntry[] }) {
   return (
     <Carousel withIndicators height={200}>
-      {spriteEntries.filter(({ url} ) => url.includes('.gif')).reverse().map(({ url }, i) => (
-        <Carousel.Slide key={`sprite-${i}`}><Image h={240} width="auto" fit="contain" src={url}/></Carousel.Slide>
+      {spriteEntries.filter(({ url }) => url.includes('.gif')).reverse().map(({ url }, i) => (
+        <Carousel.Slide key={`sprite-${i}`}><Image h={240} width="auto" fit="contain" src={url} /></Carousel.Slide>
       ))}
     </Carousel>
   )

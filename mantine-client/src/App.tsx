@@ -7,6 +7,7 @@ import { useState } from 'react';
 import { useListState } from '@mantine/hooks';
 import { typedFetch } from './utils/typed-fetch';
 import { PokemonPage } from './components/pokemon/pokemonpage';
+import { hasInDex } from './utils/has-in-dex';
 
 export type Ability = {
   name: string,
@@ -22,7 +23,7 @@ export type PokeboxEntry = {
   sprites: PokemonSprites,
 };
 
-type PokeDexEntry = {
+export type PokeDexEntry = {
   id: number,
   name: string,
 };
@@ -31,18 +32,18 @@ function App() {
   const [currentPokemon, setCurrentPokemon] = useState<PokeboxEntry>();
   const [pokedex, pokedexHandler] = useListState<PokeDexEntry>([]);
 
-  const loadSpecificPokemon = async (dexNo: number) => {
-    const pokeboxEntry = await typedFetch<PokeboxEntry>(`http://localhost:3000/pokemon/${dexNo}`);
+  const loadSpecificPokemon = async (idOrName: string) => {
+    const pokeboxEntry = await typedFetch<PokeboxEntry>(`http://localhost:3000/pokemon/${idOrName}`);
     setCurrentPokemon(pokeboxEntry);
-    if (!pokedex.find(({ id }) => id === dexNo)) {
+    if (!hasInDex) {
       const { id, name } = pokeboxEntry;
       pokedexHandler.append({ id, name });
     }
   }
   return (
     <MantineProvider defaultColorScheme="dark">
-      { !currentPokemon && <HomePage loadSpecificPokemon={loadSpecificPokemon}/> }
-      { currentPokemon && <PokemonPage back={() => setCurrentPokemon(undefined)} pokemon={currentPokemon}/> }
+      {!currentPokemon && <HomePage loadSpecificPokemon={loadSpecificPokemon} />}
+      {currentPokemon && <PokemonPage back={() => setCurrentPokemon(undefined)} pokemon={currentPokemon} />}
     </MantineProvider>
   )
 }
