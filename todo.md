@@ -1,4 +1,9 @@
 # Current Goal
+[] allow sending id or name
+    [] iplement for servers
+    [] implement for clients
+    [] send an error when unable to find pokemon
+    [] handle error on clients
 [] finish work on:
   [] hono-server
     [] docker container
@@ -27,8 +32,8 @@
   [] react-client
     [] docker container
     [] tests
-      [] linter
-      [] unit tests
+      [*] linter
+      [*] unit tests
       [] browser tests
       [] visual regression
     [] readme
