@@ -1,7 +1,16 @@
 # Current Goal
 [] allow sending id or name
-    [] iplement for servers
+    [*] iplement for servers
+        [*] rust-server
+        [*] hono-server
+        [] go-server
     [] implement for clients
+        [] mantine-client
+        [*] react-client
+        [] rust client
+        [] lit client
+        [] remix client
+        [] svelte client
     [] send an error when unable to find pokemon
     [] handle error on clients
 [] finish work on:
