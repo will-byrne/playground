@@ -5,39 +5,41 @@ import { typedFetch } from './utils/typed-fetch.js';
 import './pokemon-card.js';
 
 export type PokeboxEntry = {
-  id: number,
-  name: string,
-  species_description: string,
-  types: string[],
+  id: number;
+  name: string;
+  species_description: string;
+  types: string[];
   abilities: {
-    name: string,
-    flavour_text: string,
-    effect: string,
-  }[],
-  sprites: PokemonSprites,
+    name: string;
+    flavour_text: string;
+    effect: string;
+  }[];
+  sprites: PokemonSprites;
 };
 
-type PokedexEntry = { id: number, name: string };
+type PokedexEntry = { id: number; name: string };
 
 @customElement('home-page')
 export class HomePage extends LitElement {
   @property({ type: String }) header = 'Pokémon Search';
-  
-  @state() dexNo: number = 1;
-  
+
+  @state() dexNo: string = 'bulbasaur';
+
   @state() loadedPokemon: PokeboxEntry | undefined = undefined;
-  
+
   @state() loading = false;
-  
+
   @state() error: string | null = null;
-  
+
   @state() pokedex: PokedexEntry[] = [];
-  
-  @state() selectedDexId: number | null = null;
+
+  @state() selectedDexId: string | null = null;
 
   private async getDex() {
     try {
-      this.pokedex = await typedFetch<PokedexEntry[]>('http://localhost:3000/pokedex');
+      this.pokedex = await typedFetch<PokedexEntry[]>(
+        'http://localhost:3000/pokedex',
+      );
     } catch (err) {
       console.error('Failed to load pokedex', err);
     }
@@ -49,17 +51,16 @@ export class HomePage extends LitElement {
 
   private onSelectChange(e: Event) {
     const target = e.target as HTMLSelectElement;
-    this.selectedDexId = parseInt(target.value, 10);
+    this.selectedDexId = target.value;
     if (!Number.isNaN(this.selectedDexId)) {
-      this.dexNo = this.selectedDexId;
+      this.dexNo = this.selectedDexId?.toString() ?? 'bulbasaur';
       this.getPokemon();
     }
   }
 
   private onDexInput(e: Event) {
     const target = e.target as HTMLInputElement;
-    const parsed = parseInt(target.value, 10);
-    this.dexNo = Number.isNaN(parsed) ? this.dexNo : parsed;
+    this.dexNo = target.value;
   }
 
   private onKeyDown(e: KeyboardEvent) {
@@ -72,9 +73,14 @@ export class HomePage extends LitElement {
     this.error = null;
     try {
       this.loadedPokemon = await typedFetch<PokeboxEntry>(
-        `http://localhost:3000/pokemon/${this.dexNo}`
+        `http://localhost:3000/pokemon/${this.dexNo}`,
       );
-      if (!this.pokedex.includes({ id: this.loadedPokemon.id, name: this.loadedPokemon.name})) {
+      if (
+        !this.pokedex.includes({
+          id: this.loadedPokemon.id,
+          name: this.loadedPokemon.name,
+        })
+      ) {
         this.getDex();
       }
       await this.getDex();
@@ -113,7 +119,9 @@ export class HomePage extends LitElement {
       padding: 1rem;
     }
 
-    h1 { color: var(--ctp-lavender); }
+    h1 {
+      color: var(--ctp-lavender);
+    }
 
     /* --- Controls container --- */
     .controls {
@@ -125,24 +133,29 @@ export class HomePage extends LitElement {
     }
 
     /* --- Shared form controls --- */
-    input, select, button {
+    input,
+    select,
+    button {
       font-family: inherit;
       font-size: 1rem;
       line-height: 1.5;
       padding: 0.5rem 1rem;
       border-radius: 8px;
       box-sizing: border-box;
-      height: 2.5rem;  /* normalize height for alignment */
+      height: 2.5rem; /* normalize height for alignment */
     }
 
-    input, select {
+    input,
+    select {
       background: var(--ctp-surface0);
       border: 1px solid var(--ctp-surface1);
       color: var(--ctp-text);
       cursor: pointer;
     }
 
-    input::placeholder { color: var(--ctp-subtext); }
+    input::placeholder {
+      color: var(--ctp-subtext);
+    }
 
     /* --- Button styling --- */
     button {
@@ -160,7 +173,8 @@ export class HomePage extends LitElement {
 
     /* --- Select styling --- */
     select {
-      background: var(--ctp-surface0) var(--select-arrow) no-repeat right 0.75rem center;
+      background: var(--ctp-surface0) var(--select-arrow) no-repeat right
+        0.75rem center;
       background-size: 0.65rem;
       padding-right: 2rem; /* space for arrow */
       appearance: none;
@@ -181,11 +195,20 @@ export class HomePage extends LitElement {
       box-shadow: 0 0 0 2px rgba(138, 173, 244, 0.3);
     }
 
-    select:hover { background-color: var(--ctp-blue); color: #1a1b26; }
+    select:hover {
+      background-color: var(--ctp-blue);
+      color: #1a1b26;
+    }
 
     /* --- Status messages --- */
-    .status { margin-top: 0.5rem; font-size: 0.9rem; color: var(--ctp-subtext); }
-    .error { color: var(--ctp-red); }
+    .status {
+      margin-top: 0.5rem;
+      font-size: 0.9rem;
+      color: var(--ctp-subtext);
+    }
+    .error {
+      color: var(--ctp-red);
+    }
   `;
 
   render() {
@@ -193,10 +216,8 @@ export class HomePage extends LitElement {
       <main>
         <h1>${this.header}</h1>
         <input
-          type="number"
-          max="1025"
-          min="1"
-          placeholder="1"
+          type="text"
+          placeholder="bulbasaur"
           .value=${String(this.dexNo)}
           @input=${this.onDexInput}
           @keydown=${this.onKeyDown}
@@ -205,14 +226,16 @@ export class HomePage extends LitElement {
 
         <select @change=${this.onSelectChange}>
           <option value="" disabled selected>Select Pokémon</option>
-          ${this.pokedex.map(p =>
-            html`<option value=${p.id}>#${p.id} ${p.name}</option>`
+          ${this.pokedex.map(
+            p => html`<option value=${p.id}>#${p.id} ${p.name}</option>`,
           )}
         </select>
 
         ${this.loading ? html`<div class="status">Loading...</div>` : ''}
         ${this.error ? html`<div class="status error">${this.error}</div>` : ''}
-        ${this.loadedPokemon ? html`<pokemon-card .pokemon=${this.loadedPokemon}></pokemon-card>` : ''}
+        ${this.loadedPokemon
+          ? html`<pokemon-card .pokemon=${this.loadedPokemon}></pokemon-card>`
+          : ''}
       </main>
     `;
   }
