@@ -5,7 +5,7 @@
         [*] hono-server
         [] go-server
     [] implement for clients
-        [] mantine-client
+        [*] mantine-client
         [*] react-client
         [*] rust client
         [] lit client
