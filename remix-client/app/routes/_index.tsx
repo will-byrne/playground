@@ -1,14 +1,18 @@
 import type { MetaFunction } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
+import { useState } from "react";
 import { typedFetch } from "utils/typed-fetch";
 
-type PokedexEntry = { id: number, name: string };
+type PokedexEntry = { id: number; name: string };
 
 export const loader = async () => {
-    const unsortedDex = await typedFetch<PokedexEntry[]>('http://localhost:3000/pokedex');
-    const sortedDex = unsortedDex.sort(({ id: ida }, { id: idb }) => ida - idb);
-    return { pokedex: sortedDex };
-}
+  const unsortedDex = await typedFetch<PokedexEntry[]>(
+    "http://localhost:3000/pokedex"
+  );
+  const sortedDex = unsortedDex.sort(({ id: ida }, { id: idb }) => ida - idb);
+
+  return { pokedex: sortedDex };
+};
 
 export const meta: MetaFunction = () => {
   return [
@@ -16,9 +20,18 @@ export const meta: MetaFunction = () => {
     { name: "description", content: "Welcome to Remix!" },
   ];
 };
-
+/*
+ * TODO
+ * Change input to use <Form>
+ * Add route for pokemon viewer
+ * Add Error handling for pokemon search
+ * Add cached dex display
+ * Load pokemon from cached display click
+ * Add route for random pokemon
+ */
 export default function Index() {
   const { pokedex } = useLoaderData<typeof loader>();
+  const [idOrName, setIdOrName] = useState<string>("bulbasaur");
   return (
     <div className="flex h-screen items-center justify-center">
       <div className="flex flex-col items-center gap-16">
@@ -29,25 +42,34 @@ export default function Index() {
         </header>
         <div className="flex flex-col items-center justify-center gap-4 rounded-3xl border border-gray-200 p-6 dark:border-gray-700">
           <p className="leading-6 text-gray-700 dark:text-gray-200">
-            Load a Pokemon by its Pokedex ID,<br/>
+            Load a Pokemon by its Pokedex ID,
+            <br />
             or load a random Pokemon that is not in the cache.
           </p>
           <fieldset className="fieldset">
             <label className="label">Pokedex no.</label>
-            <input type="number" min={1} max={1025} className="input" placeholder="001" value={dexNo} onChange={(e) => setDexNo(Number(e.currentTarget.value))}/>
-            <button onClick={() => {}} className="btn btn-neutral mt-4">Search</button>
+            <input
+              type="text"
+              className="input"
+              placeholder="001"
+              value={idOrName}
+              onChange={(e) => setIdOrName(e.currentTarget.value)}
+            />
+            <button onClick={() => {}} className="btn btn-neutral mt-4">
+              Search
+            </button>
           </fieldset>
           <ul>
-            {resources.map(({ href, text, icon }) => (
-              <li key={href}>
+            {pokedex.map(({ id, name }) => (
+              <li key={id}>
                 <a
                   className="group flex items-center gap-3 self-stretch p-3 leading-normal text-blue-700 hover:underline dark:text-blue-500"
-                  href={href}
+                  href="/"
                   target="_blank"
                   rel="noreferrer"
                 >
-                  {icon}
-                  {text}
+                  {id}
+                  {name}
                 </a>
               </li>
             ))}
