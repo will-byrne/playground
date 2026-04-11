@@ -1,5 +1,5 @@
 import type { MetaFunction } from "@remix-run/node";
-import { useLoaderData } from "@remix-run/react";
+import { Form, useLoaderData } from "@remix-run/react";
 import { useState } from "react";
 import { typedFetch } from "utils/typed-fetch";
 
@@ -22,7 +22,6 @@ export const meta: MetaFunction = () => {
 };
 /*
  * TODO
- * Change input to use <Form>
  * Add route for pokemon viewer
  * Add Error handling for pokemon search
  * Add cached dex display
@@ -46,19 +45,24 @@ export default function Index() {
             <br />
             or load a random Pokemon that is not in the cache.
           </p>
-          <fieldset className="fieldset">
-            <label className="label">Pokedex no.</label>
-            <input
-              type="text"
-              className="input"
-              placeholder="001"
-              value={idOrName}
-              onChange={(e) => setIdOrName(e.currentTarget.value)}
-            />
-            <button onClick={() => {}} className="btn btn-neutral mt-4">
-              Search
-            </button>
-          </fieldset>
+          <Form action="/pokemon">
+            <fieldset className="fieldset">
+              <label htmlFor="idOrNameInput" className="label">
+                Pokedex no.
+              </label>
+              <input
+                id="idOrNameInput"
+                type="text"
+                className="input"
+                placeholder="001"
+                value={idOrName}
+                onChange={(e) => setIdOrName(e.currentTarget.value)}
+              />
+              <button type="submit" className="btn btn-neutral mt-4">
+                Search
+              </button>
+            </fieldset>
+          </Form>
           <ul>
             {pokedex.map(({ id, name }) => (
               <li key={id}>
