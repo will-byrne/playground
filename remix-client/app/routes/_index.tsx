@@ -20,14 +20,7 @@ export const meta: MetaFunction = () => {
     { name: "description", content: "Welcome to Remix!" },
   ];
 };
-/*
- * TODO
- * Add ui for pokemon route
- * Add Error handling for pokemon search
- * Add cached dex display
- * Load pokemon from cached display click
- * Add route for random pokemon
- */
+
 export default function Index() {
   const { pokedex } = useLoaderData<typeof loader>();
   const [idOrName, setIdOrName] = useState<string>("bulbasaur");
