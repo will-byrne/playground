@@ -22,7 +22,7 @@ export const meta: MetaFunction = () => {
 };
 /*
  * TODO
- * Add route for pokemon viewer
+ * Add ui for pokemon route
  * Add Error handling for pokemon search
  * Add cached dex display
  * Load pokemon from cached display click
