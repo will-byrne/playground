@@ -11,9 +11,14 @@
     "typecheck": "tsc"
   },
   "dependencies": {
+    "@catppuccin/daisyui": "^2.1.1",
+    "@catppuccin/tailwindcss": "^1.0.0",
     "@remix-run/node": "^2.16.8",
     "@remix-run/react": "^2.16.8",
     "@remix-run/serve": "^2.16.8",
+    "@tailwindcss/postcss": "^4.2.2",
+    "@tailwindcss/vite": "^4.2.2",
+    "daisyui": "^5.5.19",
     "isbot": "^4.1.0",
     "pokenode-ts": "^1.20.0",
     "react": "^18.2.0",
@@ -32,8 +37,7 @@
     "eslint-plugin-jsx-a11y": "^6.7.1",
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
-    "postcss": "^8.4.38",
-    "tailwindcss": "^3.4.4",
+    "tailwindcss": "^4.2.2",
     "typescript": "^5.1.6",
     "vite": "^6.0.0",
     "vite-tsconfig-paths": "^4.2.1"

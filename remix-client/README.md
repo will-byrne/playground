@@ -1,3 +1,11 @@
+# TODO
+
+- [] Add ui for pokemon route
+- [] Add Error handling for pokemon search
+- [] Add cached dex display
+- [] Load pokemon from cached display click
+- [] Add route for random pokemon
+
 # Welcome to Remix!
 
 - 📖 [Remix docs](https://remix.run/docs)
