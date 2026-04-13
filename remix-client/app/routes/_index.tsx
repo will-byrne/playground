@@ -39,7 +39,7 @@ export default function Index() {
     }
   };
 
-  const featuredPokemon = [1, 4, 7, 25, 150].map(id =>
+  const featuredPokemon = [37, 151, 647, 700].map(id =>
     pokedex.find(p => p.id === id)
   ).filter(Boolean);
 
