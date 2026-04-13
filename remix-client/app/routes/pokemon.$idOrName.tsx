@@ -39,19 +39,19 @@ export const loader = async ({ params }: { params: { idOrName: string } }) => {
       `http://localhost:3000/pokemon/${params.idOrName}`
     );
 
-    return { pokemon, notFound: false };
+    return { pokemon };
   } catch (error) {
     console.error('Error fetching Pokemon:', error);
-    return { pokemon: null, notFound: true };
+    return { pokemon: null };
   }
 };
 
 export default function Pokemon() {
-  const { pokemon, notFound } = useLoaderData<typeof loader>();
+  const { pokemon } = useLoaderData<typeof loader>();
   const navigate = useNavigate();
   const params = useParams();
 
-  if (notFound) {
+  if (!pokemon) {
     return (
       <div className="min-h-screen bg-base-200 p-4">
         <div className="container mx-auto max-w-6xl">
