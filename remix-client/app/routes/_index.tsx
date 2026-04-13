@@ -31,10 +31,13 @@ export default function Index() {
   const handleInputChange = (value: string) => {
     setIdOrName(value);
     if (value.length > 0) {
-      const filtered = pokedex.filter(pokemon =>
-        pokemon.name.toLowerCase().includes(value.toLowerCase()) ||
-        pokemon.id.toString().includes(value)
-      ).slice(0, 10); // Limit to 10 results
+      const filtered = pokedex
+        .filter(
+          (pokemon) =>
+            pokemon.name.toLowerCase().includes(value.toLowerCase()) ||
+            pokemon.id.toString().includes(value)
+        )
+        .slice(0, 10); // Limit to 10 results
       setFilteredPokedex(filtered);
     } else {
       setFilteredPokedex([]);
@@ -55,9 +58,9 @@ export default function Index() {
     }
   };
 
-  const featuredPokemon = [37, 151, 647, 700].map(id =>
-    pokedex.find(p => p.id === id)
-  ).filter(Boolean);
+  const featuredPokemon = [37, 151, 647, 700]
+    .map((id) => pokedex.find((p) => p.id === id))
+    .filter(Boolean);
 
   return (
     <div className="min-h-screen bg-base-200">
@@ -79,7 +82,9 @@ export default function Index() {
             <Form action={idOrName ? `/pokemon/${idOrName}` : "#"}>
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text">Enter Pokémon name or Pokédex number</span>
+                  <span className="label-text">
+                    Enter Pokémon name or Pokédex number
+                  </span>
                 </label>
                 <div className="join">
                   <input
@@ -96,50 +101,59 @@ export default function Index() {
                   >
                     Search
                   </button>
-                <button
-                  type="button"
-                  className="btn btn-secondary join-item"
-                  onClick={handleRandomNewPokemon}
-                  disabled={randomLoading}
-                >
-                  {randomLoading ? "Loading…" : "Random New Pokémon"}
-                </button>
-              </div>
-            </div>
-          </Form>
-
-          {/* Search Results */}
-          {filteredPokedex.length > 0 && (
-            <div className="mt-4">
-              <h3 className="text-lg font-semibold mb-2">Search Results</h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                {filteredPokedex.map((pokemon) => (
-                  <a
-                    key={pokemon.id}
-                    href={`/pokemon/${pokemon.name}`}
-                    className="btn btn-outline btn-sm justify-start"
+                  <button
+                    type="button"
+                    className="btn btn-secondary join-item"
+                    onClick={handleRandomNewPokemon}
+                    disabled={randomLoading}
                   >
-                    <span className="font-mono">#{pokemon.id.toString().padStart(3, '0')}</span>
-                    <span className="ml-2 capitalize">{pokemon.name}</span>
-                  </a>
-                ))}
+                    {randomLoading ? "Loading…" : "Random New Pokémon"}
+                  </button>
+                </div>
               </div>
-            </div>
-          )}
+            </Form>
+
+            {/* Search Results */}
+            {filteredPokedex.length > 0 && (
+              <div className="mt-4">
+                <h3 className="text-lg font-semibold mb-2">Search Results</h3>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                  {filteredPokedex.map((pokemon) => (
+                    <a
+                      key={pokemon.id}
+                      href={`/pokemon/${pokemon.name}`}
+                      className="btn btn-outline btn-sm justify-start"
+                    >
+                      <span className="font-mono">
+                        #{pokemon.id.toString().padStart(3, "0")}
+                      </span>
+                      <span className="ml-2 capitalize">{pokemon.name}</span>
+                    </a>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
         </div>
-      </div>
 
         {/* Featured Pokémon */}
         <div className="mb-8">
-          <h2 className="text-3xl font-bold text-base-content mb-6">Featured Pokémon</h2>
+          <h2 className="text-3xl font-bold text-base-content mb-6">
+            Featured Pokémon
+          </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
             {featuredPokemon.map((pokemon) => (
-              <div key={pokemon!.id} className="card bg-base-100 shadow-lg hover:shadow-xl transition-shadow">
+              <div
+                key={pokemon!.id}
+                className="card bg-base-100 shadow-lg hover:shadow-xl transition-shadow"
+              >
                 <div className="card-body p-4 text-center">
                   <h3 className="card-title text-lg justify-center mb-2">
-                    #{pokemon!.id.toString().padStart(3, '0')}
+                    #{pokemon!.id.toString().padStart(3, "0")}
                   </h3>
-                  <p className="text-base font-semibold capitalize mb-4">{pokemon!.name}</p>
+                  <p className="text-base font-semibold capitalize mb-4">
+                    {pokemon!.name}
+                  </p>
                   <a
                     href={`/pokemon/${pokemon!.name}`}
                     className="btn btn-primary btn-sm"
@@ -155,7 +169,9 @@ export default function Index() {
         {/* Quick Stats */}
         <div className="card bg-base-100 shadow-xl mb-8">
           <div className="card-body text-center">
-            <h2 className="card-title text-2xl justify-center mb-4">Pokédex Statistics</h2>
+            <h2 className="card-title text-2xl justify-center mb-4">
+              Pokédex Statistics
+            </h2>
             <div className="stats stats-vertical lg:stats-horizontal shadow">
               <div className="stat">
                 <div className="stat-title">Total Pokémon</div>
@@ -164,8 +180,14 @@ export default function Index() {
               </div>
               <div className="stat">
                 <div className="stat-title">Total Pokémon left to discover</div>
-                <div className="stat-value text-secondary">{1025 -pokedex.length}</div>
-                <div className="stat-desc">{pokedex.length === 1025 ? "All discovered!" : "Keep exploring!"}</div>
+                <div className="stat-value text-secondary">
+                  {1025 - pokedex.length}
+                </div>
+                <div className="stat-desc">
+                  {pokedex.length === 1025
+                    ? "All discovered!"
+                    : "Keep exploring!"}
+                </div>
               </div>
               <div className="stat">
                 <div className="stat-title">Last Updated</div>
@@ -181,10 +203,13 @@ export default function Index() {
           <div className="card-body">
             <h2 className="card-title text-2xl mb-4">Browse Seen Pokémon</h2>
             <div className="form-control">
-              <label className="label">
-                <span className="label-text">Select a Pokémon to view details</span>
+              <label className="label" htmlFor="dexSelector">
+                <span className="label-text">
+                  Select a Pokémon to view details
+                </span>
               </label>
               <select
+                id="dexSelector"
                 className="select select-bordered select-lg ml-4"
                 onChange={(e) => {
                   if (e.target.value) {
@@ -198,7 +223,9 @@ export default function Index() {
                 </option>
                 {pokedex.map((pokemon) => (
                   <option key={pokemon.id} value={pokemon.name}>
-                    #{pokemon.id.toString().padStart(3, '0')} - {pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}
+                    #{pokemon.id.toString().padStart(3, "0")} -{" "}
+                    {pokemon.name.charAt(0).toUpperCase() +
+                      pokemon.name.slice(1)}
                   </option>
                 ))}
               </select>
@@ -209,7 +236,3 @@ export default function Index() {
     </div>
   );
 }
-
-
-        
-
