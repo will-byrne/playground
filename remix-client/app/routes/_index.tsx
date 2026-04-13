@@ -16,8 +16,8 @@ export const loader = async () => {
 
 export const meta: MetaFunction = () => {
   return [
-    { title: "New Remix App" },
-    { name: "description", content: "Welcome to Remix!" },
+    { title: "Pokémon Browser" },
+    { name: "description", content: "Welcome to the Pokémon Browser!" },
   ];
 };
 
@@ -58,7 +58,7 @@ export default function Index() {
     }
   };
 
-  const featuredPokemon = [37, 151, 647, 700]
+  const featuredPokemon = [37, 77, 151, 647, 700]
     .map((id) => pokedex.find((p) => p.id === id))
     .filter(Boolean);
 

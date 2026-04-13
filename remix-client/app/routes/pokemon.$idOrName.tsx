@@ -16,6 +16,31 @@ type PokeboxEntry = {
   sprites: PokemonSprites;
 };
 
+const getTypeColor = (type: string): string => {
+  const typeColors: Record<string, string> = {
+    normal: "bg-gray-500 text-white",
+    fire: "bg-red-500 text-white",
+    water: "bg-blue-500 text-white",
+    grass: "bg-green-500 text-white",
+    electric: "bg-yellow-400 text-black",
+    ice: "bg-cyan-400 text-black",
+    fighting: "bg-orange-700 text-white",
+    poison: "bg-purple-500 text-white",
+    ground: "bg-amber-600 text-white",
+    flying: "bg-sky-400 text-black",
+    psychic: "bg-pink-500 text-white",
+    bug: "bg-lime-500 text-black",
+    rock: "bg-gray-600 text-white",
+    ghost: "bg-purple-700 text-white",
+    dragon: "bg-indigo-600 text-white",
+    dark: "bg-gray-800 text-white",
+    steel: "bg-slate-500 text-white",
+    fairy: "bg-pink-400 text-black",
+  };
+
+  return typeColors[type.toLowerCase()] || "bg-gray-400 text-white";
+};
+
 const getSprites = (sp: PokemonSprites, k?: string): Record<string, string> => {
   const result = Object.entries(sp).reduce<Record<string, string>>(
     (acc, [key, value]) => {
@@ -76,6 +101,21 @@ export default function Pokemon() {
     );
   }
 
+  const canGoToPrevious = pokemon?.id > 1;
+  const canGoToNext = pokemon?.id < 1025;
+
+  const handlePreviousPokemon = () => {
+    if (canGoToPrevious) {
+      navigate(`/pokemon/${pokemon.id - 1}`);
+    }
+  };
+
+  const handleNextPokemon = () => {
+    if (canGoToNext) {
+      navigate(`/pokemon/${pokemon.id + 1}`);
+    }
+  };
+
   const spriteList = getSprites(pokemon.sprites);
   const officialArtFront =
     spriteList["showdown-front_default"] ??
@@ -97,13 +137,39 @@ export default function Pokemon() {
             >
               Back to list
             </button>
-            <div>
-              <h1 className="text-4xl font-bold text-base-content mb-2">
-                {pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}
-              </h1>
-              <p className="text-xl text-base-content/70">
-                #{pokemon.id.toString().padStart(3, "0")}
-              </p>
+            <div className="flex items-center gap-4">
+              {canGoToPrevious ? (
+                <button
+                  type="button"
+                  className="btn btn-outline"
+                  onClick={handlePreviousPokemon}
+                  aria-label="Previous Pokemon"
+                >
+                  ← Prev
+                </button>
+              ) : (
+                <div className="w-20"></div>
+              )}
+              <div>
+                <h1 className="text-4xl font-bold text-base-content mb-2">
+                  {pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}
+                </h1>
+                <p className="text-xl text-base-content/70">
+                  #{pokemon.id.toString().padStart(3, "0")}
+                </p>
+              </div>
+              {canGoToNext ? (
+                <button
+                  type="button"
+                  className="btn btn-outline"
+                  onClick={handleNextPokemon}
+                  aria-label="Next Pokemon"
+                >
+                  Next →
+                </button>
+              ) : (
+                <div className="w-20"></div>
+              )}
             </div>
           </div>
         </div>
@@ -111,32 +177,35 @@ export default function Pokemon() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {/* Pokemon Image Card */}
           <div className="card bg-base-100 shadow-xl">
-            <div className="card-body items-center text-center">
+            <div className="card-body items-center text-center relative">
+              {officialArtShiny && (
+                <div className="absolute top-4 right-4">
+                  <label className="label cursor-pointer">
+                    <span className="label-text mr-2 text-base-content">
+                      Shiny
+                    </span>
+                    <input
+                      type="checkbox"
+                      className="toggle toggle-primary"
+                      checked={showShiny}
+                      onChange={() => setShowShiny(!showShiny)}
+                    />
+                  </label>
+                </div>
+              )}
               <div className="relative">
                 <img
                   alt={`${pokemon.name} sprite`}
                   src={showShiny ? officialArtShiny : officialArtFront}
                   className="max-w-full h-64 object-contain rounded-lg"
                 />
-                {officialArtShiny && (
-                  <div className="absolute top-2 right-2">
-                    <label className="label cursor-pointer">
-                      <span className="label-text mr-2 text-base-content">
-                        Shiny
-                      </span>
-                      <input
-                        type="checkbox"
-                        className="toggle toggle-primary"
-                        checked={showShiny}
-                        onChange={() => setShowShiny(!showShiny)}
-                      />
-                    </label>
-                  </div>
-                )}
               </div>
               <div className="flex flex-wrap gap-2 justify-center mt-4">
                 {pokemon.types.map((type) => (
-                  <div key={type} className="badge badge-primary badge-lg">
+                  <div
+                    key={type}
+                    className={`badge badge-lg font-semibold ${getTypeColor(type)}`}
+                  >
                     {type.charAt(0).toUpperCase() + type.slice(1)}
                   </div>
                 ))}
