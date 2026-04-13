@@ -23,54 +23,133 @@ export const meta: MetaFunction = () => {
 
 export default function Index() {
   const { pokedex } = useLoaderData<typeof loader>();
-  const [idOrName, setIdOrName] = useState<string>("bulbasaur");
+  const [idOrName, setIdOrName] = useState<string>("");
+  const [filteredPokedex, setFilteredPokedex] = useState<PokedexEntry[]>([]);
+
+  const handleInputChange = (value: string) => {
+    setIdOrName(value);
+    if (value.length > 0) {
+      const filtered = pokedex.filter(pokemon =>
+        pokemon.name.toLowerCase().includes(value.toLowerCase()) ||
+        pokemon.id.toString().includes(value)
+      ).slice(0, 10); // Limit to 10 results
+      setFilteredPokedex(filtered);
+    } else {
+      setFilteredPokedex([]);
+    }
+  };
+
+  const featuredPokemon = [1, 4, 7, 25, 150].map(id =>
+    pokedex.find(p => p.id === id)
+  ).filter(Boolean);
+
   return (
-    <div className="flex h-screen items-center justify-center">
-      <div className="flex flex-col items-center gap-16">
-        <header className="flex flex-col items-center gap-9">
-          <h1 className="leading text-2xl font-bold text-gray-800 dark:text-gray-100">
-            Find a Pokémon
+    <div className="min-h-screen bg-base-200">
+      <div className="container mx-auto px-4 py-8 max-w-4xl">
+        {/* Header */}
+        <div className="text-center mb-8">
+          <h1 className="text-5xl font-bold text-base-content mb-4">
+            Pokédex Explorer
           </h1>
-        </header>
-        <div className="flex flex-col items-center justify-center gap-4 rounded-3xl border border-gray-200 p-6 dark:border-gray-700">
-          <p className="leading-6 text-gray-700 dark:text-gray-200">
-            Load a Pokemon by its Pokedex ID,
-            <br />
-            or load a random Pokemon that is not in the cache.
+          <p className="text-xl text-base-content/70">
+            Discover and learn about Pokémon from the Kanto region
           </p>
-          <Form action="/pokemon">
-            <fieldset className="fieldset">
-              <label htmlFor="idOrNameInput" className="label">
-                Pokedex no.
-              </label>
-              <input
-                id="idOrNameInput"
-                type="text"
-                className="input"
-                placeholder="001"
-                value={idOrName}
-                onChange={(e) => setIdOrName(e.currentTarget.value)}
-              />
-              <button type="submit" className="btn btn-neutral mt-4">
-                Search
-              </button>
-            </fieldset>
-          </Form>
-          <ul>
-            {pokedex.map(({ id, name }) => (
-              <li key={id}>
-                <a
-                  className="group flex items-center gap-3 self-stretch p-3 leading-normal text-blue-700 hover:underline dark:text-blue-500"
-                  href="/"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  {id}
-                  {name}
-                </a>
-              </li>
+        </div>
+
+        {/* Search Section */}
+        <div className="card bg-base-100 shadow-xl mb-8">
+          <div className="card-body">
+            <h2 className="card-title text-2xl mb-4">Search Pokémon</h2>
+            <Form action={idOrName ? `/pokemon/${idOrName}` : "#"}>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Enter Pokémon name or Pokédex number</span>
+                </label>
+                <div className="join">
+                  <input
+                    type="text"
+                    placeholder="e.g. Pikachu, 25, Charizard..."
+                    className="input input-bordered join-item flex-1"
+                    value={idOrName}
+                    onChange={(e) => handleInputChange(e.currentTarget.value)}
+                  />
+                  <button
+                    type="submit"
+                    className="btn btn-primary join-item"
+                    disabled={!idOrName.trim()}
+                  >
+                    Search
+                  </button>
+                </div>
+              </div>
+            </Form>
+
+            {/* Search Results */}
+            {filteredPokedex.length > 0 && (
+              <div className="mt-4">
+                <h3 className="text-lg font-semibold mb-2">Search Results</h3>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                  {filteredPokedex.map((pokemon) => (
+                    <a
+                      key={pokemon.id}
+                      href={`/pokemon/${pokemon.name}`}
+                      className="btn btn-outline btn-sm justify-start"
+                    >
+                      <span className="font-mono">#{pokemon.id.toString().padStart(3, '0')}</span>
+                      <span className="ml-2 capitalize">{pokemon.name}</span>
+                    </a>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+
+        {/* Featured Pokémon */}
+        <div className="mb-8">
+          <h2 className="text-3xl font-bold text-base-content mb-6">Featured Pokémon</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+            {featuredPokemon.map((pokemon) => (
+              <div key={pokemon!.id} className="card bg-base-100 shadow-lg hover:shadow-xl transition-shadow">
+                <div className="card-body p-4 text-center">
+                  <h3 className="card-title text-lg justify-center mb-2">
+                    #{pokemon!.id.toString().padStart(3, '0')}
+                  </h3>
+                  <p className="text-base font-semibold capitalize mb-4">{pokemon!.name}</p>
+                  <a
+                    href={`/pokemon/${pokemon!.name}`}
+                    className="btn btn-primary btn-sm"
+                  >
+                    View Details
+                  </a>
+                </div>
+              </div>
             ))}
-          </ul>
+          </div>
+        </div>
+
+        {/* Quick Stats */}
+        <div className="card bg-base-100 shadow-xl">
+          <div className="card-body text-center">
+            <h2 className="card-title text-2xl justify-center mb-4">Pokédex Statistics</h2>
+            <div className="stats stats-vertical lg:stats-horizontal shadow">
+              <div className="stat">
+                <div className="stat-title">Total Pokémon</div>
+                <div className="stat-value text-primary">{pokedex.length}</div>
+                <div className="stat-desc">In this Pokédex</div>
+              </div>
+              <div className="stat">
+                <div className="stat-title">Generation</div>
+                <div className="stat-value text-secondary">I</div>
+                <div className="stat-desc">Kanto Region</div>
+              </div>
+              <div className="stat">
+                <div className="stat-title">Last Updated</div>
+                <div className="stat-value text-accent">2024</div>
+                <div className="stat-desc">Data Version</div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
