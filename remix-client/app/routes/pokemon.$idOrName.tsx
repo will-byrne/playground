@@ -1,4 +1,4 @@
-import { useLoaderData } from "@remix-run/react";
+import { useLoaderData, useNavigate } from "@remix-run/react";
 import { PokemonSprites } from "pokenode-ts";
 import { useState } from "react";
 import { typedFetch } from "utils/typed-fetch";
@@ -30,15 +30,15 @@ const getSprites = (sp: PokemonSprites, k?: string): Record<string, string> => {
     {}
   );
 
-  // Generate missing shiny variants for certain categories
-  const generateShinyUrl = (baseUrl: string): string => {
-    return baseUrl.replace('/official-artwork/', '/official-artwork/shiny/');
-  };
+  // // Generate missing shiny variants for certain categories
+  // const generateShinyUrl = (baseUrl: string): string => {
+  //   return baseUrl.replace('/official-artwork/', '/official-artwork/shiny/');
+  // };
 
-  // If we have official-artwork-front_default but no official-artwork-front_shiny, generate it
-  if (result['official-artwork-front_default'] && !result['official-artwork-front_shiny']) {
-    result['official-artwork-front_shiny'] = generateShinyUrl(result['official-artwork-front_default']);
-  }
+  // // If we have official-artwork-front_default but no official-artwork-front_shiny, generate it
+  // if (result['official-artwork-front_default'] && !result['official-artwork-front_shiny']) {
+  //   result['official-artwork-front_shiny'] = generateShinyUrl(result['official-artwork-front_default']);
+  // }
 
   return result;
 };
@@ -53,6 +53,7 @@ export const loader = async ({ params }: { params: { idOrName: string } }) => {
 
 export default function Pokemon() {
   const { pokemon } = useLoaderData<typeof loader>();
+  const navigate = useNavigate();
   const [showShiny, setShowShiny] = useState(false);
   const spriteList = getSprites(pokemon.sprites);
   const officialArtFront =
@@ -67,10 +68,21 @@ export default function Pokemon() {
       <div className="container mx-auto max-w-6xl">
         {/* Header */}
         <div className="mb-6 text-center">
-          <h1 className="text-4xl font-bold text-base-content mb-2">
-            {pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}
-          </h1>
-          <p className="text-xl text-base-content/70">#{pokemon.id.toString().padStart(3, '0')}</p>
+          <div className="mb-4 flex flex-col items-center gap-3 sm:flex-row sm:justify-between">
+            <button
+              type="button"
+              className="btn btn-secondary"
+              onClick={() => navigate('/')}
+            >
+              Back to list
+            </button>
+            <div>
+              <h1 className="text-4xl font-bold text-base-content mb-2">
+                {pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}
+              </h1>
+              <p className="text-xl text-base-content/70">#{pokemon.id.toString().padStart(3, '0')}</p>
+            </div>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
