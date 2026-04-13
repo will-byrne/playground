@@ -30,16 +30,6 @@ const getSprites = (sp: PokemonSprites, k?: string): Record<string, string> => {
     {}
   );
 
-  // // Generate missing shiny variants for certain categories
-  // const generateShinyUrl = (baseUrl: string): string => {
-  //   return baseUrl.replace('/official-artwork/', '/official-artwork/shiny/');
-  // };
-
-  // // If we have official-artwork-front_default but no official-artwork-front_shiny, generate it
-  // if (result['official-artwork-front_default'] && !result['official-artwork-front_shiny']) {
-  //   result['official-artwork-front_shiny'] = generateShinyUrl(result['official-artwork-front_default']);
-  // }
-
   return result;
 };
 
