@@ -33,7 +33,7 @@ pub fn index() -> &'static str {
 }
 
 #[get("/pokemon/random-new")]
-pub async fn random_new(db: &State<Arc<dyn PokeboxDb + Send + Sync>>) -> Json<PokeboxEntry> {
+pub async fn random_new(db: &State<Arc<dyn PokeboxDb + Send + Sync>>) -> Result<Json<PokeboxEntry>, Status> {
     fn mapper(dex_entry: PokedexEntry) -> i64 {
         dex_entry.id
     }
@@ -45,22 +45,30 @@ pub async fn random_new(db: &State<Arc<dyn PokeboxDb + Send + Sync>>) -> Json<Po
         .map(mapper)
         .collect();
     let random_new_id = generate_random_no_with_exclude(&used_ids);
-    let pokemon_deets = db.inner().get_pokemon_by_id(random_new_id).await;
-
-    Json(pokemon_deets)
+    if let Some(pokemon_deets) = db.inner().get_pokemon_by_id(random_new_id).await {
+        Ok(Json(pokemon_deets))
+    } else {
+        Err(Status::InternalServerError)
+    }
 }
 
 #[get("/pokemon/<id_or_name>")]
 pub async fn specific_pokemon(
     db: &State<Arc<dyn PokeboxDb + Send + Sync>>,
     id_or_name: String,
-) -> Json<PokeboxEntry> {
+) -> Result<Json<PokeboxEntry>, Status> {
     if let Ok(id) = id_or_name.parse::<i64>() {
-        let pokemon_deets = db.inner().get_pokemon_by_id(id).await;
-        return Json(pokemon_deets);
+        if let Some(pokemon_deets) = db.inner().get_pokemon_by_id(id).await {
+            Ok(Json(pokemon_deets))
+        } else {
+            Err(Status::NotFound)
+        }
     } else {
-        let pokemon_deets = db.inner().get_pokemon_by_name(&id_or_name).await;
-        return Json(pokemon_deets);
+        if let Some(pokemon_deets) = db.inner().get_pokemon_by_name(&id_or_name).await {
+            Ok(Json(pokemon_deets))
+        } else {
+            Err(Status::NotFound)
+        }
     }
 }
 

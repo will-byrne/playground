@@ -70,6 +70,40 @@ async fn test_specific_pokemon_route() {
 }
 
 #[tokio::test]
+async fn test_specific_pokemon_route_invalid_id() {
+    let db: Arc<dyn PokeboxDb + Send + Sync> = Arc::new(MockDb);
+
+    let rocket = rocket::build()
+        .manage(db)
+        .mount("/", routes![specific_pokemon])
+        .ignite()
+        .await
+        .unwrap();
+
+    let client = Client::tracked(rocket).await.unwrap();
+
+    let response = client.get("/pokemon/0").dispatch().await;
+    assert_eq!(response.status(), Status::NotFound);
+}
+
+#[tokio::test]
+async fn test_specific_pokemon_route_invalid_name() {
+    let db: Arc<dyn PokeboxDb + Send + Sync> = Arc::new(MockDb);
+
+    let rocket = rocket::build()
+        .manage(db)
+        .mount("/", routes![specific_pokemon])
+        .ignite()
+        .await
+        .unwrap();
+
+    let client = Client::tracked(rocket).await.unwrap();
+
+    let response = client.get("/pokemon/").dispatch().await;
+    assert_eq!(response.status(), Status::NotFound);
+}
+
+#[tokio::test]
 async fn test_pokedex_route() {
     let db: Arc<dyn PokeboxDb + Send + Sync> = Arc::new(MockDb);
 

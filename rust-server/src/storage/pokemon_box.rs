@@ -9,8 +9,8 @@ use rustemon::model::pokemon::{Ability, Pokemon, PokemonSpecies, PokemonType};
 #[async_trait::async_trait]
 pub trait PokeboxDb {
     async fn get_pokedex(&self) -> Vec<PokedexEntry>;
-    async fn get_pokemon_by_id(&self, id: i64) -> PokeboxEntry;
-    async fn get_pokemon_by_name(&self, name: &str) -> PokeboxEntry;
+    async fn get_pokemon_by_id(&self, id: i64) -> Option<PokeboxEntry>;
+    async fn get_pokemon_by_name(&self, name: &str) -> Option<PokeboxEntry>;
     async fn store_pokemon(&self, pokemon: &PokeboxEntry) -> bool;
 }
 
@@ -24,64 +24,22 @@ impl PokeboxDb for MongoDb {
         get_pokedex(&self.client).await
     }
 
-    async fn get_pokemon_by_id(&self, id: i64) -> PokeboxEntry {
+    async fn get_pokemon_by_id(&self, id: i64) -> Option<PokeboxEntry> {
         match get_pokemon_by_id(&self.client, id).await {
-            Ok(pokemon) => pokemon,
+            Ok(pokemon) => Some(pokemon),
             Err(e) => {
                 eprintln!("Failed to get pokemon {}: {}", id, e);
-                // Create a default PokemonSprites by parsing empty JSON
-                let default_sprites = serde_json::json!({
-                    "back_default": null,
-                    "back_female": null,
-                    "back_shiny": null,
-                    "back_shiny_female": null,
-                    "front_default": null,
-                    "front_female": null,
-                    "front_shiny": null,
-                    "front_shiny_female": null
-                });
-                PokeboxEntry {
-                    id,
-                    name: format!("pokemon{}", id),
-                    species_description: "Error loading pokemon".to_string(),
-                    types: vec![],
-                    abilities: vec![],
-                    sprites: serde_json::from_value(default_sprites).unwrap_or_else(|_| {
-                        serde_json::from_str(include_str!("bulbasaur_sprites.json"))
-                            .expect("Failed to parse bulbasaur sprites")
-                    }),
-                }
+                None
             }
         }
     }
 
-    async fn get_pokemon_by_name(&self, name: &str) -> PokeboxEntry {
+    async fn get_pokemon_by_name(&self, name: &str) -> Option<PokeboxEntry> {
         match get_pokemon_by_name(&self.client, name).await {
-            Ok(pokemon) => pokemon,
+            Ok(pokemon) => Some(pokemon),
             Err(e) => {
                 eprintln!("Failed to get pokemon {}: {}", name, e);
-                // Create a default PokemonSprites by parsing empty JSON
-                let default_sprites = serde_json::json!({
-                    "back_default": null,
-                    "back_female": null,
-                    "back_shiny": null,
-                    "back_shiny_female": null,
-                    "front_default": null,
-                    "front_female": null,
-                    "front_shiny": null,
-                    "front_shiny_female": null
-                });
-                PokeboxEntry {
-                    id: 0,
-                    name: name.to_string(),
-                    species_description: "Error loading pokemon".to_string(),
-                    types: vec![],
-                    abilities: vec![],
-                    sprites: serde_json::from_value(default_sprites).unwrap_or_else(|_| {
-                        serde_json::from_str(include_str!("bulbasaur_sprites.json"))
-                            .expect("Failed to parse bulbasaur sprites")
-                    }),
-                }
+                None
             }
         }
     }
@@ -109,7 +67,10 @@ impl PokeboxDb for MockDb {
         ]
     }
 
-    async fn get_pokemon_by_id(&self, id: i64) -> PokeboxEntry {
+    async fn get_pokemon_by_id(&self, id: i64) -> Option<PokeboxEntry> {
+        if id <= 0 {
+            return None;
+        }
         let default_sprites = serde_json::json!({
             "back_default": null,
             "back_female": null,
@@ -120,7 +81,7 @@ impl PokeboxDb for MockDb {
             "front_shiny": null,
             "front_shiny_female": null
         });
-        PokeboxEntry {
+        Some(PokeboxEntry {
             id,
             name: format!("pokemon{}", id),
             species_description: "Mock description".into(),
@@ -130,10 +91,13 @@ impl PokeboxDb for MockDb {
                 serde_json::from_str(include_str!("bulbasaur_sprites.json"))
                     .expect("Failed to parse bulbasaur sprites")
             }),
-        }
+        })
     }
 
-    async fn get_pokemon_by_name(&self, name: &str) -> PokeboxEntry {
+    async fn get_pokemon_by_name(&self, name: &str) -> Option<PokeboxEntry> {
+        if name.is_empty() {
+            return None;
+        }
         let default_sprites = serde_json::json!({
             "back_default": null,
             "back_female": null,
@@ -144,7 +108,7 @@ impl PokeboxDb for MockDb {
             "front_shiny": null,
             "front_shiny_female": null
         });
-        PokeboxEntry {
+        Some(PokeboxEntry {
             id: 42,
             name: name.to_string(),
             species_description: "Mock description".into(),
@@ -154,7 +118,7 @@ impl PokeboxDb for MockDb {
                 serde_json::from_str(include_str!("bulbasaur_sprites.json"))
                     .expect("Failed to parse bulbasaur sprites")
             }),
-        }
+        })
     }
 
     async fn store_pokemon(&self, _pokemon: &PokeboxEntry) -> bool {
