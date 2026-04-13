@@ -4,7 +4,7 @@ use mongodb::{Client, Collection, bson::doc, options::ClientOptions};
 use rocket::serde::json::serde_json;
 use rocket::serde::{Deserialize, Serialize};
 use rustemon::model::moves::Move;
-use rustemon::model::pokemon::{Ability, Pokemon, PokemonSpecies, PokemonSprites, PokemonType};
+use rustemon::model::pokemon::{Ability, Pokemon, PokemonSpecies, PokemonType};
 
 #[async_trait::async_trait]
 pub trait PokeboxDb {
@@ -196,7 +196,7 @@ pub struct PokeboxEntry {
     species_description: String,
     types: Vec<String>,
     abilities: Vec<PokemonAbility>,
-    sprites: PokemonSprites,
+    sprites: serde_json::Value,
 }
 
 pub async fn create_db() -> std::result::Result<Client, Box<dyn std::error::Error>> {
@@ -284,13 +284,24 @@ pub async fn get_pokemon_by_id(
         .map(|entry| entry.flavor_text)
         .unwrap_or_else(|| "No description available".to_string());
 
+    let sprites = fetch_pokemon_sprites_by_id(new_pokemon.id)
+        .await
+        .unwrap_or_else(|err| {
+            eprintln!("Failed to fetch raw sprites for {}: {}", new_pokemon.id, err);
+            serde_json::to_value(&new_pokemon.sprites)
+                .unwrap_or_else(|_| {
+                    serde_json::from_str(include_str!("bulbasaur_sprites.json"))
+                        .expect("Failed to parse bulbasaur sprites")
+                })
+        });
+
     let pokebox_entry = PokeboxEntry {
         id: new_pokemon.id,
         name: new_pokemon.name,
         species_description,
         types: new_pokemon.types.into_iter().map(type_mapper).collect(),
         abilities: abilities.into_iter().map(ability_mapper).collect(),
-        sprites: new_pokemon.sprites,
+        sprites,
     };
 
     let _ = store_pokemon(mongodb, &pokebox_entry).await;
@@ -367,17 +378,50 @@ pub async fn get_pokemon_by_name(
         .map(|entry| entry.flavor_text)
         .unwrap_or_else(|| "No description available".to_string());
 
+    let sprites = fetch_pokemon_sprites_by_name(&new_pokemon.name)
+        .await
+        .unwrap_or_else(|err| {
+            eprintln!("Failed to fetch raw sprites for {}: {}", new_pokemon.name, err);
+            serde_json::to_value(&new_pokemon.sprites)
+                .unwrap_or_else(|_| {
+                    serde_json::from_str(include_str!("bulbasaur_sprites.json"))
+                        .expect("Failed to parse bulbasaur sprites")
+                })
+        });
+
     let pokebox_entry = PokeboxEntry {
         id: new_pokemon.id,
         name: new_pokemon.name,
         species_description,
         types: new_pokemon.types.into_iter().map(type_mapper).collect(),
         abilities: abilities.into_iter().map(ability_mapper).collect(),
-        sprites: new_pokemon.sprites,
+        sprites,
     };
 
     let _ = store_pokemon(mongodb, &pokebox_entry).await;
     Ok(pokebox_entry)
+}
+
+fn extract_sprites_from_pokeapi_response(
+    response: &serde_json::Value,
+) -> std::result::Result<serde_json::Value, Box<dyn std::error::Error>> {
+    response
+        .get("sprites")
+        .cloned()
+        .ok_or_else(|| format!("sprites field missing from response").into())
+}
+
+async fn fetch_pokemon_sprites(url: &str) -> std::result::Result<serde_json::Value, Box<dyn std::error::Error>> {
+    let resp: serde_json::Value = reqwest::get(url).await?.json().await?;
+    extract_sprites_from_pokeapi_response(&resp)
+}
+
+async fn fetch_pokemon_sprites_by_id(id: i64) -> std::result::Result<serde_json::Value, Box<dyn std::error::Error>> {
+    fetch_pokemon_sprites(&format!("https://pokeapi.co/api/v2/pokemon/{}", id)).await
+}
+
+async fn fetch_pokemon_sprites_by_name(name: &str) -> std::result::Result<serde_json::Value, Box<dyn std::error::Error>> {
+    fetch_pokemon_sprites(&format!("https://pokeapi.co/api/v2/pokemon/{}", name)).await
 }
 
 pub async fn get_pokedex(mongodb: &Client) -> Vec<PokedexEntry> {
@@ -401,7 +445,7 @@ pub async fn get_pokedex(mongodb: &Client) -> Vec<PokedexEntry> {
 
 #[test]
 fn test_pokebox_entry_json_roundtrip() {
-    let sprites: PokemonSprites = serde_json::from_str(include_str!("bulbasaur_sprites.json"))
+    let sprites: serde_json::Value = serde_json::from_str(include_str!("bulbasaur_sprites.json"))
         .expect("Failed to deserialize bulbasaur sprites");
     let entry = PokeboxEntry {
         name: "bulbasaur".into(),
@@ -409,7 +453,7 @@ fn test_pokebox_entry_json_roundtrip() {
         species_description: "Seed Pokemon".into(),
         types: vec!["grass".into(), "poison".into()],
         abilities: vec![],
-        sprites,
+        sprites: sprites.clone(),
     };
 
     let json = serde_json::to_string(&entry).expect("Failed to serialize entry");
@@ -417,4 +461,36 @@ fn test_pokebox_entry_json_roundtrip() {
 
     assert_eq!(decoded.id, 1);
     assert_eq!(decoded.name, "bulbasaur");
+    assert_eq!(decoded.sprites, sprites);
+}
+
+#[test]
+fn test_extract_sprites_from_pokeapi_response_preserves_extra_fields() {
+    let response = serde_json::json!({
+        "sprites": {
+            "front_default": "https://example.com/front.png",
+            "showdown": {
+                "front_default": "https://example.com/showdown-front.gif"
+            },
+            "other": {
+                "home": {
+                    "front_shiny": "https://example.com/home-shiny.png"
+                }
+            }
+        }
+    });
+
+    let sprites = extract_sprites_from_pokeapi_response(&response)
+        .expect("Failed to extract sprites");
+
+    assert_eq!(sprites["front_default"], "https://example.com/front.png");
+    assert_eq!(sprites["showdown"]["front_default"], "https://example.com/showdown-front.gif");
+    assert_eq!(sprites["other"]["home"]["front_shiny"], "https://example.com/home-shiny.png");
+}
+
+#[test]
+fn test_extract_sprites_from_pokeapi_response_errors_when_missing_sprites() {
+    let response = serde_json::json!({ "name": "vulpix" });
+    let err = extract_sprites_from_pokeapi_response(&response).unwrap_err();
+    assert!(err.to_string().contains("sprites field missing"));
 }
