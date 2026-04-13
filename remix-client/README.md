@@ -7,7 +7,10 @@
 - [*] Add cached dex display
 - [*] Load pokemon from cached display click
 - [*] Add route for random pokemon
-- [] Add navigation to move to next / previous pokemon
+- [*] Add navigation to move to next / previous pokemon
+- [] Add ai tests and evaluate
+  - [*] Add ai tests
+  - [] Evaluate the tests
 
 # Welcome to Remix!
 
