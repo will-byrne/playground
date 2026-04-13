@@ -1,4 +1,4 @@
-import { useLoaderData, useNavigate } from "@remix-run/react";
+import { useLoaderData, useNavigate, useParams } from "@remix-run/react";
 import { PokemonSprites } from "pokenode-ts";
 import { useState } from "react";
 import { typedFetch } from "utils/typed-fetch";
@@ -34,16 +34,46 @@ const getSprites = (sp: PokemonSprites, k?: string): Record<string, string> => {
 };
 
 export const loader = async ({ params }: { params: { idOrName: string } }) => {
-  const pokemon = await typedFetch<PokeboxEntry>(
-    `http://localhost:3000/pokemon/${params.idOrName}`
-  );
+  try {
+    const pokemon = await typedFetch<PokeboxEntry>(
+      `http://localhost:3000/pokemon/${params.idOrName}`
+    );
+    console.log(JSON.stringify(pokemon, null, 2));
 
-  return { pokemon };
+    return { pokemon, notFound: false };
+  } catch (error) {
+    console.error('Error fetching Pokemon:', error);
+    return { pokemon: null, notFound: true };
+  }
 };
 
 export default function Pokemon() {
-  const { pokemon } = useLoaderData<typeof loader>();
+  const { pokemon, notFound } = useLoaderData<typeof loader>();
   const navigate = useNavigate();
+  const params = useParams();
+
+  if (notFound) {
+    return (
+      <div className="min-h-screen bg-base-200 p-4">
+        <div className="container mx-auto max-w-6xl">
+          <div className="text-center">
+            <h1 className="text-4xl font-bold text-base-content mb-4">Pokemon Not Found</h1>
+            <p className="text-xl text-base-content/70 mb-6">
+              The Pokemon "{params.idOrName}" could not be found.
+            </p>
+            <button
+              type="button"
+              className="btn btn-primary"
+              onClick={() => navigate('/')}
+            >
+              Back to list
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   const [showShiny, setShowShiny] = useState(false);
   const spriteList = getSprites(pokemon.sprites);
   const officialArtFront =
