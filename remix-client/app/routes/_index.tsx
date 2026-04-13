@@ -81,13 +81,14 @@ export default function Index() {
             <h2 className="card-title text-2xl mb-4">Search Pokémon</h2>
             <Form action={idOrName ? `/pokemon/${idOrName}` : "#"}>
               <div className="form-control">
-                <label className="label">
+                <label className="label" htmlFor="idOrNameInput">
                   <span className="label-text">
                     Enter Pokémon name or Pokédex number
                   </span>
                 </label>
                 <div className="join">
                   <input
+                    id="idOrNameInput"
                     type="text"
                     placeholder="e.g. Pikachu, 25..."
                     className="input input-bordered join-item flex-1"
