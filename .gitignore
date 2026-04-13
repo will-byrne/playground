@@ -27,3 +27,6 @@ rust-server/http-cacache/
 
 ### VS Code ###
 .vscode/
+
+### Coverage ###
+coverage/
