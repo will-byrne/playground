@@ -1,5 +1,5 @@
 import type { MetaFunction } from "@remix-run/node";
-import { Form, useLoaderData } from "@remix-run/react";
+import { Form, useLoaderData, useNavigate } from "@remix-run/react";
 import { useState } from "react";
 import { typedFetch } from "utils/typed-fetch";
 
@@ -23,8 +23,10 @@ export const meta: MetaFunction = () => {
 
 export default function Index() {
   const { pokedex } = useLoaderData<typeof loader>();
+  const navigate = useNavigate();
   const [idOrName, setIdOrName] = useState<string>("");
   const [filteredPokedex, setFilteredPokedex] = useState<PokedexEntry[]>([]);
+  const [randomLoading, setRandomLoading] = useState(false);
 
   const handleInputChange = (value: string) => {
     setIdOrName(value);
@@ -36,6 +38,20 @@ export default function Index() {
       setFilteredPokedex(filtered);
     } else {
       setFilteredPokedex([]);
+    }
+  };
+
+  const handleRandomNewPokemon = async () => {
+    setRandomLoading(true);
+    try {
+      const pokemon = await typedFetch<{ id: number; name: string }>(
+        "http://localhost:3000/pokemon/random-new"
+      );
+      navigate(`/pokemon/${pokemon.name}`);
+    } catch (error) {
+      console.error("Failed to fetch a random new Pokémon:", error);
+    } finally {
+      setRandomLoading(false);
     }
   };
 
@@ -80,30 +96,38 @@ export default function Index() {
                   >
                     Search
                   </button>
-                </div>
+                <button
+                  type="button"
+                  className="btn btn-secondary join-item"
+                  onClick={handleRandomNewPokemon}
+                  disabled={randomLoading}
+                >
+                  {randomLoading ? "Loading…" : "Random New Pokémon"}
+                </button>
               </div>
-            </Form>
+            </div>
+          </Form>
 
-            {/* Search Results */}
-            {filteredPokedex.length > 0 && (
-              <div className="mt-4">
-                <h3 className="text-lg font-semibold mb-2">Search Results</h3>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                  {filteredPokedex.map((pokemon) => (
-                    <a
-                      key={pokemon.id}
-                      href={`/pokemon/${pokemon.name}`}
-                      className="btn btn-outline btn-sm justify-start"
-                    >
-                      <span className="font-mono">#{pokemon.id.toString().padStart(3, '0')}</span>
-                      <span className="ml-2 capitalize">{pokemon.name}</span>
-                    </a>
-                  ))}
-                </div>
+          {/* Search Results */}
+          {filteredPokedex.length > 0 && (
+            <div className="mt-4">
+              <h3 className="text-lg font-semibold mb-2">Search Results</h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                {filteredPokedex.map((pokemon) => (
+                  <a
+                    key={pokemon.id}
+                    href={`/pokemon/${pokemon.name}`}
+                    className="btn btn-outline btn-sm justify-start"
+                  >
+                    <span className="font-mono">#{pokemon.id.toString().padStart(3, '0')}</span>
+                    <span className="ml-2 capitalize">{pokemon.name}</span>
+                  </a>
+                ))}
               </div>
-            )}
-          </div>
+            </div>
+          )}
         </div>
+      </div>
 
         {/* Featured Pokémon */}
         <div className="mb-8">

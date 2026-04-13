@@ -6,7 +6,8 @@
 - [*] Add Error handling for pokemon search
 - [*] Add cached dex display
 - [*] Load pokemon from cached display click
-- [] Add route for random pokemon
+- [*] Add route for random pokemon
+- [] Add navigation to move to next / previous pokemon
 
 # Welcome to Remix!
 
