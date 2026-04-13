@@ -38,7 +38,6 @@ export const loader = async ({ params }: { params: { idOrName: string } }) => {
     const pokemon = await typedFetch<PokeboxEntry>(
       `http://localhost:3000/pokemon/${params.idOrName}`
     );
-    console.log(JSON.stringify(pokemon, null, 2));
 
     return { pokemon, notFound: false };
   } catch (error) {
@@ -82,7 +81,7 @@ export default function Pokemon() {
   const officialArtShiny =
     spriteList["showdown-front_shiny"] ??
     spriteList["official-artwork-front_shiny"];
-  console.log(spriteList)
+
   return (
     <div className="min-h-screen bg-base-200 p-4">
       <div className="container mx-auto max-w-6xl">
