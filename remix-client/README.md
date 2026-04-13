@@ -4,8 +4,8 @@
   -  ~~[] port ux from react-client ~~
   - [*] if that is too much effore get gopilot to make one (ux unimportant for this repo)
 - [*] Add Error handling for pokemon search
-- [] Add cached dex display
-- [] Load pokemon from cached display click
+- [*] Add cached dex display
+- [*] Load pokemon from cached display click
 - [] Add route for random pokemon
 
 # Welcome to Remix!
