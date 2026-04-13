@@ -1,3 +1,5 @@
+// WTF is this file even testing, none of this is my code, is it just testing language features?
+
 import { describe, it, expect } from "vitest";
 
 describe("Utility Functions and Edge Cases", () => {
@@ -228,8 +230,7 @@ describe("Utility Functions and Edge Cases", () => {
 
   describe("Error Scenarios", () => {
     it("should handle division by zero", () => {
-      const divide = (a: number, b: number) =>
-        b === 0 ? null : a / b;
+      const divide = (a: number, b: number) => (b === 0 ? null : a / b);
       expect(divide(10, 2)).toBe(5);
       expect(divide(10, 0)).toBeNull();
     });

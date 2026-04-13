@@ -1,3 +1,5 @@
+// next person who tells me ai is te future is getting a talking to...
+
 import { describe, it, expect } from "vitest";
 
 // Helper functions extracted from pokemon.$idOrName.tsx for testing
@@ -26,7 +28,10 @@ const getTypeColor = (type: string): string => {
   return typeColors[type.toLowerCase()] || "bg-gray-400 text-white";
 };
 
-const getSprites = (sp: Record<string, any>, k?: string): Record<string, string> => {
+const getSprites = (
+  sp: Record<string, any>,
+  k?: string
+): Record<string, string> => {
   const result = Object.entries(sp).reduce<Record<string, string>>(
     (acc, [key, value]) => {
       if (typeof value === "string" && value) {
@@ -109,16 +114,16 @@ describe("Pokemon Helper Functions", () => {
       const result = getSprites(sprites);
 
       expect(result).toEqual({
-        "front_default": "https://example.com/front.png",
-        "back_default": "https://example.com/back.png",
+        front_default: "https://example.com/front.png",
+        back_default: "https://example.com/back.png",
       });
     });
 
     it("should handle nested objects with key prefix", () => {
       const sprites = {
         official: {
-          "front_default": "https://example.com/official-front.png",
-          "front_shiny": "https://example.com/official-shiny.png",
+          front_default: "https://example.com/official-front.png",
+          front_shiny: "https://example.com/official-shiny.png",
         },
       };
 
@@ -161,8 +166,8 @@ describe("Pokemon Helper Functions", () => {
       const result = getSprites(sprites as any);
 
       expect(result).toEqual({
-        "front_default": "https://example.com/front.png",
-        "valid_shiny": "https://example.com/shiny.png",
+        front_default: "https://example.com/front.png",
+        valid_shiny: "https://example.com/shiny.png",
       });
     });
 
@@ -176,8 +181,8 @@ describe("Pokemon Helper Functions", () => {
       const result = getSprites(sprites);
 
       expect(result).toEqual({
-        "front_default": "https://example.com/front.png",
-        "back_default": "https://example.com/back.png",
+        front_default: "https://example.com/front.png",
+        back_default: "https://example.com/back.png",
       });
     });
   });

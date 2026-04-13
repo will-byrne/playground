@@ -1,3 +1,5 @@
+// This file seems ok but i want to look closer at is later and see if there are missing test cases.
+
 import { describe, it, expect, beforeEach, vi, afterEach } from "vitest";
 import { typedFetch } from "../../utils/typed-fetch";
 
@@ -19,12 +21,15 @@ describe("typedFetch", () => {
 
     const result = await typedFetch("http://localhost:3000/pokemon/1");
     expect(result).toEqual(mockData);
-    expect(global.fetch).toHaveBeenCalledWith("http://localhost:3000/pokemon/1", {
-      headers: {
-        "Content-Type": "application/json",
-        "Access-Control": "Allow-Origin",
-      },
-    });
+    expect(global.fetch).toHaveBeenCalledWith(
+      "http://localhost:3000/pokemon/1",
+      {
+        headers: {
+          "Content-Type": "application/json",
+          "Access-Control": "Allow-Origin",
+        },
+      }
+    );
   });
 
   it("should throw an error when response is not ok", async () => {
@@ -33,8 +38,10 @@ describe("typedFetch", () => {
       statusText: "Not Found",
     } as Response);
 
-    await expect(typedFetch("http://localhost:3000/pokemon/invalid")).rejects.toThrow(
-      'error fetching (http://localhost:3000/pokemon/invalid): Not Found'
+    await expect(
+      typedFetch("http://localhost:3000/pokemon/invalid")
+    ).rejects.toThrow(
+      "error fetching (http://localhost:3000/pokemon/invalid): Not Found"
     );
   });
 
@@ -42,7 +49,9 @@ describe("typedFetch", () => {
     const networkError = new Error("Network error");
     global.fetch = vi.fn().mockRejectedValueOnce(networkError);
 
-    await expect(typedFetch("http://localhost:3000/pokemon/1")).rejects.toThrow("Network error");
+    await expect(typedFetch("http://localhost:3000/pokemon/1")).rejects.toThrow(
+      "Network error"
+    );
   });
 
   it("should handle complex nested JSON responses", async () => {

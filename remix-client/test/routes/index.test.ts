@@ -1,3 +1,6 @@
+// First observation: what is with all of the unused imports
+// This file does not even import my index route page, it touches none of my code at all.
+
 import { describe, it, expect, beforeEach, vi } from "vitest";
 import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
@@ -21,6 +24,7 @@ const mockPokedex = [
 
 describe("Index Route Functionality", () => {
   describe("Search Functionality", () => {
+    // this isnt touching any of my code and is a rather pointless test that the array.filter function works...
     it("should filter pokemon by name", () => {
       const searchTerm = "pika";
       const filtered = mockPokedex.filter((pokemon) =>
@@ -30,6 +34,7 @@ describe("Index Route Functionality", () => {
       expect(filtered[0].name).toBe("Pikachu");
     });
 
+    // Same as above
     it("should filter pokemon by id", () => {
       const searchTerm = "25";
       const filtered = mockPokedex.filter((pokemon) =>
@@ -39,6 +44,7 @@ describe("Index Route Functionality", () => {
       expect(filtered[0].name).toBe("Pikachu");
     });
 
+    // and again
     it("should be case-insensitive", () => {
       const searchTerm = "PIKACHU";
       const filtered = mockPokedex.filter((pokemon) =>
@@ -48,6 +54,7 @@ describe("Index Route Functionality", () => {
       expect(filtered[0].name).toBe("Pikachu");
     });
 
+    // and again
     it("should limit results to 10", () => {
       const longList = Array.from({ length: 50 }, (_, i) => ({
         id: i + 1,
@@ -62,6 +69,7 @@ describe("Index Route Functionality", () => {
       expect(filtered).toHaveLength(10);
     });
 
+    // realy...?
     it("should return empty array when no matches found", () => {
       const searchTerm = "nonexistent";
       const filtered = mockPokedex.filter((pokemon) =>
@@ -72,6 +80,7 @@ describe("Index Route Functionality", () => {
   });
 
   describe("Featured Pokemon", () => {
+    // sigh...
     it("should include specific featured pokemon ids", () => {
       const featuredIds = [37, 77, 151, 647, 700];
       const featured = mockPokedex.filter((p) => featuredIds.includes(p.id));
@@ -79,6 +88,7 @@ describe("Index Route Functionality", () => {
       expect(featured.map((p) => p.id)).toEqual(featuredIds);
     });
 
+    // and they say ai will replace developers...
     it("should display featured pokemon in correct order", () => {
       const featuredIds = [37, 77, 151, 647, 700];
       const featured = featuredIds
@@ -90,6 +100,7 @@ describe("Index Route Functionality", () => {
     });
   });
 
+  // just no!
   describe("Pokemon ID Formatting", () => {
     it("should pad pokemon ids to 3 digits with leading zeros", () => {
       const formatId = (id: number) => id.toString().padStart(3, "0");
@@ -100,6 +111,7 @@ describe("Index Route Functionality", () => {
     });
   });
 
+  // are there any tests of my code in here at all?
   describe("Pokedex Statistics", () => {
     it("should calculate total pokemon count", () => {
       const totalPokemon = mockPokedex.length;
@@ -122,6 +134,7 @@ describe("Index Route Functionality", () => {
     });
   });
 
+  // at least this one has a comment saying what it SHOULD do... and its an e2e test so why is it here?
   describe("Random Pokemon Navigation", () => {
     it("should navigate to pokemon page when random button is clicked", () => {
       // This would be tested with E2E or integration tests

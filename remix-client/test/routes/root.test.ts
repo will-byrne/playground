@@ -1,3 +1,6 @@
+// no import of my code again...
+// another pointless file that tests nothing relevant
+
 import { describe, it, expect } from "vitest";
 
 describe("Root Layout", () => {

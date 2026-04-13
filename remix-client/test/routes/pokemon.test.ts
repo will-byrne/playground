@@ -1,3 +1,6 @@
+// Off to a bad start when it doesnt import the file its testing...
+// another useless file that tests typescript rather than the code it purports(sp?) to test
+
 import { describe, it, expect } from "vitest";
 
 describe("Pokemon Detail Route Functionality", () => {
@@ -100,13 +103,15 @@ describe("Pokemon Detail Route Functionality", () => {
     const mockPokemon = {
       id: 25,
       name: "pikachu",
-      species_description: "When several of these Pokemon gather, their electricity can build and cause lightning storms.",
+      species_description:
+        "When several of these Pokemon gather, their electricity can build and cause lightning storms.",
       types: ["electric"],
       abilities: [
         {
           name: "static",
           flavour_text: "May paralyze on contact.",
-          effect: "May paralyze a pokemon that hits this pokemon with a move that makes contact.",
+          effect:
+            "May paralyze a pokemon that hits this pokemon with a move that makes contact.",
         },
       ],
       sprites: {

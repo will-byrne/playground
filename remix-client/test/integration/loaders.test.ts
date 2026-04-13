@@ -1,3 +1,5 @@
+// yet another pointless file...
+
 import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
 
 // Mock types for testing loaders
@@ -125,7 +127,7 @@ describe("Loader Integration Tests", () => {
 
       const titleMeta = meta.find((m) => "title" in m);
       expect(titleMeta?.title).toBe("Pokémon Browser");
-      
+
       const descMeta = meta.find((m) => "content" in m);
       expect(descMeta?.content).toBeDefined();
     });
