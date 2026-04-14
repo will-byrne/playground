@@ -1,7 +1,7 @@
 # TODO
 
 - [x] Add ui for pokemon route
-      ~~- [ ] port ux from react-client ~~
+  - [ ] ~~port ux from react-client ~~
   - [x] if that is too much effore get gopilot to make one (ux unimportant for this repo)
 - [x] Add Error handling for pokemon search
 - [x] Add cached dex display
