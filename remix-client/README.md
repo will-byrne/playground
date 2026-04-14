@@ -1,17 +1,17 @@
 # TODO
 
 - [*] Add ui for pokemon route
-  - ~~[] port ux from react-client ~~
+  - ~~[ ] port ux from react-client ~~
   - [*] if that is too much effore get gopilot to make one (ux unimportant for this repo)
 - [*] Add Error handling for pokemon search
 - [*] Add cached dex display
 - [*] Load pokemon from cached display click
 - [*] Add route for random pokemon
 - [*] Add navigation to move to next / previous pokemon
-- [] Add ai tests and evaluate
+- [ ] Add ai tests and evaluate
   - [*] Add ai tests
   - [*] Evaluate the tests
-  - [] Generate test cases with ai and write tests manually.
+  - [ ] Generate test cases with ai and write tests manually.
 
 ## Test evaluation
 
