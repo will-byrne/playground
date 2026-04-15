@@ -107,7 +107,7 @@
           <div class="mt-6 rounded-3xl border border-cc-surface2 bg-cc-mantle p-4">
             <h3 class="text-xl font-semibold mb-3 text-cc-text">Search Results</h3>
             <div class="grid gap-3 sm:grid-cols-2">
-              {#each filteredPokedex as pokemon}
+              {#each filteredPokedex as pokemon (pokemon.id)}
                 <a
                   class="rounded-3xl border border-cc-surface2 bg-cc-base px-4 py-3 text-cc-text hover:bg-cc-surface2"
                   href={`/pokemon/${pokemon.name}`}
@@ -140,7 +140,7 @@
       <div class="rounded-3xl bg-cc-card text-cc-text p-8 shadow-md border border-cc-surface1">
         <h2 class="text-3xl font-semibold mb-6">Featured Pokémon</h2>
         <div class="grid gap-4 sm:grid-cols-2">
-          {#each featuredPokemon as pokemon}
+          {#each featuredPokemon as pokemon (pokemon.id)}
             <a
               href={`/pokemon/${pokemon.name}`}
               class="rounded-3xl border border-cc-surface2 bg-cc-mantle p-6 text-left hover:bg-cc-surface2"
@@ -159,7 +159,7 @@
           on:change={(event) => goto(`/pokemon/${(event.target as HTMLSelectElement).value}`)}
         >
           <option value="" disabled selected>Choose a Pokémon...</option>
-          {#each pokedex as pokemon}
+          {#each pokedex as pokemon (pokemon.id)}
             <option value={pokemon.name}>
               #{pokemon.id.toString().padStart(3, "0")} - {pokemon.name}
             </option>
