@@ -8,6 +8,7 @@ import { usePokedexCache, type PokedexEntry } from "./hooks/usePokedexCache.ts";
 function App() {
   const [currentPokemon, setCurrentPokemon] = useState<PokeboxEntry>();
   const { dex: cachedDex, addToDex, hasInDex } = usePokedexCache();
+  const [error, setError] = useState<string>();
 
   useEffect(() => {
     const loadDex = async () => {
@@ -22,23 +23,45 @@ function App() {
   }, [addToDex]);
 
   const loadSpecificPokemon = async (idOrName: string) => {
-    const pokeboxEntry = await typedFetch<PokeboxEntry>(
-      `http://localhost:3000/pokemon/${idOrName}`
-    );
-    setCurrentPokemon(pokeboxEntry);
-    if (!hasInDex(idOrName)) {
-      const { id, name } = pokeboxEntry;
-      addToDex({ id, name });
+    try {
+      const pokeboxEntry = await typedFetch<PokeboxEntry>(
+        `http://localhost:3000/pokemon/${idOrName}`
+      );
+      setCurrentPokemon(pokeboxEntry);
+      setError(undefined);
+      if (!hasInDex(idOrName)) {
+        const { id, name } = pokeboxEntry;
+        addToDex({ id, name });
+      }
+    } catch (error: any) {
+      if (error.status === 404) {
+        setError("Pokemon not found");
+      } else if (error.status === 500) {
+        setError("Server error");
+      } else {
+        setError("An error occurred");
+      }
     }
   };
 
   const loadRandomPokemon = async () => {
-    const pokeboxEntry = await typedFetch<PokeboxEntry>(
-      "http://localhost:3000/pokemon/random-new"
-    );
-    setCurrentPokemon(pokeboxEntry);
-    const { id, name } = pokeboxEntry;
-    addToDex({ id, name });
+    try {
+      const pokeboxEntry = await typedFetch<PokeboxEntry>(
+        "http://localhost:3000/pokemon/random-new"
+      );
+      setCurrentPokemon(pokeboxEntry);
+      setError(undefined);
+      const { id, name } = pokeboxEntry;
+      addToDex({ id, name });
+    } catch (error: any) {
+      if (error.status === 404) {
+        setError("Pokemon not found");
+      } else if (error.status === 500) {
+        setError("Server error");
+      } else {
+        setError("An error occurred");
+      }
+    }
   };
 
   return (
@@ -76,7 +99,7 @@ function App() {
                     <li key={`${id}-${name}`}>
                       <button
                         type="button"
-                        onClick={() => loadSpecificPokemon(id)}
+                        onClick={() => loadSpecificPokemon(id.toString())}
                       >
                         {name}
                       </button>
@@ -88,6 +111,11 @@ function App() {
           </div>
         </div>
       </div>
+      {error && (
+        <div className="alert alert-error">
+          <span>{error}</span>
+        </div>
+      )}
       {!currentPokemon && <Hero loadSpecificPokemon={loadSpecificPokemon} />}
       {currentPokemon && (
         <PokemonCard
