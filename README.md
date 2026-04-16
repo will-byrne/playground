@@ -44,6 +44,7 @@ If you like the idea of this repo and want to do one yourself go for it, I have 
 I intend to have the shape of the client / server contract on this readme when it is a bit more mature.
 
 ## TODO
+- [ ] Pencil client
 - [ ] Setup proper linting for each project
 - [ ] Finish go-server
 - [x] Finish svelte-client
