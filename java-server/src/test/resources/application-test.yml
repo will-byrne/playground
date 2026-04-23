@@ -1,0 +1,9 @@
+spring:
+  data:
+    mongodb:
+      uri: mongodb://admin:testtest@localhost:27017/pokemon-test?authSource=admin
+  profiles:
+    active: test
+
+server:
+  port: 3001

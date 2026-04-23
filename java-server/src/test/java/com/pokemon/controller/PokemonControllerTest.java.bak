@@ -1,0 +1,92 @@
+package com.pokemon.controller;
+
+import com.pokemon.model.PokeboxEntry;
+import com.pokemon.model.PokedexEntry;
+import com.pokemon.service.PokemonService;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.reactive.AutoConfigureWebTestClient;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.test.web.reactive.client.WebTestClient;
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
+
+import static org.mockito.Mockito.when;
+
+@SpringBootTest
+@AutoConfigureWebTestClient
+class PokemonControllerTest {
+    
+    @Autowired
+    private WebTestClient webTestClient;
+    
+    @MockBean
+    private PokemonService pokemonService;
+    
+    private PokeboxEntry mockPokemon;
+    
+    @BeforeEach
+    void setUp() {
+        mockPokemon = new PokeboxEntry();
+        mockPokemon.setPokemonId(1L);
+        mockPokemon.setName("bulbasaur");
+        mockPokemon.setSpeciesDescription("A small quadrupedal creature");
+        mockPokemon.setTypes(java.util.List.of("grass", "poison"));
+        mockPokemon.setAbilities(java.util.List.of());
+    }
+    
+    @Test
+    void testIndexEndpoint() {
+        webTestClient.get()
+                .uri("/")
+                .exchange()
+                .expectStatus().isOk()
+                .expectBody(String.class)
+                .isEqualTo("Hello, World!");
+    }
+    
+    @Test
+    void testGetPokemonById() {
+        when(pokemonService.getPokemonByIdOrName("1"))
+                .thenReturn(Mono.just(mockPokemon));
+        
+        webTestClient.get()
+                .uri("/pokemon/1")
+                .exchange()
+                .expectStatus().isOk()
+                .expectBody()
+                .jsonPath("$.name").isEqualTo("bulbasaur")
+                .jsonPath("$.pokemonId").isEqualTo(1);
+    }
+    
+    @Test
+    void testGetPokemonByName() {
+        when(pokemonService.getPokemonByIdOrName("bulbasaur"))
+                .thenReturn(Mono.just(mockPokemon));
+        
+        webTestClient.get()
+                .uri("/pokemon/bulbasaur")
+                .exchange()
+                .expectStatus().isOk()
+                .expectBody()
+                .jsonPath("$.name").isEqualTo("bulbasaur");
+    }
+    
+    @Test
+    void testGetPokedex() {
+        PokedexEntry entry1 = new PokedexEntry(1L, "bulbasaur");
+        PokedexEntry entry2 = new PokedexEntry(2L, "ivysaur");
+        
+        when(pokemonService.getPokedex())
+                .thenReturn(Flux.just(entry1, entry2));
+        
+        webTestClient.get()
+                .uri("/pokedex")
+                .exchange()
+                .expectStatus().isOk()
+                .expectBodyList(PokedexEntry.class)
+                .hasSize(2);
+    }
+}
