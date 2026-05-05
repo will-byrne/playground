@@ -14,7 +14,7 @@ export class PokemonCard extends LitElement {
       padding: 1rem;
       border-radius: 12px;
       background: #363a4f;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
       text-align: left;
       font-family: 'Noto Sans', sans-serif;
     }
@@ -33,7 +33,7 @@ export class PokemonCard extends LitElement {
     .content {
       display: flex;
       flex-direction: column; /* stack vertically */
-      align-items: center;    /* center the sprite horizontally */
+      align-items: center; /* center the sprite horizontally */
       gap: 1rem;
       margin-top: 1rem;
     }
@@ -72,21 +72,23 @@ export class PokemonCard extends LitElement {
         </header>
         <div class="content">
           <div class="sprite">
-            <sprite-carousel .sites=${p.sprites}></sprite-carousel>
+            <sprite-carousel .sprites=${p.sprites}></sprite-carousel>
           </div>
-          <div class="detailprs">
+          <div class="details">
             <div class="types">
               ${p.types.map(t => html`<type-badge .type=${t}></type-badge>`)}
             </div>
             <p class="description">${p.species_description}</p>
             <ul class="abilities">
-              ${p.abilities.map(a => html`
-                <li>
-                  <strong>${a.name}</strong>
-                  <p class="flavor">${a.flavour_text}</p>
-                  <small>${a.effect}</small>
-                </li>
-              `)}
+              ${p.abilities.map(
+                a => html`
+                  <li>
+                    <strong>${a.name}</strong>
+                    <p class="flavor">${a.flavour_text}</p>
+                    <small>${a.effect}</small>
+                  </li>
+                `,
+              )}
             </ul>
           </div>
         </div>

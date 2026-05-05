@@ -5,29 +5,32 @@ import { PokemonSprites } from 'pokenode-ts';
 @customElement('sprite-carousel')
 export class SpriteCarousel extends LitElement {
   @property({ type: Object }) sprites!: PokemonSprites;
-  
+
   @state() private currentIndex = 0;
 
   private spriteKeys: string[] = [];
 
-  private flattenSprites(sp: PokemonSprites, k?: string): Record<string, string> {
-    return Object.entries(sp).reduce((prev, current) => {
-      if (typeof current[1] === 'string') {
-        const toReturn: Record<string, string> = { ...prev };
-        const newKey = `${k ? `${k}-` : ''}${current[0]}`;
-        toReturn[newKey] = (current[1] as string);
-        return toReturn;
-      } else if (current[1] != null && typeof current[1] === 'object') {
-        return { ...prev, ...this.flattenSprites(current[1], current[0]) };
-      }
-      return prev;
-    }, {});
+  private getSprites(sp: PokemonSprites, k?: string): Record<string, string> {
+    const result = Object.entries(sp).reduce<Record<string, string>>(
+      (acc, [key, value]) => {
+        if (typeof value === 'string' && value) {
+          const newKey = `${k ? `${k}-` : ''}${key}`;
+          acc[newKey] = value;
+        } else if (value && typeof value === 'object') {
+          Object.assign(acc, this.getSprites(value, key));
+        }
+        return acc;
+      },
+      {},
+    );
+
+    return result;
   }
 
   connectedCallback() {
     super.connectedCallback();
-    this.spriteKeys = Object.entries(this.flattenSprites(this.sprites) ?? {})
-      .filter(([_, v]) => typeof v === 'string' && v) // only valid image URLs
+    this.spriteKeys = Object.entries(this.getSprites(this.sprites) ?? {})
+      .filter(([, v]) => typeof v === 'string' && v) // only valid image URLs
       .map(([k]) => k);
   }
 
@@ -37,8 +40,7 @@ export class SpriteCarousel extends LitElement {
   }
 
   private nextSprite() {
-    this.currentIndex =
-      (this.currentIndex + 1) % this.spriteKeys.length;
+    this.currentIndex = (this.currentIndex + 1) % this.spriteKeys.length;
   }
 
   render() {
@@ -46,12 +48,20 @@ export class SpriteCarousel extends LitElement {
       return html`<p>No sprites available</p>`;
     }
     const key = this.spriteKeys[this.currentIndex];
-    const url = this.flattenSprites(this.sprites)[key];
+    const url = this.getSprites(this.sprites)[key];
     return html`
       <div class="carousel">
-        <button class="prev" @click=${this.prevSprite} aria-label="Previous sprite">‹</button>
+        <button
+          class="prev"
+          @click=${this.prevSprite}
+          aria-label="Previous sprite"
+        >
+          ‹
+        </button>
         <img src=${url} alt=${key} />
-        <button class="next" @click=${this.nextSprite} aria-label="Next sprite">›</button>
+        <button class="next" @click=${this.nextSprite} aria-label="Next sprite">
+          ›
+        </button>
       </div>
       <p class="label">${key}</p>
     `;
