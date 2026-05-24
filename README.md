@@ -45,6 +45,7 @@ I intend to have the shape of the client / server contract on this readme when i
 
 ## TODO
 - [ ] Pencil client
+- [ ] Pyhton server
 - [ ] Setup proper linting for each project
 - [ ] Finish go-server
 - [ ] Hapi server
