@@ -1,57 +1,53 @@
-import { Hono } from 'hono';
-import { prettyJSON } from 'hono/pretty-json';
+import express from 'express';
 import { getPokedex, getPokemonById, getPokemonByName } from './storage';
-import { cors } from 'hono/cors';
 import { getRandomNoExcludeRange } from './get-random-no-exclude-range';
 
-const app = new Hono();
-app.use(
-  cors({
-    origin: ["http://localhost:5173"],
-  })
-);
-app.use('*', prettyJSON());
-app.get('/', (c) => {
-  return c.text("Hello, World!");
+const port = process.env.PORT || 3000;
+const app = express();
+
+app.get('/', (req, res) => {
+  return res.send("Hello, World!");
 });
 
-app.get('/pokemon/random-new', async (c) => {
-  c.header('Access-Control-Allow-Origin');
+app.get('/pokemon/random-new', async (req, res) => {
+  res.header('Access-Control-Allow-Origin');
   try {
     const cachedPokemon = (await getPokedex()).map(({ id }) => id);
     const num = getRandomNoExcludeRange(cachedPokemon);
     const pokemon = await getPokemonById(num);
-    return c.json(pokemon);
+    return res.json(pokemon);
   } catch {
-    return c.text(`Could not find random new Pokemon`);
+    return res.send(`Could not find random new Pokemon`);
   }
 })
 
-app.get('/pokemon/:idOrName', async (c) => {
-  c.header('Access-Control-Allow-Origin');
-  const idOrName = c.req.param('idOrName');
+app.get('/pokemon/:idOrName', async (req, res) => {
+  res.header('Access-Control-Allow-Origin');
+  const idOrName = req.params.idOrName;
   const id = Number.parseInt(idOrName);
   if (isNaN(id)) {
     try {
       const pokemon = await getPokemonByName(idOrName)
-      return c.json(pokemon);
+      return res.json(pokemon);
     } catch {
-      return c.text(`Could not find Pokemon with name: ${idOrName}`);
+      return res.send(`Could not find Pokemon with name: ${idOrName}`);
     }
   } else {
     try {
       const pokemon = await getPokemonById(id);
-      return c.json(pokemon);
+      return res.json(pokemon);
     } catch {
-      return c.text(`Could not find Pokemon with id: ${id}`);
+      return res.send(`Could not find Pokemon with id: ${id}`);
     }
   }
 });
 
-app.get('/pokedex', async (c) => {
+app.get('/pokedex', async (req, res) => {
   const pokedex = await getPokedex();
-  c.header('Access-Control-Allow-Origin');
-  return c.json(pokedex);
+  res.header('Access-Control-Allow-Origin');
+  return res.json(pokedex);
 });
 
-export default app
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`)
+})

@@ -1,4 +1,3 @@
-import { describe, expect, it } from "bun:test";
 import { getRandomNoExcludeRange } from './get-random-no-exclude-range';
 
 describe('get-random-new-dex-no', () => {
