@@ -49,6 +49,8 @@ I intend to have the shape of the client / server contract on this readme when i
 - [ ] Setup proper linting for each project
 - [ ] Finish go-server
 - [ ] Hapi server
+- [ ] TypeORM
+- [ ] RxJS
 - [x] Finish svelte-client
 - [ ] update all to use current contract
 - [ ] document current contract here in this readme
