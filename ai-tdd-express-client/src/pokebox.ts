@@ -48,7 +48,7 @@ export const getPokemon = async (idOrString: number | string): Promise<PokeboxEn
 
       return newPokeboxEntry
     } catch (error) {
-      console.log(`Could not find Pokemon with id: ${id}: ${error}`);
+      console.log(`Could not find Pokemon with id: ${idOrString}: ${error}`);
       throw error;
     }
   } else {
