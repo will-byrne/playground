@@ -1,19 +1,7 @@
-import { Ability, PokemonSprites } from "pokenode-ts";
+import { Ability } from "pokenode-ts";
 import { pokemonService } from "./pokemon-service";
 import { storage } from "./storage";
-
-export type PokeboxEntry = {
-  id: number,
-  name: string,
-  species_description: string,
-  types: string[],
-  sprites: PokemonSprites,
-  abilities: {
-    name: string,
-    flavour_text: string,
-    effect: string,
-  }[]
-}
+import { PokeboxEntry } from ".";
 
 export const getPokemon = async (idOrString: number | string): Promise<PokeboxEntry> => {
   let pokeboxEntry: PokeboxEntry | null;
@@ -27,9 +15,10 @@ export const getPokemon = async (idOrString: number | string): Promise<PokeboxEn
     try {
       const pokemon = await pokemonService.getPokemon(idOrString);
       const abilities: Ability[] = await pokemonService.getAbilities(pokemon);
+      if (!abilities) throw new Error("Unable to retrieve abilities");
       const species = await pokemonService.getSpecies(pokemon);
       const species_description = species.flavor_text_entries.find((entry) => entry.language.name === "en")?.flavor_text;
-      if (!species_description) throw new Error("Unable to retrieve species");
+      if (!species_description) throw new Error("Unable to retrieve species description");
 
       const newPokeboxEntry: PokeboxEntry = {
         id: pokemon.id,
@@ -49,7 +38,7 @@ export const getPokemon = async (idOrString: number | string): Promise<PokeboxEn
       return newPokeboxEntry
     } catch (error) {
       console.log(`Could not find Pokemon with id: ${idOrString}: ${error}`);
-      throw error;
+      throw new Error(`Could not find Pokemon with id: ${idOrString}: ${error}`);
     }
   } else {
     return pokeboxEntry;

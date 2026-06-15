@@ -1,6 +1,20 @@
 import express from 'express';
-import { getPokedex, getPokemonById, getPokemonByName } from './storage';
 import { getRandomNoExcludeRange } from './get-random-no-exclude-range';
+import { PokemonSprites } from 'pokenode-ts';
+import { getPokedex, getPokemon } from './pokebox';
+
+export type PokeboxEntry = {
+  id: number,
+  name: string,
+  species_description: string,
+  types: string[],
+  sprites: PokemonSprites,
+  abilities: {
+    name: string,
+    flavour_text: string,
+    effect: string,
+  }[]
+}
 
 const port = process.env.PORT || 3000;
 const app = express();
@@ -14,7 +28,7 @@ app.get('/pokemon/random-new', async (req, res) => {
   try {
     const cachedPokemon = (await getPokedex()).map(({ id }) => id);
     const num = getRandomNoExcludeRange(cachedPokemon);
-    const pokemon = await getPokemonById(num);
+    const pokemon = await getPokemon(num);
     return res.json(pokemon);
   } catch {
     return res.send(`Could not find random new Pokemon`);
@@ -24,22 +38,8 @@ app.get('/pokemon/random-new', async (req, res) => {
 app.get('/pokemon/:idOrName', async (req, res) => {
   res.header('Access-Control-Allow-Origin');
   const idOrName = req.params.idOrName;
-  const id = Number.parseInt(idOrName);
-  if (isNaN(id)) {
-    try {
-      const pokemon = await getPokemonByName(idOrName)
-      return res.json(pokemon);
-    } catch {
-      return res.send(`Could not find Pokemon with name: ${idOrName}`);
-    }
-  } else {
-    try {
-      const pokemon = await getPokemonById(id);
-      return res.json(pokemon);
-    } catch {
-      return res.send(`Could not find Pokemon with id: ${id}`);
-    }
-  }
+  const pokemon = await getPokemon(idOrName)
+  return res.json(pokemon);
 });
 
 app.get('/pokedex', async (req, res) => {
