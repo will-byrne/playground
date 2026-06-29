@@ -1,6 +1,6 @@
 use futures::TryStreamExt;
 use mongodb::error::Result;
-use mongodb::{Client, Collection, bson::doc, options::ClientOptions};
+use mongodb::{Client, Collection, bson::{doc, Document}, options::ClientOptions};
 use rocket::serde::json::serde_json;
 use rocket::serde::{Deserialize, Serialize};
 use rustemon::model::moves::Move;
@@ -389,22 +389,77 @@ async fn fetch_pokemon_sprites_by_name(name: &str) -> std::result::Result<serde_
 }
 
 pub async fn get_pokedex(mongodb: &Client) -> Vec<PokedexEntry> {
-    let pokedex = mongodb
+    let pokedex_collection: Collection<PokedexEntry> = mongodb
         .database("pokemon")
-        .collection::<Pokemon>("pokemon")
-        .clone_with_type::<PokedexEntry>()
-        .find(doc! {})
+        .collection("pokemon");
+
+    let total_count = pokedex_collection.count_documents(doc! {}).await;
+    match total_count {
+        Ok(n) => eprintln!("get_pokedex: total collection count = {}", n),
+        Err(err) => eprintln!("get_pokedex: count_documents failed: {}", err),
+    }
+
+    let filter = doc! { "id": { "$exists": true } };
+    let id_count = pokedex_collection.count_documents(filter.clone()).await;
+    match id_count {
+        Ok(n) => eprintln!("get_pokedex: documents with id field count = {}", n),
+        Err(err) => eprintln!("get_pokedex: id count_documents failed: {}", err),
+    }
+
+    let pokedex = pokedex_collection
+        .find(filter.clone())
         .projection(doc! { "_id": 0, "id": 1, "name": 1 })
         .sort(doc! { "id": 1 })
         .await;
 
-    if let Ok(r) = pokedex {
-        if let Ok(collected) = r.try_collect::<Vec<PokedexEntry>>().await {
-            return collected;
+    match pokedex {
+        Ok(cursor) => match cursor.try_collect::<Vec<PokedexEntry>>().await {
+            Ok(collected) => {
+                if collected.is_empty() {
+                    eprintln!("get_pokedex: query succeeded but returned empty result");
+                } else {
+                    eprintln!("get_pokedex: collected {} entries", collected.len());
+                    if let Some(first) = collected.first() {
+                        eprintln!("get_pokedex: first entry = id={} name={}", first.id, first.name);
+                    }
+                }
+                collected
+            }
+            Err(err) => {
+                eprintln!("get_pokedex: cursor collect failed: {}", err);
+
+                let raw_collection: Collection<Document> = mongodb
+                    .database("pokemon")
+                    .collection("pokemon");
+
+                let raw_docs = match raw_collection
+                    .find(filter)
+                    .projection(doc! { "_id": 0, "id": 1, "name": 1 })
+                    .sort(doc! { "id": 1 })
+                    .await
+                {
+                    Ok(cursor) => match cursor.try_collect::<Vec<Document>>().await {
+                        Ok(docs) => docs,
+                        Err(err) => {
+                            eprintln!("get_pokedex: raw cursor collect failed: {}", err);
+                            vec![]
+                        }
+                    },
+                    Err(err) => {
+                        eprintln!("get_pokedex: raw find failed: {}", err);
+                        vec![]
+                    }
+                };
+
+                eprintln!("get_pokedex: raw docs sample={} first={:?}", raw_docs.len(), raw_docs.first());
+                vec![]
+            }
+        },
+        Err(err) => {
+            eprintln!("get_pokedex: find failed: {}", err);
+            vec![]
         }
     }
-
-    vec![]
 }
 
 #[test]
