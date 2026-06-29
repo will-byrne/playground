@@ -1,4 +1,11 @@
-import { PokemonClient, type Pokemon, type PokemonSpecies, type PokemonForm, type NamedAPIResourceList, type Ability } from "pokenode-ts";
+import {
+  PokemonClient,
+  type Pokemon,
+  type PokemonSpecies,
+  type PokemonForm,
+  type NamedAPIResourceList,
+  type Ability,
+} from "pokenode-ts";
 import fs from "fs";
 import path from "path";
 
@@ -12,7 +19,7 @@ const RETRY_DELAY_BASE = 1000; // ms, will be multiplied by attempt number
  * Sleep for a given number of milliseconds
  */
 function sleep(ms: number): Promise<void> {
-  return new Promise(resolve => setTimeout(resolve, ms));
+  return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
 /**
@@ -21,7 +28,7 @@ function sleep(ms: number): Promise<void> {
 async function withRetry<T>(
   fn: () => Promise<T>,
   maxAttempts = MAX_RETRIES,
-  initialDelay = RETRY_DELAY_BASE
+  initialDelay = RETRY_DELAY_BASE,
 ): Promise<T> {
   let lastError: Error | null = null;
 
@@ -32,7 +39,9 @@ async function withRetry<T>(
       lastError = err as Error;
       if (attempt < maxAttempts) {
         const delay = initialDelay * attempt;
-        console.log(`   ⏳ Retry attempt ${attempt}/${maxAttempts - 1}, waiting ${delay}ms...`);
+        console.log(
+          `   ⏳ Retry attempt ${attempt}/${maxAttempts - 1}, waiting ${delay}ms...`,
+        );
         await sleep(delay);
       }
     }
@@ -61,14 +70,14 @@ function extractSprites(p: Pokemon) {
     showdown: {
       default: p.sprites.other?.showdown?.front_default ?? null,
       shiny: p.sprites.other?.showdown?.front_shiny ?? null,
-    }
+    },
   };
 }
 
 async function fetchFormSprites(
   formList: NamedAPIResourceList,
   api: PokemonClient,
-  pokemonName: string
+  pokemonName: string,
 ) {
   try {
     // filter forms that belong to this Pokémon
@@ -76,7 +85,7 @@ async function fetchFormSprites(
       (f) =>
         f.name === pokemonName ||
         f.name.startsWith(`${pokemonName}-`) ||
-        f.name.includes(`${pokemonName}-`)
+        f.name.includes(`${pokemonName}-`),
     );
 
     // Fetch forms with rate limiting to avoid API throttling
@@ -84,7 +93,7 @@ async function fetchFormSprites(
     for (const form of relatedForms) {
       try {
         const formData = await withRetry(() =>
-          api.getPokemonFormByName(form.name)
+          api.getPokemonFormByName(form.name),
         );
         forms.push(formData);
         await sleep(RATE_LIMIT_DELAY);
@@ -93,7 +102,10 @@ async function fetchFormSprites(
       }
     }
 
-    const variants: Record<string, { default: string | null; shiny: string | null }> = {};
+    const variants: Record<
+      string,
+      { default: string | null; shiny: string | null }
+    > = {};
 
     forms.forEach((form: PokemonForm) => {
       variants[form.name] = {
@@ -109,18 +121,23 @@ async function fetchFormSprites(
   }
 }
 
-async function getAbilities(api: PokemonClient, pokemon: Pokemon): Promise<Ability[]> {
+async function getAbilities(
+  api: PokemonClient,
+  pokemon: Pokemon,
+): Promise<Ability[]> {
   const abilities: Ability[] = [];
 
   for (const ability of pokemon.abilities) {
     try {
       const abilityData = await withRetry(() =>
-        api.getAbilityByName(ability.ability.name)
+        api.getAbilityByName(ability.ability.name),
       );
       abilities.push(abilityData);
       await sleep(RATE_LIMIT_DELAY);
     } catch (err) {
-      console.warn(`   ⚠️  Failed to fetch ability ${ability.ability.name}: ${err}`);
+      console.warn(
+        `   ⚠️  Failed to fetch ability ${ability.ability.name}: ${err}`,
+      );
     }
   }
 
@@ -132,7 +149,7 @@ function makePokemonJson(
   species: PokemonSpecies,
   abilities: Ability[],
   spriteGroups: any,
-  variants: Record<string, any>
+  variants: Record<string, any>,
 ) {
   return {
     id: pokemon.id,
@@ -142,7 +159,14 @@ function makePokemonJson(
       ...spriteGroups,
       variants, // <-- add regional forms here
     },
-    abilities: abilities.map((a) => ({ name: a.name, description: a.flavor_text_entries.find(e => e.language.name === 'en')?.flavor_text.replace(/\f/g, ' ').replace(/\n/g, ' ') ?? ''})),
+    abilities: abilities.map((a) => ({
+      name: a.name,
+      description:
+        a.flavor_text_entries
+          .find((e) => e.language.name === "en")
+          ?.flavor_text.replace(/\f/g, " ")
+          .replace(/\n/g, " ") ?? "",
+    })),
     description:
       species.flavor_text_entries.find((e: any) => e.language.name === "en")
         ?.flavor_text ?? "",
@@ -166,12 +190,17 @@ async function main() {
 
   const allIds = Array.from({ length: POKEDEX_SIZE }, (_, i) => i + 1);
   const missingPokemon = allIds.filter(
-    (id) => !existingFiles.includes(id.toString())
+    (id) => !existingFiles.includes(id.toString()),
   );
 
   console.log(`🔍 Found ${missingPokemon.length} missing entries.`);
 
-  const api = new PokemonClient();
+  const localClientOpts = process.argv.includes("--local")
+    ? { baseURL: "http://localhost:80/api/v2" }
+    : undefined;
+
+  const api = new PokemonClient(localClientOpts);
+  console.log(localClientOpts ? "🌐 Using local API" : "🌐 Using public API");
 
   // fetch list of all forms
   const formList = await api.listPokemonForms(0, 2000);
@@ -204,7 +233,7 @@ async function main() {
         species,
         abilities,
         spriteGroups,
-        variants
+        variants,
       );
       const filePath = path.join(OUTPUT_DIR, `${fileId}.json`);
 
@@ -212,7 +241,7 @@ async function main() {
       console.log(`   💾 Saved ${fileId}.json`);
     } catch (err) {
       console.error(
-        `❌ Failed to process Pokémon ${id}: ${err instanceof Error ? err.message : err}`
+        `❌ Failed to process Pokémon ${id}: ${err instanceof Error ? err.message : err}`,
       );
       console.log(`   💾 Skipping ${id} and continuing...\n`);
     }
