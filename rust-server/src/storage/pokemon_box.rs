@@ -178,6 +178,24 @@ pub async fn store_pokemon(mongodb: &Client, new_pokemon: &PokeboxEntry) -> Resu
     Ok(true)
 }
 
+const LOCAL_API: &str = "http://pokeapi-app-1:80/api/v2";
+
+fn build_rustemon_client() -> rustemon::client::RustemonClient {
+    if std::env::var("LOCAL_API").is_ok() {
+        eprintln!("using local api for rustemon client");
+        rustemon::client::RustemonClientBuilder::<rustemon::client::CACacheManager>::default()
+            .with_environment(rustemon::client::Environment::Custom(LOCAL_API.to_string()))
+            .try_build()
+            .unwrap_or_else(|err| {
+                eprintln!("Failed to build Rustemon client with local environment: {}", err);
+                rustemon::client::RustemonClient::default()
+            })
+    } else {
+        eprintln!("using default api for rustemon client");
+        rustemon::client::RustemonClient::default()
+    }
+}
+
 pub async fn get_pokemon_by_id(
     mongodb: &Client,
     id: i64,
@@ -192,8 +210,7 @@ pub async fn get_pokemon_by_id(
     if let Some(pokemon) = pokemon {
         return Ok(pokemon);
     }
-
-    let rustemon_client = rustemon::client::RustemonClient::default();
+    let rustemon_client = build_rustemon_client();
     let new_pokemon = rustemon::pokemon::pokemon::get_by_id(id, &rustemon_client)
         .await
         .map_err(|e| Box::new(e) as Box<dyn std::error::Error>)?;
@@ -287,7 +304,7 @@ pub async fn get_pokemon_by_name(
         return Ok(pokemon);
     }
 
-    let rustemon_client = rustemon::client::RustemonClient::default();
+    let rustemon_client = build_rustemon_client();
     let new_pokemon = rustemon::pokemon::pokemon::get_by_name(name, &rustemon_client)
         .await
         .map_err(|e| Box::new(e) as Box<dyn std::error::Error>)?;

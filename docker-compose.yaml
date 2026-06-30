@@ -16,6 +16,8 @@ services:
       timeout: 5s
       retries: 10
       start_period: 2s
+    networks:
+      - pokeapi_default
 
   ## Database (MongoDB) GUI
   mongo-express:
@@ -38,17 +40,26 @@ services:
       timeout: 5s
       retries: 10
       start_period: 2s
+    networks:
+      - pokeapi_default
   
   rust-server:
     build:
       context: ./rust-server
     environment:
+      LOCAL_API: true
       ROCKET_PORT: 3000
       MONGODB_URI: mongodb://admin:testtest@mongodb:27017
     depends_on:
       - mongodb
     ports:
       - 3000:3000
+    networks:
+      - pokeapi_default
 volumes:
   data: {}
   minio_storage: {}
+
+networks:
+  pokeapi_default:
+    external: true
