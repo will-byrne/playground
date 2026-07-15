@@ -1,0 +1,75 @@
+<div class="page-shell detail-shell" *ngIf="pokemon; else missingPokemon">
+  <div class="container">
+    <div class="panel hero-panel detail-hero">
+      <button type="button" class="btn btn-secondary" [routerLink]="['/']">Back to list</button>
+      <div class="detail-title-group">
+        <button *ngIf="canGoToPrevious; else spacer" type="button" class="btn btn-outline" (click)="navigateToPrevious()" aria-label="Previous Pokemon">← Prev</button>
+        <ng-template #spacer><div class="w-20"></div></ng-template>
+        <div class="text-center">
+          <h1 class="page-title">{{ pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1) }}</h1>
+          <p class="page-subtitle">#{{ pokemon.id.toString().padStart(3, '0') }}</p>
+        </div>
+        <button *ngIf="canGoToNext; else spacer" type="button" class="btn btn-outline" (click)="navigateToNext()" aria-label="Next Pokemon">Next →</button>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 section">
+      <div class="panel detail-media-card">
+        <div class="card-body items-center text-center">
+          <div *ngIf="hasShinySprite" class="label">
+            <label class="label-text">
+              <span class="label-text">Shiny</span>
+              <input type="checkbox" class="toggle" [(ngModel)]="showShiny" />
+            </label>
+          </div>
+          <img [alt]="pokemon.name + ' sprite'" [src]="displaySprite ?? ''" class="max-w-full h-64 object-contain rounded-lg" />
+          <div class="flex flex-wrap gap-2 justify-center">
+            <div *ngFor="let type of pokemon.types" class="badge badge-lg" [ngClass]="getTypeColor(type)">
+              {{ type.charAt(0).toUpperCase() + type.slice(1) }}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="card-body">
+          <h2 class="card-title">Description</h2>
+          <p class="leading-relaxed">{{ normalizeDescription() }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel hero-panel">
+      <h2 class="card-title">Abilities</h2>
+      <div class="ability-grid">
+        <div *ngFor="let ability of pokemon.abilities" class="ability-card">
+          <h3>{{ ability.name.charAt(0).toUpperCase() + ability.name.slice(1) }}</h3>
+          <p class="leading-relaxed">{{ ability.flavour_text }}</p>
+          <p>{{ ability.effect }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel hero-panel">
+      <h2 class="card-title">Sprites</h2>
+      <div class="sprite-grid">
+        <div *ngFor="let entry of getSpriteEntries()" class="sprite-card">
+          <img [alt]="entry.key" [src]="entry.value" class="w-16 h-16 object-contain" />
+          <p>{{ formatSpriteName(entry.key) }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #missingPokemon>
+  <div class="page-shell">
+    <div class="container">
+      <div class="panel hero-panel text-center">
+        <h1 class="page-title">Pokemon Not Found</h1>
+        <p class="page-subtitle">The Pokemon "{{ idOrName }}" could not be found.</p>
+        <button type="button" class="btn btn-primary" [routerLink]="['/']">Back to list</button>
+      </div>
+    </div>
+  </div>
+</ng-template>
