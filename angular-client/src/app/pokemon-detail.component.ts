@@ -9,7 +9,7 @@ import { PokemonService, PokemonDetail } from './pokemon.service';
   standalone: true,
   imports: [CommonModule, FormsModule, RouterLink],
   templateUrl: './pokemon-detail.component.html',
-  styleUrl: './pokemon-detail.component.scss'
+  styleUrl: './pokemon-detail.component.scss',
 })
 export class PokemonDetailComponent implements OnInit {
   pokemon: PokemonDetail | null = null;
@@ -19,7 +19,7 @@ export class PokemonDetailComponent implements OnInit {
   constructor(
     private readonly route: ActivatedRoute,
     private readonly router: Router,
-    private readonly pokemonService: PokemonService
+    private readonly pokemonService: PokemonService,
   ) {}
 
   async ngOnInit(): Promise<void> {
@@ -46,10 +46,12 @@ export class PokemonDetailComponent implements OnInit {
       if (typeof value === 'string' && value) {
         result[prefix] = value;
       } else if (value && typeof value === 'object') {
-        Object.entries(value as Record<string, unknown>).forEach(([name, child]) => {
-          const next = prefix ? `${prefix}-${name}` : name;
-          collect(child, next);
-        });
+        Object.entries(value as Record<string, unknown>).forEach(
+          ([name, child]) => {
+            const next = prefix ? `${prefix}-${name}` : name;
+            collect(child, next);
+          },
+        );
       }
     };
 
@@ -58,7 +60,10 @@ export class PokemonDetailComponent implements OnInit {
   }
 
   getSpriteEntries(): Array<{ key: string; value: string }> {
-    return Object.entries(this.spriteList).map(([key, value]) => ({ key, value }));
+    return Object.entries(this.spriteList).map(([key, value]) => ({
+      key,
+      value,
+    }));
   }
 
   normalizeDescription(): string {
@@ -88,18 +93,18 @@ export class PokemonDetailComponent implements OnInit {
       'showdown-front_default',
       'other-home-front_default',
       'other-showdown-front_default',
-      'front_default'
+      'front_default',
     );
   }
 
   get officialArtShiny(): string | null {
     return this.getSpriteValue(
+      'other-official-artwork-front_shiny',
+      'official-artwork-front_shiny',
+      'showdown-front_shiny',
       'other-home-front_shiny',
       'other-showdown-front_shiny',
-      'showdown-front_shiny',
-      'official-artwork-front_shiny',
-      'other-official-artwork-front_shiny',
-      'front_shiny'
+      'front_shiny',
     );
   }
 
@@ -144,7 +149,7 @@ export class PokemonDetailComponent implements OnInit {
       dragon: 'bg-indigo-600 text-white',
       dark: 'bg-gray-800 text-white',
       steel: 'bg-slate-500 text-white',
-      fairy: 'bg-pink-400 text-black'
+      fairy: 'bg-pink-400 text-black',
     };
 
     return typeColors[type.toLowerCase()] ?? 'bg-gray-400 text-white';

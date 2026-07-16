@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { catchError, firstValueFrom, of } from 'rxjs';
 
 export interface PokedexEntry {
   id: number;
@@ -22,35 +24,24 @@ export interface PokemonDetail {
 export class PokemonService {
   private readonly baseUrl = 'http://localhost:3000';
 
-  async getPokedex(): Promise<PokedexEntry[]> {
-    const response = await fetch(`${this.baseUrl}/pokedex`);
-    if (!response.ok) {
-      throw new Error(`error fetching (${this.baseUrl}/pokedex): ${response.statusText}`);
-    }
+  constructor(private readonly http: HttpClient) {}
 
-    return response.json() as Promise<PokedexEntry[]>;
+  async getPokedex(): Promise<PokedexEntry[]> {
+    return firstValueFrom(this.http.get<PokedexEntry[]>(`${this.baseUrl}/pokedex`));
   }
 
   async getPokemon(idOrName: string): Promise<PokemonDetail | null> {
     try {
-      const response = await fetch(`${this.baseUrl}/pokemon/${idOrName}`);
-      if (!response.ok) {
-        return null;
-      }
-
-      return (await response.json()) as PokemonDetail;
+      return await firstValueFrom(
+        this.http.get<PokemonDetail>(`${this.baseUrl}/pokemon/${idOrName}`)
+      );
     } catch (error) {
-      console.error('Error fetching Pokemon:', error);
-      return null;
+      console.error(`Error fetching Pokemon: ${idOrName}`, error);
+      throw new Error(`Error fetching Pokemon: ${idOrName}`);
     }
   }
 
   async getRandomNewPokemon(): Promise<PokedexEntry> {
-    const response = await fetch(`${this.baseUrl}/pokemon/random-new`);
-    if (!response.ok) {
-      throw new Error(`error fetching (${this.baseUrl}/pokemon/random-new): ${response.statusText}`);
-    }
-
-    return response.json() as Promise<PokedexEntry>;
+    return firstValueFrom(this.http.get<PokedexEntry>(`${this.baseUrl}/pokemon/random-new`));
   }
 }
