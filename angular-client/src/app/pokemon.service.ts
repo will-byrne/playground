@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, firstValueFrom, of } from 'rxjs';
+import { firstValueFrom } from 'rxjs';
 
 export interface PokedexEntry {
   id: number;
