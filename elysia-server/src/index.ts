@@ -13,14 +13,14 @@ const app = new Elysia()
       const pokemon = await getPokemon(num.toString());
       return pokemon;
     } catch (error) {
-      return 'Could not find random new pokemon';
+      return `Could not find random new pokemon: ${error}`;
     }
   })
   .get("/pokemon/:idOrName", async ({ params: { idOrName }}) => {
     try {
       return await getPokemon(idOrName);
     } catch (error) {
-      return `Could not find pokemon with id or name: ${idOrName}`
+      return `Could not find pokemon with id or name: ${idOrName}, ${error}`
     }
   })
   .get("/pokedex", async () => { return getPokedex() })

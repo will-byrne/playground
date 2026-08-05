@@ -8,8 +8,8 @@ const mongoDB = mongoClient.db('pokemon');
 const pokemonCollection = mongoDB.collection<PokeboxEntry>('pokemon');
 
 export const getPokemon = async (idOrName: string): Promise<PokeboxEntry> => {
-  let pokeboxEntry: PokeboxEntry | null = null;
-  let isName = !isNaN(Number(idOrName));
+  let pokeboxEntry: PokeboxEntry | null;
+  const isName = !isNaN(Number(idOrName));
   if (!isName) {
     pokeboxEntry = await pokemonCollection.findOne({ id: Number(idOrName) });
   } else {

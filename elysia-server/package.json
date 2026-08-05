@@ -3,6 +3,7 @@
   "version": "1.0.50",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint src/*",
     "dev": "bun run --watch src/index.ts"
   },
   "dependencies": {
@@ -12,7 +13,13 @@
     "pokenode-ts": "^1.20.0"
   },
   "devDependencies": {
-    "bun-types": "latest"
+    "@eslint/js": "^10.0.1",
+    "@eslint/json": "^2.0.1",
+    "bun-types": "latest",
+    "eslint": "^10.8.0",
+    "globals": "^17.9.0",
+    "jiti": "^2.7.0",
+    "typescript-eslint": "^8.66.0"
   },
   "module": "src/index.js"
 }
