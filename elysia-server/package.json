@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "@elysia/cors": "^1.4.2",
+    "@elysia/openapi": "^1.4.15",
     "elysia": "latest",
     "mongodb": "5",
     "pokenode-ts": "^1.20.0"

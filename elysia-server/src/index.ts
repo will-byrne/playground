@@ -1,9 +1,11 @@
 import { Elysia } from "elysia";
+import { openapi } from "@elysia/openapi";
 import { cors } from '@elysia/cors';
 import { getPokedex, getPokemon } from "./pokebox";
 import { getRandomUnseenDexNo } from "./get-random-unseen-dex-no";
 
 const app = new Elysia()
+  .use(openapi())
   .use(cors())
   .get("/", () => "Hello Elysia")
   .get("/pokemon/random-new", async () => {
