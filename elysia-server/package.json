@@ -1,0 +1,18 @@
+{
+  "name": "elysia-server",
+  "version": "1.0.50",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "bun run --watch src/index.ts"
+  },
+  "dependencies": {
+    "@elysia/cors": "^1.4.2",
+    "elysia": "latest",
+    "mongodb": "5",
+    "pokenode-ts": "^1.20.0"
+  },
+  "devDependencies": {
+    "bun-types": "latest"
+  },
+  "module": "src/index.js"
+}
