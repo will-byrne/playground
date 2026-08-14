@@ -3,6 +3,8 @@ package org.example;
 import io.fusionauth.http.server.HTTPListenerConfiguration;
 import io.fusionauth.http.server.HTTPServer;
 import io.fusionauth.http.server.HTTPHandler;
+import org.example.models.Ability;
+import org.example.models.PokeboxEntry;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
@@ -23,9 +25,15 @@ public class Main {
             res.setStatus(404);
             res.getWriter().write("Not found");
         };
+        try {
+            HTTPServer server = new HTTPServer().withHandler(handler).withListener(new HTTPListenerConfiguration(3000));
+            server.start();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
 
-        HTTPServer server = new HTTPServer().withHandler(handler).withListener(new HTTPListenerConfiguration(3000));
-
-        server.start();
+    public static PokeboxEntry getBulbasaur() {
+        return new PokeboxEntry(1, "Bulbasaur", "Its a Bulbasaur", new String[]{"grass"}, null, new Ability[]{});
     }
 }
