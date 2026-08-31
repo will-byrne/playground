@@ -15,14 +15,19 @@ export const app = new Elysia()
       const pokemon = await getPokemon(num.toString());
       return pokemon;
     } catch (error) {
-      return `Could not find random new pokemon: ${error}`;
+      const message = error instanceof Error ? error.message : String(error);
+      return `Could not find random new pokemon: ${message}`;
     }
   })
   .get("/pokemon/:idOrName", async ({ params: { idOrName }}) => {
     try {
-      return await getPokemon(idOrName);
+      console.log('idOrName: ', idOrName);
+      const pokemon = await getPokemon(idOrName);
+      console.log('Found pokemon: ', pokemon.name);
+      return pokemon;
     } catch (error) {
-      return `Could not find pokemon with id or name: ${idOrName}, ${error}`
+      const message = error instanceof Error ? error.message : String(error);
+      return `Could not find pokemon with id or name: ${idOrName}, ${message}`;
     }
   })
   .get("/pokedex", async () => { return getPokedex() });

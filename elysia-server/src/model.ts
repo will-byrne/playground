@@ -1,19 +1,34 @@
-import { PokemonSprites } from "pokenode-ts"
+import "reflect-metadata";
+import type { PokemonSprites } from "pokenode-ts";
+import { ObjectId } from "mongodb";
+import { Column, Entity, ObjectIdColumn } from "typeorm";
 
-export type PokeboxEntry = {
-  id: number,
-  name: string,
-  species_description: string,
-  types: string[],
-  sprites: PokemonSprites,
-  abilities: {
-    name: string,
-    flavour_text: string,
-    effect: string,
-  }[]
+@Entity("pokemon")
+export class PokeboxEntry {
+  @ObjectIdColumn()
+  _id!: ObjectId;
+
+  @Column()
+  id!: number;
+
+  @Column()
+  name!: string;
+
+  @Column()
+  species_description!: string;
+
+  @Column()
+  types!: string[];
+
+  @Column()
+  sprites!: PokemonSprites;
+
+  @Column()
+  abilities!: {
+    name: string;
+    flavour_text: string;
+    effect: string;
+  }[];
 }
 
-export type PokedexEntry = {
-  id: number,
-  name: string
-}
+export type PokedexEntry = Pick<PokeboxEntry, "id" | "name">;
