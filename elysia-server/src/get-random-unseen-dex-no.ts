@@ -1,4 +1,4 @@
-const DEX_MAX = 1250;
+const DEX_MAX = 1025;
 
 export const getRandomUnseenDexNo = (excluded: number[], max?: number): number => {
   let rand = null;
