@@ -7,7 +7,7 @@ type PokedexEntry = { id: number; name: string };
 
 export const loader = async () => {
   const unsortedDex = await typedFetch<PokedexEntry[]>(
-    "http://localhost:3000/pokedex"
+    "http://localhost:3001/pokedex"
   );
   const sortedDex = unsortedDex.sort(({ id: ida }, { id: idb }) => ida - idb);
 
@@ -48,7 +48,7 @@ export default function Index() {
     setRandomLoading(true);
     try {
       const pokemon = await typedFetch<{ id: number; name: string }>(
-        "http://localhost:3000/pokemon/random-new"
+        "http://localhost:3001/pokemon/random-new"
       );
       navigate(`/pokemon/${pokemon.name}`);
     } catch (error) {

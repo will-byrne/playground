@@ -61,7 +61,7 @@ const getSprites = (sp: PokemonSprites, k?: string): Record<string, string> => {
 export const loader = async ({ params }: { params: { idOrName: string } }) => {
   try {
     const pokemon = await typedFetch<PokeboxEntry>(
-      `http://localhost:3000/pokemon/${params.idOrName}`
+      `http://localhost:3001/pokemon/${params.idOrName}`
     );
 
     return { pokemon };
@@ -73,7 +73,6 @@ export const loader = async ({ params }: { params: { idOrName: string } }) => {
 
 export default function Pokemon() {
   const { pokemon } = useLoaderData<typeof loader>();
-  const [showShiny, setShowShiny] = useState(false);
   const navigate = useNavigate();
   const params = useParams();
 
@@ -117,12 +116,16 @@ export default function Pokemon() {
   };
 
   const spriteList = getSprites(pokemon.sprites);
-  const officialArtFront =
-    spriteList["showdown-front_default"] ??
-    spriteList["official-artwork-front_default"];
-  const officialArtShiny =
-    spriteList["showdown-front_shiny"] ??
-    spriteList["official-artwork-front_shiny"];
+  const [selectedSpriteKey, setSelectedSpriteKey] =
+    useState<string>(
+      spriteList["showdown-front_default"]
+        ? "showdown-front_default"
+        : spriteList["official-artwork-front_default"]
+          ? "official-artwork-front_default"
+          : "front_default"
+    );
+
+  const selectedSpriteUrl = spriteList[selectedSpriteKey];
 
   return (
     <div className="min-h-screen bg-base-200 p-4">
@@ -177,26 +180,11 @@ export default function Pokemon() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {/* Pokemon Image Card */}
           <div className="card bg-base-100 shadow-xl">
-            <div className="card-body items-center text-center relative">
-              {officialArtShiny && (
-                <div className="absolute top-4 right-4">
-                  <label className="label cursor-pointer">
-                    <span className="label-text mr-2 text-base-content">
-                      Shiny
-                    </span>
-                    <input
-                      type="checkbox"
-                      className="toggle toggle-primary"
-                      checked={showShiny}
-                      onChange={() => setShowShiny(!showShiny)}
-                    />
-                  </label>
-                </div>
-              )}
+            <div className="card-body items-center text-center">
               <div className="relative">
                 <img
                   alt={`${pokemon.name} sprite`}
-                  src={showShiny ? officialArtShiny : officialArtFront}
+                  src={selectedSpriteUrl}
                   className="max-w-full h-64 object-contain rounded-lg"
                 />
               </div>
@@ -254,16 +242,29 @@ export default function Pokemon() {
           <h2 className="text-3xl font-bold text-base-content mb-4">Sprites</h2>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
             {Object.entries(spriteList).map(([name, url]) => (
-              <div key={url} className="card bg-base-100 shadow-md">
-                <div className="card-body p-4 items-center">
+              <div
+                key={name}
+                className={
+                  "card bg-base-100 shadow-md " +
+                  (name === selectedSpriteKey ? "border border-primary border-current" : "")
+                }
+                onClick={() => setSelectedSpriteKey(name)}
+              >
+                <div className="card-body p-4 items-center cursor-pointer">
                   <img
                     alt={name}
                     src={url}
                     className="w-16 h-16 object-contain"
                   />
-                  <p className="text-xs text-center text-base-content/60 mt-2">
-                    {name.replace(/-/g, " ").replace(/_/g, " ")}
-                  </p>
+                  {name === selectedSpriteKey ? (
+                    <p className="text-xs text-center text-primary font-semibold mt-2">
+                      Selected
+                    </p>
+                  ) : (
+                    <p className="text-xs text-center text-base-content/60 mt-2">
+                      {name.replace(/-/g, " ").replace(/_/g, " ")}
+                    </p>
+                  )}
                 </div>
               </div>
             ))}
