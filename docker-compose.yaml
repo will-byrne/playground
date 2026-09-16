@@ -51,6 +51,22 @@ services:
     ports:
       - 3000:3000
 
+  elysia-server:
+    build:
+      context: ./elysia-server
+    environment:
+      LOCAL_API: false
+      MONGODB_HOST: mongodb
+      MONGODB_PORT: 27017
+      MONGODB_USERNAME: admin
+      MONGODB_PASSWORD: testtest
+      MONGODB_DATABASE: pokemon
+      MONGODB_AUTH_SOURCE: admin
+    depends_on:
+      - mongodb
+    ports:
+      - 3001:3000
+
 volumes:
   data: {}
   minio_storage: {}

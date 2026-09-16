@@ -4,12 +4,12 @@ import { PokeboxEntry } from "./model";
 
 export const AppDataSource = new DataSource({
   type: "mongodb",
-  host: "localhost",
-  port: 27017,
-  username: "admin",
-  password: "testtest",
-  database: "pokemon",
-  authSource: "admin",
+  host: process.env.MONGODB_HOST || "localhost",
+  port: parseInt(process.env.MONGODB_PORT || "27017", 10),
+  username: process.env.MONGODB_USERNAME || "admin",
+  password: process.env.MONGODB_PASSWORD || "testtest",
+  database: process.env.MONGODB_DATABASE || "pokemon",
+  authSource: process.env.MONGODB_AUTH_SOURCE || "admin",
   synchronize: true,
   entities: [PokeboxEntry],
 });

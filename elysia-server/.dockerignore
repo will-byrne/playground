@@ -1,0 +1,10 @@
+node_modules
+.idea
+.DS_Store
+*.trace
+*.zip
+*.tar.gz
+*.log
+.git
+.bun-cache
+.tmp

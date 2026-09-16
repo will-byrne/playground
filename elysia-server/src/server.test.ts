@@ -11,13 +11,22 @@ const mockPokemon: PokeboxEntry = {
     name: 'Bulbasaur',
     species_description: 'Its a bulbasaur',
     types: ['grass'],
-    sprites: undefined,
-    abilities: [{ name: 'overgrow' , flavour_text: 'Ups GRASS moves in a pinch.', effect: 'When this Pokémon has 1/3 or less of its HP remaining, its Grass-type moves inflict 1.5× as much regular damage.'}]
+    sprites: {
+      front_default: null,
+      front_shiny: null,
+      front_female: null,
+      front_shiny_female: null,
+      back_default: null,
+      back_shiny: null,
+      back_female: null,
+      back_shiny_female: null,
+    },
+    abilities: [{ name: 'overgrow', flavour_text: 'Ups GRASS moves in a pinch.', effect: 'When this Pokémon has 1/3 or less of its HP remaining, its Grass-type moves inflict 1.5× as much regular damage.' }]
 }
 
 mock.module('./pokebox', () => ({
   getPokedex: mock(async () => mockPokedex),
-  getPokemon: mock(async (idOrName: string) => mockPokemon),
+  getPokemon: mock(async () => mockPokemon),
 }));
 
 const { app } = await import('./server');

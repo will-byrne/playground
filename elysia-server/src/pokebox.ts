@@ -1,23 +1,22 @@
 import { type Ability, MainClient } from "pokenode-ts";
 import { PokeboxEntry, type PokedexEntry } from "./model";
-import { initializeDatabase } from "./data-source";
+import { AppDataSource } from "./data-source";
 
 const api = new MainClient();
 
-const getPokemonRepository = async () => {
-  const dataSource = await initializeDatabase();
-  return dataSource.getRepository(PokeboxEntry);
+const getPokemonRepository = () => {
+  return AppDataSource.getRepository(PokeboxEntry);
 };
 
 const stripMongoMetadata = <T extends { _id?: unknown }>(entry: T): Omit<T, "_id"> => {
-  const { _id, ...rest } = entry;
+  const { ...rest } = entry;
   return rest as Omit<T, "_id">;
 };
 
 export const getPokemon = async (idOrName: string): Promise<Omit<PokeboxEntry, "_id">> => {
   console.log('idOrName: ', idOrName);
   const isName = Number.isNaN(Number(idOrName));
-  const repository = await getPokemonRepository();
+  const repository = getPokemonRepository();
   const pokeboxEntry = isName
     ? await repository.findOneBy({ name: idOrName })
     : await repository.findOneBy({ id: Number(idOrName) });
@@ -70,7 +69,7 @@ export const getPokemon = async (idOrName: string): Promise<Omit<PokeboxEntry, "
 };
 
 export const getPokedex = async (): Promise<PokedexEntry[]> => {
-  const repository = await getPokemonRepository();
+  const repository = getPokemonRepository();
   return repository.find({
     select: {
       id: true,
