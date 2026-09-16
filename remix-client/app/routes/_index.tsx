@@ -1,13 +1,26 @@
 import type { MetaFunction } from "@remix-run/node";
-import { Form, useLoaderData, useNavigate } from "@remix-run/react";
+import {
+  Form,
+  useLoaderData,
+  useNavigate,
+  useSearchParams,
+} from "@remix-run/react";
 import { useState } from "react";
 import { typedFetch } from "utils/typed-fetch";
+import {
+  BACKENDS,
+  getBackend,
+  getBackendFromRequest,
+  getBackendSearch,
+  getBackendUrl,
+} from "utils/backend";
 
 type PokedexEntry = { id: number; name: string };
 
-export const loader = async () => {
+export const loader = async ({ request }: { request: Request }) => {
+  const backend = getBackendFromRequest(request);
   const unsortedDex = await typedFetch<PokedexEntry[]>(
-    "http://localhost:3001/pokedex"
+    `${getBackendUrl(backend)}/pokedex`
   );
   const sortedDex = unsortedDex.sort(({ id: ida }, { id: idb }) => ida - idb);
 
@@ -24,6 +37,9 @@ export const meta: MetaFunction = () => {
 export default function Index() {
   const { pokedex } = useLoaderData<typeof loader>();
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const backend = getBackend(searchParams.get("backend"));
+  const backendSearch = getBackendSearch(backend);
   const [idOrName, setIdOrName] = useState<string>("");
   const [filteredPokedex, setFilteredPokedex] = useState<PokedexEntry[]>([]);
   const [randomLoading, setRandomLoading] = useState(false);
@@ -48,9 +64,9 @@ export default function Index() {
     setRandomLoading(true);
     try {
       const pokemon = await typedFetch<{ id: number; name: string }>(
-        "http://localhost:3001/pokemon/random-new"
+        `${getBackendUrl(backend)}/pokemon/random-new`
       );
-      navigate(`/pokemon/${pokemon.name}`);
+      navigate(`/pokemon/${pokemon.name}${backendSearch}`);
     } catch (error) {
       console.error("Failed to fetch a random new Pokémon:", error);
     } finally {
@@ -78,8 +94,35 @@ export default function Index() {
         {/* Search Section */}
         <div className="card bg-base-100 shadow-xl mb-8">
           <div className="card-body">
-            <h2 className="card-title text-2xl mb-4">Search Pokémon</h2>
-            <Form action={idOrName ? `/pokemon/${idOrName}` : "#"}>
+            <div className="flex flex-wrap items-center justify-between gap-4 mb-4">
+              <h2 className="card-title text-2xl">Search Pokémon</h2>
+              <label className="form-control w-full sm:w-auto">
+                <span className="label-text mb-1">Backend</span>
+                <select
+                  aria-label="Backend"
+                  className="select select-bordered"
+                  value={backend}
+                  onChange={(event) =>
+                    navigate(
+                      `/${getBackendSearch(getBackend(event.target.value))}`
+                    )
+                  }
+                >
+                  {Object.entries(BACKENDS).map(([value, details]) => (
+                    <option key={value} value={value}>
+                      {details.label}
+                    </option>
+                  ))}
+                </select>
+              </label>
+            </div>
+            <Form
+              action={
+                idOrName
+                  ? `/pokemon/${idOrName}${backendSearch}`
+                  : `/${backendSearch}`
+              }
+            >
               <div className="form-control">
                 <label className="label" htmlFor="idOrNameInput">
                   <span className="label-text">
@@ -122,7 +165,7 @@ export default function Index() {
                   {filteredPokedex.map((pokemon) => (
                     <a
                       key={pokemon.id}
-                      href={`/pokemon/${pokemon.name}`}
+                      href={`/pokemon/${pokemon.name}${backendSearch}`}
                       className="btn btn-outline btn-sm justify-start"
                     >
                       <span className="font-mono">
@@ -156,7 +199,7 @@ export default function Index() {
                     {pokemon!.name}
                   </p>
                   <a
-                    href={`/pokemon/${pokemon!.name}`}
+                    href={`/pokemon/${pokemon!.name}${backendSearch}`}
                     className="btn btn-primary btn-sm"
                   >
                     View Details
@@ -214,7 +257,7 @@ export default function Index() {
                 className="select select-bordered select-lg ml-4"
                 onChange={(e) => {
                   if (e.target.value) {
-                    window.location.href = `/pokemon/${e.target.value}`;
+                    window.location.href = `/pokemon/${e.target.value}${backendSearch}`;
                   }
                 }}
                 defaultValue=""

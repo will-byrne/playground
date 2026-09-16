@@ -1,7 +1,18 @@
-import { useLoaderData, useNavigate, useParams } from "@remix-run/react";
+import {
+  useLoaderData,
+  useNavigate,
+  useParams,
+  useSearchParams,
+} from "@remix-run/react";
 import { PokemonSprites } from "pokenode-ts";
 import { useState } from "react";
 import { typedFetch } from "utils/typed-fetch";
+import {
+  getBackend,
+  getBackendFromRequest,
+  getBackendSearch,
+  getBackendUrl,
+} from "utils/backend";
 
 type PokeboxEntry = {
   id: number;
@@ -58,10 +69,17 @@ const getSprites = (sp: PokemonSprites, k?: string): Record<string, string> => {
   return result;
 };
 
-export const loader = async ({ params }: { params: { idOrName: string } }) => {
+export const loader = async ({
+  params,
+  request,
+}: {
+  params: { idOrName: string };
+  request: Request;
+}) => {
   try {
+    const backend = getBackendFromRequest(request);
     const pokemon = await typedFetch<PokeboxEntry>(
-      `http://localhost:3001/pokemon/${params.idOrName}`
+      `${getBackendUrl(backend)}/pokemon/${params.idOrName}`
     );
 
     return { pokemon };
@@ -75,6 +93,10 @@ export default function Pokemon() {
   const { pokemon } = useLoaderData<typeof loader>();
   const navigate = useNavigate();
   const params = useParams();
+  const [searchParams] = useSearchParams();
+  const backendSearch = getBackendSearch(
+    getBackend(searchParams.get("backend"))
+  );
 
   if (!pokemon) {
     return (
@@ -90,7 +112,7 @@ export default function Pokemon() {
             <button
               type="button"
               className="btn btn-primary"
-              onClick={() => navigate("/")}
+              onClick={() => navigate(`/${backendSearch}`)}
             >
               Back to list
             </button>
@@ -105,13 +127,13 @@ export default function Pokemon() {
 
   const handlePreviousPokemon = () => {
     if (canGoToPrevious) {
-      navigate(`/pokemon/${pokemon.id - 1}`);
+      navigate(`/pokemon/${pokemon.id - 1}${backendSearch}`);
     }
   };
 
   const handleNextPokemon = () => {
     if (canGoToNext) {
-      navigate(`/pokemon/${pokemon.id + 1}`);
+      navigate(`/pokemon/${pokemon.id + 1}${backendSearch}`);
     }
   };
 
@@ -136,7 +158,7 @@ export default function Pokemon() {
             <button
               type="button"
               className="btn btn-secondary"
-              onClick={() => navigate("/")}
+              onClick={() => navigate(`/${backendSearch}`)}
             >
               Back to list
             </button>
