@@ -181,7 +181,7 @@ pub async fn store_pokemon(mongodb: &Client, new_pokemon: &PokeboxEntry) -> Resu
 const LOCAL_API: &str = "http://pokeapi-app-1:80/api/v2";
 
 fn build_rustemon_client() -> rustemon::client::RustemonClient {
-    if std::env::var("LOCAL_API").is_ok() {
+    if matches!(std::env::var("LOCAL_API").as_deref(), Ok("true")) {
         eprintln!("using local api for rustemon client");
         rustemon::client::RustemonClientBuilder::<rustemon::client::CACacheManager>::default()
             .with_environment(rustemon::client::Environment::Custom(LOCAL_API.to_string()))

@@ -43,7 +43,6 @@ services:
     build:
       context: ./rust-server
     environment:
-      LOCAL_API: false
       ROCKET_PORT: 3000
       MONGODB_URI: mongodb://admin:testtest@mongodb:27017
     depends_on:
