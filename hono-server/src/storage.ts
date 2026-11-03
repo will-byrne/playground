@@ -1,102 +1,83 @@
-import { type Ability, MainClient, PokemonSprites } from 'pokenode-ts';
+import { type Ability, MainClient, type Pokemon, type PokemonSprites } from 'pokenode-ts';
 import { MongoClient } from 'mongodb';
 
 const api = new MainClient();
-const mongoClient = new MongoClient('mongodb://admin:testtest@localhost:27017');
+const mongoClient = new MongoClient(process.env.MONGODB_URI ?? 'mongodb://admin:testtest@localhost:27017');
 const mongoDB = mongoClient.db('pokemon');
 const pokemonCollection = mongoDB.collection<PokeboxEntry>('pokemon');
 
 export type PokeboxEntry = {
-  id: number,
   name: string,
+  id: number,
   species_description: string,
   types: string[],
-  sprites: PokemonSprites,
   abilities: {
     name: string,
     flavour_text: string,
     effect: string,
-  }[]
+  }[],
+  sprites: PokemonSprites,
 }
 
-export const getPokemonById = async (id: number): Promise<PokeboxEntry> => {
-  let pokeboxEntry: PokeboxEntry | null = await pokemonCollection.findOne({ id });
+export type PokedexEntry = { name: string, id: number };
 
-  if (!pokeboxEntry) {
-    try {
-      const pokemon = await api.pokemon.getPokemonById(id);
-      const abilities: Ability[] = await Promise.all(pokemon.abilities.map(async ({ ability }) => {
-        const abilityResult = await api.pokemon.getAbilityByName(ability.name);
-        return abilityResult;
-      }));
-      const species = await api.pokemon.getPokemonSpeciesByName(pokemon.species.name);
-      const species_description = species.flavor_text_entries.find((entry) => entry.language.name === "en")?.flavor_text;
-      if (!species_description) throw new Error("Unable to retrieve species");
+const findEnglish = <T extends { language: { name: string } }>(entries: T[]) =>
+  entries.find(({ language }) => language.name === 'en');
 
-      const newPokeboxEntry: PokeboxEntry = {
-        id: pokemon.id,
-        name: pokemon.name,
-        species_description,
-        types: pokemon.types.map(({ type }) => type.name),
-        sprites: pokemon.sprites,
-        abilities: abilities.map(({ name, flavor_text_entries, effect_entries }) => ({
-          name,
-          flavour_text: flavor_text_entries.find(({ language }) => language.name === "en")?.flavor_text || "",
-          effect: effect_entries.find(({ language }) => language.name === "en")?.effect || "",
-        })),
-      }
+const buildPokeboxEntry = async (pokemon: Pokemon): Promise<PokeboxEntry> => {
+  // Like rust-server, abilities that fail to load are skipped rather than failing the request.
+  const abilities: Ability[] = (
+    await Promise.allSettled(pokemon.abilities.map(({ ability }) => api.pokemon.getAbilityByName(ability.name)))
+  ).flatMap((result) => (result.status === 'fulfilled' ? [result.value] : []));
 
-      await pokemonCollection.insertOne(newPokeboxEntry);
+  const species = await api.pokemon.getPokemonSpeciesByName(pokemon.species.name);
 
-      return newPokeboxEntry
-    } catch (error) {
-      console.log(`Could not find Pokemon with id: ${id}: ${error}`);
-      throw error;
-    }
-  } else {
-    return pokeboxEntry;
-  }
+  return {
+    name: pokemon.name,
+    id: pokemon.id,
+    species_description: findEnglish(species.flavor_text_entries)?.flavor_text ?? 'No description available',
+    types: pokemon.types.map(({ type }) => type.name),
+    abilities: abilities.map(({ name, flavor_text_entries, effect_entries }) => ({
+      name,
+      flavour_text: findEnglish(flavor_text_entries)?.flavor_text ?? 'No description available',
+      effect: findEnglish(effect_entries)?.short_effect ?? 'No effect available',
+    })),
+    sprites: pokemon.sprites,
+  };
 };
 
-export const getPokemonByName = async (name: string): Promise<PokeboxEntry> => {
-  let pokeboxEntry: PokeboxEntry | null = await pokemonCollection.findOne({ name });
+const getPokemon = async (
+  filter: { id: number } | { name: string },
+  fetchFromApi: () => Promise<Pokemon>,
+): Promise<PokeboxEntry> => {
+  const cached = await pokemonCollection.findOne(filter, { projection: { _id: 0 } });
+  if (cached) return cached;
 
-  if (!pokeboxEntry) {
-    try {
-      const pokemon = await api.pokemon.getPokemonByName(name);
-      const abilities: Ability[] = await Promise.all(pokemon.abilities.map(async ({ ability }) => {
-        const abilityResult = await api.pokemon.getAbilityByName(ability.name);
-        return abilityResult;
-      }));
-      const species = await api.pokemon.getPokemonSpeciesByName(pokemon.species.name);
-      const species_description = species.flavor_text_entries.find((entry) => entry.language.name === "en")?.flavor_text;
-      if (!species_description) throw new Error("Unable to retrieve species");
-
-      const newPokeboxEntry: PokeboxEntry = {
-        id: pokemon.id,
-        name: pokemon.name,
-        species_description,
-        types: pokemon.types.map(({ type }) => type.name),
-        sprites: pokemon.sprites,
-        abilities: abilities.map(({ name, flavor_text_entries, effect_entries }) => ({
-          name,
-          flavour_text: flavor_text_entries.find(({ language }) => language.name === "en")?.flavor_text || "",
-          effect: effect_entries.find(({ language }) => language.name === "en")?.effect || "",
-        })),
-      }
-
-      await pokemonCollection.insertOne(newPokeboxEntry);
-
-      return newPokeboxEntry
-    } catch (error) {
-      console.log(`Could not find Pokemon with name: ${name}: ${error}`);
-      throw error;
-    }
-  } else {
-    return pokeboxEntry;
+  const entry = await buildPokeboxEntry(await fetchFromApi());
+  try {
+    // insertOne adds `_id` to the document it is given, so insert a copy to keep it out of the response.
+    await pokemonCollection.insertOne({ ...entry });
+  } catch (error) {
+    console.error(`Failed to store Pokemon ${entry.name}: ${error}`);
   }
+  return entry;
 };
 
-export const getPokedex = async (): Promise<{ id: number, name: string }[]> => {
-  return await pokemonCollection.find<{ id: number, name: string }>({}, { projection: { _id: 0, id: 1, name: 1 } }).toArray();
-}
+export const getPokemonById = (id: number): Promise<PokeboxEntry> =>
+  getPokemon({ id }, () => api.pokemon.getPokemonById(id));
+
+export const getPokemonByName = (name: string): Promise<PokeboxEntry> =>
+  getPokemon({ name }, () => api.pokemon.getPokemonByName(name));
+
+export const getPokedex = async (): Promise<PokedexEntry[]> => {
+  try {
+    const entries = await pokemonCollection
+      .find<PokedexEntry>({ id: { $exists: true } }, { projection: { _id: 0, id: 1, name: 1 } })
+      .sort({ id: 1 })
+      .toArray();
+    return entries.map(({ name, id }) => ({ name, id }));
+  } catch (error) {
+    console.error(`get_pokedex failed: ${error}`);
+    return [];
+  }
+};

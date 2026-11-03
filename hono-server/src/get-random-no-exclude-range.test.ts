@@ -3,11 +3,11 @@ import { getRandomNoExcludeRange } from './get-random-no-exclude-range';
 
 describe('get-random-new-dex-no', () => {
   describe('no excludes', () => {
-    it('returns a random number between 1 and 1250', () => {
+    it('returns a random number between 1 and 1025', () => {
       const result = getRandomNoExcludeRange([]);
 
       expect(result).toBeGreaterThanOrEqual(1);
-      expect(result).toBeLessThanOrEqual(1250);
+      expect(result).toBeLessThanOrEqual(1025);
     });
 
     it('returns a random number between 1 and 5 if 5 is passed in as optional max', () => {
@@ -19,11 +19,11 @@ describe('get-random-new-dex-no', () => {
   });
 
   describe('single exclude', () => {
-    it('returns a random number between 1 and 1250 that is not 42 when 42 is excluded', () => {
+    it('returns a random number between 1 and 1025 that is not 42 when 42 is excluded', () => {
       const result = getRandomNoExcludeRange([42]);
 
       expect(result).toBeGreaterThanOrEqual(1);
-      expect(result).toBeLessThanOrEqual(1250);
+      expect(result).toBeLessThanOrEqual(1025);
       expect(result).not.toStrictEqual(42);
     });
 
@@ -50,11 +50,11 @@ describe('get-random-new-dex-no', () => {
   });
 
   describe('multiple exclude', () => {
-    it('returns a random number between 1 and 1250 that is not 1, 42, or 500 when they are excluded', () => {
+    it('returns a random number between 1 and 1025 that is not 1, 42, or 500 when they are excluded', () => {
       const result = getRandomNoExcludeRange([1, 42, 500]);
 
       expect(result).toBeGreaterThanOrEqual(1);
-      expect(result).toBeLessThanOrEqual(1250);
+      expect(result).toBeLessThanOrEqual(1025);
       expect(result).not.toStrictEqual(1);
       expect(result).not.toStrictEqual(42);
       expect(result).not.toStrictEqual(500);

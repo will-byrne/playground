@@ -1,34 +1,44 @@
 import { Elysia } from "elysia";
 import { openapi } from "@elysia/openapi";
-import { cors } from '@elysia/cors';
 import { getPokedex, getPokemon } from "./pokebox";
 import { getRandomUnseenDexNo } from "./get-random-unseen-dex-no";
 
+// Mirrors the CORS fairing in rust-server: the same static headers on every response.
+export const CORS_HEADERS = {
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Methods": "POST, PATCH, GET, DELETE, OPTIONS",
+  "Access-Control-Allow-Headers": "*",
+  "Access-Control-Allow-Credentials": "true",
+} as const;
+
 export const app = new Elysia()
   .use(openapi())
-  .use(cors())
-  .get("/", () => "Hello Elysia")
-  .get("/pokemon/random-new", async () => {
+  .onRequest(({ request, set }) => {
+    Object.assign(set.headers, CORS_HEADERS);
+    // rust-server answers OPTIONS on any path with 204 No Content.
+    if (request.method === "OPTIONS") {
+      return new Response(null, { status: 204, headers: CORS_HEADERS });
+    }
+  })
+  .get("/", () => "Hello, World!")
+  .get("/pokemon/random-new", async ({ set }) => {
     try {
       const seenPokemon = (await getPokedex()).map(({ id }) => id);
       const num = getRandomUnseenDexNo(seenPokemon);
-      const pokemon = await getPokemon(num.toString());
-      return pokemon;
+      return await getPokemon(num.toString());
     } catch (error) {
-      const message = error instanceof Error ? error.message : String(error);
-      return `Could not find random new pokemon: ${message}`;
+      console.error("Could not find random new pokemon", error);
+      set.status = 500;
+      return "Internal Server Error";
     }
   })
-  .get("/pokemon/:idOrName", async ({ params: { idOrName }}) => {
+  .get("/pokemon/:idOrName", async ({ params: { idOrName }, set }) => {
     try {
-      console.log('idOrName: ', idOrName);
-      const pokemon = await getPokemon(idOrName);
-      console.log('Found pokemon: ', pokemon.name);
-      return pokemon;
+      return await getPokemon(idOrName);
     } catch (error) {
-      const message = error instanceof Error ? error.message : String(error);
-      return `Could not find pokemon with id or name: ${idOrName}, ${message}`;
+      console.error(`Could not find pokemon with id or name: ${idOrName}`, error);
+      set.status = 404;
+      return "Not Found";
     }
   })
-  .get("/pokedex", async () => { return getPokedex() });
-
+  .get("/pokedex", () => getPokedex());

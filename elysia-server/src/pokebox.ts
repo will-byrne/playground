@@ -5,75 +5,78 @@ import { AppDataSource } from "./data-source";
 const api = new MainClient();
 
 const getPokemonRepository = () => {
-  return AppDataSource.getRepository(PokeboxEntry);
+  return AppDataSource.getMongoRepository(PokeboxEntry);
 };
 
-const stripMongoMetadata = <T extends { _id?: unknown }>(entry: T): Omit<T, "_id"> => {
-  const { ...rest } = entry;
-  return rest as Omit<T, "_id">;
+const stripMongoMetadata = (entry: PokeboxEntry): Omit<PokeboxEntry, "_id"> => {
+  const rest: Partial<PokeboxEntry> = { ...entry };
+  delete rest._id;
+  return rest as Omit<PokeboxEntry, "_id">;
 };
+
+// Matches rust-server's `id_or_name.parse::<i64>()`: an optionally signed integer is an id,
+// anything else is a name.
+const isId = (idOrName: string) => /^[+-]?\d+$/.test(idOrName);
+
+const findEnglish = <T extends { language: { name: string } }>(entries: T[]) =>
+  entries.find(({ language }) => language.name === "en");
 
 export const getPokemon = async (idOrName: string): Promise<Omit<PokeboxEntry, "_id">> => {
-  console.log('idOrName: ', idOrName);
-  const isName = Number.isNaN(Number(idOrName));
   const repository = getPokemonRepository();
-  const pokeboxEntry = isName
-    ? await repository.findOneBy({ name: idOrName })
-    : await repository.findOneBy({ id: Number(idOrName) });
+  const pokeboxEntry = isId(idOrName)
+    ? await repository.findOneBy({ id: Number(idOrName) })
+    : await repository.findOneBy({ name: idOrName });
 
   if (pokeboxEntry) {
-    console.log('Found pokemon in database: ', pokeboxEntry.name);
     return stripMongoMetadata(pokeboxEntry);
   }
+
   console.log(`Pokemon not found in database, fetching from API: ${idOrName}`);
+  const pokemon = isId(idOrName)
+    ? await api.pokemon.getPokemonById(Number(idOrName))
+    : await api.pokemon.getPokemonByName(idOrName);
+
+  // Like rust-server, abilities that fail to load are skipped rather than failing the request.
+  const abilities: Ability[] = (
+    await Promise.allSettled(
+      pokemon.abilities.map(({ ability }) => api.pokemon.getAbilityByName(ability.name)),
+    )
+  ).flatMap((result) => (result.status === "fulfilled" ? [result.value] : []));
+
+  const species = await api.pokemon.getPokemonSpeciesByName(pokemon.species.name);
+
+  const newPokeboxEntry = repository.create({
+    id: pokemon.id,
+    name: pokemon.name,
+    species_description:
+      findEnglish(species.flavor_text_entries)?.flavor_text ?? "No description available",
+    types: pokemon.types.map(({ type }) => type.name),
+    sprites: pokemon.sprites,
+    abilities: abilities.map(({ name, flavor_text_entries, effect_entries }) => ({
+      name,
+      flavour_text: findEnglish(flavor_text_entries)?.flavor_text ?? "No description available",
+      effect: findEnglish(effect_entries)?.short_effect ?? "No effect available",
+    })),
+  });
+
   try {
-    const pokemon = isName
-      ? await api.pokemon.getPokemonByName(idOrName)
-      : await api.pokemon.getPokemonById(Number(idOrName));
-
-    const abilities: Ability[] = await Promise.all(
-      pokemon.abilities.map(async ({ ability }) => {
-        return await api.pokemon.getAbilityByName(ability.name);
-      }),
-    );
-
-    const species = await api.pokemon.getPokemonSpeciesByName(pokemon.species.name);
-    const species_description = species.flavor_text_entries.find(
-      (entry) => entry.language.name === "en",
-    )?.flavor_text;
-
-    if (!species_description) {
-      throw new Error("Unable to find species");
-    }
-
-    const newPokeboxEntry = repository.create({
-      id: pokemon.id,
-      name: pokemon.name,
-      species_description,
-      types: pokemon.types.map(({ type }) => type.name),
-      sprites: pokemon.sprites,
-      abilities: abilities.map(({ name, flavor_text_entries, effect_entries }) => ({
-        name,
-        flavour_text:
-          flavor_text_entries.find(({ language }) => language.name === "en")?.flavor_text || "",
-        effect: effect_entries.find(({ language }) => language.name === "en")?.effect || "",
-      })),
-    });
-
     await repository.save(newPokeboxEntry);
-    return stripMongoMetadata(newPokeboxEntry);
   } catch (error) {
-    console.log(`Could not find pokemon with id or name: ${idOrName}`);
-    throw error;
+    console.error(`Failed to store pokemon ${pokemon.name}`, error);
   }
+  return stripMongoMetadata(newPokeboxEntry);
 };
 
 export const getPokedex = async (): Promise<PokedexEntry[]> => {
-  const repository = getPokemonRepository();
-  return repository.find({
-    select: {
-      id: true,
-      name: true,
-    },
-  });
+  try {
+    const entries = await getPokemonRepository()
+      .createCursor({ id: { $exists: true } })
+      .project({ _id: 0, id: 1, name: 1 })
+      .sort({ id: 1 })
+      .toArray();
+    return entries.map(({ id, name }) => ({ name, id }));
+  } catch (error) {
+    console.error("get_pokedex failed", error);
+    return [];
+  }
 };

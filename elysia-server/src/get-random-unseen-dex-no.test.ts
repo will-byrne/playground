@@ -6,7 +6,7 @@ describe('get-random-unseen-dex-no', () => {
     const result = getRandomUnseenDexNo([]);
 
     expect(result > 0).toBeTrue();
-    expect(result <= 1024).toBeTrue();
+    expect(result <= 1025).toBeTrue();
   });
 
   test('returns a number that is not in the exclude list', () => {
@@ -17,8 +17,8 @@ describe('get-random-unseen-dex-no', () => {
   });
 
   test('throws when the excluded range covers every value', () => {
-    // The full range is 1..1024; excluding it all must raise an error.
-    expect(() => getRandomUnseenDexNo(Array.from({ length: 1024 }, (_, i) => i + 1)))
+    // The full range is 1..1025; excluding it all must raise an error.
+    expect(() => getRandomUnseenDexNo(Array.from({ length: 1025 }, (_, i) => i + 1)))
       .toThrow('No available dex numbers');
   });
 
@@ -48,7 +48,7 @@ describe('get-random-unseen-dex-no', () => {
   });
 
   test('terminates even when almost the entire range is excluded', () => {
-    // 1024 of the 1024 ids excluded leaves exactly one free slot.
+    // 1025 of the 1025 ids excluded leaves exactly one free slot.
     const excluded = [1, 2, 3, 4, 5, 6, 7, 8, 9];
     const result = getRandomUnseenDexNo(excluded);
 
