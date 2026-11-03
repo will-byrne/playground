@@ -11,22 +11,14 @@ const mockAbility = {
 
 describe('Abilities', () => {
   describe('happy path', () => {
-    it('renders the correct table headers', () => {
-      render(<Abilities abilities={[]} pokemonName='testPokemonName' />)
+    it('renders the section heading', () => {
+      render(<Abilities abilities={[]} />)
 
-      expect(screen.getByText('Name')).toBeInTheDocument();
-      expect(screen.getByText('Description')).toBeInTheDocument();
-      expect(screen.getByText('Effect')).toBeInTheDocument();
-    });
-
-    it('renders with a name if passed in', () => {
-      render(<Abilities abilities={[]} pokemonName='testPokemonName' />)
-
-      expect(screen.getByText('testPokemonName', { exact: false })).toBeInTheDocument();
+      expect(screen.getByRole('heading', { name: 'Abilities' })).toBeInTheDocument();
     });
 
     it('renders an ability with its name, flavor_text and effect when passed in', () => {
-      render(<Abilities abilities={[mockAbility]} pokemonName='foo' />)
+      render(<Abilities abilities={[mockAbility]} />)
 
       expect(screen.getByText('testName')).toBeInTheDocument();
       expect(screen.getByText('testFlavorText')).toBeInTheDocument();
@@ -34,7 +26,7 @@ describe('Abilities', () => {
     });
 
     it('renders multiple abilities when passed in', () => {
-      render(<Abilities abilities={[ mockAbility, { ...mockAbility, name: 'testName2'}, { ...mockAbility, name: 'testName3'}]} pokemonName='foo' />)
+      render(<Abilities abilities={[ mockAbility, { ...mockAbility, name: 'testName2'}, { ...mockAbility, name: 'testName3'}]} />)
 
       expect(screen.getByText('testName')).toBeInTheDocument();
       expect(screen.getByText('testName2')).toBeInTheDocument();

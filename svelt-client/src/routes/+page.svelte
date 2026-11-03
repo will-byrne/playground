@@ -1,171 +1,189 @@
 <script lang="ts">
   import { goto } from "$app/navigation";
-  import { typedFetch } from "$lib/typed-fetch";
+  import {
+    BACKEND_OPTIONS,
+    TEXT,
+    capitalize,
+    fetchRandomNewPokemon,
+    formatDexNo,
+    getBackend,
+    getFeaturedPokemon,
+    getLeftToDiscover,
+    getLeftToDiscoverDesc,
+    homePath,
+    pokemonPath,
+    searchPokedex,
+    type Backend,
+    type PokedexEntry,
+  } from "$lib/pokedex";
 
-  type PokedexEntry = {
-    id: number;
-    name: string;
-  };
+  let { data }: { data: { backend: Backend; pokedex: PokedexEntry[]; error: string | null } } = $props();
 
-  export let data: { pokedex: PokedexEntry[] };
+  let idOrName = $state("");
+  let randomLoading = $state(false);
+  let randomError = $state<string | null>(null);
 
-  const pokedex: PokedexEntry[] = data.pokedex;
-  let idOrName = "";
-  let filteredPokedex: PokedexEntry[] = [];
-  let randomLoading = false;
+  const searchResults = $derived(searchPokedex(data.pokedex, idOrName));
+  const featuredPokemon = $derived(getFeaturedPokemon(data.pokedex));
+  const error = $derived(data.error ?? randomError);
 
-  function updateSearch(value: string) {
-    idOrName = value;
-    if (value.trim().length > 0) {
-      filteredPokedex = pokedex
-        .filter(
-          (pokemon) =>
-            pokemon.name.toLowerCase().includes(value.toLowerCase()) ||
-            pokemon.id.toString().includes(value)
-        )
-        .slice(0, 10);
-    } else {
-      filteredPokedex = [];
-    }
-  }
-
-  async function handleSearch(event: Event) {
+  function handleSearch(event: SubmitEvent) {
     event.preventDefault();
-    if (!idOrName.trim()) {
-      return;
-    }
-
-    await goto(`/pokemon/${encodeURIComponent(idOrName.trim())}`);
+    if (idOrName.trim()) goto(pokemonPath(idOrName.trim(), data.backend));
   }
 
   async function handleRandomNewPokemon() {
     randomLoading = true;
+    randomError = null;
     try {
-      const pokemon = await typedFetch<{ id: number; name: string }>(
-        "http://localhost:3000/pokemon/random-new"
-      );
-      await goto(`/pokemon/${pokemon.name}`);
-    } catch (error) {
-      console.error("Failed to fetch a random new Pokémon:", error);
+      const pokemon = await fetchRandomNewPokemon(data.backend);
+      await goto(pokemonPath(pokemon.name, data.backend));
+    } catch (err) {
+      console.error("Failed to fetch a random new Pokémon:", err);
+      randomError = TEXT.randomError;
     } finally {
       randomLoading = false;
     }
   }
-
-  const featuredPokemon = [37, 77, 151, 647, 700]
-    .map((id) => pokedex.find((pokemon) => pokemon.id === id))
-    .filter((pokemon): pokemon is PokedexEntry => Boolean(pokemon));
 </script>
 
 <svelte:head>
-  <title>Pokédex Explorer</title>
+  <title>{TEXT.title}</title>
 </svelte:head>
 
-<div class="min-h-screen bg-cc-base py-8">
-  <div class="mx-auto max-w-6xl space-y-8 px-4">
-    <section class="rounded-3xl bg-cc-card text-cc-text p-8 shadow-md">
-      <div class="text-center">
-        <h1 class="text-5xl font-bold text-cc-text mb-3">Pokédex Explorer</h1>
-        <p class="text-cc-subtext text-lg">
-          Discover and learn about Pokémon with search, random discovery, and
-          cached browsing.
-        </p>
-      </div>
-    </section>
+<div class="pd-page">
+  <div class="pd-container">
+    <!-- Header -->
+    <div class="pd-header">
+      <h1 class="pd-title">{TEXT.title}</h1>
+      <p class="pd-subtitle">{TEXT.subtitle}</p>
+    </div>
 
-    <section class="grid gap-6 lg:grid-cols-[2fr_1fr]">
-      <div class="rounded-3xl bg-cc-card text-cc-text p-8 shadow-md border border-cc-surface1">
-        <h2 class="text-3xl font-semibold mb-6">Search Pokémon</h2>
-        <form on:submit={handleSearch} class="space-y-4">
-          <div class="flex flex-col gap-3 sm:flex-row">
-            <input
-              class="w-full rounded-3xl border border-cc-surface2 bg-cc-base px-5 py-4 text-cc-text outline-none focus:border-cc-text focus:ring-1 focus:ring-cc-text"
-              type="text"
-              placeholder="e.g. pikachu or 25"
-              value={idOrName}
-              on:input={(event) => updateSearch((event.target as HTMLInputElement).value)}
-            />
-            <button
-              type="submit"
-              class="rounded-3xl btn-cc-primary px-6 py-4 disabled:opacity-60"
-              disabled={!idOrName.trim()}
+    {#if error}
+      <div role="alert" class="pd-alert">{error}</div>
+    {/if}
+
+    <!-- Search Section -->
+    <div class="pd-card pd-section">
+      <div class="pd-card__body">
+        <div class="pd-card__title-row">
+          <h2 class="pd-card__title">{TEXT.searchTitle}</h2>
+          <label class="pd-field">
+            <span class="pd-label pd-label--tight">{TEXT.backendLabel}</span>
+            <select
+              aria-label={TEXT.backendLabel}
+              class="pd-select"
+              value={data.backend}
+              onchange={(event) => goto(homePath(getBackend(event.currentTarget.value)))}
             >
-              Search
-            </button>
+              {#each BACKEND_OPTIONS as option (option.value)}
+                <option value={option.value}>{option.label}</option>
+              {/each}
+            </select>
+          </label>
+        </div>
+        <form onsubmit={handleSearch}>
+          <div class="pd-field">
+            <label class="pd-label" for="idOrNameInput">{TEXT.searchLabel}</label>
+            <div class="pd-join">
+              <input
+                id="idOrNameInput"
+                type="text"
+                placeholder={TEXT.searchPlaceholder}
+                class="pd-input pd-grow"
+                bind:value={idOrName}
+              />
+              <button type="submit" class="pd-btn pd-btn--primary" disabled={!idOrName.trim()}>
+                {TEXT.search}
+              </button>
+              <button type="button" class="pd-btn" onclick={handleRandomNewPokemon} disabled={randomLoading}>
+                {randomLoading ? TEXT.loading : TEXT.random}
+              </button>
+            </div>
           </div>
-          <button
-            type="button"
-            class="rounded-3xl btn-cc-secondary px-6 py-4"
-            on:click={handleRandomNewPokemon}
-            disabled={randomLoading}
-          >
-            {randomLoading ? "Loading…" : "Random New Pokémon"}
-          </button>
         </form>
 
-        {#if filteredPokedex.length > 0}
-          <div class="mt-6 rounded-3xl border border-cc-surface2 bg-cc-mantle p-4">
-            <h3 class="text-xl font-semibold mb-3 text-cc-text">Search Results</h3>
-            <div class="grid gap-3 sm:grid-cols-2">
-              {#each filteredPokedex as pokemon (pokemon.id)}
-                <a
-                  class="rounded-3xl border border-cc-surface2 bg-cc-base px-4 py-3 text-cc-text hover:bg-cc-surface2"
-                  href={`/pokemon/${pokemon.name}`}
-                >
-                  <span class="font-mono text-cc-subtext">#{pokemon.id.toString().padStart(3, "0")}</span>
-                  <span class="ml-2 capitalize">{pokemon.name}</span>
+        <!-- Search Results -->
+        {#if searchResults.length > 0}
+          <div style="margin-top: 1rem">
+            <h3 class="pd-subheading">{TEXT.searchResults}</h3>
+            <div class="pd-grid pd-grid--tight pd-grid--results">
+              {#each searchResults as pokemon (pokemon.id)}
+                <a href={pokemonPath(pokemon.name, data.backend)} class="pd-btn pd-btn--outline pd-btn--sm pd-btn--start">
+                  <span class="pd-mono">{formatDexNo(pokemon.id)}</span>
+                  <span class="pd-capitalize">{pokemon.name}</span>
                 </a>
               {/each}
             </div>
           </div>
         {/if}
       </div>
+    </div>
 
-      <div class="rounded-3xl bg-cc-card text-cc-text p-8 shadow-md border border-cc-surface1">
-        <h2 class="text-3xl font-semibold mb-6">Pokédex Statistics</h2>
-        <div class="grid gap-4">
-          <div class="rounded-3xl bg-cc-mantle p-6">
-            <p class="text-cc-subtext">Total Pokémon in list</p>
-            <p class="text-4xl font-bold text-cc-text">{pokedex.length}</p>
+    <!-- Featured Pokémon -->
+    <div class="pd-section">
+      <h2 class="pd-heading">{TEXT.featured}</h2>
+      <div class="pd-grid pd-grid--featured">
+        {#each featuredPokemon as pokemon (pokemon.id)}
+          <div class="pd-card pd-card--lg">
+            <div class="pd-card__body pd-card__body--compact pd-card__body--center">
+              <h3 class="pd-card__title pd-card__title--md pd-card__title--center">{formatDexNo(pokemon.id)}</h3>
+              <p class="pd-capitalize" style="font-size: 1rem; font-weight: 600; margin-bottom: 0.5rem">
+                {pokemon.name}
+              </p>
+              <a href={pokemonPath(pokemon.name, data.backend)} class="pd-btn pd-btn--primary pd-btn--sm">
+                {TEXT.viewDetails}
+              </a>
+            </div>
           </div>
-          <div class="rounded-3xl bg-cc-mantle p-6">
-            <p class="text-cc-subtext">Pokémon left to discover</p>
-            <p class="text-4xl font-bold text-cc-text">{1025 - pokedex.length}</p>
+        {/each}
+      </div>
+    </div>
+
+    <!-- Quick Stats -->
+    <div class="pd-card pd-section">
+      <div class="pd-card__body pd-card__body--center">
+        <h2 class="pd-card__title pd-card__title--center" style="margin-bottom: 1rem">{TEXT.statsTitle}</h2>
+        <div class="pd-stats">
+          <div class="pd-stat">
+            <div class="pd-stat__title">{TEXT.statTotalTitle}</div>
+            <div class="pd-stat__value pd-stat__value--primary">{data.pokedex.length}</div>
+            <div class="pd-stat__desc">{TEXT.statTotalDesc}</div>
+          </div>
+          <div class="pd-stat">
+            <div class="pd-stat__title">{TEXT.statLeftTitle}</div>
+            <div class="pd-stat__value pd-stat__value--secondary">{getLeftToDiscover(data.pokedex)}</div>
+            <div class="pd-stat__desc">{getLeftToDiscoverDesc(data.pokedex)}</div>
+          </div>
+          <div class="pd-stat">
+            <div class="pd-stat__title">{TEXT.statLastUpdatedTitle}</div>
+            <div class="pd-stat__value pd-stat__value--accent">{TEXT.statLastUpdatedValue}</div>
+            <div class="pd-stat__desc">{TEXT.statLastUpdatedDesc}</div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
 
-    <section class="grid gap-6 lg:grid-cols-2">
-      <div class="rounded-3xl bg-cc-card text-cc-text p-8 shadow-md border border-cc-surface1">
-        <h2 class="text-3xl font-semibold mb-6">Featured Pokémon</h2>
-        <div class="grid gap-4 sm:grid-cols-2">
-          {#each featuredPokemon as pokemon (pokemon.id)}
-            <a
-              href={`/pokemon/${pokemon.name}`}
-              class="rounded-3xl border border-cc-surface2 bg-cc-mantle p-6 text-left hover:bg-cc-surface2"
-            >
-              <p class="font-semibold text-cc-text">#{pokemon.id.toString().padStart(3, "0")}</p>
-              <p class="capitalize text-xl text-cc-text">{pokemon.name}</p>
-            </a>
-          {/each}
+    <!-- Browse Pokédex Pokémon -->
+    <div class="pd-card">
+      <div class="pd-card__body">
+        <h2 class="pd-card__title" style="margin-bottom: 1rem">{TEXT.browseTitle}</h2>
+        <div class="pd-field">
+          <label class="pd-label" for="dexSelector">{TEXT.browseLabel}</label>
+          <select
+            id="dexSelector"
+            class="pd-select pd-select--lg"
+            onchange={(event) => {
+              if (event.currentTarget.value) goto(pokemonPath(event.currentTarget.value, data.backend));
+            }}
+          >
+            <option value="" disabled selected>{TEXT.browsePlaceholder}</option>
+            {#each data.pokedex as pokemon (pokemon.id)}
+              <option value={pokemon.name}>{formatDexNo(pokemon.id)} - {capitalize(pokemon.name)}</option>
+            {/each}
+          </select>
         </div>
       </div>
-
-      <div class="rounded-3xl bg-cc-card text-cc-text p-8 shadow-md border border-cc-surface1">
-        <h2 class="text-3xl font-semibold mb-6">Browse Seen Pokémon</h2>
-        <select
-          class="w-full rounded-3xl border border-cc-surface2 bg-cc-base px-5 py-4 text-cc-text outline-none focus:border-cc-text focus:ring-1 focus:ring-cc-text"
-          on:change={(event) => goto(`/pokemon/${(event.target as HTMLSelectElement).value}`)}
-        >
-          <option value="" disabled selected>Choose a Pokémon...</option>
-          {#each pokedex as pokemon (pokemon.id)}
-            <option value={pokemon.name}>
-              #{pokemon.id.toString().padStart(3, "0")} - {pokemon.name}
-            </option>
-          {/each}
-        </select>
-      </div>
-    </section>
+    </div>
   </div>
 </div>

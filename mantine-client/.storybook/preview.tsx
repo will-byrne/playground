@@ -1,13 +1,12 @@
-import '../src/App.css'
 import '@mantine/core/styles.css';
 import { MantineProvider } from '@mantine/core';
 import type { Preview } from "@storybook/react";
-
+import { theme } from '../src/theme';
 
 const preview: Preview = {
   decorators: [
     (Story) => (
-      <MantineProvider defaultColorScheme="dark">
+      <MantineProvider theme={theme} forceColorScheme="dark">
         <Story />
       </MantineProvider>
     ),

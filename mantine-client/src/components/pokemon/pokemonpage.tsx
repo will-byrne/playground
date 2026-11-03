@@ -1,52 +1,119 @@
-import { Button, Center, Container, Image, Switch, Text, Title } from '@mantine/core';
-import classes from '../home/homepage.module.css';
-import type { PokeboxEntry } from '../../App';
-import type { PokemonSprites } from 'pokenode-ts';
+import { Box, Button, Card, Container, Image, SimpleGrid, Stack, Switch, Text, Title } from '@mantine/core';
 import { useState } from 'react';
-import { Types } from './types';
+import {
+  type Backend,
+  type PokeboxEntry,
+  TEXT,
+  canGoToNext,
+  canGoToPrevious,
+  formatDescription,
+  formatDexNo,
+  getDefaultSpriteKey,
+  getDisplaySpriteKey,
+  getShinySpriteKey,
+  getSprites,
+  homePath,
+  navigate,
+  pokemonPath,
+} from '../../pokedex';
+import classes from '../pokedex.module.css';
 import { Abilities } from './abilities';
-import { SpriteEntry, Sprites } from './sprites';
+import { Sprites } from './sprites';
+import { Types } from './types';
 
-const getSprites = (sp: PokemonSprites, k?: string): SpriteEntry[] => {
-  return Object.entries(sp).reduce((prev, current) => {
-    if (typeof current[1] === 'string') {
-      const newKey = `${k ? `${k}-` : ''}${current[0]}`;
-      return [ ...prev, { name: newKey, url: current[1] }];
-    }
-    else if (current[1] != null && typeof current[1] === 'object') {
-      return [ ...prev, ...getSprites(current[1], current[0]) ];
-    }
-    return prev;
-  }, [] as SpriteEntry[]);
-}
-
-export function PokemonPage({ pokemon, back }: { pokemon: PokeboxEntry, back: () => void}) {
+export function PokemonPage({ pokemon, backend }: { pokemon: PokeboxEntry; backend: Backend }) {
   const spriteList = getSprites(pokemon.sprites);
-  const officialArtFront = spriteList.find(({ name }) => name === 'showdown-front_default') ?? spriteList.find(({ name }) => name === 'official-artwork-front_default');
-  const officialShinyArtFront = spriteList.find(({ name }) => name === 'showdown-front_shiny') ?? spriteList.find(({ name }) => name === 'official-artwork-front_shiny');
-  const [showShiny, setShowShiny] = useState(!!officialShinyArtFront);
+  const [selectedSpriteKey, setSelectedSpriteKey] = useState(() => getDefaultSpriteKey(spriteList));
+  const [showShiny, setShowShiny] = useState(false);
+  const displaySpriteKey = getDisplaySpriteKey(spriteList, selectedSpriteKey, showShiny);
+  const hasShiny = Boolean(getShinySpriteKey(spriteList, selectedSpriteKey));
 
   return (
-    <Container className={classes.wrapper} size={1400}>
-      <div className={classes.inner}>
-        <Title className={classes.title}>{`${pokemon.id}: ${pokemon.name}`}</Title>
-        <Types types={pokemon.types}/>
-        <Center>
-          { officialShinyArtFront && <Switch checked={showShiny} size="lg" onLabel="Shiny" onChange={(event) => setShowShiny(event.currentTarget.checked)}/> }
-          <Image h={240} w="auto" fit="contain" src={showShiny && officialShinyArtFront ? officialShinyArtFront.url : officialArtFront?.url} />
-        </Center>
-        <Container p={0} size={600}>
-          <Text size="lg" c="dimmed" className={classes.description}>{pokemon.species_description}</Text>
-        </Container>
-        <Abilities abilities={pokemon.abilities} pokemonName={pokemon.name} />
-        <Sprites spriteEntries={spriteList} />
-
-        <div className={classes.controls}>
-          <Button className={classes.control} size="md" variant="default" color="gray" onClick={() => back()}>
-            Back
+    <Box className={classes.page}>
+      <Container size="72rem" p="1rem">
+        {/* Header */}
+        <Box
+          mb="1.5rem"
+          ta="center"
+          style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between', gap: '0.75rem' }}
+        >
+          <Button color="dark.5" c="dark.0" onClick={() => navigate(homePath(backend))}>
+            {TEXT.backToList}
           </Button>
-        </div>
-      </div>
-    </Container>
+          <Box style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+            {canGoToPrevious(pokemon.id) ? (
+              <Button
+                variant="outline"
+                color="dark.0"
+                aria-label="Previous Pokémon"
+                onClick={() => navigate(pokemonPath(pokemon.id - 1, backend))}
+              >
+                {TEXT.previous}
+              </Button>
+            ) : (
+              <div className={classes.spacer} />
+            )}
+            <div>
+              <Title order={1} fz="2.25rem" tt="capitalize" mb="0.5rem">
+                {pokemon.name}
+              </Title>
+              <Text fz="xl" c="dark.1">
+                {formatDexNo(pokemon.id)}
+              </Text>
+            </div>
+            {canGoToNext(pokemon.id) ? (
+              <Button
+                variant="outline"
+                color="dark.0"
+                aria-label="Next Pokémon"
+                onClick={() => navigate(pokemonPath(pokemon.id + 1, backend))}
+              >
+                {TEXT.next}
+              </Button>
+            ) : (
+              <div className={classes.spacer} />
+            )}
+          </Box>
+        </Box>
+
+        <SimpleGrid cols={{ base: 1, lg: 2 }} spacing="1.5rem">
+          {/* Pokémon Image Card */}
+          <Card className={classes.card} padding="1.5rem">
+            <Stack align="center" gap="0.5rem">
+              <Image
+                alt={`${pokemon.name} sprite`}
+                src={spriteList[displaySpriteKey]}
+                h="16rem"
+                w="auto"
+                maw="100%"
+                fit="contain"
+              />
+              {hasShiny && (
+                <Switch
+                  label={TEXT.shiny}
+                  checked={showShiny}
+                  onChange={(event) => setShowShiny(event.currentTarget.checked)}
+                />
+              )}
+              <Types types={pokemon.types} />
+            </Stack>
+          </Card>
+
+          {/* Pokémon Details Card */}
+          <Card className={classes.card} padding="1.5rem">
+            <Title order={2} fz="1.5rem" fw={600} mb="1rem">
+              {TEXT.description}
+            </Title>
+            <Text c="dark.0" opacity={0.8} lh={1.625}>
+              {formatDescription(pokemon.species_description)}
+            </Text>
+          </Card>
+        </SimpleGrid>
+
+        <Abilities abilities={pokemon.abilities} />
+
+        <Sprites spriteList={spriteList} selectedKey={selectedSpriteKey} onSelect={setSelectedSpriteKey} />
+      </Container>
+    </Box>
   );
 }

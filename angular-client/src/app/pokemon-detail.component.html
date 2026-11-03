@@ -1,75 +1,111 @@
-<div class="page-shell detail-shell" *ngIf="pokemon; else missingPokemon">
-  <div class="container">
-    <div class="panel hero-panel detail-hero">
-      <button type="button" class="btn btn-secondary" [routerLink]="['/']">Back to list</button>
-      <div class="detail-title-group">
-        <button *ngIf="canGoToPrevious; else spacer" type="button" class="btn btn-outline" (click)="navigateToPrevious()" aria-label="Previous Pokemon">← Prev</button>
-        <ng-template #spacer><div class="w-20"></div></ng-template>
-        <div class="text-center">
-          <h1 class="page-title">{{ pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1) }}</h1>
-          <p class="page-subtitle">#{{ pokemon.id.toString().padStart(3, '0') }}</p>
-        </div>
-        <button *ngIf="canGoToNext; else spacer" type="button" class="btn btn-outline" (click)="navigateToNext()" aria-label="Next Pokemon">Next →</button>
-      </div>
-    </div>
-
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 section">
-      <div class="panel detail-media-card">
-        <div class="card-body items-center text-center">
-          <div *ngIf="hasShinySprite" class="label">
-            <label class="label-text">
-              <span class="label-text">Shiny</span>
-              <input type="checkbox" class="toggle" [(ngModel)]="showShiny" />
-            </label>
+@if (status === 'loaded' && pokemon) {
+  <div class="pd-page">
+    <div class="pd-container pd-container--wide">
+      <!-- Header -->
+      <div class="pd-detail-header">
+        <button type="button" class="pd-btn" (click)="goHome()">{{ text.backToList }}</button>
+        <div class="pd-detail-nav">
+          @if (canGoToPrevious(pokemon.id)) {
+            <button type="button" class="pd-btn pd-btn--outline" (click)="goToPokemon(pokemon.id - 1)" aria-label="Previous Pokémon">
+              {{ text.previous }}
+            </button>
+          } @else {
+            <div class="pd-spacer"></div>
+          }
+          <div>
+            <h1 class="pd-title pd-title--detail pd-capitalize">{{ pokemon.name }}</h1>
+            <p class="pd-subtitle">{{ formatDexNo(pokemon.id) }}</p>
           </div>
-          <img [alt]="pokemon.name + ' sprite'" [src]="displaySprite ?? ''" class="max-w-full h-64 object-contain rounded-lg" />
-          <div class="flex flex-wrap gap-2 justify-center">
-            <div *ngFor="let type of pokemon.types" class="badge badge-lg" [ngClass]="getTypeColor(type)">
-              {{ type.charAt(0).toUpperCase() + type.slice(1) }}
+          @if (canGoToNext(pokemon.id)) {
+            <button type="button" class="pd-btn pd-btn--outline" (click)="goToPokemon(pokemon.id + 1)" aria-label="Next Pokémon">
+              {{ text.next }}
+            </button>
+          } @else {
+            <div class="pd-spacer"></div>
+          }
+        </div>
+      </div>
+
+      <div class="pd-grid pd-grid--detail">
+        <!-- Pokémon Image Card -->
+        <div class="pd-card">
+          <div class="pd-card__body pd-card__body--center">
+            <img [alt]="pokemon.name + ' sprite'" [src]="displaySprite" class="pd-main-sprite" />
+            @if (hasShiny) {
+              <label class="pd-toggle-label">
+                <input type="checkbox" class="pd-toggle" [checked]="showShiny" (change)="showShiny = $any($event.target).checked" />
+                {{ text.shiny }}
+              </label>
+            }
+            <div class="pd-badges">
+              @for (type of pokemon.types; track type) {
+                <span class="pd-badge" [attr.style]="getTypeStyle(type)">{{ type }}</span>
+              }
             </div>
           </div>
         </div>
-      </div>
 
-      <div class="panel">
-        <div class="card-body">
-          <h2 class="card-title">Description</h2>
-          <p class="leading-relaxed">{{ normalizeDescription() }}</p>
+        <!-- Pokémon Details Card -->
+        <div class="pd-card">
+          <div class="pd-card__body">
+            <h2 class="pd-card__title" style="margin-bottom: 1rem">{{ text.description }}</h2>
+            <p class="pd-description">{{ formatDescription(pokemon.species_description) }}</p>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="panel hero-panel">
-      <h2 class="card-title">Abilities</h2>
-      <div class="ability-grid">
-        <div *ngFor="let ability of pokemon.abilities" class="ability-card">
-          <h3>{{ ability.name.charAt(0).toUpperCase() + ability.name.slice(1) }}</h3>
-          <p class="leading-relaxed">{{ ability.flavour_text }}</p>
-          <p>{{ ability.effect }}</p>
+      <!-- Abilities Section -->
+      <div class="pd-section--detail">
+        <h2 class="pd-heading pd-heading--detail">{{ text.abilities }}</h2>
+        <div class="pd-grid pd-grid--abilities">
+          @for (ability of pokemon.abilities; track ability.name) {
+            <div class="pd-card pd-card--lg">
+              <div class="pd-card__body">
+                <h3 class="pd-card__title pd-card__title--ability">{{ ability.name }}</h3>
+                <p class="pd-ability-flavour">{{ ability.flavour_text }}</p>
+                <p class="pd-ability-effect">{{ ability.effect }}</p>
+              </div>
+            </div>
+          }
         </div>
       </div>
-    </div>
 
-    <div class="panel hero-panel">
-      <h2 class="card-title">Sprites</h2>
-      <div class="sprite-grid">
-        <div *ngFor="let entry of getSpriteEntries()" class="sprite-card">
-          <img [alt]="entry.key" [src]="entry.value" class="w-16 h-16 object-contain" />
-          <p>{{ formatSpriteName(entry.key) }}</p>
+      <!-- Sprite Gallery -->
+      <div class="pd-section--detail">
+        <h2 class="pd-heading pd-heading--detail">{{ text.sprites }}</h2>
+        <div class="pd-grid pd-grid--sprites">
+          @for (entry of spriteEntries; track entry[0]) {
+            <button
+              type="button"
+              class="pd-card pd-card--md pd-sprite-card"
+              [class.pd-sprite-card--selected]="entry[0] === selectedSpriteKey"
+              (click)="selectedSpriteKey = entry[0]"
+              [attr.aria-pressed]="entry[0] === selectedSpriteKey"
+            >
+              <div class="pd-card__body pd-card__body--compact pd-card__body--center">
+                <img [alt]="entry[0]" [src]="entry[1]" />
+                <p class="pd-sprite-label" [class.pd-sprite-label--selected]="entry[0] === selectedSpriteKey">
+                  {{ entry[0] === selectedSpriteKey ? text.selected : formatSpriteName(entry[0]) }}
+                </p>
+              </div>
+            </button>
+          }
         </div>
       </div>
     </div>
   </div>
-</div>
-
-<ng-template #missingPokemon>
-  <div class="page-shell">
-    <div class="container">
-      <div class="panel hero-panel text-center">
-        <h1 class="page-title">Pokemon Not Found</h1>
-        <p class="page-subtitle">The Pokemon "{{ idOrName }}" could not be found.</p>
-        <button type="button" class="btn btn-primary" [routerLink]="['/']">Back to list</button>
-      </div>
+} @else {
+  <div class="pd-page">
+    <div class="pd-container pd-container--wide">
+      @if (status === 'loading') {
+        <p class="pd-loading">{{ text.loading }}</p>
+      } @else {
+        <div class="pd-center">
+          <h1 class="pd-title pd-title--detail" style="margin-bottom: 1rem">{{ text.notFoundTitle }}</h1>
+          <p class="pd-subtitle" style="margin-bottom: 1.5rem">{{ text.notFound(idOrName) }}</p>
+          <button type="button" class="pd-btn pd-btn--primary" (click)="goHome()">{{ text.backToList }}</button>
+        </div>
+      }
     </div>
   </div>
-</ng-template>
+}

@@ -1,82 +1,137 @@
-import type { PokemonSprites } from "pokenode-ts";
 import { useState } from "react";
+import {
+  type Backend,
+  type PokeboxEntry,
+  TEXT,
+  canGoToNext,
+  canGoToPrevious,
+  formatDescription,
+  formatDexNo,
+  formatSpriteName,
+  getDefaultSpriteKey,
+  getDisplaySpriteKey,
+  getShinySpriteKey,
+  getSprites,
+  getTypeColor,
+  homePath,
+  navigate,
+  pokemonPath,
+} from "../pokedex.ts";
 import { Abilities } from "./ablities.tsrx";
-import type { PokeboxEntry } from "./hero.tsrx";
-
-const getSprites = (sp: PokemonSprites, k?: string): Record<string, string> => {
-	return Object.entries(sp).reduce<Record<string, string>>((acc, [key, value]) => {
-		if (typeof value === "string") {
-			const newKey = `${k ? `${k}-` : ""}${key}`;
-			acc[newKey] = value;
-		} else if (value && typeof value === "object") {
-			Object.assign(acc, getSprites(value, key));
-		}
-		return acc;
-	}, {});
-};
 
 export const PokemonCard = ({
-	pokeboxEntry: { id, name, species_description, types, abilities, sprites },
-	setCurrentPokemon,
+  pokeboxEntry: { id, name, species_description, types, abilities, sprites },
+  backend,
 }: {
-	pokeboxEntry: PokeboxEntry;
-	setCurrentPokemon: (pokemonDeets: PokeboxEntry | undefined) => void;
+  pokeboxEntry: PokeboxEntry;
+  backend: Backend;
 }) => @{
-	const [showShiny, setShowShiny] = useState(false);
-	const spriteList = getSprites(sprites);
-	const officialArtFront =
-		spriteList["showdown-front_default"] ??
-		spriteList["official-artwork-front_default"];
-	const officialShinyArtFront =
-		spriteList["showdown-front_shiny"] ??
-		spriteList["official-artwork-front_shiny"];
-	const normalizedSpeciesDescription = species_description.replace(/\r?\n/g, " ");
+  const spriteList = getSprites(sprites);
+  const [selectedSpriteKey, setSelectedSpriteKey] = useState(() => getDefaultSpriteKey(spriteList));
+  const [showShiny, setShowShiny] = useState(false);
+  const displaySpriteKey = getDisplaySpriteKey(spriteList, selectedSpriteKey, showShiny);
+  const hasShiny = Boolean(getShinySpriteKey(spriteList, selectedSpriteKey));
 
-	<div className="pokemon-card">
-		<div className="pokemon-card__content">
-			<div className="pokemon-card__image-wrap">
-				{officialShinyArtFront && (
-					<label className="pokemon-card__toggle">
-						<input
-							onChange={() => setShowShiny(!showShiny)}
-							type="checkbox"
-							defaultChecked={false}
-						/>
-						Show shiny
-					</label>
-				)}
-				<img
-					alt="official art"
-					src={showShiny ? officialShinyArtFront : officialArtFront}
-					className="pokemon-card__art"
-				/>
-			</div>
-			<div className="pokemon-card__details">
-				<h1 className="pokemon-card__title">{`${id}: ${name}`}</h1>
-				<div className="pokemon-card__types">
-					{types.map((type) => (
-						<div key={type} className="type-pill">
-							{type}
-						</div>
-					))}
-				</div>
-				<p className="pokemon-card__description">{normalizedSpeciesDescription}</p>
-				<Abilities abilities={abilities} />
-				<div className="pokemon-card__sprites">
-					<div className="pokemon-card__sprite-grid">
-						{Object.entries(spriteList).map(([name, url]) => (
-							<img alt={name} className="" key={url} src={url} />
-						))}
-					</div>
-				</div>
-				<button
-					type="button"
-					onClick={() => setCurrentPokemon(undefined)}
-					className="secondary-button"
-				>
-					Go Back!
-				</button>
-			</div>
-		</div>
-	</div>
+  <div className="pd-page">
+    <div className="pd-container pd-container--wide">
+      <div className="pd-detail-header">
+        <button type="button" className="pd-btn" onClick={() => navigate(homePath(backend))}>
+          {TEXT.backToList}
+        </button>
+        <div className="pd-detail-nav">
+          @if (canGoToPrevious(id)) {
+            <button
+              type="button"
+              className="pd-btn pd-btn--outline"
+              onClick={() => navigate(pokemonPath(id - 1, backend))}
+              aria-label="Previous Pokémon"
+            >
+              {TEXT.previous}
+            </button>
+          } @else {
+            <div className="pd-spacer" />
+          }
+          <div>
+            <h1 className="pd-title pd-title--detail pd-capitalize">{name}</h1>
+            <p className="pd-subtitle">{formatDexNo(id)}</p>
+          </div>
+          @if (canGoToNext(id)) {
+            <button
+              type="button"
+              className="pd-btn pd-btn--outline"
+              onClick={() => navigate(pokemonPath(id + 1, backend))}
+              aria-label="Next Pokémon"
+            >
+              {TEXT.next}
+            </button>
+          } @else {
+            <div className="pd-spacer" />
+          }
+        </div>
+      </div>
+
+      <div className="pd-grid pd-grid--detail">
+        <div className="pd-card">
+          <div className="pd-card__body pd-card__body--center">
+            <img alt={`${name} sprite`} src={spriteList[displaySpriteKey]} className="pd-main-sprite" />
+            @if (hasShiny) {
+              <label className="pd-toggle-label">
+                <input
+                  type="checkbox"
+                  className="pd-toggle"
+                  checked={showShiny}
+                  onChange={(event) => setShowShiny(event.currentTarget.checked)}
+                />
+                {TEXT.shiny}
+              </label>
+            }
+            <div className="pd-badges">
+              @for (const type of types) {
+                <span
+                  key={type}
+                  className="pd-badge"
+                  style={{ backgroundColor: getTypeColor(type).background, color: getTypeColor(type).color }}
+                >
+                  {type}
+                </span>
+              }
+            </div>
+          </div>
+        </div>
+
+        <div className="pd-card">
+          <div className="pd-card__body">
+            <h2 className="pd-card__title" style={{ marginBottom: "1rem" }}>
+              {TEXT.description}
+            </h2>
+            <p className="pd-description">{formatDescription(species_description)}</p>
+          </div>
+        </div>
+      </div>
+
+      <Abilities abilities={abilities} />
+
+      <div className="pd-section--detail">
+        <h2 className="pd-heading pd-heading--detail">{TEXT.sprites}</h2>
+        <div className="pd-grid pd-grid--sprites">
+          @for (const [spriteName, url] of Object.entries(spriteList)) {
+            <button
+              type="button"
+              key={spriteName}
+              className={`pd-card pd-card--md pd-sprite-card${spriteName === selectedSpriteKey ? " pd-sprite-card--selected" : ""}`}
+              onClick={() => setSelectedSpriteKey(spriteName)}
+              aria-pressed={spriteName === selectedSpriteKey}
+            >
+              <div className="pd-card__body pd-card__body--compact pd-card__body--center">
+                <img alt={spriteName} src={url} />
+                <p className={`pd-sprite-label${spriteName === selectedSpriteKey ? " pd-sprite-label--selected" : ""}`}>
+                  {spriteName === selectedSpriteKey ? TEXT.selected : formatSpriteName(spriteName)}
+                </p>
+              </div>
+            </button>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
 };

@@ -1,43 +1,29 @@
 import { LitElement, html, css } from 'lit';
 import { property, customElement } from 'lit/decorators.js';
+import { getTypeStyle } from './pokedex.js';
 
+/** A Pokémon type pill, coloured with the shared type palette (matches .pd-badge). */
 @customElement('type-badge')
 export class TypeBadge extends LitElement {
   @property({ type: String }) type = '';
 
   static styles = css`
     .badge {
-      display: inline-block;
-      padding: 0.25rem 0.75rem;
-      margin: 0.2rem;
-      border-radius: 12px;
-      font-size: 0.85rem;
-      font-weight: bold;
+      display: inline-flex;
+      align-items: center;
+      height: 1.75rem;
+      padding: 0 0.75rem;
+      border-radius: 0.25rem;
+      font-family: inherit;
+      font-size: 1rem;
+      font-weight: 600;
       text-transform: capitalize;
-      color: #1a1b26;
     }
-
-    .fire { background: #ed8796; }
-    .water { background: #8aadf4; }
-    .electric { background: #eed49f; }
-    .grass { background: #a6da95; }
-    .ice { background: #8bd5ca; }
-    .fighting { background: #f5a97f; }
-    .poison { background: #f5bde6; }
-    .ground { background: #eed49f; }
-    .flying { background: #b7bdf8; }
-    .psychic { background: #f5bde6; }
-    .bug { background: #a6da95; }
-    .rock { background: #494d64; color: #cad3f5; }
-    .ghost { background: #b7bdf8; }
-    .dragon { background: #8aadf4; }
-    .dark { background: #363a4f; color: #cad3f5; }
-    .steel { background: #8bd5ca; }
-    .fairy { background: #f5bde6; }
-    .normal { background: #494d64; color: #cad3f5; }
   `;
 
   render() {
-    return html`<span class="badge ${this.type.toLowerCase()}">${this.type}</span>`;
+    return html`<span class="badge ${this.type.toLowerCase()}" style=${getTypeStyle(this.type)}
+      >${this.type}</span
+    >`;
   }
 }

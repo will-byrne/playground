@@ -14,6 +14,5 @@ type Story = StoryObj<typeof Abilities>;
 export const HappyPath: Story = {
   args: {
     abilities: mockPokemon.abilities,
-    pokemonName: mockPokemon.name,
   }
 };

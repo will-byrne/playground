@@ -1,39 +1,31 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { firstValueFrom } from 'rxjs';
-
-export interface PokedexEntry {
-  id: number;
-  name: string;
-}
-
-export interface PokemonDetail {
-  id: number;
-  name: string;
-  species_description: string;
-  types: string[];
-  abilities: Array<{
-    name: string;
-    flavour_text: string;
-    effect: string;
-  }>;
-  sprites: Record<string, unknown>;
-}
+import {
+  type Backend,
+  type PokeboxEntry,
+  type PokedexEntry,
+  getBackendUrl,
+  sortPokedex,
+} from './pokedex';
 
 @Injectable({ providedIn: 'root' })
 export class PokemonService {
-  private readonly baseUrl = 'http://localhost:3000';
-
   constructor(private readonly http: HttpClient) {}
 
-  async getPokedex(): Promise<PokedexEntry[]> {
-    return firstValueFrom(this.http.get<PokedexEntry[]>(`${this.baseUrl}/pokedex`));
+  async getPokedex(backend: Backend): Promise<PokedexEntry[]> {
+    const pokedex = await firstValueFrom(
+      this.http.get<PokedexEntry[]>(`${getBackendUrl(backend)}/pokedex`),
+    );
+    return sortPokedex(pokedex);
   }
 
-  async getPokemon(idOrName: string): Promise<PokemonDetail | null> {
+  async getPokemon(backend: Backend, idOrName: string): Promise<PokeboxEntry> {
     try {
       return await firstValueFrom(
-        this.http.get<PokemonDetail>(`${this.baseUrl}/pokemon/${idOrName}`)
+        this.http.get<PokeboxEntry>(
+          `${getBackendUrl(backend)}/pokemon/${encodeURIComponent(idOrName)}`,
+        ),
       );
     } catch (error) {
       console.error(`Error fetching Pokemon: ${idOrName}`, error);
@@ -41,7 +33,9 @@ export class PokemonService {
     }
   }
 
-  async getRandomNewPokemon(): Promise<PokedexEntry> {
-    return firstValueFrom(this.http.get<PokedexEntry>(`${this.baseUrl}/pokemon/random-new`));
+  async getRandomNewPokemon(backend: Backend): Promise<PokeboxEntry> {
+    return firstValueFrom(
+      this.http.get<PokeboxEntry>(`${getBackendUrl(backend)}/pokemon/random-new`),
+    );
   }
 }

@@ -1,10 +1,9 @@
 import { describe, expect, test } from "bun:test";
 import { render, screen } from "@testing-library/react";
-import type { PokemonSprites } from "pokenode-ts";
-import type { PokeboxEntry } from "./hero";
+import type { PokeboxEntry } from "../pokedex";
 import { PokemonCard } from "./pokemon-card";
 
-const bulbasaurSprites: PokemonSprites = {
+const bulbasaurSprites = {
 	back_default:
 		"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/77.png",
 	back_female: null,
@@ -286,14 +285,15 @@ const bulbasaur: PokeboxEntry = {
 describe("pokemon-card", () => {
 	test("Happy path render", () => {
 		render(
-			<PokemonCard pokeboxEntry={bulbasaur} setCurrentPokemon={() => {}} />,
+			<PokemonCard pokeboxEntry={bulbasaur} backend="elysia" />,
 		);
-		expect(screen.getByText("1: bulbasaur")).toBeInTheDocument();
+		expect(screen.getByRole("heading", { level: 1, name: "bulbasaur" })).toBeInTheDocument();
+		expect(screen.getByText("#001")).toBeInTheDocument();
 	});
 
 	test("abilities", () => {
 		render(
-			<PokemonCard pokeboxEntry={bulbasaur} setCurrentPokemon={() => {}} />,
+			<PokemonCard pokeboxEntry={bulbasaur} backend="elysia" />,
 		);
 		expect(screen.getByText("does stuff")).toBeInTheDocument();
 		expect(screen.getByText("lots")).toBeInTheDocument();
@@ -302,7 +302,7 @@ describe("pokemon-card", () => {
 
 	test("types", () => {
 		render(
-			<PokemonCard pokeboxEntry={bulbasaur} setCurrentPokemon={() => {}} />,
+			<PokemonCard pokeboxEntry={bulbasaur} backend="elysia" />,
 		);
 		expect(screen.getByText("grass")).toBeInTheDocument();
 	});
@@ -310,7 +310,7 @@ describe("pokemon-card", () => {
 	describe("description renders", () => {
 		test("description", () => {
 			render(
-				<PokemonCard pokeboxEntry={bulbasaur} setCurrentPokemon={() => {}} />,
+				<PokemonCard pokeboxEntry={bulbasaur} backend="elysia" />,
 			);
 			expect(screen.getByText("leafy pokemon"));
 		});
@@ -322,21 +322,21 @@ describe("pokemon-card", () => {
 						...bulbasaur,
 						species_description: "this has a \n newline",
 					}}
-					setCurrentPokemon={() => {}}
+					backend="elysia"
 				/>,
 			);
 			expect(screen.getByText("this has a newline")).toBeInTheDocument();
 		});
 	});
 
-	test("correct number of sprites are present", () => {
+	test("shows a gallery entry per sprite plus the selected sprite", () => {
 		render(
 			<PokemonCard
 				pokeboxEntry={{
 					...bulbasaur,
 					species_description: "this has a \n newline",
 				}}
-				setCurrentPokemon={() => {}}
+				backend="elysia"
 			/>,
 		);
 

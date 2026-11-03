@@ -1,101 +1,126 @@
-<div class="page-shell">
-  <div class="container">
-    <div class="hero-panel panel">
-      <h1 class="page-title">Pokédex Explorer</h1>
-      <p class="page-subtitle">Discover and learn about Pokémon in a warm, glassy Catppuccin-inspired interface.</p>
+<div class="pd-page">
+  <div class="pd-container">
+    <!-- Header -->
+    <div class="pd-header">
+      <h1 class="pd-title">{{ text.title }}</h1>
+      <p class="pd-subtitle">{{ text.subtitle }}</p>
     </div>
 
-    <div class="panel search-panel">
-      <div class="card-body">
-        <h2 class="card-title">Search Pokémon</h2>
-        <form (ngSubmit)="onSearchSubmit()" novalidate>
-          <div class="form-control">
-            <label class="label" for="idOrNameInput">
-              <span class="label-text">Enter Pokémon name or Pokédex number</span>
-            </label>
-            <div class="join">
+    @if (error) {
+      <div role="alert" class="pd-alert">{{ error }}</div>
+    }
+
+    <!-- Search Section -->
+    <div class="pd-card pd-section">
+      <div class="pd-card__body">
+        <div class="pd-card__title-row">
+          <h2 class="pd-card__title">{{ text.searchTitle }}</h2>
+          <label class="pd-field">
+            <span class="pd-label pd-label--tight">{{ text.backendLabel }}</span>
+            <select
+              [attr.aria-label]="text.backendLabel"
+              class="pd-select"
+              [value]="backend"
+              (change)="onBackendChange($any($event.target).value)"
+            >
+              @for (option of backendOptions; track option.value) {
+                <option [value]="option.value" [selected]="option.value === backend">{{ option.label }}</option>
+              }
+            </select>
+          </label>
+        </div>
+        <form (submit)="onSearchSubmit($event)" novalidate>
+          <div class="pd-field">
+            <label class="pd-label" for="idOrNameInput">{{ text.searchLabel }}</label>
+            <div class="pd-join">
               <input
                 id="idOrNameInput"
                 type="text"
-                placeholder="e.g. Pikachu, 25..."
-                class="input join-item"
+                [placeholder]="text.searchPlaceholder"
+                class="pd-input pd-grow"
                 [value]="idOrName"
-                (input)="onSearchInput($any($event.target).value)"
+                (input)="idOrName = $any($event.target).value"
               />
-              <button type="submit" class="btn btn-primary join-item" [disabled]="!idOrName.trim()">
-                Search
+              <button type="submit" class="pd-btn pd-btn--primary" [disabled]="!idOrName.trim()">
+                {{ text.search }}
               </button>
-              <button type="button" class="btn btn-secondary join-item" (click)="onRandomNewPokemon()" [disabled]="randomLoading">
-                {{ randomLoading ? 'Loading…' : 'Random New Pokémon' }}
+              <button type="button" class="pd-btn" (click)="onRandomNewPokemon()" [disabled]="randomLoading">
+                {{ randomLoading ? text.loading : text.random }}
               </button>
             </div>
           </div>
         </form>
 
-        <div *ngIf="filteredPokedex.length > 0" class="result-list">
-          <h3 class="card-title">Search Results</h3>
-          <div class="result-list">
-            <a
-              *ngFor="let pokemon of filteredPokedex"
-              [routerLink]="['/pokemon', pokemon.name]"
-              class="result-chip"
-            >
-              <span class="font-mono">#{{ pokemon.id.toString().padStart(3, '0') }}</span>
-              <span class="capitalize">{{ pokemon.name }}</span>
-            </a>
+        <!-- Search Results -->
+        @if (searchResults.length > 0) {
+          <div style="margin-top: 1rem">
+            <h3 class="pd-subheading">{{ text.searchResults }}</h3>
+            <div class="pd-grid pd-grid--tight pd-grid--results">
+              @for (pokemon of searchResults; track pokemon.id) {
+                <a [routerLink]="['/pokemon', pokemon.name]" [queryParams]="backendQuery" class="pd-btn pd-btn--outline pd-btn--sm pd-btn--start">
+                  <span class="pd-mono">{{ formatDexNo(pokemon.id) }}</span>
+                  <span class="pd-capitalize">{{ pokemon.name }}</span>
+                </a>
+              }
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+
+    <!-- Featured Pokémon -->
+    <div class="pd-section">
+      <h2 class="pd-heading">{{ text.featured }}</h2>
+      <div class="pd-grid pd-grid--featured">
+        @for (pokemon of featuredPokemon; track pokemon.id) {
+          <div class="pd-card pd-card--lg">
+            <div class="pd-card__body pd-card__body--compact pd-card__body--center">
+              <h3 class="pd-card__title pd-card__title--md pd-card__title--center">{{ formatDexNo(pokemon.id) }}</h3>
+              <p class="pd-capitalize" style="font-size: 1rem; font-weight: 600; margin-bottom: 0.5rem">{{ pokemon.name }}</p>
+              <a [routerLink]="['/pokemon', pokemon.name]" [queryParams]="backendQuery" class="pd-btn pd-btn--primary pd-btn--sm">
+                {{ text.viewDetails }}
+              </a>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+
+    <!-- Quick Stats -->
+    <div class="pd-card pd-section">
+      <div class="pd-card__body pd-card__body--center">
+        <h2 class="pd-card__title pd-card__title--center" style="margin-bottom: 1rem">{{ text.statsTitle }}</h2>
+        <div class="pd-stats">
+          <div class="pd-stat">
+            <div class="pd-stat__title">{{ text.statTotalTitle }}</div>
+            <div class="pd-stat__value pd-stat__value--primary">{{ pokedex.length }}</div>
+            <div class="pd-stat__desc">{{ text.statTotalDesc }}</div>
+          </div>
+          <div class="pd-stat">
+            <div class="pd-stat__title">{{ text.statLeftTitle }}</div>
+            <div class="pd-stat__value pd-stat__value--secondary">{{ leftToDiscover }}</div>
+            <div class="pd-stat__desc">{{ leftToDiscoverDesc }}</div>
+          </div>
+          <div class="pd-stat">
+            <div class="pd-stat__title">{{ text.statLastUpdatedTitle }}</div>
+            <div class="pd-stat__value pd-stat__value--accent">{{ text.statLastUpdatedValue }}</div>
+            <div class="pd-stat__desc">{{ text.statLastUpdatedDesc }}</div>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="panel hero-panel">
-      <h2 class="card-title">Featured Pokémon</h2>
-      <div class="feature-grid">
-        <ng-container *ngFor="let pokemon of featuredPokemon">
-          <div class="feature-card" *ngIf="pokemon">
-            <h3>#{{ pokemon.id.toString().padStart(3, '0') }}</h3>
-            <p class="capitalize">{{ pokemon.name }}</p>
-            <a [routerLink]="['/pokemon', pokemon.name]" class="btn btn-primary btn-sm">View Details</a>
-          </div>
-        </ng-container>
-      </div>
-    </div>
-
-    <div class="panel stats-panel">
-      <div class="card-body text-center">
-        <h2 class="card-title">Pokédex Statistics</h2>
-        <div class="stats-grid">
-          <div class="stat">
-            <div class="stat-title">Total Pokémon</div>
-            <div class="stat-value text-primary">{{ pokedex.length }}</div>
-            <div class="stat-desc">In this Pokédex</div>
-          </div>
-          <div class="stat">
-            <div class="stat-title">Total Pokémon left to discover</div>
-            <div class="stat-value text-secondary">{{ 1025 - pokedex.length }}</div>
-            <div class="stat-desc">{{ pokedex.length === 1025 ? 'All discovered!' : 'Keep exploring!' }}</div>
-          </div>
-          <div class="stat">
-            <div class="stat-title">Last Updated</div>
-            <div class="stat-value text-accent">2024</div>
-            <div class="stat-desc">Data Version</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="panel chooser-panel">
-      <div class="card-body">
-        <h2 class="card-title">Browse Seen Pokémon</h2>
-        <div class="form-control">
-          <label class="label" for="dexSelector">
-            <span class="label-text">Select a Pokémon to view details</span>
-          </label>
-          <select id="dexSelector" class="select" (change)="onPokedexSelect($any($event.target).value)">
-            <option value="" disabled selected>Choose a Pokémon...</option>
-            <option *ngFor="let pokemon of pokedex" [value]="pokemon.name">
-              #{{ pokemon.id.toString().padStart(3, '0') }} - {{ pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1) }}
-            </option>
+    <!-- Browse Pokédex Pokémon -->
+    <div class="pd-card">
+      <div class="pd-card__body">
+        <h2 class="pd-card__title" style="margin-bottom: 1rem">{{ text.browseTitle }}</h2>
+        <div class="pd-field">
+          <label class="pd-label" for="dexSelector">{{ text.browseLabel }}</label>
+          <select id="dexSelector" class="pd-select pd-select--lg" (change)="onPokedexSelect($any($event.target).value)">
+            <option value="" disabled selected>{{ text.browsePlaceholder }}</option>
+            @for (pokemon of pokedex; track pokemon.id) {
+              <option [value]="pokemon.name">{{ formatDexNo(pokemon.id) }} - {{ capitalize(pokemon.name) }}</option>
+            }
           </select>
         </div>
       </div>

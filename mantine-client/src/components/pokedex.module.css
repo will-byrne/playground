@@ -1,0 +1,89 @@
+.page {
+  min-height: 100vh;
+  background-color: var(--mantine-color-dark-7);
+}
+
+.card {
+  background-color: var(--mantine-color-dark-6);
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+}
+
+.cardLg {
+  composes: card;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  transition: box-shadow 150ms ease;
+}
+
+.cardLg:hover {
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+}
+
+/* Joined input + buttons, like daisyUI's .join */
+.join {
+  display: flex;
+  align-items: stretch;
+}
+
+.join > * {
+  --input-radius: 0;
+  --button-radius: 0;
+}
+
+.join > *:first-child {
+  --input-radius: var(--mantine-radius-md) 0 0 var(--mantine-radius-md);
+}
+
+.join > *:last-child {
+  --button-radius: 0 var(--mantine-radius-md) var(--mantine-radius-md) 0;
+}
+
+.stats {
+  display: inline-grid;
+  grid-auto-flow: row;
+  border-radius: var(--mantine-radius-md);
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+.stat {
+  padding: 1rem 1.5rem;
+  text-align: center;
+  border-top: 1px dashed rgba(202, 211, 245, 0.1);
+}
+
+.stat:first-child {
+  border-top: 0;
+}
+
+@media (min-width: 64em) {
+  .stats {
+    grid-auto-flow: column;
+  }
+  .stat {
+    border-top: 0;
+    border-left: 1px dashed rgba(202, 211, 245, 0.1);
+  }
+  .stat:first-child {
+    border-left: 0;
+  }
+}
+
+.statValue {
+  font-size: 2rem;
+  line-height: 2.5rem;
+  font-weight: 800;
+}
+
+.spriteCard {
+  cursor: pointer;
+  width: 100%;
+  border: 1px solid transparent;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+.spriteCardSelected {
+  border-color: var(--mantine-color-lavender-6);
+}
+
+.spacer {
+  width: 5rem;
+}

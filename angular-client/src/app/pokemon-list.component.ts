@@ -1,66 +1,109 @@
 import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { Router, RouterLink } from '@angular/router';
-import { PokemonService, PokedexEntry } from './pokemon.service';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { PokemonService } from './pokemon.service';
+import {
+  BACKEND_OPTIONS,
+  TEXT,
+  type Backend,
+  type PokedexEntry,
+  capitalize,
+  formatDexNo,
+  getBackend,
+  getFeaturedPokemon,
+  getLeftToDiscover,
+  getLeftToDiscoverDesc,
+  homePath,
+  pokemonPath,
+  searchPokedex,
+} from './pokedex';
 
 @Component({
   selector: 'app-pokemon-list',
   standalone: true,
-  imports: [CommonModule, RouterLink],
+  imports: [RouterLink],
   templateUrl: './pokemon-list.component.html',
-  styleUrl: './pokemon-list.component.scss'
 })
 export class PokemonListComponent implements OnInit {
+  readonly text = TEXT;
+  readonly backendOptions = BACKEND_OPTIONS;
+  readonly formatDexNo = formatDexNo;
+  readonly capitalize = capitalize;
+
+  backend: Backend = 'elysia';
   pokedex: PokedexEntry[] = [];
-  filteredPokedex: PokedexEntry[] = [];
   idOrName = '';
   randomLoading = false;
-  featuredPokemonIds = [37, 77, 151, 647, 700];
+  error: string | null = null;
 
-  constructor(private readonly pokemonService: PokemonService, private readonly router: Router) {}
+  constructor(
+    private readonly pokemonService: PokemonService,
+    private readonly route: ActivatedRoute,
+    private readonly router: Router,
+  ) {}
 
-  async ngOnInit(): Promise<void> {
-    this.pokedex = (await this.pokemonService.getPokedex()).sort((a, b) => a.id - b.id);
+  ngOnInit(): void {
+    this.route.queryParamMap.subscribe(async (params) => {
+      this.backend = getBackend(params.get('backend'));
+      this.error = null;
+      try {
+        this.pokedex = await this.pokemonService.getPokedex(this.backend);
+      } catch (error) {
+        console.error('Failed to load the Pokédex:', error);
+        this.pokedex = [];
+        this.error = TEXT.pokedexError(this.backend);
+      }
+    });
   }
 
-  onSearchInput(value: string): void {
-    this.idOrName = value;
-    if (!value.trim()) {
-      this.filteredPokedex = [];
-      return;
-    }
+  /** Query params that keep the selected backend when following a routerLink. */
+  get backendQuery(): Record<string, string> {
+    return this.backend === 'rust' ? { backend: 'rust' } : {};
+  }
 
-    const query = value.toLowerCase();
-    this.filteredPokedex = this.pokedex
-      .filter((pokemon) => pokemon.name.toLowerCase().includes(query) || pokemon.id.toString().includes(value))
-      .slice(0, 10);
+  get searchResults(): PokedexEntry[] {
+    return searchPokedex(this.pokedex, this.idOrName);
+  }
+
+  get featuredPokemon(): PokedexEntry[] {
+    return getFeaturedPokemon(this.pokedex);
+  }
+
+  get leftToDiscover(): number {
+    return getLeftToDiscover(this.pokedex);
+  }
+
+  get leftToDiscoverDesc(): string {
+    return getLeftToDiscoverDesc(this.pokedex);
+  }
+
+  onBackendChange(value: string): void {
+    void this.router.navigateByUrl(homePath(getBackend(value)));
+  }
+
+  onSearchSubmit(event: Event): void {
+    event.preventDefault();
+    if (this.idOrName.trim()) {
+      void this.router.navigateByUrl(pokemonPath(this.idOrName.trim(), this.backend));
+    }
   }
 
   async onRandomNewPokemon(): Promise<void> {
     this.randomLoading = true;
+    this.error = null;
     try {
-      const pokemon = await this.pokemonService.getRandomNewPokemon();
-      void this.router.navigate(['/pokemon', pokemon.name]);
+      const pokemon = await this.pokemonService.getRandomNewPokemon(this.backend);
+      void this.router.navigateByUrl(pokemonPath(pokemon.name, this.backend));
     } catch (error) {
       console.error('Failed to fetch a random new Pokémon:', error);
+      this.error = TEXT.randomError;
     } finally {
       this.randomLoading = false;
     }
   }
 
-  onSearchSubmit(): void {
-    if (this.idOrName.trim()) {
-      void this.router.navigate(['/pokemon', this.idOrName.trim()]);
-    }
-  }
-
   onPokedexSelect(value: string): void {
     if (value) {
-      void this.router.navigate(['/pokemon', value]);
+      void this.router.navigateByUrl(pokemonPath(value, this.backend));
     }
-  }
-
-  get featuredPokemon(): Array<PokedexEntry | undefined> {
-    return this.featuredPokemonIds.map((id) => this.pokedex.find((pokemon) => pokemon.id === id));
   }
 }

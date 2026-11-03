@@ -1,149 +1,131 @@
 import type { MetaFunction } from "@remix-run/node";
 import {
   Form,
+  Link,
   useLoaderData,
   useNavigate,
   useSearchParams,
 } from "@remix-run/react";
 import { useState } from "react";
-import { typedFetch } from "utils/typed-fetch";
 import {
-  BACKENDS,
+  BACKEND_OPTIONS,
+  TEXT,
+  capitalize,
+  fetchPokedex,
+  fetchRandomNewPokemon,
+  formatDexNo,
   getBackend,
-  getBackendFromRequest,
-  getBackendSearch,
-  getBackendUrl,
-} from "utils/backend";
-
-type PokedexEntry = { id: number; name: string };
+  getBackendFromSearch,
+  getFeaturedPokemon,
+  getLeftToDiscover,
+  getLeftToDiscoverDesc,
+  homePath,
+  pokemonPath,
+  searchPokedex,
+} from "utils/pokedex";
 
 export const loader = async ({ request }: { request: Request }) => {
-  const backend = getBackendFromRequest(request);
-  const unsortedDex = await typedFetch<PokedexEntry[]>(
-    `${getBackendUrl(backend)}/pokedex`
-  );
-  const sortedDex = unsortedDex.sort(({ id: ida }, { id: idb }) => ida - idb);
-
-  return { pokedex: sortedDex };
+  const backend = getBackendFromSearch(new URL(request.url).search);
+  try {
+    return { pokedex: await fetchPokedex(backend), error: null };
+  } catch (error) {
+    console.error("Failed to load the Pokédex:", error);
+    return { pokedex: [], error: TEXT.pokedexError(backend) };
+  }
 };
 
-export const meta: MetaFunction = () => {
-  return [
-    { title: "Pokémon Browser" },
-    { name: "description", content: "Welcome to the Pokémon Browser!" },
-  ];
-};
+export const meta: MetaFunction = () => [
+  { title: TEXT.title },
+  { name: "description", content: TEXT.subtitle },
+];
 
 export default function Index() {
-  const { pokedex } = useLoaderData<typeof loader>();
+  const { pokedex, error } = useLoaderData<typeof loader>();
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const backend = getBackend(searchParams.get("backend"));
-  const backendSearch = getBackendSearch(backend);
-  const [idOrName, setIdOrName] = useState<string>("");
-  const [filteredPokedex, setFilteredPokedex] = useState<PokedexEntry[]>([]);
+  const [idOrName, setIdOrName] = useState("");
   const [randomLoading, setRandomLoading] = useState(false);
+  const [randomError, setRandomError] = useState<string | null>(null);
 
-  const handleInputChange = (value: string) => {
-    setIdOrName(value);
-    if (value.length > 0) {
-      const filtered = pokedex
-        .filter(
-          (pokemon) =>
-            pokemon.name.toLowerCase().includes(value.toLowerCase()) ||
-            pokemon.id.toString().includes(value)
-        )
-        .slice(0, 10); // Limit to 10 results
-      setFilteredPokedex(filtered);
-    } else {
-      setFilteredPokedex([]);
-    }
-  };
+  const searchResults = searchPokedex(pokedex, idOrName);
+  const featuredPokemon = getFeaturedPokemon(pokedex);
 
   const handleRandomNewPokemon = async () => {
     setRandomLoading(true);
+    setRandomError(null);
     try {
-      const pokemon = await typedFetch<{ id: number; name: string }>(
-        `${getBackendUrl(backend)}/pokemon/random-new`
-      );
-      navigate(`/pokemon/${pokemon.name}${backendSearch}`);
+      const pokemon = await fetchRandomNewPokemon(backend);
+      navigate(pokemonPath(pokemon.name, backend));
     } catch (error) {
       console.error("Failed to fetch a random new Pokémon:", error);
+      setRandomError(TEXT.randomError);
     } finally {
       setRandomLoading(false);
     }
   };
-
-  const featuredPokemon = [37, 77, 151, 647, 700]
-    .map((id) => pokedex.find((p) => p.id === id))
-    .filter(Boolean);
 
   return (
     <div className="min-h-screen bg-base-200">
       <div className="container mx-auto px-4 py-8 max-w-4xl">
         {/* Header */}
         <div className="text-center mb-8">
-          <h1 className="text-5xl font-bold text-base-content mb-4">
-            Pokédex Explorer
-          </h1>
-          <p className="text-xl text-base-content/70">
-            Discover and learn about Pokémon
-          </p>
+          <h1 className="text-5xl font-bold text-base-content mb-4">{TEXT.title}</h1>
+          <p className="text-xl text-base-content/70">{TEXT.subtitle}</p>
         </div>
+
+        {(error || randomError) && (
+          <div role="alert" className="alert alert-error mb-8">
+            <span>{error ?? randomError}</span>
+          </div>
+        )}
 
         {/* Search Section */}
         <div className="card bg-base-100 shadow-xl mb-8">
           <div className="card-body">
             <div className="flex flex-wrap items-center justify-between gap-4 mb-4">
-              <h2 className="card-title text-2xl">Search Pokémon</h2>
-              <label className="form-control w-full sm:w-auto">
-                <span className="label-text mb-1">Backend</span>
+              <h2 className="card-title text-2xl">{TEXT.searchTitle}</h2>
+              <label className="flex flex-col w-full sm:w-auto">
+                <span className="text-sm mb-1">{TEXT.backendLabel}</span>
                 <select
-                  aria-label="Backend"
-                  className="select select-bordered"
+                  aria-label={TEXT.backendLabel}
+                  className="select"
                   value={backend}
-                  onChange={(event) =>
-                    navigate(
-                      `/${getBackendSearch(getBackend(event.target.value))}`
-                    )
-                  }
+                  onChange={(event) => navigate(homePath(getBackend(event.target.value)))}
                 >
-                  {Object.entries(BACKENDS).map(([value, details]) => (
+                  {BACKEND_OPTIONS.map(({ value, label }) => (
                     <option key={value} value={value}>
-                      {details.label}
+                      {label}
                     </option>
                   ))}
                 </select>
               </label>
             </div>
             <Form
-              action={
-                idOrName
-                  ? `/pokemon/${idOrName}${backendSearch}`
-                  : `/${backendSearch}`
-              }
+              onSubmit={(event) => {
+                event.preventDefault();
+                if (idOrName.trim()) navigate(pokemonPath(idOrName.trim(), backend));
+              }}
             >
-              <div className="form-control">
-                <label className="label" htmlFor="idOrNameInput">
-                  <span className="label-text">
-                    Enter Pokémon name or Pokédex number
-                  </span>
+              <div className="flex flex-col">
+                <label className="py-2 text-sm" htmlFor="idOrNameInput">
+                  {TEXT.searchLabel}
                 </label>
                 <div className="join">
                   <input
                     id="idOrNameInput"
                     type="text"
-                    placeholder="e.g. Pikachu, 25..."
-                    className="input input-bordered join-item flex-1"
+                    placeholder={TEXT.searchPlaceholder}
+                    className="input join-item flex-1"
                     value={idOrName}
-                    onChange={(e) => handleInputChange(e.currentTarget.value)}
+                    onChange={(e) => setIdOrName(e.currentTarget.value)}
                   />
                   <button
                     type="submit"
                     className="btn btn-primary join-item"
                     disabled={!idOrName.trim()}
                   >
-                    Search
+                    {TEXT.search}
                   </button>
                   <button
                     type="button"
@@ -151,28 +133,26 @@ export default function Index() {
                     onClick={handleRandomNewPokemon}
                     disabled={randomLoading}
                   >
-                    {randomLoading ? "Loading…" : "Random New Pokémon"}
+                    {randomLoading ? TEXT.loading : TEXT.random}
                   </button>
                 </div>
               </div>
             </Form>
 
             {/* Search Results */}
-            {filteredPokedex.length > 0 && (
+            {searchResults.length > 0 && (
               <div className="mt-4">
-                <h3 className="text-lg font-semibold mb-2">Search Results</h3>
+                <h3 className="text-lg font-semibold mb-2">{TEXT.searchResults}</h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                  {filteredPokedex.map((pokemon) => (
-                    <a
+                  {searchResults.map((pokemon) => (
+                    <Link
                       key={pokemon.id}
-                      href={`/pokemon/${pokemon.name}${backendSearch}`}
+                      to={pokemonPath(pokemon.name, backend)}
                       className="btn btn-outline btn-sm justify-start"
                     >
-                      <span className="font-mono">
-                        #{pokemon.id.toString().padStart(3, "0")}
-                      </span>
-                      <span className="ml-2 capitalize">{pokemon.name}</span>
-                    </a>
+                      <span className="font-mono">{formatDexNo(pokemon.id)}</span>
+                      <span className="capitalize">{pokemon.name}</span>
+                    </Link>
                   ))}
                 </div>
               </div>
@@ -182,28 +162,21 @@ export default function Index() {
 
         {/* Featured Pokémon */}
         <div className="mb-8">
-          <h2 className="text-3xl font-bold text-base-content mb-6">
-            Featured Pokémon
-          </h2>
+          <h2 className="text-3xl font-bold text-base-content mb-6">{TEXT.featured}</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
             {featuredPokemon.map((pokemon) => (
               <div
-                key={pokemon!.id}
+                key={pokemon.id}
                 className="card bg-base-100 shadow-lg hover:shadow-xl transition-shadow"
               >
-                <div className="card-body p-4 text-center">
-                  <h3 className="card-title text-lg justify-center mb-2">
-                    #{pokemon!.id.toString().padStart(3, "0")}
+                <div className="card-body p-4 items-center text-center">
+                  <h3 className="card-title text-lg justify-center">
+                    {formatDexNo(pokemon.id)}
                   </h3>
-                  <p className="text-base font-semibold capitalize mb-4">
-                    {pokemon!.name}
-                  </p>
-                  <a
-                    href={`/pokemon/${pokemon!.name}${backendSearch}`}
-                    className="btn btn-primary btn-sm"
-                  >
-                    View Details
-                  </a>
+                  <p className="text-base font-semibold capitalize mb-2">{pokemon.name}</p>
+                  <Link to={pokemonPath(pokemon.name, backend)} className="btn btn-primary btn-sm">
+                    {TEXT.viewDetails}
+                  </Link>
                 </div>
               </div>
             ))}
@@ -212,31 +185,23 @@ export default function Index() {
 
         {/* Quick Stats */}
         <div className="card bg-base-100 shadow-xl mb-8">
-          <div className="card-body text-center">
-            <h2 className="card-title text-2xl justify-center mb-4">
-              Pokédex Statistics
-            </h2>
+          <div className="card-body items-center text-center">
+            <h2 className="card-title text-2xl justify-center mb-4">{TEXT.statsTitle}</h2>
             <div className="stats stats-vertical lg:stats-horizontal shadow">
               <div className="stat">
-                <div className="stat-title">Total Pokémon</div>
+                <div className="stat-title">{TEXT.statTotalTitle}</div>
                 <div className="stat-value text-primary">{pokedex.length}</div>
-                <div className="stat-desc">In this Pokédex</div>
+                <div className="stat-desc">{TEXT.statTotalDesc}</div>
               </div>
               <div className="stat">
-                <div className="stat-title">Total Pokémon left to discover</div>
-                <div className="stat-value text-secondary">
-                  {1025 - pokedex.length}
-                </div>
-                <div className="stat-desc">
-                  {pokedex.length === 1025
-                    ? "All discovered!"
-                    : "Keep exploring!"}
-                </div>
+                <div className="stat-title">{TEXT.statLeftTitle}</div>
+                <div className="stat-value text-secondary">{getLeftToDiscover(pokedex)}</div>
+                <div className="stat-desc">{getLeftToDiscoverDesc(pokedex)}</div>
               </div>
               <div className="stat">
-                <div className="stat-title">Last Updated</div>
-                <div className="stat-value text-accent">2024</div>
-                <div className="stat-desc">Data Version</div>
+                <div className="stat-title">{TEXT.statLastUpdatedTitle}</div>
+                <div className="stat-value text-accent">{TEXT.statLastUpdatedValue}</div>
+                <div className="stat-desc">{TEXT.statLastUpdatedDesc}</div>
               </div>
             </div>
           </div>
@@ -245,31 +210,25 @@ export default function Index() {
         {/* Browse Pokédex Pokémon */}
         <div className="card bg-base-100 shadow-xl">
           <div className="card-body">
-            <h2 className="card-title text-2xl mb-4">Browse Seen Pokémon</h2>
-            <div className="form-control">
-              <label className="label" htmlFor="dexSelector">
-                <span className="label-text">
-                  Select a Pokémon to view details
-                </span>
+            <h2 className="card-title text-2xl mb-4">{TEXT.browseTitle}</h2>
+            <div className="flex flex-col">
+              <label className="py-2 text-sm" htmlFor="dexSelector">
+                {TEXT.browseLabel}
               </label>
               <select
                 id="dexSelector"
-                className="select select-bordered select-lg ml-4"
+                className="select select-lg ml-4"
                 onChange={(e) => {
-                  if (e.target.value) {
-                    window.location.href = `/pokemon/${e.target.value}${backendSearch}`;
-                  }
+                  if (e.target.value) navigate(pokemonPath(e.target.value, backend));
                 }}
                 defaultValue=""
               >
                 <option value="" disabled>
-                  Choose a Pokémon...
+                  {TEXT.browsePlaceholder}
                 </option>
                 {pokedex.map((pokemon) => (
                   <option key={pokemon.id} value={pokemon.name}>
-                    #{pokemon.id.toString().padStart(3, "0")} -{" "}
-                    {pokemon.name.charAt(0).toUpperCase() +
-                      pokemon.name.slice(1)}
+                    {formatDexNo(pokemon.id)} - {capitalize(pokemon.name)}
                   </option>
                 ))}
               </select>

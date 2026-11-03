@@ -1,16 +1,12 @@
 import type { PageServerLoad } from "./$types";
-import { typedFetch } from "$lib/typed-fetch";
+import { TEXT, fetchPokedex, getBackendFromSearch } from "$lib/pokedex";
 
-type PokedexEntry = {
-  id: number;
-  name: string;
-};
-
-export const load: PageServerLoad = async ({ fetch }) => {
-  const unsortedDex = await typedFetch<PokedexEntry[]>("http://localhost:3000/pokedex", fetch);
-  const sortedDex = unsortedDex.sort((a, b) => a.id - b.id);
-
-  return {
-    pokedex: sortedDex,
-  };
+export const load: PageServerLoad = async ({ fetch, url }) => {
+  const backend = getBackendFromSearch(url.search);
+  try {
+    return { backend, pokedex: await fetchPokedex(backend, fetch), error: null };
+  } catch (error) {
+    console.error("Failed to load the Pokédex:", error);
+    return { backend, pokedex: [], error: TEXT.pokedexError(backend) };
+  }
 };

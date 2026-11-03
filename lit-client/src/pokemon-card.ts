@@ -1,98 +1,180 @@
-import { LitElement, html, css } from 'lit';
-import { property, customElement } from 'lit/decorators.js';
+import { LitElement, PropertyValues, html, nothing } from 'lit';
+import { customElement, property, state } from 'lit/decorators.js';
+import {
+  TEXT,
+  type Backend,
+  type PokeboxEntry,
+  canGoToNext,
+  canGoToPrevious,
+  formatDescription,
+  formatDexNo,
+  formatSpriteName,
+  getDefaultSpriteKey,
+  getDisplaySpriteKey,
+  getShinySpriteKey,
+  getSprites,
+  homePath,
+  navigate,
+  pokemonPath,
+} from './pokedex.js';
 import './type-badge.js';
-import { PokeboxEntry } from './home-page.js';
-import './sprite-carousel.js';
 
+/**
+ * A Pokémon's detail page. Renders into light DOM so the shared global
+ * stylesheet (styles/pokedex.css) applies.
+ */
 @customElement('pokemon-card')
 export class PokemonCard extends LitElement {
   @property({ type: Object }) pokemon!: PokeboxEntry;
 
-  static styles = css`
-    .card {
-      margin-top: 1.5rem;
-      padding: 1rem;
-      border-radius: 12px;
-      background: #363a4f;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
-      text-align: left;
-      font-family: 'Noto Sans', sans-serif;
-    }
+  @property({ type: String }) backend: Backend = 'elysia';
 
-    header h2 {
-      margin: 0;
-      font-size: 1.5rem;
-      color: #eed49f;
-    }
+  @state() private selectedSpriteKey = '';
 
-    .dex-no {
-      font-size: 0.9rem;
-      color: #a5adcb;
-    }
+  @state() private showShiny = false;
 
-    .content {
-      display: flex;
-      flex-direction: column; /* stack vertically */
-      align-items: center; /* center the sprite horizontally */
-      gap: 1rem;
-      margin-top: 1rem;
-    }
+  private spriteList: Record<string, string> = {};
 
-    .sprite {
-      text-align: center;
-    }
+  createRenderRoot() {
+    return this;
+  }
 
-    .sprite img {
-      max-width: 100%;
+  willUpdate(changed: PropertyValues<this>) {
+    if (changed.has('pokemon') && this.pokemon) {
+      // Reset sprite selection whenever a different Pokémon is shown.
+      this.spriteList = getSprites(this.pokemon.sprites);
+      this.selectedSpriteKey = getDefaultSpriteKey(this.spriteList);
+      this.showShiny = false;
     }
-
-    .details {
-      width: 100%;
-    }
-
-    .types {
-      margin-bottom: 0.5rem;
-    }
-
-    .description {
-      margin: 0.5rem 0;
-    }
-
-    .abilities li {
-      margin-bottom: 0.5rem;
-    }
-  `;
+  }
 
   render() {
-    const p = this.pokemon;
+    const { pokemon: p, backend, spriteList, selectedSpriteKey } = this;
+    if (!p) return nothing;
+    const displaySpriteKey = getDisplaySpriteKey(spriteList, selectedSpriteKey, this.showShiny);
+    const hasShiny = Boolean(getShinySpriteKey(spriteList, selectedSpriteKey));
+
     return html`
-      <section class="card">
-        <header>
-          <h2>${p.name} <span class="dex-no">#${p.id}</span></h2>
-        </header>
-        <div class="content">
-          <div class="sprite">
-            <sprite-carousel .sprites=${p.sprites}></sprite-carousel>
-          </div>
-          <div class="details">
-            <div class="types">
-              ${p.types.map(t => html`<type-badge .type=${t}></type-badge>`)}
+      <div class="pd-page">
+        <div class="pd-container pd-container--wide">
+          <!-- Header -->
+          <div class="pd-detail-header">
+            <button type="button" class="pd-btn" @click=${() => navigate(homePath(backend))}>
+              ${TEXT.backToList}
+            </button>
+            <div class="pd-detail-nav">
+              ${canGoToPrevious(p.id)
+                ? html`<button
+                    type="button"
+                    class="pd-btn pd-btn--outline"
+                    aria-label="Previous Pokémon"
+                    @click=${() => navigate(pokemonPath(p.id - 1, backend))}
+                  >
+                    ${TEXT.previous}
+                  </button>`
+                : html`<div class="pd-spacer"></div>`}
+              <div>
+                <h1 class="pd-title pd-title--detail pd-capitalize">${p.name}</h1>
+                <p class="pd-subtitle">${formatDexNo(p.id)}</p>
+              </div>
+              ${canGoToNext(p.id)
+                ? html`<button
+                    type="button"
+                    class="pd-btn pd-btn--outline"
+                    aria-label="Next Pokémon"
+                    @click=${() => navigate(pokemonPath(p.id + 1, backend))}
+                  >
+                    ${TEXT.next}
+                  </button>`
+                : html`<div class="pd-spacer"></div>`}
             </div>
-            <p class="description">${p.species_description}</p>
-            <ul class="abilities">
+          </div>
+
+          <div class="pd-grid pd-grid--detail">
+            <!-- Pokémon Image Card -->
+            <div class="pd-card">
+              <div class="pd-card__body pd-card__body--center">
+                <img
+                  alt="${p.name} sprite"
+                  src=${spriteList[displaySpriteKey] ?? ''}
+                  class="pd-main-sprite"
+                />
+                ${hasShiny
+                  ? html`<label class="pd-toggle-label">
+                      <input
+                        type="checkbox"
+                        class="pd-toggle"
+                        .checked=${this.showShiny}
+                        @change=${(event: Event) => {
+                          this.showShiny = (event.target as HTMLInputElement).checked;
+                        }}
+                      />
+                      ${TEXT.shiny}
+                    </label>`
+                  : nothing}
+                <div class="pd-badges">
+                  ${p.types.map(type => html`<type-badge .type=${type}></type-badge>`)}
+                </div>
+              </div>
+            </div>
+
+            <!-- Pokémon Details Card -->
+            <div class="pd-card">
+              <div class="pd-card__body">
+                <h2 class="pd-card__title" style="margin-bottom: 1rem">${TEXT.description}</h2>
+                <p class="pd-description">${formatDescription(p.species_description)}</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Abilities Section -->
+          <div class="pd-section--detail">
+            <h2 class="pd-heading pd-heading--detail">${TEXT.abilities}</h2>
+            <div class="pd-grid pd-grid--abilities">
               ${p.abilities.map(
-                a => html`
-                  <li>
-                    <strong>${a.name}</strong>
-                    <p class="flavor">${a.flavour_text}</p>
-                    <small>${a.effect}</small>
-                  </li>
+                ability => html`
+                  <div class="pd-card pd-card--lg">
+                    <div class="pd-card__body">
+                      <h3 class="pd-card__title pd-card__title--ability">${ability.name}</h3>
+                      <p class="pd-ability-flavour">${ability.flavour_text}</p>
+                      <p class="pd-ability-effect">${ability.effect}</p>
+                    </div>
+                  </div>
                 `,
               )}
-            </ul>
+            </div>
+          </div>
+
+          <!-- Sprite Gallery -->
+          <div class="pd-section--detail">
+            <h2 class="pd-heading pd-heading--detail">${TEXT.sprites}</h2>
+            <div class="pd-grid pd-grid--sprites">
+              ${Object.entries(spriteList).map(([name, url]) => {
+                const selected = name === selectedSpriteKey;
+                return html`
+                  <button
+                    type="button"
+                    class="pd-card pd-card--md pd-sprite-card ${selected
+                      ? 'pd-sprite-card--selected'
+                      : ''}"
+                    aria-pressed=${selected ? 'true' : 'false'}
+                    @click=${() => {
+                      this.selectedSpriteKey = name;
+                    }}
+                  >
+                    <div class="pd-card__body pd-card__body--compact pd-card__body--center">
+                      <img alt=${name} src=${url} />
+                      <p class="pd-sprite-label ${selected ? 'pd-sprite-label--selected' : ''}">
+                        ${selected ? TEXT.selected : formatSpriteName(name)}
+                      </p>
+                    </div>
+                  </button>
+                `;
+              })}
+            </div>
           </div>
         </div>
-      </section>
+      </div>
     `;
   }
 }

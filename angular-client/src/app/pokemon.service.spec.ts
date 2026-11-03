@@ -25,7 +25,7 @@ describe('PokemonService', () => {
   });
 
   it('should expose the pokedex endpoint', async () => {
-    const request = service.getPokedex();
+    const request = service.getPokedex('rust');
 
     const req = httpTestingController.expectOne('http://localhost:3000/pokedex');
     expect(req.request.method).toBe('GET');
@@ -38,7 +38,7 @@ describe('PokemonService', () => {
   });
 
   it('should expose the pokemon endpoint', async () => {
-    const request = service.getPokemon('1');
+    const request = service.getPokemon('rust', '1');
 
     const req = httpTestingController.expectOne('http://localhost:3000/pokemon/1');
     expect(req.request.method).toBe('GET');
@@ -52,8 +52,19 @@ describe('PokemonService', () => {
     expect(pokemon?.name).toBe('bulbasaur');
   });
 
+  it('should use the Elysia backend when selected', async () => {
+    const request = service.getPokedex('elysia');
+
+    httpTestingController.expectOne('http://localhost:3001/pokedex').flush([
+      { id: 25, name: 'pikachu' },
+      { id: 1, name: 'bulbasaur' },
+    ]);
+
+    expect((await request).map(({ id }) => id)).toEqual([1, 25]);
+  });
+
   it('should throw an error if unable to retrieve the pokemon', async () => {
-    const request = service.getPokemon('1');
+    const request = service.getPokemon('rust', '1');
 
     const req = httpTestingController.expectOne('http://localhost:3000/pokemon/1');
     expect(req.request.method).toBe('GET');

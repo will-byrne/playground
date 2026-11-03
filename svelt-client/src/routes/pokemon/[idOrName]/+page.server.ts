@@ -1,29 +1,12 @@
 import type { PageServerLoad } from "./$types";
-import { typedFetch } from "$lib/typed-fetch";
+import { fetchPokemon, getBackendFromSearch } from "$lib/pokedex";
 
-type PokeboxEntry = {
-  id: number;
-  name: string;
-  species_description: string;
-  types: string[];
-  abilities: {
-    name: string;
-    flavour_text: string;
-    effect: string;
-  }[];
-  sprites: Record<string, unknown>;
-};
-
-export const load: PageServerLoad = async ({ params, fetch }) => {
+export const load: PageServerLoad = async ({ params, fetch, url }) => {
+  const backend = getBackendFromSearch(url.search);
   try {
-    const pokemon = await typedFetch<PokeboxEntry>(
-      `http://localhost:3000/pokemon/${params.idOrName}`,
-      fetch
-    );
-
-    return { pokemon };
+    return { backend, idOrName: params.idOrName, pokemon: await fetchPokemon(backend, params.idOrName, fetch) };
   } catch (error) {
-    console.error("Error fetching Pokemon:", error);
-    return { pokemon: null };
+    console.error("Error fetching Pokémon:", error);
+    return { backend, idOrName: params.idOrName, pokemon: null };
   }
 };
