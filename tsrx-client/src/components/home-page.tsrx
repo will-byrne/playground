@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
+import { CLIENT } from "../client.ts";
 import {
   BACKEND_OPTIONS,
   type Backend,
   type PokedexEntry,
   TEXT,
+  getAppTitle,
   capitalize,
   fetchPokedex,
   fetchRandomNewPokemon,
@@ -54,7 +56,7 @@ export const HomePage = ({ backend }: { backend: Backend }) => @{
   <div className="pd-page">
     <div className="pd-container">
       <div className="pd-header">
-        <h1 className="pd-title">{TEXT.title}</h1>
+        <h1 className="pd-title">{getAppTitle(CLIENT)}</h1>
         <p className="pd-subtitle">{TEXT.subtitle}</p>
       </div>
 

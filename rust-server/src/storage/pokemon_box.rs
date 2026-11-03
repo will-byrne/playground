@@ -216,9 +216,9 @@ pub async fn get_pokemon_by_id(
         .map_err(|e| Box::new(e) as Box<dyn std::error::Error>)?;
     let mut abilities: Vec<Ability> = vec![];
 
-    for ab in new_pokemon.abilities.iter() {
+    for ability_ref in new_pokemon.abilities.iter().filter_map(|ab| ab.ability.as_ref()) {
         if let Ok(ability) =
-            rustemon::pokemon::ability::get_by_name(ab.ability.name.as_str(), &rustemon_client)
+            rustemon::pokemon::ability::get_by_name(ability_ref.name.as_str(), &rustemon_client)
                 .await
         {
             abilities.push(ability);
@@ -310,9 +310,9 @@ pub async fn get_pokemon_by_name(
         .map_err(|e| Box::new(e) as Box<dyn std::error::Error>)?;
     let mut abilities: Vec<Ability> = vec![];
 
-    for ab in new_pokemon.abilities.iter() {
+    for ability_ref in new_pokemon.abilities.iter().filter_map(|ab| ab.ability.as_ref()) {
         if let Ok(ability) =
-            rustemon::pokemon::ability::get_by_name(ab.ability.name.as_str(), &rustemon_client)
+            rustemon::pokemon::ability::get_by_name(ability_ref.name.as_str(), &rustemon_client)
                 .await
         {
             abilities.push(ability);

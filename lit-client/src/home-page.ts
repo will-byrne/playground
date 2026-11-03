@@ -3,6 +3,9 @@ import { customElement, state } from 'lit/decorators.js';
 import {
   BACKEND_OPTIONS,
   TEXT,
+  getAppTitle,
+  getClientLinks,
+  routePath,
   type Backend,
   type PokeboxEntry,
   type PokedexEntry,
@@ -24,6 +27,7 @@ import {
   searchPokedex,
 } from './pokedex.js';
 import './pokemon-card.js';
+import { CLIENT } from './client.js';
 
 /** Follows an in-app link through the shared pushState router. */
 const followLink = (event: Event) => {
@@ -120,9 +124,33 @@ export class HomePage extends LitElement {
   }
 
   render() {
-    return this.route.page === 'pokemon'
-      ? this.renderDetail(this.route.idOrName)
-      : this.renderHome();
+    return html`
+      ${this.renderClientNav()}
+      ${this.route.page === 'pokemon'
+        ? this.renderDetail(this.route.idOrName)
+        : this.renderHome()}
+    `;
+  }
+
+  /** Links to the same page in every other client. */
+  private renderClientNav() {
+    return html`
+      <nav aria-label="Clients" class="pd-client-nav">
+        <span class="pd-client-nav__label">${TEXT.clientNavLabel}</span>
+        ${getClientLinks(CLIENT, routePath(this.route, this.backend)).map(
+          link => html`
+            <a
+              href=${link.href}
+              aria-current=${link.current ? 'page' : nothing}
+              class="pd-btn pd-btn--sm ${link.current
+                ? 'pd-btn--primary'
+                : 'pd-btn--outline'}"
+              >${link.label}</a
+            >
+          `,
+        )}
+      </nav>
+    `;
   }
 
   private renderDetail(idOrName: string) {
@@ -169,7 +197,7 @@ export class HomePage extends LitElement {
         <div class="pd-container">
           <!-- Header -->
           <div class="pd-header">
-            <h1 class="pd-title">${TEXT.title}</h1>
+            <h1 class="pd-title">${getAppTitle(CLIENT)}</h1>
             <p class="pd-subtitle">${TEXT.subtitle}</p>
           </div>
 

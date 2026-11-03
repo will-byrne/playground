@@ -1,7 +1,9 @@
 <script lang="ts">
   import { goto } from "$app/navigation";
+  import { CLIENT } from "$lib/client";
   import {
     TEXT,
+    getAppTitle,
     homePath,
     type Backend,
     type PokeboxEntry,
@@ -12,7 +14,7 @@
 </script>
 
 <svelte:head>
-  <title>{data.pokemon ? `${data.pokemon.name} | ${TEXT.title}` : TEXT.notFoundTitle}</title>
+  <title>{data.pokemon ? `${data.pokemon.name} | ${getAppTitle(CLIENT)}` : TEXT.notFoundTitle}</title>
 </svelte:head>
 
 {#if data.pokemon}

@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { PokemonService } from './pokemon.service';
+import { CLIENT } from './client';
 import {
   BACKEND_OPTIONS,
+  DEFAULT_BACKEND,
   TEXT,
+  getAppTitle,
   type Backend,
   type PokedexEntry,
   capitalize,
@@ -25,6 +28,7 @@ import {
 })
 export class PokemonListComponent implements OnInit {
   readonly text = TEXT;
+  readonly appTitle = getAppTitle(CLIENT);
   readonly backendOptions = BACKEND_OPTIONS;
   readonly formatDexNo = formatDexNo;
   readonly capitalize = capitalize;
@@ -57,7 +61,7 @@ export class PokemonListComponent implements OnInit {
 
   /** Query params that keep the selected backend when following a routerLink. */
   get backendQuery(): Record<string, string> {
-    return this.backend === 'rust' ? { backend: 'rust' } : {};
+    return this.backend === DEFAULT_BACKEND ? {} : { backend: this.backend };
   }
 
   get searchResults(): PokedexEntry[] {

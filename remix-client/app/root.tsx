@@ -4,9 +4,11 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
+  useLocation,
 } from "@remix-run/react";
 import type { LinksFunction } from "@remix-run/node";
 
+import { ClientNav } from "./client-nav";
 import "./tailwind.css";
 
 export const links: LinksFunction = () => [
@@ -41,5 +43,11 @@ export function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
-  return <Outlet />;
+  const { pathname, search } = useLocation();
+  return (
+    <>
+      <ClientNav path={`${pathname}${search}`} />
+      <Outlet />
+    </>
+  );
 }

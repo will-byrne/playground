@@ -38,7 +38,8 @@ services:
       timeout: 5s
       retries: 10
       start_period: 2s
-  
+
+  # Servers (host ports 3000-3004)
   rust-server:
     build:
       context: ./rust-server
@@ -46,7 +47,8 @@ services:
       ROCKET_PORT: 3000
       MONGODB_URI: mongodb://admin:testtest@mongodb:27017
     depends_on:
-      - mongodb
+      mongodb:
+        condition: service_healthy
     ports:
       - 3000:3000
 
@@ -62,9 +64,95 @@ services:
       MONGODB_DATABASE: pokemon
       MONGODB_AUTH_SOURCE: admin
     depends_on:
-      - mongodb
+      mongodb:
+        condition: service_healthy
     ports:
       - 3001:3000
+
+  go-server:
+    build:
+      context: ./go-server
+    environment:
+      MONGODB_URI: mongodb://admin:testtest@mongodb:27017/?authSource=admin
+    depends_on:
+      mongodb:
+        condition: service_healthy
+    ports:
+      - 3002:3000
+
+  hono-server:
+    build:
+      context: ./hono-server
+    environment:
+      MONGODB_URI: mongodb://admin:testtest@mongodb:27017
+    depends_on:
+      mongodb:
+        condition: service_healthy
+    ports:
+      - 3003:3000
+
+  java-server:
+    build:
+      context: ./java-server
+    environment:
+      SPRING_DATA_MONGODB_URI: mongodb://admin:testtest@mongodb:27017/pokemon?authSource=admin
+    depends_on:
+      mongodb:
+        condition: service_healthy
+    ports:
+      - 3004:3000
+
+  # Clients (host ports 4001-4007)
+  # Browsers call the servers on their localhost ports above. Remix and SvelteKit
+  # also fetch on the server, inside the container, so they get BACKEND_URL_* overrides.
+  angular-client:
+    build:
+      context: ./angular-client
+    ports:
+      - 4001:80
+
+  lit-client:
+    build:
+      context: ./lit-client
+    ports:
+      - 4002:80
+
+  mantine-client:
+    build:
+      context: ./mantine-client
+    ports:
+      - 4003:80
+
+  react-client:
+    build:
+      context: ./react-client
+    ports:
+      - 4004:80
+
+  remix-client:
+    build:
+      context: ./remix-client
+    environment: &server-side-backends
+      BACKEND_URL_RUST: http://rust-server:3000
+      BACKEND_URL_ELYSIA: http://elysia-server:3000
+      BACKEND_URL_GO: http://go-server:3000
+      BACKEND_URL_HONO: http://hono-server:3000
+      BACKEND_URL_JAVA: http://java-server:3000
+    ports:
+      - 4005:3000
+
+  svelt-client:
+    build:
+      context: ./svelt-client
+    environment: *server-side-backends
+    ports:
+      - 4006:4173
+
+  tsrx-client:
+    build:
+      context: ./tsrx-client
+    ports:
+      - 4007:80
 
 volumes:
   data: {}

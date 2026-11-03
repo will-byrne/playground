@@ -12,11 +12,13 @@ import {
   Title,
 } from '@mantine/core';
 import { useEffect, useState } from 'react';
+import { CLIENT } from '../../client';
 import {
   BACKEND_OPTIONS,
   type Backend,
   type PokedexEntry,
   TEXT,
+  getAppTitle,
   capitalize,
   fetchPokedex,
   fetchRandomNewPokemon,
@@ -70,7 +72,7 @@ export function HomePage({ backend }: { backend: Backend }) {
         {/* Header */}
         <Stack align="center" gap="1rem" mb="2rem">
           <Title order={1} fz="3rem" lh={1}>
-            {TEXT.title}
+            {getAppTitle(CLIENT)}
           </Title>
           <Text fz="xl" c="dark.1">
             {TEXT.subtitle}

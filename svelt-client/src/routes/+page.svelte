@@ -1,8 +1,10 @@
 <script lang="ts">
   import { goto } from "$app/navigation";
+  import { CLIENT } from "$lib/client";
   import {
     BACKEND_OPTIONS,
     TEXT,
+    getAppTitle,
     capitalize,
     fetchRandomNewPokemon,
     formatDexNo,
@@ -48,14 +50,14 @@
 </script>
 
 <svelte:head>
-  <title>{TEXT.title}</title>
+  <title>{getAppTitle(CLIENT)}</title>
 </svelte:head>
 
 <div class="pd-page">
   <div class="pd-container">
     <!-- Header -->
     <div class="pd-header">
-      <h1 class="pd-title">{TEXT.title}</h1>
+      <h1 class="pd-title">{getAppTitle(CLIENT)}</h1>
       <p class="pd-subtitle">{TEXT.subtitle}</p>
     </div>
 

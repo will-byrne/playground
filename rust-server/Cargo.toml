@@ -5,7 +5,7 @@ edition = "2024"
 
 [dependencies]
 rocket = { version = "0.5.1", features = ["json"] }
-rustemon = { version = "4.2.0", features = ["serialize"] }
+rustemon = { version = "4.8.0", features = ["serialize"] }
 mongodb = "3.0.1"
 futures = "0.3.30"
 serde = "1.0.204"

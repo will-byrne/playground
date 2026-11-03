@@ -10,6 +10,7 @@ import { useState } from "react";
 import {
   BACKEND_OPTIONS,
   TEXT,
+  getAppTitle,
   capitalize,
   fetchPokedex,
   fetchRandomNewPokemon,
@@ -23,6 +24,7 @@ import {
   pokemonPath,
   searchPokedex,
 } from "utils/pokedex";
+import { CLIENT } from "utils/client";
 
 export const loader = async ({ request }: { request: Request }) => {
   const backend = getBackendFromSearch(new URL(request.url).search);
@@ -35,7 +37,7 @@ export const loader = async ({ request }: { request: Request }) => {
 };
 
 export const meta: MetaFunction = () => [
-  { title: TEXT.title },
+  { title: getAppTitle(CLIENT) },
   { name: "description", content: TEXT.subtitle },
 ];
 
@@ -70,7 +72,7 @@ export default function Index() {
       <div className="container mx-auto px-4 py-8 max-w-4xl">
         {/* Header */}
         <div className="text-center mb-8">
-          <h1 className="text-5xl font-bold text-base-content mb-4">{TEXT.title}</h1>
+          <h1 className="text-5xl font-bold text-base-content mb-4">{getAppTitle(CLIENT)}</h1>
           <p className="text-xl text-base-content/70">{TEXT.subtitle}</p>
         </div>
 

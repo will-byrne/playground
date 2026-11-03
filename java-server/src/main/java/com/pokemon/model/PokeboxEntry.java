@@ -1,25 +1,19 @@
 package com.pokemon.model;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.List;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-@Document(collection = "pokemon")
-public class PokeboxEntry {
-    @Id
-    private String id;
-    private Long pokemonId;
-    private String name;
-    private String speciesDescription;
-    private List<String> types;
-    private List<PokemonAbility> abilities;
-    private JsonNode sprites;
+/**
+ * A cached Pokémon, shaped exactly like rust-server's PokeboxEntry so every
+ * server can read and write the same MongoDB documents.
+ */
+public record PokeboxEntry(
+        long id,
+        String name,
+        @JsonProperty("species_description") String speciesDescription,
+        List<String> types,
+        List<PokemonAbility> abilities,
+        Object sprites
+) {
 }

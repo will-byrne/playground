@@ -1,205 +1,105 @@
 package com.pokemon.service;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.pokemon.model.PokeboxEntry;
 import com.pokemon.model.PokedexEntry;
-import com.pokemon.model.PokemonAbility;
-import com.pokemon.repository.PokemonRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
+import org.springframework.web.reactive.function.client.WebClientResponseException;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
+import java.util.Locale;
+import java.util.Set;
+import java.util.concurrent.ThreadLocalRandom;
 import java.util.stream.Collectors;
+import java.util.stream.LongStream;
 
 @Slf4j
 @Service
 @RequiredArgsConstructor
 public class PokemonService {
-    
-    private final PokemonRepository pokemonRepository;
-    private final ObjectMapper objectMapper;
-    private final WebClient.Builder webClientBuilder;
-    private final Random random = new Random();
-    
-    private static final String POKEAPI_BASE_URL = "https://pokeapi.co/api/v2";
-    
-    /**
-     * Get Pokemon Pokedex - list of all cached Pokemon with id and name
-     */
+
+    static final int DEX_MAX = 1025;
+
+    private final PokemonStore store;
+    private final WebClient pokeApiClient;
+
     public Flux<PokedexEntry> getPokedex() {
-        return pokemonRepository.findAll()
-                .map(entry -> new PokedexEntry(entry.getPokemonId(), entry.getName()))
-                .doOnError(error -> log.error("Error fetching pokedex", error));
+        return store.findPokedex();
     }
-    
-    /**
-     * Get Pokemon by ID or name
-     */
+
+    /** Matches rust-server: an optionally signed integer is an id, anything else is a name. */
     public Mono<PokeboxEntry> getPokemonByIdOrName(String idOrName) {
-        try {
-            long id = Long.parseLong(idOrName);
-            return getPokemonById(id);
-        } catch (NumberFormatException e) {
-            return getPokemonByName(idOrName);
+        if (idOrName.matches("[+-]?\\d+")) {
+            try {
+                return getPokemonById(Long.parseLong(idOrName));
+            } catch (NumberFormatException e) {
+                return Mono.empty();
+            }
         }
+        return getPokemonByName(idOrName.toLowerCase(Locale.ROOT));
     }
-    
-    /**
-     * Get Pokemon by ID
-     */
+
     public Mono<PokeboxEntry> getPokemonById(long id) {
-        return pokemonRepository.findByPokemonId(id)
-                .switchIfEmpty(Mono.defer(() -> fetchAndCachePokemonById(id)));
-    }
-    
-    /**
-     * Get Pokemon by name
-     */
-    public Mono<PokeboxEntry> getPokemonByName(String name) {
-        return pokemonRepository.findByNameIgnoreCase(name)
-                .switchIfEmpty(Mono.defer(() -> fetchAndCachePokemonByName(name)));
-    }
-    
-    /**
-     * Get a random Pokemon that's not yet cached
-     */
-    public Mono<PokeboxEntry> getRandomNewPokemon() {
-        return getPokedex()
-                .map(PokedexEntry::getId)
-                .collect(Collectors.toSet())
-                .flatMap(cachedIds -> {
-                    long randomId = generateRandomIdExcluding(cachedIds);
-                    return fetchAndCachePokemonById(randomId);
-                });
-    }
-    
-    /**
-     * Fetch Pokemon from PokeAPI and cache it
-     */
-    private Mono<PokeboxEntry> fetchAndCachePokemonById(long id) {
-        return fetchPokemonDataById(id)
-                .flatMap(this::savePokemon)
-                .doOnError(error -> log.error("Error fetching Pokemon with id: {}", id, error));
-    }
-    
-    /**
-     * Fetch Pokemon from PokeAPI by name and cache it
-     */
-    private Mono<PokeboxEntry> fetchAndCachePokemonByName(String name) {
-        return fetchPokemonDataByName(name)
-                .flatMap(this::savePokemon)
-                .doOnError(error -> log.error("Error fetching Pokemon with name: {}", name, error));
-    }
-    
-    /**
-     * Fetch Pokemon data from PokeAPI
-     */
-    private Mono<PokeboxEntry> fetchPokemonDataById(long id) {
-        WebClient client = webClientBuilder.build();
-        return client.get()
-                .uri(POKEAPI_BASE_URL + "/pokemon/{id}", id)
-                .retrieve()
-                .bodyToMono(JsonNode.class)
-                .flatMap(pokemonNode -> {
-                    String name = pokemonNode.get("name").asText();
-                    return client.get()
-                            .uri(POKEAPI_BASE_URL + "/pokemon-species/{speciesName}", name)
-                            .retrieve()
-                            .bodyToMono(JsonNode.class)
-                            .map(speciesNode -> buildPokeboxEntry(pokemonNode, speciesNode, id));
-                })
-                .onErrorResume(error -> {
-                    log.error("Failed to fetch pokemon {} from PokeAPI", id, error);
-                    return Mono.empty();
-                });
-    }
-    
-    /**
-     * Fetch Pokemon data from PokeAPI by name
-     */
-    private Mono<PokeboxEntry> fetchPokemonDataByName(String name) {
-        WebClient client = webClientBuilder.build();
-        return client.get()
-                .uri(POKEAPI_BASE_URL + "/pokemon/{nameParam}", name.toLowerCase())
-                .retrieve()
-                .bodyToMono(JsonNode.class)
-                .flatMap(pokemonNode -> {
-                    long id = pokemonNode.get("id").asLong();
-                    String speciesName = pokemonNode.get("species").get("name").asText();
-                    return client.get()
-                            .uri(POKEAPI_BASE_URL + "/pokemon-species/{speciesName}", speciesName)
-                            .retrieve()
-                            .bodyToMono(JsonNode.class)
-                            .map(speciesNode -> buildPokeboxEntry(pokemonNode, speciesNode, id));
-                })
-                .onErrorResume(error -> {
-                    log.error("Failed to fetch pokemon {} from PokeAPI", name, error);
-                    return Mono.empty();
-                });
-    }
-    
-    /**
-     * Build PokeboxEntry from PokeAPI response
-     */
-    private PokeboxEntry buildPokeboxEntry(JsonNode pokemonNode, JsonNode speciesNode, long id) {
-        PokeboxEntry entry = new PokeboxEntry();
-        entry.setPokemonId(id);
-        entry.setName(pokemonNode.get("name").asText());
-        
-        // Set species description
-        JsonNode flavorText = speciesNode.get("flavor_text_entries").findPath("flavor_text");
-        if (flavorText != null && !flavorText.isMissingNode()) {
-            entry.setSpeciesDescription(flavorText.asText());
-        } else {
-            entry.setSpeciesDescription("No description available");
+        if (id <= 0) {
+            return Mono.empty();
         }
-        
-        // Set types
-        List<String> types = new ArrayList<>();
-        pokemonNode.get("types").forEach(typeNode -> {
-            types.add(typeNode.get("type").get("name").asText());
-        });
-        entry.setTypes(types);
-        
-        // Set abilities
-        List<PokemonAbility> abilities = new ArrayList<>();
-        pokemonNode.get("abilities").forEach(abilityNode -> {
-            String abilityName = abilityNode.get("ability").get("name").asText();
-            PokemonAbility ability = new PokemonAbility(abilityName, "No description available", "No effect available");
-            abilities.add(ability);
-        });
-        entry.setAbilities(abilities);
-        
-        // Set sprites
-        entry.setSprites(pokemonNode.get("sprites"));
-        
-        return entry;
+        return store.findById(id).switchIfEmpty(Mono.defer(() -> fetchAndStore(String.valueOf(id))));
     }
-    
-    /**
-     * Save Pokemon to database
-     */
-    private Mono<PokeboxEntry> savePokemon(PokeboxEntry entry) {
-        return pokemonRepository.save(entry)
-                .doOnSuccess(saved -> log.info("Saved Pokemon: {}", saved.getName()))
-                .doOnError(error -> log.error("Error saving Pokemon", error));
+
+    public Mono<PokeboxEntry> getPokemonByName(String name) {
+        return store.findByName(name).switchIfEmpty(Mono.defer(() -> fetchAndStore(name)));
     }
-    
-    /**
-     * Generate random Pokemon ID excluding cached ones
-     */
-    private long generateRandomIdExcluding(java.util.Set<Long> excludedIds) {
-        long randomId;
-        do {
-            randomId = random.nextLong(1, 1026); // Pokédex has 1025 Pokemon
-        } while (excludedIds.contains(randomId));
-        return randomId;
+
+    public Mono<PokeboxEntry> getRandomNewPokemon() {
+        return store.findPokedex()
+                .map(PokedexEntry::id)
+                .collect(Collectors.toSet())
+                .flatMap(seen -> randomUnseenId(seen).map(this::getPokemonById).orElseGet(Mono::empty));
+    }
+
+    static java.util.Optional<Long> randomUnseenId(Set<Long> seen) {
+        List<Long> unseen = LongStream.rangeClosed(1, DEX_MAX).filter(id -> !seen.contains(id)).boxed().toList();
+        if (unseen.isEmpty()) {
+            return java.util.Optional.empty();
+        }
+        return java.util.Optional.of(unseen.get(ThreadLocalRandom.current().nextInt(unseen.size())));
+    }
+
+    private Mono<PokeboxEntry> fetchAndStore(String idOrName) {
+        return fetch("/pokemon/{idOrName}", idOrName)
+                .flatMap(pokemon -> Mono.zip(
+                        fetch("/pokemon-species/{name}", pokemon.path("species").path("name").asText()),
+                        fetchAbilities(pokemon),
+                        (species, abilities) -> PokeApiMapper.toPokeboxEntry(pokemon, species, abilities)))
+                .flatMap(entry -> store.save(entry).thenReturn(entry))
+                .onErrorResume(error -> {
+                    if (error instanceof WebClientResponseException.NotFound) {
+                        log.info("PokeAPI has no Pokemon {}", idOrName);
+                    } else {
+                        log.error("Failed to fetch Pokemon {} from PokeAPI", idOrName, error);
+                    }
+                    return Mono.empty();
+                });
+    }
+
+    /** Abilities that fail to load are skipped, as in rust-server. */
+    private Mono<List<JsonNode>> fetchAbilities(JsonNode pokemon) {
+        return Flux.fromIterable(pokemon.path("abilities"))
+                .map(slot -> slot.path("ability").path("name").asText())
+                .filter(name -> !name.isEmpty())
+                .concatMap(name -> fetch("/ability/{name}", name).onErrorResume(error -> {
+                    log.warn("Failed to fetch ability {}", name, error);
+                    return Mono.empty();
+                }))
+                .collectList();
+    }
+
+    private Mono<JsonNode> fetch(String path, String param) {
+        return pokeApiClient.get().uri(path, param).retrieve().bodyToMono(JsonNode.class);
     }
 }

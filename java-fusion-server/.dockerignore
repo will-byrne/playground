@@ -1,0 +1,9 @@
+target
+.direnv
+.envrc
+.idea
+.settings
+.classpath
+.project
+Dockerfile
+.dockerignore

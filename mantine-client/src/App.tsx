@@ -3,7 +3,8 @@ import { MantineProvider } from '@mantine/core';
 import { useEffect, useState } from 'react';
 import { HomePage } from './components/home/homepage';
 import { PokemonRoute } from './components/pokemon/pokemon-route';
-import { getBackendFromSearch, parseRoute } from './pokedex';
+import { ClientNav } from './components/client-nav';
+import { getBackendFromSearch, parseRoute, routePath } from './pokedex';
 import { theme } from './theme';
 
 const readLocation = () => ({
@@ -22,6 +23,7 @@ function App() {
 
   return (
     <MantineProvider theme={theme} forceColorScheme="dark">
+      <ClientNav path={routePath(route, backend)} />
       {route.page === 'pokemon' ? (
         <PokemonRoute key={`${backend}-${route.idOrName}`} idOrName={route.idOrName} backend={backend} />
       ) : (

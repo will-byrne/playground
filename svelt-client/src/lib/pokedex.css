@@ -643,3 +643,25 @@ body {
   color: var(--pd-primary);
   font-weight: 600;
 }
+
+/* ----------------------------------------------------------- client nav */
+
+.pd-client-nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  background-color: var(--pd-base-300);
+  border-bottom: 1px solid var(--pd-divider);
+  font-family: var(--pd-font);
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.pd-client-nav__label {
+  margin-right: 0.25rem;
+  font-weight: 600;
+  color: rgba(202, 211, 245, 0.7);
+}

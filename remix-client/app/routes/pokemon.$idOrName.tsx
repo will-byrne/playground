@@ -8,6 +8,7 @@ import {
 import { useState } from "react";
 import {
   TEXT,
+  getAppTitle,
   canGoToNext,
   canGoToPrevious,
   fetchPokemon,
@@ -25,6 +26,7 @@ import {
   pokemonPath,
   type PokeboxEntry,
 } from "utils/pokedex";
+import { CLIENT } from "utils/client";
 
 export const loader = async ({
   params,
@@ -44,7 +46,7 @@ export const loader = async ({
 
 export const meta: MetaFunction = ({ data }) => {
   const pokemon = (data as { pokemon: PokeboxEntry | null } | undefined)?.pokemon;
-  return [{ title: pokemon ? `${pokemon.name} | ${TEXT.title}` : TEXT.notFoundTitle }];
+  return [{ title: pokemon ? `${pokemon.name} | ${getAppTitle(CLIENT)}` : TEXT.notFoundTitle }];
 };
 
 export default function Pokemon() {

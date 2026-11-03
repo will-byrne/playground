@@ -23,12 +23,18 @@ export const SEARCH_RESULT_LIMIT = 10;
 // Backends
 // ---------------------------------------------------------------------------
 
+// Ports match the host ports in the repo's docker-compose.yaml.
 export const BACKENDS = {
   elysia: { label: "Elysia", url: "http://localhost:3001" },
   rust: { label: "Rust", url: "http://localhost:3000" },
+  go: { label: "Go", url: "http://localhost:3002" },
+  hono: { label: "Hono", url: "http://localhost:3003" },
+  java: { label: "Java", url: "http://localhost:3004" },
 } as const;
 
 export type Backend = keyof typeof BACKENDS;
+
+export const DEFAULT_BACKEND: Backend = "elysia";
 
 export const BACKEND_OPTIONS = (Object.keys(BACKENDS) as Backend[]).map((value) => ({
   value,
@@ -36,15 +42,63 @@ export const BACKEND_OPTIONS = (Object.keys(BACKENDS) as Backend[]).map((value) 
 }));
 
 export const getBackend = (value: string | null | undefined): Backend =>
-  value === "rust" ? "rust" : "elysia";
+  value && Object.prototype.hasOwnProperty.call(BACKENDS, value)
+    ? (value as Backend)
+    : DEFAULT_BACKEND;
 
-export const getBackendUrl = (backend: Backend): string => BACKENDS[backend].url;
+/**
+ * The browser always uses the localhost URLs above. Code that fetches on the
+ * server (Remix loaders, SvelteKit server loads) runs inside a container in
+ * docker compose, where localhost is the container itself, so it can be
+ * pointed elsewhere with e.g. `BACKEND_URL_RUST=http://rust-server:3000`.
+ */
+const getServerBackendUrl = (backend: Backend): string | undefined =>
+  (globalThis as { process?: { env?: Record<string, string | undefined> } }).process?.env?.[
+    `BACKEND_URL_${backend.toUpperCase()}`
+  ];
+
+export const getBackendUrl = (backend: Backend): string =>
+  getServerBackendUrl(backend) ?? BACKENDS[backend].url;
 
 export const getBackendSearch = (backend: Backend): string =>
-  backend === "rust" ? "?backend=rust" : "";
+  backend === DEFAULT_BACKEND ? "" : `?backend=${backend}`;
 
 export const getBackendFromSearch = (search: string): Backend =>
   getBackend(new URLSearchParams(search).get("backend"));
+
+// ---------------------------------------------------------------------------
+// Clients
+// ---------------------------------------------------------------------------
+
+// Ports match the host ports in the repo's docker-compose.yaml. Each client
+// names itself in its own client.ts.
+export const CLIENTS = {
+  angular: { label: "Angular", url: "http://localhost:4001" },
+  lit: { label: "Lit", url: "http://localhost:4002" },
+  mantine: { label: "Mantine", url: "http://localhost:4003" },
+  react: { label: "React", url: "http://localhost:4004" },
+  remix: { label: "Remix", url: "http://localhost:4005" },
+  svelte: { label: "Svelte", url: "http://localhost:4006" },
+  tsrx: { label: "tsrx", url: "http://localhost:4007" },
+} as const;
+
+export type Client = keyof typeof CLIENTS;
+
+export const getAppTitle = (client: Client): string => `${TEXT.title} · ${CLIENTS[client].label}`;
+
+export type ClientLink = { client: Client; label: string; href: string; current: boolean };
+
+/**
+ * A link to every client. `path` is the current path and search (e.g.
+ * `/pokemon/25?backend=rust`), so switching keeps the same page and backend.
+ */
+export const getClientLinks = (current: Client, path: string): ClientLink[] =>
+  (Object.keys(CLIENTS) as Client[]).map((client) => ({
+    client,
+    label: CLIENTS[client].label,
+    href: `${CLIENTS[client].url}${path}`,
+    current: client === current,
+  }));
 
 // ---------------------------------------------------------------------------
 // API
@@ -91,6 +145,7 @@ export const TEXT = {
   subtitle: "Discover and learn about Pokémon",
   searchTitle: "Search Pokémon",
   backendLabel: "Backend",
+  clientNavLabel: "Client",
   searchLabel: "Enter Pokémon name or Pokédex number",
   searchPlaceholder: "e.g. Pikachu, 25...",
   search: "Search",
@@ -254,6 +309,9 @@ export const homePath = (backend: Backend): string => `/${getBackendSearch(backe
 
 export const pokemonPath = (idOrName: string | number, backend: Backend): string =>
   `/pokemon/${encodeURIComponent(String(idOrName))}${getBackendSearch(backend)}`;
+
+export const routePath = (route: Route, backend: Backend): string =>
+  route.page === "pokemon" ? pokemonPath(route.idOrName, backend) : homePath(backend);
 
 export const navigate = (path: string): void => {
   window.history.pushState(null, "", path);

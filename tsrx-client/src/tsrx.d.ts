@@ -3,11 +3,11 @@ declare module '*.tsrx' {
 
   const component: ComponentType<any>;
 
-  export const Home: ComponentType<any>;
-  export const Hero: ComponentType<any>;
+  export const HomePage: ComponentType<any>;
+  export const PokemonPage: ComponentType<any>;
   export const PokemonCard: ComponentType<any>;
   export const Abilities: ComponentType<any>;
-  export type PokeboxEntry = any;
+  export const Link: ComponentType<any>;
 
   export default component;
 }

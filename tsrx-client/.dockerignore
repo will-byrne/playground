@@ -1,0 +1,17 @@
+node_modules
+dist
+build
+coverage
+out-tsc
+storybook-static
+.svelte-kit
+.angular
+.cache
+.direnv
+.envrc
+.idea
+.vscode
+.git
+*.log
+Dockerfile
+.dockerignore

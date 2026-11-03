@@ -1,7 +1,7 @@
 import { MongoClient } from 'mongodb';
-import { PokeboxEntry } from './pokebox';
+import type { PokeboxEntry } from '.';
 
-const mongoClient = new MongoClient('mongodb://admin:testtest@localhost:27017');
+const mongoClient = new MongoClient(process.env.MONGODB_URI ?? 'mongodb://admin:testtest@localhost:27017');
 const mongoDB = mongoClient.db('pokemon');
 const pokemonCollection = mongoDB.collection<PokeboxEntry>('pokemon');
 

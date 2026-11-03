@@ -1,1 +1,14 @@
+<nav aria-label="Clients" class="pd-client-nav">
+  <span class="pd-client-nav__label">{{ text.clientNavLabel }}</span>
+  @for (link of clientLinks; track link.client) {
+    <a
+      [href]="link.href"
+      [attr.aria-current]="link.current ? 'page' : null"
+      class="pd-btn pd-btn--sm"
+      [class.pd-btn--primary]="link.current"
+      [class.pd-btn--outline]="!link.current"
+      >{{ link.label }}</a
+    >
+  }
+</nav>
 <router-outlet />
