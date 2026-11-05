@@ -30,3 +30,8 @@ rust-server/http-cacache/
 
 ### Coverage ###
 coverage/
+
+# nix
+result
+result-*
+.data/

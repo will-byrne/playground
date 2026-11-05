@@ -429,8 +429,13 @@ func main() {
 
 	e := newServer(db)
 
-	fmt.Println("Starting server on :3000")
-	if err := e.Start(":3000"); err != nil {
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "3000"
+	}
+
+	fmt.Println("Starting server on :" + port)
+	if err := e.Start(":" + port); err != nil {
 		e.Logger.Error("failed to start server", "error", err)
 	}
 }
