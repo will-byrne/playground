@@ -1,10 +1,10 @@
 import { Box, Button, Container, Stack, Text, Title } from '@mantine/core';
 import { useEffect, useState } from 'react';
-import { type Backend, type PokeboxEntry, TEXT, fetchPokemon, homePath, navigate } from '../../pokedex';
+import { type Backend, type FetchErrorKind, type PokeboxEntry, TEXT, fetchPokemon, getFetchErrorKind, homePath, navigate } from '../../pokedex';
 import classes from '../pokedex.module.css';
 import { PokemonPage } from './pokemonpage';
 
-type State = { status: 'loading' } | { status: 'loaded'; pokemon: PokeboxEntry } | { status: 'not-found' };
+type State = { status: 'loading' } | { status: 'loaded'; pokemon: PokeboxEntry } | { status: 'error'; kind: FetchErrorKind };
 
 export function PokemonRoute({ idOrName, backend }: { idOrName: string; backend: Backend }) {
   const [state, setState] = useState<State>({ status: 'loading' });
@@ -14,7 +14,7 @@ export function PokemonRoute({ idOrName, backend }: { idOrName: string; backend:
       .then((pokemon) => setState({ status: 'loaded', pokemon }))
       .catch((err) => {
         console.error('Error fetching Pokémon:', err);
-        setState({ status: 'not-found' });
+        setState({ status: 'error', kind: getFetchErrorKind(err) });
       });
   }, [backend, idOrName]);
 
@@ -32,10 +32,10 @@ export function PokemonRoute({ idOrName, backend }: { idOrName: string; backend:
         ) : (
           <Stack align="center" gap={0}>
             <Title order={1} fz="2.25rem" mb="1rem">
-              {TEXT.notFoundTitle}
+              {TEXT.pokemonErrorTitle(state.kind)}
             </Title>
             <Text fz="xl" c="dark.1" mb="1.5rem">
-              {TEXT.notFound(idOrName)}
+              {TEXT.pokemonError(idOrName, backend, state.kind)}
             </Text>
             <Button c="dark.7" onClick={() => navigate(homePath(backend))}>
               {TEXT.backToList}

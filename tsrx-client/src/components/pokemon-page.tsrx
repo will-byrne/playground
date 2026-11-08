@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import { type Backend, type PokeboxEntry, TEXT, fetchPokemon, homePath, navigate } from "../pokedex.ts";
+import { type Backend, type FetchErrorKind, type PokeboxEntry, TEXT, fetchPokemon, getFetchErrorKind, homePath, navigate } from "../pokedex.ts";
 import { PokemonCard } from "./pokemon-card.tsrx";
 
-type State = { status: "loading" } | { status: "loaded"; pokemon: PokeboxEntry } | { status: "not-found" };
+type State = { status: "loading" } | { status: "loaded"; pokemon: PokeboxEntry } | { status: "error"; kind: FetchErrorKind };
 
 export const PokemonPage = ({ idOrName, backend }: { idOrName: string; backend: Backend }) => @{
   const [state, setState] = useState<State>({ status: "loading" });
@@ -12,7 +12,7 @@ export const PokemonPage = ({ idOrName, backend }: { idOrName: string; backend: 
       .then((pokemon) => setState({ status: "loaded", pokemon }))
       .catch((err) => {
         console.error("Error fetching Pokémon:", err);
-        setState({ status: "not-found" });
+        setState({ status: "error", kind: getFetchErrorKind(err) });
       });
   }, [backend, idOrName]);
 
@@ -26,10 +26,10 @@ export const PokemonPage = ({ idOrName, backend }: { idOrName: string; backend: 
         } @else {
           <div className="pd-center">
             <h1 className="pd-title pd-title--detail" style={{ marginBottom: "1rem" }}>
-              {TEXT.notFoundTitle}
+              {TEXT.pokemonErrorTitle(state.kind)}
             </h1>
             <p className="pd-subtitle" style={{ marginBottom: "1.5rem" }}>
-              {TEXT.notFound(idOrName)}
+              {TEXT.pokemonError(idOrName, backend, state.kind)}
             </p>
             <button type="button" className="pd-btn pd-btn--primary" onClick={() => navigate(homePath(backend))}>
               {TEXT.backToList}

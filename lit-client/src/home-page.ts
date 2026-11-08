@@ -7,6 +7,7 @@ import {
   getClientLinks,
   routePath,
   type Backend,
+  type FetchErrorKind,
   type PokeboxEntry,
   type PokedexEntry,
   type Route,
@@ -18,6 +19,7 @@ import {
   getBackend,
   getBackendFromSearch,
   getFeaturedPokemon,
+  getFetchErrorKind,
   getLeftToDiscover,
   getLeftToDiscoverDesc,
   homePath,
@@ -56,7 +58,7 @@ export class HomePage extends LitElement {
   @state() detail:
     | { status: 'loading' }
     | { status: 'loaded'; pokemon: PokeboxEntry }
-    | { status: 'not-found' } = { status: 'loading' };
+    | { status: 'error'; kind: FetchErrorKind } = { status: 'loading' };
 
   private readonly onPopState = () => this.syncWithLocation();
 
@@ -88,7 +90,7 @@ export class HomePage extends LitElement {
         this.detail = { status: 'loaded', pokemon };
       } catch (err) {
         console.error('Error fetching Pokémon:', err);
-        this.detail = { status: 'not-found' };
+        this.detail = { status: 'error', kind: getFetchErrorKind(err) };
       }
       return;
     }
@@ -98,7 +100,7 @@ export class HomePage extends LitElement {
     } catch (err) {
       console.error('Failed to load the Pokédex:', err);
       this.pokedex = [];
-      this.error = TEXT.pokedexError(this.backend);
+      this.error = TEXT.pokedexError(this.backend, getFetchErrorKind(err));
     }
   }
 
@@ -117,7 +119,7 @@ export class HomePage extends LitElement {
       navigate(pokemonPath(pokemon.name, this.backend));
     } catch (err) {
       console.error('Failed to fetch a random new Pokémon:', err);
-      this.error = TEXT.randomError;
+      this.error = TEXT.randomError(this.backend, getFetchErrorKind(err));
     } finally {
       this.randomLoading = false;
     }
@@ -154,9 +156,10 @@ export class HomePage extends LitElement {
   }
 
   private renderDetail(idOrName: string) {
-    if (this.detail.status === 'loaded') {
+    const { detail } = this;
+    if (detail.status === 'loaded') {
       return html`<pokemon-card
-        .pokemon=${this.detail.pokemon}
+        .pokemon=${detail.pokemon}
         .backend=${this.backend}
       ></pokemon-card>`;
     }
@@ -164,15 +167,15 @@ export class HomePage extends LitElement {
     return html`
       <div class="pd-page">
         <div class="pd-container pd-container--wide">
-          ${this.detail.status === 'loading'
+          ${detail.status === 'loading'
             ? html`<p class="pd-loading">${TEXT.loading}</p>`
             : html`
                 <div class="pd-center">
                   <h1 class="pd-title pd-title--detail" style="margin-bottom: 1rem">
-                    ${TEXT.notFoundTitle}
+                    ${TEXT.pokemonErrorTitle(detail.kind)}
                   </h1>
                   <p class="pd-subtitle" style="margin-bottom: 1.5rem">
-                    ${TEXT.notFound(idOrName)}
+                    ${TEXT.pokemonError(idOrName, this.backend, detail.kind)}
                   </p>
                   <button
                     type="button"

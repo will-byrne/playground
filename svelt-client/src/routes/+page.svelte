@@ -10,6 +10,7 @@
     formatDexNo,
     getBackend,
     getFeaturedPokemon,
+    getFetchErrorKind,
     getLeftToDiscover,
     getLeftToDiscoverDesc,
     homePath,
@@ -42,7 +43,7 @@
       await goto(pokemonPath(pokemon.name, data.backend));
     } catch (err) {
       console.error("Failed to fetch a random new Pokémon:", err);
-      randomError = TEXT.randomError;
+      randomError = TEXT.randomError(data.backend, getFetchErrorKind(err));
     } finally {
       randomLoading = false;
     }

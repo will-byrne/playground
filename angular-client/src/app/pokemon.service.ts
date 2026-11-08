@@ -20,17 +20,16 @@ export class PokemonService {
     return sortPokedex(pokedex);
   }
 
+  /**
+   * Rejects with the HttpErrorResponse on failure, so callers can tell a
+   * missing Pokémon (404) from a backend failure via getFetchErrorKind.
+   */
   async getPokemon(backend: Backend, idOrName: string): Promise<PokeboxEntry> {
-    try {
-      return await firstValueFrom(
-        this.http.get<PokeboxEntry>(
-          `${getBackendUrl(backend)}/pokemon/${encodeURIComponent(idOrName)}`,
-        ),
-      );
-    } catch (error) {
-      console.error(`Error fetching Pokemon: ${idOrName}`, error);
-      throw new Error(`Error fetching Pokemon: ${idOrName}`);
-    }
+    return firstValueFrom(
+      this.http.get<PokeboxEntry>(
+        `${getBackendUrl(backend)}/pokemon/${encodeURIComponent(idOrName)}`,
+      ),
+    );
   }
 
   async getRandomNewPokemon(backend: Backend): Promise<PokeboxEntry> {

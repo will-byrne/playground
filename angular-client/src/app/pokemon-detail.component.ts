@@ -5,6 +5,7 @@ import { PokemonService } from './pokemon.service';
 import {
   TEXT,
   type Backend,
+  type FetchErrorKind,
   type PokeboxEntry,
   canGoToNext,
   canGoToPrevious,
@@ -14,6 +15,7 @@ import {
   getBackend,
   getDefaultSpriteKey,
   getDisplaySpriteKey,
+  getFetchErrorKind,
   getShinySpriteKey,
   getSprites,
   getTypeStyle,
@@ -37,7 +39,8 @@ export class PokemonDetailComponent implements OnInit {
 
   backend: Backend = 'elysia';
   idOrName = '';
-  status: 'loading' | 'loaded' | 'not-found' = 'loading';
+  status: 'loading' | 'loaded' | 'error' = 'loading';
+  errorKind: FetchErrorKind = 'not-found';
   pokemon: PokeboxEntry | null = null;
   spriteList: Record<string, string> = {};
   spriteEntries: Array<[string, string]> = [];
@@ -59,9 +62,11 @@ export class PokemonDetailComponent implements OnInit {
         try {
           this.setPokemon(await this.pokemonService.getPokemon(this.backend, this.idOrName));
           this.status = 'loaded';
-        } catch {
+        } catch (error) {
+          console.error('Error fetching Pokémon:', error);
           this.pokemon = null;
-          this.status = 'not-found';
+          this.errorKind = getFetchErrorKind(error);
+          this.status = 'error';
         }
       },
     );

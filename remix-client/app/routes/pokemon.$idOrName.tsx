@@ -19,11 +19,13 @@ import {
   getBackendFromSearch,
   getDefaultSpriteKey,
   getDisplaySpriteKey,
+  getFetchErrorKind,
   getShinySpriteKey,
   getSprites,
   getTypeColor,
   homePath,
   pokemonPath,
+  type FetchErrorKind,
   type PokeboxEntry,
 } from "utils/pokedex";
 import { CLIENT } from "utils/client";
@@ -37,20 +39,29 @@ export const loader = async ({
 }) => {
   const backend = getBackendFromSearch(new URL(request.url).search);
   try {
-    return { pokemon: await fetchPokemon(backend, params.idOrName) };
+    return { pokemon: await fetchPokemon(backend, params.idOrName), errorKind: null };
   } catch (error) {
     console.error("Error fetching Pokémon:", error);
-    return { pokemon: null };
+    return { pokemon: null, errorKind: getFetchErrorKind(error) };
   }
 };
 
 export const meta: MetaFunction = ({ data }) => {
-  const pokemon = (data as { pokemon: PokeboxEntry | null } | undefined)?.pokemon;
-  return [{ title: pokemon ? `${pokemon.name} | ${getAppTitle(CLIENT)}` : TEXT.notFoundTitle }];
+  const loaded = data as
+    | { pokemon: PokeboxEntry | null; errorKind: FetchErrorKind | null }
+    | undefined;
+  const pokemon = loaded?.pokemon;
+  return [
+    {
+      title: pokemon
+        ? `${pokemon.name} | ${getAppTitle(CLIENT)}`
+        : TEXT.pokemonErrorTitle(loaded?.errorKind ?? "not-found"),
+    },
+  ];
 };
 
 export default function Pokemon() {
-  const { pokemon } = useLoaderData<typeof loader>();
+  const { pokemon, errorKind } = useLoaderData<typeof loader>();
   const navigate = useNavigate();
   const params = useParams();
   const [searchParams] = useSearchParams();
@@ -61,9 +72,9 @@ export default function Pokemon() {
       <div className="min-h-screen bg-base-200 p-4">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center">
-            <h1 className="text-4xl font-bold text-base-content mb-4">{TEXT.notFoundTitle}</h1>
+            <h1 className="text-4xl font-bold text-base-content mb-4">{TEXT.pokemonErrorTitle(errorKind ?? "not-found")}</h1>
             <p className="text-xl text-base-content/70 mb-6">
-              {TEXT.notFound(params.idOrName ?? "")}
+              {TEXT.pokemonError(params.idOrName ?? "", backend, errorKind ?? "not-found")}
             </p>
             <button
               type="button"

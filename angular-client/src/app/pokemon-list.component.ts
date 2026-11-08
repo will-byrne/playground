@@ -13,6 +13,7 @@ import {
   formatDexNo,
   getBackend,
   getFeaturedPokemon,
+  getFetchErrorKind,
   getLeftToDiscover,
   getLeftToDiscoverDesc,
   homePath,
@@ -54,7 +55,7 @@ export class PokemonListComponent implements OnInit {
       } catch (error) {
         console.error('Failed to load the Pokédex:', error);
         this.pokedex = [];
-        this.error = TEXT.pokedexError(this.backend);
+        this.error = TEXT.pokedexError(this.backend, getFetchErrorKind(error));
       }
     });
   }
@@ -99,7 +100,7 @@ export class PokemonListComponent implements OnInit {
       void this.router.navigateByUrl(pokemonPath(pokemon.name, this.backend));
     } catch (error) {
       console.error('Failed to fetch a random new Pokémon:', error);
-      this.error = TEXT.randomError;
+      this.error = TEXT.randomError(this.backend, getFetchErrorKind(error));
     } finally {
       this.randomLoading = false;
     }

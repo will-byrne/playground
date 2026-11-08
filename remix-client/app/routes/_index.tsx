@@ -18,6 +18,7 @@ import {
   getBackend,
   getBackendFromSearch,
   getFeaturedPokemon,
+  getFetchErrorKind,
   getLeftToDiscover,
   getLeftToDiscoverDesc,
   homePath,
@@ -32,7 +33,7 @@ export const loader = async ({ request }: { request: Request }) => {
     return { pokedex: await fetchPokedex(backend), error: null };
   } catch (error) {
     console.error("Failed to load the Pokédex:", error);
-    return { pokedex: [], error: TEXT.pokedexError(backend) };
+    return { pokedex: [], error: TEXT.pokedexError(backend, getFetchErrorKind(error)) };
   }
 };
 
@@ -61,7 +62,7 @@ export default function Index() {
       navigate(pokemonPath(pokemon.name, backend));
     } catch (error) {
       console.error("Failed to fetch a random new Pokémon:", error);
-      setRandomError(TEXT.randomError);
+      setRandomError(TEXT.randomError(backend, getFetchErrorKind(error)));
     } finally {
       setRandomLoading(false);
     }

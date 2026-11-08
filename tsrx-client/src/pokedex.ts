@@ -113,6 +113,36 @@ export class FetchError extends Error {
   }
 }
 
+/**
+ * Why a request to the backend failed. Every server follows rust-server's
+ * statuses:
+ * - `not-found` (404): the Pokémon doesn't exist, or for random-new, every
+ *   Pokémon has already been discovered.
+ * - `upstream` (502): the backend couldn't get the Pokémon from PokeAPI.
+ * - `server` (500, or any other error status): the backend failed, usually
+ *   because MongoDB is down.
+ * - `unreachable`: no response at all; the backend isn't running or the
+ *   request was blocked.
+ */
+export type FetchErrorKind = "not-found" | "upstream" | "server" | "unreachable";
+
+/**
+ * Classifies an error thrown while fetching. Works with `FetchError` and with
+ * anything else that carries an HTTP `status` (e.g. Angular's
+ * HttpErrorResponse, which uses status 0 for a network failure).
+ */
+export const getFetchErrorKind = (error: unknown): FetchErrorKind => {
+  const status =
+    typeof error === "object" && error !== null && "status" in error ? error.status : undefined;
+  if (status === 404) return "not-found";
+  if (status === 502) return "upstream";
+  if (typeof status === "number" && status > 0) return "server";
+  // A response that wasn't valid JSON still came from the backend.
+  if (error instanceof SyntaxError) return "server";
+  // fetch rejects with a TypeError when there's no response at all.
+  return "unreachable";
+};
+
 export const fetchJson = async <T>(
   url: string,
   fetcher: typeof fetch = globalThis.fetch,
@@ -139,6 +169,19 @@ export const fetchRandomNewPokemon = (backend: Backend, fetcher?: typeof fetch) 
 // ---------------------------------------------------------------------------
 // Copy shown to the user
 // ---------------------------------------------------------------------------
+
+/** What went wrong with the backend, for a failure that isn't a missing Pokémon. */
+const describeBackendError = (backend: Backend, kind: FetchErrorKind): string => {
+  const label = BACKENDS[backend].label;
+  switch (kind) {
+    case "upstream":
+      return `The ${label} backend could not reach PokeAPI. Try again in a moment.`;
+    case "unreachable":
+      return `Could not connect to the ${label} backend. Is it running?`;
+    default:
+      return `The ${label} backend ran into a problem. Is its database running?`;
+  }
+};
 
 export const TEXT = {
   title: "Pokédex Explorer",
@@ -172,11 +215,20 @@ export const TEXT = {
   abilities: "Abilities",
   sprites: "Sprites",
   selected: "Selected",
-  notFoundTitle: "Pokémon Not Found",
-  pokedexError: (backend: Backend) =>
-    `Could not load the Pokédex from the ${BACKENDS[backend].label} backend.`,
-  randomError: "Could not find a random new Pokémon.",
-  notFound: (idOrName: string) => `The Pokémon "${idOrName}" could not be found.`,
+  pokedexError: (backend: Backend, kind: FetchErrorKind) =>
+    `Could not load the Pokédex. ${describeBackendError(backend, kind)}`,
+  randomError: (backend: Backend, kind: FetchErrorKind) =>
+    kind === "not-found"
+      ? "Every Pokémon has already been discovered, so there are no new ones left!"
+      : `Could not find a random new Pokémon. ${describeBackendError(backend, kind)}`,
+  /** Heading for the Pokémon page when loading it failed. */
+  pokemonErrorTitle: (kind: FetchErrorKind) =>
+    kind === "not-found" ? "Pokémon Not Found" : "Could Not Load Pokémon",
+  /** Message for the Pokémon page when loading it failed. */
+  pokemonError: (idOrName: string, backend: Backend, kind: FetchErrorKind) =>
+    kind === "not-found"
+      ? `The Pokémon "${idOrName}" could not be found.`
+      : `Could not load "${idOrName}". ${describeBackendError(backend, kind)}`,
 } as const;
 
 // ---------------------------------------------------------------------------

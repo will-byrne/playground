@@ -21,6 +21,7 @@ import {
   getAppTitle,
   capitalize,
   fetchPokedex,
+  getFetchErrorKind,
   fetchRandomNewPokemon,
   formatDexNo,
   getBackend,
@@ -46,7 +47,7 @@ export function HomePage({ backend }: { backend: Backend }) {
       .then(setPokedex)
       .catch((err) => {
         console.error('Failed to load the Pokédex:', err);
-        setError(TEXT.pokedexError(backend));
+        setError(TEXT.pokedexError(backend, getFetchErrorKind(err)));
       });
   }, [backend]);
 
@@ -60,7 +61,7 @@ export function HomePage({ backend }: { backend: Backend }) {
       navigate(pokemonPath(pokemon.name, backend));
     } catch (err) {
       console.error('Failed to fetch a random new Pokémon:', err);
-      setError(TEXT.randomError);
+      setError(TEXT.randomError(backend, getFetchErrorKind(err)));
     } finally {
       setRandomLoading(false);
     }

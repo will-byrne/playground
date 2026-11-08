@@ -101,8 +101,8 @@
         <p class="pd-loading">{{ text.loading }}</p>
       } @else {
         <div class="pd-center">
-          <h1 class="pd-title pd-title--detail" style="margin-bottom: 1rem">{{ text.notFoundTitle }}</h1>
-          <p class="pd-subtitle" style="margin-bottom: 1.5rem">{{ text.notFound(idOrName) }}</p>
+          <h1 class="pd-title pd-title--detail" style="margin-bottom: 1rem">{{ text.pokemonErrorTitle(errorKind) }}</h1>
+          <p class="pd-subtitle" style="margin-bottom: 1.5rem">{{ text.pokemonError(idOrName, backend, errorKind) }}</p>
           <button type="button" class="pd-btn pd-btn--primary" (click)="goHome()">{{ text.backToList }}</button>
         </div>
       }
