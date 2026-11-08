@@ -12,6 +12,14 @@ const mongoClient = new MongoClient(process.env.MONGODB_URI ?? 'mongodb://admin:
 const mongoDB = mongoClient.db('pokemon');
 const pokemonCollection = mongoDB.collection<PokeboxEntry>('pokemon');
 
+// rust-server's unique index on id, so concurrent first lookups of the same
+// Pokémon can't store it twice. Failing to create it (MongoDB not up yet, or
+// duplicates already stored) is logged, not fatal; upserts still keep new
+// writes from duplicating.
+pokemonCollection.createIndex({ id: 1 }, { unique: true }).catch((error) => {
+  console.warn(`WARNING: could not create the unique index on pokemon.id (${error}). If duplicates are already stored, remove them and restart.`);
+});
+
 export type PokeboxEntry = {
   name: string,
   id: number,
@@ -68,8 +76,9 @@ const getPokemon = async (
   });
   const entry = await buildPokeboxEntry(pokemon);
   try {
-    // insertOne adds `_id` to the document it is given, so insert a copy to keep it out of the response.
-    await pokemonCollection.insertOne({ ...entry });
+    // Upsert by id, so storing the same Pokémon twice keeps one copy. A copy
+    // is stored so the driver can't add `_id` to the returned entry.
+    await pokemonCollection.replaceOne({ id: entry.id }, { ...entry }, { upsert: true });
   } catch (error) {
     console.error(`Failed to store Pokemon ${entry.name}: ${error}`);
   }

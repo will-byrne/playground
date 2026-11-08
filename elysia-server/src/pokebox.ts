@@ -70,7 +70,12 @@ export const getPokemon = async (idOrName: string): Promise<Omit<PokeboxEntry, "
   });
 
   try {
-    await repository.save(newPokeboxEntry);
+    // Upsert by id, so storing the same Pokémon twice keeps one copy.
+    await repository.replaceOne(
+      { id: newPokeboxEntry.id },
+      stripMongoMetadata(newPokeboxEntry),
+      { upsert: true },
+    );
   } catch (error) {
     console.error(`Failed to store pokemon ${pokemon.name}`, error);
   }

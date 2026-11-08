@@ -215,10 +215,27 @@ func (db *MongoDb) fetchAndStorePokemon(identifier string) (PokeboxEntry, error)
 	return pokeboxEntry, nil
 }
 
+// StorePokemon upserts by id, so storing the same Pokémon twice (e.g. two
+// concurrent first lookups) keeps one copy, like rust-server.
 func (db *MongoDb) StorePokemon(pokemon *PokeboxEntry) error {
 	collection := db.client.Database("pokemon").Collection("pokemon")
-	_, err := collection.InsertOne(context.Background(), pokemon)
+	_, err := collection.ReplaceOne(context.Background(), bson.M{"id": pokemon.ID}, pokemon, options.Replace().SetUpsert(true))
 	return err
+}
+
+// ensureIndexes adds rust-server's unique index on id, so concurrent first
+// lookups of the same Pokémon can't store it twice. Failing to create it
+// (MongoDB not up yet, or duplicates already stored) is logged, not fatal.
+func ensureIndexes(client *mongo.Client) {
+	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
+	defer cancel()
+	_, err := client.Database("pokemon").Collection("pokemon").Indexes().CreateOne(ctx, mongo.IndexModel{
+		Keys:    bson.D{{Key: "id", Value: 1}},
+		Options: options.Index().SetUnique(true),
+	})
+	if err != nil {
+		fmt.Printf("WARNING: could not create the unique index on pokemon.id (%v). If duplicates are already stored, remove them and restart.\n", err)
+	}
 }
 
 // fetchPokemon gets /pokemon/{identifier} straight from PokeAPI, like
@@ -342,6 +359,7 @@ func createDb() (PokeboxDb, error) {
 		fmt.Printf("WARNING: could not reach MongoDB yet: %v\n", err)
 	} else {
 		fmt.Println("Connected to MongoDB successfully")
+		ensureIndexes(client)
 	}
 	return &MongoDb{client: client}, nil
 }

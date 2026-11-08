@@ -1,6 +1,9 @@
 package com.pokemon.service;
 
 import com.mongodb.client.model.Filters;
+import com.mongodb.client.model.IndexOptions;
+import com.mongodb.client.model.Indexes;
+import com.mongodb.client.model.ReplaceOptions;
 import com.mongodb.client.model.Projections;
 import com.mongodb.reactivestreams.client.MongoClient;
 import com.mongodb.reactivestreams.client.MongoCollection;
@@ -30,6 +33,21 @@ public class PokemonStore {
 
     public PokemonStore(MongoClient mongoClient) {
         this.collection = mongoClient.getDatabase("pokemon").getCollection("pokemon");
+        ensureIndexes();
+    }
+
+    /**
+     * rust-server's unique index on {@code id}, so concurrent first lookups of
+     * the same Pokémon can't store it twice. Failing to create it (MongoDB not
+     * up yet, or duplicates already stored) is logged, not fatal; upserts
+     * still keep new writes from duplicating.
+     */
+    private void ensureIndexes() {
+        Mono.from(collection.createIndex(Indexes.ascending("id"), new IndexOptions().unique(true)))
+                .subscribe(
+                        name -> log.info("Unique index on pokemon.id: {}", name),
+                        error -> log.warn("Could not create the unique index on pokemon.id ({}). "
+                                + "If duplicates are already stored, remove them and restart.", error.getMessage()));
     }
 
     public Flux<PokedexEntry> findPokedex() {
@@ -48,7 +66,9 @@ public class PokemonStore {
     }
 
     public Mono<Void> save(PokeboxEntry entry) {
-        return Mono.from(collection.insertOne(toDocument(entry)))
+        // Upsert by id, so storing the same Pokémon twice keeps one copy.
+        return Mono.from(collection.replaceOne(Filters.eq("id", entry.id()), toDocument(entry),
+                        new ReplaceOptions().upsert(true)))
                 .doOnError(error -> log.error("Error saving Pokemon {}", entry.name(), error))
                 .onErrorResume(error -> Mono.empty())
                 .then();

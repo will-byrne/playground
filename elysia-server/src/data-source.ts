@@ -40,7 +40,27 @@ export const AppDataSource = new DataSource({
 export const initializeDatabase = async () => {
   if (!AppDataSource.isInitialized) {
     await AppDataSource.initialize();
+    await ensureUniqueId();
   }
 
   return AppDataSource;
+};
+
+/**
+ * rust-server's unique index on `id` (same default name, `id_1`, so every
+ * server shares one index), so concurrent first lookups of the same Pokémon
+ * can't store it twice. Created here rather than with `@Index({ unique: true })`:
+ * TypeORM's generated index names collide with the non-unique index existing
+ * databases already have, and `synchronize` then fails at startup. Failing to
+ * create it (duplicates already stored) is logged, not fatal; upserts still
+ * keep new writes from duplicating.
+ */
+const ensureUniqueId = async () => {
+  try {
+    await AppDataSource.getMongoRepository(PokeboxEntry).createCollectionIndex({ id: 1 }, { unique: true });
+  } catch (error) {
+    console.warn(
+      `WARNING: could not create the unique index on pokemon.id (${error}). If duplicates are already stored, remove them and restart.`,
+    );
+  }
 };
