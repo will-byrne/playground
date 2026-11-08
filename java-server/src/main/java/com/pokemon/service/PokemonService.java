@@ -70,21 +70,27 @@ public class PokemonService {
         return java.util.Optional.of(unseen.get(ThreadLocalRandom.current().nextInt(unseen.size())));
     }
 
+    /**
+     * Fetches a Pokémon from PokeAPI and stores it. Empty when PokeAPI has no
+     * such Pokémon (404); fails with {@link PokeApiUnavailableException} (502)
+     * for any other PokeAPI failure, including a 404 for its species.
+     */
     private Mono<PokeboxEntry> fetchAndStore(String idOrName) {
         return fetch("/pokemon/{idOrName}", idOrName)
+                .onErrorResume(WebClientResponseException.NotFound.class, notFound -> {
+                    log.info("PokeAPI has no Pokemon {}", idOrName);
+                    return Mono.empty();
+                })
                 .flatMap(pokemon -> Mono.zip(
                         fetch("/pokemon-species/{name}", pokemon.path("species").path("name").asText()),
                         fetchAbilities(pokemon),
                         (species, abilities) -> PokeApiMapper.toPokeboxEntry(pokemon, species, abilities)))
-                .flatMap(entry -> store.save(entry).thenReturn(entry))
-                .onErrorResume(error -> {
-                    if (error instanceof WebClientResponseException.NotFound) {
-                        log.info("PokeAPI has no Pokemon {}", idOrName);
-                    } else {
-                        log.error("Failed to fetch Pokemon {} from PokeAPI", idOrName, error);
-                    }
-                    return Mono.empty();
-                });
+                .onErrorMap(error -> {
+                    log.error("Failed to fetch Pokemon {} from PokeAPI", idOrName, error);
+                    return new PokeApiUnavailableException(idOrName, error);
+                })
+                // A failed save is logged by the store; the lookup still succeeds.
+                .flatMap(entry -> store.save(entry).thenReturn(entry));
     }
 
     /** Abilities that fail to load are skipped, as in rust-server. */

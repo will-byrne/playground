@@ -1,7 +1,8 @@
-import { Hono } from 'hono';
+import { type Context, Hono } from 'hono';
 import { prettyJSON } from 'hono/pretty-json';
 import { getPokedex, getPokemonById, getPokemonByName } from './storage';
 import { getRandomNoExcludeRange } from './get-random-no-exclude-range';
+import { statusFor } from './errors';
 
 // Mirrors the CORS fairing in rust-server: the same static headers on every response.
 export const CORS_HEADERS = {
@@ -24,6 +25,15 @@ app.use('*', prettyJSON());
 // rust-server answers OPTIONS on any path with 204 No Content.
 app.options('*', (c) => c.body(null, 204));
 
+const STATUS_TEXT = { 404: 'Not Found', 500: 'Internal Server Error', 502: 'Bad Gateway' } as const;
+
+/** Answers with the rust-server status for `error`: 404, 502 or 500. */
+const errorResponse = (c: Context, message: string, error: unknown) => {
+  const status = statusFor(error);
+  if (status !== 404) console.error(message, error);
+  return c.text(STATUS_TEXT[status], status);
+};
+
 app.get('/', (c) => {
   return c.text('Hello, World!');
 });
@@ -32,11 +42,12 @@ app.get('/pokemon/random-new', async (c) => {
   try {
     const cachedPokemon = (await getPokedex()).map(({ id }) => id);
     const num = getRandomNoExcludeRange(cachedPokemon);
+    // Every Pokémon is already stored.
+    if (num === undefined) return c.text(STATUS_TEXT[404], 404);
     const pokemon = await getPokemonById(num);
     return c.json(pokemon);
   } catch (error) {
-    console.error('Could not find random new Pokemon', error);
-    return c.text('Internal Server Error', 500);
+    return errorResponse(c, 'Could not find random new Pokemon', error);
   }
 });
 
@@ -49,13 +60,16 @@ app.get('/pokemon/:idOrName', async (c) => {
       : await getPokemonByName(idOrName);
     return c.json(pokemon);
   } catch (error) {
-    console.error(`Could not find Pokemon with id or name: ${idOrName}`, error);
-    return c.text('Not Found', 404);
+    return errorResponse(c, `Could not find Pokemon with id or name: ${idOrName}`, error);
   }
 });
 
 app.get('/pokedex', async (c) => {
-  return c.json(await getPokedex());
+  try {
+    return c.json(await getPokedex());
+  } catch (error) {
+    return errorResponse(c, 'Could not get the pokedex', error);
+  }
 });
 
 export default app;

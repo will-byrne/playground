@@ -1,132 +1,59 @@
 use futures::TryStreamExt;
-use mongodb::error::Result;
-use mongodb::{Client, Collection, bson::{doc, Document}, options::ClientOptions};
+use mongodb::bson::{Document, doc};
+use mongodb::options::{ClientOptions, IndexOptions};
+use mongodb::{Client, Collection, IndexModel};
 use rocket::serde::json::serde_json;
 use rocket::serde::{Deserialize, Serialize};
+use rustemon::client::RustemonClient;
 use rustemon::model::moves::Move;
-use rustemon::model::pokemon::{Ability, Pokemon, PokemonSpecies, PokemonType};
+use rustemon::model::pokemon::{Ability, Pokemon, PokemonSpecies};
+use std::fmt;
+
+/// Why a Pokébox lookup failed. Routes map these to HTTP statuses, so a
+/// missing Pokémon (404) is never confused with a broken dependency.
+#[derive(Debug, Clone, PartialEq)]
+pub enum PokeboxError {
+    /// The Pokémon doesn't exist: PokeAPI answered 404.
+    NotFound,
+    /// PokeAPI was unreachable, failed, or sent something unexpected.
+    Upstream(String),
+    /// MongoDB failed.
+    Db(String),
+}
+
+impl fmt::Display for PokeboxError {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        match self {
+            PokeboxError::NotFound => write!(f, "pokemon not found"),
+            PokeboxError::Upstream(e) => write!(f, "pokeapi error: {e}"),
+            PokeboxError::Db(e) => write!(f, "database error: {e}"),
+        }
+    }
+}
+
+impl std::error::Error for PokeboxError {}
+
+impl From<mongodb::error::Error> for PokeboxError {
+    fn from(err: mongodb::error::Error) -> Self {
+        PokeboxError::Db(err.to_string())
+    }
+}
+
+fn upstream(err: impl fmt::Display) -> PokeboxError {
+    PokeboxError::Upstream(err.to_string())
+}
+
+pub type PokeboxResult<T> = Result<T, PokeboxError>;
 
 #[async_trait::async_trait]
-pub trait PokeboxDb {
-    async fn get_pokedex(&self) -> Vec<PokedexEntry>;
-    async fn get_pokemon_by_id(&self, id: i64) -> Option<PokeboxEntry>;
-    async fn get_pokemon_by_name(&self, name: &str) -> Option<PokeboxEntry>;
-    async fn store_pokemon(&self, pokemon: &PokeboxEntry) -> bool;
+pub trait PokeboxDb: Send + Sync {
+    async fn get_pokedex(&self) -> PokeboxResult<Vec<PokedexEntry>>;
+    async fn get_pokemon_by_id(&self, id: i64) -> PokeboxResult<PokeboxEntry>;
+    async fn get_pokemon_by_name(&self, name: &str) -> PokeboxResult<PokeboxEntry>;
+    async fn store_pokemon(&self, pokemon: &PokeboxEntry) -> PokeboxResult<()>;
 }
 
-pub struct MongoDb {
-    pub client: mongodb::Client,
-}
-
-#[async_trait::async_trait]
-impl PokeboxDb for MongoDb {
-    async fn get_pokedex(&self) -> Vec<PokedexEntry> {
-        get_pokedex(&self.client).await
-    }
-
-    async fn get_pokemon_by_id(&self, id: i64) -> Option<PokeboxEntry> {
-        match get_pokemon_by_id(&self.client, id).await {
-            Ok(pokemon) => Some(pokemon),
-            Err(e) => {
-                eprintln!("Failed to get pokemon {}: {}", id, e);
-                None
-            }
-        }
-    }
-
-    async fn get_pokemon_by_name(&self, name: &str) -> Option<PokeboxEntry> {
-        match get_pokemon_by_name(&self.client, name).await {
-            Ok(pokemon) => Some(pokemon),
-            Err(e) => {
-                eprintln!("Failed to get pokemon {}: {}", name, e);
-                None
-            }
-        }
-    }
-
-
-    async fn store_pokemon(&self, pokemon: &PokeboxEntry) -> bool {
-        store_pokemon(&self.client, pokemon).await.unwrap_or(false)
-    }
-}
-
-pub struct MockDb;
-
-#[async_trait::async_trait]
-impl PokeboxDb for MockDb {
-    async fn get_pokedex(&self) -> Vec<PokedexEntry> {
-        vec![
-            PokedexEntry {
-                id: 1,
-                name: "bulbasaur".into(),
-            },
-            PokedexEntry {
-                id: 2,
-                name: "ivysaur".into(),
-            },
-        ]
-    }
-
-    async fn get_pokemon_by_id(&self, id: i64) -> Option<PokeboxEntry> {
-        if id <= 0 {
-            return None;
-        }
-        let default_sprites = serde_json::json!({
-            "back_default": null,
-            "back_female": null,
-            "back_shiny": null,
-            "back_shiny_female": null,
-            "front_default": null,
-            "front_female": null,
-            "front_shiny": null,
-            "front_shiny_female": null
-        });
-        Some(PokeboxEntry {
-            id,
-            name: format!("pokemon{}", id),
-            species_description: "Mock description".into(),
-            types: vec!["grass".into()],
-            abilities: vec![],
-            sprites: serde_json::from_value(default_sprites).unwrap_or_else(|_| {
-                serde_json::from_str(include_str!("bulbasaur_sprites.json"))
-                    .expect("Failed to parse bulbasaur sprites")
-            }),
-        })
-    }
-
-    async fn get_pokemon_by_name(&self, name: &str) -> Option<PokeboxEntry> {
-        if name.is_empty() {
-            return None;
-        }
-        let default_sprites = serde_json::json!({
-            "back_default": null,
-            "back_female": null,
-            "back_shiny": null,
-            "back_shiny_female": null,
-            "front_default": null,
-            "front_female": null,
-            "front_shiny": null,
-            "front_shiny_female": null
-        });
-        Some(PokeboxEntry {
-            id: 42,
-            name: name.to_string(),
-            species_description: "Mock description".into(),
-            types: vec!["grass".into()],
-            abilities: vec![],
-            sprites: serde_json::from_value(default_sprites).unwrap_or_else(|_| {
-                serde_json::from_str(include_str!("bulbasaur_sprites.json"))
-                    .expect("Failed to parse bulbasaur sprites")
-            }),
-        })
-    }
-
-    async fn store_pokemon(&self, _pokemon: &PokeboxEntry) -> bool {
-        true
-    }
-}
-
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug, Clone, PartialEq)]
 pub struct PokedexEntry {
     pub name: String,
     pub id: i64,
@@ -146,118 +73,219 @@ pub struct PokemonMove {
     description: String,
 }
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug, Clone, PartialEq)]
 pub struct PokemonAbility {
-    name: String,
-    flavour_text: String,
-    effect: String,
+    pub name: String,
+    pub flavour_text: String,
+    pub effect: String,
 }
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug, Clone, PartialEq)]
 pub struct PokeboxEntry {
-    name: String,
-    id: i64,
-    species_description: String,
-    types: Vec<String>,
-    abilities: Vec<PokemonAbility>,
-    sprites: serde_json::Value,
+    pub name: String,
+    pub id: i64,
+    pub species_description: String,
+    pub types: Vec<String>,
+    pub abilities: Vec<PokemonAbility>,
+    pub sprites: serde_json::Value,
+}
+
+/// How a Pokémon was asked for.
+enum PokemonKey<'a> {
+    Id(i64),
+    Name(&'a str),
+}
+
+impl PokemonKey<'_> {
+    fn filter(&self) -> Document {
+        match self {
+            PokemonKey::Id(id) => doc! { "id": id },
+            PokemonKey::Name(name) => doc! { "name": name },
+        }
+    }
+}
+
+impl fmt::Display for PokemonKey<'_> {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        match self {
+            PokemonKey::Id(id) => write!(f, "{id}"),
+            PokemonKey::Name(name) => write!(f, "{name}"),
+        }
+    }
+}
+
+const POKEAPI_URL: &str = "https://pokeapi.co/api/v2";
+const LOCAL_API: &str = "http://pokeapi-app-1:80/api/v2";
+
+/// MongoDB-backed Pokébox: serves stored Pokémon, and fetches, stores and
+/// returns the ones that aren't stored yet from PokeAPI.
+pub struct MongoDb {
+    client: Client,
+    rustemon: RustemonClient,
+    http: reqwest::Client,
+    api_base: String,
+}
+
+impl MongoDb {
+    /// Wraps a client, building the PokeAPI clients once for every request,
+    /// and makes sure the collection has its unique index.
+    pub async fn new(client: Client) -> Self {
+        let use_local = matches!(std::env::var("LOCAL_API").as_deref(), Ok("true"));
+        let api_base = if use_local { LOCAL_API } else { POKEAPI_URL };
+        eprintln!("using pokeapi at {api_base}");
+
+        let rustemon = if use_local {
+            rustemon::client::RustemonClientBuilder::<rustemon::client::CACacheManager>::default()
+                .with_environment(rustemon::client::Environment::Custom(api_base.to_string()))
+                .try_build()
+                .unwrap_or_else(|err| {
+                    eprintln!("Failed to build Rustemon client for the local api: {err}");
+                    RustemonClient::default()
+                })
+        } else {
+            RustemonClient::default()
+        };
+
+        let db = MongoDb {
+            client,
+            rustemon,
+            http: reqwest::Client::new(),
+            api_base: api_base.to_string(),
+        };
+        db.ensure_indexes().await;
+        db
+    }
+
+    fn collection<T: Send + Sync>(&self) -> Collection<T> {
+        self.client.database("pokemon").collection("pokemon")
+    }
+
+    /// A unique index on `id`, so concurrent first lookups of the same
+    /// Pokémon can't store it twice. Failing to create it (Mongo not up yet,
+    /// or duplicates already stored) is logged rather than fatal; upserts
+    /// still keep new writes from duplicating.
+    async fn ensure_indexes(&self) {
+        let index = IndexModel::builder()
+            .keys(doc! { "id": 1 })
+            .options(IndexOptions::builder().unique(true).build())
+            .build();
+        if let Err(err) = self.collection::<Document>().create_index(index).await {
+            eprintln!(
+                "WARNING: could not create the unique index on pokemon.id ({err}). \
+                 If duplicates are already stored, remove them and restart."
+            );
+        }
+    }
+
+    async fn get_pokemon(&self, key: PokemonKey<'_>) -> PokeboxResult<PokeboxEntry> {
+        let stored = self
+            .collection::<PokeboxEntry>()
+            .find_one(key.filter())
+            .projection(doc! { "_id": 0 })
+            .await?;
+        if let Some(pokemon) = stored {
+            return Ok(pokemon);
+        }
+
+        let entry = self.fetch_from_pokeapi(&key).await?;
+        // The lookup still succeeded, so a failed store only costs a refetch
+        // next time.
+        if let Err(err) = self.store_pokemon(&entry).await {
+            eprintln!("Failed to store pokemon {}: {err}", entry.id);
+        }
+        Ok(entry)
+    }
+
+    async fn fetch_from_pokeapi(&self, key: &PokemonKey<'_>) -> PokeboxResult<PokeboxEntry> {
+        // Fetched directly rather than through rustemon: rustemon doesn't
+        // expose the status code (so a 404 can't be told from an outage), and
+        // its model drops sprite fields the clients use.
+        let response = self
+            .http
+            .get(format!("{}/pokemon/{key}", self.api_base))
+            .send()
+            .await
+            .map_err(upstream)?;
+        if response.status() == reqwest::StatusCode::NOT_FOUND {
+            return Err(PokeboxError::NotFound);
+        }
+        let raw: serde_json::Value = response
+            .error_for_status()
+            .map_err(upstream)?
+            .json()
+            .await
+            .map_err(upstream)?;
+        let pokemon = Pokemon::deserialize(&raw).map_err(upstream)?;
+        let sprites = extract_sprites_from_pokeapi_response(&raw)
+            .unwrap_or_else(|_| serde_json::to_value(&pokemon.sprites).unwrap_or_default());
+
+        let mut abilities = Vec::new();
+        for ability_ref in pokemon.abilities.iter().filter_map(|ab| ab.ability.as_ref()) {
+            match rustemon::pokemon::ability::get_by_name(&ability_ref.name, &self.rustemon).await {
+                Ok(ability) => abilities.push(ability),
+                Err(err) => eprintln!("Failed to fetch ability {}: {err}", ability_ref.name),
+            }
+        }
+
+        let species =
+            rustemon::pokemon::pokemon_species::get_by_name(&pokemon.species.name, &self.rustemon)
+                .await
+                .map_err(upstream)?;
+
+        Ok(to_pokebox_entry(pokemon, species, abilities, sprites))
+    }
+}
+
+#[async_trait::async_trait]
+impl PokeboxDb for MongoDb {
+    async fn get_pokedex(&self) -> PokeboxResult<Vec<PokedexEntry>> {
+        let cursor = self
+            .collection::<PokedexEntry>()
+            .find(doc! { "id": { "$exists": true } })
+            .projection(doc! { "_id": 0, "id": 1, "name": 1 })
+            .sort(doc! { "id": 1 })
+            .await?;
+        Ok(cursor.try_collect().await?)
+    }
+
+    async fn get_pokemon_by_id(&self, id: i64) -> PokeboxResult<PokeboxEntry> {
+        self.get_pokemon(PokemonKey::Id(id)).await
+    }
+
+    async fn get_pokemon_by_name(&self, name: &str) -> PokeboxResult<PokeboxEntry> {
+        self.get_pokemon(PokemonKey::Name(name)).await
+    }
+
+    /// Upserts by id, so storing the same Pokémon twice keeps one copy.
+    async fn store_pokemon(&self, pokemon: &PokeboxEntry) -> PokeboxResult<()> {
+        self.collection::<PokeboxEntry>()
+            .replace_one(doc! { "id": pokemon.id }, pokemon)
+            .upsert(true)
+            .await?;
+        Ok(())
+    }
 }
 
 pub async fn create_db() -> std::result::Result<Client, Box<dyn std::error::Error>> {
     let uri = std::env::var("MONGODB_URI")
         .unwrap_or_else(|_| "mongodb://admin:testtest@localhost:27017".to_string());
     println!("connecting to mongo at: {}", uri);
-    let client_options = ClientOptions::parse(&uri).await?;
+    let mut client_options = ClientOptions::parse(&uri).await?;
+    // Fail queries after 5s when MongoDB is unreachable (the driver default is
+    // 30s), so requests answer 500 promptly. Same value in every server.
+    client_options.server_selection_timeout = Some(std::time::Duration::from_secs(5));
     Ok(Client::with_options(client_options)?)
 }
 
-pub async fn store_pokemon(mongodb: &Client, new_pokemon: &PokeboxEntry) -> Result<bool> {
-    let pokemon_collection: Collection<PokeboxEntry> =
-        mongodb.database("pokemon").collection("pokemon");
-    pokemon_collection.insert_one(new_pokemon).await?;
-    Ok(true)
-}
-
-const LOCAL_API: &str = "http://pokeapi-app-1:80/api/v2";
-
-fn build_rustemon_client() -> rustemon::client::RustemonClient {
-    if matches!(std::env::var("LOCAL_API").as_deref(), Ok("true")) {
-        eprintln!("using local api for rustemon client");
-        rustemon::client::RustemonClientBuilder::<rustemon::client::CACacheManager>::default()
-            .with_environment(rustemon::client::Environment::Custom(LOCAL_API.to_string()))
-            .try_build()
-            .unwrap_or_else(|err| {
-                eprintln!("Failed to build Rustemon client with local environment: {}", err);
-                rustemon::client::RustemonClient::default()
-            })
-    } else {
-        eprintln!("using default api for rustemon client");
-        rustemon::client::RustemonClient::default()
-    }
-}
-
-pub async fn get_pokemon_by_id(
-    mongodb: &Client,
-    id: i64,
-) -> std::result::Result<PokeboxEntry, Box<dyn std::error::Error>> {
-    let pokebox: Collection<PokeboxEntry> = mongodb.database("pokemon").collection("pokemon");
-    let filter = doc! {"id": id};
-    let pokemon = pokebox
-        .find_one(filter)
-        .projection(doc! { "_id": 0 })
-        .await?;
-
-    if let Some(pokemon) = pokemon {
-        return Ok(pokemon);
-    }
-    let rustemon_client = build_rustemon_client();
-    let new_pokemon = rustemon::pokemon::pokemon::get_by_id(id, &rustemon_client)
-        .await
-        .map_err(|e| Box::new(e) as Box<dyn std::error::Error>)?;
-    let mut abilities: Vec<Ability> = vec![];
-
-    for ability_ref in new_pokemon.abilities.iter().filter_map(|ab| ab.ability.as_ref()) {
-        if let Ok(ability) =
-            rustemon::pokemon::ability::get_by_name(ability_ref.name.as_str(), &rustemon_client)
-                .await
-        {
-            abilities.push(ability);
-        }
-    }
-
-    let species = rustemon::pokemon::pokemon_species::get_by_name(
-        &new_pokemon.species.name,
-        &rustemon_client,
-    )
-    .await
-    .map_err(|e| Box::new(e) as Box<dyn std::error::Error>)?;
-
-    fn ability_mapper(ab: Ability) -> PokemonAbility {
-        let flavour_text = ab
-            .flavor_text_entries
-            .into_iter()
-            .find(|entry| entry.language.name == "en")
-            .map(|entry| entry.flavor_text)
-            .unwrap_or_else(|| "No description available".to_string());
-
-        let effect = ab
-            .effect_entries
-            .into_iter()
-            .find(|entry| entry.language.name == "en")
-            .map(|entry| entry.short_effect)
-            .unwrap_or_else(|| "No effect available".to_string());
-
-        PokemonAbility {
-            name: ab.name,
-            flavour_text,
-            effect,
-        }
-    }
-
-    fn type_mapper(tp: PokemonType) -> String {
-        tp.type_.name
-    }
-
+/// Turns the PokeAPI responses for one Pokémon into what the Pokébox stores
+/// and serves. `abilities` are the full ability resources, in the order the
+/// Pokémon lists them; `sprites` is the raw `sprites` object.
+pub fn to_pokebox_entry(
+    pokemon: Pokemon,
+    species: PokemonSpecies,
+    abilities: Vec<Ability>,
+    sprites: serde_json::Value,
+) -> PokeboxEntry {
     let species_description = species
         .flavor_text_entries
         .into_iter()
@@ -265,122 +293,33 @@ pub async fn get_pokemon_by_id(
         .map(|entry| entry.flavor_text)
         .unwrap_or_else(|| "No description available".to_string());
 
-    let sprites = fetch_pokemon_sprites_by_id(new_pokemon.id)
-        .await
-        .unwrap_or_else(|err| {
-            eprintln!("Failed to fetch raw sprites for {}: {}", new_pokemon.id, err);
-            serde_json::to_value(&new_pokemon.sprites)
-                .unwrap_or_else(|_| {
-                    serde_json::from_str(include_str!("bulbasaur_sprites.json"))
-                        .expect("Failed to parse bulbasaur sprites")
-                })
-        });
-
-    let pokebox_entry = PokeboxEntry {
-        id: new_pokemon.id,
-        name: new_pokemon.name,
-        species_description,
-        types: new_pokemon.types.into_iter().map(type_mapper).collect(),
-        abilities: abilities.into_iter().map(ability_mapper).collect(),
-        sprites,
-    };
-
-    let _ = store_pokemon(mongodb, &pokebox_entry).await;
-    Ok(pokebox_entry)
-}
-
-pub async fn get_pokemon_by_name(
-    mongodb: &Client,
-    name: &str,
-) -> std::result::Result<PokeboxEntry, Box<dyn std::error::Error>> {
-    let pokebox: Collection<PokeboxEntry> = mongodb.database("pokemon").collection("pokemon");
-    let filter = doc! {"name": name};
-    let pokemon = pokebox
-        .find_one(filter)
-        .projection(doc! { "_id": 0 })
-        .await?;
-
-    if let Some(pokemon) = pokemon {
-        return Ok(pokemon);
-    }
-
-    let rustemon_client = build_rustemon_client();
-    let new_pokemon = rustemon::pokemon::pokemon::get_by_name(name, &rustemon_client)
-        .await
-        .map_err(|e| Box::new(e) as Box<dyn std::error::Error>)?;
-    let mut abilities: Vec<Ability> = vec![];
-
-    for ability_ref in new_pokemon.abilities.iter().filter_map(|ab| ab.ability.as_ref()) {
-        if let Ok(ability) =
-            rustemon::pokemon::ability::get_by_name(ability_ref.name.as_str(), &rustemon_client)
-                .await
-        {
-            abilities.push(ability);
-        }
-    }
-
-    let species = rustemon::pokemon::pokemon_species::get_by_name(
-        &new_pokemon.species.name,
-        &rustemon_client,
-    )
-    .await
-    .map_err(|e| Box::new(e) as Box<dyn std::error::Error>)?;
-
-    fn ability_mapper(ab: Ability) -> PokemonAbility {
-        let flavour_text = ab
-            .flavor_text_entries
-            .into_iter()
-            .find(|entry| entry.language.name == "en")
-            .map(|entry| entry.flavor_text)
-            .unwrap_or_else(|| "No description available".to_string());
-
-        let effect = ab
-            .effect_entries
-            .into_iter()
-            .find(|entry| entry.language.name == "en")
-            .map(|entry| entry.short_effect)
-            .unwrap_or_else(|| "No effect available".to_string());
-
-        PokemonAbility {
-            name: ab.name,
-            flavour_text,
-            effect,
-        }
-    }
-
-    fn type_mapper(tp: PokemonType) -> String {
-        tp.type_.name
-    }
-
-    let species_description = species
-        .flavor_text_entries
+    let abilities = abilities
         .into_iter()
-        .find(|entry| entry.language.name == "en")
-        .map(|entry| entry.flavor_text)
-        .unwrap_or_else(|| "No description available".to_string());
+        .map(|ab| PokemonAbility {
+            flavour_text: ab
+                .flavor_text_entries
+                .into_iter()
+                .find(|entry| entry.language.name == "en")
+                .map(|entry| entry.flavor_text)
+                .unwrap_or_else(|| "No description available".to_string()),
+            effect: ab
+                .effect_entries
+                .into_iter()
+                .find(|entry| entry.language.name == "en")
+                .map(|entry| entry.short_effect)
+                .unwrap_or_else(|| "No effect available".to_string()),
+            name: ab.name,
+        })
+        .collect();
 
-    let sprites = fetch_pokemon_sprites_by_name(&new_pokemon.name)
-        .await
-        .unwrap_or_else(|err| {
-            eprintln!("Failed to fetch raw sprites for {}: {}", new_pokemon.name, err);
-            serde_json::to_value(&new_pokemon.sprites)
-                .unwrap_or_else(|_| {
-                    serde_json::from_str(include_str!("bulbasaur_sprites.json"))
-                        .expect("Failed to parse bulbasaur sprites")
-                })
-        });
-
-    let pokebox_entry = PokeboxEntry {
-        id: new_pokemon.id,
-        name: new_pokemon.name,
+    PokeboxEntry {
+        id: pokemon.id,
+        name: pokemon.name,
         species_description,
-        types: new_pokemon.types.into_iter().map(type_mapper).collect(),
-        abilities: abilities.into_iter().map(ability_mapper).collect(),
+        types: pokemon.types.into_iter().map(|tp| tp.type_.name).collect(),
+        abilities,
         sprites,
-    };
-
-    let _ = store_pokemon(mongodb, &pokebox_entry).await;
-    Ok(pokebox_entry)
+    }
 }
 
 fn extract_sprites_from_pokeapi_response(
@@ -389,94 +328,7 @@ fn extract_sprites_from_pokeapi_response(
     response
         .get("sprites")
         .cloned()
-        .ok_or_else(|| format!("sprites field missing from response").into())
-}
-
-async fn fetch_pokemon_sprites(url: &str) -> std::result::Result<serde_json::Value, Box<dyn std::error::Error>> {
-    let resp: serde_json::Value = reqwest::get(url).await?.json().await?;
-    extract_sprites_from_pokeapi_response(&resp)
-}
-
-async fn fetch_pokemon_sprites_by_id(id: i64) -> std::result::Result<serde_json::Value, Box<dyn std::error::Error>> {
-    fetch_pokemon_sprites(&format!("https://pokeapi.co/api/v2/pokemon/{}", id)).await
-}
-
-async fn fetch_pokemon_sprites_by_name(name: &str) -> std::result::Result<serde_json::Value, Box<dyn std::error::Error>> {
-    fetch_pokemon_sprites(&format!("https://pokeapi.co/api/v2/pokemon/{}", name)).await
-}
-
-pub async fn get_pokedex(mongodb: &Client) -> Vec<PokedexEntry> {
-    let pokedex_collection: Collection<PokedexEntry> = mongodb
-        .database("pokemon")
-        .collection("pokemon");
-
-    let total_count = pokedex_collection.count_documents(doc! {}).await;
-    match total_count {
-        Ok(n) => eprintln!("get_pokedex: total collection count = {}", n),
-        Err(err) => eprintln!("get_pokedex: count_documents failed: {}", err),
-    }
-
-    let filter = doc! { "id": { "$exists": true } };
-    let id_count = pokedex_collection.count_documents(filter.clone()).await;
-    match id_count {
-        Ok(n) => eprintln!("get_pokedex: documents with id field count = {}", n),
-        Err(err) => eprintln!("get_pokedex: id count_documents failed: {}", err),
-    }
-
-    let pokedex = pokedex_collection
-        .find(filter.clone())
-        .projection(doc! { "_id": 0, "id": 1, "name": 1 })
-        .sort(doc! { "id": 1 })
-        .await;
-
-    match pokedex {
-        Ok(cursor) => match cursor.try_collect::<Vec<PokedexEntry>>().await {
-            Ok(collected) => {
-                if collected.is_empty() {
-                    eprintln!("get_pokedex: query succeeded but returned empty result");
-                } else {
-                    eprintln!("get_pokedex: collected {} entries", collected.len());
-                    if let Some(first) = collected.first() {
-                        eprintln!("get_pokedex: first entry = id={} name={}", first.id, first.name);
-                    }
-                }
-                collected
-            }
-            Err(err) => {
-                eprintln!("get_pokedex: cursor collect failed: {}", err);
-
-                let raw_collection: Collection<Document> = mongodb
-                    .database("pokemon")
-                    .collection("pokemon");
-
-                let raw_docs = match raw_collection
-                    .find(filter)
-                    .projection(doc! { "_id": 0, "id": 1, "name": 1 })
-                    .sort(doc! { "id": 1 })
-                    .await
-                {
-                    Ok(cursor) => match cursor.try_collect::<Vec<Document>>().await {
-                        Ok(docs) => docs,
-                        Err(err) => {
-                            eprintln!("get_pokedex: raw cursor collect failed: {}", err);
-                            vec![]
-                        }
-                    },
-                    Err(err) => {
-                        eprintln!("get_pokedex: raw find failed: {}", err);
-                        vec![]
-                    }
-                };
-
-                eprintln!("get_pokedex: raw docs sample={} first={:?}", raw_docs.len(), raw_docs.first());
-                vec![]
-            }
-        },
-        Err(err) => {
-            eprintln!("get_pokedex: find failed: {}", err);
-            vec![]
-        }
-    }
+        .ok_or_else(|| "sprites field missing from response".into())
 }
 
 #[test]

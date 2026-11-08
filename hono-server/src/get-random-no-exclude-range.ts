@@ -1,10 +1,14 @@
 const DEX_MAX = 1025; // inclusive, matching rust-server
 
-export const getRandomNoExcludeRange = (excluded: number[], max?: number): number => {
-  let rand = null;
-
-  while(rand === null || excluded.includes(rand)){
-    rand = Math.floor(Math.random() * (max ?? DEX_MAX) + 1);
+/**
+ * A random number in 1..=max (default 1025) that isn't excluded, or
+ * undefined once every number is excluded.
+ */
+export const getRandomNoExcludeRange = (excluded: number[], max = DEX_MAX): number | undefined => {
+  const excludedSet = new Set(excluded);
+  const available: number[] = [];
+  for (let n = 1; n <= max; n++) {
+    if (!excludedSet.has(n)) available.push(n);
   }
-  return rand;
-}
+  return available.length === 0 ? undefined : available[Math.floor(Math.random() * available.length)];
+};

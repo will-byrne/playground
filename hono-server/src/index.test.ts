@@ -1,5 +1,6 @@
 import { beforeAll, describe, expect, it, mock } from 'bun:test';
 import type { PokeboxEntry } from './storage';
+import { PokeboxError } from './errors';
 
 const mockPokedex = [
   { name: 'bulbasaur', id: 1 },
@@ -15,15 +16,19 @@ const mockPokemon = {
   sprites: { front_default: null } as unknown as PokeboxEntry['sprites'],
 } satisfies PokeboxEntry;
 
+const notFound = () => new PokeboxError('not_found', 'no such pokemon');
+const pokeApiDown = () => new PokeboxError('upstream', 'timed out');
+const dbDown = () => new PokeboxError('db', 'connection refused');
+
 const getPokemonById = mock(async (id: number) => {
-  if (id === 0) throw new Error('Not found');
+  if (id <= 0 || id > 1025) throw notFound();
   return { ...mockPokemon, id };
 });
 const getPokemonByName = mock(async (name: string) => {
-  if (name === 'missingno') throw new Error('Not found');
+  if (name === 'missingno') throw notFound();
   return { ...mockPokemon, name };
 });
-const getPokedex = mock(async () => mockPokedex);
+const getPokedex = mock(async (): Promise<{ name: string; id: number }[]> => mockPokedex);
 
 mock.module('./storage', () => ({ getPokedex, getPokemonById, getPokemonByName }));
 
@@ -51,8 +56,9 @@ describe('hono-server (rust-server contract)', () => {
   });
 
   it('returns 404 when the pokemon cannot be found', async () => {
-    expect((await app.request('/pokemon/0')).status).toBe(404);
-    expect((await app.request('/pokemon/missingno')).status).toBe(404);
+    for (const path of ['/pokemon/0', '/pokemon/-1', '/pokemon/99999', '/pokemon/missingno']) {
+      expect((await app.request(path)).status).toBe(404);
+    }
   });
 
   it('returns a random new pokemon not already in the pokedex', async () => {
@@ -64,9 +70,42 @@ describe('hono-server (rust-server contract)', () => {
     expect(mockPokedex.map((p) => p.id)).not.toContain(id);
   });
 
-  it('returns 500 when a random new pokemon cannot be fetched', async () => {
-    getPokemonById.mockImplementationOnce(async () => { throw new Error('boom'); });
+  it('returns 404 from random-new once every pokemon is stored', async () => {
+    const everything = Array.from({ length: 1025 }, (_, i) => ({ name: `pokemon-${i + 1}`, id: i + 1 }));
+    getPokedex.mockImplementationOnce(async () => everything);
+    expect((await app.request('/pokemon/random-new')).status).toBe(404);
+  });
+
+  it('returns 502 from random-new when PokeAPI fails', async () => {
+    getPokemonById.mockImplementationOnce(async () => { throw pokeApiDown(); });
+    expect((await app.request('/pokemon/random-new')).status).toBe(502);
+  });
+
+  it('returns 500 from random-new when the database fails', async () => {
+    getPokedex.mockImplementationOnce(async () => { throw dbDown(); });
     expect((await app.request('/pokemon/random-new')).status).toBe(500);
+  });
+
+  it('returns 502, not 404, when PokeAPI fails', async () => {
+    getPokemonById.mockImplementationOnce(async () => { throw pokeApiDown(); });
+    expect((await app.request('/pokemon/1')).status).toBe(502);
+    getPokemonByName.mockImplementationOnce(async () => { throw pokeApiDown(); });
+    expect((await app.request('/pokemon/bulbasaur')).status).toBe(502);
+  });
+
+  it('returns 500, not 404, when the database fails', async () => {
+    getPokemonById.mockImplementationOnce(async () => { throw dbDown(); });
+    expect((await app.request('/pokemon/1')).status).toBe(500);
+  });
+
+  it('returns 500 for unexpected errors', async () => {
+    getPokemonById.mockImplementationOnce(async () => { throw new Error('boom'); });
+    expect((await app.request('/pokemon/1')).status).toBe(500);
+  });
+
+  it('returns 500 from the pokedex when the database fails, not an empty list', async () => {
+    getPokedex.mockImplementationOnce(async () => { throw dbDown(); });
+    expect((await app.request('/pokedex')).status).toBe(500);
   });
 
   it('answers OPTIONS on any path with 204', async () => {
@@ -76,7 +115,8 @@ describe('hono-server (rust-server contract)', () => {
   });
 
   it('sends the rust-server CORS headers, including on errors', async () => {
-    for (const path of ['/pokedex', '/pokemon/0']) {
+    getPokemonById.mockImplementationOnce(async () => { throw dbDown(); });
+    for (const path of ['/pokedex', '/pokemon/0', '/pokemon/1']) {
       const res = await app.request(path, { headers: { Origin: 'http://example.com' } });
       expect(res.headers.get('access-control-allow-origin')).toBe('*');
       expect(res.headers.get('access-control-allow-methods')).toBe('POST, PATCH, GET, DELETE, OPTIONS');

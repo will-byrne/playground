@@ -1,6 +1,7 @@
 const DEX_MAX = 1025; // inclusive, matching rust-server
 
-export const getRandomUnseenDexNo = (excluded: number[]): number => {
+/** A random unseen dex number, or undefined once every one has been seen. */
+export const getRandomUnseenDexNo = (excluded: number[]): number | undefined => {
   // Only exclusions that actually fall inside the valid range count. This
   // ignores duplicates and out-of-range values, both of which would otherwise
   // inflate the exclusion count and raise a false "no available" error.
@@ -10,7 +11,7 @@ export const getRandomUnseenDexNo = (excluded: number[]): number => {
 
   // If every value in the range is excluded there is no valid result.
   if (range.size >= DEX_MAX) {
-    throw new Error('No available dex numbers: every value in the range is excluded.');
+    return undefined;
   }
 
   // The available ids are [1, DEX_MAX] minus the excluded set. Building

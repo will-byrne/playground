@@ -38,7 +38,7 @@ describe('get-random-new-dex-no', () => {
     it('returns a random number between 1 and 5 and not 2 if 5 is passed in as optional max and 2 is excluded - loop test', () => {
       const unsortedResult: number[] = [];
       for (let i = 0; i < 30; i++) {
-        unsortedResult.push(getRandomNoExcludeRange([2], 5));
+        unsortedResult.push(getRandomNoExcludeRange([2], 5)!);
       }
 
       const result = unsortedResult.sort();
@@ -71,7 +71,7 @@ describe('get-random-new-dex-no', () => {
     it('returns a random number between 1 and 5 and not 2 or 4 if 5 is passed in as optional max and 2 and 4 are excluded - loop test', () => {
       const unsortedResult: number[] = [];
       for (let i = 0; i < 30; i++) {
-        unsortedResult.push(getRandomNoExcludeRange([2, 4], 5));
+        unsortedResult.push(getRandomNoExcludeRange([2, 4], 5)!);
       }
 
       const result = unsortedResult.sort();
@@ -86,6 +86,17 @@ describe('get-random-new-dex-no', () => {
       const result = getRandomNoExcludeRange([1, 2, 4, 5], 5);
 
       expect(result).toStrictEqual(3);
+    });  });
+
+  describe('everything excluded', () => {
+    it('returns undefined instead of looping forever when every number is excluded', () => {
+      expect(getRandomNoExcludeRange([1, 2, 3, 4, 5], 5)).toBeUndefined();
+      expect(getRandomNoExcludeRange(Array.from({ length: 1025 }, (_, i) => i + 1))).toBeUndefined();
+    });
+
+    it('ignores excluded numbers outside the range', () => {
+      // Alternate forms have ids above 10000; they don't use up a dex slot.
+      expect(getRandomNoExcludeRange([2, 3, 4, 5, 10001], 5)).toStrictEqual(1);
     });
   });
 });

@@ -22,13 +22,18 @@ public class PokemonController {
         return Mono.just("Hello, World!");
     }
 
+    /**
+     * Error statuses match rust-server: 404 once every Pokémon is stored,
+     * 502 when PokeAPI fails, 500 when MongoDB fails.
+     */
     @GetMapping("/pokemon/random-new")
     public Mono<ResponseEntity<PokeboxEntry>> getRandomNewPokemon() {
         return pokemonService.getRandomNewPokemon()
                 .map(ResponseEntity::ok)
-                .defaultIfEmpty(ResponseEntity.internalServerError().build());
+                .defaultIfEmpty(ResponseEntity.notFound().build());
     }
 
+    /** 404 for an unknown Pokémon, 502 when PokeAPI fails, 500 when MongoDB fails. */
     @GetMapping("/pokemon/{idOrName}")
     public Mono<ResponseEntity<PokeboxEntry>> getPokemon(@PathVariable String idOrName) {
         return pokemonService.getPokemonByIdOrName(idOrName)

@@ -16,10 +16,9 @@ describe('get-random-unseen-dex-no', () => {
     expect([1, 3, 5, 7, 9]).not.toContain(result);
   });
 
-  test('throws when the excluded range covers every value', () => {
-    // The full range is 1..1025; excluding it all must raise an error.
-    expect(() => getRandomUnseenDexNo(Array.from({ length: 1025 }, (_, i) => i + 1)))
-      .toThrow('No available dex numbers');
+  test('returns undefined when the excluded range covers every value', () => {
+    // The full range is 1..1025; with all of it excluded there is nothing to pick.
+    expect(getRandomUnseenDexNo(Array.from({ length: 1025 }, (_, i) => i + 1))).toBeUndefined();
   });
 
   test('does not treat duplicate exclusions as exhausting the range', () => {

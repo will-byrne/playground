@@ -3,6 +3,8 @@ package com.pokemon.controller;
 import com.pokemon.model.PokeboxEntry;
 import com.pokemon.model.PokedexEntry;
 import com.pokemon.model.PokemonAbility;
+import com.mongodb.MongoTimeoutException;
+import com.pokemon.service.PokeApiUnavailableException;
 import com.pokemon.service.PokemonService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -62,10 +64,61 @@ class PokemonControllerContractTest {
     }
 
     @Test
-    void randomNewFailureIs500() {
+    void randomNewIs404OnceEverythingIsStored() {
         when(pokemonService.getRandomNewPokemon()).thenReturn(Mono.empty());
 
-        client.get().uri("/pokemon/random-new").exchange().expectStatus().is5xxServerError();
+        client.get().uri("/pokemon/random-new").exchange().expectStatus().isNotFound();
+    }
+
+    @Test
+    void randomNewPokeApiFailureIs502() {
+        when(pokemonService.getRandomNewPokemon()).thenReturn(Mono.error(pokeApiDown()));
+
+        client.get().uri("/pokemon/random-new").exchange().expectStatus().isEqualTo(502);
+    }
+
+    @Test
+    void randomNewDbFailureIs500() {
+        when(pokemonService.getRandomNewPokemon()).thenReturn(Mono.error(dbDown()));
+
+        client.get().uri("/pokemon/random-new").exchange().expectStatus().isEqualTo(500);
+    }
+
+    @Test
+    void pokeApiFailureIs502NotNotFound() {
+        when(pokemonService.getPokemonByIdOrName("1")).thenReturn(Mono.error(pokeApiDown()));
+
+        client.get().uri("/pokemon/1").exchange().expectStatus().isEqualTo(502);
+    }
+
+    @Test
+    void dbFailureIs500NotNotFound() {
+        when(pokemonService.getPokemonByIdOrName("1")).thenReturn(Mono.error(dbDown()));
+
+        client.get().uri("/pokemon/1").exchange().expectStatus().isEqualTo(500);
+    }
+
+    @Test
+    void pokedexDbFailureIs500() {
+        when(pokemonService.getPokedex()).thenReturn(Flux.error(dbDown()));
+
+        client.get().uri("/pokedex").exchange().expectStatus().isEqualTo(500);
+    }
+
+    @Test
+    void errorResponsesKeepTheCorsHeaders() {
+        when(pokemonService.getPokemonByIdOrName("1")).thenReturn(Mono.error(pokeApiDown()));
+
+        client.get().uri("/pokemon/1").exchange()
+                .expectHeader().valueEquals("Access-Control-Allow-Origin", "*");
+    }
+
+    private static PokeApiUnavailableException pokeApiDown() {
+        return new PokeApiUnavailableException("1", new RuntimeException("timed out"));
+    }
+
+    private static MongoTimeoutException dbDown() {
+        return new MongoTimeoutException("Timed out waiting for a server");
     }
 
     @Test

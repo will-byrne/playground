@@ -1,5 +1,6 @@
 import { describe, expect, it, mock } from 'bun:test';
 import { PokeboxEntry } from './model';
+import { PokeboxError } from './errors';
 
 const mockPokedex = [
   { id: 1, name: 'bulbasaur' },
@@ -24,11 +25,15 @@ const mockPokemon: Omit<PokeboxEntry, '_id'> = {
     abilities: [{ name: 'overgrow', flavour_text: 'Ups GRASS moves in a pinch.', effect: 'Powers up Grass-type moves when the Pokémon\'s HP is low.' }]
 }
 
+const notFound = () => new PokeboxError('not_found', 'no such pokemon');
+const pokeApiDown = () => new PokeboxError('upstream', 'timed out');
+const dbDown = () => new PokeboxError('db', 'connection refused');
+
 const getPokemon = mock(async (idOrName: string) => {
-  if (idOrName === '0' || idOrName === 'missingno') throw new Error('Not found');
+  if (['0', '-1', '99999', 'missingno'].includes(idOrName)) throw notFound();
   return mockPokemon;
 });
-const getPokedex = mock(async () => mockPokedex);
+const getPokedex = mock(async (): Promise<{ id: number; name: string }[]> => mockPokedex);
 
 mock.module('./pokebox', () => ({ getPokedex, getPokemon }));
 
@@ -60,8 +65,29 @@ describe('Server (rust-server contract)', () => {
   });
 
   it('returns 404 when the pokemon cannot be found', async () => {
-    expect((await request('/pokemon/0')).status).toBe(404);
-    expect((await request('/pokemon/missingno')).status).toBe(404);
+    for (const path of ['/pokemon/0', '/pokemon/-1', '/pokemon/99999', '/pokemon/missingno']) {
+      expect((await request(path)).status).toBe(404);
+    }
+  });
+
+  it('returns 502, not 404, when PokeAPI fails', async () => {
+    getPokemon.mockImplementationOnce(async () => { throw pokeApiDown(); });
+    expect((await request('/pokemon/1')).status).toBe(502);
+  });
+
+  it('returns 500, not 404, when the database fails', async () => {
+    getPokemon.mockImplementationOnce(async () => { throw dbDown(); });
+    expect((await request('/pokemon/1')).status).toBe(500);
+  });
+
+  it('returns 500 for unexpected errors', async () => {
+    getPokemon.mockImplementationOnce(async () => { throw new Error('boom'); });
+    expect((await request('/pokemon/1')).status).toBe(500);
+  });
+
+  it('returns 500 from the pokedex when the database fails, not an empty list', async () => {
+    getPokedex.mockImplementationOnce(async () => { throw dbDown(); });
+    expect((await request('/pokedex')).status).toBe(500);
   });
 
   it('returns a random new pokemon', async () => {
@@ -71,8 +97,21 @@ describe('Server (rust-server contract)', () => {
     expect(await response.json()).toEqual(mockPokemon);
   });
 
-  it('returns 500 when a random new pokemon cannot be fetched', async () => {
-    getPokemon.mockImplementationOnce(async () => { throw new Error('boom'); });
+  it('returns 404 from random-new once every pokemon is stored', async () => {
+    const everything = Array.from({ length: 1025 }, (_, i) => ({ id: i + 1, name: `pokemon-${i + 1}` }));
+    getPokedex.mockImplementationOnce(async () => everything);
+
+    expect((await request('/pokemon/random-new')).status).toBe(404);
+  });
+
+  it('returns 502 from random-new when PokeAPI fails', async () => {
+    getPokemon.mockImplementationOnce(async () => { throw pokeApiDown(); });
+
+    expect((await request('/pokemon/random-new')).status).toBe(502);
+  });
+
+  it('returns 500 from random-new when the database fails', async () => {
+    getPokedex.mockImplementationOnce(async () => { throw dbDown(); });
 
     expect((await request('/pokemon/random-new')).status).toBe(500);
   });
@@ -94,8 +133,11 @@ describe('Server (rust-server contract)', () => {
   });
 
   it('sends CORS headers on error responses', async () => {
-    const response = await request('/pokemon/0');
+    getPokemon.mockImplementationOnce(async () => { throw dbDown(); });
+    for (const path of ['/pokemon/0', '/pokemon/1']) {
+      const response = await request(path);
 
-    expect(response.headers.get('access-control-allow-origin')).toBe('*');
+      expect(response.headers.get('access-control-allow-origin')).toBe('*');
+    }
   });
 });

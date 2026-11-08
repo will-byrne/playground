@@ -1,6 +1,7 @@
 import { type Ability, MainClient } from "pokenode-ts";
 import { PokeboxEntry, type PokedexEntry } from "./model";
 import { AppDataSource } from "./data-source";
+import { fromDb, fromPokeApi } from "./errors";
 
 const api = new MainClient();
 
@@ -23,18 +24,25 @@ const findEnglish = <T extends { language: { name: string } }>(entries: T[]) =>
 
 export const getPokemon = async (idOrName: string): Promise<Omit<PokeboxEntry, "_id">> => {
   const repository = getPokemonRepository();
-  const pokeboxEntry = isId(idOrName)
-    ? await repository.findOneBy({ id: Number(idOrName) })
-    : await repository.findOneBy({ name: idOrName });
+  const pokeboxEntry = await fromDb(`find ${idOrName}`, () =>
+    isId(idOrName)
+      ? repository.findOneBy({ id: Number(idOrName) })
+      : repository.findOneBy({ name: idOrName }),
+  );
 
   if (pokeboxEntry) {
     return stripMongoMetadata(pokeboxEntry);
   }
 
   console.log(`Pokemon not found in database, fetching from API: ${idOrName}`);
-  const pokemon = isId(idOrName)
-    ? await api.pokemon.getPokemonById(Number(idOrName))
-    : await api.pokemon.getPokemonByName(idOrName);
+  const pokemon = await fromPokeApi(
+    `pokemon ${idOrName}`,
+    () =>
+      isId(idOrName)
+        ? api.pokemon.getPokemonById(Number(idOrName))
+        : api.pokemon.getPokemonByName(idOrName),
+    { notFoundMeansMissing: true },
+  );
 
   // Like rust-server, abilities that fail to load are skipped rather than failing the request.
   const abilities: Ability[] = (
@@ -43,7 +51,9 @@ export const getPokemon = async (idOrName: string): Promise<Omit<PokeboxEntry, "
     )
   ).flatMap((result) => (result.status === "fulfilled" ? [result.value] : []));
 
-  const species = await api.pokemon.getPokemonSpeciesByName(pokemon.species.name);
+  const species = await fromPokeApi(`species ${pokemon.species.name}`, () =>
+    api.pokemon.getPokemonSpeciesByName(pokemon.species.name),
+  );
 
   const newPokeboxEntry = repository.create({
     id: pokemon.id,
@@ -68,15 +78,12 @@ export const getPokemon = async (idOrName: string): Promise<Omit<PokeboxEntry, "
 };
 
 export const getPokedex = async (): Promise<PokedexEntry[]> => {
-  try {
-    const entries = await getPokemonRepository()
+  const entries = await fromDb("get_pokedex", () =>
+    getPokemonRepository()
       .createCursor({ id: { $exists: true } })
       .project({ _id: 0, id: 1, name: 1 })
       .sort({ id: 1 })
-      .toArray();
-    return entries.map(({ id, name }) => ({ name, id }));
-  } catch (error) {
-    console.error("get_pokedex failed", error);
-    return [];
-  }
+      .toArray(),
+  );
+  return entries.map(({ id, name }) => ({ name, id }));
 };
