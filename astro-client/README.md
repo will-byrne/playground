@@ -1,7 +1,7 @@
 # Pokemon Astro-Client
 This is a all in one pokemon solution as opposed to the other folders in this repo. To load the pokemon you will first need to run:
 ```bash
-yarn run sync:pokemon
+bun run sync:pokemon
 ```
 
 this will fetch all 1025 pokemon from the pokenode api and store the relevant data in json files in `src/content/pokemon/{id}.json`.
@@ -14,12 +14,12 @@ All commands are run from the root of the project, from a terminal:
 
 | Command                   | Action                                           |
 | :------------------------ | :----------------------------------------------- |
-| `yarn install`             | Installs dependencies                            |
-| `yarn dev`             | Starts local dev server at `localhost:4321`      |
-| `yarn build`           | Build your production site to `./dist/`          |
-| `yarn preview`         | Preview your build locally, before deploying     |
-| `yarn astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `yarn astro -- --help` | Get help using the Astro CLI                     |
+| `bun install`              | Installs dependencies                            |
+| `bun run dev`             | Starts local dev server at `localhost:4321`      |
+| `bun run build`           | Build your production site to `./dist/`          |
+| `bun run preview`         | Preview your build locally, before deploying     |
+| `bun run astro ...`       | Run CLI commands like `astro add`, `astro check` |
+| `bun run astro -- --help` | Get help using the Astro CLI                     |
 
 ## 👀 Want to learn more?
 

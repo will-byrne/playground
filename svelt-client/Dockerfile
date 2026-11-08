@@ -7,6 +7,6 @@ WORKDIR /app
 COPY package.json bun.lock .npmrc ./
 RUN bun install --frozen-lockfile
 COPY . .
-RUN npm run build
+RUN bun run build
 EXPOSE 4173
-CMD ["npx", "vite", "preview", "--host", "0.0.0.0", "--port", "4173", "--strictPort"]
+CMD ["./node_modules/.bin/vite", "preview", "--host", "0.0.0.0", "--port", "4173", "--strictPort"]

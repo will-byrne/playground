@@ -132,35 +132,6 @@ let
       meta.mainProgram = name;
     };
 
-  # A yarn v1 project built with `yarn build`; `outDir` becomes the output.
-  yarnBuild =
-    {
-      name,
-      depsHash,
-      outDir ? "dist",
-      env ? { },
-    }:
-    pkgs.stdenv.mkDerivation (finalAttrs: {
-      pname = name;
-      version = "0.0.0";
-      src = projectSrc name;
-      yarnOfflineCache = pkgs.fetchYarnDeps {
-        yarnLock = finalAttrs.src + "/yarn.lock";
-        hash = depsHash;
-      };
-      nativeBuildInputs = [
-        pkgs.yarnConfigHook
-        pkgs.yarnBuildHook
-        nodejs
-      ];
-      inherit env;
-      installPhase = ''
-        runHook preInstall
-        cp -R ${outDir} $out
-        runHook postInstall
-      '';
-    });
-
   # A bun server run straight from its TypeScript sources, as in its Dockerfile.
   bunServer =
     {
@@ -266,23 +237,29 @@ in
   # Static clients build to a directory of files; remix and svelte get a
   # runnable server in bin/.
 
-  angular-client = yarnBuild {
+  angular-client = bunBuild {
     name = "angular-client";
-    depsHash = "sha256-r9h/zEnACie8QjpR7dn9cgDwJVioNDh/oJ+g4uQ5G74=";
-    outDir = "dist/angular-client/browser";
+    depsHash = "sha256-JDLx1n7dycZWJay/3G4C8E43YpHaNpqkxZonJD70Ml8=";
     env.NG_CLI_ANALYTICS = "false";
+    buildScript = "bun run build";
+    installPhase = ''
+      runHook preInstall
+      cp -R dist/angular-client/browser $out
+      runHook postInstall
+    '';
   };
 
   lit-client = bunBuild {
     name = "lit-client";
     depsHash = "sha256-guJrWZOYstP59o+CZt+7mkim0PWdcsq/DVttmQ/QWgM=";
     env.HUSKY = "0";
-    buildScript = "npm run build";
+    buildScript = "bun run build";
   };
 
-  mantine-client = yarnBuild {
+  mantine-client = bunBuild {
     name = "mantine-client";
-    depsHash = "sha256-lsL2UVj4TNo3PsbaXMQOlMQpMKitYytuQaYyYHo1+Jg=";
+    depsHash = "sha256-jlvjQprEQMip9CN7SxUXSXxJ8uDT53THEslMp26W7u4=";
+    buildScript = "bun run build";
   };
 
   react-client = bunBuild {
@@ -294,7 +271,7 @@ in
   remix-client = bunBuild {
     name = "remix-client";
     depsHash = "sha256-qu0kKUK4ukmK7U81vK9wQDncGSpsnZifr0SGM2r8wK0=";
-    buildScript = "npm run build";
+    buildScript = "bun run build";
     installPhase = ''
       runHook preInstall
       app=$out/lib/remix-client
@@ -314,7 +291,7 @@ in
   svelt-client = bunBuild {
     name = "svelt-client";
     depsHash = "sha256-jLeVK+WjrH+X+shXfFBZMJl50NrAVuxx/r/SQCZRMbs=";
-    buildScript = "npm run build";
+    buildScript = "bun run build";
     installPhase = ''
       runHook preInstall
       app=$out/lib/svelt-client
@@ -327,8 +304,9 @@ in
     '';
   };
 
-  tsrx-client = yarnBuild {
+  tsrx-client = bunBuild {
     name = "tsrx-client";
-    depsHash = "sha256-LpNs0kqde66YmJ/5PnP49Las/QpD0JU7NHnNtOl+hKE=";
+    depsHash = "sha256-nPxXVs4IZJNf6IhfBW0Bmp4pUWhx507dgVTWb9E+CyQ=";
+    buildScript = "bun run build";
   };
 }

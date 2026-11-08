@@ -6,7 +6,7 @@ WORKDIR /app
 COPY package.json bun.lock ./
 RUN bun install --frozen-lockfile
 COPY . .
-RUN npm run build
+RUN bun run build
 RUN bun install --frozen-lockfile --production
 
 # RUNTIME
@@ -18,4 +18,4 @@ COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/build ./build
 COPY --from=builder /app/public ./public
 EXPOSE 3000
-CMD ["npx", "remix-serve", "./build/server/index.js"]
+CMD ["./node_modules/.bin/remix-serve", "./build/server/index.js"]

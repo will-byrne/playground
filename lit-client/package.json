@@ -12,9 +12,9 @@
     "oldtest": "tsc && wtr --coverage",
     "test": "jest",
     "test:watch": "tsc && concurrently -k -r \"tsc --watch --preserveWatchOutput\" \"wtr --watch\"",
-    "storybook": "tsc && npm run analyze -- --exclude dist && concurrently -k -r \"tsc --watch --preserveWatchOutput\" \"storybook dev -p 8080\"",
-    "storybook:build": "tsc && npm run analyze -- --exclude dist && storybook build",
-    "build": "rimraf dist && tsc && rollup -c rollup.config.js && npm run analyze -- --exclude dist",
+    "storybook": "tsc && bun run analyze -- --exclude dist && concurrently -k -r \"tsc --watch --preserveWatchOutput\" \"storybook dev -p 8080\"",
+    "storybook:build": "tsc && bun run analyze -- --exclude dist && storybook build",
+    "build": "rimraf dist && tsc && rollup -c rollup.config.js && bun run analyze -- --exclude dist",
     "start:build": "web-dev-server --root-dir dist --app-index index.html --open",
     "analyze": "cem analyze --litelement",
     "start": "tsc && concurrently -k -r \"tsc --watch --preserveWatchOutput\" \"web-dev-server\""

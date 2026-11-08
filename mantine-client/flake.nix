@@ -25,15 +25,12 @@
 
               # pkgs.nodejs-22_x
 
-              # Use corepack to install npm/pnpm/yarn as specified in package.json
-              pkgs.corepack
-
               # To install a specific alternative package manager directly,
-              # comment out one of these to use an alternative package manager.
+              # uncomment one of these to use an alternative package manager.
 
-              pkgs.yarn
+              # pkgs.yarn
               # pkgs.pnpm
-              # pkgs.bun
+              pkgs.bun
 
               # Required to enable the language server
               pkgs.nodePackages.typescript

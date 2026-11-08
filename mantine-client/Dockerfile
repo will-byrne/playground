@@ -1,11 +1,12 @@
 # syntax=docker/dockerfile:1
-# BUILDER
+# BUILDER: bun for installs, node for the build toolchain
 FROM node:22-slim AS builder
+COPY --from=oven/bun:1 /usr/local/bin/bun /usr/local/bin/bun
 WORKDIR /app
-COPY package.json yarn.lock ./
-RUN yarn install --frozen-lockfile
+COPY package.json bun.lock ./
+RUN bun install --frozen-lockfile
 COPY . .
-RUN yarn build
+RUN bun run build
 
 # RUNTIME: static files behind nginx, falling back to index.html for client-side routes
 FROM nginx:1.27-alpine
