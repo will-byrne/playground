@@ -61,6 +61,22 @@ describe('hono-server (rust-server contract)', () => {
     }
   });
 
+  it('returns 404 for names that cannot exist, without a lookup', async () => {
+    getPokemonById.mockClear();
+    getPokemonByName.mockClear();
+    for (const path of ['/pokemon/%C2%84', '/pokemon/%13', '/pokemon/a%20b', '/pokemon/1.5']) {
+      expect((await app.request(path)).status).toBe(404);
+    }
+    expect(getPokemonById).not.toHaveBeenCalled();
+    expect(getPokemonByName).not.toHaveBeenCalled();
+  });
+
+  it('looks names up case-insensitively', async () => {
+    getPokemonByName.mockClear();
+    expect((await app.request('/pokemon/Pikachu')).status).toBe(200);
+    expect(getPokemonByName).toHaveBeenCalledWith('pikachu');
+  });
+
   it('returns a random new pokemon not already in the pokedex', async () => {
     const res = await app.request('/pokemon/random-new');
     expect(res.status).toBe(200);

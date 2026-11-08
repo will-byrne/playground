@@ -1,0 +1,15 @@
+# Property-based fuzzing of openapi.yaml with Schemathesis.
+# Run with `bun run fuzz` (BASE_URL picks the server, default rust-server).
+base-url = "${BASE_URL}"
+
+# Every fuzzed name a server doesn't know is forwarded to PokeAPI, so keep
+# the load polite (their docs ask for it) and the run short.
+rate-limit = "10/s"
+
+[generation]
+max-examples = 50
+
+[checks]
+# The contract doesn't promise 405 for methods it doesn't list (servers
+# answer 404), so don't hold them to it.
+unsupported_method.enabled = false

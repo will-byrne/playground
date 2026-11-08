@@ -56,13 +56,14 @@ paths:
         - name: idOrName
           in: path
           required: true
-          description: A national dex number (e.g. `25`) or a lowercase name (e.g. `pikachu`).
+          description: |
+            A national dex number (e.g. `25`) or a name (e.g. `pikachu`).
+            Names are case-insensitive. Anything that isn't 1-64 of letters,
+            digits and `-` can't be a Pokémon and is answered 404 without
+            asking PokeAPI.
           schema:
-            oneOf:
-              - type: integer
-                minimum: 1
-              - type: string
-                pattern: "^[a-z0-9-]+$"
+            type: string
+            pattern: "^[A-Za-z0-9-]{1,64}$"
       responses:
         "200":
           description: The Pokémon.

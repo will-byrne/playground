@@ -70,6 +70,20 @@ describe('Server (rust-server contract)', () => {
     }
   });
 
+  it('returns 404 for names that cannot exist, without a lookup', async () => {
+    getPokemon.mockClear();
+    for (const path of ['/pokemon/%C2%84', '/pokemon/%13', '/pokemon/a%20b', '/pokemon/1.5']) {
+      expect((await request(path)).status).toBe(404);
+    }
+    expect(getPokemon).not.toHaveBeenCalled();
+  });
+
+  it('looks names up case-insensitively', async () => {
+    getPokemon.mockClear();
+    expect((await request('/pokemon/Pikachu')).status).toBe(200);
+    expect(getPokemon).toHaveBeenCalledWith('pikachu');
+  });
+
   it('returns 502, not 404, when PokeAPI fails', async () => {
     getPokemon.mockImplementationOnce(async () => { throw pokeApiDown(); });
     expect((await request('/pokemon/1')).status).toBe(502);

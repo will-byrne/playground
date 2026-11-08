@@ -35,3 +35,8 @@ coverage/
 result
 result-*
 .data/
+
+# schemathesis (contract-fuzz run from the repo root)
+.hypothesis/
+.schemathesis/
+schemathesis-report/

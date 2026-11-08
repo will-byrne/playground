@@ -44,6 +44,12 @@ Errors are status codes only: `404` not found, `502` PokeAPI failed, `500` datab
 - With Nix: `BASE_URL=http://localhost:3002 nix run .#contract` (one server) or `nix build .#contract && ./result/bin/contract-matrix` (all of them).
 - CI (`.github/workflows/contract.yml`) runs it against each server on every push and PR.
 
+[Schemathesis](https://schemathesis.readthedocs.io) fuzzes a server against the same spec, generating inputs from it (odd names, edge-case ids) and flagging any response the spec doesn't allow, plus any 5xx:
+- `cd contract && BASE_URL=http://localhost:3002 bun run fuzz` (needs `uv`, which the `contract` dev shell provides). Extra arguments go to `schemathesis run`, e.g. `--seed <n>` to replay a run.
+- With Nix: `BASE_URL=http://localhost:3002 ./result/bin/contract-fuzz` after `nix build '.#contract'`.
+- Settings (rate limit, examples per route, which checks run) are in `contract/schemathesis.toml`.
+- It writes to the shared MongoDB like any client does, so a server that stores garbage for a fuzzed input will leave it in the Pokédex for every server.
+
 ## Infrastructure?
 Short answer yes. The long answer is that I would like to get to the point where I can load all of the clients and servers in `docker compose` and have a switch of some sort to select which server to use from the clients.
 Eventually I would like to have a similar setup using something like `minikube` to help me get better at `kubernetes` and another setup so it can all be run from a `nix` flake. When I eventually get a machine to use as a server I will experiment with automatic deployments, probably using `nix` at first.

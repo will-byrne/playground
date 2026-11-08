@@ -235,7 +235,8 @@ in
 
   # --- Contract ------------------------------------------------------------
   # The contract suite: `contract-tests` checks the server at $BASE_URL,
-  # `contract-matrix [server...]` checks every server on its usual port.
+  # `contract-matrix [server...]` checks every server on its usual port, and
+  # `contract-fuzz` fuzzes $BASE_URL against the spec with Schemathesis.
 
   contract =
     let
@@ -255,12 +256,17 @@ in
         runHook preInstall
         app=$out/lib/contract
         mkdir -p $app
-        cp -R package.json tsconfig.json openapi.yaml src $app/
+        cp -R package.json tsconfig.json openapi.yaml schemathesis.toml src $app/
         ln -s ${deps}/node_modules $app/node_modules
         makeWrapper ${lib.getExe bun} $out/bin/contract-tests \
           --chdir $app --add-flags test
         makeWrapper ${lib.getExe bun} $out/bin/contract-matrix \
           --chdir $app --prefix PATH : ${bun}/bin --add-flags "run $app/src/matrix.ts"
+        # Schemathesis isn't in nixpkgs, so this runs a pinned release through
+        # uvx (fetched from PyPI on first use). It runs in the caller's
+        # directory, where Schemathesis keeps .hypothesis/ and reports.
+        makeWrapper ${lib.getExe bun} $out/bin/contract-fuzz \
+          --prefix PATH : ${pkgs.uv}/bin --add-flags "run $app/src/fuzz.ts"
         runHook postInstall
       '';
       meta.mainProgram = "contract-tests";

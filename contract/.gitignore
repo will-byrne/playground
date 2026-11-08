@@ -1,0 +1,5 @@
+
+# schemathesis
+.hypothesis/
+.schemathesis/
+schemathesis-report/

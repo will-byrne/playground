@@ -9,8 +9,10 @@ import (
 	"log"
 	"math/rand"
 	"net/http"
+	"net/url"
 	"os"
 	"strconv"
+	"strings"
 	"time"
 
 	pokego "github.com/JoshGuarino/PokeGo/pkg"
@@ -269,6 +271,32 @@ func toBsonM(v any) bson.M {
 // maxPokemonID is the highest national dex number random-new picks from.
 const maxPokemonID = 1025
 
+// maxIdentifierLen is the longest id or name /pokemon/:identifier accepts.
+// Real names top out around 25 characters.
+const maxIdentifierLen = 64
+
+// normalizeIdentifier returns the path parameter decoded and lowercased, and
+// whether it can name a Pokémon: 1 to maxIdentifierLen of a-z, 0-9 and '-'.
+// Anything else can't exist, so it's answered 404 without asking PokeAPI
+// (which rejects odd names with a 403 that would otherwise surface as a 502,
+// and turns "/pokemon/.." into its index page).
+func normalizeIdentifier(raw string) (string, bool) {
+	decoded, err := url.PathUnescape(raw)
+	if err != nil {
+		return "", false
+	}
+	key := strings.ToLower(strings.TrimSpace(decoded))
+	if key == "" || len(key) > maxIdentifierLen {
+		return "", false
+	}
+	for _, r := range key {
+		if !(r >= 'a' && r <= 'z' || r >= '0' && r <= '9' || r == '-') {
+			return "", false
+		}
+	}
+	return key, true
+}
+
 // pickUncaughtID returns a random id in 1..=maxPokemonID that isn't in
 // caught, or false once every Pokémon has been caught.
 func pickUncaughtID(caught []int64) (int64, bool) {
@@ -376,7 +404,10 @@ func newServer(db PokeboxDb) *echo.Echo {
 		return c.JSON(http.StatusOK, pokemon)
 	})
 	e.GET("/pokemon/:identifier", func(c *echo.Context) error {
-		identifier := c.Param("identifier")
+		identifier, ok := normalizeIdentifier(c.Param("identifier"))
+		if !ok {
+			return c.String(http.StatusNotFound, http.StatusText(http.StatusNotFound))
+		}
 
 		pokemon, err := db.GetPokemonByIdentifier(identifier)
 		if err != nil {

@@ -3,6 +3,7 @@ import { prettyJSON } from 'hono/pretty-json';
 import { getPokedex, getPokemonById, getPokemonByName } from './storage';
 import { getRandomNoExcludeRange } from './get-random-no-exclude-range';
 import { statusFor } from './errors';
+import { normalizeIdentifier } from './identifier';
 
 // Mirrors the CORS fairing in rust-server: the same static headers on every response.
 export const CORS_HEADERS = {
@@ -52,7 +53,8 @@ app.get('/pokemon/random-new', async (c) => {
 });
 
 app.get('/pokemon/:idOrName', async (c) => {
-  const idOrName = c.req.param('idOrName');
+  const idOrName = normalizeIdentifier(c.req.param('idOrName'));
+  if (idOrName === undefined) return c.text(STATUS_TEXT[404], 404);
   try {
     // Matches rust-server's `id_or_name.parse::<i64>()`: an optionally signed integer is an id.
     const pokemon = /^[+-]?\d+$/.test(idOrName)

@@ -17,6 +17,8 @@ import reactor.core.publisher.Mono;
 import java.util.List;
 import java.util.Map;
 
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.Mockito.verifyNoInteractions;
 import static org.mockito.Mockito.when;
 
 @WebFluxTest(PokemonController.class)
@@ -54,6 +56,39 @@ class PokemonControllerContractTest {
                 .jsonPath("$.sprites.front_default").isEqualTo("front.png")
                 .jsonPath("$.speciesDescription").doesNotExist()
                 .jsonPath("$.pokemonId").doesNotExist();
+    }
+
+    @Test
+    void namesThatCantExistAre404WithoutALookup() {
+        for (String bad : List.of("\u0084", "\u0013", "a b", "1.5", "..")) {
+            client.get().uri(b -> b.path("/pokemon/{n}").build(bad)).exchange()
+                    .expectStatus().isNotFound();
+        }
+        verifyNoInteractions(pokemonService);
+    }
+
+    @Test
+    void namesAreCaseInsensitive() {
+        when(pokemonService.getPokemonByIdOrName("pikachu")).thenReturn(Mono.just(new PokeboxEntry(
+                25, "pikachu", "Mouse", List.of("electric"), List.of(), Map.of("front_default", "p.png"))));
+        client.get().uri("/pokemon/Pikachu").exchange()
+                .expectStatus().isOk()
+                .expectBody().jsonPath("$.id").isEqualTo(25);
+    }
+
+    @Test
+    void normalizeIdentifierAcceptsIdsAndNames() {
+        assertThat(PokemonController.normalizeIdentifier("25")).contains("25");
+        assertThat(PokemonController.normalizeIdentifier(" Mr-Mime ")).contains("mr-mime");
+        assertThat(PokemonController.normalizeIdentifier("-1")).contains("-1");
+    }
+
+    @Test
+    void normalizeIdentifierRejectsWhatCantNameAPokemon() {
+        for (String bad : List.of("", " ", "..", "a b", "1.5", "+5", "\u0084", "pokémon",
+                "a".repeat(PokemonController.MAX_IDENTIFIER_LEN + 1))) {
+            assertThat(PokemonController.normalizeIdentifier(bad)).as(bad).isEmpty();
+        }
     }
 
     @Test

@@ -5,7 +5,8 @@
   "description": "The client/server contract (openapi.yaml) and a test suite that checks any server against it",
   "scripts": {
     "test": "bun test",
-    "matrix": "bun run src/matrix.ts"
+    "matrix": "bun run src/matrix.ts",
+    "fuzz": "bun run src/fuzz.ts"
   },
   "devDependencies": {
     "@types/bun": "1.2.21",

@@ -1,4 +1,5 @@
 import { describe, expect, setDefaultTimeout, test } from "bun:test";
+import { get as httpGet } from "node:http";
 import { assertMatchesSpec } from "./schema";
 
 // Checks one running server against openapi.yaml. Point it at a server with
@@ -60,6 +61,36 @@ describe(`contract @ ${BASE_URL}`, () => {
 
     test("unknown name is 404", async () => {
       expect((await get("/pokemon/definitely-not-a-pokemon")).status).toBe(404);
+    });
+
+    test("names are case-insensitive", async () => {
+      const pikachu = await json("/pokemon/Pikachu", "/pokemon/{idOrName}");
+      expect(pikachu.id).toBe(25);
+    });
+
+    // PokeAPI rejects these with a 403, which servers used to pass on as 502.
+    test.each(["%C2%84", "%13", "a%20b", "1.5", "+5"])("name that can't exist (%s) is 404", async (name) => {
+      expect((await get(`/pokemon/${name}`)).status).toBe(404);
+    });
+
+    test("/pokemon/.. never serves or stores a Pokémon", async () => {
+      // Servers used to fetch PokeAPI's index page for this and store it as
+      // a blank Pokémon with id 0. Either a 404 or resolving ".." to "/"
+      // (standard URL normalisation) is fine. fetch would normalise ".."
+      // itself, so send the path as-is.
+      const url = new URL(BASE_URL);
+      const res = await new Promise<{ status: number; body: string }>((resolve, reject) => {
+        const req = httpGet({ host: url.hostname, port: url.port || 80, path: "/pokemon/%2E%2E" }, (r) => {
+          let body = "";
+          r.setEncoding("utf8");
+          r.on("data", (chunk) => (body += chunk));
+          r.on("end", () => resolve({ status: r.statusCode ?? 0, body }));
+        });
+        req.on("error", reject);
+      });
+      if (res.status !== 404) expect(res).toEqual({ status: 200, body: "Hello, World!" });
+      const dex: { id: number }[] = await json("/pokedex");
+      expect(dex.filter((e) => e.id < 1)).toEqual([]);
     });
   });
 

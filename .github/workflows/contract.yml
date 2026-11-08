@@ -45,6 +45,23 @@ jobs:
           bun install --frozen-lockfile
           bun test
 
+      - uses: astral-sh/setup-uv@v6
+
+      - name: Fuzz with Schemathesis
+        id: fuzz
+        working-directory: contract
+        env:
+          BASE_URL: http://localhost:${{ matrix.port }}
+        run: bun run fuzz --report junit --report-dir schemathesis-report
+
+      - name: Upload Schemathesis report
+        if: always() && steps.fuzz.outcome != 'skipped'
+        uses: actions/upload-artifact@v4
+        with:
+          name: schemathesis-${{ matrix.server }}
+          path: contract/schemathesis-report/
+          if-no-files-found: ignore
+
       - name: Server logs
         if: failure()
         run: docker compose logs ${{ matrix.server }}

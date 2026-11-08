@@ -207,6 +207,25 @@ async fn pokeapi_failures_are_bad_gateway_not_not_found() {
 }
 
 #[tokio::test]
+async fn names_that_cant_exist_are_not_found_without_a_lookup() {
+    // Every lookup against this store fails with 502, so a 404 proves the
+    // route answered without asking the store (and so PokeAPI).
+    let client = client(FakeDb::failing(PokeboxError::Upstream("unreachable".into()))).await;
+    for path in ["/pokemon/%C2%84", "/pokemon/%13", "/pokemon/a%20b", "/pokemon/1.5", "/pokemon/%2E%2E"] {
+        let (status, _) = get_json(&client, path).await;
+        assert_eq!(status, Status::NotFound, "{path}");
+    }
+}
+
+#[tokio::test]
+async fn names_are_case_insensitive() {
+    let client = client(FakeDb::default()).await;
+    let (status, body) = get_json(&client, "/pokemon/Pikachu").await;
+    assert_eq!(status, Status::Ok);
+    assert_eq!(body.unwrap()["id"], 25);
+}
+
+#[tokio::test]
 async fn db_failures_are_internal_errors_not_not_found() {
     let client = client(FakeDb::failing(PokeboxError::Db("down".into()))).await;
     let (status, _) = get_json(&client, "/pokemon/1").await;

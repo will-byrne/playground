@@ -67,14 +67,33 @@ pub async fn random_new(db: &State<SharedDb>) -> Result<Json<PokeboxEntry>, Stat
     Ok(Json(db.get_pokemon_by_id(id).await?))
 }
 
+/// Longest id or name `/pokemon/<id_or_name>` accepts. Real names top out
+/// around 25 characters.
+pub const MAX_IDENTIFIER_LEN: usize = 64;
+
+/// `id_or_name` lowercased, if it can name a Pokémon: 1 to
+/// MAX_IDENTIFIER_LEN of a-z, 0-9 and `-`. Anything else can't exist, so it's
+/// answered 404 without asking PokeAPI (which rejects odd names with a 403
+/// that would otherwise surface as a 502).
+pub fn normalize_identifier(id_or_name: &str) -> Option<String> {
+    let key = id_or_name.trim().to_lowercase();
+    let valid = !key.is_empty()
+        && key.len() <= MAX_IDENTIFIER_LEN
+        && key
+            .bytes()
+            .all(|b| b.is_ascii_lowercase() || b.is_ascii_digit() || b == b'-');
+    valid.then_some(key)
+}
+
 #[get("/pokemon/<id_or_name>")]
 pub async fn specific_pokemon(
     db: &State<SharedDb>,
     id_or_name: &str,
 ) -> Result<Json<PokeboxEntry>, Status> {
-    let pokemon = match id_or_name.parse::<i64>() {
+    let key = normalize_identifier(id_or_name).ok_or(Status::NotFound)?;
+    let pokemon = match key.parse::<i64>() {
         Ok(id) => db.get_pokemon_by_id(id).await?,
-        Err(_) => db.get_pokemon_by_name(id_or_name).await?,
+        Err(_) => db.get_pokemon_by_name(&key).await?,
     };
     Ok(Json(pokemon))
 }
@@ -155,6 +174,22 @@ mod tests {
         let mut caught: Vec<i64> = (2..=MAX_POKEMON_ID).collect();
         caught.push(10001);
         assert_eq!(pick_uncaught_id(&caught), Some(1));
+    }
+
+    #[test]
+    fn normalize_identifier_accepts_ids_and_names_case_insensitively() {
+        assert_eq!(normalize_identifier("25").as_deref(), Some("25"));
+        assert_eq!(normalize_identifier("pikachu").as_deref(), Some("pikachu"));
+        assert_eq!(normalize_identifier(" Mr-Mime ").as_deref(), Some("mr-mime"));
+        assert_eq!(normalize_identifier("-1").as_deref(), Some("-1"));
+    }
+
+    #[test]
+    fn normalize_identifier_rejects_what_cant_name_a_pokemon() {
+        let too_long = "a".repeat(MAX_IDENTIFIER_LEN + 1);
+        for bad in ["", " ", "..", "a b", "1.5", "+5", "\u{84}", "\u{13}", "pokémon", &too_long] {
+            assert_eq!(normalize_identifier(bad), None, "{bad:?} should be rejected");
+        }
     }
 
     #[test]

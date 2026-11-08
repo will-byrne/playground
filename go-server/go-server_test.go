@@ -210,6 +210,37 @@ func TestPokeAPIFailuresAre502NotNotFound(t *testing.T) {
 	}
 }
 
+func TestNamesThatCantExistAre404WithoutALookup(t *testing.T) {
+	// Every lookup against this store fails with 502, so a 404 proves the
+	// route answered without asking the store (and so PokeAPI).
+	for _, path := range []string{"/pokemon/%C2%84", "/pokemon/%13", "/pokemon/a%20b", "/pokemon/1.5", "/pokemon/%2E%2E"} {
+		expectStatus(t, failingDb(errPokeAPI), path, http.StatusNotFound)
+	}
+}
+
+func TestNamesAreCaseInsensitive(t *testing.T) {
+	rec := do(t, newFakeDb(), http.MethodGet, "/pokemon/Pikachu")
+	if rec.Code != http.StatusOK {
+		t.Fatalf("expected 200, got %d (%s)", rec.Code, rec.Body.String())
+	}
+	if id := decode(t, rec).(map[string]any)["id"]; id != float64(25) {
+		t.Errorf("expected pikachu (25), got id %v", id)
+	}
+}
+
+func TestNormalizeIdentifier(t *testing.T) {
+	for raw, want := range map[string]string{"25": "25", "pikachu": "pikachu", "Mr-Mime": "mr-mime", "-1": "-1"} {
+		if got, ok := normalizeIdentifier(raw); !ok || got != want {
+			t.Errorf("normalizeIdentifier(%q) = %q, %v; want %q", raw, got, ok, want)
+		}
+	}
+	for _, raw := range []string{"", " ", "..", "a b", "1.5", "+5", "\u0084", "\u0013", "pokémon", "%zz", strings.Repeat("a", maxIdentifierLen+1)} {
+		if got, ok := normalizeIdentifier(raw); ok {
+			t.Errorf("normalizeIdentifier(%q) = %q; want it rejected", raw, got)
+		}
+	}
+}
+
 func TestDbFailuresAre500NotNotFound(t *testing.T) {
 	expectStatus(t, failingDb(errDbDown), "/pokemon/1", http.StatusInternalServerError)
 }

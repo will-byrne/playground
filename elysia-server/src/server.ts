@@ -3,6 +3,7 @@ import { openapi } from "@elysia/openapi";
 import { getPokedex, getPokemon } from "./pokebox";
 import { getRandomUnseenDexNo } from "./get-random-unseen-dex-no";
 import { statusFor } from "./errors";
+import { normalizeIdentifier } from "./identifier";
 
 // Mirrors the CORS fairing in rust-server: the same static headers on every response.
 export const CORS_HEADERS = {
@@ -46,7 +47,12 @@ export const app = new Elysia()
       return errorResponse(set, "Could not find random new pokemon", error);
     }
   })
-  .get("/pokemon/:idOrName", async ({ params: { idOrName }, set }) => {
+  .get("/pokemon/:idOrName", async ({ params, set }) => {
+    const idOrName = normalizeIdentifier(params.idOrName);
+    if (idOrName === undefined) {
+      set.status = 404;
+      return STATUS_TEXT[404];
+    }
     try {
       return await getPokemon(idOrName);
     } catch (error) {
