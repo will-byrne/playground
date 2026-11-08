@@ -233,6 +233,39 @@ in
       meta.mainProgram = "java-server";
     };
 
+  # --- Contract ------------------------------------------------------------
+  # The contract suite: `contract-tests` checks the server at $BASE_URL,
+  # `contract-matrix [server...]` checks every server on its usual port.
+
+  contract =
+    let
+      deps = bunNodeModules {
+        name = "contract";
+        hash = "sha256-szTbua/7uiPRajca7De/4gpzb/4Ykzp5V+IjalfhiEU=";
+      };
+    in
+    pkgs.stdenv.mkDerivation {
+      pname = "contract";
+      version = "0.0.0";
+      src = projectSrc "contract";
+      nativeBuildInputs = [ pkgs.makeWrapper ];
+      dontConfigure = true;
+      dontBuild = true;
+      installPhase = ''
+        runHook preInstall
+        app=$out/lib/contract
+        mkdir -p $app
+        cp -R package.json tsconfig.json openapi.yaml src $app/
+        ln -s ${deps}/node_modules $app/node_modules
+        makeWrapper ${lib.getExe bun} $out/bin/contract-tests \
+          --chdir $app --add-flags test
+        makeWrapper ${lib.getExe bun} $out/bin/contract-matrix \
+          --chdir $app --prefix PATH : ${bun}/bin --add-flags "run $app/src/matrix.ts"
+        runHook postInstall
+      '';
+      meta.mainProgram = "contract-tests";
+    };
+
   # --- Clients -------------------------------------------------------------
   # Static clients build to a directory of files; remix and svelte get a
   # runnable server in bin/.

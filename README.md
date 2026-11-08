@@ -27,6 +27,23 @@ The contract between client and server has been pretty much nailed down now.
 Are all of the clients and servers up to date? ...no. Will they be? Yes, absolutely, I want this to be a living repo that will almost always build and run with any combination of client and server.
 I have preferences and biases that's for sure, I really enjoy working with the `react-client` and `rust-server` more than others so they will most likely be the most up to date ones.
 
+The contract is written down in [`contract/openapi.yaml`](contract/openapi.yaml) (`rust-server` is the reference implementation):
+
+| Route | Returns |
+| --- | --- |
+| `GET /` | `Hello, World!` (plain text) |
+| `GET /pokemon/{idOrName}` | one Pokémon by dex number or name, fetched from PokeAPI and stored if new |
+| `GET /pokemon/random-new` | a random Pokémon not stored yet, which it then stores |
+| `GET /pokedex` | every stored Pokémon as `{ id, name }`, sorted by id |
+
+Errors are status codes only: `404` not found, `502` PokeAPI failed, `500` database failed. Every response allows any origin (CORS) and `OPTIONS` answers `204`.
+
+`contract/` also holds a test suite that checks any running server against the spec:
+- `cd contract && BASE_URL=http://localhost:3002 bun test` checks one server.
+- `cd contract && bun run matrix` checks every server on ports 3000-3004 and prints a pass/fail table.
+- With Nix: `BASE_URL=http://localhost:3002 nix run .#contract` (one server) or `nix build .#contract && ./result/bin/contract-matrix` (all of them).
+- CI (`.github/workflows/contract.yml`) runs it against each server on every push and PR.
+
 ## Infrastructure?
 Short answer yes. The long answer is that I would like to get to the point where I can load all of the clients and servers in `docker compose` and have a switch of some sort to select which server to use from the clients.
 Eventually I would like to have a similar setup using something like `minikube` to help me get better at `kubernetes` and another setup so it can all be run from a `nix` flake. When I eventually get a machine to use as a server I will experiment with automatic deployments, probably using `nix` at first.
@@ -48,7 +65,7 @@ And the following servers:
 
 If you have read this far and have any suggestions for frameworks and technologies I should try raise an issue and ill take a look.
 If you like the idea of this repo and want to do one yourself go for it, I have found it extremely useful. Feel free to also fork this repo and push back any tech you want to add.
-I intend to have the shape of the client / server contract on this readme when it is a bit more mature.
+The shape of the client / server contract is in the Contract section above.
 
 ## TODO
 - [ ] Pencil client
@@ -59,7 +76,7 @@ I intend to have the shape of the client / server contract on this readme when i
 - [ ] TypeORM
 - [ ] RxJS
 - [x] Finish svelte-client
-- [ ] update all to use current contract
-- [ ] document current contract here in this readme
+- [x] update all servers to use current contract (clients still to check)
+- [x] document current contract here in this readme
 - [ ] add e2e tests for some of the clients
 - [ ] start looking into infrastructure

@@ -3,7 +3,7 @@
     [x] iplement for servers
         [x] rust-server
         [x] hono-server
-        [] go-server
+        [x] go-server
     [*] implement for clients
         [x] mantine-client
         [x] react-client
@@ -20,17 +20,17 @@
         [x] svelte client
     [] handle error on clients
 [] finish work on:
-  [] hono-server
-    [] docker container
+  [*] hono-server
+    [*] docker container
     [] tests
       [] linter
-      [] unit tests
+      [*] unit tests
     [] readme
       [] description
       [] run commands
   [] rust-server
-    [] docker container
-    [] tests
+    [*] docker container
+    [*] tests
       [*] linter
       [*] unit tests
     [] readme
@@ -45,11 +45,11 @@
       [] description
       [] run commands
   [] react-client
-    [] docker container
+    [*] docker container
     [] tests
       [x] linter
       [x] unit tests
-      [] browser tests
+      [*] browser tests
       [] visual regression
     [] readme
       [] description
@@ -66,9 +66,8 @@
       [] run commands
 
 ## Infrastructure:
-  [] docker compose
-  [] nix
-  [] render.com
+  [*] docker compose
+  [*] nix
 
 ## Miscelaneous:
   [] effect-ts

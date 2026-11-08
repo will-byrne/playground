@@ -1,0 +1,50 @@
+name: contract
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  contract:
+    name: ${{ matrix.server }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - { server: rust-server, port: 3000 }
+          - { server: elysia-server, port: 3001 }
+          - { server: go-server, port: 3002 }
+          - { server: hono-server, port: 3003 }
+          - { server: java-server, port: 3004 }
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Start MongoDB and ${{ matrix.server }}
+        run: docker compose up -d --build --wait mongodb ${{ matrix.server }}
+
+      - name: Wait for ${{ matrix.server }}
+        run: |
+          for _ in $(seq 1 60); do
+            curl -fs http://localhost:${{ matrix.port }}/ && exit 0
+            sleep 2
+          done
+          docker compose logs ${{ matrix.server }}
+          exit 1
+
+      - name: Run the contract suite
+        working-directory: contract
+        env:
+          BASE_URL: http://localhost:${{ matrix.port }}
+        run: |
+          bun install --frozen-lockfile
+          bun test
+
+      - name: Server logs
+        if: failure()
+        run: docker compose logs ${{ matrix.server }}

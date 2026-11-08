@@ -1,0 +1,15 @@
+{
+  "name": "contract",
+  "private": true,
+  "type": "module",
+  "description": "The client/server contract (openapi.yaml) and a test suite that checks any server against it",
+  "scripts": {
+    "test": "bun test",
+    "matrix": "bun run src/matrix.ts"
+  },
+  "devDependencies": {
+    "@types/bun": "1.2.21",
+    "ajv": "8.17.1",
+    "ajv-formats": "3.0.1"
+  }
+}

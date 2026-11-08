@@ -1,0 +1,141 @@
+openapi: 3.1.0
+info:
+  title: Pokébox API
+  version: 1.0.0
+  description: |
+    The contract every server in this repo implements and every client
+    consumes. rust-server is the reference implementation.
+
+    Errors are signalled by status code alone; the body is a short plain-text
+    status reason (e.g. "Not Found") that clients should not rely on.
+
+    - 404: the Pokémon doesn't exist (or every Pokémon is already caught)
+    - 502: PokeAPI was unreachable or answered unexpectedly
+    - 500: the database failed
+
+    Every response carries `Access-Control-Allow-Origin: *`, and `OPTIONS` on
+    any path answers 204 so browser preflights succeed.
+
+paths:
+  /:
+    get:
+      summary: Health check
+      operationId: index
+      responses:
+        "200":
+          description: The server is up.
+          content:
+            text/plain:
+              schema:
+                const: Hello, World!
+
+  /pokemon/random-new:
+    get:
+      summary: Catch a random Pokémon that isn't in the Pokébox yet
+      description: |
+        Picks a national dex number in 1..=1025 that isn't stored yet, fetches
+        it (from PokeAPI if needed) and stores it, so it shows up in
+        `/pokedex` afterwards.
+      operationId: randomNew
+      responses:
+        "200":
+          description: The newly caught Pokémon.
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/PokeboxEntry" }
+        "404": { $ref: "#/components/responses/NotFound" }
+        "500": { $ref: "#/components/responses/DatabaseError" }
+        "502": { $ref: "#/components/responses/UpstreamError" }
+
+  /pokemon/{idOrName}:
+    get:
+      summary: Look up one Pokémon by national dex number or name
+      description: Fetches the Pokémon from PokeAPI and stores it if it isn't stored yet.
+      operationId: specificPokemon
+      parameters:
+        - name: idOrName
+          in: path
+          required: true
+          description: A national dex number (e.g. `25`) or a lowercase name (e.g. `pikachu`).
+          schema:
+            oneOf:
+              - type: integer
+                minimum: 1
+              - type: string
+                pattern: "^[a-z0-9-]+$"
+      responses:
+        "200":
+          description: The Pokémon.
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/PokeboxEntry" }
+        "404": { $ref: "#/components/responses/NotFound" }
+        "500": { $ref: "#/components/responses/DatabaseError" }
+        "502": { $ref: "#/components/responses/UpstreamError" }
+
+  /pokedex:
+    get:
+      summary: Every stored Pokémon, by dex number
+      operationId: pokedex
+      responses:
+        "200":
+          description: The stored Pokémon, sorted by `id` ascending, without duplicates.
+          content:
+            application/json:
+              schema:
+                type: array
+                items: { $ref: "#/components/schemas/PokedexEntry" }
+        "500": { $ref: "#/components/responses/DatabaseError" }
+
+components:
+  responses:
+    NotFound:
+      description: The Pokémon doesn't exist.
+    DatabaseError:
+      description: The database failed.
+    UpstreamError:
+      description: PokeAPI failed.
+
+  schemas:
+    PokedexEntry:
+      type: object
+      required: [id, name]
+      properties:
+        id: { type: integer, minimum: 1 }
+        name: { type: string, minLength: 1 }
+
+    PokemonAbility:
+      type: object
+      required: [name, flavour_text, effect]
+      properties:
+        name: { type: string, minLength: 1 }
+        flavour_text:
+          type: string
+          description: English flavour text, or "No description available".
+        effect:
+          type: string
+          description: English short effect, or "No effect available".
+
+    PokeboxEntry:
+      type: object
+      required: [id, name, species_description, types, abilities, sprites]
+      properties:
+        id: { type: integer, minimum: 1 }
+        name: { type: string, minLength: 1 }
+        species_description:
+          type: string
+          description: English species flavour text, or "No description available".
+        types:
+          type: array
+          minItems: 1
+          maxItems: 2
+          items: { type: string, minLength: 1 }
+        abilities:
+          type: array
+          items: { $ref: "#/components/schemas/PokemonAbility" }
+        sprites:
+          description: PokeAPI's raw `sprites` object, passed through unchanged.
+          type: object
+          required: [front_default]
+          properties:
+            front_default: { type: [string, "null"] }
