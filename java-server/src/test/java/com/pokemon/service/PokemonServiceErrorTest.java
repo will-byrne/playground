@@ -24,6 +24,8 @@ import java.util.stream.LongStream;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.never;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 /**
@@ -39,6 +41,31 @@ class PokemonServiceErrorTest {
              "types": [{"type": {"name": "grass"}}], "abilities": [], "sprites": {"front_default": "f.png"}}""";
     private static final String SPECIES = """
             {"flavor_text_entries": [{"flavor_text": "A strange seed", "language": {"name": "en"}}]}""";
+
+    private static final String VULPIX = """
+            {"id": 37, "name": "vulpix", "species": {"name": "vulpix"}, "forms": [{"name": "vulpix"}],
+             "types": [{"type": {"name": "fire"}}], "abilities": [], "sprites": {"front_default": "37.png"}}""";
+    private static final String ALOLAN_VULPIX = """
+            {"id": 10103, "name": "vulpix-alola", "species": {"name": "vulpix"}, "forms": [{"name": "vulpix-alola"}],
+             "types": [{"type": {"name": "ice"}}], "abilities": [{"ability": {"name": "snow-cloak"}}],
+             "sprites": {"front_default": "10103.png"}}""";
+    private static final String VULPIX_SPECIES = """
+            {"flavor_text_entries": [{"flavor_text": "Fire fox", "language": {"name": "en"}}],
+             "varieties": [{"is_default": true, "pokemon": {"name": "vulpix"}},
+                           {"is_default": false, "pokemon": {"name": "vulpix-alola"}}]}""";
+    private static final String ALOLAN_FORM = """
+            {"form_names": [{"name": "Alolan Form", "language": {"name": "en"}}],
+             "flavor_text_entries": [{"flavor_text": "Ice fox", "language": {"name": "en"}}]}""";
+    private static final String SNOW_CLOAK = """
+            {"name": "snow-cloak", "flavor_text_entries": [], "effect_entries": []}""";
+
+    private void serveVulpix() {
+        pokeApi.put("/pokemon/vulpix", json(VULPIX));
+        pokeApi.put("/pokemon/vulpix-alola", json(ALOLAN_VULPIX));
+        pokeApi.put("/pokemon-species/vulpix", json(VULPIX_SPECIES));
+        pokeApi.put("/pokemon-form/vulpix-alola", json(ALOLAN_FORM));
+        pokeApi.put("/ability/snow-cloak", json(SNOW_CLOAK));
+    }
 
     /** PokeAPI responses by path; anything missing is a 404. */
     private final Map<String, Mono<ClientResponse>> pokeApi = new HashMap<>();
@@ -87,6 +114,58 @@ class PokemonServiceErrorTest {
                 .assertNext(entry -> {
                     assertThat(entry.name()).isEqualTo("bulbasaur");
                     assertThat(entry.speciesDescription()).isEqualTo("A strange seed");
+                })
+                .verifyComplete();
+    }
+
+    @Test
+    void fetchesTheOtherFormsOfTheSpecies() {
+        serveVulpix();
+
+        StepVerifier.create(service.getPokemonByIdOrName("vulpix"))
+                .assertNext(entry -> {
+                    assertThat(entry.speciesDescription()).isEqualTo("Fire fox");
+                    assertThat(entry.varieties()).singleElement().satisfies(alola -> {
+                        assertThat(alola.id()).isEqualTo(10103);
+                        assertThat(alola.formName()).isEqualTo("Alolan Form");
+                        assertThat(alola.speciesDescription()).isEqualTo("Ice fox");
+                        assertThat(alola.types()).containsExactly("ice");
+                        assertThat(alola.abilities()).extracting(a -> a.name()).containsExactly("snow-cloak");
+                    });
+                })
+                .verifyComplete();
+    }
+
+    @Test
+    void aVarietyPokeApiDoesNotHaveIsSkipped() {
+        serveVulpix();
+        pokeApi.remove("/pokemon/vulpix-alola");
+
+        StepVerifier.create(service.getPokemonByIdOrName("vulpix"))
+                .assertNext(entry -> assertThat(entry.varieties()).isEmpty())
+                .verifyComplete();
+    }
+
+    @Test
+    void aFailingVarietyIsUnavailableAndNothingIsStored() {
+        serveVulpix();
+        pokeApi.put("/pokemon/vulpix-alola", status(HttpStatus.SERVICE_UNAVAILABLE));
+
+        StepVerifier.create(service.getPokemonByIdOrName("vulpix"))
+                .expectError(PokeApiUnavailableException.class)
+                .verify();
+        verify(store, never()).save(any());
+    }
+
+    @Test
+    void aMissingFormJustMeansNoFormText() {
+        serveVulpix();
+        pokeApi.remove("/pokemon-form/vulpix-alola");
+
+        StepVerifier.create(service.getPokemonByIdOrName("vulpix-alola"))
+                .assertNext(entry -> {
+                    assertThat(entry.formName()).isEmpty();
+                    assertThat(entry.speciesDescription()).isEqualTo("Fire fox");
                 })
                 .verifyComplete();
     }

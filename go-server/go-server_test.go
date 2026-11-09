@@ -39,6 +39,7 @@ func entry(id int64) PokeboxEntry {
 		Types:              []string{"grass", "poison"},
 		Abilities:          []PokemonAbility{},
 		Sprites:            bson.M{"front_default": fmt.Sprintf("https://example.com/%d.png", id)},
+		Varieties:          []PokemonVariety{},
 	}
 }
 
@@ -180,7 +181,7 @@ func TestPokemonByIDReturnsTheFullEntry(t *testing.T) {
 	if body["id"] != float64(25) || body["name"] != "pikachu" {
 		t.Errorf("unexpected body %s", rec.Body.String())
 	}
-	for _, key := range []string{"name", "id", "species_description", "types", "abilities", "sprites"} {
+	for _, key := range []string{"name", "id", "form_name", "species_description", "types", "abilities", "sprites", "varieties"} {
 		if _, ok := body[key]; !ok {
 			t.Errorf("missing key %q in %s", key, rec.Body.String())
 		}
@@ -327,61 +328,220 @@ func TestPickUncaughtIDIgnoresIDsOutsideTheRange(t *testing.T) {
 	}
 }
 
-// --- fetchPokemonFrom (PokeAPI status handling) ---------------------------
+// --- PokeAPI fetching -------------------------------------------------------
 
-func pokeAPI(t *testing.T, status int, body string) string {
+// fakePokeAPI serves routes (path -> JSON body) like PokeAPI; any other path
+// is 404. status, when set for a path, overrides the 200.
+func fakePokeAPI(t *testing.T, routes map[string]string, status map[string]int) pokeAPI {
 	t.Helper()
 	server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		w.WriteHeader(status)
+		path := strings.TrimPrefix(r.URL.Path, "/")
+		if code, ok := status[path]; ok {
+			w.WriteHeader(code)
+			return
+		}
+		body, ok := routes[path]
+		if !ok {
+			http.NotFound(w, r)
+			return
+		}
 		_, _ = w.Write([]byte(body))
 	}))
 	t.Cleanup(server.Close)
-	return server.URL
+	return pokeAPI{baseURL: server.URL}
 }
 
-func TestFetchPokemonDecodesAndKeepsRawSprites(t *testing.T) {
-	url := pokeAPI(t, http.StatusOK, `{"id": 1, "name": "bulbasaur", "species": {"name": "bulbasaur"},
-		"sprites": {"front_default": "f.png", "other": {"home": {"front_shiny": "s.png"}}}}`)
-	pokemon, sprites, err := fetchPokemonFrom(url, "1")
+// vulpixAPI is a trimmed PokeAPI for Vulpix and Alolan Vulpix, with real values.
+func vulpixAPI() map[string]string {
+	ability := func(name, flavor, effect string) string {
+		return fmt.Sprintf(`{"name": %q,
+			"flavor_text_entries": [{"flavor_text": "jp", "language": {"name": "ja"}}, {"flavor_text": %q, "language": {"name": "en"}}],
+			"effect_entries": [{"short_effect": %q, "language": {"name": "en"}}]}`, name, flavor, effect)
+	}
+	return map[string]string{
+		"pokemon/vulpix": `{"id": 37, "name": "vulpix", "is_default": true, "species": {"name": "vulpix"},
+			"forms": [{"name": "vulpix"}], "abilities": [{"ability": {"name": "flash-fire"}}],
+			"types": [{"type": {"name": "fire"}}], "sprites": {"front_default": "37.png", "other": {"home": {"front_shiny": "s.png"}}}}`,
+		"pokemon/vulpix-alola": `{"id": 10103, "name": "vulpix-alola", "is_default": false, "species": {"name": "vulpix"},
+			"forms": [{"name": "vulpix-alola"}], "abilities": [{"ability": {"name": "snow-cloak"}}, {"ability": {"name": "snow-warning"}}],
+			"types": [{"type": {"name": "ice"}}], "sprites": {"front_default": "10103.png"}}`,
+		"pokemon-species/vulpix": `{
+			"flavor_text_entries": [{"flavor_text": "At the time of birth, it has just one tail.", "language": {"name": "en"}}],
+			"varieties": [{"is_default": true, "pokemon": {"name": "vulpix"}}, {"is_default": false, "pokemon": {"name": "vulpix-alola"}}]}`,
+		"pokemon-form/vulpix": `{"form_names": [], "flavor_text_entries": []}`,
+		"pokemon-form/vulpix-alola": `{"form_names": [{"name": "アローラのすがた", "language": {"name": "ja"}}, {"name": "Alolan Form", "language": {"name": "en"}}],
+			"flavor_text_entries": [{"flavor_text": "It exhales air colder than -58 degrees Fahrenheit.", "language": {"name": "en"}}]}`,
+		"ability/flash-fire":   ability("flash-fire", "Powers up fire moves.", "Absorbs fire moves."),
+		"ability/snow-cloak":   ability("snow-cloak", "Ups evasion in a hailstorm.", "Increases evasion during hail."),
+		"ability/snow-warning": ability("snow-warning", "Summons hail.", "Summons hail on entry."),
+	}
+}
+
+func abilityNames(abilities []PokemonAbility) []string {
+	names := []string{}
+	for _, a := range abilities {
+		names = append(names, a.Name)
+	}
+	return names
+}
+
+func TestFetchEntryCarriesAlternateFormsInFull(t *testing.T) {
+	entry, err := fakePokeAPI(t, vulpixAPI(), nil).fetchEntry("vulpix")
 	if err != nil {
 		t.Fatal(err)
 	}
-	if pokemon.ID != 1 || pokemon.Name != "bulbasaur" || pokemon.Species.Name != "bulbasaur" {
-		t.Errorf("unexpected pokemon %+v", pokemon)
+	if entry.ID != 37 || entry.FormName != "" || fmt.Sprint(entry.Types) != "[fire]" {
+		t.Errorf("unexpected entry %+v", entry)
 	}
-	if sprites["other"].(map[string]any)["home"].(map[string]any)["front_shiny"] != "s.png" {
-		t.Errorf("raw sprites not kept: %v", sprites)
+	if entry.SpeciesDescription != "At the time of birth, it has just one tail." {
+		t.Errorf("default form should keep the species text, got %q", entry.SpeciesDescription)
+	}
+	if len(entry.Varieties) != 1 {
+		t.Fatalf("expected one variety, got %+v", entry.Varieties)
+	}
+	alola := entry.Varieties[0]
+	if alola.ID != 10103 || alola.Name != "vulpix-alola" || alola.IsDefault || alola.FormName != "Alolan Form" {
+		t.Errorf("unexpected variety %+v", alola)
+	}
+	if alola.SpeciesDescription != "It exhales air colder than -58 degrees Fahrenheit." {
+		t.Errorf("variety should use its form's text, got %q", alola.SpeciesDescription)
+	}
+	if fmt.Sprint(alola.Types) != "[ice]" || fmt.Sprint(abilityNames(alola.Abilities)) != "[snow-cloak snow-warning]" {
+		t.Errorf("unexpected variety types/abilities %+v", alola)
+	}
+	if alola.Abilities[0].FlavourText != "Ups evasion in a hailstorm." || alola.Abilities[0].Effect != "Increases evasion during hail." {
+		t.Errorf("abilities should carry English text, got %+v", alola.Abilities[0])
 	}
 }
 
-func TestFetchPokemon404IsNotFound(t *testing.T) {
-	_, _, err := fetchPokemonFrom(pokeAPI(t, http.StatusNotFound, "Not Found"), "missingno")
+func TestFetchEntryKeepsRawSprites(t *testing.T) {
+	entry, err := fakePokeAPI(t, vulpixAPI(), nil).fetchEntry("vulpix")
+	if err != nil {
+		t.Fatal(err)
+	}
+	if entry.Sprites["other"].(map[string]any)["home"].(map[string]any)["front_shiny"] != "s.png" {
+		t.Errorf("raw sprites not kept: %v", entry.Sprites)
+	}
+}
+
+func TestFetchEntryFromAnAlternateFormListsTheDefault(t *testing.T) {
+	entry, err := fakePokeAPI(t, vulpixAPI(), nil).fetchEntry("vulpix-alola")
+	if err != nil {
+		t.Fatal(err)
+	}
+	if entry.ID != 10103 || entry.FormName != "Alolan Form" || len(entry.Varieties) != 1 {
+		t.Fatalf("unexpected entry %+v", entry)
+	}
+	if v := entry.Varieties[0]; v.Name != "vulpix" || !v.IsDefault || v.FormName != "" {
+		t.Errorf("unexpected variety %+v", v)
+	}
+}
+
+func TestFetchEntryDescribesAFormTheSameDirectlyOrAsAVariety(t *testing.T) {
+	api := fakePokeAPI(t, vulpixAPI(), nil)
+	nested, err := api.fetchEntry("vulpix")
+	if err != nil {
+		t.Fatal(err)
+	}
+	direct, err := api.fetchEntry("vulpix-alola")
+	if err != nil {
+		t.Fatal(err)
+	}
+	v := nested.Varieties[0]
+	got, _ := json.Marshal([]any{v.SpeciesDescription, v.FormName, v.Types, v.Abilities, v.Sprites})
+	want, _ := json.Marshal([]any{direct.SpeciesDescription, direct.FormName, direct.Types, direct.Abilities, direct.Sprites})
+	if string(got) != string(want) {
+		t.Errorf("variety %s differs from direct %s", got, want)
+	}
+}
+
+func TestFetchEntryWithoutFormTextFallsBackToTheSpecies(t *testing.T) {
+	routes := vulpixAPI()
+	delete(routes, "pokemon-form/vulpix-alola")
+	entry, err := fakePokeAPI(t, routes, nil).fetchEntry("vulpix-alola")
+	if err != nil {
+		t.Fatal(err)
+	}
+	if entry.SpeciesDescription != "At the time of birth, it has just one tail." || entry.FormName != "" {
+		t.Errorf("unexpected entry %+v", entry)
+	}
+}
+
+func TestFetchEntrySkipsAVarietyPokeAPIDoesntHave(t *testing.T) {
+	routes := vulpixAPI()
+	delete(routes, "pokemon/vulpix-alola")
+	entry, err := fakePokeAPI(t, routes, nil).fetchEntry("vulpix")
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(entry.Varieties) != 0 {
+		t.Errorf("expected no varieties, got %+v", entry.Varieties)
+	}
+}
+
+func TestFetchEntryFailsWhenAVarietyFails(t *testing.T) {
+	api := fakePokeAPI(t, vulpixAPI(), map[string]int{"pokemon/vulpix-alola": http.StatusServiceUnavailable})
+	if _, err := api.fetchEntry("vulpix"); !errors.Is(err, ErrUpstream) {
+		t.Fatalf("expected ErrUpstream, got %v", err)
+	}
+}
+
+func TestFetchEntrySkipsAbilitiesThatFail(t *testing.T) {
+	routes := vulpixAPI()
+	delete(routes, "ability/snow-cloak")
+	entry, err := fakePokeAPI(t, routes, nil).fetchEntry("vulpix-alola")
+	if err != nil {
+		t.Fatal(err)
+	}
+	if got := fmt.Sprint(abilityNames(entry.Abilities)); got != "[snow-warning]" {
+		t.Errorf("got abilities %s", got)
+	}
+}
+
+func TestFetchEntryMissingSpeciesIsUpstream(t *testing.T) {
+	routes := vulpixAPI()
+	delete(routes, "pokemon-species/vulpix")
+	if _, err := fakePokeAPI(t, routes, nil).fetchEntry("vulpix"); !errors.Is(err, ErrUpstream) || errors.Is(err, ErrNotFound) {
+		t.Fatalf("expected only ErrUpstream, got %v", err)
+	}
+}
+
+func TestFetchEntry404IsNotFound(t *testing.T) {
+	_, err := fakePokeAPI(t, vulpixAPI(), nil).fetchEntry("missingno")
 	if !errors.Is(err, ErrNotFound) {
 		t.Fatalf("expected ErrNotFound, got %v", err)
 	}
 }
 
-func TestFetchPokemonServerErrorIsUpstream(t *testing.T) {
-	_, _, err := fetchPokemonFrom(pokeAPI(t, http.StatusServiceUnavailable, "down"), "1")
-	if !errors.Is(err, ErrUpstream) {
+func TestFetchEntryServerErrorIsUpstream(t *testing.T) {
+	api := fakePokeAPI(t, vulpixAPI(), map[string]int{"pokemon/vulpix": http.StatusServiceUnavailable})
+	if _, err := api.fetchEntry("vulpix"); !errors.Is(err, ErrUpstream) {
 		t.Fatalf("expected ErrUpstream, got %v", err)
 	}
 }
 
-func TestFetchPokemonBadJSONIsUpstream(t *testing.T) {
-	_, _, err := fetchPokemonFrom(pokeAPI(t, http.StatusOK, "<html>oops</html>"), "1")
-	if !errors.Is(err, ErrUpstream) {
+func TestFetchEntryBadJSONIsUpstream(t *testing.T) {
+	routes := vulpixAPI()
+	routes["pokemon/vulpix"] = "<html>oops</html>"
+	if _, err := fakePokeAPI(t, routes, nil).fetchEntry("vulpix"); !errors.Is(err, ErrUpstream) {
 		t.Fatalf("expected ErrUpstream, got %v", err)
 	}
 }
 
-func TestFetchPokemonUnreachableIsUpstream(t *testing.T) {
+func TestFetchEntryUnreachableIsUpstream(t *testing.T) {
 	server := httptest.NewServer(http.NotFoundHandler())
-	url := server.URL
+	api := pokeAPI{baseURL: server.URL}
 	server.Close()
-	_, _, err := fetchPokemonFrom(url, "1")
-	if !errors.Is(err, ErrUpstream) {
+	if _, err := api.fetchEntry("vulpix"); !errors.Is(err, ErrUpstream) {
 		t.Fatalf("expected ErrUpstream, got %v", err)
+	}
+}
+
+func TestStoredFilterOnlyMatchesEntriesWithVarieties(t *testing.T) {
+	got := storedFilter(bson.M{"name": "vulpix"})
+	want := bson.M{"name": "vulpix", "varieties": bson.M{"$exists": true}}
+	if fmt.Sprint(got) != fmt.Sprint(want) {
+		t.Errorf("got %v, want %v", got, want)
 	}
 }
 

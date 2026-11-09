@@ -36,6 +36,8 @@ The contract is written down in [`contract/openapi.yaml`](contract/openapi.yaml)
 | `GET /pokemon/random-new` | a random Pokémon not stored yet, which it then stores |
 | `GET /pokedex` | every stored Pokémon as `{ id, name }`, sorted by id |
 
+A Pokémon also carries its species' other forms in `varieties` (Alolan Vulpix, Mega Charizard X, …). Each one is complete, with its own `form_name`, types, abilities, sprites and description, so clients can switch forms without another request. A form's description is its own PokeAPI `pokemon-form` flavour text when it has one, otherwise the species'. Entries stored before `varieties` existed are refetched the first time they're read.
+
 Errors are status codes only: `404` not found, `502` PokeAPI failed, `500` database failed. Every response allows any origin (CORS) and `OPTIONS` answers `204`.
 
 `contract/` also holds a test suite that checks any running server against the spec:

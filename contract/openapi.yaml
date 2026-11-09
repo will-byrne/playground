@@ -1,7 +1,7 @@
 openapi: 3.1.0
 info:
   title: Pokébox API
-  version: 1.0.0
+  version: 1.1.0
   description: |
     The contract every server in this repo implements and every client
     consumes. rust-server is the reference implementation.
@@ -117,26 +117,74 @@ components:
           type: string
           description: English short effect, or "No effect available".
 
-    PokeboxEntry:
+    PokemonVariety:
+      description: |
+        One form of a species with its own PokeAPI `pokemon` resource
+        (Alolan Vulpix, Mega Charizard X, ...). Cosmetic-only forms (Unown
+        letters) aren't varieties.
       type: object
-      required: [id, name, species_description, types, abilities, sprites]
+      required: [id, name, form_name, is_default, species_description, types, abilities, sprites]
       properties:
-        id: { type: integer, minimum: 1 }
+        id:
+          type: integer
+          minimum: 1
+          description: The variety's own PokeAPI id; alternate forms are above 10000.
         name: { type: string, minLength: 1 }
+        form_name:
+          type: string
+          description: |
+            English name of the form from PokeAPI's `pokemon-form` (e.g.
+            "Alolan Form", "Mega Charizard X"), or "" when it has none (usually
+            the default form).
+        is_default:
+          type: boolean
+          description: Whether this is the species' default form.
         species_description:
           type: string
-          description: English species flavour text, or "No description available".
-        types:
-          type: array
-          minItems: 1
-          maxItems: 2
-          items: { type: string, minLength: 1 }
+          description: |
+            The form's own English flavour text from `pokemon-form` when it has
+            one, else the species' English flavour text, else "No description
+            available".
+        types: { $ref: "#/components/schemas/Types" }
         abilities:
           type: array
           items: { $ref: "#/components/schemas/PokemonAbility" }
-        sprites:
-          description: PokeAPI's raw `sprites` object, passed through unchanged.
-          type: object
-          required: [front_default]
-          properties:
-            front_default: { type: [string, "null"] }
+        sprites: { $ref: "#/components/schemas/Sprites" }
+
+    Types:
+      type: array
+      minItems: 1
+      maxItems: 2
+      items: { type: string, minLength: 1 }
+
+    Sprites:
+      description: PokeAPI's raw `sprites` object, passed through unchanged.
+      type: object
+      required: [front_default]
+      properties:
+        front_default: { type: [string, "null"] }
+
+    PokeboxEntry:
+      type: object
+      required: [id, name, form_name, species_description, types, abilities, sprites, varieties]
+      properties:
+        id: { type: integer, minimum: 1 }
+        name: { type: string, minLength: 1 }
+        form_name:
+          type: string
+          description: As `PokemonVariety.form_name`.
+        species_description:
+          type: string
+          description: As `PokemonVariety.species_description`.
+        types: { $ref: "#/components/schemas/Types" }
+        abilities:
+          type: array
+          items: { $ref: "#/components/schemas/PokemonAbility" }
+        sprites: { $ref: "#/components/schemas/Sprites" }
+        varieties:
+          description: |
+            The species' other varieties, never the entry itself, in PokeAPI's
+            order. Empty when the species has only one. Each is complete, so
+            clients can switch forms without another request.
+          type: array
+          items: { $ref: "#/components/schemas/PokemonVariety" }

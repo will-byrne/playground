@@ -1,7 +1,8 @@
 import { type Ability, MainClient } from "pokenode-ts";
+import { type FetchedPokemon, type FormText, toPokeboxEntry } from "./mapping";
 import { PokeboxEntry, type PokedexEntry } from "./model";
 import { AppDataSource } from "./data-source";
-import { fromDb, fromPokeApi } from "./errors";
+import { PokeboxError, fromDb, fromPokeApi } from "./errors";
 
 const api = new MainClient();
 
@@ -19,22 +20,11 @@ const stripMongoMetadata = (entry: PokeboxEntry): Omit<PokeboxEntry, "_id"> => {
 // anything else is a name.
 const isId = (idOrName: string) => /^[+-]?\d+$/.test(idOrName);
 
-const findEnglish = <T extends { language: { name: string } }>(entries: T[]) =>
-  entries.find(({ language }) => language.name === "en");
-
-export const getPokemon = async (idOrName: string): Promise<Omit<PokeboxEntry, "_id">> => {
-  const repository = getPokemonRepository();
-  const pokeboxEntry = await fromDb(`find ${idOrName}`, () =>
-    isId(idOrName)
-      ? repository.findOneBy({ id: Number(idOrName) })
-      : repository.findOneBy({ name: idOrName }),
-  );
-
-  if (pokeboxEntry) {
-    return stripMongoMetadata(pokeboxEntry);
-  }
-
-  console.log(`Pokemon not found in database, fetching from API: ${idOrName}`);
+/**
+ * One `pokemon` resource with its abilities and form text. A 404 for the
+ * Pokémon is `not_found`; a missing form just means no form text.
+ */
+const fetchPokemon = async (idOrName: string): Promise<FetchedPokemon> => {
   const pokemon = await fromPokeApi(
     `pokemon ${idOrName}`,
     () =>
@@ -44,30 +34,77 @@ export const getPokemon = async (idOrName: string): Promise<Omit<PokeboxEntry, "
     { notFoundMeansMissing: true },
   );
 
-  // Like rust-server, abilities that fail to load are skipped rather than failing the request.
-  const abilities: Ability[] = (
-    await Promise.allSettled(
+  const formName = pokemon.forms[0]?.name;
+  const [abilityResults, form] = await Promise.all([
+    // Like rust-server, abilities that fail to load are skipped rather than failing the request.
+    Promise.allSettled(
       pokemon.abilities.map(({ ability }) => api.pokemon.getAbilityByName(ability.name)),
-    )
-  ).flatMap((result) => (result.status === "fulfilled" ? [result.value] : []));
-
-  const species = await fromPokeApi(`species ${pokemon.species.name}`, () =>
-    api.pokemon.getPokemonSpeciesByName(pokemon.species.name),
+    ),
+    formName
+      ? fromPokeApi(
+          `form ${formName}`,
+          () => api.pokemon.getPokemonFormByName(formName) as Promise<FormText>,
+          { notFoundMeansMissing: true },
+        ).catch((error) => {
+          if (error instanceof PokeboxError && error.kind === "not_found") return {};
+          throw error;
+        })
+      : {},
+  ]);
+  const abilities: Ability[] = abilityResults.flatMap((result) =>
+    result.status === "fulfilled" ? [result.value] : [],
   );
 
-  const newPokeboxEntry = repository.create({
-    id: pokemon.id,
-    name: pokemon.name,
-    species_description:
-      findEnglish(species.flavor_text_entries)?.flavor_text ?? "No description available",
-    types: pokemon.types.map(({ type }) => type.name),
-    sprites: pokemon.sprites,
-    abilities: abilities.map(({ name, flavor_text_entries, effect_entries }) => ({
-      name,
-      flavour_text: findEnglish(flavor_text_entries)?.flavor_text ?? "No description available",
-      effect: findEnglish(effect_entries)?.short_effect ?? "No effect available",
-    })),
-  });
+  return { pokemon, abilities, form };
+};
+
+const fetchFromPokeApi = async (idOrName: string) => {
+  const main = await fetchPokemon(idOrName);
+  const species = await fromPokeApi(`species ${main.pokemon.species.name}`, () =>
+    api.pokemon.getPokemonSpeciesByName(main.pokemon.species.name),
+  );
+
+  // A variety PokeAPI doesn't have is skipped; any other failure fails the
+  // lookup, so an entry missing forms is never stored.
+  const varieties = await Promise.all(
+    species.varieties
+      .map((v) => v.pokemon.name)
+      .filter((name) => name !== main.pokemon.name)
+      .map((name) =>
+        fetchPokemon(name).catch((error) => {
+          if (error instanceof PokeboxError && error.kind === "not_found") {
+            console.error(`Variety ${name} not found, skipping it`);
+            return null;
+          }
+          throw error;
+        }),
+      ),
+  );
+
+  return toPokeboxEntry(
+    main,
+    species,
+    varieties.filter((v): v is FetchedPokemon => v !== null),
+  );
+};
+
+export const getPokemon = async (idOrName: string): Promise<Omit<PokeboxEntry, "_id">> => {
+  const repository = getPokemonRepository();
+  // Entries stored before varieties existed don't match, so they're refetched
+  // and replaced.
+  const pokeboxEntry = await fromDb(`find ${idOrName}`, () =>
+    repository.findOneBy({
+      ...(isId(idOrName) ? { id: Number(idOrName) } : { name: idOrName }),
+      varieties: { $exists: true },
+    }),
+  );
+
+  if (pokeboxEntry) {
+    return stripMongoMetadata(pokeboxEntry);
+  }
+
+  console.log(`Pokemon not found in database, fetching from API: ${idOrName}`);
+  const newPokeboxEntry = repository.create(await fetchFromPokeApi(idOrName));
 
   try {
     // Upsert by id, so storing the same Pokémon twice keeps one copy.
@@ -77,7 +114,7 @@ export const getPokemon = async (idOrName: string): Promise<Omit<PokeboxEntry, "
       { upsert: true },
     );
   } catch (error) {
-    console.error(`Failed to store pokemon ${pokemon.name}`, error);
+    console.error(`Failed to store pokemon ${newPokeboxEntry.name}`, error);
   }
   return stripMongoMetadata(newPokeboxEntry);
 };

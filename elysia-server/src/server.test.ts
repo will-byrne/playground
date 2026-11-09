@@ -10,6 +10,7 @@ const mockPokedex = [
 const mockPokemon: Omit<PokeboxEntry, '_id'> = {
     id: 1,
     name: 'Bulbasaur',
+    form_name: '',
     species_description: 'Its a bulbasaur',
     types: ['grass'],
     sprites: {
@@ -22,7 +23,8 @@ const mockPokemon: Omit<PokeboxEntry, '_id'> = {
       back_female: null,
       back_shiny_female: null,
     } as PokeboxEntry['sprites'],
-    abilities: [{ name: 'overgrow', flavour_text: 'Ups GRASS moves in a pinch.', effect: 'Powers up Grass-type moves when the Pokémon\'s HP is low.' }]
+    abilities: [{ name: 'overgrow', flavour_text: 'Ups GRASS moves in a pinch.', effect: 'Powers up Grass-type moves when the Pokémon\'s HP is low.' }],
+    varieties: [],
 }
 
 const notFound = () => new PokeboxError('not_found', 'no such pokemon');

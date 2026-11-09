@@ -3,9 +3,11 @@ package com.pokemon.service;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.pokemon.model.PokeboxEntry;
 import com.pokemon.model.PokemonAbility;
+import com.pokemon.model.PokemonVariety;
 import org.bson.Document;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.StreamSupport;
 
@@ -18,16 +20,55 @@ final class PokeApiMapper {
     private PokeApiMapper() {
     }
 
-    static PokeboxEntry toPokeboxEntry(JsonNode pokemon, JsonNode species, List<JsonNode> abilities) {
+    /**
+     * One PokeAPI {@code pokemon} resource and what it needs besides the
+     * species: its abilities (in order, minus any that failed to fetch) and
+     * its first {@code pokemon-form}, which is a missing node when there is none.
+     */
+    record FetchedPokemon(JsonNode pokemon, List<JsonNode> abilities, JsonNode form) {
+    }
+
+    /**
+     * {@code varieties} are the species' other forms in any order; they come
+     * out in the species' order.
+     */
+    static PokeboxEntry toPokeboxEntry(FetchedPokemon main, JsonNode species, List<FetchedPokemon> varieties) {
+        String speciesText = englishEntry(species.path("flavor_text_entries"), "flavor_text", NO_DESCRIPTION);
+        List<String> order = StreamSupport.stream(species.path("varieties").spliterator(), false)
+                .map(v -> v.path("pokemon").path("name").asText())
+                .toList();
+
+        List<PokemonVariety> mapped = varieties.stream()
+                .map(v -> toVariety(v, species, speciesText))
+                .sorted(Comparator.comparingInt(v -> order.indexOf(v.name())))
+                .toList();
+
+        PokemonVariety form = toVariety(main, species, speciesText);
+        return new PokeboxEntry(form.id(), form.name(), form.formName(), form.speciesDescription(),
+                form.types(), form.abilities(), form.sprites(), mapped);
+    }
+
+    /** Describes a form by its own English flavour text, or {@code speciesText} when it has none. */
+    private static PokemonVariety toVariety(FetchedPokemon fetched, JsonNode species, String speciesText) {
+        JsonNode pokemon = fetched.pokemon();
+        String name = pokemon.path("name").asText();
+        boolean isDefault = StreamSupport.stream(species.path("varieties").spliterator(), false)
+                .filter(v -> name.equals(v.path("pokemon").path("name").asText()))
+                .findFirst()
+                .map(v -> v.path("is_default").asBoolean())
+                .orElse(pokemon.path("is_default").asBoolean());
+
         List<String> types = new ArrayList<>();
         pokemon.path("types").forEach(type -> types.add(type.path("type").path("name").asText()));
 
-        return new PokeboxEntry(
+        return new PokemonVariety(
                 pokemon.path("id").asLong(),
-                pokemon.path("name").asText(),
-                englishEntry(species.path("flavor_text_entries"), "flavor_text", NO_DESCRIPTION),
+                name,
+                englishEntry(fetched.form().path("form_names"), "name", ""),
+                isDefault,
+                englishEntry(fetched.form().path("flavor_text_entries"), "flavor_text", speciesText),
                 types,
-                abilities.stream().map(PokeApiMapper::toAbility).toList(),
+                fetched.abilities().stream().map(PokeApiMapper::toAbility).toList(),
                 Document.parse(pokemon.path("sprites").toString()));
     }
 

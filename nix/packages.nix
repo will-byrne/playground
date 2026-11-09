@@ -194,7 +194,7 @@ in
     pname = "go-server";
     version = "0.0.0";
     src = projectSrc "go-server";
-    vendorHash = "sha256-DFxwLuPPNDUUqfvYwyNRIOyTiuPeCaLhSUOpNFgAZsA=";
+    vendorHash = "sha256-wqaxpJQuNO6Ghg/sCl6/RLtHI8q1XLXexyHGcSggEJo=";
     env.CGO_ENABLED = 0;
     # The tests need a running MongoDB
     doCheck = false;

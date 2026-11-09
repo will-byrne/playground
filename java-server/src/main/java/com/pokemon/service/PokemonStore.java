@@ -10,6 +10,7 @@ import com.mongodb.reactivestreams.client.MongoCollection;
 import com.pokemon.model.PokeboxEntry;
 import com.pokemon.model.PokedexEntry;
 import com.pokemon.model.PokemonAbility;
+import com.pokemon.model.PokemonVariety;
 import lombok.extern.slf4j.Slf4j;
 import org.bson.Document;
 import org.bson.conversions.Bson;
@@ -65,6 +66,14 @@ public class PokemonStore {
         return findOne(Filters.eq("name", name));
     }
 
+    /**
+     * {@code filter} limited to entries stored with varieties. Entries stored
+     * before varieties existed don't match, so they're refetched and replaced.
+     */
+    static Bson storedWithVarieties(Bson filter) {
+        return Filters.and(filter, Filters.exists("varieties"));
+    }
+
     public Mono<Void> save(PokeboxEntry entry) {
         // Upsert by id, so storing the same Pokémon twice keeps one copy.
         return Mono.from(collection.replaceOne(Filters.eq("id", entry.id()), toDocument(entry),
@@ -75,37 +84,69 @@ public class PokemonStore {
     }
 
     private Mono<PokeboxEntry> findOne(Bson filter) {
-        return Mono.from(collection.find(filter).projection(Projections.excludeId()).first())
+        return Mono.from(collection.find(storedWithVarieties(filter)).projection(Projections.excludeId()).first())
                 .map(PokemonStore::fromDocument);
     }
 
     static Document toDocument(PokeboxEntry entry) {
-        List<Document> abilities = entry.abilities().stream()
+        List<Document> varieties = entry.varieties().stream()
+                .map(variety -> new Document("id", variety.id())
+                        .append("name", variety.name())
+                        .append("form_name", variety.formName())
+                        .append("is_default", variety.isDefault())
+                        .append("species_description", variety.speciesDescription())
+                        .append("types", variety.types())
+                        .append("abilities", toDocuments(variety.abilities()))
+                        .append("sprites", variety.sprites()))
+                .toList();
+        return new Document("id", entry.id())
+                .append("name", entry.name())
+                .append("form_name", entry.formName())
+                .append("species_description", entry.speciesDescription())
+                .append("types", entry.types())
+                .append("abilities", toDocuments(entry.abilities()))
+                .append("sprites", entry.sprites())
+                .append("varieties", varieties);
+    }
+
+    static PokeboxEntry fromDocument(Document doc) {
+        List<PokemonVariety> varieties = doc.getList("varieties", Document.class, List.of()).stream()
+                .map(variety -> new PokemonVariety(
+                        ((Number) variety.get("id")).longValue(),
+                        variety.getString("name"),
+                        variety.get("form_name", ""),
+                        variety.get("is_default", false),
+                        variety.getString("species_description"),
+                        variety.getList("types", String.class, List.of()),
+                        fromDocuments(variety),
+                        variety.get("sprites")))
+                .toList();
+        return new PokeboxEntry(
+                ((Number) doc.get("id")).longValue(),
+                doc.getString("name"),
+                doc.get("form_name", ""),
+                doc.getString("species_description"),
+                doc.getList("types", String.class, List.of()),
+                fromDocuments(doc),
+                doc.get("sprites"),
+                varieties);
+    }
+
+    private static List<Document> toDocuments(List<PokemonAbility> abilities) {
+        return abilities.stream()
                 .map(ability -> new Document("name", ability.name())
                         .append("flavour_text", ability.flavourText())
                         .append("effect", ability.effect()))
                 .toList();
-        return new Document("id", entry.id())
-                .append("name", entry.name())
-                .append("species_description", entry.speciesDescription())
-                .append("types", entry.types())
-                .append("abilities", abilities)
-                .append("sprites", entry.sprites());
     }
 
-    static PokeboxEntry fromDocument(Document doc) {
-        List<PokemonAbility> abilities = doc.getList("abilities", Document.class, List.of()).stream()
+    /** The {@code abilities} of an entry or variety document. */
+    private static List<PokemonAbility> fromDocuments(Document doc) {
+        return doc.getList("abilities", Document.class, List.of()).stream()
                 .map(ability -> new PokemonAbility(
                         ability.getString("name"),
                         ability.getString("flavour_text"),
                         ability.getString("effect")))
                 .toList();
-        return new PokeboxEntry(
-                ((Number) doc.get("id")).longValue(),
-                doc.getString("name"),
-                doc.getString("species_description"),
-                doc.getList("types", String.class, List.of()),
-                abilities,
-                doc.get("sprites"));
     }
 }

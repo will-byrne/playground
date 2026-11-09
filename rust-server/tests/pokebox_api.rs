@@ -31,10 +31,12 @@ fn entry(id: i64) -> PokeboxEntry {
     PokeboxEntry {
         name,
         id,
+        form_name: "".into(),
         species_description: "A test Pokémon.".into(),
         types: vec!["grass".into(), "poison".into()],
         abilities: vec![],
         sprites: json!({ "front_default": format!("https://example.com/{id}.png") }),
+        varieties: vec![],
     }
 }
 
@@ -162,10 +164,12 @@ async fn pokemon_by_id_returns_the_full_entry() {
         json!({
             "name": "pikachu",
             "id": 25,
+            "form_name": "",
             "species_description": "A test Pokémon.",
             "types": ["grass", "poison"],
             "abilities": [],
-            "sprites": { "front_default": "https://example.com/25.png" }
+            "sprites": { "front_default": "https://example.com/25.png" },
+            "varieties": []
         })
     );
 }

@@ -1,3 +1,7 @@
+// rustemon's deeply nested models overflow the default limit when checking
+// that the PokeAPI fetch futures are Send.
+#![recursion_limit = "256"]
+
 #[macro_use]
 extern crate rocket;
 pub mod storage;
@@ -12,8 +16,8 @@ use rocket::{State, serde::json::Json};
 use std::collections::HashSet;
 use std::sync::Arc;
 pub use storage::pokemon_box::{
-    PokeboxDb, PokeboxEntry, PokeboxError, PokeboxResult, PokedexEntry, PokemonAbility,
-    to_pokebox_entry,
+    FetchedPokemon, FormText, PokeboxDb, PokeboxEntry, PokeboxError, PokeboxResult, PokedexEntry,
+    PokemonAbility, PokemonVariety, to_pokebox_entry,
 };
 
 /// The Pokébox store the routes share.

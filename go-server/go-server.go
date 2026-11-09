@@ -13,10 +13,9 @@ import (
 	"os"
 	"strconv"
 	"strings"
+	"sync"
 	"time"
 
-	pokego "github.com/JoshGuarino/PokeGo/pkg"
-	"github.com/JoshGuarino/PokeGo/pkg/models"
 	"github.com/labstack/echo/v5"
 	"github.com/labstack/echo/v5/middleware"
 	"go.mongodb.org/mongo-driver/bson"
@@ -37,14 +36,32 @@ type PokemonAbility struct {
 }
 
 type PokeboxEntry struct {
-	Name               string           `json:"name" bson:"name"`
-	ID                 int64            `json:"id" bson:"id"`
+	Name string `json:"name" bson:"name"`
+	ID   int64  `json:"id" bson:"id"`
+	// FormName is the English form name ("Alolan Form"), or "" when the form has none.
+	FormName string `json:"form_name" bson:"form_name"`
+	// SpeciesDescription is the form's own English flavour text if it has one, else the species'.
 	SpeciesDescription string           `json:"species_description" bson:"species_description"`
 	Types              []string         `json:"types" bson:"types"`
 	Abilities          []PokemonAbility `json:"abilities" bson:"abilities"`
 	// Sprites is the raw PokeAPI sprites object (including "other", "versions", etc.),
 	// matching rust-server which stores and returns it untouched.
 	Sprites bson.M `json:"sprites" bson:"sprites"`
+	// Varieties are the species' other forms, never this one.
+	Varieties []PokemonVariety `json:"varieties" bson:"varieties"`
+}
+
+// PokemonVariety is another form of the same species, complete so clients can
+// switch to it without another request.
+type PokemonVariety struct {
+	Name               string           `json:"name" bson:"name"`
+	ID                 int64            `json:"id" bson:"id"`
+	FormName           string           `json:"form_name" bson:"form_name"`
+	IsDefault          bool             `json:"is_default" bson:"is_default"`
+	SpeciesDescription string           `json:"species_description" bson:"species_description"`
+	Types              []string         `json:"types" bson:"types"`
+	Abilities          []PokemonAbility `json:"abilities" bson:"abilities"`
+	Sprites            bson.M           `json:"sprites" bson:"sprites"`
 }
 
 // Why a lookup failed. Handlers map these to the same statuses as rust-server:
@@ -90,6 +107,7 @@ type PokeboxDb interface {
 
 type MongoDb struct {
 	client *mongo.Client
+	api    pokeAPI
 }
 
 func (db *MongoDb) GetPokedex() ([]PokedexEntry, error) {
@@ -111,13 +129,24 @@ func (db *MongoDb) GetPokemonByID(id int64) (PokeboxEntry, error) {
 	return db.getPokemon(bson.M{"id": id}, fmt.Sprintf("%d", id))
 }
 
+// storedFilter is filter limited to entries stored with varieties. Entries
+// stored before varieties existed don't match, so they're refetched and
+// replaced.
+func storedFilter(filter bson.M) bson.M {
+	limited := bson.M{"varieties": bson.M{"$exists": true}}
+	for k, v := range filter {
+		limited[k] = v
+	}
+	return limited
+}
+
 // getPokemon returns the stored Pokémon matching filter, or fetches, stores
 // and returns it from PokeAPI when it isn't stored yet.
 func (db *MongoDb) getPokemon(filter bson.M, identifier string) (PokeboxEntry, error) {
 	collection := db.client.Database("pokemon").Collection("pokemon")
 
 	var pokemon PokeboxEntry
-	err := collection.FindOne(context.Background(), filter, options.FindOne().SetProjection(bson.M{"_id": 0})).Decode(&pokemon)
+	err := collection.FindOne(context.Background(), storedFilter(filter), options.FindOne().SetProjection(bson.M{"_id": 0})).Decode(&pokemon)
 	switch {
 	case err == nil:
 		return pokemon, nil
@@ -136,82 +165,14 @@ func (db *MongoDb) GetPokemonByIdentifier(identifier string) (PokeboxEntry, erro
 }
 
 func (db *MongoDb) fetchAndStorePokemon(identifier string) (PokeboxEntry, error) {
-	client := pokego.NewClient()
-
-	// Get basic Pokemon data, plus the raw sprites object that PokeGo's model trims
-	pokemonData, sprites, err := fetchPokemon(identifier)
+	pokeboxEntry, err := db.api.fetchEntry(identifier)
 	if err != nil {
 		return PokeboxEntry{}, err
 	}
-
-	// Get species data for description (by species name, as the identifier may be a form like "deoxys-normal")
-	speciesData, err := client.Pokemon.GetPokemonSpecies(pokemonData.Species.Name)
-	if err != nil {
-		return PokeboxEntry{}, upstreamErr("failed to fetch pokemon species %s: %v", pokemonData.Species.Name, err)
-	}
-
-	// Get abilities
-	abilities := []PokemonAbility{}
-	for _, abilityRef := range pokemonData.Abilities {
-		abilityData, err := client.Pokemon.GetAbility(abilityRef.Ability.Name)
-		if err != nil {
-			continue // Skip if we can't get ability data
-		}
-
-		// Find English flavor text
-		flavorText := "No description available"
-		for _, entry := range abilityData.FlavorTextEntries {
-			if entry.Language.Name == "en" {
-				flavorText = entry.FlavorText
-				break
-			}
-		}
-
-		// Find English effect
-		effect := "No effect available"
-		for _, entry := range abilityData.EffectEntries {
-			if entry.Language.Name == "en" {
-				effect = entry.ShortEffect
-				break
-			}
-		}
-
-		abilities = append(abilities, PokemonAbility{
-			Name:        abilityData.Name,
-			FlavourText: flavorText,
-			Effect:      effect,
-		})
-	}
-
-	// Extract types
-	types := []string{}
-	for _, typeRef := range pokemonData.Types {
-		types = append(types, typeRef.Type.Name)
-	}
-
-	// Get species description
-	description := "No description available"
-	for _, entry := range speciesData.FlavorTextEntries {
-		if entry.Language.Name == "en" {
-			description = entry.FlavorText
-			break
-		}
-	}
-
-	pokeboxEntry := PokeboxEntry{
-		ID:                 int64(pokemonData.ID),
-		Name:               pokemonData.Name,
-		SpeciesDescription: description,
-		Types:              types,
-		Abilities:          abilities,
-		Sprites:            sprites,
-	}
-
-	// Store in database
+	// The lookup still succeeded, so a failed store only costs a refetch next time.
 	if err := db.StorePokemon(&pokeboxEntry); err != nil {
 		log.Printf("Failed to store pokemon %s: %v", identifier, err)
 	}
-
 	return pokeboxEntry, nil
 }
 
@@ -238,51 +199,278 @@ func ensureIndexes(client *mongo.Client) {
 	}
 }
 
-// fetchPokemon gets /pokemon/{identifier} straight from PokeAPI, like
-// rust-server does: PokeGo doesn't expose the status code, so a 404 couldn't
-// be told apart from an outage, and its model drops sprite fields the clients
-// use. Returns the decoded Pokémon and its untouched "sprites" object.
-func fetchPokemon(identifier string) (models.Pokemon, bson.M, error) {
-	return fetchPokemonFrom(pokeAPIURL, identifier)
+// pokeAPI fetches from PokeAPI at baseURL (a fake server in tests). Every
+// resource is fetched directly, like rust-server: PokeGo doesn't expose the
+// status code (so a 404 couldn't be told apart from an outage), its model
+// drops sprite fields the clients use, and it has no pokemon-form flavour text.
+type pokeAPI struct {
+	baseURL string
 }
 
-func fetchPokemonFrom(baseURL, identifier string) (models.Pokemon, bson.M, error) {
-	var pokemon models.Pokemon
-	resp, err := http.Get(fmt.Sprintf("%s/pokemon/%s", baseURL, identifier))
+// The parts of PokeAPI's resources the Pokébox reads.
+type (
+	namedRef struct {
+		Name string `json:"name"`
+	}
+	localizedName struct {
+		Name     string   `json:"name"`
+		Language namedRef `json:"language"`
+	}
+	localizedFlavor struct {
+		FlavorText string   `json:"flavor_text"`
+		Language   namedRef `json:"language"`
+	}
+	apiPokemon struct {
+		ID        int64      `json:"id"`
+		Name      string     `json:"name"`
+		IsDefault bool       `json:"is_default"`
+		Species   namedRef   `json:"species"`
+		Forms     []namedRef `json:"forms"`
+		Abilities []struct {
+			Ability namedRef `json:"ability"`
+		} `json:"abilities"`
+		Types []struct {
+			Type namedRef `json:"type"`
+		} `json:"types"`
+		Sprites bson.M `json:"sprites"`
+	}
+	apiSpecies struct {
+		FlavorTextEntries []localizedFlavor `json:"flavor_text_entries"`
+		Varieties         []struct {
+			IsDefault bool     `json:"is_default"`
+			Pokemon   namedRef `json:"pokemon"`
+		} `json:"varieties"`
+	}
+	apiAbility struct {
+		Name              string            `json:"name"`
+		FlavorTextEntries []localizedFlavor `json:"flavor_text_entries"`
+		EffectEntries     []struct {
+			ShortEffect string   `json:"short_effect"`
+			Language    namedRef `json:"language"`
+		} `json:"effect_entries"`
+	}
+	apiForm struct {
+		FormNames         []localizedName   `json:"form_names"`
+		FlavorTextEntries []localizedFlavor `json:"flavor_text_entries"`
+	}
+)
+
+// fetchedPokemon is one pokemon resource and what it needs besides the
+// species: its abilities (in order, minus any that failed to fetch) and its
+// first pokemon-form.
+type fetchedPokemon struct {
+	Pokemon   apiPokemon
+	Abilities []apiAbility
+	Form      apiForm
+}
+
+// getJSON decodes baseURL/path into out. PokeAPI's 404 is ErrNotFound; any
+// other failure is ErrUpstream.
+func (api pokeAPI) getJSON(path string, out any) error {
+	resp, err := http.Get(fmt.Sprintf("%s/%s", api.baseURL, path))
 	if err != nil {
-		return pokemon, nil, upstreamErr("failed to fetch pokemon %s: %v", identifier, err)
+		return upstreamErr("failed to fetch %s: %v", path, err)
 	}
 	defer resp.Body.Close()
 	if resp.StatusCode == http.StatusNotFound {
-		return pokemon, nil, fmt.Errorf("%w: %s", ErrNotFound, identifier)
+		return fmt.Errorf("%w: %s", ErrNotFound, path)
 	}
 	if resp.StatusCode != http.StatusOK {
-		return pokemon, nil, upstreamErr("pokemon %s: unexpected status %d", identifier, resp.StatusCode)
+		return upstreamErr("%s: unexpected status %d", path, resp.StatusCode)
 	}
-
 	body, err := io.ReadAll(resp.Body)
 	if err != nil {
-		return pokemon, nil, upstreamErr("failed to read pokemon %s: %v", identifier, err)
+		return upstreamErr("failed to read %s: %v", path, err)
 	}
-	if err := json.Unmarshal(body, &pokemon); err != nil {
-		return pokemon, nil, upstreamErr("failed to decode pokemon %s: %v", identifier, err)
+	if err := json.Unmarshal(body, out); err != nil {
+		return upstreamErr("failed to decode %s: %v", path, err)
 	}
-	var raw struct {
-		Sprites bson.M `json:"sprites"`
-	}
-	if err := json.Unmarshal(body, &raw); err != nil || raw.Sprites == nil {
-		raw.Sprites = toBsonM(pokemon.Sprites)
-	}
-	return pokemon, raw.Sprites, nil
+	return nil
 }
 
-// toBsonM round-trips a value through JSON to get a generic map.
-func toBsonM(v any) bson.M {
-	m := bson.M{}
-	if b, err := json.Marshal(v); err == nil {
-		_ = json.Unmarshal(b, &m)
+// fetchPokemon gets /pokemon/{identifier} with its abilities and form text.
+func (api pokeAPI) fetchPokemon(identifier string) (fetchedPokemon, error) {
+	var fetched fetchedPokemon
+	if err := api.getJSON("pokemon/"+identifier, &fetched.Pokemon); err != nil {
+		return fetched, err
 	}
-	return m
+	if fetched.Pokemon.Sprites == nil {
+		fetched.Pokemon.Sprites = bson.M{"front_default": nil}
+	}
+
+	var wg sync.WaitGroup
+	abilities := make([]*apiAbility, len(fetched.Pokemon.Abilities))
+	for i, ref := range fetched.Pokemon.Abilities {
+		wg.Add(1)
+		go func() {
+			defer wg.Done()
+			var ability apiAbility
+			// Like rust-server, abilities that fail to load are skipped.
+			if err := api.getJSON("ability/"+ref.Ability.Name, &ability); err != nil {
+				log.Printf("Failed to fetch ability %s: %v", ref.Ability.Name, err)
+				return
+			}
+			abilities[i] = &ability
+		}()
+	}
+	var formErr error
+	if len(fetched.Pokemon.Forms) > 0 {
+		wg.Add(1)
+		go func() {
+			defer wg.Done()
+			// A missing form just means no form text.
+			if err := api.getJSON("pokemon-form/"+fetched.Pokemon.Forms[0].Name, &fetched.Form); err != nil && !errors.Is(err, ErrNotFound) {
+				formErr = err
+			}
+		}()
+	}
+	wg.Wait()
+	if formErr != nil {
+		return fetched, formErr
+	}
+	for _, ability := range abilities {
+		if ability != nil {
+			fetched.Abilities = append(fetched.Abilities, *ability)
+		}
+	}
+	return fetched, nil
+}
+
+// fetchEntry builds the full Pokébox entry for identifier, including every
+// other variety of its species.
+func (api pokeAPI) fetchEntry(identifier string) (PokeboxEntry, error) {
+	main, err := api.fetchPokemon(identifier)
+	if err != nil {
+		return PokeboxEntry{}, err
+	}
+	// By species name, as the identifier may be a form like "deoxys-normal".
+	var species apiSpecies
+	if err := api.getJSON("pokemon-species/"+main.Pokemon.Species.Name, &species); err != nil {
+		// Only the Pokémon itself can be missing; a missing species is PokeAPI misbehaving.
+		return PokeboxEntry{}, upstreamErr("species %s: %v", main.Pokemon.Species.Name, err)
+	}
+
+	var names []string
+	for _, v := range species.Varieties {
+		if v.Pokemon.Name != main.Pokemon.Name {
+			names = append(names, v.Pokemon.Name)
+		}
+	}
+	fetched := make([]fetchedPokemon, len(names))
+	errs := make([]error, len(names))
+	var wg sync.WaitGroup
+	for i, name := range names {
+		wg.Add(1)
+		go func() {
+			defer wg.Done()
+			fetched[i], errs[i] = api.fetchPokemon(name)
+		}()
+	}
+	wg.Wait()
+
+	// A variety PokeAPI doesn't have is skipped; any other failure fails the
+	// lookup, so an entry missing forms is never stored.
+	var varieties []fetchedPokemon
+	for i, err := range errs {
+		switch {
+		case err == nil:
+			varieties = append(varieties, fetched[i])
+		case errors.Is(err, ErrNotFound):
+			log.Printf("Variety %s not found, skipping it", names[i])
+		default:
+			return PokeboxEntry{}, err
+		}
+	}
+	return toPokeboxEntry(main, species, varieties), nil
+}
+
+// english is the first entry of entries whose language is English.
+func english[T any](entries []T, language func(T) string) (T, bool) {
+	for _, e := range entries {
+		if language(e) == "en" {
+			return e, true
+		}
+	}
+	var zero T
+	return zero, false
+}
+
+// toPokeboxEntry turns the PokeAPI responses for one Pokémon into what the
+// Pokébox stores and serves, matching rust-server's to_pokebox_entry.
+// varieties are the species' other forms in any order; they come out in the
+// species' order.
+func toPokeboxEntry(main fetchedPokemon, species apiSpecies, varieties []fetchedPokemon) PokeboxEntry {
+	speciesText := "No description available"
+	if e, ok := english(species.FlavorTextEntries, func(e localizedFlavor) string { return e.Language.Name }); ok {
+		speciesText = e.FlavorText
+	}
+
+	entry := toForm(main, speciesText)
+	entry.Varieties = []PokemonVariety{}
+	for _, v := range species.Varieties {
+		for _, f := range varieties {
+			if f.Pokemon.Name != v.Pokemon.Name {
+				continue
+			}
+			form := toForm(f, speciesText)
+			entry.Varieties = append(entry.Varieties, PokemonVariety{
+				Name:               form.Name,
+				ID:                 form.ID,
+				FormName:           form.FormName,
+				IsDefault:          v.IsDefault,
+				SpeciesDescription: form.SpeciesDescription,
+				Types:              form.Types,
+				Abilities:          form.Abilities,
+				Sprites:            form.Sprites,
+			})
+		}
+	}
+	return entry
+}
+
+// toForm maps one fetched pokemon (without varieties), describing it by its
+// form's own English flavour text, or speciesText when the form has none.
+func toForm(f fetchedPokemon, speciesText string) PokeboxEntry {
+	byLanguage := func(e localizedFlavor) string { return e.Language.Name }
+
+	formName := ""
+	if n, ok := english(f.Form.FormNames, func(n localizedName) string { return n.Language.Name }); ok {
+		formName = n.Name
+	}
+	description := speciesText
+	if e, ok := english(f.Form.FlavorTextEntries, byLanguage); ok {
+		description = e.FlavorText
+	}
+
+	abilities := []PokemonAbility{}
+	for _, a := range f.Abilities {
+		ability := PokemonAbility{Name: a.Name, FlavourText: "No description available", Effect: "No effect available"}
+		if e, ok := english(a.FlavorTextEntries, byLanguage); ok {
+			ability.FlavourText = e.FlavorText
+		}
+		for _, e := range a.EffectEntries {
+			if e.Language.Name == "en" {
+				ability.Effect = e.ShortEffect
+				break
+			}
+		}
+		abilities = append(abilities, ability)
+	}
+
+	types := []string{}
+	for _, t := range f.Pokemon.Types {
+		types = append(types, t.Type.Name)
+	}
+
+	return PokeboxEntry{
+		ID:                 f.Pokemon.ID,
+		Name:               f.Pokemon.Name,
+		FormName:           formName,
+		SpeciesDescription: description,
+		Types:              types,
+		Abilities:          abilities,
+		Sprites:            f.Pokemon.Sprites,
+	}
 }
 
 // maxPokemonID is the highest national dex number random-new picks from.
@@ -361,7 +549,7 @@ func createDb() (PokeboxDb, error) {
 		fmt.Println("Connected to MongoDB successfully")
 		ensureIndexes(client)
 	}
-	return &MongoDb{client: client}, nil
+	return &MongoDb{client: client, api: pokeAPI{baseURL: pokeAPIURL}}, nil
 }
 
 // corsHeaders mirrors the CORS fairing in rust-server: the same static headers on every response.

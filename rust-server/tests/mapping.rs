@@ -1,7 +1,8 @@
-//! `to_pokebox_entry` against real PokeAPI responses for bulbasaur, saved in
-//! tests/fixtures (the move list is trimmed, since it isn't used).
+//! `to_pokebox_entry` against real PokeAPI responses for bulbasaur and both
+//! Vulpix forms, saved in tests/fixtures (move lists trimmed, since they
+//! aren't used).
 
-use rust_server::{PokemonAbility, to_pokebox_entry};
+use rust_server::{FetchedPokemon, FormText, PokemonAbility, to_pokebox_entry};
 use rustemon::model::pokemon::{Ability, Pokemon, PokemonSpecies};
 use serde_json::Value;
 
@@ -12,7 +13,7 @@ fn fixture(name: &str) -> Value {
 }
 
 fn parse<T: serde::de::DeserializeOwned>(value: Value) -> T {
-    serde_json::from_value(value).expect("fixture matches the rustemon model")
+    serde_json::from_value(value).expect("fixture matches the model")
 }
 
 /// Drops every English entry from `value[field]`.
@@ -22,6 +23,36 @@ fn without_english(mut value: Value, field: &str) -> Value {
         .unwrap()
         .retain(|entry| entry["language"]["name"] != "en");
     value
+}
+
+/// The raw PokeAPI responses for one `pokemon` resource.
+struct Raw {
+    pokemon: Value,
+    abilities: Vec<Value>,
+    form: Value,
+}
+
+impl Raw {
+    /// `pokemon-<id>`, its abilities and `pokemon-form-<form>`.
+    fn load(id: i64, form: &str) -> Raw {
+        let pokemon = fixture(&format!("pokemon-{id}"));
+        let abilities = pokemon["abilities"]
+            .as_array()
+            .unwrap()
+            .iter()
+            .map(|a| fixture(&format!("ability-{}", a["ability"]["name"].as_str().unwrap())))
+            .collect();
+        Raw { pokemon, abilities, form: fixture(&format!("pokemon-form-{form}")) }
+    }
+
+    fn fetched(self) -> FetchedPokemon {
+        FetchedPokemon {
+            sprites: self.pokemon["sprites"].clone(),
+            pokemon: parse::<Pokemon>(self.pokemon),
+            abilities: self.abilities.into_iter().map(parse::<Ability>).collect(),
+            form: parse::<FormText>(self.form),
+        }
+    }
 }
 
 struct Bulbasaur {
@@ -40,14 +71,21 @@ fn bulbasaur() -> Bulbasaur {
 
 impl Bulbasaur {
     fn map(self) -> rust_server::PokeboxEntry {
-        let sprites = self.pokemon["sprites"].clone();
-        to_pokebox_entry(
-            parse::<Pokemon>(self.pokemon),
-            parse::<PokemonSpecies>(self.species),
-            self.abilities.into_iter().map(parse::<Ability>).collect(),
-            sprites,
-        )
+        let raw = Raw { pokemon: self.pokemon, abilities: self.abilities, form: fixture("pokemon-form-bulbasaur") };
+        to_pokebox_entry(raw.fetched(), parse::<PokemonSpecies>(self.species), vec![])
     }
+}
+
+fn vulpix() -> Raw {
+    Raw::load(37, "vulpix")
+}
+
+fn alolan_vulpix() -> Raw {
+    Raw::load(10103, "vulpix-alola")
+}
+
+fn vulpix_species() -> PokemonSpecies {
+    parse(fixture("pokemon-species-37"))
 }
 
 #[test]
@@ -120,4 +158,74 @@ fn abilities_that_failed_to_fetch_are_simply_absent() {
     mon.abilities.truncate(1);
     let names: Vec<_> = mon.map().abilities.into_iter().map(|a| a.name).collect();
     assert_eq!(names, vec!["overgrow"]);
+}
+
+// --- forms and varieties ------------------------------------------------------
+
+#[test]
+fn a_species_with_one_form_has_no_varieties_or_form_name() {
+    let entry = bulbasaur().map();
+    assert!(entry.varieties.is_empty());
+    assert_eq!(entry.form_name, "");
+}
+
+#[test]
+fn the_default_form_carries_its_alternate_forms_in_full() {
+    let entry = to_pokebox_entry(vulpix().fetched(), vulpix_species(), vec![alolan_vulpix().fetched()]);
+    assert_eq!(entry.name, "vulpix");
+    assert_eq!(entry.types, vec!["fire"]);
+    assert_eq!(entry.varieties.len(), 1);
+
+    let alola = &entry.varieties[0];
+    assert_eq!(alola.name, "vulpix-alola");
+    assert_eq!(alola.id, 10103);
+    assert!(!alola.is_default);
+    assert_eq!(alola.form_name, "Alolan Form");
+    assert_eq!(alola.types, vec!["ice"]);
+    let abilities: Vec<_> = alola.abilities.iter().map(|a| a.name.as_str()).collect();
+    assert_eq!(abilities, vec!["snow-cloak", "snow-warning"]);
+    assert!(alola.sprites["front_default"].is_string());
+}
+
+#[test]
+fn a_form_with_its_own_flavour_text_uses_it() {
+    let entry = to_pokebox_entry(vulpix().fetched(), vulpix_species(), vec![alolan_vulpix().fetched()]);
+    assert!(
+        entry.varieties[0].species_description.starts_with("It exhales air colder than"),
+        "{}",
+        entry.varieties[0].species_description
+    );
+    // The default form has no text of its own, so it keeps the species'.
+    assert!(entry.species_description.starts_with("At the time of"), "{}", entry.species_description);
+}
+
+#[test]
+fn a_form_without_its_own_flavour_text_falls_back_to_the_species() {
+    let mut alola = alolan_vulpix();
+    alola.form = without_english(alola.form, "flavor_text_entries");
+    let entry = to_pokebox_entry(alola.fetched(), vulpix_species(), vec![]);
+    assert!(entry.species_description.starts_with("At the time of"));
+}
+
+#[test]
+fn an_alternate_form_lists_the_default_form() {
+    let entry = to_pokebox_entry(alolan_vulpix().fetched(), vulpix_species(), vec![vulpix().fetched()]);
+    assert_eq!(entry.id, 10103);
+    assert_eq!(entry.form_name, "Alolan Form");
+    assert_eq!(entry.varieties.len(), 1);
+    assert_eq!(entry.varieties[0].name, "vulpix");
+    assert!(entry.varieties[0].is_default);
+    assert_eq!(entry.varieties[0].form_name, "");
+}
+
+#[test]
+fn a_form_is_described_the_same_directly_or_as_a_variety() {
+    let direct = to_pokebox_entry(alolan_vulpix().fetched(), vulpix_species(), vec![]);
+    let nested = to_pokebox_entry(vulpix().fetched(), vulpix_species(), vec![alolan_vulpix().fetched()]);
+    let variety = &nested.varieties[0];
+    assert_eq!(variety.species_description, direct.species_description);
+    assert_eq!(variety.form_name, direct.form_name);
+    assert_eq!(variety.types, direct.types);
+    assert_eq!(variety.abilities, direct.abilities);
+    assert_eq!(variety.sprites, direct.sprites);
 }

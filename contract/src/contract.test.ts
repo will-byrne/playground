@@ -94,6 +94,72 @@ describe(`contract @ ${BASE_URL}`, () => {
     });
   });
 
+  describe("varieties", () => {
+    type Variety = {
+      id: number;
+      name: string;
+      form_name: string;
+      is_default: boolean;
+      species_description: string;
+      types: string[];
+      abilities: { name: string }[];
+      sprites: { front_default: string | null };
+    };
+    const byName = (varieties: Variety[], name: string) => varieties.find((v) => v.name === name);
+
+    test("a species with one form has no varieties", async () => {
+      const bulbasaur = await json("/pokemon/1", "/pokemon/{idOrName}");
+      expect(bulbasaur.varieties).toEqual([]);
+      expect(bulbasaur.form_name).toBe("");
+    });
+
+    test("the default form lists its other forms in full", async () => {
+      const vulpix = await json("/pokemon/vulpix", "/pokemon/{idOrName}");
+      expect(vulpix.types).toEqual(["fire"]);
+      const alola = byName(vulpix.varieties, "vulpix-alola");
+      expect(alola).toBeDefined();
+      expect(alola!.id).toBe(10103);
+      expect(alola!.is_default).toBe(false);
+      expect(alola!.form_name).toBe("Alolan Form");
+      expect(alola!.types).toEqual(["ice"]);
+      expect(alola!.abilities.map((a) => a.name)).toContain("snow-cloak");
+      expect(alola!.sprites.front_default).toBeString();
+      // Its description is its own, not the fire Vulpix's.
+      expect(alola!.species_description).not.toBe(vulpix.species_description);
+    });
+
+    test("an alternate form lists the default form and never itself", async () => {
+      const alola = await json("/pokemon/vulpix-alola", "/pokemon/{idOrName}");
+      expect(alola.id).toBe(10103);
+      expect(alola.form_name).toBe("Alolan Form");
+      const vulpix = byName(alola.varieties, "vulpix");
+      expect(vulpix?.is_default).toBe(true);
+      expect(vulpix?.id).toBe(37);
+      expect(alola.varieties.map((v: Variety) => v.id)).not.toContain(10103);
+    });
+
+    test("a form looks the same fetched directly or as a variety", async () => {
+      const [vulpix, alola] = await Promise.all([
+        json("/pokemon/37", "/pokemon/{idOrName}"),
+        json("/pokemon/10103", "/pokemon/{idOrName}"),
+      ]);
+      const asVariety = byName(vulpix.varieties, "vulpix-alola")!;
+      expect(asVariety.species_description).toBe(alola.species_description);
+      expect(asVariety.form_name).toBe(alola.form_name);
+      expect(asVariety.types).toEqual(alola.types);
+      expect(asVariety.abilities).toEqual(alola.abilities);
+      expect(asVariety.sprites).toEqual(alola.sprites);
+    });
+
+    test("forms are stored once each", async () => {
+      await json("/pokemon/vulpix", "/pokemon/{idOrName}");
+      await json("/pokemon/vulpix-alola", "/pokemon/{idOrName}");
+      const ids: number[] = (await json("/pokedex")).map((e: { id: number }) => e.id);
+      expect(ids.filter((id) => id === 37)).toHaveLength(1);
+      expect(ids.filter((id) => id === 10103)).toHaveLength(1);
+    });
+  });
+
   describe("GET /pokedex", () => {
     test("is sorted by id without duplicates and includes looked-up Pokémon", async () => {
       await json("/pokemon/25", "/pokemon/{idOrName}");

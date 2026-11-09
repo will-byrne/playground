@@ -3,6 +3,7 @@ package com.pokemon.controller;
 import com.pokemon.model.PokeboxEntry;
 import com.pokemon.model.PokedexEntry;
 import com.pokemon.model.PokemonAbility;
+import com.pokemon.model.PokemonVariety;
 import com.mongodb.MongoTimeoutException;
 import com.pokemon.service.PokeApiUnavailableException;
 import com.pokemon.service.PokemonService;
@@ -40,9 +41,11 @@ class PokemonControllerContractTest {
     @Test
     void pokemonUsesTheSharedJsonShape() {
         when(pokemonService.getPokemonByIdOrName("1")).thenReturn(Mono.just(new PokeboxEntry(
-                1, "bulbasaur", "A strange seed", List.of("grass"),
+                1, "bulbasaur", "", "A strange seed", List.of("grass"),
                 List.of(new PokemonAbility("overgrow", "Ups GRASS moves", "Strengthens grass moves")),
-                Map.of("front_default", "front.png"))));
+                Map.of("front_default", "front.png"),
+                List.of(new PokemonVariety(10001, "bulbasaur-test", "Test Form", false, "A test form",
+                        List.of("ice"), List.of(), Map.of("front_default", "test.png"))))));
 
         client.get().uri("/pokemon/1").exchange()
                 .expectStatus().isOk()
@@ -54,6 +57,14 @@ class PokemonControllerContractTest {
                 .jsonPath("$.abilities[0].flavour_text").isEqualTo("Ups GRASS moves")
                 .jsonPath("$.abilities[0].effect").isEqualTo("Strengthens grass moves")
                 .jsonPath("$.sprites.front_default").isEqualTo("front.png")
+                .jsonPath("$.form_name").isEqualTo("")
+                .jsonPath("$.varieties[0].id").isEqualTo(10001)
+                .jsonPath("$.varieties[0].form_name").isEqualTo("Test Form")
+                .jsonPath("$.varieties[0].is_default").isEqualTo(false)
+                .jsonPath("$.varieties[0].species_description").isEqualTo("A test form")
+                .jsonPath("$.varieties[0].types[0]").isEqualTo("ice")
+                .jsonPath("$.varieties[0].sprites.front_default").isEqualTo("test.png")
+                .jsonPath("$.varieties[0].isDefault").doesNotExist()
                 .jsonPath("$.speciesDescription").doesNotExist()
                 .jsonPath("$.pokemonId").doesNotExist();
     }
@@ -70,7 +81,8 @@ class PokemonControllerContractTest {
     @Test
     void namesAreCaseInsensitive() {
         when(pokemonService.getPokemonByIdOrName("pikachu")).thenReturn(Mono.just(new PokeboxEntry(
-                25, "pikachu", "Mouse", List.of("electric"), List.of(), Map.of("front_default", "p.png"))));
+                25, "pikachu", "", "Mouse", List.of("electric"), List.of(), Map.of("front_default", "p.png"),
+                List.of())));
         client.get().uri("/pokemon/Pikachu").exchange()
                 .expectStatus().isOk()
                 .expectBody().jsonPath("$.id").isEqualTo(25);

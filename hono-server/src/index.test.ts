@@ -10,10 +10,12 @@ const mockPokedex = [
 const mockPokemon = {
   name: 'bulbasaur',
   id: 1,
+  form_name: '',
   species_description: 'A strange seed was planted on its back at birth.',
   types: ['grass', 'poison'],
   abilities: [{ name: 'overgrow', flavour_text: 'Ups GRASS moves in a pinch.', effect: 'Strengthens grass moves to inflict 1.5× damage at 1/3 max HP or less.' }],
   sprites: { front_default: null } as unknown as PokeboxEntry['sprites'],
+  varieties: [],
 } satisfies PokeboxEntry;
 
 const notFound = () => new PokeboxError('not_found', 'no such pokemon');

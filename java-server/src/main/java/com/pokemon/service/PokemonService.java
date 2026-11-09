@@ -1,6 +1,7 @@
 package com.pokemon.service;
 
 import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.node.MissingNode;
 import com.pokemon.model.PokeboxEntry;
 import com.pokemon.model.PokedexEntry;
 import lombok.RequiredArgsConstructor;
@@ -71,9 +72,10 @@ public class PokemonService {
     }
 
     /**
-     * Fetches a Pokémon from PokeAPI and stores it. Empty when PokeAPI has no
-     * such Pokémon (404); fails with {@link PokeApiUnavailableException} (502)
-     * for any other PokeAPI failure, including a 404 for its species.
+     * Fetches a Pokémon and its species' other forms from PokeAPI and stores
+     * it. Empty when PokeAPI has no such Pokémon (404); fails with
+     * {@link PokeApiUnavailableException} (502) for any other PokeAPI failure,
+     * including a 404 for its species.
      */
     private Mono<PokeboxEntry> fetchAndStore(String idOrName) {
         return fetch("/pokemon/{idOrName}", idOrName)
@@ -82,9 +84,10 @@ public class PokemonService {
                     return Mono.empty();
                 })
                 .flatMap(pokemon -> Mono.zip(
-                        fetch("/pokemon-species/{name}", pokemon.path("species").path("name").asText()),
-                        fetchAbilities(pokemon),
-                        (species, abilities) -> PokeApiMapper.toPokeboxEntry(pokemon, species, abilities)))
+                                fetch("/pokemon-species/{name}", pokemon.path("species").path("name").asText()),
+                                fetchExtras(pokemon))
+                        .flatMap(both -> fetchVarieties(pokemon, both.getT1())
+                                .map(varieties -> PokeApiMapper.toPokeboxEntry(both.getT2(), both.getT1(), varieties))))
                 .onErrorMap(error -> {
                     log.error("Failed to fetch Pokemon {} from PokeAPI", idOrName, error);
                     return new PokeApiUnavailableException(idOrName, error);
@@ -93,12 +96,48 @@ public class PokemonService {
                 .flatMap(entry -> store.save(entry).thenReturn(entry));
     }
 
+    /**
+     * The species' varieties other than {@code pokemon}, in order. A variety
+     * PokeAPI doesn't have is skipped; any other failure fails the lookup, so
+     * an entry missing forms is never stored.
+     */
+    private Mono<List<PokeApiMapper.FetchedPokemon>> fetchVarieties(JsonNode pokemon, JsonNode species) {
+        String self = pokemon.path("name").asText();
+        return Flux.fromIterable(species.path("varieties"))
+                .map(variety -> variety.path("pokemon").path("name").asText())
+                .filter(name -> !name.isEmpty() && !name.equals(self))
+                .flatMapSequential(name -> fetch("/pokemon/{name}", name)
+                        .flatMap(this::fetchExtras)
+                        .onErrorResume(WebClientResponseException.NotFound.class, notFound -> {
+                            log.warn("Variety {} not found, skipping it", name);
+                            return Mono.empty();
+                        }))
+                .collectList();
+    }
+
+    /** The abilities and form text that go with one {@code pokemon} resource. */
+    private Mono<PokeApiMapper.FetchedPokemon> fetchExtras(JsonNode pokemon) {
+        return Mono.zip(fetchAbilities(pokemon), fetchForm(pokemon),
+                (abilities, form) -> new PokeApiMapper.FetchedPokemon(pokemon, abilities, form));
+    }
+
+    /** The Pokémon's first {@code pokemon-form}; a missing one just means no form text. */
+    private Mono<JsonNode> fetchForm(JsonNode pokemon) {
+        String name = pokemon.path("forms").path(0).path("name").asText();
+        if (name.isEmpty()) {
+            return Mono.just(MissingNode.getInstance());
+        }
+        return fetch("/pokemon-form/{name}", name)
+                .onErrorResume(WebClientResponseException.NotFound.class,
+                        notFound -> Mono.just(MissingNode.getInstance()));
+    }
+
     /** Abilities that fail to load are skipped, as in rust-server. */
     private Mono<List<JsonNode>> fetchAbilities(JsonNode pokemon) {
         return Flux.fromIterable(pokemon.path("abilities"))
                 .map(slot -> slot.path("ability").path("name").asText())
                 .filter(name -> !name.isEmpty())
-                .concatMap(name -> fetch("/ability/{name}", name).onErrorResume(error -> {
+                .flatMapSequential(name -> fetch("/ability/{name}", name).onErrorResume(error -> {
                     log.warn("Failed to fetch ability {}", name, error);
                     return Mono.empty();
                 }))

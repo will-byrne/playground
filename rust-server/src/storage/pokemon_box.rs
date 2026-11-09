@@ -84,10 +84,66 @@ pub struct PokemonAbility {
 pub struct PokeboxEntry {
     pub name: String,
     pub id: i64,
+    /// English form name ("Alolan Form"), or "" when the form has none.
+    pub form_name: String,
+    /// The form's own English flavour text if it has one, else the species'.
     pub species_description: String,
     pub types: Vec<String>,
     pub abilities: Vec<PokemonAbility>,
     pub sprites: serde_json::Value,
+    /// The species' other forms, never this one.
+    pub varieties: Vec<PokemonVariety>,
+}
+
+/// Another form of the same species, complete so clients can switch to it
+/// without another request.
+#[derive(Serialize, Deserialize, Debug, Clone, PartialEq)]
+pub struct PokemonVariety {
+    pub name: String,
+    pub id: i64,
+    pub form_name: String,
+    pub is_default: bool,
+    pub species_description: String,
+    pub types: Vec<String>,
+    pub abilities: Vec<PokemonAbility>,
+    pub sprites: serde_json::Value,
+}
+
+/// One PokeAPI `pokemon` resource and what it needs besides the species: its
+/// abilities (in the order it lists them, minus any that failed to fetch),
+/// its raw `sprites` and its first `pokemon-form`.
+pub struct FetchedPokemon {
+    pub pokemon: Pokemon,
+    pub sprites: serde_json::Value,
+    pub abilities: Vec<Ability>,
+    pub form: FormText,
+}
+
+/// The parts of a PokeAPI `pokemon-form` the Pokébox uses. Read from the raw
+/// JSON because rustemon's model has no `flavor_text_entries`.
+#[derive(Deserialize, Debug, Default, Clone)]
+pub struct FormText {
+    #[serde(default)]
+    pub form_names: Vec<LocalizedText>,
+    #[serde(default)]
+    pub flavor_text_entries: Vec<LocalizedFlavorText>,
+}
+
+#[derive(Deserialize, Debug, Clone)]
+pub struct LocalizedText {
+    pub name: String,
+    pub language: Language,
+}
+
+#[derive(Deserialize, Debug, Clone)]
+pub struct LocalizedFlavorText {
+    pub flavor_text: String,
+    pub language: Language,
+}
+
+#[derive(Deserialize, Debug, Clone)]
+pub struct Language {
+    pub name: String,
 }
 
 /// How a Pokémon was asked for.
@@ -99,8 +155,10 @@ enum PokemonKey<'a> {
 impl PokemonKey<'_> {
     fn filter(&self) -> Document {
         match self {
-            PokemonKey::Id(id) => doc! { "id": id },
-            PokemonKey::Name(name) => doc! { "name": name },
+            // Entries stored before varieties existed don't match, so they're
+            // refetched and replaced.
+            PokemonKey::Id(id) => doc! { "id": id, "varieties": { "$exists": true } },
+            PokemonKey::Name(name) => doc! { "name": name, "varieties": { "$exists": true } },
         }
     }
 }
@@ -196,43 +254,100 @@ impl MongoDb {
         Ok(entry)
     }
 
-    async fn fetch_from_pokeapi(&self, key: &PokemonKey<'_>) -> PokeboxResult<PokeboxEntry> {
-        // Fetched directly rather than through rustemon: rustemon doesn't
-        // expose the status code (so a 404 can't be told from an outage), and
-        // its model drops sprite fields the clients use.
+    /// GETs `path` under the PokeAPI base as JSON. PokeAPI's 404 is NotFound;
+    /// any other failure is Upstream.
+    async fn fetch_json(&self, path: &str) -> PokeboxResult<serde_json::Value> {
         let response = self
             .http
-            .get(format!("{}/pokemon/{key}", self.api_base))
+            .get(format!("{}/{path}", self.api_base))
             .send()
             .await
             .map_err(upstream)?;
         if response.status() == reqwest::StatusCode::NOT_FOUND {
             return Err(PokeboxError::NotFound);
         }
-        let raw: serde_json::Value = response
+        response
             .error_for_status()
             .map_err(upstream)?
             .json()
             .await
-            .map_err(upstream)?;
+            .map_err(upstream)
+    }
+
+    /// One `pokemon` resource with its abilities, sprites and form text.
+    async fn fetch_pokemon(&self, key: &PokemonKey<'_>) -> PokeboxResult<FetchedPokemon> {
+        // Fetched directly rather than through rustemon: rustemon doesn't
+        // expose the status code (so a 404 can't be told from an outage), and
+        // its model drops sprite fields the clients use.
+        let raw = self.fetch_json(&format!("pokemon/{key}")).await?;
         let pokemon = Pokemon::deserialize(&raw).map_err(upstream)?;
         let sprites = extract_sprites_from_pokeapi_response(&raw)
             .unwrap_or_else(|_| serde_json::to_value(&pokemon.sprites).unwrap_or_default());
 
-        let mut abilities = Vec::new();
-        for ability_ref in pokemon.abilities.iter().filter_map(|ab| ab.ability.as_ref()) {
-            match rustemon::pokemon::ability::get_by_name(&ability_ref.name, &self.rustemon).await {
-                Ok(ability) => abilities.push(ability),
-                Err(err) => eprintln!("Failed to fetch ability {}: {err}", ability_ref.name),
-            }
-        }
+        let abilities = futures::future::join_all(
+            pokemon
+                .abilities
+                .iter()
+                .filter_map(|ab| ab.ability.as_ref())
+                .map(|ab| async move {
+                    rustemon::pokemon::ability::get_by_name(&ab.name, &self.rustemon)
+                        .await
+                        .map_err(|err| eprintln!("Failed to fetch ability {}: {err}", ab.name))
+                        .ok()
+                }),
+        );
+        let (abilities, form) = futures::join!(abilities, self.fetch_form(&pokemon));
 
+        Ok(FetchedPokemon {
+            sprites,
+            abilities: abilities.into_iter().flatten().collect(),
+            form: form?,
+            pokemon,
+        })
+    }
+
+    /// The Pokémon's first `pokemon-form`. Missing forms just mean no form
+    /// text; other failures are Upstream like any other lookup.
+    async fn fetch_form(&self, pokemon: &Pokemon) -> PokeboxResult<FormText> {
+        let Some(form) = pokemon.forms.first() else {
+            return Ok(FormText::default());
+        };
+        match self.fetch_json(&format!("pokemon-form/{}", form.name)).await {
+            Ok(raw) => FormText::deserialize(&raw).map_err(upstream),
+            Err(PokeboxError::NotFound) => Ok(FormText::default()),
+            Err(err) => Err(err),
+        }
+    }
+
+    async fn fetch_from_pokeapi(&self, key: &PokemonKey<'_>) -> PokeboxResult<PokeboxEntry> {
+        let main = self.fetch_pokemon(key).await?;
         let species =
-            rustemon::pokemon::pokemon_species::get_by_name(&pokemon.species.name, &self.rustemon)
+            rustemon::pokemon::pokemon_species::get_by_name(&main.pokemon.species.name, &self.rustemon)
                 .await
                 .map_err(upstream)?;
 
-        Ok(to_pokebox_entry(pokemon, species, abilities, sprites))
+        let others = species
+            .varieties
+            .iter()
+            .map(|v| v.pokemon.name.as_str())
+            .filter(|name| *name != main.pokemon.name);
+        let fetched = futures::future::join_all(
+            others.map(|name| async move { (name, self.fetch_pokemon(&PokemonKey::Name(name)).await) }),
+        )
+        .await;
+
+        // A variety PokeAPI doesn't have is skipped; any other failure fails
+        // the lookup, so an entry missing forms is never stored.
+        let mut varieties = Vec::new();
+        for (name, result) in fetched {
+            match result {
+                Ok(variety) => varieties.push(variety),
+                Err(PokeboxError::NotFound) => eprintln!("Variety {name} not found, skipping it"),
+                Err(err) => return Err(err),
+            }
+        }
+
+        Ok(to_pokebox_entry(main, species, varieties))
     }
 }
 
@@ -277,45 +392,118 @@ pub async fn create_db() -> std::result::Result<Client, Box<dyn std::error::Erro
     Ok(Client::with_options(client_options)?)
 }
 
+/// The first English text in `entries`, if any.
+fn english<T>(
+    entries: impl IntoIterator<Item = T>,
+    language: impl Fn(&T) -> &str,
+    text: impl Fn(T) -> String,
+) -> Option<String> {
+    entries.into_iter().find(|e| language(e) == "en").map(text)
+}
+
 /// Turns the PokeAPI responses for one Pokémon into what the Pokébox stores
-/// and serves. `abilities` are the full ability resources, in the order the
-/// Pokémon lists them; `sprites` is the raw `sprites` object.
+/// and serves. `varieties` are the species' other forms, in any order; they
+/// come out in the species' order.
 pub fn to_pokebox_entry(
-    pokemon: Pokemon,
+    main: FetchedPokemon,
     species: PokemonSpecies,
-    abilities: Vec<Ability>,
-    sprites: serde_json::Value,
+    varieties: Vec<FetchedPokemon>,
 ) -> PokeboxEntry {
-    let species_description = species
-        .flavor_text_entries
+    let species_text = english(
+        species.flavor_text_entries,
+        |e| e.language.name.as_str(),
+        |e| e.flavor_text,
+    )
+    .unwrap_or_else(|| "No description available".to_string());
+
+    let order: Vec<(String, bool)> = species
+        .varieties
         .into_iter()
-        .find(|entry| entry.language.name == "en")
-        .map(|entry| entry.flavor_text)
-        .unwrap_or_else(|| "No description available".to_string());
+        .map(|v| (v.pokemon.name, v.is_default))
+        .collect();
+    let mut varieties: Vec<PokemonVariety> = varieties
+        .into_iter()
+        .map(|v| {
+            let is_default = order
+                .iter()
+                .find(|(name, _)| *name == v.pokemon.name)
+                .map_or(v.pokemon.is_default, |(_, d)| *d);
+            let form = to_form(v, &species_text);
+            PokemonVariety {
+                name: form.name,
+                id: form.id,
+                form_name: form.form_name,
+                is_default,
+                species_description: form.description,
+                types: form.types,
+                abilities: form.abilities,
+                sprites: form.sprites,
+            }
+        })
+        .collect();
+    varieties.sort_by_key(|v| order.iter().position(|(name, _)| *name == v.name));
+
+    let form = to_form(main, &species_text);
+    PokeboxEntry {
+        id: form.id,
+        name: form.name,
+        form_name: form.form_name,
+        species_description: form.description,
+        types: form.types,
+        abilities: form.abilities,
+        sprites: form.sprites,
+        varieties,
+    }
+}
+
+/// What an entry and a variety have in common.
+struct Form {
+    id: i64,
+    name: String,
+    form_name: String,
+    description: String,
+    types: Vec<String>,
+    abilities: Vec<PokemonAbility>,
+    sprites: serde_json::Value,
+}
+
+/// `fetched` mapped, describing it with its form's own English flavour text,
+/// or `species_text` when the form has none.
+fn to_form(fetched: FetchedPokemon, species_text: &str) -> Form {
+    let FetchedPokemon { pokemon, sprites, abilities, form } = fetched;
+    let form_name = english(form.form_names, |n| n.language.name.as_str(), |n| n.name)
+        .unwrap_or_default();
+    let description = english(
+        form.flavor_text_entries,
+        |e| e.language.name.as_str(),
+        |e| e.flavor_text,
+    )
+    .unwrap_or_else(|| species_text.to_string());
 
     let abilities = abilities
         .into_iter()
         .map(|ab| PokemonAbility {
-            flavour_text: ab
-                .flavor_text_entries
-                .into_iter()
-                .find(|entry| entry.language.name == "en")
-                .map(|entry| entry.flavor_text)
-                .unwrap_or_else(|| "No description available".to_string()),
-            effect: ab
-                .effect_entries
-                .into_iter()
-                .find(|entry| entry.language.name == "en")
-                .map(|entry| entry.short_effect)
-                .unwrap_or_else(|| "No effect available".to_string()),
+            flavour_text: english(
+                ab.flavor_text_entries,
+                |e| e.language.name.as_str(),
+                |e| e.flavor_text,
+            )
+            .unwrap_or_else(|| "No description available".to_string()),
+            effect: english(
+                ab.effect_entries,
+                |e| e.language.name.as_str(),
+                |e| e.short_effect,
+            )
+            .unwrap_or_else(|| "No effect available".to_string()),
             name: ab.name,
         })
         .collect();
 
-    PokeboxEntry {
+    Form {
         id: pokemon.id,
         name: pokemon.name,
-        species_description,
+        form_name,
+        description,
         types: pokemon.types.into_iter().map(|tp| tp.type_.name).collect(),
         abilities,
         sprites,
@@ -338,10 +526,12 @@ fn test_pokebox_entry_json_roundtrip() {
     let entry = PokeboxEntry {
         name: "bulbasaur".into(),
         id: 1,
+        form_name: "".into(),
         species_description: "Seed Pokemon".into(),
         types: vec!["grass".into(), "poison".into()],
         abilities: vec![],
         sprites: sprites.clone(),
+        varieties: vec![],
     };
 
     let json = serde_json::to_string(&entry).expect("Failed to serialize entry");

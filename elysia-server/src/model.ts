@@ -2,6 +2,7 @@ import "reflect-metadata";
 import type { PokemonSprites } from "pokenode-ts";
 import { ObjectId } from "mongodb";
 import { Column, Entity, Index, ObjectIdColumn } from "typeorm";
+import type { PokemonAbility, PokemonVariety } from "./mapping";
 
 @Entity("pokemon")
 export class PokeboxEntry {
@@ -19,6 +20,10 @@ export class PokeboxEntry {
   @Column()
   name!: string;
 
+  /** English form name ("Alolan Form"), or "" when the form has none. */
+  @Column()
+  form_name!: string;
+
   @Column()
   species_description!: string;
 
@@ -29,11 +34,11 @@ export class PokeboxEntry {
   sprites!: PokemonSprites;
 
   @Column()
-  abilities!: {
-    name: string;
-    flavour_text: string;
-    effect: string;
-  }[];
+  abilities!: PokemonAbility[];
+
+  /** The species' other forms, never this one. */
+  @Column()
+  varieties!: PokemonVariety[];
 }
 
 export type PokedexEntry = Pick<PokeboxEntry, "id" | "name">;
