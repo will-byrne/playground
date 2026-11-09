@@ -39,7 +39,7 @@ services:
       retries: 10
       start_period: 2s
 
-  # Servers (host ports 3000-3004)
+  # Servers (host ports 3000-3005)
   rust-server:
     build:
       context: ./rust-server
@@ -101,6 +101,17 @@ services:
         condition: service_healthy
     ports:
       - 3004:3000
+
+  effect-server:
+    build:
+      context: ./effect-server
+    environment:
+      MONGODB_URI: mongodb://admin:testtest@mongodb:27017
+    depends_on:
+      mongodb:
+        condition: service_healthy
+    ports:
+      - 3005:3000
 
   # Clients (host ports 4001-4007)
   # Browsers call the servers on their localhost ports above. Remix and SvelteKit

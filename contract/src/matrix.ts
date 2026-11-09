@@ -9,6 +9,7 @@ const SERVERS: Record<string, number> = {
   "go-server": 3002,
   "hono-server": 3003,
   "java-server": 3004,
+  "effect-server": 3005,
 };
 
 const host = process.env.CONTRACT_HOST ?? "localhost";

@@ -15,7 +15,7 @@ let
   };
   mongoUri = "mongodb://${mongo.user}:${mongo.password}@127.0.0.1:${toString mongo.port}";
 
-  # Servers on host ports 3000-3004, as in docker-compose.yaml.
+  # Servers on host ports 3000-3005, as in docker-compose.yaml.
   servers = {
     rust-server = {
       env = {
@@ -44,6 +44,12 @@ let
     hono-server = {
       env = {
         PORT = "3003";
+        MONGODB_URI = mongoUri;
+      };
+    };
+    effect-server = {
+      env = {
+        PORT = "3005";
         MONGODB_URI = mongoUri;
       };
     };

@@ -57,7 +57,7 @@ Errors are status codes only: `404` not found, `502` PokeAPI failed, `500` datab
 
 `contract/` also holds a test suite that checks any running server against the spec:
 - `cd contract && BASE_URL=http://localhost:3002 bun test` checks one server.
-- `cd contract && bun run matrix` checks every server on ports 3000-3004 and prints a pass/fail table.
+- `cd contract && bun run matrix` checks every server on ports 3000-3005 and prints a pass/fail table.
 - With Nix: `BASE_URL=http://localhost:3002 nix run .#contract` (one server) or `nix build .#contract && ./result/bin/contract-matrix` (all of them).
 - CI (`.github/workflows/contract.yml`) runs it against each server on every push and PR.
 
@@ -72,7 +72,7 @@ Short answer yes. The long answer is that I would like to get to the point where
 Eventually I would like to have a similar setup using something like `minikube` to help me get better at `kubernetes` and another setup so it can all be run from a `nix` flake. When I eventually get a machine to use as a server I will experiment with automatic deployments, probably using `nix` at first.
 
 ### Running with Nix
-The root `flake.nix` runs the same stack as `docker-compose.yaml` without docker: every server and client is built with Nix and run under `process-compose`, on the same ports (servers 3000-3004, clients 4001-4007, MongoDB 27017).
+The root `flake.nix` runs the same stack as `docker-compose.yaml` without docker: every server and client is built with Nix and run under `process-compose`, on the same ports (servers 3000-3005, clients 4001-4007, MongoDB 27017).
 - `nix run` starts everything, `nix run . -- up rust-server react-client` starts just those (plus MongoDB).
 - `nix build .#<name>` builds a single project, e.g. `nix build .#go-server`.
 - MongoDB data lives in `./.data` (override with `PLAYGROUND_DATA_DIR`).

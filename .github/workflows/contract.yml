@@ -18,6 +18,8 @@ jobs:
           - { server: go-server, port: 3002 }
           - { server: hono-server, port: 3003 }
           - { server: java-server, port: 3004 }
+          # Uncomment once effect-server passes the contract suite locally.
+          # - { server: effect-server, port: 3005 }
     steps:
       - uses: actions/checkout@v5
 

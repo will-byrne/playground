@@ -210,6 +210,12 @@ in
     production = true;
   };
 
+  effect-server = bunServer {
+    name = "effect-server";
+    depsHash = "sha256-BbNmyH1a7YFRoWA+24zMzsXs0kj5dyvoE4PivHD1OWM=";
+    production = true;
+  };
+
   java-server =
     let
       jdk = pkgs.jdk21_headless;
