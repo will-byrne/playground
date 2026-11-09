@@ -26,7 +26,7 @@ The web clients have since converged on the same copy, labels and routes (the sh
 - `cd e2e && CLIENT=lit bun run test` starts WireMock (in docker) and that client's dev server on port 41xx, then runs the suite. Set `WIREMOCK_URL` to use a WireMock that's already running.
 - `cd e2e && bun run matrix` runs it against every client and prints a pass/fail table.
 - `cd e2e && bun run check` checks the WireMock fixtures still match `contract/openapi.yaml`.
-- On NixOS use the dev shell (`nix develop path:./e2e`), which points Playwright at nixpkgs' Chromium.
+- On NixOS use the `e2e` dev shell (see Development shells below), which points Playwright at nixpkgs' Chromium.
 - CI (`.github/workflows/clients.yml`) runs every client's unit tests and the e2e suite per client.
 
 ## AI Use
@@ -78,6 +78,14 @@ The root `flake.nix` runs the same stack as `docker-compose.yaml` without docker
 - MongoDB data lives in `./.data` (override with `PLAYGROUND_DATA_DIR`).
 - When a lockfile changes, set that project's hash in `nix/packages.nix` to `lib.fakeHash`, build, and paste in the hash Nix reports.
 
+### Development shells
+Every project's tooling also comes from the root flake, one shell per project, all on the same nixpkgs pin and the same toolchains `nix/packages.nix` builds with (Bun and Node 22, Rust, Go 1.26, JDK 21 with Maven; JDK 25 for `java-fusion-server`). They're defined in `nix/shells.nix`.
+- With direnv, each project's `.envrc` is `use flake ..#<project>` plus `watch_file ../nix/shells.nix`, so `cd`-ing in loads its shell. Run `direnv allow` once per project.
+- Without direnv: `nix develop '.#<project>'` from the repo root, e.g. `nix develop '.#rust-server'`. `nix develop` on its own gives the root shell (`process-compose`, `mongosh`, `nixfmt`).
+- To update every toolchain at once: `nix flake update`, then rebuild and run the tests.
+- Shells are x86_64-linux only, like the packages (the bun dependency hashes are per platform).
+- In zsh, quote flake references (`'.#go-server'`): with `extendedglob` on, `#` is a glob operator.
+
 ## Future Frameworks and Languages
 I am toying with the idea of the following clients:
 - `Electron` wrapped around either `react-client` or `remix-client`.
@@ -92,11 +100,11 @@ The shape of the client / server contract is in the Contract section above.
 
 ## TODO
 - [ ] Pencil client
-- [ ] Pyhton server
+- [ ] Python server
 - [ ] Setup proper linting for each project
-- [ ] Finish go-server
+- [*] Finish go-server
 - [ ] Hapi server
-- [ ] TypeORM
+- [*] TypeORM
 - [ ] RxJS
 - [x] Finish svelte-client
 - [x] update all servers to use current contract (clients still to check)

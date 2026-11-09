@@ -53,6 +53,9 @@
         }
       );
 
+      # One dev shell per project; see nix/shells.nix.
+      devShells = eachSystem (pkgs: import ./nix/shells.nix { inherit pkgs; });
+
       apps = eachSystem (pkgs: {
         default = {
           type = "app";
