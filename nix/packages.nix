@@ -278,7 +278,7 @@ in
 
   angular-client = bunBuild {
     name = "angular-client";
-    depsHash = "sha256-JDLx1n7dycZWJay/3G4C8E43YpHaNpqkxZonJD70Ml8=";
+    depsHash = "sha256-sNF+SgGKnWY47Igx9qZiMva8QbDUVV/bGiEyZj/HuTQ=";
     env.NG_CLI_ANALYTICS = "false";
     buildScript = "bun run build";
     installPhase = ''
@@ -290,26 +290,26 @@ in
 
   lit-client = bunBuild {
     name = "lit-client";
-    depsHash = "sha256-guJrWZOYstP59o+CZt+7mkim0PWdcsq/DVttmQ/QWgM=";
+    depsHash = "sha256-mPc2weA7rDGYQylopqkWEHYQihtek3PAHQf5Zp/VyVw=";
     env.HUSKY = "0";
     buildScript = "bun run build";
   };
 
   mantine-client = bunBuild {
     name = "mantine-client";
-    depsHash = "sha256-jlvjQprEQMip9CN7SxUXSXxJ8uDT53THEslMp26W7u4=";
+    depsHash = "sha256-Wd9z/vAya8f0sK+hb12cQdZUVyzYYWt6YMxs5IV2YQ4=";
     buildScript = "bun run build";
   };
 
   react-client = bunBuild {
     name = "react-client";
-    depsHash = "sha256-7jp14UKc95MM6YEKP47HqfUDbVNvrqCpg9oeara/2Zk=";
+    depsHash = "sha256-fZ0mkYzVhIs9E8JP0oPVZJZiWPG0w9ifs7vQgb1Vknk=";
     buildScript = "bun run build";
   };
 
   remix-client = bunBuild {
     name = "remix-client";
-    depsHash = "sha256-qu0kKUK4ukmK7U81vK9wQDncGSpsnZifr0SGM2r8wK0=";
+    depsHash = "sha256-A2HXUPYaojk+PWpJ8ZQOXsK1RRDPCjBwfbLFeNkSwlA=";
     buildScript = "bun run build";
     installPhase = ''
       runHook preInstall
@@ -329,7 +329,7 @@ in
   # runner config loader avoids writing a bundled config into the store.
   svelt-client = bunBuild {
     name = "svelt-client";
-    depsHash = "sha256-jLeVK+WjrH+X+shXfFBZMJl50NrAVuxx/r/SQCZRMbs=";
+    depsHash = "sha256-aiUZWlu/wZMqFvb9dsphdjdkFvhvK1b8TRu1w/WEI3I=";
     buildScript = "bun run build";
     installPhase = ''
       runHook preInstall
@@ -345,7 +345,7 @@ in
 
   tsrx-client = bunBuild {
     name = "tsrx-client";
-    depsHash = "sha256-nPxXVs4IZJNf6IhfBW0Bmp4pUWhx507dgVTWb9E+CyQ=";
+    depsHash = "sha256-mI0HUuex+1ouprhTS7mCU5oo9cz2bZ4UJ5DC8j36+1w=";
     buildScript = "bun run build";
   };
 }

@@ -1,0 +1,124 @@
+{
+  "mappings": [
+    {
+      "priority": 1,
+      "request": {
+        "method": "GET",
+        "urlPathPattern": "/(elysia|rust)/"
+      },
+      "response": {
+        "status": 200,
+        "bodyFileName": "hello.txt",
+        "headers": {
+          "Access-Control-Allow-Origin": "*",
+          "Content-Type": "text/plain"
+        }
+      }
+    },
+    {
+      "priority": 1,
+      "request": {
+        "method": "GET",
+        "urlPathPattern": "/(elysia|rust)/pokedex"
+      },
+      "response": {
+        "status": 200,
+        "bodyFileName": "pokedex.json",
+        "headers": {
+          "Access-Control-Allow-Origin": "*",
+          "Content-Type": "application/json"
+        }
+      }
+    },
+    {
+      "priority": 1,
+      "request": {
+        "method": "GET",
+        "urlPathPattern": "/(elysia|rust)/pokemon/random-new"
+      },
+      "response": {
+        "status": 200,
+        "bodyFileName": "pokemon-25.json",
+        "headers": {
+          "Access-Control-Allow-Origin": "*",
+          "Content-Type": "application/json"
+        }
+      }
+    },
+    {
+      "priority": 1,
+      "request": {
+        "method": "GET",
+        "urlPathPattern": "/(elysia|rust)/pokemon/(?i)(1|bulbasaur)"
+      },
+      "response": {
+        "status": 200,
+        "bodyFileName": "pokemon-1.json",
+        "headers": {
+          "Access-Control-Allow-Origin": "*",
+          "Content-Type": "application/json"
+        }
+      }
+    },
+    {
+      "priority": 1,
+      "request": {
+        "method": "GET",
+        "urlPathPattern": "/(elysia|rust)/pokemon/(?i)(2|ivysaur)"
+      },
+      "response": {
+        "status": 200,
+        "bodyFileName": "pokemon-2.json",
+        "headers": {
+          "Access-Control-Allow-Origin": "*",
+          "Content-Type": "application/json"
+        }
+      }
+    },
+    {
+      "priority": 1,
+      "request": {
+        "method": "GET",
+        "urlPathPattern": "/(elysia|rust)/pokemon/(?i)(25|pikachu)"
+      },
+      "response": {
+        "status": 200,
+        "bodyFileName": "pokemon-25.json",
+        "headers": {
+          "Access-Control-Allow-Origin": "*",
+          "Content-Type": "application/json"
+        }
+      }
+    },
+    {
+      "priority": 1,
+      "request": {
+        "method": "GET",
+        "urlPathPattern": "/(elysia|rust)/pokemon/(?i)(37|vulpix)"
+      },
+      "response": {
+        "status": 200,
+        "bodyFileName": "pokemon-37.json",
+        "headers": {
+          "Access-Control-Allow-Origin": "*",
+          "Content-Type": "application/json"
+        }
+      }
+    },
+    {
+      "priority": 10,
+      "request": {
+        "method": "GET",
+        "urlPathPattern": "/(elysia|rust)/pokemon/.*"
+      },
+      "response": {
+        "status": 404,
+        "body": "Not Found",
+        "headers": {
+          "Access-Control-Allow-Origin": "*",
+          "Content-Type": "text/plain"
+        }
+      }
+    }
+  ]
+}

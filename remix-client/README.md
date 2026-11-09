@@ -62,6 +62,8 @@ All files                      |    1.43 |    33.33 |   11.11 |    1.43 |
 -------------------------------|---------|----------|---------|---------|-------------------
 ```
 
+Those tests have since been replaced by the tests every web client shares: `utils/pokedex.test.ts`, the detail page cases in `utils/pokemon-detail.cases.ts` (run by `app/pokemon-detail.test.tsx`) and the Playwright suite in `../e2e`.
+
 # Welcome to Remix!
 
 - 📖 [Remix docs](https://remix.run/docs)

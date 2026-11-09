@@ -14,6 +14,21 @@ Pokémon is also completely non work related and light-hearted, this means no on
 A quick note about the clients: they do not share a UX, I will undoubtedly port some components or snippets of code across to re-use and save time but some will be too different to easily recreate.
 This will mean that I wont be able to have one suite of e2e tests that can run on any client but it is something that I intend to test when I have everything up to date with the current contract.
 
+### Client tests
+The web clients have since converged on the same copy, labels and routes (the shared `pokedex.ts` copied into each), so they now share their tests too. `rust-client` is a terminal app and keeps its own `cargo test`.
+
+**Unit tests** run with [Vitest](https://vitest.dev) and [Testing Library](https://testing-library.com) on jsdom in every web client (`bun run test` in the client). Three files are copied verbatim into each client next to `pokedex.ts`, like `pokedex.ts` itself:
+- `pokedex.test.ts`: the shared helpers (API errors, formatting, search, sprites, forms, routing).
+- `pokedex.fixtures.ts`: the test data.
+- `pokemon-detail.cases.ts`: the Pokémon page tests, written against the DOM only. Each client's `pokemon-detail.test` file just supplies how to render its own component.
+
+**End-to-end tests** live in [`e2e/`](e2e): one Playwright suite that every client runs, against [WireMock](https://wiremock.org) standing in for the servers (`e2e/wiremock`, real responses captured from `rust-server`). WireMock answers each backend differently, so the error states are covered too: `elysia` and `rust` serve the fixtures, `go` fails with 500, `hono` with 502 and `java` drops the connection. Remix and SvelteKit fetch on the server, so they're pointed at WireMock with `BACKEND_URL_*`; the browser's requests to `localhost:3000-3004` are rerouted to it by the tests.
+- `cd e2e && CLIENT=lit bun run test` starts WireMock (in docker) and that client's dev server on port 41xx, then runs the suite. Set `WIREMOCK_URL` to use a WireMock that's already running.
+- `cd e2e && bun run matrix` runs it against every client and prints a pass/fail table.
+- `cd e2e && bun run check` checks the WireMock fixtures still match `contract/openapi.yaml`.
+- On NixOS use the dev shell (`nix develop path:./e2e`), which points Playwright at nixpkgs' Chromium.
+- CI (`.github/workflows/clients.yml`) runs every client's unit tests and the e2e suite per client.
+
 ## AI Use
 This repo is about testing new technologies and that includes AI. I am largely not that interested in the raw `html` and `css` except where is is substantially different from what I am used to. This means that I will probably use some AI tools to automagically generate the UX in some places. I will also be using AI to generate tests, as a testing specialist I am interested to see how well AI can handle that task, from what I have seen so far its not good but I will give it a fair run and try in a few of the sub-projects.
 
@@ -86,5 +101,5 @@ The shape of the client / server contract is in the Contract section above.
 - [x] Finish svelte-client
 - [x] update all servers to use current contract (clients still to check)
 - [x] document current contract here in this readme
-- [ ] add e2e tests for some of the clients
+- [x] add e2e tests for some of the clients
 - [ ] start looking into infrastructure

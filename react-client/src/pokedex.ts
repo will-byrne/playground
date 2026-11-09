@@ -1,6 +1,9 @@
 // Shared Pokédex helpers. This file is copied verbatim into every client
 // (angular, lit, mantine, react, remix, svelte, tsrx) so they all show the
-// same information in the same way. Keep the copies in sync.
+// same information in the same way, and into e2e/src so the shared Playwright
+// tests expect the same text. Keep the copies in sync, along with the shared
+// unit tests next to it in the clients (pokedex.test.ts, pokedex.fixtures.ts
+// and pokemon-detail.cases.ts).
 
 export type PokedexEntry = { id: number; name: string };
 
@@ -146,8 +149,11 @@ export const getFetchErrorKind = (error: unknown): FetchErrorKind => {
   if (status === 404) return "not-found";
   if (status === 502) return "upstream";
   if (typeof status === "number" && status > 0) return "server";
-  // A response that wasn't valid JSON still came from the backend.
-  if (error instanceof SyntaxError) return "server";
+  // A response that wasn't valid JSON still came from the backend. Checked by
+  // name, as the error can come from another realm (e.g. a test environment).
+  if (typeof error === "object" && error !== null && "name" in error && error.name === "SyntaxError") {
+    return "server";
+  }
   // fetch rejects with a TypeError when there's no response at all.
   return "unreachable";
 };

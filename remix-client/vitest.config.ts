@@ -1,25 +1,13 @@
-import { defineConfig } from "vitest/config";
 import react from "@vitejs/plugin-react";
 import tsconfigPaths from "vite-tsconfig-paths";
+import { defineConfig } from "vitest/config";
 
+// Unit tests, set up the same way in every web client.
 export default defineConfig({
   plugins: [react(), tsconfigPaths()],
   test: {
-    globals: true,
     environment: "jsdom",
-    setupFiles: "./test/setup.ts",
-    include: ["test/**/*.test.ts", "test/**/*.test.tsx"],
-    coverage: {
-      provider: "v8",
-      reporter: ["text", "json", "html"],
-      exclude: [
-        "node_modules/",
-        "test/",
-        "build/",
-        "dist/",
-        "**/*.d.ts",
-        "**/index.ts",
-      ],
-    },
+    include: ["{app,utils}/**/*.test.{ts,tsx}"],
+    setupFiles: ["./vitest.setup.ts"],
   },
 });

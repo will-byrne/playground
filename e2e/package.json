@@ -1,0 +1,16 @@
+{
+  "name": "e2e",
+  "private": true,
+  "type": "module",
+  "description": "Playwright tests every web client runs, against a WireMock backend",
+  "scripts": {
+    "test": "playwright test",
+    "matrix": "bun run src/matrix.ts",
+    "check": "bun test src/fixtures.test.ts"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.56.1",
+    "@types/bun": "1.2.21",
+    "@types/node": "^22"
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "mappings": [
+    {
+      "request": {
+        "urlPathPattern": "/go/.*"
+      },
+      "response": {
+        "status": 500,
+        "body": "Internal Server Error",
+        "headers": {
+          "Access-Control-Allow-Origin": "*",
+          "Content-Type": "text/plain"
+        }
+      }
+    },
+    {
+      "request": {
+        "urlPathPattern": "/hono/.*"
+      },
+      "response": {
+        "status": 502,
+        "body": "Bad Gateway",
+        "headers": {
+          "Access-Control-Allow-Origin": "*",
+          "Content-Type": "text/plain"
+        }
+      }
+    },
+    {
+      "request": {
+        "urlPathPattern": "/java/.*"
+      },
+      "response": {
+        "fault": "CONNECTION_RESET_BY_PEER"
+      }
+    }
+  ]
+}
