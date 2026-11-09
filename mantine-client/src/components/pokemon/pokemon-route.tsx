@@ -19,7 +19,8 @@ export function PokemonRoute({ idOrName, backend }: { idOrName: string; backend:
   }, [backend, idOrName]);
 
   if (state.status === 'loaded') {
-    return <PokemonPage pokemon={state.pokemon} backend={backend} />;
+    // Keyed so the selected form and sprite reset when moving to another Pokémon.
+    return <PokemonPage key={state.pokemon.id} pokemon={state.pokemon} backend={backend} />;
   }
 
   return (

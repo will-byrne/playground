@@ -9,6 +9,7 @@
     formatSpriteName,
     getDefaultSpriteKey,
     getDisplaySpriteKey,
+    getForms,
     getShinySpriteKey,
     getSprites,
     getTypeStyle,
@@ -20,13 +21,26 @@
 
   let { pokemon, backend }: { pokemon: PokeboxEntry; backend: Backend } = $props();
 
-  const spriteList = $derived(getSprites(pokemon.sprites));
+  const forms = $derived(getForms(pokemon));
   // The parent re-creates this component per Pokémon, so seeding from the first value is intended.
+  // svelte-ignore state_referenced_locally
+  let selectedFormId = $state(pokemon.id);
+  const form = $derived(forms.find((f) => f.id === selectedFormId) ?? forms[0]);
+
+  const spriteList = $derived(getSprites(form.sprites));
   // svelte-ignore state_referenced_locally
   let selectedSpriteKey = $state(getDefaultSpriteKey(getSprites(pokemon.sprites)));
   let showShiny = $state(false);
   const displaySpriteKey = $derived(getDisplaySpriteKey(spriteList, selectedSpriteKey, showShiny));
   const hasShiny = $derived(Boolean(getShinySpriteKey(spriteList, selectedSpriteKey)));
+
+  const selectForm = (formId: number) => {
+    const next = forms.find((f) => f.id === formId);
+    if (!next) return;
+    selectedFormId = formId;
+    // Each form has its own sprites, so start from its default one.
+    selectedSpriteKey = getDefaultSpriteKey(getSprites(next.sprites));
+  };
 </script>
 
 <div class="pd-page">
@@ -66,11 +80,32 @@
       </div>
     </div>
 
+    {#if forms.length > 1}
+      <div class="pd-forms">
+        <h2 class="pd-forms__label">{TEXT.forms}</h2>
+        <div class="pd-forms__list">
+          {#each forms as f (f.id)}
+            {@const selected = f.id === form.id}
+            <button
+              type="button"
+              class="pd-btn pd-btn--sm"
+              class:pd-btn--primary={selected}
+              class:pd-btn--outline={!selected}
+              onclick={() => selectForm(f.id)}
+              aria-pressed={selected}
+            >
+              {f.label}
+            </button>
+          {/each}
+        </div>
+      </div>
+    {/if}
+
     <div class="pd-grid pd-grid--detail">
       <!-- Pokémon Image Card -->
       <div class="pd-card">
         <div class="pd-card__body pd-card__body--center">
-          <img alt={`${pokemon.name} sprite`} src={spriteList[displaySpriteKey]} class="pd-main-sprite" />
+          <img alt={`${form.name} sprite`} src={spriteList[displaySpriteKey]} class="pd-main-sprite" />
           {#if hasShiny}
             <label class="pd-toggle-label">
               <input type="checkbox" class="pd-toggle" bind:checked={showShiny} />
@@ -78,7 +113,7 @@
             </label>
           {/if}
           <div class="pd-badges">
-            {#each pokemon.types as type (type)}
+            {#each form.types as type (type)}
               <span class="pd-badge" style={getTypeStyle(type)}>{type}</span>
             {/each}
           </div>
@@ -89,7 +124,7 @@
       <div class="pd-card">
         <div class="pd-card__body">
           <h2 class="pd-card__title" style="margin-bottom: 1rem">{TEXT.description}</h2>
-          <p class="pd-description">{formatDescription(pokemon.species_description)}</p>
+          <p class="pd-description">{formatDescription(form.species_description)}</p>
         </div>
       </div>
     </div>
@@ -98,7 +133,7 @@
     <div class="pd-section--detail">
       <h2 class="pd-heading pd-heading--detail">{TEXT.abilities}</h2>
       <div class="pd-grid pd-grid--abilities">
-        {#each pokemon.abilities as ability (ability.name)}
+        {#each form.abilities as ability (ability.name)}
           <div class="pd-card pd-card--lg">
             <div class="pd-card__body">
               <h3 class="pd-card__title pd-card__title--ability">{ability.name}</h3>

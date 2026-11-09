@@ -4,6 +4,7 @@ import {
   TEXT,
   type Backend,
   type PokeboxEntry,
+  type PokemonForm,
   canGoToNext,
   canGoToPrevious,
   formatDescription,
@@ -11,6 +12,7 @@ import {
   formatSpriteName,
   getDefaultSpriteKey,
   getDisplaySpriteKey,
+  getForms,
   getShinySpriteKey,
   getSprites,
   homePath,
@@ -29,9 +31,13 @@ export class PokemonCard extends LitElement {
 
   @property({ type: String }) backend: Backend = 'elysia';
 
+  @state() private selectedFormId = 0;
+
   @state() private selectedSpriteKey = '';
 
   @state() private showShiny = false;
+
+  private forms: PokemonForm[] = [];
 
   private spriteList: Record<string, string> = {};
 
@@ -41,16 +47,27 @@ export class PokemonCard extends LitElement {
 
   willUpdate(changed: PropertyValues<this>) {
     if (changed.has('pokemon') && this.pokemon) {
-      // Reset sprite selection whenever a different Pokémon is shown.
-      this.spriteList = getSprites(this.pokemon.sprites);
-      this.selectedSpriteKey = getDefaultSpriteKey(this.spriteList);
+      // Reset form and sprite selection whenever a different Pokémon is shown.
+      this.forms = getForms(this.pokemon);
+      this.selectForm(this.pokemon.id);
       this.showShiny = false;
     }
   }
 
+  private get form(): PokemonForm | undefined {
+    return this.forms.find(f => f.id === this.selectedFormId) ?? this.forms[0];
+  }
+
+  private selectForm(formId: number) {
+    this.selectedFormId = formId;
+    // Each form has its own sprites, so start from its default one.
+    this.spriteList = getSprites(this.form?.sprites ?? {});
+    this.selectedSpriteKey = getDefaultSpriteKey(this.spriteList);
+  }
+
   render() {
-    const { pokemon: p, backend, spriteList, selectedSpriteKey } = this;
-    if (!p) return nothing;
+    const { pokemon, form: p, forms, backend, spriteList, selectedSpriteKey } = this;
+    if (!pokemon || !p) return nothing;
     const displaySpriteKey = getDisplaySpriteKey(spriteList, selectedSpriteKey, this.showShiny);
     const hasShiny = Boolean(getShinySpriteKey(spriteList, selectedSpriteKey));
 
@@ -63,32 +80,51 @@ export class PokemonCard extends LitElement {
               ${TEXT.backToList}
             </button>
             <div class="pd-detail-nav">
-              ${canGoToPrevious(p.id)
+              ${canGoToPrevious(pokemon.id)
                 ? html`<button
                     type="button"
                     class="pd-btn pd-btn--outline"
                     aria-label="Previous Pokémon"
-                    @click=${() => navigate(pokemonPath(p.id - 1, backend))}
+                    @click=${() => navigate(pokemonPath(pokemon.id - 1, backend))}
                   >
                     ${TEXT.previous}
                   </button>`
                 : html`<div class="pd-spacer"></div>`}
               <div>
-                <h1 class="pd-title pd-title--detail pd-capitalize">${p.name}</h1>
-                <p class="pd-subtitle">${formatDexNo(p.id)}</p>
+                <h1 class="pd-title pd-title--detail pd-capitalize">${pokemon.name}</h1>
+                <p class="pd-subtitle">${formatDexNo(pokemon.id)}</p>
               </div>
-              ${canGoToNext(p.id)
+              ${canGoToNext(pokemon.id)
                 ? html`<button
                     type="button"
                     class="pd-btn pd-btn--outline"
                     aria-label="Next Pokémon"
-                    @click=${() => navigate(pokemonPath(p.id + 1, backend))}
+                    @click=${() => navigate(pokemonPath(pokemon.id + 1, backend))}
                   >
                     ${TEXT.next}
                   </button>`
                 : html`<div class="pd-spacer"></div>`}
             </div>
           </div>
+
+          ${forms.length > 1
+            ? html`<div class="pd-forms">
+                <h2 class="pd-forms__label">${TEXT.forms}</h2>
+                <div class="pd-forms__list">
+                  ${forms.map(f => {
+                    const selected = f.id === p.id;
+                    return html`<button
+                      type="button"
+                      class="pd-btn pd-btn--sm ${selected ? 'pd-btn--primary' : 'pd-btn--outline'}"
+                      aria-pressed=${selected ? 'true' : 'false'}
+                      @click=${() => this.selectForm(f.id)}
+                    >
+                      ${f.label}
+                    </button>`;
+                  })}
+                </div>
+              </div>`
+            : nothing}
 
           <div class="pd-grid pd-grid--detail">
             <!-- Pokémon Image Card -->

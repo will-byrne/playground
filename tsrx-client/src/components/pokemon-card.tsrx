@@ -10,6 +10,7 @@ import {
   formatSpriteName,
   getDefaultSpriteKey,
   getDisplaySpriteKey,
+  getForms,
   getShinySpriteKey,
   getSprites,
   getTypeColor,
@@ -20,17 +21,31 @@ import {
 import { Abilities } from "./ablities.tsrx";
 
 export const PokemonCard = ({
-  pokeboxEntry: { id, name, species_description, types, abilities, sprites },
+  pokeboxEntry,
   backend,
 }: {
   pokeboxEntry: PokeboxEntry;
   backend: Backend;
 }) => @{
+  const { id, name } = pokeboxEntry;
+  const forms = getForms(pokeboxEntry);
+  const [selectedFormId, setSelectedFormId] = useState(id);
+  const form = forms.find((f) => f.id === selectedFormId) ?? forms[0];
+  const { species_description, types, abilities, sprites } = form;
+
   const spriteList = getSprites(sprites);
   const [selectedSpriteKey, setSelectedSpriteKey] = useState(() => getDefaultSpriteKey(spriteList));
   const [showShiny, setShowShiny] = useState(false);
   const displaySpriteKey = getDisplaySpriteKey(spriteList, selectedSpriteKey, showShiny);
   const hasShiny = Boolean(getShinySpriteKey(spriteList, selectedSpriteKey));
+
+  const selectForm = (formId: number) => {
+    const next = forms.find((f) => f.id === formId);
+    if (!next) return;
+    setSelectedFormId(formId);
+    // Each form has its own sprites, so start from its default one.
+    setSelectedSpriteKey(getDefaultSpriteKey(getSprites(next.sprites)));
+  };
 
   <div className="pd-page">
     <div className="pd-container pd-container--wide">
@@ -70,10 +85,29 @@ export const PokemonCard = ({
         </div>
       </div>
 
+      @if (forms.length > 1) {
+        <div className="pd-forms">
+          <h2 className="pd-forms__label">{TEXT.forms}</h2>
+          <div className="pd-forms__list">
+            @for (const f of forms) {
+              <button
+                type="button"
+                key={f.id}
+                className={`pd-btn pd-btn--sm ${f.id === form.id ? "pd-btn--primary" : "pd-btn--outline"}`}
+                onClick={() => selectForm(f.id)}
+                aria-pressed={f.id === form.id}
+              >
+                {f.label}
+              </button>
+            }
+          </div>
+        </div>
+      }
+
       <div className="pd-grid pd-grid--detail">
         <div className="pd-card">
           <div className="pd-card__body pd-card__body--center">
-            <img alt={`${name} sprite`} src={spriteList[displaySpriteKey]} className="pd-main-sprite" />
+            <img alt={`${form.name} sprite`} src={spriteList[displaySpriteKey]} className="pd-main-sprite" />
             @if (hasShiny) {
               <label className="pd-toggle-label">
                 <input

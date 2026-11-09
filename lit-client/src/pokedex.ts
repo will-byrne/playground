@@ -6,13 +6,22 @@ export type PokedexEntry = { id: number; name: string };
 
 export type Ability = { name: string; flavour_text: string; effect: string };
 
-export type PokeboxEntry = {
+/** Another form of a Pokémon's species (Alolan, Mega, ...), complete so it can be shown without another request. */
+export type PokemonVariety = {
   id: number;
   name: string;
+  /** English form name, e.g. "Alolan Form"; "" when the form has none. */
+  form_name: string;
+  is_default: boolean;
   species_description: string;
   types: string[];
   abilities: Ability[];
   sprites: object;
+};
+
+export type PokeboxEntry = Omit<PokemonVariety, "is_default"> & {
+  /** The species' other forms, never this one. */
+  varieties: PokemonVariety[];
 };
 
 export const DEX_MAX = 1025;
@@ -215,6 +224,8 @@ export const TEXT = {
   abilities: "Abilities",
   sprites: "Sprites",
   selected: "Selected",
+  forms: "Forms",
+  defaultForm: "Default Form",
   pokedexError: (backend: Backend, kind: FetchErrorKind) =>
     `Could not load the Pokédex. ${describeBackendError(backend, kind)}`,
   randomError: (backend: Backend, kind: FetchErrorKind) =>
@@ -272,6 +283,40 @@ export const getFeaturedPokemon = (pokedex: PokedexEntry[]): PokedexEntry[] =>
 
 export const canGoToPrevious = (id: number) => id > 1;
 export const canGoToNext = (id: number) => id < DEX_MAX;
+
+// ---------------------------------------------------------------------------
+// Forms
+// ---------------------------------------------------------------------------
+
+/** One form a Pokémon's page can show: the Pokémon itself or one of its varieties. */
+export type PokemonForm = PokemonVariety & { label: string };
+
+/** A form's button label: its form name, else "Default Form" or its name. */
+export const formatFormName = ({ name, form_name, is_default }: PokemonVariety): string =>
+  form_name || (is_default ? TEXT.defaultForm : capitalize(formatSpriteName(name)));
+
+/**
+ * Every form of the entry's species, the default form first and the rest in
+ * the server's order. Just the entry when the species has one form, or when
+ * the server predates varieties.
+ */
+export const getForms = (entry: PokeboxEntry): PokemonForm[] => {
+  const varieties = entry.varieties ?? [];
+  const self: PokemonVariety = {
+    id: entry.id,
+    name: entry.name,
+    form_name: entry.form_name ?? "",
+    // The entry is the default form unless one of its varieties is.
+    is_default: !varieties.some((variety) => variety.is_default),
+    species_description: entry.species_description,
+    types: entry.types,
+    abilities: entry.abilities,
+    sprites: entry.sprites,
+  };
+  return [self, ...varieties]
+    .sort((a, b) => Number(b.is_default) - Number(a.is_default))
+    .map((form) => ({ ...form, label: formatFormName(form) }));
+};
 
 // ---------------------------------------------------------------------------
 // Sprites

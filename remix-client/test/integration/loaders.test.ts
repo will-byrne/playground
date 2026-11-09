@@ -2,24 +2,7 @@
 
 import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
 
-// Mock types for testing loaders
-interface PokedexEntry {
-  id: number;
-  name: string;
-}
-
-interface PokeboxEntry {
-  id: number;
-  name: string;
-  species_description: string;
-  types: string[];
-  abilities: Array<{
-    name: string;
-    flavour_text: string;
-    effect: string;
-  }>;
-  sprites: Record<string, any>;
-}
+import type { PokeboxEntry, PokedexEntry } from "../../utils/pokedex";
 
 describe("Loader Integration Tests", () => {
   beforeEach(() => {
@@ -85,6 +68,7 @@ describe("Loader Integration Tests", () => {
       const mockPokemon: PokeboxEntry = {
         id: 25,
         name: "Pikachu",
+        form_name: "",
         species_description: "Test description",
         types: ["electric"],
         abilities: [
@@ -97,6 +81,7 @@ describe("Loader Integration Tests", () => {
         sprites: {
           front_default: "url",
         },
+        varieties: [],
       };
 
       expect(mockPokemon.id).toBe(25);
@@ -183,10 +168,12 @@ describe("Loader Integration Tests", () => {
       const pokemon: PokeboxEntry = {
         id: 25,
         name: "Pikachu",
+        form_name: "",
         species_description: "desc",
         types: ["electric"],
         abilities: [],
         sprites: {},
+        varieties: [],
       };
 
       expect(pokemon.name).toBeTruthy();

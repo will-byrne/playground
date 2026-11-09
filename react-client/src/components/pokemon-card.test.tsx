@@ -1,5 +1,5 @@
 import { describe, expect, test } from "bun:test";
-import { render, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import type { PokeboxEntry } from "../pokedex";
 import { PokemonCard } from "./pokemon-card";
 
@@ -280,6 +280,30 @@ const bulbasaur: PokeboxEntry = {
 	],
 	types: ["grass"],
 	sprites: bulbasaurSprites,
+	form_name: "",
+	varieties: [],
+};
+
+const vulpix: PokeboxEntry = {
+	id: 37,
+	name: "vulpix",
+	form_name: "",
+	species_description: "At the time of birth, it has just one tail.",
+	types: ["fire"],
+	abilities: [{ name: "flash-fire", flavour_text: "Powers up fire moves.", effect: "Absorbs fire moves." }],
+	sprites: { front_default: "37.png", front_shiny: "37-shiny.png" },
+	varieties: [
+		{
+			id: 10103,
+			name: "vulpix-alola",
+			form_name: "Alolan Form",
+			is_default: false,
+			species_description: "It exhales air colder than -58 degrees Fahrenheit.",
+			types: ["ice"],
+			abilities: [{ name: "snow-cloak", flavour_text: "Ups evasion in a hailstorm.", effect: "Increases evasion during hail." }],
+			sprites: { front_default: "10103.png" },
+		},
+	],
 };
 
 describe("pokemon-card", () => {
@@ -341,5 +365,41 @@ describe("pokemon-card", () => {
 		);
 
 		expect(document.getElementsByTagName("img").length).toStrictEqual(81);
+	});
+
+	describe("forms", () => {
+		test("are hidden for a species with one form", () => {
+			render(<PokemonCard pokeboxEntry={bulbasaur} backend="elysia" />);
+			expect(screen.queryByRole("heading", { name: "Forms" })).toBeNull();
+		});
+
+		test("start on the Pokémon that was looked up", () => {
+			render(<PokemonCard pokeboxEntry={vulpix} backend="elysia" />);
+			expect(screen.getByRole("button", { name: "Default Form" })).toHaveAttribute("aria-pressed", "true");
+			expect(screen.getByRole("button", { name: "Alolan Form" })).toHaveAttribute("aria-pressed", "false");
+			expect(screen.getByText("fire")).toBeInTheDocument();
+		});
+
+		test("switching shows the form's description, types, abilities and sprites", () => {
+			render(<PokemonCard pokeboxEntry={vulpix} backend="elysia" />);
+			fireEvent.click(screen.getByRole("button", { name: "Alolan Form" }));
+
+			expect(screen.getByRole("button", { name: "Alolan Form" })).toHaveAttribute("aria-pressed", "true");
+			expect(screen.getByText("It exhales air colder than -58 degrees Fahrenheit.")).toBeInTheDocument();
+			expect(screen.getByText("ice")).toBeInTheDocument();
+			expect(screen.queryByText("fire")).toBeNull();
+			expect(screen.getByText("snow-cloak")).toBeInTheDocument();
+			expect(screen.queryByText("flash-fire")).toBeNull();
+			expect(screen.getByAltText("vulpix-alola sprite")).toHaveAttribute("src", "10103.png");
+			// The heading stays the Pokémon that was looked up.
+			expect(screen.getByRole("heading", { level: 1, name: "vulpix" })).toBeInTheDocument();
+		});
+
+		test("switching resets a sprite the new form doesn't have", () => {
+			render(<PokemonCard pokeboxEntry={vulpix} backend="elysia" />);
+			fireEvent.click(screen.getByRole("button", { name: /front shiny/ }));
+			fireEvent.click(screen.getByRole("button", { name: "Alolan Form" }));
+			expect(screen.getByAltText("vulpix-alola sprite")).toHaveAttribute("src", "10103.png");
+		});
 	});
 });

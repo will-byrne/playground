@@ -1330,6 +1330,7 @@ dependencies = [
  "reqwest",
  "rustemon",
  "serde",
+ "serde_json",
  "tokio",
 ]
 

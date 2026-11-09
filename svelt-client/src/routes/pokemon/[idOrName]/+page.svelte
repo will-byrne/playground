@@ -25,7 +25,7 @@
 </svelte:head>
 
 {#if data.pokemon}
-  <!-- Keyed on the id so sprite selection resets when moving to another Pokémon. -->
+  <!-- Keyed on the id so form and sprite selection reset when moving to another Pokémon. -->
   {#key data.pokemon.id}
     <PokemonDetail pokemon={data.pokemon} backend={data.backend} />
   {/key}

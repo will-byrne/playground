@@ -1,5 +1,5 @@
 # Current Goal
-[] pokemon forms (`varieties` + `form_name`, contract 1.1.0)
+[x] pokemon forms (`varieties` + `form_name`, contract 1.1.0)
     [x] contract
     [x] servers
         [x] rust-server
@@ -7,15 +7,15 @@
         [x] go-server
         [x] hono-server
         [x] java-server
-    [] clients
-        [] react-client
-        [] tsrx-client
-        [] mantine-client
-        [] lit-client
-        [] angular-client
-        [] remix-client
-        [] svelt-client
-        [] rust-client
+    [x] clients
+        [x] react-client
+        [x] tsrx-client
+        [x] mantine-client
+        [x] lit-client
+        [x] angular-client
+        [x] remix-client
+        [x] svelt-client
+        [x] rust-client
 [] allow sending id or name
     [x] iplement for servers
         [x] rust-server
@@ -29,7 +29,7 @@
         [x] remix client
         [x] svelte client
     [] send an error when unable to find pokemon
-        [] mantine-client
+        [x] mantine-client
         [x] react-client
         [] rust client
         [] lit client

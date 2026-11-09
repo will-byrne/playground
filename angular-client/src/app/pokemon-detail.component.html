@@ -1,4 +1,4 @@
-@if (status === 'loaded' && pokemon) {
+@if (status === 'loaded' && pokemon && form) {
   <div class="pd-page">
     <div class="pd-container pd-container--wide">
       <!-- Header -->
@@ -26,11 +26,31 @@
         </div>
       </div>
 
+      @if (forms.length > 1) {
+        <div class="pd-forms">
+          <h2 class="pd-forms__label">{{ text.forms }}</h2>
+          <div class="pd-forms__list">
+            @for (f of forms; track f.id) {
+              <button
+                type="button"
+                class="pd-btn pd-btn--sm"
+                [class.pd-btn--primary]="f.id === form.id"
+                [class.pd-btn--outline]="f.id !== form.id"
+                [attr.aria-pressed]="f.id === form.id"
+                (click)="selectForm(f.id)"
+              >
+                {{ f.label }}
+              </button>
+            }
+          </div>
+        </div>
+      }
+
       <div class="pd-grid pd-grid--detail">
         <!-- Pokémon Image Card -->
         <div class="pd-card">
           <div class="pd-card__body pd-card__body--center">
-            <img [alt]="pokemon.name + ' sprite'" [src]="displaySprite" class="pd-main-sprite" />
+            <img [alt]="form.name + ' sprite'" [src]="displaySprite" class="pd-main-sprite" />
             @if (hasShiny) {
               <label class="pd-toggle-label">
                 <input type="checkbox" class="pd-toggle" [checked]="showShiny" (change)="showShiny = $any($event.target).checked" />
@@ -38,7 +58,7 @@
               </label>
             }
             <div class="pd-badges">
-              @for (type of pokemon.types; track type) {
+              @for (type of form.types; track type) {
                 <span class="pd-badge" [attr.style]="getTypeStyle(type)">{{ type }}</span>
               }
             </div>
@@ -49,7 +69,7 @@
         <div class="pd-card">
           <div class="pd-card__body">
             <h2 class="pd-card__title" style="margin-bottom: 1rem">{{ text.description }}</h2>
-            <p class="pd-description">{{ formatDescription(pokemon.species_description) }}</p>
+            <p class="pd-description">{{ formatDescription(form.species_description) }}</p>
           </div>
         </div>
       </div>
@@ -58,7 +78,7 @@
       <div class="pd-section--detail">
         <h2 class="pd-heading pd-heading--detail">{{ text.abilities }}</h2>
         <div class="pd-grid pd-grid--abilities">
-          @for (ability of pokemon.abilities; track ability.name) {
+          @for (ability of form.abilities; track ability.name) {
             <div class="pd-card pd-card--lg">
               <div class="pd-card__body">
                 <h3 class="pd-card__title pd-card__title--ability">{{ ability.name }}</h3>

@@ -7,6 +7,7 @@ import {
   type Backend,
   type FetchErrorKind,
   type PokeboxEntry,
+  type PokemonForm,
   canGoToNext,
   canGoToPrevious,
   formatDescription,
@@ -16,6 +17,7 @@ import {
   getDefaultSpriteKey,
   getDisplaySpriteKey,
   getFetchErrorKind,
+  getForms,
   getShinySpriteKey,
   getSprites,
   getTypeStyle,
@@ -42,6 +44,9 @@ export class PokemonDetailComponent implements OnInit {
   status: 'loading' | 'loaded' | 'error' = 'loading';
   errorKind: FetchErrorKind = 'not-found';
   pokemon: PokeboxEntry | null = null;
+  /** Every form of the Pokémon's species, and the one being shown. */
+  forms: PokemonForm[] = [];
+  form: PokemonForm | null = null;
   spriteList: Record<string, string> = {};
   spriteEntries: Array<[string, string]> = [];
   selectedSpriteKey = '';
@@ -74,10 +79,17 @@ export class PokemonDetailComponent implements OnInit {
 
   private setPokemon(pokemon: PokeboxEntry): void {
     this.pokemon = pokemon;
-    this.spriteList = getSprites(pokemon.sprites);
+    this.forms = getForms(pokemon);
+    this.selectForm(pokemon.id);
+    this.showShiny = false;
+  }
+
+  selectForm(formId: number): void {
+    this.form = this.forms.find((f) => f.id === formId) ?? this.forms[0];
+    // Each form has its own sprites, so start from its default one.
+    this.spriteList = getSprites(this.form.sprites);
     this.spriteEntries = Object.entries(this.spriteList);
     this.selectedSpriteKey = getDefaultSpriteKey(this.spriteList);
-    this.showShiny = false;
   }
 
   get displaySprite(): string {

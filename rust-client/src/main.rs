@@ -44,10 +44,110 @@ struct PokemonSprites {
 struct PokeboxEntry {
     id: u32,
     name: String,
+    /// English form name ("Alolan Form"); empty for most default forms.
+    /// Defaulted so servers that predate forms still work.
+    #[serde(default)]
+    form_name: String,
     species_description: String,
     types: Vec<String>,
     abilities: Vec<Ability>,
     sprites: PokemonSprites,
+    /// The species' other forms, never this one.
+    #[serde(default)]
+    varieties: Vec<PokemonVariety>,
+}
+
+/// Another form of a Pokémon's species (Alolan, Mega, ...).
+#[derive(Debug, Clone, Deserialize)]
+struct PokemonVariety {
+    id: u32,
+    name: String,
+    form_name: String,
+    is_default: bool,
+    species_description: String,
+    types: Vec<String>,
+    abilities: Vec<Ability>,
+}
+
+/// One form the details pane can show: the Pokémon itself or one of its varieties.
+#[derive(Debug, Clone)]
+struct Form<'a> {
+    id: u32,
+    label: String,
+    species_description: &'a str,
+    types: &'a [String],
+    abilities: &'a [Ability],
+}
+
+/// A form's label: its form name, else "Default Form" or its name, like the web clients.
+fn form_label(name: &str, form_name: &str, is_default: bool) -> String {
+    if !form_name.is_empty() {
+        form_name.to_string()
+    } else if is_default {
+        "Default Form".to_string()
+    } else {
+        name.replace(['-', '_'], " ")
+    }
+}
+
+/// Every form of the entry's species, the default form first and the rest
+/// in the server's order.
+fn forms(entry: &PokeboxEntry) -> Vec<Form<'_>> {
+    // The entry is the default form unless one of its varieties is.
+    let entry_is_default = !entry.varieties.iter().any(|v| v.is_default);
+    let mut forms: Vec<(bool, Form)> = vec![(
+        entry_is_default,
+        Form {
+            id: entry.id,
+            label: form_label(&entry.name, &entry.form_name, entry_is_default),
+            species_description: &entry.species_description,
+            types: &entry.types,
+            abilities: &entry.abilities,
+        },
+    )];
+    forms.extend(entry.varieties.iter().map(|v| {
+        (
+            v.is_default,
+            Form {
+                id: v.id,
+                label: form_label(&v.name, &v.form_name, v.is_default),
+                species_description: &v.species_description,
+                types: &v.types,
+                abilities: &v.abilities,
+            },
+        )
+    }));
+    // Stable, so the non-default forms keep the server's order.
+    forms.sort_by_key(|(is_default, _)| !is_default);
+    forms.into_iter().map(|(_, form)| form).collect()
+}
+
+/// The details pane text for `entry`, showing the form at `form_index`.
+fn details_text(entry: &PokeboxEntry, form_index: usize) -> String {
+    let forms = forms(entry);
+    let form = &forms[form_index % forms.len()];
+    let switcher = if forms.len() > 1 {
+        let labels: Vec<String> = forms
+            .iter()
+            .map(|f| if f.id == form.id { format!("[{}]", f.label) } else { f.label.clone() })
+            .collect();
+        format!("\nForms: {}  (f to switch)\n", labels.join("  "))
+    } else {
+        String::new()
+    };
+    format!(
+        "#{} {}\n{}\n{}\n\nTypes: {}\n\nAbilities:\n{}",
+        entry.id,
+        entry.name,
+        switcher,
+        form.species_description,
+        form.types.join(", "),
+        form.abilities
+            .iter()
+            .map(|a| format!("- {}: {}", a.name, a.flavour_text))
+            .collect::<Vec<_>>()
+            .join("\n")
+    )
 }
 
 const BACKEND_URL: &str = "http://localhost:3000";
@@ -138,6 +238,8 @@ async fn main() -> anyhow::Result<()> {
     list_state.select(Some(selected));
 
     let mut current_pokemon: Option<PokeboxEntry> = None;
+    // Which of the current Pokémon's forms is shown; see `forms`.
+    let mut form_index = 0usize;
     let mut mode = AppMode::Browsing;
     let mut id_input = String::new();
 
@@ -181,19 +283,8 @@ async fn main() -> anyhow::Result<()> {
                     .style(Style::default().fg(Color::Red))
                     .block(Block::default().title("Error").borders(Borders::ALL))
             } else if let Some(p) = &current_pokemon {
-                Paragraph::new(format!(
-                    "#{} {}\n\n{}\n\nTypes: {}\n\nAbilities:\n{}",
-                    p.id,
-                    p.name,
-                    p.species_description,
-                    p.types.join(", "),
-                    p.abilities
-                        .iter()
-                        .map(|a| format!("- {}: {}", a.name, a.flavour_text))
-                        .collect::<Vec<_>>()
-                        .join("\n")
-                ))
-                .block(Block::default().title("Details").borders(Borders::ALL))
+                Paragraph::new(details_text(p, form_index))
+                    .block(Block::default().title("Details").borders(Borders::ALL))
             } else {
                 Paragraph::new("Select a Pokémon or press 'i' to enter ID")
                     .block(Block::default().title("Details").borders(Borders::ALL))
@@ -204,7 +295,7 @@ async fn main() -> anyhow::Result<()> {
             // Input box or hint line
             let footer = match mode {
                 AppMode::Browsing => {
-                    Paragraph::new("↑/↓ navigate  •  Enter view  •  i input ID  •  q quit")
+                    Paragraph::new("↑/↓ navigate  •  Enter view  •  f next form  •  i input ID  •  q quit")
                         .block(Block::default().borders(Borders::ALL))
                 }
                 AppMode::EnteringId => Paragraph::new(format!("Enter Pokémon ID: {}", id_input))
@@ -243,6 +334,12 @@ async fn main() -> anyhow::Result<()> {
                                     &mut current_pokemon,
                                     &mut error_message,
                                 );
+                                form_index = 0;
+                            }
+                        }
+                        KeyCode::Char('f') => {
+                            if let Some(p) = &current_pokemon {
+                                form_index = (form_index + 1) % forms(p).len();
                             }
                         }
                         KeyCode::Char('i') => {
@@ -264,6 +361,7 @@ async fn main() -> anyhow::Result<()> {
                                     &mut current_pokemon,
                                     &mut error_message,
                                 );
+                                form_index = 0;
                             }
                             id_input.clear();
                             mode = AppMode::Browsing;
@@ -302,5 +400,86 @@ fn show_pokemon(
             *current_pokemon = None;
             *error_message = Some(message);
         }
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    fn ability(name: &str) -> Ability {
+        Ability { name: name.into(), flavour_text: format!("{name} text"), effect: String::new() }
+    }
+
+    fn vulpix() -> PokeboxEntry {
+        serde_json::from_value(serde_json::json!({
+            "id": 37, "name": "vulpix", "form_name": "",
+            "species_description": "Fire fox.", "types": ["fire"],
+            "abilities": [{"name": "flash-fire", "flavour_text": "Fire.", "effect": ""}],
+            "sprites": {"front_default": null},
+            "varieties": [{
+                "id": 10103, "name": "vulpix-alola", "form_name": "Alolan Form", "is_default": false,
+                "species_description": "Ice fox.", "types": ["ice"],
+                "abilities": [{"name": "snow-cloak", "flavour_text": "Ice.", "effect": ""}],
+                "sprites": {"front_default": null}
+            }]
+        }))
+        .unwrap()
+    }
+
+    #[test]
+    fn reads_entries_from_servers_without_forms() {
+        let old: PokeboxEntry = serde_json::from_value(serde_json::json!({
+            "id": 1, "name": "bulbasaur", "species_description": "Seed.", "types": ["grass"],
+            "abilities": [], "sprites": {"front_default": null}
+        }))
+        .unwrap();
+        let labels: Vec<_> = forms(&old).into_iter().map(|f| f.label).collect();
+        assert_eq!(labels, vec!["Default Form"]);
+    }
+
+    #[test]
+    fn lists_the_default_form_first() {
+        let mut alola = vulpix();
+        let default = alola.varieties.remove(0);
+        // As the server sends /pokemon/vulpix-alola.
+        alola = PokeboxEntry {
+            id: default.id,
+            name: default.name,
+            form_name: default.form_name,
+            species_description: default.species_description,
+            types: default.types,
+            abilities: default.abilities,
+            varieties: vec![PokemonVariety {
+                id: 37,
+                name: "vulpix".into(),
+                form_name: String::new(),
+                is_default: true,
+                species_description: "Fire fox.".into(),
+                types: vec!["fire".into()],
+                abilities: vec![ability("flash-fire")],
+            }],
+            ..alola
+        };
+        let ids: Vec<_> = forms(&alola).into_iter().map(|f| (f.id, f.label)).collect();
+        assert_eq!(ids, vec![(37, "Default Form".to_string()), (10103, "Alolan Form".to_string())]);
+    }
+
+    #[test]
+    fn shows_the_selected_form() {
+        let text = details_text(&vulpix(), 1);
+        assert!(text.starts_with("#37 vulpix"), "{text}");
+        assert!(text.contains("Forms: Default Form  [Alolan Form]"), "{text}");
+        assert!(text.contains("Ice fox."), "{text}");
+        assert!(text.contains("Types: ice"), "{text}");
+        assert!(text.contains("- snow-cloak: Ice."), "{text}");
+        assert!(!text.contains("flash-fire"), "{text}");
+    }
+
+    #[test]
+    fn hides_the_switcher_for_one_form() {
+        let mut bulbasaur = vulpix();
+        bulbasaur.varieties.clear();
+        assert!(!details_text(&bulbasaur, 0).contains("Forms:"));
     }
 }

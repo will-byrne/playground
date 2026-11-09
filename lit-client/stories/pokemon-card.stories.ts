@@ -1,6 +1,6 @@
 import { html, TemplateResult } from 'lit';
 import '../src/pokemon-card.js';
-import { sylveon } from './mocks/pokemon.js';
+import { sylveon, vulpix } from './mocks/pokemon.js';
 
 export default {
   title: 'PokemonCard',
@@ -23,3 +23,7 @@ const Template: Story<ArgTypes> = () => html`
 `;
 
 export const App = Template.bind({});
+
+export const WithForms = () => html`
+  <pokemon-card .pokemon=${vulpix}></pokemon-card>
+`;

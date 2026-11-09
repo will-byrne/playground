@@ -17,7 +17,8 @@ export const PokemonPage = ({ idOrName, backend }: { idOrName: string; backend: 
 	}, [backend, idOrName]);
 
 	if (state.status === "loaded") {
-		return <PokemonCard pokeboxEntry={state.pokemon} backend={backend} />;
+		// Keyed so the selected form and sprite reset when moving to another Pokémon.
+		return <PokemonCard key={state.pokemon.id} pokeboxEntry={state.pokemon} backend={backend} />;
 	}
 
 	return (

@@ -20,6 +20,7 @@ import {
   getDefaultSpriteKey,
   getDisplaySpriteKey,
   getFetchErrorKind,
+  getForms,
   getShinySpriteKey,
   getSprites,
   getTypeColor,
@@ -89,7 +90,7 @@ export default function Pokemon() {
     );
   }
 
-  // Keyed on the id so sprite selection resets when moving to another Pokémon.
+  // Keyed on the id so form and sprite selection reset when moving to another Pokémon.
   return <PokemonDetail key={pokemon.id} pokemon={pokemon} backend={backend} />;
 }
 
@@ -101,11 +102,23 @@ function PokemonDetail({
   backend: ReturnType<typeof getBackend>;
 }) {
   const navigate = useNavigate();
-  const spriteList = getSprites(pokemon.sprites);
+  const forms = getForms(pokemon);
+  const [selectedFormId, setSelectedFormId] = useState(pokemon.id);
+  const form = forms.find((f) => f.id === selectedFormId) ?? forms[0];
+
+  const spriteList = getSprites(form.sprites);
   const [selectedSpriteKey, setSelectedSpriteKey] = useState(() => getDefaultSpriteKey(spriteList));
   const [showShiny, setShowShiny] = useState(false);
   const displaySpriteKey = getDisplaySpriteKey(spriteList, selectedSpriteKey, showShiny);
   const hasShiny = Boolean(getShinySpriteKey(spriteList, selectedSpriteKey));
+
+  const selectForm = (formId: number) => {
+    const next = forms.find((f) => f.id === formId);
+    if (!next) return;
+    setSelectedFormId(formId);
+    // Each form has its own sprites, so start from its default one.
+    setSelectedSpriteKey(getDefaultSpriteKey(getSprites(next.sprites)));
+  };
 
   return (
     <div className="min-h-screen bg-base-200 p-4">
@@ -153,12 +166,34 @@ function PokemonDetail({
           </div>
         </div>
 
+        {forms.length > 1 && (
+          <div className="mb-6 flex flex-col items-center gap-2">
+            <h2 className="text-lg font-semibold text-base-content/70">{TEXT.forms}</h2>
+            <div className="flex flex-wrap justify-center gap-2">
+              {forms.map((f) => {
+                const selected = f.id === form.id;
+                return (
+                  <button
+                    type="button"
+                    key={f.id}
+                    className={`btn btn-sm ${selected ? "btn-primary" : "btn-outline"}`}
+                    onClick={() => selectForm(f.id)}
+                    aria-pressed={selected}
+                  >
+                    {f.label}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        )}
+
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {/* Pokémon Image Card */}
           <div className="card bg-base-100 shadow-xl">
             <div className="card-body items-center text-center">
               <img
-                alt={`${pokemon.name} sprite`}
+                alt={`${form.name} sprite`}
                 src={spriteList[displaySpriteKey]}
                 className="max-w-full h-64 object-contain rounded-lg"
               />
@@ -174,7 +209,7 @@ function PokemonDetail({
                 </label>
               )}
               <div className="flex flex-wrap gap-2 justify-center mt-4">
-                {pokemon.types.map((type) => {
+                {form.types.map((type) => {
                   const { background, color } = getTypeColor(type);
                   return (
                     <div
@@ -195,7 +230,7 @@ function PokemonDetail({
             <div className="card-body">
               <h2 className="card-title text-2xl mb-4">{TEXT.description}</h2>
               <p className="text-base text-base-content/80 leading-relaxed">
-                {formatDescription(pokemon.species_description)}
+                {formatDescription(form.species_description)}
               </p>
             </div>
           </div>
@@ -205,7 +240,7 @@ function PokemonDetail({
         <div className="mt-6">
           <h2 className="text-3xl font-bold text-base-content mb-4">{TEXT.abilities}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {pokemon.abilities.map((ability) => (
+            {form.abilities.map((ability) => (
               <div key={ability.name} className="card bg-base-100 shadow-lg">
                 <div className="card-body">
                   <h3 className="card-title text-xl text-primary capitalize">{ability.name}</h3>

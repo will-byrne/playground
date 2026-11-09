@@ -10,6 +10,7 @@ import {
 	formatSpriteName,
 	getDefaultSpriteKey,
 	getDisplaySpriteKey,
+	getForms,
 	getShinySpriteKey,
 	getSprites,
 	getTypeColor,
@@ -20,17 +21,31 @@ import {
 import { Abilities } from "./ablities.tsx";
 
 export const PokemonCard = ({
-	pokeboxEntry: { id, name, species_description, types, abilities, sprites },
+	pokeboxEntry,
 	backend,
 }: {
 	pokeboxEntry: PokeboxEntry;
 	backend: Backend;
 }) => {
+	const { id, name } = pokeboxEntry;
+	const forms = getForms(pokeboxEntry);
+	const [selectedFormId, setSelectedFormId] = useState(id);
+	const form = forms.find((f) => f.id === selectedFormId) ?? forms[0];
+	const { species_description, types, abilities, sprites } = form;
+
 	const spriteList = getSprites(sprites);
 	const [selectedSpriteKey, setSelectedSpriteKey] = useState(() => getDefaultSpriteKey(spriteList));
 	const [showShiny, setShowShiny] = useState(false);
 	const displaySpriteKey = getDisplaySpriteKey(spriteList, selectedSpriteKey, showShiny);
 	const hasShiny = Boolean(getShinySpriteKey(spriteList, selectedSpriteKey));
+
+	const selectForm = (formId: number) => {
+		const next = forms.find((f) => f.id === formId);
+		if (!next) return;
+		setSelectedFormId(formId);
+		// Each form has its own sprites, so start from its default one.
+		setSelectedSpriteKey(getDefaultSpriteKey(getSprites(next.sprites)));
+	};
 
 	return (
 		<div className="min-h-screen bg-base-200 p-4">
@@ -72,12 +87,34 @@ export const PokemonCard = ({
 					</div>
 				</div>
 
+				{forms.length > 1 && (
+					<div className="mb-6 flex flex-col items-center gap-2">
+						<h2 className="text-lg font-semibold text-base-content/70">{TEXT.forms}</h2>
+						<div className="flex flex-wrap justify-center gap-2">
+							{forms.map((f) => {
+								const selected = f.id === form.id;
+								return (
+									<button
+										type="button"
+										key={f.id}
+										className={`btn btn-sm ${selected ? "btn-primary" : "btn-outline"}`}
+										onClick={() => selectForm(f.id)}
+										aria-pressed={selected}
+									>
+										{f.label}
+									</button>
+								);
+							})}
+						</div>
+					</div>
+				)}
+
 				<div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
 					{/* Pokémon Image Card */}
 					<div className="card bg-base-100 shadow-xl">
 						<div className="card-body items-center text-center">
 							<img
-								alt={`${name} sprite`}
+								alt={`${form.name} sprite`}
 								src={spriteList[displaySpriteKey]}
 								className="max-w-full h-64 object-contain rounded-lg"
 							/>

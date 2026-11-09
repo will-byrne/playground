@@ -1,4 +1,4 @@
-import { Box, Button, Card, Container, Image, SimpleGrid, Stack, Switch, Text, Title } from '@mantine/core';
+import { Box, Button, Card, Container, Group, Image, SimpleGrid, Stack, Switch, Text, Title } from '@mantine/core';
 import { useState } from 'react';
 import {
   type Backend,
@@ -10,6 +10,7 @@ import {
   formatDexNo,
   getDefaultSpriteKey,
   getDisplaySpriteKey,
+  getForms,
   getShinySpriteKey,
   getSprites,
   homePath,
@@ -22,11 +23,23 @@ import { Sprites } from './sprites';
 import { Types } from './types';
 
 export function PokemonPage({ pokemon, backend }: { pokemon: PokeboxEntry; backend: Backend }) {
-  const spriteList = getSprites(pokemon.sprites);
+  const forms = getForms(pokemon);
+  const [selectedFormId, setSelectedFormId] = useState(pokemon.id);
+  const form = forms.find((f) => f.id === selectedFormId) ?? forms[0];
+
+  const spriteList = getSprites(form.sprites);
   const [selectedSpriteKey, setSelectedSpriteKey] = useState(() => getDefaultSpriteKey(spriteList));
   const [showShiny, setShowShiny] = useState(false);
   const displaySpriteKey = getDisplaySpriteKey(spriteList, selectedSpriteKey, showShiny);
   const hasShiny = Boolean(getShinySpriteKey(spriteList, selectedSpriteKey));
+
+  const selectForm = (formId: number) => {
+    const next = forms.find((f) => f.id === formId);
+    if (!next) return;
+    setSelectedFormId(formId);
+    // Each form has its own sprites, so start from its default one.
+    setSelectedSpriteKey(getDefaultSpriteKey(getSprites(next.sprites)));
+  };
 
   return (
     <Box className={classes.page}>
@@ -76,12 +89,37 @@ export function PokemonPage({ pokemon, backend }: { pokemon: PokeboxEntry; backe
           </Box>
         </Box>
 
+        {forms.length > 1 && (
+          <Stack align="center" gap="0.5rem" mb="1.5rem">
+            <Title order={2} fz="1.125rem" fw={600} c="dark.1">
+              {TEXT.forms}
+            </Title>
+            <Group justify="center" gap="0.5rem">
+              {forms.map((f) => {
+                const selected = f.id === form.id;
+                return (
+                  <Button
+                    key={f.id}
+                    size="xs"
+                    variant={selected ? 'filled' : 'outline'}
+                    color={selected ? undefined : 'dark.0'}
+                    aria-pressed={selected}
+                    onClick={() => selectForm(f.id)}
+                  >
+                    {f.label}
+                  </Button>
+                );
+              })}
+            </Group>
+          </Stack>
+        )}
+
         <SimpleGrid cols={{ base: 1, lg: 2 }} spacing="1.5rem">
           {/* Pokémon Image Card */}
           <Card className={classes.card} padding="1.5rem">
             <Stack align="center" gap="0.5rem">
               <Image
-                alt={`${pokemon.name} sprite`}
+                alt={`${form.name} sprite`}
                 src={spriteList[displaySpriteKey]}
                 h="16rem"
                 w="auto"
@@ -95,7 +133,7 @@ export function PokemonPage({ pokemon, backend }: { pokemon: PokeboxEntry; backe
                   onChange={(event) => setShowShiny(event.currentTarget.checked)}
                 />
               )}
-              <Types types={pokemon.types} />
+              <Types types={form.types} />
             </Stack>
           </Card>
 
@@ -105,12 +143,12 @@ export function PokemonPage({ pokemon, backend }: { pokemon: PokeboxEntry; backe
               {TEXT.description}
             </Title>
             <Text c="dark.0" opacity={0.8} lh={1.625}>
-              {formatDescription(pokemon.species_description)}
+              {formatDescription(form.species_description)}
             </Text>
           </Card>
         </SimpleGrid>
 
-        <Abilities abilities={pokemon.abilities} />
+        <Abilities abilities={form.abilities} />
 
         <Sprites spriteList={spriteList} selectedKey={selectedSpriteKey} onSelect={setSelectedSpriteKey} />
       </Container>

@@ -1,3 +1,4 @@
+import type { PokemonVariety } from '../pokedex';
 export const mockSprites = [
   {
     "name": "front_default",
@@ -308,10 +309,12 @@ export const mockSprites = [
 export const mockPokemon = {
   name: 'ponyta',
   id: 77,
+  form_name: '',
   species_description: 'Its hooves are 10\ntimes harder than\ndiamonds. It can\ftrample anything\ncompletely flat\nin little time.',
   types: [
     'fire'
   ],
+  varieties: [] as PokemonVariety[],
   abilities: [
     {
       name: 'run-away',
@@ -505,3 +508,33 @@ export const mockPokemon = {
     }
   }
 }
+
+const galarianPonytaSprite = (path: string) =>
+  `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${path}10162.png`;
+
+/** Ponyta with its Galarian form, as the servers send it. */
+export const mockPokemonWithForms = {
+  ...mockPokemon,
+  varieties: [
+    {
+      id: 10162,
+      name: 'ponyta-galar',
+      form_name: 'Galarian Form',
+      is_default: false,
+      species_description: mockPokemon.species_description,
+      types: ['psychic'],
+      abilities: [
+        {
+          name: 'pastel-veil',
+          flavour_text: 'Protects the Pokémon and its ally Pokémon from being poisoned.',
+          effect: 'Prevents the Pokémon and its allies from being poisoned.',
+        },
+      ],
+      sprites: {
+        front_default: galarianPonytaSprite(''),
+        front_shiny: galarianPonytaSprite('shiny/'),
+        other: { 'official-artwork': { front_default: galarianPonytaSprite('other/official-artwork/') } },
+      },
+    },
+  ],
+};
